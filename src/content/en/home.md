@@ -1,7 +1,7 @@
 ---
 locale: en
 avatarImage:
-  src: '../avatar.jpg'
+  src: '../avatar.webp'
   alt: 'Luis Ramírez Calle’s avatar'
 githubCalendar: 'luckys'
 ---

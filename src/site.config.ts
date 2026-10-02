@@ -12,10 +12,9 @@ const config: SiteConfig = {
   author: 'Luis Ramírez Calle',
   // Keywords for SEO, used in the meta tags.
   tags: ['Luis Ramírez Calle', 'Software development', 'Technology', 'Learning'],
-  // Path to the image used for generating social media previews.
-  // Needs to be a square JPEG file due to limitations of the social card generator.
-  // Try https://squoosh.app/ to easily convert images to JPEG.
-  socialCardAvatarImage: './src/content/avatar.jpg',
+  // Path to the square image used for generating social media previews.
+  // WebP is converted to JPEG when the social cards are generated.
+  socialCardAvatarImage: './src/content/avatar.webp',
   // Font imported from @fontsource or elsewhere, used for the entire site.
   // To change this see src/styles/global.css and import a different font.
   font: 'JetBrains Mono Variable',

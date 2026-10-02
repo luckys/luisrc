@@ -4,6 +4,7 @@ import type { APIContext, InferGetStaticPropsType } from 'astro'
 import satori, { type SatoriOptions } from 'satori'
 import { html } from 'satori-html'
 import { dateString, getSortedPosts, resolveThemeColorStyles } from '~/utils'
+import sharp from 'sharp'
 import path from 'path'
 import fs from 'fs'
 import type { ReactNode } from 'react'
@@ -17,12 +18,16 @@ const fontData = fs.readFileSync(fontPath) // Reads the file as a Buffer
 const avatarPath = path.resolve(siteConfig.socialCardAvatarImage)
 let avatarData: Buffer | undefined
 let avatarBase64: string | undefined
-if (
-  fs.existsSync(avatarPath) &&
-  (path.extname(avatarPath).toLowerCase() === '.jpg' ||
-    path.extname(avatarPath).toLowerCase() === '.jpeg')
-) {
-  avatarData = fs.readFileSync(avatarPath)
+const avatarExtension = path.extname(avatarPath).toLowerCase()
+if (fs.existsSync(avatarPath) && ['.jpg', '.jpeg', '.webp'].includes(avatarExtension)) {
+  const sourceAvatar = fs.readFileSync(avatarPath)
+  avatarData =
+    avatarExtension === '.webp'
+      ? await sharp(sourceAvatar)
+          .resize({ width: 512, height: 512, fit: 'cover' })
+          .jpeg({ quality: 65 })
+          .toBuffer()
+      : sourceAvatar
   avatarBase64 = `data:image/jpeg;base64,${avatarData.toString('base64')}`
 }
 
