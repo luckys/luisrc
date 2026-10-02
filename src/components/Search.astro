@@ -1,5 +1,4 @@
 ---
-import '@pagefind/default-ui/css/ui.css'
 import IconCircleX from '~/icons/circle-x.svg'
 import IconSearch from '~/icons/search.svg'
 import { getUi, type Locale } from '~/i18n/ui'
@@ -54,7 +53,8 @@ const copy = getUi(lang)
 </site-search>
 
 <style is:global>
-  :root {
+  #pagefind-search,
+  #pagefind-search .pagefind-ui {
     --pagefind-ui-font: inherit;
     --pagefind-ui-primary: var(--theme-accent);
     --pagefind-ui-text: var(--theme-foreground);
@@ -98,6 +98,7 @@ const copy = getUi(lang)
     #dialogFrame: HTMLDivElement | null
     #openBtn: HTMLButtonElement | null
     #controller: AbortController
+    #pagefindInitialization: Promise<void> | null = null
     trailingSlashes: boolean
     stripTrailingSlash: (path: string) => string
     formatURL: (path: string) => string
@@ -139,11 +140,21 @@ const copy = getUi(lang)
       } else {
         console.warn('Dialog not found')
       }
+    }
 
-      // only add pagefind in production
-      if (import.meta.env.DEV) return
-      const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
-      onIdle(async () => {
+    initializePagefind = () => {
+      if (import.meta.env.DEV) return Promise.resolve()
+      if (this.#pagefindInitialization) return this.#pagefindInitialization
+
+      this.#pagefindInitialization = (async () => {
+        const { default: pagefindStyles } = await import(
+          '@pagefind/default-ui/css/ui.css?inline'
+        )
+        const stylesheet = document.createElement('style')
+        stylesheet.dataset.pagefindStyles = 'true'
+        stylesheet.textContent = pagefindStyles
+        document.head.appendChild(stylesheet)
+
         const { PagefindUI } = await import('@pagefind/default-ui')
 
         new PagefindUI({
@@ -167,7 +178,9 @@ const copy = getUi(lang)
             return result
           },
         })
-      })
+      })()
+
+      return this.#pagefindInitialization
     }
 
     connectedCallback() {
@@ -191,7 +204,7 @@ const copy = getUi(lang)
       body?.classList.add('overflow-hidden')
 
       this.#dialog.showModal()
-      this.querySelector('input')?.focus()
+      void this.initializePagefind().then(() => this.querySelector('input')?.focus())
       event?.stopPropagation()
       window.addEventListener('click', this.onWindowClick, {
         signal: this.#controller.signal,

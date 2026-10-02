@@ -2,6 +2,8 @@
 
 Personal website and blog of Luis Ramírez Calle, built with Astro. The site is bilingual (Spanish and English) and uses Tokyo Night dark and light themes.
 
+The site publishes `/llms.txt` as a concise index for AI search crawlers and allows OAI Search, Claude Search, and Perplexity crawlers in `robots.txt`.
+
 ## ✨ Features
 
 - **Tokyo Night Dark/Light**: Tokyo Night Dark is the default. Its palette also powers a custom light theme, and readers can toggle between the two modes.
@@ -71,6 +73,8 @@ tags: ['javascript']
 ```
 
 En la traducción inglesa usa `locale: en` y conserva `translationKey`; el selector de idioma llevará a la versión correspondiente. El contenido de inicio y el addendum también están separados en `src/content/es/` y `src/content/en/`.
+
+Para usar fórmulas KaTeX en un artículo, añade `math: true` a su frontmatter; la hoja de estilos matemática solo se carga en esos artículos.
 
 ## 📄 License
 

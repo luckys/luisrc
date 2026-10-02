@@ -9,6 +9,8 @@ import { pick, resolveThemeColorStyles } from '~/utils'
 import crypto from 'crypto'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 import { getLocale, getUi } from '~/i18n/ui'
+import jetbrainsMonoFont from '@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url'
+import katexStylesheet from 'katex/dist/katex.min.css?url'
 
 interface Props {
   title?: string
@@ -16,9 +18,23 @@ interface Props {
   tags?: string[]
   author?: string
   localeSwitchUrl?: string
+  publishedDate?: Date
+  needsMath?: boolean
+  socialCardSlug?: string
+  noIndex?: boolean
 }
 
-const { title, description, tags, author, localeSwitchUrl } = Astro.props
+const {
+  title,
+  description,
+  tags,
+  author,
+  localeSwitchUrl,
+  publishedDate,
+  needsMath = false,
+  socialCardSlug,
+  noIndex = false,
+} = Astro.props
 const locale = getLocale(Astro.currentLocale)
 const copy = getUi(locale)
 const otherLocale = locale === 'es' ? 'en' : 'es'
@@ -28,19 +44,79 @@ const currentLocalizedPath = Astro.url.pathname
 const switchUrl =
   localeSwitchUrl || getRelativeLocaleUrl(otherLocale, currentLocalizedPath)
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, '') // Remove trailing slash for consistency
-const pageType = Astro.url.pathname.includes('/posts/') ? 'article' : 'website'
-const pageTitle = title ? `${title} - ${siteConfig.title}` : siteConfig.title
+const isArticle = /\/posts\/[^/]+$/.test(Astro.url.pathname)
+const pageType = isArticle ? 'article' : 'website'
+const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title
 const pageDescription = description || copy.siteDescription
 const pageAuthor = author || siteConfig.author
-const pageImage =
-  pageType === 'article' && locale === 'es'
-    ? Astro.url.origin +
-      Astro.url.pathname.replace(/\/posts\//, '/social-cards/') +
-      '.png'
-    : `${Astro.url.origin}/social-cards/__default.png`
+const pageImagePath = socialCardSlug
+  ? `/social-cards/${socialCardSlug}.png`
+  : '/social-cards/__default.png'
+const pageImage = new URL(pageImagePath, Astro.site).href
 const pageKeywords = [
   ...new Set(siteConfig.tags.concat(tags || []).map((word) => word.toLowerCase())),
 ].join(', ')
+const siteUrl = new URL('/', Astro.site).href
+const websiteId = `${siteUrl}#website`
+const personId = `${siteUrl}#person`
+const webpageId = `${pageUrl}#webpage`
+const articleId = `${pageUrl}#article`
+const otherLanguageUrl = new URL(switchUrl, Astro.site).href
+const defaultLanguageUrl = locale === 'es' ? pageUrl : otherLanguageUrl
+const sameAs = [siteConfig.socialLinks.github, siteConfig.socialLinks.linkedin].filter(
+  (url): url is string => Boolean(url),
+)
+const structuredData = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: siteUrl,
+      name: siteConfig.title,
+      inLanguage: ['es', 'en'],
+      publisher: { '@id': personId },
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: siteConfig.author,
+      url: siteUrl,
+      sameAs,
+    },
+    {
+      '@type': 'WebPage',
+      '@id': webpageId,
+      url: pageUrl,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: locale,
+      isPartOf: { '@id': websiteId },
+      ...(isArticle ? { mainEntity: { '@id': articleId } } : {}),
+    },
+    ...(isArticle && publishedDate
+      ? [
+          {
+            '@type': 'BlogPosting',
+            '@id': articleId,
+            mainEntityOfPage: { '@id': webpageId },
+            headline: title || pageTitle,
+            description: pageDescription,
+            datePublished: publishedDate.toISOString(),
+            image: [pageImage],
+            author:
+              pageAuthor === siteConfig.author
+                ? { '@id': personId }
+                : { '@type': 'Person', name: pageAuthor },
+            publisher: { '@id': personId },
+            keywords: tags,
+            inLanguage: locale,
+            isPartOf: { '@id': websiteId },
+          },
+        ]
+      : []),
+  ],
+}).replace(/</g, '\\u003c')
 const baseCssVars: { [key: string]: string } = {
   'theme-font': siteConfig.font,
   'ec-frm-frameBoxShdCssVal': 'none',
@@ -140,21 +216,38 @@ let generatedCss: string = cssLines.join('\n')
     <meta name="title" content={pageTitle} />
     <meta name="description" content={pageDescription} />
     <meta name="author" content={pageAuthor} />
+    {noIndex && <meta name="robots" content="noindex,follow" />}
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
+    <meta property="og:site_name" content={siteConfig.title} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content={pageType} />
     <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_ES'} />
     {pageImage && <meta property="og:image" content={pageImage} />}
+    {
+      isArticle && publishedDate && (
+        <meta property="article:published_time" content={publishedDate.toISOString()} />
+      )
+    }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     {pageImage && <meta name="twitter:image" content={pageImage} />}
     <meta name="keywords" content={pageKeywords} />
     <link rel="canonical" href={pageUrl} />
-    <link rel="alternate" hreflang={otherLocale} href={new URL(switchUrl, Astro.url.origin)} />
+    <link rel="alternate" hreflang={locale} href={pageUrl} />
+    <link rel="alternate" hreflang={otherLocale} href={otherLanguageUrl} />
+    <link rel="alternate" hreflang="x-default" href={defaultLanguageUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href={jetbrainsMonoFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -164,6 +257,8 @@ let generatedCss: string = cssLines.join('\n')
     <title>{pageTitle}</title>
     <style is:global define:vars={baseCssVars}></style>
     <style is:inline set:html={generatedCss}></style>
+    {needsMath && <link rel="stylesheet" href={katexStylesheet} />}
+    <script type="application/ld+json" set:html={structuredData} />
     {themeMode === 'light-dark-auto' && <LightDarkAutoThemeLoader />}
     {themeMode === 'select' && <SelectThemeLoader />}
   </head>
@@ -171,11 +266,11 @@ let generatedCss: string = cssLines.join('\n')
     <div
       class="flex flex-col max-w-4xl min-h-screen border-accent/10 m-auto p-3 sm:py-5 sm:px-6 md:py-10"
     >
-    <Header lang={locale} switchUrl={switchUrl} />
-      <main class="flex flex-col py-1">
+      <Header lang={locale} switchUrl={switchUrl} />
+      <main id="main-content" class="flex flex-col py-1">
         <slot />
       </main>
-    <Footer lang={locale} />
+      <Footer lang={locale} />
     </div>
   </body>
 </html>

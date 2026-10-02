@@ -22,9 +22,10 @@ interface Props {
   prev?: CollectionEntry<'posts'>
   next?: CollectionEntry<'posts'>
   localeSwitchUrl: string
+  socialCardSlug?: string
 }
 
-const { post, prev, next, localeSwitchUrl } = Astro.props
+const { post, prev, next, localeSwitchUrl, socialCardSlug } = Astro.props
 const postData = post.data
 const locale = postData.locale as Locale
 const copy = getUi(locale)
@@ -64,17 +65,25 @@ if (postData.tags && postData.tags.length > 0) {
   author={postData.author}
   tags={postData.tags}
   localeSwitchUrl={localeSwitchUrl}
+  publishedDate={postData.published}
+  needsMath={postData.math}
+  socialCardSlug={socialCardSlug}
 >
   <article class="max-w-full py-7.5" data-pagefind-body>
     {
       postData.coverImage && (
-        <Image
-          priority
-          layout="constrained"
-          src={postData.coverImage.src}
-          alt={postData.coverImage.alt}
-          class="w-full rounded-xl mb-5"
-        />
+        <figure class="mb-5">
+          <Image
+            priority
+            layout="constrained"
+            src={postData.coverImage.src}
+            alt={postData.coverImage.alt}
+            width={postData.coverImage.src.width}
+            height={postData.coverImage.src.height}
+            format="svg"
+            class="w-full rounded-xl"
+          />
+        </figure>
       )
     }
     <div class="md:mx-2">
@@ -94,7 +103,7 @@ if (postData.tags && postData.tags.length > 0) {
     </div>
     <div class="flex flex-col xl:gap-1 2xl:gap-18 xl:flex-row xl:items-start">
       {postData.toc && headings.length > 0 && <TableOfContents headings={headings} />}
-      <div class="mb-5 xl:min-w-full 2xl:min-w-full prose">
+      <div class="mb-5 min-w-0 flex-1 prose">
         <PostContent />
       </div>
     </div>
@@ -105,7 +114,9 @@ if (postData.tags && postData.tags.length > 0) {
         href={getPostUrl(nextPostInSeries)}
         class="button justify-center -mt-8 mb-8 !whitespace-normal text-center flex gap-2 sm:gap-3 items-center"
       >
-        <span>{copy.nextInSeries} {nextPostInSeries.data.title}</span>
+        <span>
+          {copy.nextInSeries} {nextPostInSeries.data.title}
+        </span>
         <ChevronsRight class="size-5 hidden sm:block" />
       </a>
     )
@@ -121,7 +132,9 @@ if (postData.tags && postData.tags.length > 0) {
     showSeries && series ? (
       <section>
         <DividerText text={`${series.title} · ${copy.series}`} />
-        {series.entries.map((seriesPost) => <PostPreview post={seriesPost} />)}
+        {series.entries.map((seriesPost) => (
+          <PostPreview post={seriesPost} />
+        ))}
       </section>
     ) : prev || next ? (
       <section>

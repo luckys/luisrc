@@ -28,6 +28,15 @@ import rehypePixelated from './src/plugins/rehype-pixelated' /* Custom plugin to
 const expressiveThemes = siteConfig.themes.include.map((theme) =>
   theme === 'tokyo-night-light' ? tokyoNightLight : theme,
 )
+const sitemapExcludedPaths = new Set([
+  '/about',
+  '/en/about',
+  '/404',
+  '/404.html',
+  '/en/404',
+  '/series',
+  '/en/series',
+])
 
 // https://astro.build/config
 export default defineConfig({
@@ -78,7 +87,17 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'es',
+        locales: {
+          es: 'es-ES',
+          en: 'en-US',
+        },
+      },
+      filter: (page) =>
+        !sitemapExcludedPaths.has(new URL(page).pathname.replace(/\/$/, '')),
+    }),
     expressiveCode({
       themes: expressiveThemes,
       useDarkModeMediaQuery: false,

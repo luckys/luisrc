@@ -12,7 +12,11 @@ const seriesGroup = await SeriesGroup.build(posts, locale)
 const hasSeries = seriesGroup.collations.some((series) => series.entries.length > 1)
 ---
 
-<Layout title={copy.series} description={copy.seriesArchiveDescription}>
+<Layout
+  title={copy.series}
+  description={copy.seriesArchiveDescription}
+  noIndex={!hasSeries}
+>
   <div class="mt-2 sm:mt-0">
     <PageHeader titlePieces={['series']} />
     {

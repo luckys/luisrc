@@ -4,6 +4,7 @@ export const ui = {
   es: {
     siteDescription:
       'Un blog personal sobre desarrollo de software, tecnología y aprendizaje.',
+    homeTitle: 'Blog de desarrollo de software de Luis Ramírez Calle',
     navHome: 'Inicio',
     navAbout: 'Acerca de mí',
     navArchive: 'Artículos',
@@ -11,6 +12,7 @@ export const ui = {
     navGithub: 'GitHub',
     navLinkedIn: 'LinkedIn',
     navLabel: 'Navegación principal',
+    skipToContent: 'Saltar al contenido',
     mobileMenu: 'Abrir menú de navegación',
     switchLanguage: 'Read this site in English',
     search: 'Buscar',
@@ -67,6 +69,7 @@ export const ui = {
   en: {
     siteDescription:
       'A personal blog about software development, technology, and learning.',
+    homeTitle: "Luis Ramírez Calle's software development blog",
     navHome: 'Home',
     navAbout: 'About',
     navArchive: 'Articles',
@@ -74,6 +77,7 @@ export const ui = {
     navGithub: 'GitHub',
     navLinkedIn: 'LinkedIn',
     navLabel: 'Main navigation',
+    skipToContent: 'Skip to content',
     mobileMenu: 'Open navigation menu',
     switchLanguage: 'Leer este sitio en español',
     search: 'Search',

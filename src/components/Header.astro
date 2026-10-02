@@ -44,6 +44,12 @@ const selectTheme =
 ---
 
 <header>
+  <a
+    class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-background focus:px-4 focus:py-2 focus:text-accent"
+    href="#main-content"
+  >
+    {copy.skipToContent}
+  </a>
   <div class="relative flex items-center justify-between bg-accent/10 rounded-xl">
     <a
       id="logo"
@@ -71,7 +77,7 @@ const selectTheme =
           type="button"
           aria-label={copy.mobileMenu}
           aria-expanded="false"
-          aria-controls="nav-menu-list"
+          aria-controls="nav-mobile-list"
         >
           ▾
         </button>

@@ -52,6 +52,9 @@ const reactionsEnabled = giscusConfig.reactionsEnabled ? '1' : '0'
     ) {
       throw new Error('Giscus configuration missing in the Giscus div.')
     }
+    if (giscusDiv.dataset.loaded === 'true') return
+    giscusDiv.dataset.loaded = 'true'
+
     const script = document.createElement('script')
     script.src = 'https://giscus.app/client.js'
     script.setAttribute('data-repo', repo)
@@ -66,9 +69,9 @@ const reactionsEnabled = giscusConfig.reactionsEnabled ? '1' : '0'
     script.setAttribute('data-input-position', 'top')
     script.setAttribute('data-theme', `${origin}/giscus/${theme}.css`)
     script.setAttribute('data-lang', lang)
-    script.setAttribute('loading', 'lazy')
     script.crossOrigin = 'anonymous'
     script.async = true
+    script.addEventListener('load', listenForThemeChange, { once: true })
     document.body.appendChild(script)
   }
   async function updateTheme(theme: string) {
@@ -109,9 +112,22 @@ const reactionsEnabled = giscusConfig.reactionsEnabled ? '1' : '0'
       attributeFilter: ['data-theme'],
     })
   }
-  // Load Giscus script with correct theme and listen for theme changes
-  loadGiscus()
-  listenForThemeChange()
+  // Delay the third-party comments bundle until the reader approaches it.
+  const giscusDiv = document.querySelector('.giscus')
+  if (giscusDiv && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect()
+          loadGiscus()
+        }
+      },
+      { rootMargin: '400px 0px' },
+    )
+    observer.observe(giscusDiv)
+  } else {
+    loadGiscus()
+  }
 </script>
 
 <style is:global>

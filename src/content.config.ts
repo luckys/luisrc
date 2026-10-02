@@ -10,6 +10,7 @@ const postsCollection = defineCollection({
       translationKey: z.string(),
       slug: z.string(),
       published: z.coerce.date(),
+      math: z.boolean().optional().default(false),
       // updated: z.coerce.date().optional(),
       draft: z.boolean().optional().default(false),
       description: z.string().optional(),

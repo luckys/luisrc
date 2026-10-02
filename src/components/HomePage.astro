@@ -33,7 +33,7 @@ const seriesGroup = await SeriesGroup.build(sortedPosts, locale)
 const postsHaveSeries = seriesGroup.collations.some((series) => series.entries.length > 1)
 ---
 
-<Layout>
+<Layout title={copy.homeTitle}>
   {
     HomeContent && (
       <HomeBanner

@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'katex/dist/katex.css';
 
 /* https://fontsource.org/fonts/jetbrains-mono/install */
 /* jetbrains-mono-latin-wght-normal */
@@ -67,8 +66,6 @@ html {
 
 body {
   @apply transition-colors;
-  font-display: block;
-  font-size-adjust: from-font var(--theme-font);
 }
 
 input:focus-visible,
