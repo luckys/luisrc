@@ -1,0 +1,20 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { SeriesGroup, getSortedPosts } from '~/utils'
+import SeriesArchive from '~/components/SeriesArchive.astro'
+
+export const getStaticPaths = (async () => {
+  const posts = await getSortedPosts('es')
+  const seriesGroup = await SeriesGroup.build(posts, 'es')
+  return seriesGroup.collations
+    .filter((series) => series.entries.length > 1)
+    .map((series) => ({
+      params: { slug: series.titleSlug },
+      props: { posts: series.entries, seriesTitle: series.title },
+    }))
+}) satisfies GetStaticPaths
+
+const { posts, seriesTitle } = Astro.props
+---
+
+<SeriesArchive posts={posts} seriesTitle={seriesTitle} lang="es" />

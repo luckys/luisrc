@@ -1,0 +1,38 @@
+---
+interface Props {
+  title?: string
+  titlePieces?: string[]
+}
+import { getUi } from '~/i18n/ui'
+
+const { title, titlePieces } = Astro.props
+const copy = getUi(Astro.currentLocale)
+
+const splitPath: string[] = Astro.url.pathname
+  .split('/')
+  .filter((part) => Boolean(part) && part !== 'en') // Remove empty and locale prefix
+  .map((part) => decodeURIComponent(part)) // For Unicode chars kept by github-slugger
+
+const pieces = titlePieces ?? splitPath
+
+if (pieces.length === 0) {
+  pieces.push('home')
+}
+
+const localizedNames: Record<string, string> = {
+  home: copy.home,
+  about: copy.navAbout,
+  posts: copy.archive,
+  series: copy.series,
+  tags: copy.tags,
+}
+const titleFromPieces = pieces.map((part) => `/ ${localizedNames[part] || part}`)
+---
+
+<div
+  class="border-0 border-accent/30 bg-accent/6 rounded-xl inline-block py-2.5 pl-3 pr-4 mt-5 md:mt-8"
+>
+  <h1 class="text-accent text-2xl font-semibold flex flex-wrap gap-y-2 gap-x-3.5">
+    {title ? <span>// {title}</span> : titleFromPieces.map((part) => <span>{part}</span>)}
+  </h1>
+</div>

@@ -1,0 +1,14 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import { getUi } from '~/i18n/ui'
+
+const copy = getUi('en')
+---
+
+<Layout title="404">
+  <div class="flex flex-col items-center gap-4 py-12 text-center">
+    <h1 class="text-accent text-4xl font-semibold">404</h1>
+    <p>{copy.notFound}</p>
+    <a class="button" href="/en/">{copy.backHome}</a>
+  </div>
+</Layout>

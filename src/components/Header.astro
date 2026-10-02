@@ -1,0 +1,129 @@
+---
+import siteConfig from '~/site.config'
+import LightDarkAutoButton from '~/components/LightDarkAutoButton.astro'
+import Search from '~/components/Search.astro'
+import SelectTheme from '~/components/SelectTheme.astro'
+import NavLink from '~/components/NavLink.astro'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getUi, type Locale } from '~/i18n/ui'
+import { getSortedPosts, SeriesGroup } from '~/utils'
+
+interface Props {
+  lang: Locale
+  switchUrl: string
+}
+
+const { lang, switchUrl } = Astro.props
+const copy = getUi(lang)
+const otherLocale = lang === 'es' ? 'en' : 'es'
+const posts = await getSortedPosts(lang)
+const seriesGroup = await SeriesGroup.build(posts, lang)
+const hasMultiplePostSeries = seriesGroup.collations.some(
+  (series) => series.entries.length > 1,
+)
+const navLinks = [
+  { name: copy.navHome, url: getRelativeLocaleUrl(lang, '') },
+  { name: copy.navArchive, url: getRelativeLocaleUrl(lang, 'posts') },
+  ...(hasMultiplePostSeries
+    ? [{ name: copy.series, url: getRelativeLocaleUrl(lang, 'series') }]
+    : []),
+  { name: copy.navCurriculum, url: getRelativeLocaleUrl(lang, 'curriculum') },
+  ...siteConfig.navLinks.map((link) => ({
+    ...link,
+    name:
+      link.name === 'GitHub'
+        ? copy.navGithub
+        : link.name === 'LinkedIn'
+          ? copy.navLinkedIn
+          : link.name,
+  })),
+]
+const lightDarkAutoTheme = siteConfig.themes.mode === 'light-dark-auto'
+const selectTheme =
+  siteConfig.themes.mode === 'select' && siteConfig.themes.include.length > 1
+---
+
+<header>
+  <div class="relative flex items-center justify-between bg-accent/10 rounded-xl">
+    <a
+      id="logo"
+      href={getRelativeLocaleUrl(lang, '')}
+      class="block px-4 py-1.5 max-w-full no-underline items-center bg-accent text-background font-bold rounded-xl"
+    >
+      {siteConfig.title}
+    </a>
+    <div class="flex items-center gap-3 sm:mr-3">
+      <a
+        href={switchUrl}
+        lang={otherLocale}
+        aria-label={copy.switchLanguage}
+        class="rounded-md border border-accent/30 px-2 py-1 text-xs font-bold text-accent"
+      >
+        {otherLocale.toUpperCase()}
+      </a>
+      <Search trailingSlashes={siteConfig.trailingSlashes} lang={lang} />
+      {lightDarkAutoTheme && <LightDarkAutoButton lang={lang} />}
+      {selectTheme && <SelectTheme lang={lang} />}
+      <nav id="nav-mobile" aria-label={copy.navLabel} class="p-0 text-accent sm:hidden">
+        <button
+          id="nav-mobile-button"
+          class="px-3 py-1 h-full cursor-pointer border-2 rounded-xl bg-background"
+          type="button"
+          aria-label={copy.mobileMenu}
+          aria-expanded="false"
+          aria-controls="nav-menu-list"
+        >
+          ▾
+        </button>
+        <ul
+          id="nav-mobile-list"
+          class="invisible absolute flex flex-col bg-background shadow text-accent border-2 m-0 p-2.5 top-11.5 left-auto right-0 z-50 rounded-xl"
+        >
+          {
+            navLinks.map((link) => (
+              <li class="p-1" aria-expanded="false">
+                <NavLink link={link} />
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <nav aria-label={copy.navLabel} class="p-0 mt-4 ml-0.5 text-accent hidden sm:block">
+    <ul class="flex flex-row text-accent">
+      {
+        navLinks.map((link) => (
+          <li class="mr-5" aria-expanded="true">
+            <NavLink link={link} />
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const navMobileButton = document.getElementById('nav-mobile-button')
+  const navMobileList = document.getElementById('nav-mobile-list')
+  const navMobileListItems = navMobileList?.querySelectorAll('li')
+  const toggleNavMobileMenu = (action: 'on' | 'off' | 'toggle') => {
+    let isNowOpen: boolean = false
+    if (action === 'on') {
+      isNowOpen = true
+      navMobileList?.classList.remove('invisible')
+    } else if (action === 'off') {
+      isNowOpen = false
+      navMobileList?.classList.add('invisible')
+    } else {
+      isNowOpen = !navMobileList?.classList.toggle('invisible')
+    }
+    navMobileButton?.setAttribute('aria-expanded', isNowOpen ? 'true' : 'false')
+    navMobileListItems?.forEach((listItem) => {
+      listItem.setAttribute('aria-expanded', isNowOpen ? 'true' : 'false')
+    })
+  }
+  navMobileButton?.addEventListener('click', (_ev) => {
+    toggleNavMobileMenu('toggle')
+  })
+</script>

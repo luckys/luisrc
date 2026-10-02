@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from 'astro'
+import Layout from '~/layouts/Layout.astro'
+import { getSortedPosts } from '~/utils'
+import Pagination from '~/components/Pagination.astro'
+import siteConfig from '~/site.config'
+import PostPreview from '~/components/PostPreview.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import { getUi } from '~/i18n/ui'
+
+// Note: Pagination like '/', '/2', '/3' only works with spread param like [...page]
+export const getStaticPaths = (async ({ paginate }) => {
+  const sortedPosts = await getSortedPosts('es')
+  return paginate(sortedPosts.reverse(), { pageSize: siteConfig.pageSize })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+const copy = getUi('es')
+const pageTitle = copy.archive + (page.currentPage > 1 ? ` - ${copy.page} ${page.currentPage}` : '')
+---
+
+<Layout title={pageTitle} description={copy.archiveDescription}>
+  <div class="mt-2 sm:mt-0">
+    <PageHeader title={copy.archive} />
+    {page.data.map((post) => <PostPreview post={post} />)}
+    <Pagination
+      prevLink={page.url.prev ? page.url.prev : undefined}
+      prevText={copy.newerPosts}
+      nextLink={page.url.next ? page.url.next : undefined}
+      nextText={copy.olderPosts}
+    />
+  </div>
+</Layout>

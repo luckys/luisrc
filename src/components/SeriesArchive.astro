@@ -1,0 +1,25 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import PostPreview from '~/components/PostPreview.astro'
+import { getUi, type Locale } from '~/i18n/ui'
+
+interface Props {
+  posts: any[]
+  seriesTitle: string
+  lang: Locale
+}
+
+const { posts, seriesTitle, lang } = Astro.props
+const copy = getUi(lang)
+---
+
+<Layout
+  title={copy.seriesTitle(seriesTitle)}
+  description={copy.seriesDescription(seriesTitle)}
+>
+  <div class="mt-2 sm:mt-0">
+    <PageHeader titlePieces={['series', seriesTitle]} />
+    {posts.map((post: any) => <PostPreview post={post} />)}
+  </div>
+</Layout>

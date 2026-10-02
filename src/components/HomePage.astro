@@ -1,0 +1,88 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import { getSortedPosts, SeriesGroup } from '~/utils'
+import { getCollection, render } from 'astro:content'
+import PostPreview from '~/components/PostPreview.astro'
+import Pagination from '~/components/Pagination.astro'
+import BlockHeader from '~/components/BlockHeader.astro'
+import HomeBanner from '~/components/HomeBanner.astro'
+import siteConfig from '~/site.config'
+import TagsSection from '~/components/TagsSection.astro'
+import SeriesSection from '~/components/SeriesSection.astro'
+import { getLocale, getUi } from '~/i18n/ui'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+
+const locale = getLocale(Astro.currentLocale)
+const copy = getUi(locale)
+const home = await getCollection('home', ({ data }) => data.locale === locale)
+let HomeContent
+let homeAvatarImage
+let homeGithubCalendar
+if (home.length > 0) {
+  const homeEntry = home[0]
+  const { Content } = await render(homeEntry)
+  HomeContent = Content
+  homeAvatarImage = homeEntry.data.avatarImage
+  homeGithubCalendar = homeEntry.data.githubCalendar
+}
+const sortedPosts = await getSortedPosts(locale)
+const postsHaveTags = sortedPosts.some(
+  (post) => post.data.tags && post.data.tags.length > 0,
+)
+const seriesGroup = await SeriesGroup.build(sortedPosts, locale)
+const postsHaveSeries = seriesGroup.collations.some((series) => series.entries.length > 1)
+---
+
+<Layout>
+  {
+    HomeContent && (
+      <HomeBanner
+        avatarImage={homeAvatarImage}
+        githubCalendar={homeGithubCalendar}
+        locale={locale}
+      >
+        <HomeContent />
+      </HomeBanner>
+    )
+  }
+  {
+    postsHaveSeries && (
+      <section>
+        <BlockHeader>{copy.series}</BlockHeader>
+        <SeriesSection posts={sortedPosts} locale={locale} />
+      </section>
+    )
+  }
+  {
+    postsHaveTags && (
+      <section>
+        <BlockHeader>{copy.tags}</BlockHeader>
+        <TagsSection posts={sortedPosts} locale={locale} />
+      </section>
+    )
+  }
+  {
+    sortedPosts.length > 0 && (
+      <section>
+        <BlockHeader>{copy.latestPosts}</BlockHeader>
+        {sortedPosts
+          .slice()
+          .reverse()
+          .slice(0, Math.floor(siteConfig.pageSize / 2))
+          .map((post) => (
+            <PostPreview post={post} />
+          ))}
+        <Pagination
+          nextLink={getRelativeLocaleUrl(locale, 'posts')}
+          nextText={copy.archive}
+        />
+      </section>
+    )
+  }
+</Layout>
+
+<style is:global>
+  a.heading-anchor {
+    display: none !important;
+  }
+</style>

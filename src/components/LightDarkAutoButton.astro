@@ -1,0 +1,64 @@
+---
+import IconSun from '~/icons/sun.svg'
+import IconMoon from '~/icons/moon.svg'
+import siteConfig from '~/site.config'
+import { getUi, type Locale } from '~/i18n/ui'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const copy = getUi(lang)
+let lightTheme = siteConfig.themes.include[0]
+let darkTheme = siteConfig.themes.include[1]
+---
+
+<button
+  id="theme-change-button"
+  class="block ml-auto"
+  data-light={lightTheme}
+  data-dark={darkTheme}
+  data-label-light={copy.themeToDark}
+  data-label-dark={copy.themeToLight}
+  aria-label={copy.themeToLight}
+  title={copy.themeToLight}
+>
+  <IconSun id="icon-light" class="hidden size-6 text-accent" />
+  <IconMoon id="icon-dark" class="hidden size-6 text-accent" />
+</button>
+
+<script>
+  const themeButton = document.getElementById('theme-change-button')
+  const lightThemeId = themeButton?.getAttribute('data-light')
+  const darkThemeId = themeButton?.getAttribute('data-dark')
+  const sunIcon = themeButton?.querySelector('#icon-light')
+  const moonIcon = themeButton?.querySelector('#icon-dark')
+  const labels = {
+    light: themeButton?.getAttribute('data-label-light') || '',
+    dark: themeButton?.getAttribute('data-label-dark') || '',
+  }
+  const updateIcons = (theme: string) => {
+    if (theme === lightThemeId) {
+      sunIcon?.classList.add('hidden')
+      moonIcon?.classList.remove('hidden')
+      themeButton?.setAttribute('aria-label', labels.light)
+      if (themeButton) themeButton.title = labels.light
+    } else {
+      sunIcon?.classList.remove('hidden')
+      moonIcon?.classList.add('hidden')
+      themeButton?.setAttribute('aria-label', labels.dark)
+      if (themeButton) themeButton.title = labels.dark
+    }
+  }
+  let currentTheme = localStorage.getItem('data-theme') || darkThemeId || ''
+  updateIcons(currentTheme)
+  themeButton?.addEventListener('click', () => {
+    const storedTheme = localStorage.getItem('data-theme') || darkThemeId
+    const newTheme = storedTheme === darkThemeId ? lightThemeId : darkThemeId
+    if (!newTheme) return
+    updateIcons(newTheme)
+    localStorage.setItem('data-theme', newTheme)
+    document.documentElement.setAttribute('data-theme', newTheme)
+  })
+</script>

@@ -1,0 +1,26 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import SeriesSection from '~/components/SeriesSection.astro'
+import { getSortedPosts, SeriesGroup } from '~/utils'
+import { getUi } from '~/i18n/ui'
+
+const locale = 'es'
+const copy = getUi(locale)
+const posts = await getSortedPosts(locale)
+const seriesGroup = await SeriesGroup.build(posts, locale)
+const hasSeries = seriesGroup.collations.some((series) => series.entries.length > 1)
+---
+
+<Layout title={copy.series} description={copy.seriesArchiveDescription}>
+  <div class="mt-2 sm:mt-0">
+    <PageHeader titlePieces={['series']} />
+    {
+      hasSeries ? (
+        <SeriesSection posts={posts} locale={locale} />
+      ) : (
+        <p class="my-5">{copy.noSeries}</p>
+      )
+    }
+  </div>
+</Layout>

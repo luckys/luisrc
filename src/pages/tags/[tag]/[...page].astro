@@ -1,0 +1,22 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { TagsGroup, getSortedPosts } from '~/utils'
+import siteConfig from '~/site.config'
+import TagsArchive from '~/components/TagsArchive.astro'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getSortedPosts('es')
+  const tagsGroup = await TagsGroup.build(posts, 'es')
+  return tagsGroup.collations.flatMap((tags) =>
+    paginate(tags.entries.slice().reverse(), {
+      props: { tagTitle: tags.title },
+      params: { tag: tags.titleSlug },
+      pageSize: siteConfig.pageSize,
+    }),
+  )
+}) satisfies GetStaticPaths
+
+const { page, tagTitle } = Astro.props
+---
+
+<TagsArchive page={page} tagTitle={tagTitle} lang="es" />

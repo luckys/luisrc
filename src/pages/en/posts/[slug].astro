@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getPostSlug, getPostTranslationKey, getSortedPosts } from '~/utils'
+import PostPage from '~/components/PostPage.astro'
+
+export const getStaticPaths = (async () => {
+  const posts = await getSortedPosts('en')
+  const spanishPosts = await getSortedPosts('es')
+
+  return posts.map((post, index) => {
+    const translationKey = getPostTranslationKey(post)
+    const translatedPost = spanishPosts.find(
+      (candidate) => getPostTranslationKey(candidate) === translationKey,
+    )
+
+    return {
+      params: { slug: getPostSlug(post) },
+      props: {
+        post,
+        prev: posts[index - 1],
+        next: posts[index + 1],
+        localeSwitchUrl: translatedPost
+          ? getRelativeLocaleUrl('es', `posts/${getPostSlug(translatedPost)}`)
+          : getRelativeLocaleUrl('es', 'posts'),
+      },
+    }
+  })
+}) satisfies GetStaticPaths
+
+const { post, prev, next, localeSwitchUrl } = Astro.props
+---
+
+<PostPage post={post} prev={prev} next={next} localeSwitchUrl={localeSwitchUrl} />

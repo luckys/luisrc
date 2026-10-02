@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { SeriesGroup } from '~/utils'
+import type { Locale } from '~/i18n/ui'
+
+interface Props {
+  posts: CollectionEntry<'posts'>[]
+  locale: Locale
+}
+
+const { posts, locale } = Astro.props
+
+const seriesGroup = await SeriesGroup.build(posts, locale)
+const series = seriesGroup
+  .sortCollationsMostRecent()
+  .filter((collation) => collation.entries.length > 1)
+---
+
+<ul class="flex flex-wrap gap-x-3 gap-y-4 my-5">
+  {
+    series.map((series) => (
+      <li>
+        <a
+          href={series.url}
+          class="flex items-start gap-2.5 py-2 pl-4 pr-3 bg-accent/7 rounded-3xl border-transparent hover:border-accent/20 border-1 text-foreground/90"
+        >
+          {series.title}
+          <span class="rounded-full bg-foreground/7 text-foreground/90 px-2 py-1 text-xs font-semibold">
+            {series.entries.length}
+          </span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,30 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import Pagination from '~/components/Pagination.astro'
+import PostPreview from '~/components/PostPreview.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import { getUi, type Locale } from '~/i18n/ui'
+
+interface Props {
+  page: any
+  tagTitle: string
+  lang: Locale
+}
+
+const { page, tagTitle, lang } = Astro.props
+const copy = getUi(lang)
+const pageTitle = copy.tagTitle(tagTitle) + (page.currentPage > 1 ? ` - ${copy.page} ${page.currentPage}` : '')
+---
+
+<Layout title={pageTitle} description={copy.tagDescription(tagTitle)}>
+  <div class="mt-2 sm:mt-0">
+    <PageHeader titlePieces={['tags', tagTitle]} />
+    {page.data.map((post: any) => <PostPreview post={post} />)}
+    <Pagination
+      prevLink={page.url.prev ? page.url.prev : undefined}
+      prevText={copy.newerPosts}
+      nextLink={page.url.next ? page.url.next : undefined}
+      nextText={copy.olderPosts}
+    />
+  </div>
+</Layout>
