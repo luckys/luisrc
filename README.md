@@ -34,6 +34,16 @@ pnpm dev
 pnpm build && pnpm preview
 ```
 
+## Deploy with Cloudflare Pages
+
+Connect `luckys/luisrc-blog` to Cloudflare Pages and choose the **Astro** framework preset. Use these build settings:
+
+- Build command: `pnpm build`
+- Build output directory: `dist`
+- Root directory: repository root (the default)
+
+In the Pages project settings, add `PNPM_VERSION=12.8.1` for both production and preview builds. The `.node-version` file pins the Node.js version to `22.12.0`. The `wrangler.jsonc` file sets the Pages project name and build output directory. Since Astro builds this site as static HTML, it does not need the Cloudflare adapter.
+
 ## 🛠️ Configuration
 
 Site configuration lives in `src/site.config.ts`.
