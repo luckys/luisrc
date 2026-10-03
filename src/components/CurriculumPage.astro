@@ -1,0 +1,652 @@
+---
+import { curriculum, type CurriculumLocale } from '~/curriculum'
+
+interface Props {
+  locale: CurriculumLocale
+}
+
+const { locale } = Astro.props
+const copy = curriculum[locale]
+---
+
+<div class="cv-page" data-cv-root data-locale={locale}>
+  <div class="cv-actions">
+    <div class="cv-actions__copy">
+      <span class="cv-actions__eyebrow">{copy.eyebrow}</span>
+      <span class="cv-actions__hint">{copy.downloadHint}</span>
+    </div>
+    <button class="cv-download" type="button" data-cv-download>
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <path
+          d="M10 2.75v9m0 0 3.25-3.25M10 11.75 6.75 8.5M3.75 13.25v2A1.5 1.5 0 0 0 5.25 16.75h9.5a1.5 1.5 0 0 0 1.5-1.5v-2"
+        ></path>
+      </svg>
+      <span>{copy.downloadLabel}</span>
+    </button>
+  </div>
+
+  <article class="cv-sheet" aria-labelledby="cv-name">
+    <header class="cv-hero">
+      <p class="cv-hero__eyebrow">{copy.updated}</p>
+      <h1 id="cv-name" data-cv-name>Luis Ramírez Calle</h1>
+      <p class="cv-hero__headline" data-cv-headline>{copy.headline}</p>
+      <p class="cv-hero__specialism" data-cv-specialism>{copy.specialism}</p>
+
+      <address class="cv-contact" aria-label={copy.contactLabel}>
+        <span data-cv-contact-item data-pdf-text={copy.location}>{copy.location}</span>
+        <a href={`mailto:${copy.email}`} data-cv-contact-item data-pdf-text={copy.email}>
+          {copy.email}
+        </a>
+        <a
+          href="https://github.com/luckys"
+          target="_blank"
+          rel="noreferrer"
+          data-cv-contact-item
+          data-pdf-text="GitHub: github.com/luckys"
+        >
+          GitHub: github.com/luckys
+        </a>
+        <a
+          href="https://www.linkedin.com/in/luis-ramirez-calle/"
+          target="_blank"
+          rel="noreferrer"
+          data-cv-contact-item
+          data-pdf-text="LinkedIn: linkedin.com/in/luis-ramirez-calle"
+        >
+          LinkedIn: linkedin.com/in/luis-ramirez-calle
+        </a>
+        <a
+          href="https://mnf.red/luis-ramirez-calle-fullstack-developer"
+          target="_blank"
+          rel="noreferrer"
+          data-cv-contact-item
+          data-pdf-text="Manfred: mnf.red/luis-ramirez-calle-fullstack-developer"
+        >
+          Manfred: mnf.red/luis-ramirez-calle-fullstack-developer
+        </a>
+      </address>
+    </header>
+
+    {
+      copy.sections.map((section, index) => (
+        <section
+          class="cv-section"
+          data-cv-section
+          aria-labelledby={`cv-section-${index + 1}`}
+        >
+          <h2 id={`cv-section-${index + 1}`} data-cv-section-title>
+            {section.title}
+          </h2>
+
+          <div class="cv-section__content">
+            {section.entries.map((entry) => (
+              <article class="cv-entry" data-cv-entry>
+                <div class="cv-entry__topline">
+                  <h3>
+                    <span data-cv-entry-title>
+                      {entry.links
+                        ? entry.links.map((link, linkIndex) => (
+                            <>
+                              {linkIndex > 0 && <span aria-hidden="true"> · </span>}
+                              <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                data-cv-project-link
+                                data-pdf-url={link.href}
+                              >
+                                {link.label}
+                              </a>
+                            </>
+                          ))
+                        : entry.title}
+                    </span>
+                    {entry.period && (
+                      <>
+                        <span class="cv-entry__divider" aria-hidden="true">
+                          {' '}
+                          ·{' '}
+                        </span>
+                        <time data-cv-entry-period>{entry.period}</time>
+                      </>
+                    )}
+                  </h3>
+                </div>
+                {entry.subtitle && (
+                  <p class="cv-entry__subtitle" data-cv-entry-subtitle>
+                    {entry.subtitle}
+                  </p>
+                )}
+                {entry.body && (
+                  <p class="cv-entry__body" data-cv-entry-body>
+                    {entry.body}
+                  </p>
+                )}
+                {entry.bullets && (
+                  <ul class="cv-entry__bullets" data-cv-entry-bullets>
+                    {entry.bullets.map((bullet) => (
+                      <li>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+                {entry.technologies && (
+                  <p class="cv-entry__technologies" data-cv-entry-technologies>
+                    <strong>
+                      {locale === 'es' ? 'Tecnologías: ' : 'Technologies: '}
+                    </strong>
+                    {entry.technologies}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </article>
+</div>
+
+<script>
+  import { jsPDF } from 'jspdf'
+
+  const root = document.querySelector<HTMLElement>('[data-cv-root]')
+  const downloadButton = root?.querySelector<HTMLButtonElement>('[data-cv-download]')
+
+  downloadButton?.addEventListener('click', () => {
+    if (!root) return
+
+    const locale = root.dataset.locale === 'en' ? 'en' : 'es'
+    const pdf = new jsPDF({ format: 'a4', unit: 'mm', compress: true })
+    const pageWidth = pdf.internal.pageSize.getWidth()
+    const pageHeight = pdf.internal.pageSize.getHeight()
+    const margin = 18
+    const contentWidth = pageWidth - margin * 2
+    const bottomLimit = pageHeight - 17
+    const startY = 18
+    let y = startY
+
+    const readText = (element: Element | null) =>
+      element?.textContent?.replace(/\s+/g, ' ').trim() ?? ''
+
+    const parseThemeColor = (value: string, fallback: [number, number, number]) => {
+      const match = value.trim().match(/^#([\da-f]{3}|[\da-f]{6})$/i)
+      if (!match) return fallback
+
+      const hex =
+        match[1].length === 3
+          ? [...match[1]].map((digit) => digit.repeat(2)).join('')
+          : match[1]
+      return [0, 2, 4].map((offset) =>
+        Number.parseInt(hex.slice(offset, offset + 2), 16),
+      ) as [number, number, number]
+    }
+
+    const accentColor = parseThemeColor(
+      getComputedStyle(root).getPropertyValue('--theme-accent'),
+      [52, 84, 138],
+    )
+    const inkColor: [number, number, number] = [31, 41, 55]
+    const mutedColor: [number, number, number] = [82, 95, 112]
+
+    const addPage = () => {
+      pdf.addPage()
+      y = startY
+    }
+
+    const ensureSpace = (height: number) => {
+      if (y + height > bottomLimit && y > startY) addPage()
+    }
+
+    const addText = (
+      text: string,
+      options: {
+        size?: number
+        style?: 'normal' | 'bold' | 'italic'
+        color?: [number, number, number]
+        indent?: number
+        leading?: number
+        after?: number
+      } = {},
+    ) => {
+      if (!text) return
+
+      const {
+        size = 10,
+        style = 'normal',
+        color = inkColor,
+        indent = 0,
+        leading = 4.2,
+        after = 2.2,
+      } = options
+      pdf.setFont('helvetica', style)
+      pdf.setFontSize(size)
+      pdf.setTextColor(...color)
+      const lines = pdf.splitTextToSize(text, contentWidth - indent) as string[]
+      const fullHeight = lines.length * leading
+
+      if (fullHeight <= bottomLimit - startY) ensureSpace(fullHeight)
+
+      for (const line of lines) {
+        if (y + leading > bottomLimit) addPage()
+        pdf.text(line, margin + indent, y)
+        y += leading
+      }
+      y += after
+    }
+
+    const name = readText(root.querySelector('[data-cv-name]'))
+    const headline = readText(root.querySelector('[data-cv-headline]'))
+    const specialism = readText(root.querySelector('[data-cv-specialism]'))
+    const contact = Array.from(root.querySelectorAll('[data-cv-contact-item]'))
+      .map((item) => item.getAttribute('data-pdf-text') || readText(item))
+      .join('  |  ')
+
+    pdf.setFont('helvetica', 'bold')
+    pdf.setFontSize(22)
+    pdf.setTextColor(...inkColor)
+    pdf.text(name, pageWidth / 2, y + 2, { align: 'center' })
+    y += 10
+    addText(headline, {
+      size: 11,
+      style: 'bold',
+      color: accentColor,
+      leading: 5,
+      after: 1,
+    })
+    addText(specialism, { size: 9, color: mutedColor, leading: 4.2, after: 2 })
+    addText(contact, { size: 9, color: mutedColor, leading: 4.3, after: 3 })
+    pdf.setDrawColor(...accentColor)
+    pdf.setLineWidth(0.55)
+    pdf.line(margin, y, pageWidth - margin, y)
+    y += 7
+
+    root.querySelectorAll<HTMLElement>('[data-cv-section]').forEach((section) => {
+      const title = readText(section.querySelector('[data-cv-section-title]'))
+      ensureSpace(20)
+      pdf.setFont('helvetica', 'bold')
+      pdf.setFontSize(11)
+      pdf.setTextColor(...accentColor)
+      pdf.text(title.toLocaleUpperCase(locale), margin, y)
+      pdf.setDrawColor(...accentColor)
+      pdf.setLineWidth(0.2)
+      const sectionRuleY = y + 6
+      pdf.line(margin, sectionRuleY, pageWidth - margin, sectionRuleY)
+      y = sectionRuleY + 5
+
+      section.querySelectorAll<HTMLElement>('[data-cv-entry]').forEach((entry) => {
+        const entryTitle = readText(entry.querySelector('[data-cv-entry-title]'))
+        const period = readText(entry.querySelector('[data-cv-entry-period]'))
+        const subtitle = readText(entry.querySelector('[data-cv-entry-subtitle]'))
+        const body = readText(entry.querySelector('[data-cv-entry-body]'))
+        const bullets = Array.from(
+          entry.querySelectorAll('[data-cv-entry-bullets] li'),
+        ).map(readText)
+        const technologies = readText(entry.querySelector('[data-cv-entry-technologies]'))
+        const projectLinks = Array.from(
+          entry.querySelectorAll<HTMLElement>('[data-cv-project-link]'),
+        )
+          .map(
+            (link) =>
+              `${readText(link)}: ${link.dataset.pdfUrl?.replace(/^https?:\/\//, '')}`,
+          )
+          .join('  |  ')
+
+        if (entryTitle)
+          addText(entryTitle, {
+            size: 10.5,
+            style: 'bold',
+            color: inkColor,
+            leading: 4.7,
+            after: 0.5,
+          })
+        if (period)
+          addText(period, {
+            size: 9.5,
+            style: 'italic',
+            color: mutedColor,
+            leading: 4.2,
+            after: 0.6,
+          })
+        if (subtitle)
+          addText(subtitle, {
+            size: 9.5,
+            style: 'italic',
+            color: mutedColor,
+            leading: 4.2,
+            after: 1,
+          })
+        if (body) addText(body, { size: 10, leading: 4.5, after: 2.6 })
+
+        bullets.forEach((bullet) =>
+          addText(`- ${bullet}`, { size: 10, indent: 3, leading: 4.5, after: 1.1 }),
+        )
+
+        if (projectLinks) {
+          addText(projectLinks, {
+            size: 9,
+            color: mutedColor,
+            leading: 4,
+            after: 2,
+          })
+        }
+
+        if (technologies) {
+          addText(technologies, {
+            size: 9,
+            color: mutedColor,
+            leading: 4,
+            after: 3,
+          })
+        } else if (body || bullets.length || projectLinks) {
+          y += 1.5
+        }
+      })
+
+      y += 2
+    })
+
+    const pageCount = pdf.getNumberOfPages()
+    for (let page = 1; page <= pageCount; page += 1) {
+      pdf.setPage(page)
+      pdf.setFont('helvetica', 'normal')
+      pdf.setFontSize(7)
+      pdf.setTextColor(...mutedColor)
+      pdf.text(`${page} / ${pageCount}`, pageWidth - margin, pageHeight - 8, {
+        align: 'right',
+      })
+    }
+
+    pdf.save(`Luis-Ramirez-Calle-CV-${locale.toUpperCase()}.pdf`)
+  })
+</script>
+
+<style>
+  .cv-page {
+    --cv-line: color-mix(in srgb, var(--theme-foreground) 22%, transparent);
+    --cv-muted: color-mix(in srgb, var(--theme-foreground) 70%, transparent);
+    width: 100%;
+    margin: 1.4rem auto 2.2rem;
+    color: var(--theme-foreground);
+    font-family: Arial, 'Helvetica Neue', sans-serif;
+  }
+
+  .cv-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .cv-actions__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cv-actions__eyebrow,
+  .cv-hero__eyebrow,
+  .cv-section > h2 {
+    color: var(--theme-accent);
+    font-family: var(--theme-font), monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .cv-actions__hint {
+    color: var(--cv-muted);
+    font-size: 0.8rem;
+  }
+
+  .cv-download {
+    display: inline-flex;
+    min-height: 2.65rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--theme-accent);
+    border-radius: 0.45rem;
+    background: var(--theme-accent);
+    color: var(--theme-background);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: filter 150ms ease;
+  }
+
+  .cv-download:hover {
+    filter: brightness(1.08);
+  }
+
+  .cv-download:focus-visible {
+    outline: 2px solid var(--theme-foreground);
+    outline-offset: 3px;
+  }
+
+  .cv-download svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
+  }
+
+  .cv-sheet {
+    width: 100%;
+    max-width: 54rem;
+    margin: 0 auto;
+    padding: 1.5rem clamp(0rem, 3vw, 1.5rem) 0;
+    border-top: 2px solid var(--theme-accent);
+    background: transparent;
+  }
+
+  .cv-hero {
+    padding: 0 0 1.65rem;
+    border-bottom: 1px solid var(--cv-line);
+    text-align: center;
+  }
+
+  .cv-hero__eyebrow {
+    margin: 0 0 0.65rem;
+  }
+
+  .cv-hero h1 {
+    margin: 0;
+    color: var(--theme-heading1);
+    font-size: clamp(2.1rem, 5.2vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+  }
+
+  .cv-hero__headline {
+    margin: 0.6rem 0 0;
+    color: var(--theme-heading2);
+    font-size: 1.16rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .cv-hero__specialism {
+    margin: 0.2rem 0 0;
+    color: var(--cv-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .cv-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 0.75rem;
+    margin: 1rem 0 0;
+    color: var(--cv-muted);
+    font-size: 0.82rem;
+    font-style: normal;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .cv-contact a,
+  .cv-project-link {
+    color: var(--theme-accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--theme-accent) 45%, transparent);
+    text-underline-offset: 0.16em;
+  }
+
+  .cv-contact a:hover,
+  .cv-project-link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .cv-section {
+    margin: 1.45rem 0 0;
+  }
+
+  .cv-section > h2 {
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.32rem;
+    border-bottom: 1px solid var(--cv-line);
+    color: var(--theme-accent);
+    font-size: 0.96rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .cv-section__content {
+    display: block;
+  }
+
+  .cv-entry {
+    margin: 0 0 1rem;
+    break-inside: avoid;
+  }
+
+  .cv-entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv-entry__topline h3 {
+    margin: 0;
+    color: var(--theme-heading2);
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .cv-entry__topline time {
+    color: var(--cv-muted);
+    font-size: 0.86rem;
+    font-weight: 400;
+  }
+
+  .cv-entry__divider {
+    color: var(--theme-accent);
+    font-weight: 400;
+  }
+
+  .cv-entry__subtitle {
+    margin: 0.08rem 0 0.28rem;
+    color: var(--cv-muted);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .cv-entry__body,
+  .cv-entry__bullets {
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    color: var(--theme-foreground);
+    font-size: 12pt;
+    line-height: 1.62;
+  }
+
+  .cv-entry__bullets {
+    padding-left: 1.15rem;
+  }
+
+  .cv-entry__bullets li {
+    margin: 0.18rem 0;
+    padding-left: 0.12rem;
+  }
+
+  .cv-entry__bullets li::marker {
+    color: var(--theme-accent);
+  }
+
+  .cv-entry__technologies {
+    margin: 0.34rem 0 0;
+    color: var(--cv-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .cv-entry__technologies strong {
+    color: var(--theme-heading2);
+  }
+
+  @media (max-width: 520px) {
+    .cv-page {
+      margin-top: 0.85rem;
+    }
+
+    .cv-actions {
+      align-items: flex-start;
+    }
+
+    .cv-actions__hint {
+      max-width: 13rem;
+      line-height: 1.4;
+    }
+
+    .cv-download {
+      min-height: 2.45rem;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .cv-sheet {
+      padding: 1.2rem 0 0;
+    }
+
+    .cv-contact {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.18rem;
+    }
+  }
+
+  @media print {
+    :global(body > div > header),
+    :global(body > div > footer),
+    .cv-actions {
+      display: none !important;
+    }
+
+    .cv-page {
+      margin: 0;
+      color: #202a37;
+      font-family: Arial, 'Helvetica Neue', sans-serif;
+      print-color-adjust: exact;
+    }
+
+    .cv-sheet {
+      max-width: none;
+      padding: 0;
+      border: 0;
+      background: #fff;
+    }
+
+    .cv-entry {
+      break-inside: avoid;
+    }
+  }
+</style>

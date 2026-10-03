@@ -1,0 +1,11 @@
+---
+import CurriculumPage from '~/components/CurriculumPage.astro'
+import Layout from '~/layouts/Layout.astro'
+import { curriculum } from '~/curriculum'
+
+const copy = curriculum.es
+---
+
+<Layout title={copy.pageTitle} description={copy.pageDescription}>
+  <CurriculumPage locale="es" />
+</Layout>
