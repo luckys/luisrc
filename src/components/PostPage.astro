@@ -51,6 +51,8 @@ if (postData.series) {
   nextPostInSeries = getPostSequenceContext(post, series.entries).next
 }
 const showSeries = series && series.entries.length > 1
+const showTableOfContents =
+  postData.toc && headings.some(({ depth }) => depth >= 2 && depth <= 3)
 
 let tags: Collation<'posts'>[] | undefined
 if (postData.tags && postData.tags.length > 0) {
@@ -68,6 +70,7 @@ if (postData.tags && postData.tags.length > 0) {
   publishedDate={postData.published}
   needsMath={postData.math}
   socialCardSlug={socialCardSlug}
+  hasSidebar={showTableOfContents}
 >
   <article class="max-w-full py-7.5" data-pagefind-body>
     {
@@ -101,8 +104,8 @@ if (postData.tags && postData.tags.length > 0) {
         }
       </div>
     </div>
-    <div class="flex flex-col xl:gap-1 2xl:gap-18 xl:flex-row xl:items-start">
-      {postData.toc && headings.length > 0 && <TableOfContents headings={headings} />}
+    <div class="flex flex-col xl:gap-8 xl:flex-row xl:items-start">
+      {showTableOfContents && <TableOfContents headings={headings} />}
       <div class="mb-5 min-w-0 flex-1 prose">
         <PostContent />
       </div>

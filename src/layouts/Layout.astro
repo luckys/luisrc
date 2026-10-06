@@ -22,6 +22,7 @@ interface Props {
   needsMath?: boolean
   socialCardSlug?: string
   noIndex?: boolean
+  hasSidebar?: boolean
 }
 
 const {
@@ -34,6 +35,7 @@ const {
   needsMath = false,
   socialCardSlug,
   noIndex = false,
+  hasSidebar = false,
 } = Astro.props
 const locale = getLocale(Astro.currentLocale)
 const copy = getUi(locale)
@@ -264,7 +266,10 @@ let generatedCss: string = cssLines.join('\n')
   </head>
   <body class="w-full h-full m-0 bg-background text-foreground">
     <div
-      class="flex flex-col max-w-4xl min-h-screen border-accent/10 m-auto p-3 sm:py-5 sm:px-6 md:py-10"
+      class:list={[
+        'flex flex-col max-w-4xl min-h-screen border-accent/10 m-auto p-3 sm:py-5 sm:px-6 md:py-10',
+        { 'xl:max-w-[76rem]': hasSidebar },
+      ]}
     >
       <Header lang={locale} switchUrl={switchUrl} />
       <main id="main-content" class="flex flex-col py-1">
