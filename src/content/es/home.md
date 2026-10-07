@@ -6,6 +6,6 @@ avatarImage:
 githubCalendar: 'luckys'
 ---
 
-# Luis Ramírez Calle
+# Luis Ramírez Calle · Senior Software Developer
 
-Bienvenido a luisrc.dev, mi sitio personal y blog. Aquí comparto artículos y notas sobre desarrollo de software, tecnología y aprendizaje.
+Bienvenido a mi sitio personal. Aquí comparto mis conocimientos y lo que voy aprendiendo sobre desarrollo de software, tecnología, inteligencia artificial y otros temas que me interesan, con explicaciones claras, ejemplos prácticos e ideas que puedas aplicar en tus proyectos.

@@ -44,6 +44,9 @@ export const ui = {
     nextInSeries: 'Siguiente artículo:',
     morePosts: 'Más artículos',
     comments: 'Comentarios',
+    commentsUnavailable: 'Los comentarios todavía no están disponibles.',
+    commentsSetupHint:
+      'Completa la configuración de Giscus en src/site.config.ts. Consulta README.md y',
     tableOfContents: 'Tabla de contenidos',
     seriesTitle: (name: string) => `Serie: ${name}`,
     seriesDescription: (name: string) => `Todos los artículos de la serie ${name}.`,
@@ -109,6 +112,9 @@ export const ui = {
     nextInSeries: 'Next in series:',
     morePosts: 'More posts',
     comments: 'Comments',
+    commentsUnavailable: 'Comments are not available yet.',
+    commentsSetupHint:
+      'Complete the Giscus configuration in src/site.config.ts. See README.md and',
     tableOfContents: 'Table of contents',
     seriesTitle: (name: string) => `Series: ${name}`,
     seriesDescription: (name: string) => `All posts in the ${name} series.`,

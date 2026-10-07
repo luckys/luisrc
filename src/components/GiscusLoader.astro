@@ -14,24 +14,41 @@ const repoId = giscusConfig.repoId
 const category = giscusConfig.category
 const categoryId = giscusConfig.categoryId
 const reactionsEnabled = giscusConfig.reactionsEnabled ? '1' : '0'
+const isConfigured = [repo, repoId, category, categoryId].every((value) => value.trim())
 ---
 
-<div
-  class="giscus"
-  data-origin={origin}
-  data-repo={repo}
-  data-repo-id={repoId}
-  data-category={category}
-  data-category-id={categoryId}
-  data-reactions-enabled={reactionsEnabled}
-  data-lang={copy.giscusLanguage}
->
-</div>
+{
+  isConfigured ? (
+    <div
+      class="giscus"
+      data-origin={origin}
+      data-repo={repo}
+      data-repo-id={repoId}
+      data-category={category}
+      data-category-id={categoryId}
+      data-reactions-enabled={reactionsEnabled}
+      data-lang={copy.giscusLanguage}
+    ></div>
+  ) : (
+    <div class="rounded-xl border border-accent/10 bg-foreground/5 p-4 text-sm">
+      <p>{copy.commentsUnavailable}</p>
+      {import.meta.env.DEV && (
+        <p class="mt-2">
+          {copy.commentsSetupHint}{' '}
+          <a href="https://giscus.app" class="underline">
+            giscus.app
+          </a>
+          .
+        </p>
+      )}
+    </div>
+  )
+}
 <script>
   function loadGiscus() {
     const giscusDiv = document.querySelector('.giscus')
     if (!giscusDiv) {
-      throw new Error('Giscus div not found in the document.')
+      return
     }
     const origin = giscusDiv.getAttribute('data-origin')
     const repo = giscusDiv.getAttribute('data-repo')
