@@ -4,7 +4,7 @@ published: 2026-10-06
 locale: en
 translationKey: aprender-python-despues-de-php-typescript
 slug: learning-python-after-php-typescript
-draft: true
+draft: false
 description: 'What Python offers developers working with PHP and TypeScript: differences, code examples, and a way into data analysis and automation.'
 author: 'Luis Ramírez Calle'
 series: 'Learning other languages from PHP and TypeScript'
