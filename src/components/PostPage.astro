@@ -16,6 +16,9 @@ import type { Collation } from '~/types'
 import ChevronsRight from '~/icons/chevrons-right.svg'
 import { getPostSequenceContext } from '~/utils'
 import { getUi, type Locale } from '~/i18n/ui'
+import PostAudio from '~/components/PostAudio.astro'
+import audioManifest from '~/data/post-audio.json'
+import { selectAudio } from '~/lib/post-audio.mjs'
 
 interface Props {
   post: CollectionEntry<'posts'>
@@ -29,6 +32,7 @@ const { post, prev, next, localeSwitchUrl, socialCardSlug } = Astro.props
 const postData = post.data
 const locale = postData.locale as Locale
 const copy = getUi(locale)
+const audioSrc = selectAudio(audioManifest, { ...postData, body: post.body })
 const { headings, Content: PostContent } = await render(post)
 const addenda = await getCollection('addendum', ({ data }) => data.locale === locale)
 let AddendumContent
@@ -104,6 +108,7 @@ if (postData.tags && postData.tags.length > 0) {
         }
       </div>
     </div>
+    {audioSrc && <PostAudio src={audioSrc} locale={locale} />}
     <div class="flex flex-col xl:gap-8 xl:flex-row xl:items-start">
       {showTableOfContents && <TableOfContents headings={headings} />}
       <div class="mb-5 min-w-0 flex-1 prose">

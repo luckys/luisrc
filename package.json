@@ -8,6 +8,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "audio:generate": "node scripts/generate-post-audio.mjs",
+    "test:audio": "node --test tests/*audio*.test.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "postbuild": "pagefind --site dist",
@@ -65,9 +67,11 @@
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.0",
+    "edge-tts-universal": "1.4.0",
     "pagefind": "^1.4.0",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
-    "sass-embedded": "^1.92.1"
+    "sass-embedded": "^1.92.1",
+    "yaml": "2.9.1"
   }
 }

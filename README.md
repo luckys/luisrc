@@ -115,6 +115,59 @@ Un bloqueador de contenido o un fallo de red también puede impedir la carga.
 Documentación oficial: [configuración de Giscus](https://giscus.app/es) y
 [restricciones de origen y uso avanzado](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md).
 
+## Narración de artículos
+
+Los MP3 se generan localmente **después de la aprobación del autor**, nunca al abrir un
+post ni durante el build. Debe existir una versión española y otra inglesa, ambas completas
+y con `draft: false` por defecto. No se generan audios de borradores automáticamente.
+
+```bash
+pnpm audio:generate <translationKey> --approved
+```
+
+El argumento `--approved` confirma que el autor ha aprobado ambas versiones actuales.
+Si el autor solicita expresamente generar audio mientras el artículo sigue en borrador,
+añade `--include-drafts`. Esto no cambia `draft` ni publica el artículo:
+
+```bash
+pnpm audio:generate <translationKey> --approved --include-drafts
+```
+
+Por ejemplo, para el artículo de Python:
+
+```bash
+pnpm audio:generate aprender-python-despues-de-php-typescript --approved
+```
+
+Requiere **ffmpeg** en el PATH y acceso a Internet. Usa `edge-tts-universal@1.4.0`,
+la misma librería que `dialoglume`, sin API key. Es el servicio de lectura de Microsoft Edge,
+no la API oficial de Azure Speech; su disponibilidad no está garantizada por Azure.
+El texto del artículo se envía a Microsoft únicamente al ejecutar este comando.
+Las voces son `es-ES-AlvaroNeural` (España) y `en-US-AndrewNeural` (Estados Unidos).
+
+Los archivos quedan en `public/assets/audio/` y su asociación en
+`src/data/post-audio.json`; ambos deben incluirse en Git para desplegarlos.
+Los fragmentos se unen con ffmpeg para conservar una duración y navegación correctas.
+Los fragmentos completados se guardan localmente en `.cache/post-audio/` (fuera de Git).
+Cada petición tiene un límite de dos minutos y un único reintento; si el servicio falla,
+se puede repetir el comando para continuar sin volver a sintetizar los fragmentos guardados.
+Se narran título y texto; en los bloques de código se indica que el ejemplo está en
+la versión escrita, y los enlaces se leen sin sus URLs.
+
+El reproductor ofrece reproducción, pausa y barra de progreso dentro del post,
+sin enlaces de descarga y con `controlslist="nodownload"`. Esta opción oculta la
+descarga en navegadores compatibles; no es DRM ni impide extraer un archivo que
+el navegador necesita recibir para reproducirlo.
+No carga el MP3 hasta que se solicita reproducirlo (`preload="none"`).
+Si cambia el texto narrado, el reproductor deja de aparecer hasta regenerar el audio
+tras una nueva aprobación. Si el archivo ya está actualizado, el comando lo reutiliza.
+Los MDX no están soportados por el generador; no se evalúa código durante la narración.
+
+Verificación: `pnpm test:audio` y `pnpm build`.
+Referencias: [librería de voz](https://github.com/travisvn/edge-tts-universal),
+[assets estáticos de Astro](https://docs.astro.build/en/guides/imports/#files-in-public)
+y [controles de audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio).
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE.txt).

@@ -1,0 +1,72 @@
+---
+interface Props {
+  src: string
+  locale: 'es' | 'en'
+}
+const { src, locale } = Astro.props
+const spanish = locale === 'es'
+const label = spanish ? 'Escuchar el artículo' : 'Listen to this article'
+const error = spanish
+  ? 'No se ha podido cargar el audio. Recarga la página e inténtalo de nuevo.'
+  : 'The audio could not be loaded. Reload the page and try again.'
+---
+
+<section
+  class="my-5 min-w-0 rounded-lg border border-accent/30 p-4"
+  aria-label={label}
+  data-post-audio
+  data-pagefind-ignore
+>
+  <p class="mb-3 flex items-center gap-2 font-semibold text-accent">
+    <svg
+      class="size-5 shrink-0"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      aria-hidden="true"
+    >
+      <path d="m8 5 11 7-11 7Z"></path>
+    </svg>
+    {label}
+  </p>
+  <!-- Native controls supply keyboard-accessible play, pause, seeking and volume.
+       https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio -->
+  <audio
+    controls
+    controlslist="nodownload"
+    preload="none"
+    class="block w-full min-w-0"
+    aria-label={label}
+  >
+    <source src={src} type="audio/mpeg" />
+    {
+      spanish
+        ? 'Tu navegador no admite la reproducción de audio.'
+        : 'Your browser does not support audio playback.'
+    }
+  </audio>
+  <p class="mt-2 text-sm opacity-80">
+    {
+      spanish
+        ? 'Narración con voz sintética. Los ejemplos de código se consultan en el texto.'
+        : 'Synthetic voice narration. Code examples are available in the text.'
+    }
+  </p>
+  <p data-audio-error hidden role="status" class="mt-2 text-sm">{error}</p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-post-audio]').forEach((player) => {
+    const audio = player.querySelector('audio')
+    const message = player.querySelector<HTMLElement>('[data-audio-error]')
+    const showError = () => {
+      if (message) message.hidden = false
+    }
+    audio?.addEventListener('error', showError)
+    audio?.querySelector('source')?.addEventListener('error', showError)
+    audio?.addEventListener('playing', () => {
+      if (message) message.hidden = true
+    })
+  })
+</script>

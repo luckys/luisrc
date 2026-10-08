@@ -1,0 +1,38 @@
+{
+  "aprender-python-despues-de-php-typescript": {
+    "es": {
+      "src": "/assets/audio/es-333ffa6578fbdcebdc3b79a22afd39352891cd22e2acef4c92c9e663e5e6494e.mp3",
+      "fingerprint": "333ffa6578fbdcebdc3b79a22afd39352891cd22e2acef4c92c9e663e5e6494e",
+      "voice": "es-ES-AlvaroNeural"
+    },
+    "en": {
+      "src": "/assets/audio/en-623a16c7ecdacf641e0530e3d7248733eff1087a4f622cf625a2a8171e5c1bb9.mp3",
+      "fingerprint": "623a16c7ecdacf641e0530e3d7248733eff1087a4f622cf625a2a8171e5c1bb9",
+      "voice": "en-US-AndrewNeural"
+    }
+  },
+  "aprender-go-despues-de-php-typescript": {
+    "es": {
+      "src": "/assets/audio/es-d264ad2d3fa24ed2ce7c181f883e6e22bd3240cea17d0df8af8dc154c006aac3.mp3",
+      "fingerprint": "d264ad2d3fa24ed2ce7c181f883e6e22bd3240cea17d0df8af8dc154c006aac3",
+      "voice": "es-ES-AlvaroNeural"
+    },
+    "en": {
+      "src": "/assets/audio/en-37cd8dd059047d79d577217e4921907ad2b20e3799d7239a663706162d4c4ee1.mp3",
+      "fingerprint": "37cd8dd059047d79d577217e4921907ad2b20e3799d7239a663706162d4c4ee1",
+      "voice": "en-US-AndrewNeural"
+    }
+  },
+  "aprender-rust-despues-de-php-typescript": {
+    "es": {
+      "src": "/assets/audio/es-9c6747e7c558a22c328a11a4afaf092f2dff11c81adb8cae5331e518c3b96abc.mp3",
+      "fingerprint": "9c6747e7c558a22c328a11a4afaf092f2dff11c81adb8cae5331e518c3b96abc",
+      "voice": "es-ES-AlvaroNeural"
+    },
+    "en": {
+      "src": "/assets/audio/en-5e991e3d04920f012822bfece22479b7edc79be82cba64e383e53fd633b96252.mp3",
+      "fingerprint": "5e991e3d04920f012822bfece22479b7edc79be82cba64e383e53fd633b96252",
+      "voice": "en-US-AndrewNeural"
+    }
+  }
+}
