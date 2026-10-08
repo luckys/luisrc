@@ -12,7 +12,7 @@ tags:
   ['ingenieria-de-software', 'aprendizaje', 'php', 'typescript', 'python', 'go', 'rust']
 ---
 
-Después de probar **Python**, **Go** y **Rust**, la pregunta «¿qué lenguaje debería aprender?» tiene más respuestas posibles. Ahora puedes relacionar cada opción con un trabajo concreto: investigar datos, coordinar servicios o controlar cómo se utiliza la memoria. Elegir resulta más fácil cuando sabes qué quieres hacer con lo aprendido.
+Después de explorar **Python**, **Go** y **Rust**, resulta más fácil entender qué puede aportar cada uno. La pregunta ya no es solo «¿qué lenguaje debería aprender?», sino «¿cuál encaja mejor con lo que quiero construir o aprender?».
 
 En esta serie hemos construido pequeñas versiones de un informe de ventas. Con [Python](/posts/aprender-python-despues-de-php-typescript) exploramos transformaciones y herramientas de análisis; con [Go](/posts/aprender-go-despues-de-php-typescript), consultas concurrentes y cancelación; con [Rust](/posts/aprender-rust-despues-de-php-typescript), propiedad de los datos y errores explícitos.
 
@@ -28,9 +28,9 @@ También se utiliza para desarrollo web y aplicaciones empresariales. Asociarlo 
 
 Aprenderlo puede acercarte a equipos de datos, automatización o investigación. Para trabajar en esas áreas tendrás que sumar conocimientos sobre calidad de datos, estadística o el problema estudiado. Saber llamar a una biblioteca no basta para interpretar sus resultados.
 
-### «Python es lento, así que no sirve para proyectos exigentes»
+### Mito: «Python es lento, así que no sirve para proyectos exigentes»
 
-Esta frase mezcla el coste de ejecutar código con la utilidad del sistema completo. Un cálculo que recorre millones de elementos en código **Python** puede convertirse en un cuello de botella. Pero una operación escrita desde **Python** también puede delegar el trabajo en una biblioteca nativa. La documentación de [NumPy sobre hilos](https://numpy.org/doc/stable/reference/thread_safety.html), por ejemplo, explica que muchas de sus operaciones liberan el **GIL** mientras trabajan.
+Esta conclusión es demasiado general: que ciertas operaciones sean lentas en **Python** no significa que el lenguaje sea inadecuado para cualquier proyecto exigente. Un cálculo que recorre millones de elementos en código **Python** puede convertirse en un cuello de botella. Pero una operación escrita desde **Python** también puede delegar el trabajo en una biblioteca nativa. La documentación de [NumPy sobre hilos](https://numpy.org/doc/stable/reference/thread_safety.html), por ejemplo, explica que muchas de sus operaciones liberan el **GIL** mientras trabajan.
 
 El **GIL** limita a un hilo la ejecución de bytecode de **Python** dentro de un intérprete de **CPython** que lo tenga habilitado. Eso no significa que toda aplicación Python sea incapaz de aprovechar varios núcleos: existen procesos separados, bibliotecas que liberan el GIL y compilaciones _free-threaded_ que permiten deshabilitarlo. Estas últimas no son la configuración predeterminada y requieren comprobar la compatibilidad de las dependencias. La [documentación de threading](https://docs.python.org/3/library/threading.html#gil-and-performance-considerations) y la [guía de free threading](https://docs.python.org/3/howto/free-threading-python.html) explican las alternativas y sus condiciones.
 
@@ -46,17 +46,17 @@ En el informe de ventas, lo evaluaría si tuviera que construir un servicio que 
 
 El aprendizaje más transferible es pensar en la vida de cada tarea: quién la inicia, qué datos comparte y cómo termina. Esa forma de razonar también ayuda al trabajar con promesas en **TypeScript** o procesos en **PHP**.
 
-### «Go es más rápido porque tiene goroutines»
+### Mito: «Go es más rápido porque tiene goroutines»
 
-Una **goroutine** permite organizar trabajo; no hace que cada operación tarde menos. Si varias tareas esperan respuestas de red, sus esperas pueden solaparse. Si realizan cálculos independientes y hay núcleos disponibles, pueden ejecutarlos en paralelo. En ambos casos hay costes de coordinación, memoria y sincronización.
+Las **goroutines** pueden ayudar a mejorar el rendimiento de algunos programas, pero su presencia no hace que **Go** sea automáticamente más rápido. Una **goroutine** permite organizar trabajo; no hace que cada operación tarde menos. Si varias tareas esperan respuestas de red, sus esperas pueden solaparse. Si realizan cálculos independientes y hay núcleos disponibles, pueden ejecutarlos en paralelo. En ambos casos hay costes de coordinación, memoria y sincronización.
 
 Añadir más tareas puede incluso empeorar el resultado. La [FAQ de Go sobre paralelismo](https://go.dev/doc/faq#parallel) explica por qué un programa concurrente no tiene garantizado un mejor rendimiento.
 
 Tampoco es una capacidad exclusiva de **Go**. **Node.js** dispone de [worker threads](https://nodejs.org/docs/latest-v24.x/api/worker_threads.html) para repartir cálculos entre hilos. **PHP-FPM** puede atender peticiones con varios procesos. Una comparación útil tiene que especificar qué implementaciones se están midiendo, con qué recursos y bajo qué carga.
 
-### «Como Go es sencillo, la concurrencia también lo será»
+### Mito: «Como Go es sencillo, la concurrencia también lo será»
 
-Aunque iniciar una **goroutine** requiere poco código, tienes que decidir cuántas tareas pueden ejecutarse a la vez, cómo comunicar sus resultados y qué hacer si una falla o tarda demasiado. **Go** proporciona herramientas para coordinar ese trabajo, pero usarlas correctamente requiere entender esos problemas.
+Esta idea confunde una sintaxis sencilla con un problema sencillo. Aunque iniciar una **goroutine** requiere poco código, tienes que decidir cuántas tareas pueden ejecutarse a la vez, cómo comunicar sus resultados y qué hacer si una falla o tarda demasiado. **Go** proporciona herramientas para coordinar ese trabajo, pero usarlas correctamente requiere entender esos problemas.
 
 En el artículo de **Go** vimos que la cancelación requiere colaboración de la operación y que un envío a un canal puede quedarse esperando. Dominar esa parte necesita práctica con errores y límites, además de conocer la sintaxis.
 
@@ -70,15 +70,15 @@ En el informe, lo evaluaría si una transformación de archivos consumiera demas
 
 Aprender **Rust** también tiene valor aunque no exista ese problema: obliga a revisar qué funciones necesitan poseer un dato, cuáles solo lo consultan y cuándo estás copiando información. El coste es una curva de aprendizaje que incluye modelos de memoria, mensajes del compilador y nuevas convenciones de diseño.
 
-### «Si compila en Rust, funciona correctamente»
+### Mito: «Si compila en Rust, funciona correctamente»
 
-El compilador puede rechazar ciertos accesos inválidos a memoria; no sabe si aplicaste el descuento que correspondía a una venta. Un programa puede compilar y producir un informe incorrecto, bloquearse esperando un recurso o repetir un cobro.
+Es falso: compilar no garantiza que el programa haga lo que necesitas. El compilador puede rechazar ciertos accesos inválidos a memoria; no sabe si aplicaste el descuento que correspondía a una venta. Un programa puede compilar y producir un informe incorrecto, bloquearse esperando un recurso o repetir un cobro.
 
 Las garantías del código seguro también dependen de que las bibliotecas que encapsulan código `unsafe` cumplan sus contratos. El [capítulo sobre unsafe Rust](https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html) explica esa responsabilidad. La seguridad de memoria reduce una clase de problemas, mientras las pruebas y la revisión del diseño siguen cubriendo otras.
 
-### «Rust siempre será más rápido y consumirá menos»
+### Mito: «Rust siempre será más rápido y consumirá menos»
 
-Poder controlar las asignaciones de memoria da margen para optimizar, pero también puedes hacer copias innecesarias, elegir un algoritmo costoso o mantener datos que ya no necesitas. El resultado depende del programa y de sus dependencias.
+**Rust** ofrece herramientas para conseguir un buen rendimiento, pero no garantiza que cualquier implementación sea más rápida o consuma menos memoria que otra escrita en un lenguaje distinto. Poder controlar las asignaciones de memoria da margen para optimizar, pero también puedes hacer copias innecesarias, elegir un algoritmo costoso o mantener datos que ya no necesitas. El resultado depende del programa y de sus dependencias.
 
 Tampoco hay que reescribir una aplicación entera para aprovechar un componente en **Rust**. Es posible aislar una operación, aunque la integración tendrá costes: mover datos entre componentes, distribuirlos y depurar sus fallos. La mejora medida debería compensar ese trabajo.
 
@@ -90,7 +90,7 @@ Explorar otros lenguajes no vuelve inadecuadas las herramientas que ya conoces. 
 
 **PHP** encaja en aplicaciones web, APIs, comercio electrónico y sistemas de gestión. Un equipo que conoce **Laravel** o **Symfony** puede aprovechar sus herramientas y convenciones para concentrarse en permisos, transacciones y procesos del negocio. El [manual de PHP](https://www.php.net/manual/en/introduction.php) recoge tanto su orientación web como su uso en línea de comandos.
 
-**«PHP no puede atender trabajo en paralelo»** confunde el lenguaje con la ejecución de una petición. En **PHP-FPM**, varios procesos pueden atender peticiones simultáneamente. `pm.max_children` limita esa capacidad, como explica la [configuración de FPM](https://www.php.net/manual/en/install.fpm.configuration.php).
+**Mito: «PHP no puede atender trabajo en paralelo».** Esta afirmación es falsa como regla general: confunde la ejecución de una petición con la capacidad del servicio para atender varias a la vez. En **PHP-FPM**, varios procesos pueden atender peticiones simultáneamente. `pm.max_children` limita esa capacidad, como explica la [configuración de FPM](https://www.php.net/manual/en/install.fpm.configuration.php).
 
 Eso no significa que una petición concreta reparta automáticamente sus cálculos entre núcleos. Tampoco que los procesos sean gratuitos: una espera bloqueante ocupa un trabajador. Son restricciones que hay que conocer, pero no demuestran que el lenguaje impida construir un servicio con muchas peticiones.
 
@@ -100,9 +100,9 @@ Si el informe ya pertenece a una aplicación **PHP** y cumple sus requisitos, ma
 
 **TypeScript** aporta comprobación estática al ecosistema de **JavaScript**. En aplicaciones web permite trabajar con convenciones y tipos relacionados entre frontend y backend, además de mejorar la navegación y las refactorizaciones del código. Su [manual](https://www.typescriptlang.org/docs/handbook/intro.html) describe ese papel.
 
-**«Si está tipado en TypeScript, los datos ya están validados»** es una confusión especialmente peligrosa. Las anotaciones se eliminan y no comprueban por sí mismas una respuesta HTTP o un archivo JSON. Compartir un tipo entre cliente y servidor describe un contrato, pero no verifica que los datos recibidos lo cumplan. El [apartado sobre eliminación de tipos](https://www.typescriptlang.org/docs/handbook/2/basic-types.html#erased-types) explica este comportamiento.
+**Mito: «Si está tipado en TypeScript, los datos ya están validados».** No es cierto: la comprobación estática de tipos no sustituye la validación de los datos que llegan al programa. Las anotaciones se eliminan y no comprueban por sí mismas una respuesta HTTP o un archivo JSON. Compartir un tipo entre cliente y servidor describe un contrato, pero no verifica que los datos recibidos lo cumplan. El [apartado sobre eliminación de tipos](https://www.typescriptlang.org/docs/handbook/2/basic-types.html#erased-types) explica este comportamiento.
 
-**«Una función async ejecuta sus cálculos en otro hilo»** tampoco es correcto. En el ejemplo de la serie, `async` permitía esperar sin bloquear por esa espera, pero el cálculo seguía ejecutándose en el hilo que lo atendía. Para trabajo intensivo en CPU hay que decidir cómo repartirlo, por ejemplo mediante workers. La [guía de Node.js sobre el event loop](https://nodejs.org/learn/asynchronous-work/dont-block-the-event-loop) explica cómo esos cálculos pueden retrasar otras tareas.
+**Mito: «Una función async ejecuta sus cálculos en otro hilo».** Tampoco es cierto: marcar una función como `async` no traslada automáticamente sus cálculos a otro hilo. En el ejemplo de la serie, `async` permitía esperar sin bloquear por esa espera, pero el cálculo seguía ejecutándose en el hilo que lo atendía. Para trabajo intensivo en CPU hay que decidir cómo repartirlo, por ejemplo mediante workers. La [guía de Node.js sobre el event loop](https://nodejs.org/learn/asynchronous-work/dont-block-the-event-loop) explica cómo esos cálculos pueden retrasar otras tareas.
 
 En un producto con mucha interacción en el navegador y un backend que integra servicios, seguir con **TypeScript** puede simplificar el trabajo del equipo. La elección del entorno de ejecución, como **Node.js** o **Bun**, forma parte de esa decisión: el lenguaje por sí solo no describe cómo se comportará el servicio.
 

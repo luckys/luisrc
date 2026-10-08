@@ -11,7 +11,7 @@ series: 'Learning other languages from PHP and TypeScript'
 tags: ['software-engineering', 'learning', 'php', 'typescript', 'python', 'go', 'rust']
 ---
 
-After trying **Python**, **Go**, and **Rust**, the question “Which language should I learn?” has more possible answers. You can now connect each option to a specific kind of work: investigating data, coordinating services, or controlling how memory is used. Choosing becomes easier when you know what you want to do with what you learn.
+After exploring **Python**, **Go**, and **Rust**, it becomes easier to understand what each can offer. The question is no longer just “Which language should I learn?” but “Which one best fits what I want to build or learn?”
 
 Throughout this series, we have built small versions of a sales report. With [Python](/en/posts/learning-python-after-php-typescript), we explored transformations and analysis tools; with [Go](/en/posts/learning-go-after-php-typescript), concurrent queries and cancellation; with [Rust](/en/posts/learning-rust-after-php-typescript), data ownership and explicit errors.
 
@@ -27,9 +27,9 @@ It is also used for web development and business applications. Associating it on
 
 Learning it can bring you closer to teams working on data, automation, or research. To work in those areas, you will need additional knowledge of data quality, statistics, or the problem being studied. Knowing how to call a library is not enough to interpret its results.
 
-### “Python is slow, so it is unsuitable for demanding projects”
+### Myth: “Python is slow, so it is unsuitable for demanding projects”
 
-This statement mixes the cost of executing code with the usefulness of the whole system. A calculation that loops over millions of elements in **Python** code can become a bottleneck. But an operation written in **Python** can also delegate the work to a native library. The [NumPy documentation on threads](https://numpy.org/doc/stable/reference/thread_safety.html), for example, explains that many of its operations release the **GIL** while they work.
+This conclusion is too broad: slow performance in certain operations does not make **Python** unsuitable for every demanding project. A calculation that loops over millions of elements in **Python** code can become a bottleneck. But an operation written in **Python** can also delegate the work to a native library. The [NumPy documentation on threads](https://numpy.org/doc/stable/reference/thread_safety.html), for example, explains that many of its operations release the **GIL** while they work.
 
 The **GIL** limits **Python** bytecode execution to one thread within a **CPython** interpreter that has it enabled. That does not mean every Python application is unable to use multiple cores: there are separate processes, libraries that release the GIL, and _free-threaded_ builds that allow it to be disabled. Those builds are not the default configuration and require checking dependency compatibility. The [threading documentation](https://docs.python.org/3/library/threading.html#gil-and-performance-considerations) and the [free-threading guide](https://docs.python.org/3/howto/free-threading-python.html) explain these alternatives and their conditions.
 
@@ -45,17 +45,17 @@ For the sales report, I would evaluate it if I needed to build a service that qu
 
 The most transferable lesson is thinking about each task's lifetime: who starts it, what data it shares, and how it ends. That reasoning also helps when working with promises in **TypeScript** or processes in **PHP**.
 
-### “Go is faster because it has goroutines”
+### Myth: “Go is faster because it has goroutines”
 
-A **goroutine** lets you organize work; it does not make each operation take less time. If several tasks are waiting for network responses, their waits can overlap. If they perform independent calculations and cores are available, they can execute them in parallel. In both cases, coordination, memory, and synchronization have costs.
+**Goroutines** can help improve the performance of some programs, but having them does not automatically make **Go** faster. A **goroutine** lets you organize work; it does not make each operation take less time. If several tasks are waiting for network responses, their waits can overlap. If they perform independent calculations and cores are available, they can execute them in parallel. In both cases, coordination, memory, and synchronization have costs.
 
 Adding more tasks can even make the result worse. The [Go FAQ on parallelism](https://go.dev/doc/faq#parallel) explains why a concurrent program is not guaranteed to perform better.
 
 This capability is not exclusive to **Go**, either. **Node.js** has [worker threads](https://nodejs.org/docs/latest-v24.x/api/worker_threads.html) for distributing calculations across threads. **PHP-FPM** can handle requests using multiple processes. A useful comparison must specify which implementations are being measured, with what resources, and under what load.
 
-### “Since Go is simple, concurrency will be simple too”
+### Myth: “Since Go is simple, concurrency will be simple too”
 
-Although starting a **goroutine** takes little code, you have to decide how many tasks can run at once, how to communicate their results, and what to do if one fails or takes too long. **Go** provides tools to coordinate that work, but using them correctly requires understanding those problems.
+This idea confuses simple syntax with a simple problem. Although starting a **goroutine** takes little code, you have to decide how many tasks can run at once, how to communicate their results, and what to do if one fails or takes too long. **Go** provides tools to coordinate that work, but using them correctly requires understanding those problems.
 
 In the **Go** article, we saw that cancellation requires cooperation from the operation and that sending to a channel can get stuck waiting. Mastering that part requires practice with errors and limits, as well as knowing the syntax.
 
@@ -69,15 +69,15 @@ For the report, I would evaluate it if a file transformation consumed too many r
 
 Learning **Rust** also has value when that problem does not exist: it makes you examine which functions need to own data, which only read it, and when you are copying information. The cost is a learning curve that includes memory models, compiler messages, and new design conventions.
 
-### “If it compiles in Rust, it works correctly”
+### Myth: “If it compiles in Rust, it works correctly”
 
-The compiler can reject certain invalid memory accesses; it does not know whether you applied the correct discount to a sale. A program can compile and produce an incorrect report, get stuck waiting for a resource, or charge a customer twice.
+This is false: compiling does not guarantee that the program does what you need. The compiler can reject certain invalid memory accesses; it does not know whether you applied the correct discount to a sale. A program can compile and produce an incorrect report, get stuck waiting for a resource, or charge a customer twice.
 
 The guarantees of safe code also depend on libraries that encapsulate `unsafe` code honoring their contracts. The [chapter on unsafe Rust](https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html) explains that responsibility. Memory safety reduces one class of problems, while tests and design reviews continue to cover others.
 
-### “Rust will always be faster and use fewer resources”
+### Myth: “Rust will always be faster and use fewer resources”
 
-Being able to control memory allocations gives you room to optimize, but you can still make unnecessary copies, choose an expensive algorithm, or keep data you no longer need. The result depends on the program and its dependencies.
+**Rust** offers tools for achieving good performance, but it does not guarantee that every implementation will be faster or use less memory than one written in another language. Being able to control memory allocations gives you room to optimize, but you can still make unnecessary copies, choose an expensive algorithm, or keep data you no longer need. The result depends on the program and its dependencies.
 
 You do not have to rewrite an entire application to benefit from a **Rust** component, either. You can isolate an operation, although integration has costs: moving data between components, distributing them, and debugging failures. The measured improvement should justify that work.
 
@@ -89,7 +89,7 @@ Exploring other languages does not make the tools you already know unsuitable. T
 
 **PHP** fits web applications, APIs, e-commerce, and business management systems. A team familiar with **Laravel** or **Symfony** can use their tools and conventions to focus on permissions, transactions, and business processes. The [PHP manual](https://www.php.net/manual/en/introduction.php) covers both its web focus and its command-line use.
 
-**“PHP cannot handle work in parallel”** confuses the language with the execution of a request. In **PHP-FPM**, multiple processes can handle requests simultaneously. `pm.max_children` limits that capacity, as the [FPM configuration documentation](https://www.php.net/manual/en/install.fpm.configuration.php) explains.
+**Myth: “PHP cannot handle work in parallel.”** This is false as a general rule: it confuses the execution of one request with a service's ability to handle several at once. In **PHP-FPM**, multiple processes can handle requests simultaneously. `pm.max_children` limits that capacity, as the [FPM configuration documentation](https://www.php.net/manual/en/install.fpm.configuration.php) explains.
 
 That does not mean an individual request automatically distributes its calculations across cores. Nor are processes free: a blocking wait occupies a worker. These are constraints to understand, but they do not prove that the language prevents you from building a service that handles many requests.
 
@@ -99,9 +99,9 @@ If the report already belongs to a **PHP** application and meets its requirement
 
 **TypeScript** brings static checking to the **JavaScript** ecosystem. In web applications, it lets you work with related conventions and types across the frontend and backend, while improving code navigation and refactoring. Its [handbook](https://www.typescriptlang.org/docs/handbook/intro.html) describes that role.
 
-**“If it is typed in TypeScript, the data is already validated”** is a particularly dangerous misconception. Annotations are removed and do not, by themselves, check an HTTP response or a JSON file. Sharing a type between client and server describes a contract, but does not verify that received data satisfies it. The [section on type erasure](https://www.typescriptlang.org/docs/handbook/2/basic-types.html#erased-types) explains this behavior.
+**Myth: “If it is typed in TypeScript, the data is already validated.”** This is not true: static type checking does not replace validation of the data entering the program. Annotations are removed and do not, by themselves, check an HTTP response or a JSON file. Sharing a type between client and server describes a contract, but does not verify that received data satisfies it. The [section on type erasure](https://www.typescriptlang.org/docs/handbook/2/basic-types.html#erased-types) explains this behavior.
 
-**“An async function runs its calculations on another thread”** is also incorrect. In the series example, `async` let us wait without blocking on that wait, but the calculation still ran on the thread handling it. For CPU-intensive work, you need to decide how to distribute it, for example through workers. The [Node.js guide to the event loop](https://nodejs.org/learn/asynchronous-work/dont-block-the-event-loop) explains how those calculations can delay other tasks.
+**Myth: “An async function runs its calculations on another thread.”** This is not true either: marking a function as `async` does not automatically move its calculations to another thread. In the series example, `async` let us wait without blocking on that wait, but the calculation still ran on the thread handling it. For CPU-intensive work, you need to decide how to distribute it, for example through workers. The [Node.js guide to the event loop](https://nodejs.org/learn/asynchronous-work/dont-block-the-event-loop) explains how those calculations can delay other tasks.
 
 For a product with substantial browser interaction and a backend that integrates services, staying with **TypeScript** can simplify the team's work. Choosing a runtime, such as **Node.js** or **Bun**, is part of that decision: the language alone does not describe how the service will behave.
 

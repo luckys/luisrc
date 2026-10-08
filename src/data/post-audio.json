@@ -34,5 +34,17 @@
       "fingerprint": "5e991e3d04920f012822bfece22479b7edc79be82cba64e383e53fd633b96252",
       "voice": "en-US-AndrewNeural"
     }
+  },
+  "elegir-lenguaje-python-go-rust-conclusion": {
+    "es": {
+      "src": "/assets/audio/es-5d0ddac0b03c229e222b2a200a5f96bf2f6551f65149007973fb678a587067d4.mp3",
+      "fingerprint": "5d0ddac0b03c229e222b2a200a5f96bf2f6551f65149007973fb678a587067d4",
+      "voice": "es-ES-AlvaroNeural"
+    },
+    "en": {
+      "src": "/assets/audio/en-33f34a5f119ecb8610cf9155353abbff47a51a88a284f4a8d312cb5082dc7e3a.mp3",
+      "fingerprint": "33f34a5f119ecb8610cf9155353abbff47a51a88a284f4a8d312cb5082dc7e3a",
+      "voice": "en-US-AndrewNeural"
+    }
   }
 }
