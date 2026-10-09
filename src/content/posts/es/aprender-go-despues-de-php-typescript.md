@@ -4,7 +4,7 @@ published: 2026-10-07
 locale: es
 translationKey: aprender-go-despues-de-php-typescript
 slug: aprender-go-despues-de-php-typescript
-draft: true
+draft: false
 description: 'Qué aporta Go a quien trabaja con PHP y TypeScript: tipos, errores y goroutines, con ejemplos comparables y sus límites.'
 author: 'Luis Ramírez Calle'
 series: 'Aprender otros lenguajes desde PHP y TypeScript'

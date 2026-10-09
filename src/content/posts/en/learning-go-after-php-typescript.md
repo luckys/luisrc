@@ -4,7 +4,7 @@ published: 2026-10-07
 locale: en
 translationKey: aprender-go-despues-de-php-typescript
 slug: learning-go-after-php-typescript
-draft: true
+draft: false
 description: 'What Go offers developers working with PHP and TypeScript: types, errors, and goroutines, with comparable examples and their limits.'
 author: 'Luis Ramírez Calle'
 series: 'Learning other languages from PHP and TypeScript'
