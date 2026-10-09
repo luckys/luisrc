@@ -168,6 +168,115 @@ Referencias: [librería de voz](https://github.com/travisvn/edge-tts-universal),
 [assets estáticos de Astro](https://docs.astro.build/en/guides/imports/#files-in-public)
 y [controles de audio](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio).
 
+## Diagramas, gráficos y animaciones
+
+Las herramientas visuales están instaladas como `devDependencies` para generar recursos
+antes de publicar. El blog sirve los SVG, imágenes y vídeos resultantes. Estar en
+`devDependencies` no impide incluir una librería en el navegador: evita importarlas desde
+scripts del cliente o layouts compartidos.
+
+| Herramienta                                                                            | Uso recomendado                                                              | Entrega al lector                        |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------- |
+| [D2](https://github.com/d2lang/d2/tree/master/d2js/js)                                 | Arquitectura, secuencias de pagos, estados y pipelines de RAG/OCR            | SVG generado localmente                  |
+| [Apache ECharts](https://echarts.apache.org/handbook/en/how-to/cross-platform/server/) | Latencias, costes, resultados de modelos y gráficos de datos                 | SVG estático o con animación CSS inicial |
+| [Motion Canvas](https://motion-canvas.io/docs/)                                        | Flujos paso a paso, movimiento de datos y gráficos con animaciones complejas | MP4 generado localmente                  |
+
+D2 es la herramienta de diagramas elegida por su control de composición y sus motores
+de distribución para diagramas de sistemas. El comando del proyecto usa ELK y ejecuta
+el motor WebAssembly únicamente en Node. Motion Canvas tiene su propio paquete de autoría
+en `tools/motion-canvas`, con Vite 5, para respetar los requisitos de su plugin sin cambiar
+el Vite que utiliza Astro.
+
+ECharts se ha elegido por su exportación SVG en Node sin DOM ni Canvas. La animación
+inicial del SVG funciona sin JavaScript, pero tooltips, filtros y datos dinámicos requieren
+interactividad adicional. [Chart.js](https://www.chartjs.org/docs/latest/getting-started/integration.html)
+es una alternativa para gráficos interactivos Canvas; D3 sería útil para visualizaciones
+personalizadas. Añadirlas cuando exista un artículo que necesite sus capacidades evita
+mantener librerías que cubren el mismo uso.
+
+### Generar un diagrama
+
+Guarda la definición D2 en un archivo `.d2` y genera el SVG:
+
+```bash
+pnpm visuals:diagram ruta/al/diagrama.d2 public/assets/visuals/diagrama.svg
+```
+
+El comando crea el directorio de salida. Por ejemplo, una definición mínima:
+
+```text
+direction: right
+documento -> ocr -> rag
+```
+
+El exportador admite un archivo autónomo, sin imports de otros archivos D2.
+Los bloques de código `d2` en los posts no se renderizan automáticamente;
+inserta el SVG exportado como imagen y añade texto alternativo que explique el flujo.
+Conserva los archivos fuente junto al trabajo del artículo y versiona el recurso exportado.
+
+### Exportar un gráfico con ECharts
+
+Este ejemplo se ejecuta en Node desde la raíz del proyecto; no pertenece a un script del cliente:
+
+```javascript
+import * as echarts from 'echarts'
+import { mkdir, writeFile } from 'node:fs/promises'
+
+const chart = echarts.init(null, null, {
+  renderer: 'svg',
+  ssr: true,
+  width: 800,
+  height: 400,
+})
+try {
+  chart.setOption({
+    animation: false,
+    xAxis: { type: 'category', data: ['Sin caché', 'Con caché'] },
+    yAxis: { type: 'value', name: 'Latencia (ms)' },
+    series: [{ type: 'bar', data: [180, 45] }],
+  })
+  await mkdir('public/assets/visuals', { recursive: true })
+  await writeFile('public/assets/visuals/latencia.svg', chart.renderToSVGString())
+} finally {
+  chart.dispose()
+}
+```
+
+Los datos son ilustrativos. `animation: true` habilita la animación CSS inicial en los
+tipos de gráfico compatibles. Las animaciones deben respetar `prefers-reduced-motion`;
+añade esa regla al SVG animado o proporciona una versión estática.
+
+### Generar vídeos con Motion Canvas
+
+```bash
+pnpm visuals:studio
+```
+
+Abre `http://127.0.0.1:9000`. El proyecto incluye una escena mínima en
+`tools/motion-canvas/src/scenes/flow.tsx` para empezar a crear explicaciones animadas.
+Añade las escenas del artículo y regístralas en `src/project.ts` dentro de ese paquete.
+Los archivos de configuración y metadatos del editor se pueden versionar con las escenas.
+
+En los ajustes de vídeo del editor, selecciona **Video (FFmpeg)** y activa **Fast start**.
+Exporta el vídeo y copia el MP4 terminado desde `tools/motion-canvas/output/` a
+`public/assets/visuals/`. El directorio temporal de exportación está fuera de Git;
+los vídeos publicados y las fuentes deben versionarse. El plugin instala sus binarios
+de FFmpeg y FFprobe; los scripts permitidos en Linux x64 solo les dan permiso de ejecución.
+
+La generación de recursos se ejecuta expresamente; `pnpm build` solo publica los archivos
+ya exportados. No se carga el editor ni el reproductor de Motion Canvas en los artículos.
+La comprobación de tipos de las animaciones se ejecuta con
+`pnpm --dir tools/motion-canvas check`.
+
+### Mantener el rendimiento y la accesibilidad
+
+- Prioriza SVG para diagramas y gráficos; WebP/AVIF para capturas de OCR y otras imágenes rasterizadas.
+- Usa vídeos breves con controles nativos, `preload="none"`, un `poster` optimizado y reproducción iniciada por el lector.
+- Define dimensiones o relación de aspecto para reservar espacio y evitar saltos del contenido. Carga las imágenes fuera de la primera pantalla con `loading="lazy"`.
+- Añade una explicación textual del flujo, datos en tabla cuando corresponda y subtítulos si hay narración. Traduce también las etiquetas de los recursos al español e inglés.
+- Si un artículo necesita interacción, carga únicamente los módulos necesarios de ECharts con un import dinámico al activar el gráfico; conserva el SVG como alternativa inicial.
+- Comprueba el peso de cada recurso y el JavaScript generado antes de publicar. Exportar previamente elimina el motor del navegador, pero imágenes, SVG complejos y vídeos siguen teniendo coste de descarga y renderizado.
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE.txt).

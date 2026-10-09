@@ -1,5 +1,6 @@
 # build output
 dist/
+tools/motion-canvas/output/
 
 # generated types
 .astro/
