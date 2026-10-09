@@ -205,6 +205,19 @@ const copy = curriculum[locale]
       if (y + height > bottomLimit && y > startY) addPage()
     }
 
+    const textHeight = (
+      text: string,
+      size: number,
+      style: 'normal' | 'bold' | 'italic',
+      leading: number,
+      after: number,
+    ) => {
+      if (!text) return 0
+      pdf.setFont('helvetica', style)
+      pdf.setFontSize(size)
+      return pdf.splitTextToSize(text, contentWidth).length * leading + after
+    }
+
     const addText = (
       text: string,
       options: {
@@ -307,7 +320,13 @@ const copy = curriculum[locale]
           firstContent,
           contentWidth - 3,
         ) as string[]
-        ensureSpace(22 + firstContentLines.length * 4.5)
+        ensureSpace(
+          textHeight(entryTitle, 10.5, 'bold', 4.7, 0.5) +
+            textHeight(subtitle, 9.5, 'italic', 4.2, 1) +
+            textHeight(period, 9.5, 'normal', 4.2, 0.6) +
+            firstContentLines.length * 4.5 +
+            2.6,
+        )
 
         if (entryTitle)
           addText(entryTitle, {
@@ -334,9 +353,16 @@ const copy = curriculum[locale]
           })
         if (body) addText(body, { size: 10, leading: 4.5, after: 2.6 })
 
-        bullets.forEach((bullet) =>
-          addText(`- ${bullet}`, { size: 10, indent: 3, leading: 4.5, after: 1.1 }),
-        )
+        bullets.forEach((bullet, index) => {
+          if (index === bullets.length - 1 && technologies) {
+            ensureSpace(
+              textHeight(`- ${bullet}`, 10, 'normal', 4.5, 1.1) +
+                textHeight(technologies, 9, 'normal', 4, 3) +
+                4.5,
+            )
+          }
+          addText(`- ${bullet}`, { size: 10, indent: 3, leading: 4.5, after: 1.1 })
+        })
 
         if (projectLinks) {
           addText(projectLinks, {
@@ -389,6 +415,7 @@ const copy = curriculum[locale]
 
   .cv-actions {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
@@ -406,14 +433,14 @@ const copy = curriculum[locale]
   .cv-section > h2 {
     color: var(--theme-accent);
     font-family: var(--theme-font), monospace;
-    font-size: 0.7rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.08em;
   }
 
   .cv-actions__hint {
     color: var(--cv-muted);
-    font-size: 0.8rem;
+    font-size: 1.0625rem;
   }
 
   .cv-download {
@@ -429,7 +456,7 @@ const copy = curriculum[locale]
     background: var(--theme-accent);
     color: var(--theme-background);
     font: inherit;
-    font-size: 0.88rem;
+    font-size: 1.125rem;
     font-weight: 700;
     transition: filter 150ms ease;
   }
@@ -475,7 +502,7 @@ const copy = curriculum[locale]
   .cv-hero h1 {
     margin: 0;
     color: var(--theme-heading1);
-    font-size: clamp(2.1rem, 5.2vw, 3rem);
+    font-size: 3.5rem;
     font-weight: 700;
     letter-spacing: -0.045em;
     line-height: 1.1;
@@ -484,7 +511,7 @@ const copy = curriculum[locale]
   .cv-hero__headline {
     margin: 0.6rem 0 0;
     color: var(--theme-heading2);
-    font-size: 1.16rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.4;
   }
@@ -492,7 +519,7 @@ const copy = curriculum[locale]
   .cv-hero__specialism {
     margin: 0.2rem 0 0;
     color: var(--cv-muted);
-    font-size: 0.95rem;
+    font-size: 1.125rem;
     line-height: 1.5;
   }
 
@@ -503,7 +530,7 @@ const copy = curriculum[locale]
     gap: 0.25rem 0.75rem;
     margin: 1rem 0 0;
     color: var(--cv-muted);
-    font-size: 0.82rem;
+    font-size: 1.0625rem;
     font-style: normal;
     line-height: 1.55;
     overflow-wrap: anywhere;
@@ -531,7 +558,7 @@ const copy = curriculum[locale]
     padding-bottom: 0.32rem;
     border-bottom: 1px solid var(--cv-line);
     color: var(--theme-accent);
-    font-size: 0.96rem;
+    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.055em;
     line-height: 1.4;
@@ -554,14 +581,14 @@ const copy = curriculum[locale]
   .cv-entry__topline h3 {
     margin: 0;
     color: var(--theme-heading2);
-    font-size: 0.94rem;
+    font-size: 1.375rem;
     font-weight: 700;
     line-height: 1.5;
   }
 
   .cv-entry__topline time {
     color: var(--cv-muted);
-    font-size: 0.86rem;
+    font-size: 1.0625rem;
     font-weight: 400;
   }
 
@@ -573,7 +600,7 @@ const copy = curriculum[locale]
   .cv-entry__subtitle {
     margin: 0.08rem 0 0.28rem;
     color: var(--cv-muted);
-    font-size: 0.86rem;
+    font-size: 1.125rem;
     line-height: 1.5;
   }
 
@@ -582,7 +609,7 @@ const copy = curriculum[locale]
     margin-top: 0.3rem;
     margin-bottom: 0;
     color: var(--theme-foreground);
-    font-size: 12pt;
+    font-size: 1.125rem;
     line-height: 1.62;
   }
 
@@ -602,7 +629,7 @@ const copy = curriculum[locale]
   .cv-entry__technologies {
     margin: 0.34rem 0 0;
     color: var(--cv-muted);
-    font-size: 0.82rem;
+    font-size: 1.0625rem;
     line-height: 1.5;
   }
 
@@ -627,7 +654,11 @@ const copy = curriculum[locale]
     .cv-download {
       min-height: 2.45rem;
       padding: 0.5rem 0.7rem;
-      font-size: 0.78rem;
+      font-size: 1.125rem;
+    }
+
+    .cv-hero h1 {
+      font-size: 2.5rem;
     }
 
     .cv-sheet {

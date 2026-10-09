@@ -84,6 +84,11 @@ export default defineConfig({
     responsiveStyles: true,
   },
   vite: {
+    // A build must not invalidate dependencies used by a running dev server.
+    cacheDir:
+      process.env.NODE_ENV === 'production'
+        ? './node_modules/.vite-build'
+        : './node_modules/.vite-dev',
     plugins: [tailwindcss()],
   },
   integrations: [
