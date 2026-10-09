@@ -157,6 +157,11 @@ const copy = curriculum[locale]
 
     const locale = root.dataset.locale === 'en' ? 'en' : 'es'
     const pdf = new jsPDF({ format: 'a4', unit: 'mm', compress: true })
+    pdf.setProperties({
+      title: `Luis Ramírez Calle - ${locale === 'es' ? 'Currículum vitae' : 'Curriculum vitae'}`,
+      author: 'Luis Ramírez Calle',
+      subject: 'Senior Full-Stack Software Engineer / Tech Lead',
+    })
     const pageWidth = pdf.internal.pageSize.getWidth()
     const pageHeight = pdf.internal.pageSize.getHeight()
     const margin = 18
@@ -166,7 +171,10 @@ const copy = curriculum[locale]
     let y = startY
 
     const readText = (element: Element | null) =>
-      element?.textContent?.replace(/\s+/g, ' ').trim() ?? ''
+      element?.textContent
+        ?.replace(/[\u2010-\u2015]/g, '-')
+        .replace(/\s+/g, ' ')
+        .trim() ?? ''
 
     const parseThemeColor = (value: string, fallback: [number, number, number]) => {
       const match = value.trim().match(/^#([\da-f]{3}|[\da-f]{6})$/i)
@@ -262,7 +270,7 @@ const copy = curriculum[locale]
 
     root.querySelectorAll<HTMLElement>('[data-cv-section]').forEach((section) => {
       const title = readText(section.querySelector('[data-cv-section-title]'))
-      ensureSpace(20)
+      ensureSpace(45)
       pdf.setFont('helvetica', 'bold')
       pdf.setFontSize(11)
       pdf.setTextColor(...accentColor)
@@ -291,6 +299,16 @@ const copy = curriculum[locale]
           )
           .join('  |  ')
 
+        // Keep the company, role and dates with the first paragraph or bullet.
+        const firstContent = body || bullets[0] || projectLinks || technologies
+        pdf.setFont('helvetica', 'normal')
+        pdf.setFontSize(10)
+        const firstContentLines = pdf.splitTextToSize(
+          firstContent,
+          contentWidth - 3,
+        ) as string[]
+        ensureSpace(22 + firstContentLines.length * 4.5)
+
         if (entryTitle)
           addText(entryTitle, {
             size: 10.5,
@@ -299,14 +317,6 @@ const copy = curriculum[locale]
             leading: 4.7,
             after: 0.5,
           })
-        if (period)
-          addText(period, {
-            size: 9.5,
-            style: 'italic',
-            color: mutedColor,
-            leading: 4.2,
-            after: 0.6,
-          })
         if (subtitle)
           addText(subtitle, {
             size: 9.5,
@@ -314,6 +324,13 @@ const copy = curriculum[locale]
             color: mutedColor,
             leading: 4.2,
             after: 1,
+          })
+        if (period)
+          addText(period, {
+            size: 9.5,
+            color: mutedColor,
+            leading: 4.2,
+            after: 0.6,
           })
         if (body) addText(body, { size: 10, leading: 4.5, after: 2.6 })
 

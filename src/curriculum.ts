@@ -12,7 +12,7 @@ export interface CurriculumEntry {
 
 export interface CurriculumSection {
   title: string
-  kind: 'summary' | 'expertise' | 'experience' | 'projects' | 'approach' | 'education'
+  kind: 'summary' | 'expertise' | 'experience' | 'projects' | 'education'
   entries: CurriculumEntry[]
 }
 
@@ -35,10 +35,10 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
   en: {
     pageTitle: 'Curriculum vitae',
     pageDescription:
-      'Professional background, selected work and engineering approach of Luis Ramírez Calle.',
+      'Luis Ramírez Calle — Senior Full-Stack Software Engineer and Tech Lead specializing in TypeScript, Node.js, React, PostgreSQL and AWS.',
     eyebrow: 'PROFESSIONAL PROFILE',
-    headline: 'Senior Software Engineer / Tech Lead',
-    specialism: 'TypeScript / Node.js · SaaS, Platform & AI Engineering',
+    headline: 'Senior Full-Stack Software Engineer / Tech Lead',
+    specialism: 'TypeScript · Node.js / NestJS · React / Vue.js · PostgreSQL · AWS',
     location: 'Las Palmas de Gran Canaria, Spain',
     email: 'luis.ramirezcalle@outlook.com',
     downloadLabel: 'Download PDF',
@@ -51,54 +51,8 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         kind: 'summary',
         entries: [
           {
-            title: 'SaaS, platform & AI engineering',
-            body: 'Senior Software Engineer and hands-on Tech Lead with nearly 10 years of full-stack development experience across SaaS, e-commerce and logistics. Specializes in TypeScript, Node.js, NestJS, React, Vue.js, Nuxt and PostgreSQL. Has built products from zero to production and led a 4-person team on an e-commerce platform processing approximately 1,000 orders per day. Experience in legacy code refactoring, platform modernization and Nuxt 2 to Nuxt 3 migration. Owns architecture, automated testing, security, CI/CD and production operations, with practical AI integration experience using OpenAI API, RAG and AI SDK.',
-          },
-        ],
-      },
-      {
-        title: 'Technical skills',
-        kind: 'expertise',
-        entries: [
-          {
-            title: 'Languages',
-            body: 'TypeScript, JavaScript, Python (working knowledge), PHP',
-          },
-          {
-            title: 'Backend & APIs',
-            body: 'Node.js, NestJS, Express, Laravel, Symfony, REST APIs, GraphQL, third-party integrations, asynchronous processing, background jobs, Redis, BullMQ',
-          },
-          {
-            title: 'Frontend',
-            body: 'React (React.js), React Router, Next.js, Vue.js, Nuxt, Vite, Tailwind CSS',
-          },
-          {
-            title: 'AI product engineering',
-            body: 'OpenAI API, Amazon Bedrock, Retrieval-Augmented Generation (RAG), AI SDK, Large Language Model (LLM) integration, AI-assisted engineering workflows',
-          },
-          {
-            title: 'Data, architecture & security',
-            body: 'PostgreSQL, MySQL, MongoDB, DynamoDB, Redis, Domain-Driven Design (DDD), Hexagonal Architecture, bounded contexts, PostgreSQL Row-Level Security (RLS), fail-closed authorization, concurrency control',
-          },
-          {
-            title: 'Cloud infrastructure & delivery',
-            body: 'Amazon Web Services (AWS), AWS Lambda, Amazon SQS, Amazon SES, serverless architecture, Infrastructure as Code (IaC) with Terraform, Docker, Docker Compose, Kubernetes, Linux, Cloudflare, Heroku, Continuous Integration / Continuous Delivery (CI/CD), GitHub Actions, GitLab CI, reproducible deployments, database migrations, production operations',
-          },
-          {
-            title: 'Monitoring & payment integrations',
-            body: 'Amazon CloudWatch, application error monitoring with Sentry and GlitchTip; payment gateway integrations with Stripe and Redsys',
-          },
-          {
-            title: 'Automated testing & quality',
-            body: 'Test-Driven Development (TDD), Vitest, React Testing Library, Playwright, unit testing, integration testing, HTTP contract testing, end-to-end (E2E) testing, automated quality gates',
-          },
-          {
-            title: 'Refactoring & legacy modernization',
-            body: 'Legacy code maintenance, behavior-preserving refactoring, technical debt reduction, incremental modernization, framework migrations, regression testing, maintainability',
-          },
-          {
-            title: 'Technical leadership',
-            body: 'End-to-end ownership, product collaboration, architecture decisions, team leadership, pragmatic engineering and production operations',
+            title: 'Full-stack development, product delivery and technical leadership',
+            body: 'Senior Software Engineer and hands-on Tech Lead with nearly 10 years of experience building SaaS, e-commerce and logistics products. Specializes in TypeScript, Node.js, NestJS, React, Vue.js and PostgreSQL. Led a 4-person team on a platform processing approximately 1,000 orders per day and built a logistics platform handling approximately 5,000 shipments per day. Owns delivery from product decisions and architecture to automated testing, cloud deployment and production operations. Additional experience in legacy modernization, secure integrations and AI features using OpenAI API and RAG.',
           },
         ],
       },
@@ -108,30 +62,28 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         entries: [
           {
             title: 'Medflow S.L.U. — Oncoviva',
-            subtitle: 'Co-Founder & CTO / Senior Software Engineer / Freelance',
+            subtitle:
+              'Co-Founder & Chief Technology Officer (CTO) / Senior Software Engineer (Freelance)',
             period: 'Feb 2026 — Present',
             bullets: [
-              'Built Oncoviva from the ground up as the sole engineer, owning architecture, backend and frontend implementation, deployment, operations and technical product decisions with the CEO.',
-              'Designed a modular architecture using Domain-Driven Design, Hexagonal Architecture and bounded contexts, with NestJS/TypeScript on the backend and React/TypeScript on the frontend.',
-              'Engineered security controls for sensitive data, including 2FA, HttpOnly refresh tokens, PostgreSQL RLS, actor and ownership isolation, fail-closed authorization, atomic locking, concurrency control and replay protection.',
-              'Built integrations with Odoo and DocuSeal, Redsys payment integration, and queue-based background processing with Redis and BullMQ; established reproducible database migrations, Docker/Docker Compose workflows and CI/CD.',
-              'Established automated quality gates with TDD, Vitest, React Testing Library, Playwright, PostgreSQL integration tests, HTTP contracts and Zod, and integrated AI capabilities using OpenAI API, RAG and AI SDK.',
-              'Used GlitchTip for application error monitoring.',
+              'Built Oncoviva from zero to production as the sole engineer, owning NestJS/TypeScript backend and React frontend delivery, modular architecture (DDD, Hexagonal Architecture) and technical product decisions with the CEO.',
+              'Implemented authentication and authorization for sensitive data: 2FA, HttpOnly refresh tokens, PostgreSQL RLS, ownership isolation, concurrency control and replay protection.',
+              'Integrated Odoo, DocuSeal and Redsys payments; implemented asynchronous background jobs with Redis and BullMQ.',
+              'Established automated tests with Vitest, React Testing Library and Playwright, including PostgreSQL integration tests, HTTP contracts and Zod validation; owned Docker, CI/CD, database migrations and production monitoring with GlitchTip.',
+              'Integrated AI capabilities using OpenAI API, Retrieval-Augmented Generation (RAG) and AI SDK.',
             ],
             technologies:
               'TypeScript, Node.js, NestJS, React, PostgreSQL, Redis, BullMQ, Docker, Docker Compose, GlitchTip, Redsys, CI/CD, Zod, OpenAI API, RAG, AI SDK',
           },
           {
             title: 'TALKUAL',
-            subtitle: 'CTO / Tech Lead',
+            subtitle: 'Chief Technology Officer (CTO) / Tech Lead',
             period: 'May 2023 — Nov 2025',
             bullets: [
-              'Led technology and product engineering for an e-commerce platform processing approximately 1,000 orders per day, managing a 4-person team while remaining hands-on in delivery.',
-              'Defined architecture, technology strategy and product priorities with business stakeholders, balancing short-term delivery with long-term platform evolution.',
-              'Refactored legacy code in the e-commerce platform to improve maintainability and code quality, addressing technical debt alongside product delivery.',
-              'Led the Nuxt 2 to Nuxt 3 migration, improving performance, maintainability and access to the modern Vue/Nuxt ecosystem.',
-              'Integrated Odoo to automate accounting and manufacturing workflows tied to the order lifecycle.',
-              'Integrated Redsys payments and worked with GitHub Actions and GitLab CI pipelines, using Docker Compose for containerized development workflows.',
+              'Led a 4-person engineering team for an e-commerce platform processing approximately 1,000 orders per day, while contributing directly to product delivery.',
+              'Defined architecture and product priorities with business stakeholders; refactored legacy code and addressed technical debt alongside new features.',
+              'Led the Nuxt 2 to Nuxt 3 migration to improve performance and maintainability of the Vue.js frontend.',
+              'Automated accounting and manufacturing workflows through Odoo integration, integrated Redsys payments and worked with Docker, GitHub Actions and GitLab CI delivery pipelines.',
             ],
             technologies:
               'TypeScript, Node.js, Vue.js, Nuxt, PostgreSQL, Odoo, Redsys, Heroku, Docker, Docker Compose, GitHub Actions, GitLab CI',
@@ -141,12 +93,10 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'Full-Stack Software Engineer / Tech Lead',
             period: 'Mar 2021 — May 2023',
             bullets: [
-              'Designed and built a last-mile SaaS platform from the ground up across backend, frontend, cloud infrastructure and external integrations.',
-              'Delivered a system handling approximately 5,000 shipments per day, including integrations with Cainiao and Citibox.',
-              'Implemented cloud infrastructure using AWS Serverless architecture for the logistics platform, with Redis, DynamoDB and MySQL in the stack; integrated Google Maps geolocation and route optimization with Routific, and contributed to MoxDelivery, a SaaS home-delivery platform.',
-              'Worked with Terraform for Infrastructure as Code (IaC), Kubernetes, Docker Compose, and CI/CD pipelines using GitHub Actions and GitLab CI.',
-              'Integrated Stripe payments and used Sentry for application error monitoring.',
-              'Worked with AWS Lambda for serverless execution, Amazon SQS for message queues, Amazon SES for email delivery, Amazon CloudWatch for monitoring, and Amazon Bedrock.',
+              'Built a last-mile logistics SaaS platform from the ground up, delivering backend, frontend and AWS infrastructure for approximately 5,000 shipments per day.',
+              'Implemented AWS serverless workloads with Lambda, SQS and SES, using MySQL, DynamoDB and Redis; monitored production with CloudWatch and Sentry.',
+              'Integrated Cainiao, Citibox, Google Maps, Routific route optimization and Stripe payments; contributed to MoxDelivery, a SaaS home-delivery platform.',
+              'Worked with Terraform (IaC), Kubernetes, Docker Compose and CI/CD pipelines using GitHub Actions and GitLab CI.',
             ],
             technologies:
               'Laravel, PHP, TypeScript, Node.js, Vue.js, Nuxt, AWS, Lambda, SQS, SES, CloudWatch, Bedrock, Serverless, Terraform, Kubernetes, Docker, Docker Compose, GitHub Actions, GitLab CI, Sentry, Stripe, Redis, DynamoDB, MySQL, GraphQL, Google Maps, Routific',
@@ -156,13 +106,50 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'Full-Stack Software Engineer',
             period: 'Jan 2017 — Feb 2021',
             bullets: [
-              'Designed and developed backend and frontend systems for products across multiple industries and enterprise clients.',
-              'For Hörmann, built a real-time monitoring platform for approximately 200 devices distributed across 5 warehouses.',
-              'Delivered additional products including Lenogulf, a seed-trading platform, and HYVE Crowd, a crowdsourcing platform.',
-              'Worked with AWS cloud infrastructure and containerized environments using Docker and Docker Compose.',
+              'Built a real-time monitoring platform for Hörmann covering approximately 200 devices across 5 warehouses.',
+              'Developed full-stack products for enterprise clients, including Lenogulf (seed trading) and HYVE Crowd (crowdsourcing), using PHP/Laravel and JavaScript frameworks.',
+              'Worked with AWS infrastructure and containerized development environments using Docker and Docker Compose.',
             ],
             technologies:
               'PHP, Laravel, Node.js, React, Vue.js, Nuxt, Next.js, Express, Symfony, MySQL, MongoDB, AWS, Docker, Docker Compose, Tailwind CSS',
+          },
+        ],
+      },
+      {
+        title: 'Technical skills',
+        kind: 'expertise',
+        entries: [
+          {
+            title: 'Languages',
+            body: 'TypeScript, JavaScript, PHP; Python (working knowledge)',
+          },
+          {
+            title: 'Backend & APIs',
+            body: 'Node.js, NestJS, Express, REST APIs, GraphQL, Laravel, Symfony, third-party integrations, asynchronous processing, background jobs (Redis, BullMQ)',
+          },
+          {
+            title: 'Frontend',
+            body: 'React (React.js), Next.js, React Router, Vue.js, Nuxt, TypeScript, Vite, Tailwind CSS',
+          },
+          {
+            title: 'AI product engineering',
+            body: 'AI agent development, Model Context Protocol (MCP), OpenAI API, Anthropic Claude integration, Retrieval-Augmented Generation (RAG), AI SDK, Large Language Model (LLM) integration, Amazon Bedrock, AI-assisted development with human review and testing',
+          },
+          {
+            title: 'Data, architecture & security',
+            body: 'SQL, PostgreSQL, MySQL, MongoDB, DynamoDB, Redis; Domain-Driven Design (DDD), Hexagonal Architecture, modular design; authentication, authorization, PostgreSQL Row-Level Security (RLS), concurrency control',
+          },
+          {
+            title: 'Cloud infrastructure & delivery',
+            body: 'Amazon Web Services (AWS): Lambda, SQS, SES, CloudWatch; serverless, Terraform (Infrastructure as Code / IaC), Docker, Docker Compose, Kubernetes, Linux, Cloudflare, Heroku; CI/CD, GitHub Actions, GitLab CI; production monitoring with Sentry and GlitchTip',
+          },
+          {
+            title: 'Automated testing & quality',
+            body: 'Test-Driven Development (TDD), Vitest, React Testing Library, Playwright; unit, integration, HTTP contract and end-to-end (E2E) testing; regression testing, legacy refactoring and framework migrations',
+          },
+          {
+            title: 'Technical leadership',
+            body: 'Hands-on team leadership, product and stakeholder collaboration, architecture decisions, technical debt prioritization, end-to-end delivery and production ownership',
           },
         ],
       },
@@ -175,8 +162,7 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'Founder / Senior Software Engineer (Personal Project)',
             period: 'Nov 2025 — Present',
             bullets: [
-              'Building an open-source educational platform that converts technical documentation into practical learning paths and production-like applications.',
-              'Own product design and implementation, applying use-case-driven architecture, maintainable code and pragmatic software-engineering practices.',
+              'Building an open-source educational platform that turns technical documentation into practical learning paths and production-like applications; own product design, architecture and implementation.',
             ],
             technologies:
               'TypeScript, Node.js, Nuxt, PostgreSQL, Docker, Docker Compose, open source',
@@ -199,32 +185,6 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         ],
       },
       {
-        title: 'Engineering approach',
-        kind: 'approach',
-        entries: [
-          {
-            title: 'Pragmatic architecture',
-            body: 'Apply Domain-Driven Design and Hexagonal Architecture when domain complexity justifies them; prefer simple designs when it does not.',
-          },
-          {
-            title: 'Safe refactoring & legacy code',
-            body: 'Approach existing systems through their business behavior and dependencies. Favor small, behavior-preserving changes supported by regression tests, and incremental modernization over unnecessary rewrites.',
-          },
-          {
-            title: 'End-to-end ownership',
-            body: 'Connect product decisions with architecture, implementation, testing, delivery and production operations.',
-          },
-          {
-            title: 'Security and verifiable quality',
-            body: 'Favor explicit contracts, fail-closed authorization, reproducible delivery and automated integration/E2E testing.',
-          },
-          {
-            title: 'AI as engineering leverage',
-            body: 'Use AI tooling to accelerate repetitive work, exploration and product integration while retaining engineering judgment for architecture, correctness and security.',
-          },
-        ],
-      },
-      {
         title: 'Education & languages',
         kind: 'education',
         entries: [
@@ -233,6 +193,11 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle:
               'Computer Engineering Degree, Information Technology specialization',
             period: '2012 — 2016',
+          },
+          {
+            title: 'Continuing education: Machine Learning',
+            period: 'In progress',
+            body: 'Currently training in Machine Learning and data analysis with Python, pandas, NumPy, MATLAB and TensorFlow.',
           },
           {
             title: 'Languages',
@@ -245,10 +210,10 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
   es: {
     pageTitle: 'Currículum vitae',
     pageDescription:
-      'Trayectoria profesional, proyectos destacados y enfoque de ingeniería de Luis Ramírez Calle.',
+      'Luis Ramírez Calle — Ingeniero de software full stack sénior y Tech Lead especializado en TypeScript, Node.js, React, PostgreSQL y AWS.',
     eyebrow: 'PERFIL PROFESIONAL',
-    headline: 'Ingeniero de software sénior / Tech Lead',
-    specialism: 'TypeScript / Node.js · SaaS, plataformas e ingeniería de IA',
+    headline: 'Ingeniero de software full stack sénior / Tech Lead',
+    specialism: 'TypeScript · Node.js / NestJS · React / Vue.js · PostgreSQL · AWS',
     location: 'Las Palmas de Gran Canaria, España',
     email: 'luis.ramirezcalle@outlook.com',
     downloadLabel: 'Descargar PDF',
@@ -261,54 +226,8 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         kind: 'summary',
         entries: [
           {
-            title: 'Ingeniería SaaS, plataformas e IA',
-            body: 'Ingeniero de software sénior (Senior Software Engineer) y Tech Lead con casi 10 años de experiencia en desarrollo full stack de productos SaaS, comercio electrónico y logística. Especializado en TypeScript, Node.js, NestJS, React, Vue.js, Nuxt y PostgreSQL. He construido productos desde cero hasta producción y liderado un equipo de cuatro personas en una plataforma con aproximadamente 1.000 pedidos diarios. Experiencia en refactoring de código heredado (legacy code), modernización de plataformas y migración de Nuxt 2 a Nuxt 3. Asumo arquitectura, pruebas automatizadas, seguridad, CI/CD y operaciones en producción, con experiencia práctica en integración de IA mediante OpenAI API, RAG y AI SDK.',
-          },
-        ],
-      },
-      {
-        title: 'Competencias técnicas',
-        kind: 'expertise',
-        entries: [
-          {
-            title: 'Lenguajes',
-            body: 'TypeScript, JavaScript, Python (conocimientos prácticos), PHP',
-          },
-          {
-            title: 'Backend y APIs',
-            body: 'Node.js, NestJS, Express, Laravel, Symfony, APIs REST, GraphQL, integraciones con terceros, procesamiento asíncrono, tareas en segundo plano, Redis, BullMQ',
-          },
-          {
-            title: 'Frontend',
-            body: 'React (React.js), React Router, Next.js, Vue.js, Nuxt, Vite, Tailwind CSS',
-          },
-          {
-            title: 'Ingeniería de producto con IA',
-            body: 'OpenAI API, Amazon Bedrock, generación aumentada por recuperación (Retrieval-Augmented Generation, RAG), AI SDK, integración de modelos de lenguaje (LLM), flujos de ingeniería asistidos por IA',
-          },
-          {
-            title: 'Datos, arquitectura y seguridad',
-            body: 'PostgreSQL, MySQL, MongoDB, DynamoDB, Redis, Domain-Driven Design (DDD), Arquitectura Hexagonal, contextos delimitados, Row-Level Security (RLS) en PostgreSQL, autorización segura ante fallos, control de concurrencia',
-          },
-          {
-            title: 'Infraestructura cloud y entrega',
-            body: 'Amazon Web Services (AWS), AWS Lambda, Amazon SQS, Amazon SES, arquitectura serverless, infraestructura como código (IaC) con Terraform, Docker, Docker Compose, Kubernetes, Linux, Cloudflare, Heroku, integración y entrega continuas (CI/CD), GitHub Actions, GitLab CI, despliegues reproducibles, migraciones de bases de datos, operaciones en producción',
-          },
-          {
-            title: 'Monitorización e integraciones de pagos',
-            body: 'Amazon CloudWatch, monitorización de errores de aplicaciones con Sentry y GlitchTip; integración de pasarelas de pago con Stripe y Redsys',
-          },
-          {
-            title: 'Pruebas automatizadas y calidad',
-            body: 'Desarrollo guiado por pruebas (TDD), Vitest, React Testing Library, Playwright, pruebas unitarias, pruebas de integración, pruebas de contratos HTTP, pruebas de extremo a extremo (E2E), controles automatizados de calidad',
-          },
-          {
-            title: 'Refactoring y modernización de legacy code',
-            body: 'Mantenimiento de código heredado, refactorización sin cambios de comportamiento, reducción de deuda técnica, modernización incremental, migraciones de frameworks, pruebas de regresión, mantenibilidad',
-          },
-          {
-            title: 'Liderazgo técnico',
-            body: 'Responsabilidad de extremo a extremo, colaboración con producto, decisiones de arquitectura, liderazgo de equipos, ingeniería pragmática y operaciones en producción',
+            title: 'Desarrollo full stack, entrega de producto y liderazgo técnico',
+            body: 'Ingeniero de software sénior (Senior Software Engineer) y Tech Lead con casi 10 años de experiencia en productos SaaS, comercio electrónico y logística. Especializado en TypeScript, Node.js, NestJS, React, Vue.js y PostgreSQL. Lideré un equipo de cuatro personas en una plataforma con unos 1.000 pedidos diarios y construí una plataforma logística con unos 5.000 envíos diarios. Asumo el ciclo completo: decisiones de producto, arquitectura, pruebas automatizadas, despliegue cloud y operaciones en producción. Experiencia adicional en modernización de código heredado, integraciones seguras y funciones de IA con OpenAI API y RAG.',
           },
         ],
       },
@@ -318,30 +237,28 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         entries: [
           {
             title: 'Medflow S.L.U. — Oncoviva',
-            subtitle: 'Cofundador y CTO / Ingeniero de software sénior / Freelance',
+            subtitle:
+              'Cofundador y director de tecnología (CTO) / Ingeniero de software sénior (Freelance)',
             period: 'Feb 2026 — Actualidad',
             bullets: [
-              'Construí Oncoviva desde cero como único ingeniero, haciéndome cargo de la arquitectura, el desarrollo backend y frontend, el despliegue, las operaciones y las decisiones técnicas de producto junto al CEO.',
-              'Diseñé una arquitectura modular con Domain-Driven Design, Arquitectura Hexagonal y contextos delimitados, con NestJS/TypeScript en backend y React/TypeScript en frontend.',
-              'Desarrollé controles de seguridad para datos sensibles: 2FA, tokens de refresco HttpOnly, RLS en PostgreSQL, aislamiento por actor y titularidad, autorización segura ante fallos, bloqueos atómicos, control de concurrencia y protección contra repetición.',
-              'Desarrollé integraciones con Odoo y DocuSeal, la integración de pagos con Redsys y procesamiento en segundo plano mediante colas con Redis y BullMQ; establecí migraciones reproducibles de bases de datos, flujos con Docker/Docker Compose y CI/CD.',
-              'Establecí controles automatizados de calidad con TDD, Vitest, React Testing Library, Playwright, pruebas de integración con PostgreSQL, contratos HTTP y Zod; integré capacidades de IA mediante OpenAI API, RAG y AI SDK.',
-              'Utilicé GlitchTip para monitorizar errores de las aplicaciones.',
+              'Construí Oncoviva desde cero hasta producción como único ingeniero: backend NestJS/TypeScript, frontend React, arquitectura modular (DDD, Arquitectura Hexagonal) y decisiones técnicas de producto junto al CEO.',
+              'Implementé autenticación y autorización para datos sensibles: 2FA, tokens de refresco HttpOnly, RLS en PostgreSQL, aislamiento por titularidad, control de concurrencia y protección contra repetición.',
+              'Integré Odoo, DocuSeal y pagos con Redsys; implementé tareas asíncronas en segundo plano con Redis y BullMQ.',
+              'Establecí pruebas automatizadas con Vitest, React Testing Library y Playwright, incluyendo integración con PostgreSQL, contratos HTTP y validación con Zod; asumí Docker, CI/CD, migraciones y monitorización en producción con GlitchTip.',
+              'Integré funciones de IA con OpenAI API, generación aumentada por recuperación (RAG) y AI SDK.',
             ],
             technologies:
               'TypeScript, Node.js, NestJS, React, PostgreSQL, Redis, BullMQ, Docker, Docker Compose, GlitchTip, Redsys, CI/CD, Zod, OpenAI API, RAG, AI SDK',
           },
           {
             title: 'TALKUAL',
-            subtitle: 'CTO / Tech Lead',
+            subtitle: 'Director de tecnología (CTO) / Tech Lead',
             period: 'May 2023 — Nov 2025',
             bullets: [
-              'Lideré la tecnología y la ingeniería de producto de una plataforma de comercio electrónico que procesaba aproximadamente 1.000 pedidos diarios. Gestioné un equipo de cuatro personas y participé activamente en las entregas.',
-              'Definí la arquitectura, la estrategia tecnológica y las prioridades de producto con las partes interesadas del negocio, equilibrando las entregas a corto plazo con la evolución de la plataforma.',
-              'Refactoricé código heredado (legacy code) de la plataforma de comercio electrónico para mejorar su mantenibilidad y calidad, abordando la deuda técnica junto con las entregas de producto.',
-              'Lideré la migración de Nuxt 2 a Nuxt 3, mejorando el rendimiento y la mantenibilidad, y facilitando la adopción del ecosistema moderno de Vue/Nuxt.',
-              'Integré Odoo para automatizar flujos de contabilidad y fabricación vinculados al ciclo de vida de los pedidos.',
-              'Integré pagos con Redsys y trabajé con pipelines de GitHub Actions y GitLab CI, usando Docker Compose para flujos de desarrollo con contenedores.',
+              'Lideré un equipo de cuatro personas en una plataforma de comercio electrónico con unos 1.000 pedidos diarios, participando directamente en el desarrollo y las entregas.',
+              'Definí arquitectura y prioridades de producto con negocio; refactoricé código heredado y abordé deuda técnica junto con nuevas funcionalidades.',
+              'Lideré la migración de Nuxt 2 a Nuxt 3 para mejorar el rendimiento y la mantenibilidad del frontend Vue.js.',
+              'Automaticé flujos de contabilidad y fabricación mediante Odoo, integré pagos con Redsys y trabajé con Docker y pipelines de entrega con GitHub Actions y GitLab CI.',
             ],
             technologies:
               'TypeScript, Node.js, Vue.js, Nuxt, PostgreSQL, Odoo, Redsys, Heroku, Docker, Docker Compose, GitHub Actions, GitLab CI',
@@ -351,12 +268,10 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'Ingeniero de software full stack / Tech Lead',
             period: 'Mar 2021 — May 2023',
             bullets: [
-              'Diseñé y construí desde cero una plataforma SaaS de última milla, incluyendo backend, frontend, infraestructura cloud e integraciones externas.',
-              'Entregué un sistema que gestionaba aproximadamente 5.000 envíos diarios, con integraciones con Cainiao y Citibox.',
-              'Implementé infraestructura cloud con arquitectura AWS Serverless para la plataforma logística, con Redis, DynamoDB y MySQL en el stack; integré geolocalización con Google Maps y optimización de rutas con Routific, y colaboré en MoxDelivery, una plataforma SaaS de entrega a domicilio.',
-              'Trabajé con Terraform para infraestructura como código (IaC), Kubernetes, Docker Compose y pipelines de CI/CD con GitHub Actions y GitLab CI.',
-              'Integré pagos con Stripe y utilicé Sentry para monitorizar errores de las aplicaciones.',
-              'Trabajé con AWS Lambda para ejecución serverless, Amazon SQS para colas de mensajes, Amazon SES para envío de correo, Amazon CloudWatch para monitorización y Amazon Bedrock.',
+              'Construí desde cero una plataforma SaaS de logística de última milla, con backend, frontend e infraestructura AWS para unos 5.000 envíos diarios.',
+              'Implementé cargas serverless en AWS con Lambda, SQS y SES, utilizando MySQL, DynamoDB y Redis; monitoricé producción con CloudWatch y Sentry.',
+              'Integré Cainiao, Citibox, Google Maps, optimización de rutas con Routific y pagos con Stripe; colaboré en MoxDelivery, una plataforma SaaS de entrega a domicilio.',
+              'Trabajé con Terraform (IaC), Kubernetes, Docker Compose y pipelines de CI/CD con GitHub Actions y GitLab CI.',
             ],
             technologies:
               'Laravel, PHP, TypeScript, Node.js, Vue.js, Nuxt, AWS, Lambda, SQS, SES, CloudWatch, Bedrock, Serverless, Terraform, Kubernetes, Docker, Docker Compose, GitHub Actions, GitLab CI, Sentry, Stripe, Redis, DynamoDB, MySQL, GraphQL, Google Maps, Routific',
@@ -366,13 +281,50 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'Ingeniero de software full stack',
             period: 'Ene 2017 — Feb 2021',
             bullets: [
-              'Diseñé y desarrollé sistemas backend y frontend para productos de distintas industrias y clientes empresariales.',
-              'Para Hörmann, construí una plataforma de monitorización en tiempo real para aproximadamente 200 dispositivos distribuidos en cinco almacenes.',
-              'Desarrollé otros productos, como Lenogulf, una plataforma de comercio de semillas, e HYVE Crowd, una plataforma de crowdsourcing.',
-              'Trabajé con infraestructura cloud en AWS y entornos con contenedores mediante Docker y Docker Compose.',
+              'Construí una plataforma de monitorización en tiempo real para Hörmann con unos 200 dispositivos distribuidos en cinco almacenes.',
+              'Desarrollé productos full stack para clientes empresariales, incluyendo Lenogulf (comercio de semillas) e HYVE Crowd (crowdsourcing), con PHP/Laravel y frameworks JavaScript.',
+              'Trabajé con infraestructura AWS y entornos de desarrollo con contenedores mediante Docker y Docker Compose.',
             ],
             technologies:
               'PHP, Laravel, Node.js, React, Vue.js, Nuxt, Next.js, Express, Symfony, MySQL, MongoDB, AWS, Docker, Docker Compose, Tailwind CSS',
+          },
+        ],
+      },
+      {
+        title: 'Competencias técnicas',
+        kind: 'expertise',
+        entries: [
+          {
+            title: 'Lenguajes',
+            body: 'TypeScript, JavaScript, PHP; Python (conocimientos prácticos)',
+          },
+          {
+            title: 'Backend y APIs',
+            body: 'Node.js, NestJS, Express, APIs REST, GraphQL, Laravel, Symfony, integraciones con terceros, procesamiento asíncrono, tareas en segundo plano (Redis, BullMQ)',
+          },
+          {
+            title: 'Frontend',
+            body: 'React (React.js), Next.js, React Router, Vue.js, Nuxt, TypeScript, Vite, Tailwind CSS',
+          },
+          {
+            title: 'Ingeniería de producto con IA',
+            body: 'Creación de agentes de IA, Model Context Protocol (MCP), OpenAI API, integración con Claude (Anthropic), generación aumentada por recuperación (Retrieval-Augmented Generation / RAG), AI SDK, integración de modelos de lenguaje (LLM), Amazon Bedrock, desarrollo asistido por IA con revisión humana y pruebas',
+          },
+          {
+            title: 'Datos, arquitectura y seguridad',
+            body: 'SQL, PostgreSQL, MySQL, MongoDB, DynamoDB, Redis; Domain-Driven Design (DDD), Arquitectura Hexagonal, diseño modular; autenticación, autorización, Row-Level Security (RLS) en PostgreSQL, control de concurrencia',
+          },
+          {
+            title: 'Infraestructura cloud y entrega',
+            body: 'Amazon Web Services (AWS): Lambda, SQS, SES, CloudWatch; serverless, Terraform (infraestructura como código / IaC), Docker, Docker Compose, Kubernetes, Linux, Cloudflare, Heroku; CI/CD, GitHub Actions, GitLab CI; monitorización en producción con Sentry y GlitchTip',
+          },
+          {
+            title: 'Pruebas automatizadas y calidad',
+            body: 'Desarrollo guiado por pruebas (TDD), Vitest, React Testing Library, Playwright; pruebas unitarias, de integración, de contratos HTTP y de extremo a extremo (E2E); pruebas de regresión, refactoring de código heredado y migraciones de frameworks',
+          },
+          {
+            title: 'Liderazgo técnico',
+            body: 'Liderazgo de equipos con participación en desarrollo, colaboración con producto y negocio, decisiones de arquitectura, priorización de deuda técnica, entrega y responsabilidad en producción',
           },
         ],
       },
@@ -385,8 +337,7 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'Fundador / Ingeniero de software sénior (proyecto personal)',
             period: 'Nov 2025 — Actualidad',
             bullets: [
-              'Desarrollo una plataforma educativa de código abierto que transforma documentación técnica en itinerarios prácticos de aprendizaje y aplicaciones similares a las de producción.',
-              'Lidero el diseño e implementación del producto, aplicando arquitectura orientada a casos de uso, código mantenible y prácticas pragmáticas de ingeniería de software.',
+              'Desarrollo una plataforma educativa de código abierto que transforma documentación técnica en itinerarios prácticos y aplicaciones similares a las de producción; asumo diseño de producto, arquitectura e implementación.',
             ],
             technologies:
               'TypeScript, Node.js, Nuxt, PostgreSQL, Docker, Docker Compose, código abierto',
@@ -409,32 +360,6 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         ],
       },
       {
-        title: 'Enfoque de ingeniería',
-        kind: 'approach',
-        entries: [
-          {
-            title: 'Arquitectura pragmática',
-            body: 'Aplico Domain-Driven Design y Arquitectura Hexagonal cuando la complejidad del dominio lo justifica; si no, prefiero soluciones sencillas.',
-          },
-          {
-            title: 'Refactoring seguro y código heredado',
-            body: 'Abordo los sistemas existentes desde su comportamiento de negocio y sus dependencias. Priorizo cambios pequeños que preserven el comportamiento, respaldados por pruebas de regresión, y la modernización incremental frente a reescrituras innecesarias.',
-          },
-          {
-            title: 'Responsabilidad integral',
-            body: 'Conecto las decisiones de producto con la arquitectura, la implementación, las pruebas, la entrega y las operaciones en producción.',
-          },
-          {
-            title: 'Seguridad y calidad verificable',
-            body: 'Priorizo contratos explícitos, autorización segura ante fallos, entregas reproducibles y pruebas automatizadas de integración y extremo a extremo.',
-          },
-          {
-            title: 'IA como palanca de ingeniería',
-            body: 'Uso herramientas de IA para acelerar tareas repetitivas, exploración e integración de producto, manteniendo el criterio de ingeniería en arquitectura, corrección y seguridad.',
-          },
-        ],
-      },
-      {
         title: 'Formación e idiomas',
         kind: 'education',
         entries: [
@@ -443,6 +368,11 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle:
               'Grado en Ingeniería Informática, especialidad en Tecnologías de la Información',
             period: '2012 — 2016',
+          },
+          {
+            title: 'Formación continua: Machine Learning',
+            period: 'En curso',
+            body: 'Actualmente me estoy formando en Machine Learning y análisis de datos con Python, pandas, NumPy, MATLAB y TensorFlow.',
           },
           {
             title: 'Idiomas',
