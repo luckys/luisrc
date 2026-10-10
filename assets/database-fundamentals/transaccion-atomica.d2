@@ -1,0 +1,22 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+app: Aplicación
+db: PostgreSQL
+reader: Otra sesión
+app -> db: BEGIN
+app -> db: INSERT orders
+reader -> db: SELECT orders
+db -> reader: Todavía no ve el pedido
+rollback: Si la operación falla {
+  app -> app: Fallo inducido
+  app -> db: ROLLBACK
+  db -> app: 0 pedidos · 0 pagos
+}
+commit: Si todo va bien (alternativa) {
+  app -> db: INSERT payments
+  app -> db: COMMIT
+  db -> app: Confirmación del commit
+  reader -> db: Nueva consulta en READ COMMITTED
+  db -> reader: 1 pedido · 1 pago
+}

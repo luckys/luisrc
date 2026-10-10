@@ -1,0 +1,19 @@
+series: Fundamentos de bases de datos
+locale: es
+status: draft
+verified: 2026-10-10
+articles:
+  - id: DB-ACID
+    path: src/content/posts/es/propiedades-acid-bases-de-datos.md
+    english: src/content/posts/en/acid-properties-databases.md
+    question: Qué garantías necesito y qué reglas debo definir
+    examples: [transferencia, inventario, lecturas_concurrentes, documento]
+  - id: DB-TRANSACTIONS
+    path: src/content/posts/es/transacciones-postgresql-ejemplos-practicos.md
+    english: src/content/posts/en/postgresql-transactions-practical-examples.md
+    question: Cómo delimito y termino el trabajo ante éxito o fallo
+    optional: TypeScript y nueve pruebas con PostgreSQL real
+lab: examples/transacciones
+download: public/assets/examples/transacciones-lab.zip
+english_download: public/assets/examples/transactions-lab-en.zip
+diagrams: assets/database-fundamentals

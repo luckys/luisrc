@@ -1,0 +1,18 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+app: Application
+db: PostgreSQL
+mail: Email service
+app -> db: BEGIN and local INSERT
+app -> mail: HTTP request to send email
+mail -> mail: Email sent
+app -> app: Subsequent local failure
+app -> db: ROLLBACK
+db -> app: Local writes discarded
+app -> mail: SQL ROLLBACK does not reach email service {
+  style.stroke-dash: 5
+  style.stroke: "#b42318"
+  target-arrowhead.shape: none
+}
+mail -> mail: The email is still sent

@@ -1,0 +1,11 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+begin: BEGIN
+core: "Débito y crédito\nTrabajo principal pendiente"
+save: "SAVEPOINT optional_work"
+extra: "Trabajo opcional falla\nBloque abortado"
+back: "ROLLBACK TO SAVEPOINT optional_work\nDescarta lo posterior al punto\nConserva el trabajo principal"
+release: "RELEASE SAVEPOINT optional_work\nElimina el punto, sin confirmar"
+commit: "COMMIT\nConfirma el trabajo principal"
+begin -> core -> save -> extra -> back -> release -> commit

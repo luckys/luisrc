@@ -1,0 +1,14 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+initial: "Initial balances\nA: €100 · B: €50\nTotal: €150"
+independent: "No explicit block\nDebit committed\nA: €75 · B: €50"
+failure: "Failure before credit\nIncomplete operation\nTotal: €125" {style.fill: "#ffe0e0"}
+transaction: "BEGIN\nDebit and credit\npending"
+rollback: "Failure → ROLLBACK\nA: €100 · B: €50\nTotal: €150" {style.fill: "#e0f2fe"}
+commit: "Success → COMMIT\nA: €75 · B: €75\nTotal: €150" {style.fill: "#dcfce7"}
+initial -> independent: Separate writes
+independent -> failure
+initial -> transaction: Within one transaction
+transaction -> rollback
+transaction -> commit

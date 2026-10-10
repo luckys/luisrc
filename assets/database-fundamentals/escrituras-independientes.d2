@@ -1,0 +1,16 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+app: Aplicación
+db: PostgreSQL
+reader: Otra sesión
+app -> db: INSERT orders
+db -> db: COMMIT implícito
+db -> app: Pedido persistido
+reader -> db: SELECT orders
+db -> reader: Ve 1 pedido
+app -> app: Fallo antes de INSERT payments
+app -> db: ROLLBACK tardío sin transacción abierta
+db -> app: No deshace el commit anterior
+reader -> db: SELECT orders y payments
+db -> reader: 1 pedido · 0 pagos

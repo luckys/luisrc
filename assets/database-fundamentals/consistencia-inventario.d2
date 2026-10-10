@@ -1,0 +1,15 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+web: Tienda
+db: PostgreSQL
+web -> db: Consultar stock
+db -> web: Stock inicial: 1 camiseta
+web -> db: BEGIN
+web -> db: Descontar 2 unidades
+db -> db: Resultado propuesto: -1
+db -> db: CHECK (available >= 0) falla
+db -> web: Error 23514 · Bloque abortado
+web -> db: ROLLBACK
+web -> db: Consultar stock
+db -> web: Sigue en 1 unidad

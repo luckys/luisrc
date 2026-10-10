@@ -1,4 +1,4 @@
-import { EdgeTTS } from 'edge-tts-universal'
+import { EdgeTTS } from 'edge-tts-universal/isomorphic'
 
 // Isolated worker: the parent can terminate a stalled WebSocket request.
 try {

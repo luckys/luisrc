@@ -1,0 +1,14 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+inicio: "Saldos iniciales\nA: 100 € · B: 50 €\nTotal: 150 €"
+sin: "Sin bloque explícito\nDébito confirmado\nA: 75 € · B: 50 €"
+fallo: "Fallo antes del crédito\nOperación incompleta\nTotal: 125 €" {style.fill: "#ffe0e0"}
+con: "BEGIN\nDébito y crédito\npendientes"
+rollback: "Fallo → ROLLBACK\nA: 100 € · B: 50 €\nTotal: 150 €" {style.fill: "#e0f2fe"}
+commit: "Éxito → COMMIT\nA: 75 € · B: 75 €\nTotal: 150 €" {style.fill: "#dcfce7"}
+inicio -> sin: Sin agrupar
+sin -> fallo
+inicio -> con: Dentro de una transacción
+con -> rollback
+con -> commit

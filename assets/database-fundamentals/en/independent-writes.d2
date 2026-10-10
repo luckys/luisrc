@@ -1,0 +1,16 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+app: Application
+db: PostgreSQL
+reader: Another session
+app -> db: INSERT orders
+db -> db: Implicit COMMIT
+db -> app: Order persisted
+reader -> db: SELECT orders
+db -> reader: Sees 1 order
+app -> app: Failure before INSERT payments
+app -> db: Late ROLLBACK without an open transaction
+db -> app: Does not undo the previous commit
+reader -> db: SELECT orders and payments
+db -> reader: 1 order · 0 payments

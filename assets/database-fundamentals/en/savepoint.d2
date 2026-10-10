@@ -1,0 +1,11 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+begin: BEGIN
+core: "Debit and credit\nMain work pending"
+save: "SAVEPOINT optional_work"
+extra: "Optional work fails\nTransaction aborted"
+back: "ROLLBACK TO SAVEPOINT optional_work\nDiscard work after the savepoint\nKeep the main work"
+release: "RELEASE SAVEPOINT optional_work\nRemove the savepoint without committing"
+commit: "COMMIT\nCommit the main work"
+begin -> core -> save -> extra -> back -> release -> commit

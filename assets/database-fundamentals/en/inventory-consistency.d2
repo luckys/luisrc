@@ -1,0 +1,15 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+store: Store
+db: PostgreSQL
+store -> db: Query stock
+db -> store: Initial stock: 1 T-shirt
+store -> db: BEGIN
+store -> db: Subtract 2 units
+db -> db: Proposed result: -1
+db -> db: CHECK (available >= 0) fails
+db -> store: Error 23514 · Aborted transaction
+store -> db: ROLLBACK
+store -> db: Query stock
+db -> store: Still 1 unit available

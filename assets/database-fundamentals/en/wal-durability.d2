@@ -1,0 +1,17 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+operation: "Transaction changes a document"
+wal: "WAL record\nInformation needed to recover changes"
+flush: "Local WAL persisted\nfsync=on · synchronous_commit=on"
+response: "COMMIT acknowledgement to client"
+crash: "Server crashes afterwards"
+recovery: "Restart and recovery\nReplay WAL when necessary"
+data: "Committed document available"
+operation -> wal
+wal -> flush
+flush -> response
+response -> crash
+crash -> recovery
+flush -> recovery: Persisted WAL
+recovery -> data

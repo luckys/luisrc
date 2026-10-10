@@ -1,13 +1,31 @@
 import { createHash } from 'node:crypto'
 import MarkdownIt from 'markdown-it'
+import sanitizeHtml from 'sanitize-html'
 
-const markdown = new MarkdownIt({ html: false })
+const markdown = new MarkdownIt({ html: true })
 export const voices = { es: 'es-ES-AlvaroNeural', en: 'en-US-AndrewNeural' }
 
 // Narrate prose, not Markdown syntax, URLs or long code listings.
 export function narratePost(title, body, locale) {
   const parts = [title]
   for (const token of markdown.parse(body, {})) {
+    if (token.type === 'html_block') {
+      parts.push(
+        markdown.utils.unescapeAll(
+          sanitizeHtml(
+            token.content.replace(
+              /<\/(?:summary|p|div|li|h[1-6])\s*>|<br\s*\/?>/gi,
+              '$&\n\n',
+            ),
+            {
+              allowedTags: [],
+              allowedAttributes: {},
+              nonTextTags: ['style', 'script', 'textarea', 'option', 'pre'],
+            },
+          ),
+        ),
+      )
+    }
     if (token.type === 'inline') {
       parts.push(
         (token.children ?? [])

@@ -1,0 +1,22 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+app: Application
+db: PostgreSQL
+reader: Another session
+app -> db: BEGIN
+app -> db: INSERT orders
+reader -> db: SELECT orders
+db -> reader: Does not see the order yet
+rollback: If the operation fails {
+  app -> app: Induced failure
+  app -> db: ROLLBACK
+  db -> app: 0 orders · 0 payments
+}
+commit: If all steps succeed (alternative) {
+  app -> db: INSERT payments
+  app -> db: COMMIT
+  db -> app: Commit acknowledged
+  reader -> db: New query in READ COMMITTED
+  db -> reader: 1 order · 1 payment
+}

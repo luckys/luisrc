@@ -1,0 +1,14 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+reader: "Panel · Sesión A"
+db: PostgreSQL
+writer: "Actualización · Sesión B"
+reader -> db: "BEGIN\nREAD COMMITTED"
+reader -> db: Primera consulta
+db -> reader: Saldo: 100 €
+writer -> db: BEGIN · Añadir 5 €
+writer -> db: COMMIT
+reader -> db: Segunda consulta
+db -> reader: Saldo: 105 € · Nueva instantánea
+reader -> db: COMMIT
