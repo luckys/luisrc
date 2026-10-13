@@ -1,0 +1,70 @@
+<svg width="640" height="610" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 640 610">
+<rect width="640" height="610" x="0" y="0" fill="#ffffff"></rect>
+<path d="M0 0l371.3 0l0 48l-371.3 0Z" transform="translate(22 544)" fill="none" pointer-events="visible" class="zr3-cls-11"></path>
+<text dominant-baseline="central" text-anchor="start" style="font: 17px Arial, sans-serif" xml:space="preserve" y="12" transform="translate(22 544)" fill="#475569">Source: Lightcast · Stanford HAI, AI Index 2026</text>
+<text dominant-baseline="central" text-anchor="start" style="font: 17px Arial, sans-serif" xml:space="preserve" y="36" transform="translate(22 544)" fill="#475569">Postings by skill. Categories may overlap.</text>
+<path d="M240.5 155L240.5 512" fill="none" pointer-events="visible" stroke="#dce4ec" class="zr3-cls-12"></path>
+<path d="M343.5 155L343.5 512" fill="none" pointer-events="visible" stroke="#dce4ec" class="zr3-cls-12"></path>
+<path d="M446.5 155L446.5 512" fill="none" pointer-events="visible" stroke="#dce4ec" class="zr3-cls-12"></path>
+<path d="M550.5 155L550.5 512" fill="none" pointer-events="visible" stroke="#dce4ec" class="zr3-cls-12"></path>
+<path d="M-110.3 -26l110.3 0l0 52l-110.3 0Z" transform="translate(222 199.625)" fill="none" pointer-events="visible" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:21px;font-family:Arial, sans-serif;" y="-13" transform="translate(222 199.625)" fill="#172b3a">Prompt</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:21px;font-family:Arial, sans-serif;" y="13" transform="translate(222 199.625)" fill="#172b3a">engineering</text>
+<path d="M-89.3 -13l89.3 0l0 26l-89.3 0Z" transform="translate(222 288.875)" fill="none" pointer-events="visible" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:21px;font-family:Arial, sans-serif;" xml:space="preserve" transform="translate(222 288.875)" fill="#172b3a">AI agents</text>
+<path d="M-45.6 -13l45.6 0l0 26l-45.6 0Z" transform="translate(222 378.125)" fill="none" pointer-events="visible" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(222 378.125)" fill="#172b3a">RAG</text>
+<path d="M-110.3 -26l110.3 0l0 52l-110.3 0Z" transform="translate(222 467.375)" fill="none" pointer-events="visible" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:21px;font-family:Arial, sans-serif;" y="-13" transform="translate(222 467.375)" fill="#172b3a">Context</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:21px;font-family:Arial, sans-serif;" y="13" transform="translate(222 467.375)" fill="#172b3a">engineering</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:17px;font-family:Arial, sans-serif;" y="8.5" transform="translate(240 520)" fill="#475569">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:17px;font-family:Arial, sans-serif;" y="8.5" transform="translate(343.3333 520)" fill="#475569">10,000</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:17px;font-family:Arial, sans-serif;" y="8.5" transform="translate(446.6667 520)" fill="#475569">20,000</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:17px;font-family:Arial, sans-serif;" y="8.5" transform="translate(550 520)" fill="#475569">30,000</text>
+<path d="M240 174.4l63.6 0l0 24l-63.6 0Z" fill="#64748b" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr3-cls-13"></path>
+<path d="M240 263.7l13.5 0l0 24l-13.5 0Z" fill="#64748b" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr3-cls-13"></path>
+<path d="M240 352.9l29.8 0l0 24l-29.8 0Z" fill="#64748b" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr3-cls-13"></path>
+<path d="M240 442.2l0.1 0l0 24l-0.1 0Z" fill="#64748b" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr3-cls-13"></path>
+<path d="M240 200.8l229.7 0l0 24l-229.7 0Z" fill="#12638b" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr3-cls-14"></path>
+<path d="M240 290.1l157.2 0l0 24l-157.2 0Z" fill="#12638b" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr3-cls-14"></path>
+<path d="M240 379.3l130.3 0l0 24l-130.3 0Z" fill="#12638b" ecmeta_series_index="1" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr3-cls-14"></path>
+<path d="M240 468.6l7.3 0l0 24l-7.3 0Z" fill="#12638b" ecmeta_series_index="1" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr3-cls-14"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(308.5707 186.425)" fill="#172b3a">6,152</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(258.5367 275.675)" fill="#172b3a">1,310</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(274.8117 364.925)" fill="#172b3a">2,885</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(245.093 454.175)" fill="#172b3a">9</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(474.679 212.825)" fill="#172b3a">22,227</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(402.2423 302.075)" fill="#172b3a">15,217</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(375.293 391.325)" fill="#172b3a">12,609</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:Arial, sans-serif;" transform="translate(252.2643 480.575)" fill="#172b3a">703</text>
+<path d="M-5 -5l144.2 0l0 27l-144.2 0Z" transform="translate(27 101)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#b7b9be" stroke-width="0" class="zr3-cls-12"></path>
+<path d="M3.5 0L16.5 0A3.5 3.5 0 0 1 20 3.5L20 10.5A3.5 3.5 0 0 1 16.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0Z" transform="translate(27 102.5)" fill="#64748b" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="legend" ecmeta_silent="true" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:17px;font-family:Arial, sans-serif;" x="25" y="7" transform="translate(27 102.5)" fill="#172b3a">2024</text>
+<path d="M0 -1.5l63.1 0l0 17l-63.1 0Z" transform="translate(27 102.5)" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="legend" ecmeta_silent="true" class="zr3-cls-12"></path>
+<path d="M3.5 0L16.5 0A3.5 3.5 0 0 1 20 3.5L20 10.5A3.5 3.5 0 0 1 16.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0Z" transform="translate(98.08 102.5)" fill="#12638b" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="legend" ecmeta_silent="true" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:17px;font-family:Arial, sans-serif;" x="25" y="7" transform="translate(98.08 102.5)" fill="#172b3a">2025</text>
+<path d="M0 -1.5l63.1 0l0 17l-63.1 0Z" transform="translate(98.08 102.5)" fill="none" pointer-events="visible" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="legend" ecmeta_silent="true" class="zr3-cls-12"></path>
+<path d="M-5 -5l370.6 0l0 69l-370.6 0Z" transform="translate(27 25)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#3c3c41" stroke-width="0" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:25px;font-family:Arial, sans-serif;font-weight:bold;" xml:space="preserve" y="12.5" transform="translate(27 25)" fill="#172b3a">US: demand for AI skills</text>
+<path d="M0 35l360.6 0l0 24l-360.6 0Z" transform="translate(27 25)" fill="none" pointer-events="visible" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:17px;font-family:Arial, sans-serif;" xml:space="preserve" y="47" transform="translate(27 25)" fill="#475569">2024 vs. 2025 · postings mentioning each skill</text>
+<style ><![CDATA[
+.zr3-cls-11:hover {
+cursor:pointer;
+}
+.zr3-cls-12:hover {
+pointer-events:none;
+}
+.zr3-cls-13:hover {
+cursor:pointer;
+fill:rgba(110,127,152,1);
+}
+.zr3-cls-14:hover {
+cursor:pointer;
+fill:rgba(19,108,152,1);
+}
+
+]]>
+
+</style>
+</svg>

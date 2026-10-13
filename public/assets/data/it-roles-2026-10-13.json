@@ -1,0 +1,226 @@
+{
+  "retrievedOn": "2026-10-13",
+  "europe": {
+    "source": "Eurostat",
+    "dataset": "jvs_a_isco3_r1",
+    "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/jvs_a_isco3_r1/default/table?lang=en",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/jvs_a_isco3_r1?lang=EN&geo=EU27_2020&time=2024&indic_em=OJA&unit=THS",
+    "methodologyUrl": "https://ec.europa.eu/eurostat/cache/metadata/EN/jvs_a_isco3_r1_esmsip2.htm",
+    "updated": "2026-02-17T23:00:00+0100",
+    "geography": "EU27_2020",
+    "period": "2024",
+    "indicator": "OJA",
+    "unit": "THS",
+    "status": "b",
+    "statusMeaning": "break in time series",
+    "experimental": true,
+    "totalIctThousands": 633.69,
+    "rows": [
+      {
+        "code": "OC251",
+        "label": "Desarrollo y análisis\nde software",
+        "sourceLabel": "Software and applications developers and analysts",
+        "advertisementsThousands": 363.04
+      },
+      {
+        "code": "OC351",
+        "label": "Operaciones TIC\ny soporte a usuarios",
+        "sourceLabel": "Information and communications technology operations and user support technicians",
+        "advertisementsThousands": 66.22
+      },
+      {
+        "code": "OC252",
+        "label": "Bases de datos\ny redes",
+        "sourceLabel": "Database and network professionals",
+        "advertisementsThousands": 63.42
+      },
+      {
+        "code": "OC133",
+        "label": "Dirección de\nservicios TIC",
+        "sourceLabel": "Information and communications technology service managers",
+        "advertisementsThousands": 22.2
+      }
+    ]
+  },
+  "usPostings": {
+    "source": "Indeed Hiring Lab",
+    "sourceUrl": "https://github.com/hiring-lab/job_postings_tracker/blob/8c73e908f6b0bae8448706b033102de008ff78dc/US/job_postings_by_sector_US.csv",
+    "methodologyUrl": "https://hiring-lab.github.io/job_postings_tracker/",
+    "license": "CC BY 4.0",
+    "country": "US",
+    "variable": "total postings",
+    "from": "2025-10-02",
+    "to": "2026-10-02",
+    "baseline": "2020-02-01",
+    "baselineIndex": 100,
+    "seasonallyAdjusted": true,
+    "smoothing": "seven-day trailing average",
+    "formulaYearOverYear": "(indexTo / indexFrom - 1) * 100",
+    "formulaSinceBaseline": "indexTo - 100",
+    "rows": [
+      {
+        "label": "Desarrollo\nde software",
+        "sourceLabel": "Software Development",
+        "indexFrom": 64.3,
+        "indexTo": 78.33
+      },
+      {
+        "label": "Sistemas y\nsoluciones IT",
+        "sourceLabel": "IT Systems & Solutions",
+        "indexFrom": 69.89,
+        "indexTo": 76.36
+      },
+      {
+        "label": "Infraestructura,\noperaciones y soporte",
+        "sourceLabel": "IT Infrastructure, Operations & Support",
+        "indexFrom": 63.96,
+        "indexTo": 69.33
+      },
+      {
+        "label": "Datos y\nanalítica",
+        "sourceLabel": "Data & Analytics",
+        "indexFrom": 58.51,
+        "indexTo": 63.14
+      }
+    ]
+  },
+  "usProjections": {
+    "source": "U.S. Bureau of Labor Statistics",
+    "sourceUrl": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+    "methodologyUrl": "https://www.bls.gov/opub/hom/emp/calculation.htm",
+    "table": "1.2",
+    "country": "US",
+    "from": 2025,
+    "to": 2035,
+    "annualOpeningsUnit": "THS",
+    "rows": [
+      {
+        "code": "15-2051",
+        "label": "Ciencia\nde datos",
+        "sourceLabel": "Data scientists",
+        "growthPercent": 34.6,
+        "annualOpeningsThousands": 24.8
+      },
+      {
+        "code": "15-1212",
+        "label": "Análisis de seguridad\nde la información",
+        "sourceLabel": "Information security analysts",
+        "growthPercent": 21,
+        "annualOpeningsThousands": 14.1
+      },
+      {
+        "code": "15-1252",
+        "label": "Desarrollo\nde software",
+        "sourceLabel": "Software developers",
+        "growthPercent": 10.2,
+        "annualOpeningsThousands": 95.3
+      },
+      {
+        "code": "15-1253",
+        "label": "QA y pruebas\nde software",
+        "sourceLabel": "Software quality assurance analysts and testers",
+        "growthPercent": 5.7,
+        "annualOpeningsThousands": 10.7
+      },
+      {
+        "code": "15-1244",
+        "label": "Administración de\nredes y sistemas",
+        "sourceLabel": "Network and computer systems administrators",
+        "growthPercent": -4.1,
+        "annualOpeningsThousands": 13.4
+      },
+      {
+        "code": "15-1251",
+        "label": "Computer\nprogrammers",
+        "sourceLabel": "Computer programmers",
+        "growthPercent": -7.3,
+        "annualOpeningsThousands": 4.4
+      }
+    ]
+  },
+  "usAiSkills": {
+    "source": "Lightcast, reproduced in Stanford HAI AI Index 2026",
+    "sourceUrl": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+    "figures": ["4.4.5", "4.4.7"],
+    "printedPages": [207, 208],
+    "chapterPdfPages": [37, 38],
+    "country": "US",
+    "from": 2024,
+    "to": 2025,
+    "unit": "Job postings mentioning each skill",
+    "overlappingCategories": true,
+    "formulaGrowthPercent": "(countTo / countFrom - 1) * 100",
+    "rows": [
+      {
+        "sourceLabel": "Prompt engineering",
+        "label": "Prompt\nengineering",
+        "countFrom": 6152,
+        "countTo": 22227,
+        "figure": "4.4.5"
+      },
+      {
+        "sourceLabel": "AI agents",
+        "label": "Agentes de IA\n(AI agents)",
+        "countFrom": 1310,
+        "countTo": 15217,
+        "figure": "4.4.7"
+      },
+      {
+        "sourceLabel": "Retrieval augmented generation",
+        "label": "RAG",
+        "countFrom": 2885,
+        "countTo": 12609,
+        "figure": "4.4.5"
+      },
+      {
+        "sourceLabel": "Context engineering",
+        "label": "Context\nengineering",
+        "countFrom": 9,
+        "countTo": 703,
+        "figure": "4.4.5"
+      }
+    ]
+  },
+  "aiTouchedTitles": {
+    "source": "Indeed Hiring Lab",
+    "sourceUrl": "https://hiringlab.indeed.com/2026/07/08/ai-is-no-longer-just-a-tech-occupation-story/",
+    "publicationDate": "2026-07-08",
+    "period": "2026-Q1",
+    "unit": "Normalized title categories meeting the AI-touched criterion",
+    "minimumAiPostingsPerTitle": 5,
+    "filterTerms": [
+      "AI",
+      "GenAI",
+      "AGI",
+      "artificial intelligence",
+      "local-language equivalents"
+    ],
+    "allOccupations": true,
+    "rows": [
+      {
+        "country": "US",
+        "count": 822
+      },
+      {
+        "country": "DE",
+        "count": 288
+      },
+      {
+        "country": "GB",
+        "count": 160
+      },
+      {
+        "country": "FR",
+        "count": 138
+      },
+      {
+        "country": "NL",
+        "count": 84
+      },
+      {
+        "country": "ES",
+        "count": 81
+      }
+    ]
+  }
+}

@@ -46,5 +46,17 @@
       "fingerprint": "33f34a5f119ecb8610cf9155353abbff47a51a88a284f4a8d312cb5082dc7e3a",
       "voice": "en-US-AndrewNeural"
     }
+  },
+  "roles-it-product-staff-fullstack": {
+    "es": {
+      "src": "/assets/audio/es-22d32c5a724dba9f3f29e69f92e030ccd0e4232a62b15c9ee4c46cc6fa4c5529.mp3",
+      "fingerprint": "22d32c5a724dba9f3f29e69f92e030ccd0e4232a62b15c9ee4c46cc6fa4c5529",
+      "voice": "es-ES-AlvaroNeural"
+    },
+    "en": {
+      "src": "/assets/audio/en-92bd2d32aabd69cfdc4a548179a8bbb09164390c485818548235b032c802ac70.mp3",
+      "fingerprint": "92bd2d32aabd69cfdc4a548179a8bbb09164390c485818548235b032c802ac70",
+      "voice": "en-US-AndrewNeural"
+    }
   }
 }

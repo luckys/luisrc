@@ -1,0 +1,49 @@
+{
+  "europe": {
+    "title": "EU: online ads by occupation",
+    "subtitle": "2024 · four selected categories · thousands of ads",
+    "footer": "Source: Eurostat, jvs_a_isco3_r1 · OJA · EU-27\nExperimental statistics. Series break in 2024.",
+    "labels": {
+      "OC251": "Software development\nand analysis",
+      "OC351": "ICT operations\nand user support",
+      "OC252": "Database and\nnetwork professionals",
+      "OC133": "ICT services\nmanagement"
+    }
+  },
+  "usPostings": {
+    "title": "US: recovery with limits",
+    "subtitle": "Indeed ads as of Oct 2, 2026 · percentage change",
+    "footer": "Source: Indeed Hiring Lab · own calculations from its indices\nSeasonally adjusted, 7-day moving average. CC BY 4.0.",
+    "legend": ["Since Oct 2, 2025", "Since Feb 1, 2020"],
+    "labels": {
+      "Software Development": "Software\ndevelopment",
+      "IT Systems & Solutions": "IT systems\nand solutions",
+      "IT Infrastructure, Operations & Support": "IT infrastructure,\noperations and support",
+      "Data & Analytics": "Data and\nanalytics"
+    }
+  },
+  "usAiSkills": {
+    "title": "US: demand for AI skills",
+    "subtitle": "2024 vs. 2025 · postings mentioning each skill",
+    "footer": "Source: Lightcast · Stanford HAI, AI Index 2026\nPostings by skill. Categories may overlap.",
+    "labels": {
+      "Prompt engineering": "Prompt\nengineering",
+      "AI agents": "AI agents",
+      "Retrieval augmented generation": "RAG",
+      "Context engineering": "Context\nengineering"
+    }
+  },
+  "usProjections": {
+    "title": "US: projected employment",
+    "subtitle": "2025–2035 · total change over ten years · selected occupations",
+    "footer": "Source: U.S. Bureau of Labor Statistics · table 1.2\nEmployment projections, not ads or observed growth.",
+    "labels": {
+      "15-2051": "Data\nscience",
+      "15-1212": "Information\nsecurity analysis",
+      "15-1252": "Software\ndevelopment",
+      "15-1253": "Software QA\nand testing",
+      "15-1244": "Network and systems\nadministration",
+      "15-1251": "Computer\nprogrammers"
+    }
+  }
+}
