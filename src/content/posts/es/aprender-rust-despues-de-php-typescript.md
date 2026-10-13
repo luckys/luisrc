@@ -4,7 +4,7 @@ published: 2026-10-07
 locale: es
 translationKey: aprender-rust-despues-de-php-typescript
 slug: aprender-rust-despues-de-php-typescript
-draft: true
+draft: false
 description: 'Qué aporta Rust a quien trabaja con PHP y TypeScript: ownership, préstamos y errores explícitos, con ejemplos y decisiones explicadas.'
 author: 'Luis Ramírez Calle'
 series: 'Aprender otros lenguajes desde PHP y TypeScript'
