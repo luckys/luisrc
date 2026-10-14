@@ -4,7 +4,7 @@ published: 2026-10-13
 locale: en
 translationKey: roles-it-product-staff-fullstack
 slug: it-roles-product-staff-fullstack-engineer
-draft: true
+draft: false
 description: 'Product, Full-Stack, Staff and AI roles: responsibilities, differences and verified job market statistics from Europe and the United States.'
 author: 'Luis Ramírez Calle'
 tags:

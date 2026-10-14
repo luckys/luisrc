@@ -6,7 +6,6 @@ import PostPreview from '~/components/PostPreview.astro'
 import Pagination from '~/components/Pagination.astro'
 import BlockHeader from '~/components/BlockHeader.astro'
 import HomeBanner from '~/components/HomeBanner.astro'
-import siteConfig from '~/site.config'
 import TagsSection from '~/components/TagsSection.astro'
 import SeriesSection from '~/components/SeriesSection.astro'
 import { getLocale, getUi } from '~/i18n/ui'
@@ -33,7 +32,7 @@ const seriesGroup = await SeriesGroup.build(sortedPosts, locale)
 const postsHaveSeries = seriesGroup.collations.some((series) => series.entries.length > 1)
 ---
 
-<Layout title={copy.homeTitle}>
+<Layout title={copy.homeTitle} hasSidebar={postsHaveSeries || postsHaveTags}>
   {
     HomeContent && (
       <HomeBanner
@@ -45,40 +44,52 @@ const postsHaveSeries = seriesGroup.collations.some((series) => series.entries.l
       </HomeBanner>
     )
   }
-  {
-    postsHaveSeries && (
-      <section>
-        <BlockHeader>{copy.series}</BlockHeader>
-        <SeriesSection posts={sortedPosts} locale={locale} />
-      </section>
-    )
-  }
-  {
-    postsHaveTags && (
-      <section>
-        <BlockHeader>{copy.tags}</BlockHeader>
-        <TagsSection posts={sortedPosts} locale={locale} />
-      </section>
-    )
-  }
-  {
-    sortedPosts.length > 0 && (
-      <section>
-        <BlockHeader>{copy.latestPosts}</BlockHeader>
-        {sortedPosts
-          .slice()
-          .reverse()
-          .slice(0, Math.floor(siteConfig.pageSize / 2))
-          .map((post) => (
-            <PostPreview post={post} />
-          ))}
-        <Pagination
-          nextLink={getRelativeLocaleUrl(locale, 'posts')}
-          nextText={copy.archive}
-        />
-      </section>
-    )
-  }
+  <div
+    class:list={[
+      'grid gap-x-8 lg:gap-x-12',
+      {
+        'md:grid-cols-[minmax(0,1fr)_minmax(0,14rem)] xl:grid-cols-[minmax(0,1fr)_minmax(0,18rem)]':
+          postsHaveSeries || postsHaveTags,
+      },
+    ]}
+  >
+    {
+      (postsHaveSeries || postsHaveTags) && (
+        <aside class="min-w-0 md:col-start-2 md:row-start-1">
+          {postsHaveSeries && (
+            <section>
+              <BlockHeader>{copy.series}</BlockHeader>
+              <SeriesSection posts={sortedPosts} locale={locale} />
+            </section>
+          )}
+          {postsHaveTags && (
+            <section>
+              <BlockHeader>{copy.tags}</BlockHeader>
+              <TagsSection posts={sortedPosts} locale={locale} />
+            </section>
+          )}
+        </aside>
+      )
+    }
+    {
+      sortedPosts.length > 0 && (
+        <section class="min-w-0 md:col-start-1 md:row-start-1">
+          <BlockHeader>{copy.latestPosts}</BlockHeader>
+          {sortedPosts
+            .slice()
+            .reverse()
+            .slice(0, 5)
+            .map((post) => (
+              <PostPreview post={post} />
+            ))}
+          <Pagination
+            nextLink={getRelativeLocaleUrl(locale, 'posts')}
+            nextText={copy.readMore}
+          />
+        </section>
+      )
+    }
+  </div>
 </Layout>
 
 <style is:global>

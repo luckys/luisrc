@@ -4,7 +4,7 @@ published: 2026-10-13
 locale: es
 translationKey: roles-it-product-staff-fullstack
 slug: puestos-it-product-staff-fullstack-engineer
-draft: true
+draft: false
 description: 'Product, Full-Stack, Staff y puestos de IA: responsabilidades, diferencias y estadísticas verificadas de ofertas y empleo en Europa y Estados Unidos.'
 author: 'Luis Ramírez Calle'
 tags:
