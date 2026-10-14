@@ -25,10 +25,12 @@ interface Props {
   prev?: CollectionEntry<'posts'>
   next?: CollectionEntry<'posts'>
   localeSwitchUrl: string
+  alternateLocaleUrl?: string
   socialCardSlug?: string
 }
 
-const { post, prev, next, localeSwitchUrl, socialCardSlug } = Astro.props
+const { post, prev, next, localeSwitchUrl, alternateLocaleUrl, socialCardSlug } =
+  Astro.props
 const postData = post.data
 const locale = postData.locale as Locale
 const copy = getUi(locale)
@@ -71,6 +73,8 @@ if (postData.tags && postData.tags.length > 0) {
   author={postData.author}
   tags={postData.tags}
   localeSwitchUrl={localeSwitchUrl}
+  alternateLocaleUrl={alternateLocaleUrl}
+  noIndex={postData.draft}
   publishedDate={postData.published}
   needsMath={postData.math}
   socialCardSlug={socialCardSlug}

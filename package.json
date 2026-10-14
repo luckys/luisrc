@@ -12,6 +12,7 @@
     "visuals:diagram": "node scripts/generate-diagram.mjs",
     "audio:generate": "node scripts/generate-post-audio.mjs",
     "test:audio": "node --test tests/*audio*.test.mjs",
+    "test:seo": "node --test tests/seo.test.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "postbuild": "pagefind --site dist",

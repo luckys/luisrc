@@ -93,15 +93,10 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      i18n: {
-        defaultLocale: 'es',
-        locales: {
-          es: 'es-ES',
-          en: 'en-US',
-        },
-      },
+      // Translated slugs differ. Real equivalents are declared in each HTML head.
       filter: (page) =>
-        !sitemapExcludedPaths.has(new URL(page).pathname.replace(/\/$/, '')),
+        !sitemapExcludedPaths.has(new URL(page).pathname.replace(/\/$/, '')) &&
+        !new URL(page).pathname.endsWith('.md'),
     }),
     expressiveCode({
       themes: expressiveThemes,

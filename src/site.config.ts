@@ -19,7 +19,7 @@ const config: SiteConfig = {
   // To change this see src/styles/global.css and import a different font.
   font: 'JetBrains Mono Variable',
   // For pagination, the number of posts to display per page.
-  // The homepage will display half this number in the "Latest Posts" section.
+  // The homepage independently displays up to five latest posts.
   pageSize: 6,
   // Whether Astro should resolve trailing slashes in URLs or not.
   // This value is used in the astro.config.mjs file and in the "Search" component to make sure pagefind links match this setting.

@@ -1,2 +1,12 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/*
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8

@@ -3,7 +3,7 @@ import { Resvg } from '@resvg/resvg-js'
 import type { APIContext, InferGetStaticPropsType } from 'astro'
 import satori, { type SatoriOptions } from 'satori'
 import { html } from 'satori-html'
-import { dateString, getSortedPosts, resolveThemeColorStyles } from '~/utils'
+import { getPostSlug, getSortedPosts, resolveThemeColorStyles } from '~/utils'
 import sharp from 'sharp'
 import path from 'path'
 import fs from 'fs'
@@ -64,7 +64,7 @@ const ogOptions: SatoriOptions = {
 
 const markup = (title: string, pubDate: string | undefined, author: string) =>
   html(`<div tw="flex flex-col max-w-full justify-center h-full bg-[${bg}] text-[${fg}] p-12">
-    <div style="border-width: 12px; border-radius: 80px;" tw="flex items-center max-w-full p-8 border-[${accent}]/30">
+    <div style="border-width: 12px; border-radius: 80px;" tw="flex items-center w-full h-full p-8 border-[${accent}]/30">
       ${
         avatarBase64
           ? `<div tw="flex flex-col justify-center items-center w-1/3 h-100">
@@ -74,8 +74,8 @@ const markup = (title: string, pubDate: string | undefined, author: string) =>
       }
       <div tw="flex flex-1 flex-col max-w-full justify-center items-center">
         ${pubDate ? `<p tw="text-3xl max-w-full text-[${accent}]">${pubDate}</p>` : ''}
-        <h1 tw="text-6xl my-14 text-center leading-snug">${title}</h1>
-        ${author !== title ? `<p tw="text-4xl text-[${accent}]">${author}</p>` : ''}
+        <h1 style="font-size: ${title.length > 100 ? 36 : title.length > 60 ? 42 : 52}px;" tw="my-6 text-center leading-snug">${title}</h1>
+        ${author !== title ? `<p tw="text-2xl text-[${accent}]">${author}</p>` : ''}
       </div>
     </div>
   </div>`)
@@ -95,12 +95,17 @@ export async function GET(context: APIContext) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getSortedPosts('es')
+  const posts = (await Promise.all([getSortedPosts('es'), getSortedPosts('en')])).flat()
   return posts
     .map((post) => ({
-      params: { slug: post.id },
+      params: {
+        slug: post.data.locale === 'en' ? `en-${getPostSlug(post)}` : getPostSlug(post),
+      },
       props: {
-        pubDate: post.data.published ? dateString(post.data.published) : undefined,
+        pubDate: post.data.published.toLocaleDateString(
+          post.data.locale === 'en' ? 'en-US' : 'es-ES',
+          { dateStyle: 'long', timeZone: 'UTC' },
+        ),
         title: post.data.title,
         author: post.data.author || siteConfig.author,
       },

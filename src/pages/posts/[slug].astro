@@ -20,6 +20,9 @@ export const getStaticPaths = (async () => {
         post,
         prev: posts[index - 1],
         next: posts[index + 1],
+        alternateLocaleUrl: translatedPost
+          ? getRelativeLocaleUrl('en', `posts/${getPostSlug(translatedPost)}`)
+          : undefined,
         localeSwitchUrl: translatedPost
           ? getRelativeLocaleUrl('en', `posts/${getPostSlug(translatedPost)}`)
           : getRelativeLocaleUrl('en', 'posts'),
@@ -29,7 +32,8 @@ export const getStaticPaths = (async () => {
   })
 }) satisfies GetStaticPaths
 
-const { post, prev, next, localeSwitchUrl, socialCardSlug } = Astro.props
+const { post, prev, next, localeSwitchUrl, alternateLocaleUrl, socialCardSlug } =
+  Astro.props
 ---
 
 <PostPage
@@ -37,5 +41,6 @@ const { post, prev, next, localeSwitchUrl, socialCardSlug } = Astro.props
   prev={prev}
   next={next}
   localeSwitchUrl={localeSwitchUrl}
+  alternateLocaleUrl={alternateLocaleUrl}
   socialCardSlug={socialCardSlug}
 />

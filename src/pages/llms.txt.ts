@@ -9,7 +9,7 @@ function formatPostLink(
 ): string {
   const title = post.data.title.replaceAll('[', '\\[').replaceAll(']', '\\]')
   const description = post.data.description?.replace(/\s+/g, ' ').trim()
-  const url = new URL(getPostUrl(post), siteConfig.site).href
+  const url = new URL(`${getPostUrl(post)}.md`, siteConfig.site).href
   const date = post.data.published.toISOString().slice(0, 10)
 
   return `- [${title}](${url})${description ? `: ${description}` : ''} (${date})`
@@ -17,7 +17,13 @@ function formatPostLink(
 
 export const GET: APIRoute = async () => {
   const postsByLocale = await Promise.all(
-    locales.map(async (locale) => [locale, await getSortedPosts(locale)] as const),
+    locales.map(
+      async (locale) =>
+        [
+          locale,
+          (await getSortedPosts(locale)).filter((post) => !post.data.draft).reverse(),
+        ] as const,
+    ),
   )
 
   const sections = postsByLocale.map(([locale, posts]) => {
@@ -30,11 +36,14 @@ export const GET: APIRoute = async () => {
     '',
     `> Sitio personal y blog bilingüe sobre desarrollo de software, tecnología y aprendizaje.`,
     '',
+    'Articles are grouped by language, newest first. Article links below provide Markdown with the full text, code examples and sources, without navigation. Each includes its canonical HTML URL for citation. Only published articles are listed. Resolve relative resources against that canonical URL.',
+    '',
     '## Páginas principales',
     '',
     `- [Inicio (español)](${new URL('/', siteConfig.site).href})`,
     `- [Home (English)](${new URL('/en/', siteConfig.site).href})`,
     `- [Curriculum](${new URL('/curriculum', siteConfig.site).href})`,
+    `- [CV (English)](${new URL('/en/curriculum', siteConfig.site).href})`,
     `- [Artículos](${new URL('/posts', siteConfig.site).href})`,
     `- [Articles (English)](${new URL('/en/posts', siteConfig.site).href})`,
     `- [GitHub](${siteConfig.socialLinks.github})`,

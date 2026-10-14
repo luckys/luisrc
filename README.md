@@ -2,7 +2,20 @@
 
 Personal website and blog of Luis Ramírez Calle, built with Astro. The site is bilingual (Spanish and English) and uses Tokyo Night dark and light themes.
 
-The site publishes `/llms.txt` as a concise index for AI search crawlers and allows OAI Search, Claude Search, and Perplexity crawlers in `robots.txt`.
+The site publishes `/llms.txt` as a concise index for AI readers and allows OAI Search, Claude Search, and Perplexity crawlers in `robots.txt`.
+
+## Search, AI readers and social previews
+
+- Published articles have a static Markdown version at their canonical URL plus `.md`. `/llms.txt` links to these versions by language, newest first. Text, examples and sources come from the same content as the HTML; drafts are excluded even in development.
+- Each HTML article advertises its Markdown version with `rel="alternate"`; all HTML pages advertise `/llms.txt` with `rel="describedby"`. Markdown includes author, date, language and the original HTML URL for citation.
+- `public/_headers` supplies the Markdown content type and `X-Robots-Tag: noindex, follow` on Cloudflare Pages to keep HTML as the search result. Markdown remains crawlable and is excluded from the sitemap. Astro preview does not apply Cloudflare's headers.
+- Canonicals, `BlogPosting` JSON-LD and reciprocal HTML `hreflang` identify articles and their actual translations. The language switcher can fall back to an archive, but that fallback is never advertised as a translated article. Translated slugs differ, so the sitemap lists canonical pages without guessing translation pairs from their paths.
+- Open Graph and Twitter cards include 1200 × 630 PNG dimensions and descriptive alt text. English articles generate their own English image instead of borrowing the Spanish preview. RSS discovery follows the current language.
+- Run `pnpm build` and then `pnpm test:seo` to verify the generated output: published Markdown, draft exclusion, metadata, PNG dimensions, translation links, feeds and heading structure. No additional browser scripts or packages are required.
+
+After deploying, submit `/sitemap-index.xml` through Google Search Console and inspect representative URLs. LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/) can refresh an outdated share preview. Indexing, rankings and AI citations depend on the external service; these changes make content discoverable but do not guarantee inclusion.
+
+References: [Google AI features and websites](https://developers.google.com/search/docs/appearance/ai-features), [localized page versions](https://developers.google.com/search/docs/specialty/international/localized-versions), [Open Graph](https://ogp.me/), and the [llms.txt proposal](https://llmstxt.org/).
 
 ## ✨ Features
 
