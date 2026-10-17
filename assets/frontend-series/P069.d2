@@ -1,0 +1,10 @@
+direction: down
+**.style.font-size: 24
+before: "Nombre confirmado: Original"
+optimistic: "UI: Nuevo\nmutación pendiente"
+server: "Servidor comprueba versión"
+yes: "Éxito: valor canónico"
+no: "Rechazo: restaurar si\nno hubo otro cambio posterior"
+before -> optimistic -> server
+server -> yes: "acepta"
+server -> no: "rechaza"

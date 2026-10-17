@@ -1,0 +1,97 @@
+{
+  "measured_at": "2026-10-17T18:30:45.457Z",
+  "node": "v24.19.0",
+  "chromium": "141.0.7390.37",
+  "os": "linux",
+  "cpu": "Intel(R) Core(TM) Ultra 9 285H",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "logical_rows": 5000,
+  "warmup_rounds": 1,
+  "sample_rounds": 7,
+  "metric": "DOM creation + synchronous layout, milliseconds; not INP",
+  "samples": [
+    {
+      "round": 0,
+      "mounted": 5000,
+      "ms": 41.70000000111759
+    },
+    {
+      "round": 0,
+      "mounted": 14,
+      "ms": 0.2000000011175871
+    },
+    {
+      "round": 1,
+      "mounted": 14,
+      "ms": 0.19999999925494194
+    },
+    {
+      "round": 1,
+      "mounted": 5000,
+      "ms": 43.899999998509884
+    },
+    {
+      "round": 2,
+      "mounted": 5000,
+      "ms": 35.80000000074506
+    },
+    {
+      "round": 2,
+      "mounted": 14,
+      "ms": 0.30000000074505806
+    },
+    {
+      "round": 3,
+      "mounted": 14,
+      "ms": 0.19999999925494194
+    },
+    {
+      "round": 3,
+      "mounted": 5000,
+      "ms": 41.5
+    },
+    {
+      "round": 4,
+      "mounted": 5000,
+      "ms": 68.70000000111759
+    },
+    {
+      "round": 4,
+      "mounted": 14,
+      "ms": 0.30000000074505806
+    },
+    {
+      "round": 5,
+      "mounted": 14,
+      "ms": 0.2999999988824129
+    },
+    {
+      "round": 5,
+      "mounted": 5000,
+      "ms": 33
+    },
+    {
+      "round": 6,
+      "mounted": 5000,
+      "ms": 35
+    },
+    {
+      "round": 6,
+      "mounted": 14,
+      "ms": 0.40000000037252903
+    }
+  ],
+  "medians": [
+    {
+      "mounted": 5000,
+      "ms": 41.5
+    },
+    {
+      "mounted": 14,
+      "ms": 0.2999999988824129
+    }
+  ]
+}

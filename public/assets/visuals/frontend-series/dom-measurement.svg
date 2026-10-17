@@ -1,0 +1,61 @@
+<svg width="900" height="460" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 900 460">
+<rect width="900" height="460" x="0" y="0" fill="#111827"></rect>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="7.5" transform="translate(24 408)" fill="#cbd5e1">Chromium 141.0.7390.37 · linux · viewport 1280 × 720</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="22.5" transform="translate(24 408)" fill="#cbd5e1">Microexperimento aislado: no mide React, scroll ni INP. No extrapolar a producción.</text>
+<path d="M150.5 105L150.5 330" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M278.5 105L278.5 330" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M406.5 105L406.5 330" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M534.5 105L534.5 330" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M662.5 105L662.5 330" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M790.5 105L790.5 330" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M150.5 105L150.5 330" fill="none" pointer-events="visible" stroke="#54555a" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" transform="translate(805 330)" fill="#cbd5e1">ms</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:17px;font-family:sans-serif;" xml:space="preserve" transform="translate(142 161.25)" fill="#f8fafc">5000 filas</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:17px;font-family:sans-serif;" xml:space="preserve" transform="translate(142 273.75)" fill="#f8fafc">14 filas</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(150 338)" fill="#cbd5e1">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(278 338)" fill="#cbd5e1">10</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(406 338)" fill="#cbd5e1">20</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(534 338)" fill="#cbd5e1">30</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(662 338)" fill="#cbd5e1">40</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(790 338)" fill="#cbd5e1">50</text>
+<path d="M150 122.4l531.2 0l0 77.6l-531.2 0Z" fill="#38bdf8" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-1 zr0-cls-2"></path>
+<path d="M150 234.9l3.8 0l0 77.6l-3.8 0Z" fill="#38bdf8" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3 zr0-cls-2"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:18px;font-family:sans-serif;" xml:space="preserve" transform="translate(686.2 161.25)" fill="#f8fafc">41.5 ms</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:18px;font-family:sans-serif;" xml:space="preserve" transform="translate(158.84 273.75)" fill="#f8fafc">0.3 ms</text>
+<path d="M-5 -5l604.1 0l0 58l-604.1 0Z" transform="translate(29 20)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#3c3c41" stroke-width="0" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:23px;font-family:sans-serif;font-weight:bold;" xml:space="preserve" y="11.5" transform="translate(29 20)" fill="#f8fafc">Montar menos filas reduce el trabajo DOM de esta prueba</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="40.5" transform="translate(29 20)" fill="#cbd5e1">Creación de nodos + layout síncrono · mediana de siete muestras</text>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1 {
+animation:zr0-ani-0 1s cubic-bezier(0.65,0,0.35,1) both;
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+fill:rgba(61,207,255,1);
+}
+.zr0-cls-3 {
+animation:zr0-ani-1 1s cubic-bezier(0.65,0,0.35,1) both;
+}
+@keyframes zr0-ani-0 {
+0% {
+d:path("M150 122.4l0 0l0 77.6l0 0Z");
+}
+100% {
+d:path("M150 122.4l531.2 0l0 77.6l-531.2 0Z");
+}
+}
+@keyframes zr0-ani-1 {
+0% {
+d:path("M150 234.9l0 0l0 77.6l0 0Z");
+}
+100% {
+d:path("M150 234.9l3.8 0l0 77.6l-3.8 0Z");
+}
+}
+]]>
+
+</style>
+</svg>

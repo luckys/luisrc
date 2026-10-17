@@ -2246,3 +2246,17 @@ El mapeo a fichas P indica cobertura conceptual parcial o agrupada; no marca
 como realizados todos los laboratorios extensos originales. Los artículos y sus
 experimentos preparan PS01–PS10, pero no afirman que PaySafe ya esté implementado.
 Se conservan en borrador y no hay traducciones ni narraciones nuevas.
+
+## 13. Siguiente serie: Frontend y tiempo real
+
+Continuación autorizada: P067–P075 como nueve artículos generalistas en español,
+en el [orden de lectura](editorial/ruta-frontend-tiempo-real.md). Incluyen un
+laboratorio compartido con React y TypeScript, pruebas de navegador y recursos
+visuales propios. El [alcance](editorial/frontend-series-scope.md) distingue
+los fundamentos ejecutados de los laboratorios integradores más amplios:
+SSG, medición de campo, Storybook, colaboración remota y WebRTC entre redes
+no se consideran implementados por describirlos conceptualmente.
+
+Se mantienen en borrador. No se han publicado, traducido ni narrado. Cloud y
+Kubernetes siguen pendientes como ampliaciones; no se requieren para estudiar
+estas interfaces. Tras este bloque, el orden global propone matemáticas y estadística.

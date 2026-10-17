@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --surface: #111827;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --focus: #facc15;
+  --gap: 1rem;
+  font: 100%/1.6 system-ui;
+  background: var(--surface);
+  color: var(--text);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  max-width: 70rem;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+a {
+  color: #7dd3fc;
+}
+main {
+  margin-top: 2rem;
+}
+form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 32rem;
+}
+input,
+button {
+  font: inherit;
+}
+input:not([type='checkbox']) {
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.5rem;
+}
+button {
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.skip {
+  position: absolute;
+  left: -10000px;
+}
+.skip:focus {
+  position: static;
+}
+.table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #64748b;
+}
+caption {
+  text-align: left;
+  font-weight: bold;
+}
+.viewport {
+  height: 320px;
+  overflow: auto;
+  border: 1px solid #64748b;
+}
+.viewport ol {
+  margin: 0;
+  padding: 0 0 0 4rem;
+  width: 100%;
+}
+.virtual-row {
+  height: 32px;
+  white-space: nowrap;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+audio {
+  display: block;
+  max-width: 100%;
+  margin-top: 1rem;
+}

@@ -1,6 +1,7 @@
 packages:
   - 'examples/transacciones'
   - 'examples/servicios-fiables'
+  - 'examples/frontend-tiempo-real'
   - 'tools/motion-canvas'
 
 allowBuilds:

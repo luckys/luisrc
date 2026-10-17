@@ -64,3 +64,9 @@ identidad; integrar un proveedor real requiere otra validación específica.
 El [laboratorio](../../examples/servicios-fiables/README.md) sirve de apoyo a las
 cuatro series. Las limitaciones y los checks se registran en
 [la revisión editorial](reliable-services-review.md).
+
+## Siguiente serie generalista
+
+[Frontend y tiempo real](ruta-frontend-tiempo-real.md) continúa con nueve borradores
+sobre las interfaces que consumen estos servicios. No obliga a implementar un
+proyecto concreto ni convierte cloud o Kubernetes en prerrequisitos de una pantalla.

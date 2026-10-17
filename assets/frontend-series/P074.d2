@@ -1,0 +1,12 @@
+direction: down
+**.style.font-size: 24
+base: "Documento compartido"
+a: "Pestaña A sin conexión\ninserta A"
+b: "Pestaña B sin conexión\ninserta B"
+merge: "Intercambiar updates Yjs\nidentidades internas + reglas CRDT"
+result: "Mismo texto en ambas\nAB o BA, no elegir un ganador"
+base -> a
+base -> b
+a -> merge
+b -> merge
+merge -> result
