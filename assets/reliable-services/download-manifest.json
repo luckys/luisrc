@@ -1,0 +1,24 @@
+{
+  "paths": [
+    "servicios-fiables/docker-compose.yml",
+    "servicios-fiables/package.json",
+    "servicios-fiables/pnpm-lock.yaml",
+    "servicios-fiables/README.md",
+    "servicios-fiables/results/load.json",
+    "servicios-fiables/results/README.md",
+    "servicios-fiables/sql/01-schema.sql",
+    "servicios-fiables/sql/02-atomic-write.sql",
+    "servicios-fiables/sql/03-consume.sql",
+    "servicios-fiables/src/distributed.ts",
+    "servicios-fiables/src/money.ts",
+    "servicios-fiables/src/security.ts",
+    "servicios-fiables/src/service.ts",
+    "servicios-fiables/src/webhook.ts",
+    "servicios-fiables/src/workflow.ts",
+    "servicios-fiables/tests/core.test.mjs",
+    "servicios-fiables/tests/postgres.test.mjs",
+    "servicios-fiables/tools/database.mjs",
+    "servicios-fiables/tools/load.mjs",
+    "servicios-fiables/tsconfig.json"
+  ]
+}

@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+budget: "Deadline total\nintentos + esperas"
+attempt: "Intento\ntimeout según tiempo restante"
+wait: "Backoff con jitter\nsolo si repetir está permitido"
+bulkhead: "Bulkhead\nconcurrencia acotada"
+budget -> attempt -> wait
+bulkhead -> attempt

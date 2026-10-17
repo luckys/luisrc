@@ -1,5 +1,6 @@
 packages:
   - 'examples/transacciones'
+  - 'examples/servicios-fiables'
   - 'tools/motion-canvas'
 
 allowBuilds:

@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+local: "Transacción local A\noperación + Outbox"
+relay: "Relay\npublicación puede repetirse"
+consumer: "Transacción local B\nInbox + efecto SQL"
+external: "Efecto externo\nnecesita su propio contrato"
+local -> relay -> consumer
+consumer -> external: "no es el mismo commit"

@@ -1,0 +1,7 @@
+direction: down
+**.style.font-size: 24
+api: "API\noperation ID · request ID"
+outbox: "Outbox\nevent ID · contexto"
+worker: "Worker\noperation ID · attempt ID"
+signals: "Logs · métricas · spans\nsin secretos ni labels ilimitados"
+api -> outbox -> worker -> signals

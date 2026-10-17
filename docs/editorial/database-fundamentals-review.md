@@ -61,3 +61,69 @@ Las transacciones no inventan invariantes, no incluyen servicios HTTP externos
 y no resuelven una confirmación incierta. El aislamiento no es una garantía universal
 de serializabilidad. Un reinicio ordenado no equivale a un corte eléctrico ni a
 una prueba completa de durabilidad.
+
+## Ampliación de la serie — 2026-10-17
+
+La petición del autor amplía la base de conocimientos, sin vincular las entregas a
+PaySafe ni construir ese producto. Se conservan los dos artículos originales y
+se añaden trece, solo en español y todos con `draft: true`. SQL e índices se
+separan en dos partes cada uno; migraciones y particionado son entregas distintas.
+El orden y el mapa P032–P041 están en `database-fundamentals.yaml` y
+`database-series-scope.md`.
+
+### Contenido y fuentes
+
+Una pregunta dominante por artículo, aperturas con un fallo reconocible,
+terminología inglesa explicada, decisiones y alternativas, garantías y límites,
+ejercicio con aceptación y enlaces entre entregas. El glosario sirve como índice
+de conceptos, no como sustituto de su explicación.
+
+Se consultó documentación primaria de PostgreSQL 18, Redis, MongoDB, DynamoDB,
+Cassandra, Elasticsearch y pgvector, además de Microsoft y los apuntes del RPI
+para normalización. Referencias y fecha de consulta figuran en los artículos.
+No se han inventado planes, tiempos de ejecución ni comparativas entre motores.
+
+### Recursos y código
+
+Laboratorio autocontenido `examples/bases-de-datos/`, PostgreSQL 18.4 y Redis
+fijados por digest, sin puertos publicados. Trece scripts SQL y herramientas Node
+sin dependencias adicionales. Los snippets SQL identificados por archivo se
+comparan con los originales. El ZIP contiene veinte archivos y sus bytes se
+comparan con los del árbol revisado.
+
+Trece diagramas D2 renderizados como SVG y una gráfica ECharts SSR a partir de
+`results/benchmark.json`. Los diagramas lineales más anchos se reorganizaron en
+vertical tras inspeccionar sus PNG. Todos tienen texto alternativo, dimensiones
+reales, carga diferida y enlace de ampliación; no añaden un motor de diagramas al
+navegador.
+
+### Verificación realizada
+
+- Catorce pruebas funcionales con PostgreSQL/Redis reales: constraints, snapshots,
+  write skew, lost update, actualización condicional, versiones, LEFT JOIN,
+  EXISTS, locks, ON CONFLICT, deadlock, resumen obsoleto, migración, particiones,
+  carrera de invalidación y proyección JSON (algunas agrupadas en una prueba).
+- El mismo laboratorio se ejecuta desde el ZIP extraído en un entorno temporal
+  independiente, con otro nombre de proyecto Docker.
+- Comprobaciones editoriales de inventario, prerrequisitos, recursos locales,
+  metadatos, enlaces y coincidencia del código y de la descarga.
+- Los trece borradores responden HTTP 200 en desarrollo; sus anclas de índice,
+  quince recursos locales y meta `noindex` se comprobaron sobre el HTML real.
+- Build de producción correcto. Los borradores no se incluyen en las rutas
+  públicas de artículos, el sitemap ni los feeds. Tests existentes de SEO/audio
+  también pasan sin solicitar síntesis de voz.
+
+### Límites de la verificación
+
+No había un navegador de automatización conectado: no se afirma QA visual
+completo de páginas ni una revisión de interacción móvil. Sí se inspeccionaron
+los diagramas rasterizados y se analizaron las páginas renderizadas por HTTP.
+
+La medición de índice es sintética, local, con una ejecución de calentamiento y
+siete muestras por variante; WAL se compara con una pasada por variante. La
+migración ensaya SQL secuencial, no un rolling deployment. El particionado usa
+dos filas y no pretende medir escala. La comparación de MongoDB y DynamoDB es
+conceptual: esos servicios no se ejecutaron. El ejemplo de caché demuestra una
+carrera; no implementa ni promete coherencia fuerte distribuida.
+
+No se generaron traducciones ni audios; no se publicaron artículos ni se hizo commit.

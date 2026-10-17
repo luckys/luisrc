@@ -2230,3 +2230,19 @@ known_limitations: []
 ```
 
 **Prioridad inmediata:** PS01 → PS10; el catálogo P001–P175 permanece como mapa completo de conocimiento y banco editorial para especializaciones posteriores.
+
+## 12. Continuación editorial generalista, 2026-10-17
+
+El encargo posterior pide fundamentos independientes de PaySafe, no capítulos
+de implementación del proyecto. Después de la serie de bases de datos, la ruta
+recomendada y redactada comprende cuatro series con 24 borradores en español:
+APIs y seguridad, diseño y pruebas, sistemas distribuidos, y operación.
+
+Consultar [el índice ordenado](editorial/ruta-fundamentos-servicios-fiables.md),
+[el inventario de dependencias](editorial/reliable-services-series.json) y
+[la revisión y sus límites](editorial/reliable-services-review.md).
+
+El mapeo a fichas P indica cobertura conceptual parcial o agrupada; no marca
+como realizados todos los laboratorios extensos originales. Los artículos y sus
+experimentos preparan PS01–PS10, pero no afirman que PaySafe ya esté implementado.
+Se conservan en borrador y no hay traducciones ni narraciones nuevas.

@@ -1,0 +1,9 @@
+direction: down
+**.style.font-size: 24
+client: "Cliente closed-loop\n1 · 4 · 12 solicitudes simultáneas"
+server: "Servidor local sintético\n4 cupos · espera de 20 ms"
+success: "200\ntrabajo admitido"
+reject: "503\nrechazo rápido"
+client -> server
+server -> success
+server -> reject

@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+query: "WHERE tenant_id = 42\nORDER BY created_at DESC\nLIMIT 10"
+key: "Clave B-tree\ntenant_id · created_at DESC"
+include: "INCLUDE (status)\nDato disponible en el índice\nNo es clave de búsqueda"
+query -> key: "Filtrar y ordenar"
+key -> include: "Posible index-only scan"

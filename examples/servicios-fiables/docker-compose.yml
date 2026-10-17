@@ -1,0 +1,15 @@
+name: luisrc-reliable-services
+services:
+  postgres:
+    image: postgres:18-alpine@sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d293595148e674e0a3181de15
+    environment:
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: public-local-lab-only
+      POSTGRES_DB: reliable_lab
+    volumes:
+      - ./sql:/lab/sql:ro
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U lab -d reliable_lab]
+      interval: 2s
+      timeout: 3s
+      retries: 20

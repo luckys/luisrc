@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+a: "A: SELECT\nSaldo 10000"
+b: "B: UPDATE + COMMIT\nSaldo 10500"
+c: "A: segundo SELECT\nREAD COMMITTED: 10500\nREPEATABLE READ: 10000"
+a -> b: "Otra sesión confirma"
+b -> c: "Nueva snapshot o visión estable"

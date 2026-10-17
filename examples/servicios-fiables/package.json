@@ -1,0 +1,16 @@
+{
+  "name": "servicios-fiables-lab",
+  "private": true,
+  "packageManager": "pnpm@12.8.1",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "test": "node --test tests/core.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.0",
+    "typescript": "5.9.2"
+  }
+}

@@ -1,0 +1,12 @@
+shape: sequence_diagram
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+a: Lector
+db: PostgreSQL
+writer: Escritor
+cache: Redis
+a -> db: "Leer precio antiguo: 1000"
+writer -> db: "COMMIT precio nuevo: 1200"
+writer -> cache: "DEL clave"
+a -> cache: "SET precio antiguo: 1000 EX 60"
+cache -> a: "La caché vuelve a estar obsoleta"

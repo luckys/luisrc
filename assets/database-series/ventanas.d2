@@ -1,0 +1,8 @@
+direction: right
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+input: "Compras de Ana\nPedido 10: 3000\nPedido 11: 500"
+group: "GROUP BY cliente\nUna fila: 3500"
+window: "SUM OVER\nPedido 10: acumulado 3000\nPedido 11: acumulado 3500"
+input -> group: "Reduce filas"
+input -> window: "Conserva detalle"

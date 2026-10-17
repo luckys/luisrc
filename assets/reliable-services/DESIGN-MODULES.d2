@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+http: "Adaptador HTTP"
+usecase: "Caso de uso\nreglas y coordinación"
+port: "Contrato OrderWriter\nsave confirmado"
+adapter: "Adaptador PostgreSQL\nimplementa el contrato"
+http -> usecase -> port
+adapter -> port: "implementa"

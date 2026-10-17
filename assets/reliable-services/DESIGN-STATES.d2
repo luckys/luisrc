@@ -1,0 +1,13 @@
+direction: down
+**.style.font-size: 24
+created: "Created"
+processing: "Processing"
+unknown: "Unknown"
+success: "Succeeded\nterminal en esta demo"
+failed: "Failed\nterminal en esta demo"
+created -> processing: "submit"
+processing -> unknown: "uncertain"
+processing -> success: "confirm"
+processing -> failed: "decline"
+unknown -> success: "confirm con evidencia"
+unknown -> failed: "decline con evidencia"

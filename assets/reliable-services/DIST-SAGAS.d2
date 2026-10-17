@@ -1,0 +1,9 @@
+direction: down
+**.style.font-size: 24
+reserve: "Reservar inventario"
+external: "Solicitar operación externa"
+known: "Rechazo confirmado\nliberar si sigue siendo reversible"
+unknown: "Resultado desconocido\nconsultar antes de compensar"
+reserve -> external
+external -> known
+external -> unknown

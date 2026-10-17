@@ -1,0 +1,7 @@
+direction: down
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+expand: "Expand\nAñadir columna nullable\nApp antigua sigue funcionando"
+migrate: "Migrate\nDual write · backfill\nRetirar escritores antiguos"
+contract: "Contract\nValidar · exigir NOT NULL\nEliminar lectura y columna antigua"
+expand -> migrate -> contract

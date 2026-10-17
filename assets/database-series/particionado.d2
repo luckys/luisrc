@@ -1,0 +1,10 @@
+direction: right
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+parent: "Events\nPARTITION BY RANGE (occurred_on)"
+jan: "Enero\n[2026-01-01, 2026-02-01)"
+feb: "Febrero\n[2026-02-01, 2026-03-01)"
+archive: "DETACH enero\nTabla separada, datos conservados"
+parent -> jan
+parent -> feb
+jan -> archive

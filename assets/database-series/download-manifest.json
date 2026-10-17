@@ -1,0 +1,25 @@
+{
+  "files": 20,
+  "paths": [
+    "bases-de-datos/docker-compose.yml",
+    "bases-de-datos/README.md",
+    "bases-de-datos/results/benchmark.json",
+    "bases-de-datos/results/README.md",
+    "bases-de-datos/sql/01-modelo.sql",
+    "bases-de-datos/sql/02-aislamiento.sql",
+    "bases-de-datos/sql/03-concurrencia.sql",
+    "bases-de-datos/sql/04-consultas.sql",
+    "bases-de-datos/sql/05-analitica.sql",
+    "bases-de-datos/sql/06-normalizacion.sql",
+    "bases-de-datos/sql/07-indices.sql",
+    "bases-de-datos/sql/08-indices-diseno.sql",
+    "bases-de-datos/sql/09-planes.sql",
+    "bases-de-datos/sql/10-migraciones.sql",
+    "bases-de-datos/sql/11-particionado.sql",
+    "bases-de-datos/sql/12-cache.sql",
+    "bases-de-datos/sql/13-motores.sql",
+    "bases-de-datos/tests/lab.test.mjs",
+    "bases-de-datos/tools/benchmark.mjs",
+    "bases-de-datos/tools/database.mjs"
+  ]
+}

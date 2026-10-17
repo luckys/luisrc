@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+seed: "Generador con semilla\nsecuencia reproducible"
+machine: "Máquina de estados\naceptar o rechazar acciones"
+oracle: "Oráculo\ncomprobar invariante en cada paso"
+sql: "Fallo inyectado entre escrituras\nverificar rollback real"
+seed -> machine -> oracle
+sql -> oracle

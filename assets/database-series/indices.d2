@@ -1,0 +1,9 @@
+direction: right
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+query: "WHERE tenant_id = 42"
+scan: "Sin índice adecuado\nRecorrer filas de la tabla"
+tree: "B-tree\nLocalizar entradas de 42"
+heap: "Tabla\nComprobar filas visibles"
+query -> scan
+query -> tree -> heap

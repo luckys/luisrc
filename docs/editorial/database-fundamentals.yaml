@@ -2,6 +2,8 @@ series: Fundamentos de bases de datos
 locale: es
 status: draft
 verified: 2026-10-10
+expanded: 2026-10-17
+scope: Fundamentos independientes de productos, base para proyectos
 articles:
   - id: DB-ACID
     path: src/content/posts/es/propiedades-acid-bases-de-datos.md
@@ -13,7 +15,64 @@ articles:
     english: src/content/posts/en/postgresql-transactions-practical-examples.md
     question: Cómo delimito y termino el trabajo ante éxito o fallo
     optional: TypeScript y nueve pruebas con PostgreSQL real
+  - id: DB-MODEL
+    path: src/content/posts/es/modelado-relacional-integridad-datos.md
+    question: Qué reglas y relaciones debe proteger el esquema
+    roadmap: [P032]
+  - id: DB-ISOLATION
+    path: src/content/posts/es/aislamiento-mvcc-postgresql.md
+    question: Qué puede observar cada transacción y qué anomalías quedan
+    roadmap: [P037]
+  - id: DB-CONCURRENCY
+    path: src/content/posts/es/concurrencia-bloqueos-postgresql.md
+    question: Qué mecanismo protege cada carrera
+    roadmap: [P038]
+  - id: DB-SQL
+    path: src/content/posts/es/sql-joins-null-agregaciones.md
+    question: Qué representa cada fila antes de agregar
+    roadmap: [P033]
+  - id: DB-ANALYTICS
+    path: src/content/posts/es/sql-cte-ventanas-cohortes.md
+    question: Cómo calcular acumulados y actividad sin perder detalle
+    roadmap: [P033]
+  - id: DB-NORMALIZATION
+    path: src/content/posts/es/normalizacion-desnormalizacion-datos.md
+    question: Qué hecho depende de cada clave y quién actualiza sus copias
+    roadmap: [P034]
+  - id: DB-INDEXES
+    path: src/content/posts/es/indices-postgresql-fundamentos.md
+    question: Qué acceso acelera un índice y qué escritura añade
+    roadmap: [P035]
+  - id: DB-INDEX-DESIGN
+    path: src/content/posts/es/indices-compuestos-parciales-covering.md
+    question: Qué estructura corresponde al filtro y al orden de la consulta
+    roadmap: [P035]
+  - id: DB-PLANS
+    path: src/content/posts/es/explain-analyze-postgresql.md
+    question: Qué trabajo hace realmente una consulta
+    roadmap: [P036]
+  - id: DB-MIGRATIONS
+    path: src/content/posts/es/migraciones-base-datos-sin-romper-aplicacion.md
+    question: Cómo evolucionar el contrato mientras conviven versiones
+    roadmap: [P041]
+  - id: DB-PARTITIONING
+    path: src/content/posts/es/particionado-retencion-postgresql.md
+    question: Cuándo coincide la división física con accesos y retención
+    roadmap: [P041]
+  - id: DB-CACHE
+    path: src/content/posts/es/redis-cache-consistencia.md
+    question: Qué antigüedad y qué fallos acepta una lectura cacheada
+    roadmap: [P039]
+  - id: DB-STORAGE
+    path: src/content/posts/es/elegir-sql-nosql-motores-especializados.md
+    question: Qué motor satisface accesos y garantías con coste justificable
+    roadmap: [P040]
 lab: examples/transacciones
 download: public/assets/examples/transacciones-lab.zip
 english_download: public/assets/examples/transactions-lab-en.zip
 diagrams: assets/database-fundamentals
+continuation_lab: examples/bases-de-datos
+continuation_download: public/assets/examples/bases-de-datos-lab.zip
+continuation_diagrams: assets/database-series
+continuation_language: es
+continuation_verified: 2026-10-17

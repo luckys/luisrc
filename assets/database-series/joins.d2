@@ -1,0 +1,9 @@
+direction: right
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+order: "Pedido 10\nTotal: 3000"
+lines: "JOIN con dos líneas\n3000 · BOOK\n3000 · PEN"
+wrong: "SUM del total repetido\n6000: incorrecto"
+right: "Una fila por pedido\nSUM: 3000"
+order -> lines -> wrong
+order -> right: "Conservar el grano"

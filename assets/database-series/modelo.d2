@@ -1,0 +1,10 @@
+direction: right
+**.style.font-size: 24
+(** -> **)[*].style.font-size: 24
+customers: "Customers\nid · name · email"
+orders: "Orders\nid · customer_id · currency"
+items: "Order items\norder_id + sku · quantity\nunit_price_minor"
+products: "Products\nsku · name · price_minor"
+customers -> orders: "1 → 0..N"
+orders -> items: "1 → 0..N"
+products -> items: "1 → 0..N"

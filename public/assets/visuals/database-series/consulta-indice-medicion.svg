@@ -1,0 +1,62 @@
+<svg width="900" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 900 400">
+<rect width="900" height="400" x="0" y="0" fill="#111827"></rect>
+<text dominant-baseline="central" text-anchor="start" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="7" transform="translate(30 374)" fill="#cbd5e1">Laboratorio sintético local. No predice el rendimiento de una aplicación real.</text>
+<path d="M160.5 110L160.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M268.5 110L268.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M376.5 110L376.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M485.5 110L485.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M593.5 110L593.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M701.5 110L701.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M810.5 110L810.5 320" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M160.5 110L160.5 320" fill="none" pointer-events="visible" stroke="#54555a" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" y="6" transform="translate(485 355)" fill="#cbd5e1">Execution Time (ms)</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:17px;font-family:sans-serif;" xml:space="preserve" transform="translate(152 162.5)" fill="#f8fafc">Sin índice</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:17px;font-family:sans-serif;" xml:space="preserve" transform="translate(152 267.5)" fill="#f8fafc">Con índice</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(160 328)" fill="#cbd5e1">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(268.3333 328)" fill="#cbd5e1">1</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(376.6667 328)" fill="#cbd5e1">2</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(485 328)" fill="#cbd5e1">3</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(593.3333 328)" fill="#cbd5e1">4</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(701.6667 328)" fill="#cbd5e1">5</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="6" transform="translate(810 328)" fill="#cbd5e1">6</text>
+<path d="M160 126.3l564.5 0l0 72.5l-564.5 0Z" fill="#38bdf8" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-1 zr0-cls-2"></path>
+<path d="M160 231.3l79 0l0 72.5l-79 0Z" fill="#38bdf8" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3 zr0-cls-2"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:17px;font-family:sans-serif;" transform="translate(729.525 162.5)" fill="#f8fafc">5.211</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:17px;font-family:sans-serif;" transform="translate(243.975 267.5)" fill="#f8fafc">0.729</text>
+<path d="M-5 -5l442.2 0l0 55l-442.2 0Z" transform="translate(35 20)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#3c3c41" stroke-width="0" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:21px;font-family:sans-serif;font-weight:bold;" xml:space="preserve" y="10.5" transform="translate(35 20)" fill="#f8fafc">Misma consulta, antes y después del índice</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="38" transform="translate(35 20)" fill="#cbd5e1">PostgreSQL 18.4 · 100 000 filas · mediana de 7 ejecuciones</text>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1 {
+animation:zr0-ani-0 1s cubic-bezier(0.65,0,0.35,1) both;
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+fill:rgba(61,207,255,1);
+}
+.zr0-cls-3 {
+animation:zr0-ani-1 1s cubic-bezier(0.65,0,0.35,1) both;
+}
+@keyframes zr0-ani-0 {
+0% {
+d:path("M160 126.3l0 0l0 72.5l0 0Z");
+}
+100% {
+d:path("M160 126.3l564.5 0l0 72.5l-564.5 0Z");
+}
+}
+@keyframes zr0-ani-1 {
+0% {
+d:path("M160 231.3l0 0l0 72.5l0 0Z");
+}
+100% {
+d:path("M160 231.3l79 0l0 72.5l-79 0Z");
+}
+}
+]]>
+
+</style>
+</svg>
