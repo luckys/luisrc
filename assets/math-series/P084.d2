@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+logits: "Logits z = (1000, −1000)"
+naive: "Softmax y luego log\npuede redondear probabilidad a cero"
+stable: "log-sum-exp\nrestar máximo antes de exponenciar"
+loss: "Clase correcta: segunda\nNLL finita = 2000 nats"
+logits -> naive
+logits -> stable -> loss

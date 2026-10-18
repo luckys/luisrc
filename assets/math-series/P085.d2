@@ -1,0 +1,9 @@
+direction: down
+**.style.font-size: 24
+signal: "64 muestras / segundo\n64 muestras: ventana de 1 segundo"
+components: "Sinusoides de 5 Hz y 12 Hz\namplitudes 1 y 0,5"
+fft: "FFT radix-2\nmisma DFT, algoritmo diferente"
+bins: "Bins separados 1 Hz\npicos en 5 y 12"
+alias: "Muestreo no distingue todo\ncoseno 59 Hz y 5 Hz coinciden aquí"
+components -> signal -> fft -> bins
+signal -> alias

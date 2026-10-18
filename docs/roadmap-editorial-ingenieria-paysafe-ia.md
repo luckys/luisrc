@@ -2260,3 +2260,17 @@ no se consideran implementados por describirlos conceptualmente.
 Se mantienen en borrador. No se han publicado, traducido ni narrado. Cloud y
 Kubernetes siguen pendientes como ampliaciones; no se requieren para estudiar
 estas interfaces. Tras este bloque, el orden global propone matemáticas y estadística.
+
+## 14. Continuación: Matemáticas y estadística, 2026-10-18
+
+Redactados diez borradores generalistas P076–P085 solo en español. El
+[índice de lectura](editorial/ruta-matematicas-estadistica.md) enlaza vectores,
+PCA, cálculo, optimización, probabilidad, distribuciones, inferencia, experimentos,
+información y Fourier. Son fundamentos transferibles, no implementación de PaySafe.
+
+Incluyen un laboratorio Python sin paquetes externos, simulador local de learning
+rate, diez diagramas y cuatro gráficas calculadas. El
+[alcance](editorial/math-series-scope.md) distingue ejemplos ejecutados de extensiones
+no implementadas, como SVD general, cobertura estadística o entrenamiento de modelos.
+Estado draft; no publicación, traducciones o audios. El siguiente bloque propuesto
+es Machine Learning clásico (P086–P095), todavía no redactado en esta entrega.

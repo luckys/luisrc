@@ -18,5 +18,6 @@ Alcance y diferencias con los labs completos del catálogo en [scope](frontend-s
 Inventario en [frontend-series.json](frontend-series.json).
 
 El siguiente bloque global es matemáticas y estadística, previo a Machine Learning.
+Sus diez borradores están en [la ruta de matemáticas y estadística](ruta-matematicas-estadistica.md).
 Cloud y Kubernetes siguen como ampliaciones pendientes, no como prerrequisitos
 artificiales de estas interfaces ni como temas completados por esta entrega.

@@ -1,0 +1,12 @@
+{
+  "paths": [
+    "matematicas-estadistica/experiments.py",
+    "matematicas-estadistica/foundations.py",
+    "matematicas-estadistica/README.md",
+    "matematicas-estadistica/results/calculations.json",
+    "matematicas-estadistica/results/README.md",
+    "matematicas-estadistica/simulator.html",
+    "matematicas-estadistica/simulator.mjs",
+    "matematicas-estadistica/tests/test_foundations.py"
+  ]
+}
