@@ -2345,3 +2345,10 @@ Problem Details, catálogo estable, stock/versión y logging por allowlist. Dos
 diagramas nuevos y ZIP propio con lockfile pnpm, trece pruebas Node y cuatro Python.
 El caso concurrente es de un solo proceso, sin transacciones SQL o GET de inventario.
 La siguiente ficha es P024; faltan P024–P031, no se declara completada la serie.
+
+Continuación P024/P025: millón de filas en PostgreSQL 17.11, comparación OFFSET/keyset,
+56 planes SQL medidos y una inserción entre páginas mediante dos conexiones.
+Snapshots y clave mutable contrastan los límites. Dos consumidores HTTP, OpenAPI,
+cambios aditivos/breaking y headers de deprecación con guía local. Dos diagramas,
+gráfica de muestras locales y visor educativo. ZIP con diecinueve tests.
+La siguiente ficha es P026; faltan P026–P031. Sin publicación o traducción.

@@ -51,8 +51,10 @@ try {
           { timeout: 10000 },
         )
         await image.evaluate((element) => element.decode())
-        if (width === 360 && ['P022', 'P023'].includes(entry.id)) {
-          await page.screenshot({ path: `${folder}/${entry.id}-diagram-mobile.png` })
+        if (width === 360 && ['P022', 'P023', 'P024', 'P025'].includes(entry.id)) {
+          await page.screenshot({
+            path: `${folder}/${entry.id}-${(await image.getAttribute('src')).split('/').at(-1)}-mobile.png`,
+          })
         }
       }
       if (entry.id === 'P023' && width === 360) {
@@ -82,6 +84,44 @@ try {
       })
       report.push({ id: entry.id, width })
     }
+  await page.setViewportSize({ width: 360, height: 1000 })
+  await page.goto(`${origin}/assets/interactive/api-pagination/explorer.html`, {
+    waitUntil: 'networkidle',
+  })
+  assert.equal(await page.locator('#first li').count(), 5)
+  await page.locator('#change').selectOption('insert')
+  assert.equal(await page.locator('#offset .duplicate').count(), 1)
+  assert.equal(await page.locator('#keyset .duplicate').count(), 0)
+  await page.locator('#change').selectOption('move')
+  assert.equal(await page.locator('#keyset .duplicate').count(), 1)
+  assert.equal(await page.locator('#snapshot .duplicate').count(), 0)
+  await page.locator('#change').selectOption('delete')
+  assert.equal(await page.locator('#offset li').count(), 4)
+  assert.equal(await page.locator('#keyset li').count(), 5)
+  await page.locator('#reset').click()
+  assert.equal(await page.locator('#change').inputValue(), 'none')
+  await page.locator('#change').focus()
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('Enter')
+  assert.equal(await page.locator('#change').inputValue(), 'insert')
+  // Cerrar el popup nativo del select antes de capturar la página en Chromium.
+  await page.keyboard.press('Escape')
+  await page.locator('#reset').focus()
+  assert.ok(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1,
+    ),
+  )
+  await page.screenshot({
+    path: `${folder}/pagination-explorer-mobile.png`,
+    fullPage: true,
+  })
+  report.push({
+    id: 'pagination-explorer',
+    width: 360,
+    cases: ['insert', 'move', 'delete', 'reset', 'keyboard'],
+  })
   assert.deepEqual(errors, [])
   await writeFile(`${folder}/report.json`, JSON.stringify(report, null, 2) + '\n')
   console.log(folder)

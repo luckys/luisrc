@@ -67,6 +67,6 @@ compartidos detectan divergencias concretas, no equivalencia universal.
 
 ## Continuación
 
-P024: laboratorio PostgreSQL con un millón de filas, orden total, índices,
-OFFSET/keyset e inserciones concurrentes. Después P025 evolución/consumidores.
+La continuación P024/P025 está en api-pagination-evolution-review.md: PostgreSQL
+con un millón de filas y evolución/consumidores. La siguiente ficha es P026.
 Mantener el alcance independiente de Paysafe, español y draft.

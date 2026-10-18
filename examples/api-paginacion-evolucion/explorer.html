@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Páginas y cambios entre lecturas</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font: 18px/1.6 system-ui;
+        background: #111827;
+        color: #f8fafc;
+      }
+      body {
+        max-width: 58rem;
+        margin: auto;
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+      }
+      select,
+      button {
+        font: inherit;
+        padding: 0.5rem;
+        max-width: 100%;
+        border: 1px solid #94a3b8;
+        background: #1e293b;
+        color: inherit;
+        border-radius: 0.4rem;
+      }
+      label {
+        display: block;
+      }
+      select {
+        width: 100%;
+      }
+      section {
+        border: 1px solid #64748b;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+        margin: 0;
+      }
+      ol {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        background: #1e293b;
+        padding: 0.3rem 0.6rem;
+        border-radius: 0.3rem;
+        font: 1rem monospace;
+      }
+      .duplicate {
+        border: 2px solid #fbbf24;
+      }
+      a {
+        color: #7dd3fc;
+      }
+      :focus-visible {
+        outline: 3px solid #7dd3fc;
+        outline-offset: 3px;
+      }
+      .note {
+        color: #cbd5e1;
+      }
+      #explanation {
+        min-height: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Qué cambia entre dos páginas</h1>
+    <p class="note">
+      Modelo educativo en memoria. No consulta PostgreSQL ni mide tiempos. La inserción
+      reproduce los IDs del caso SQL archivado; las demás opciones son simulaciones sobre
+      diez filas.
+    </p>
+    <label for="change">Cambio confirmado después de leer la primera página</label>
+    <select id="change">
+      <option value="none">Ninguno</option>
+      <option value="insert">Insertar un pedido delante</option>
+      <option value="move">Mover la primera fila detrás del cursor</option>
+      <option value="delete">Borrar la primera fila</option>
+    </select>
+    <p><button id="reset" type="button">Restablecer</button></p>
+    <p id="explanation" aria-live="polite"></p>
+    <section>
+      <h2>Primera página ya entregada</h2>
+      <ol id="first"></ol>
+    </section>
+    <section>
+      <h2>Segunda página con OFFSET 5</h2>
+      <ol id="offset"></ol>
+    </section>
+    <section>
+      <h2>Segunda página desde keyset</h2>
+      <ol id="keyset"></ol>
+    </section>
+    <section>
+      <h2>Segunda página de un snapshot conservado</h2>
+      <ol id="snapshot"></ol>
+    </section>
+    <p>
+      «Repetido» indica que el ID estaba en la primera página. El snapshot conserva la
+      vista original; no es una propiedad automática de keyset ni de dos peticiones HTTP
+      distintas.
+    </p>
+    <p>
+      <a href="/posts/paginacion-offset-keyset-postgresql-concurrencia"
+        >Volver al artículo</a
+      >
+    </p>
+    <script type="module" src="./explorer.mjs"></script>
+  </body>
+</html>

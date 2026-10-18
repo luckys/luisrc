@@ -9,17 +9,18 @@ Los últimos turnos han producido progreso verificable: diez borradores de ML cl
 y nueve de Computación, sistemas y redes, con laboratorios y recursos visuales.
 La instrucción más reciente restringe la Serie 02 a estructuras de datos y algoritmos:
 P011 se ha ampliado a 21 entregas, sin redactar P010 o P012–P019.
-Después se inicia Serie 03 con P020–P023, contratos, validación y errores probados.
+Después se inicia Serie 03 con P020–P025, contratos, validación, errores, paginación
+y evolución probados.
 No es una espera ni una declaración de finalización. Mantener el objetivo activo.
 
 ## Estado de trabajo
 
-- Commit `3d3de63` guarda ML/Computación/Algoritmos, inicio de APIs e inventario,
-  cumpliendo el encargo de commit de este turno. P022/P023 son cambios posteriores.
+- Commit `fb190d4` guarda P022/P023, después de `3d3de63` para ML/Computación/
+  Algoritmos e inicio de APIs. P024/P025 son cambios posteriores al commit de este turno.
   Sin push solicitado.
 - `roadmap-progress.md` y `.json`: generados desde las 175 fichas reales con
   `node scripts/audit-editorial-roadmap.mjs`. No alteran el alcance del objetivo.
-- Hay 43 IDs exactos, 40 fichas con candidatos relacionados y 92 sin artículo
+- Hay 45 IDs exactos, 38 fichas con candidatos relacionados y 92 sin artículo
   identificado. No son contadores de aceptación. Los candidatos agrupados se han
   conservado, no renumerado para aparentar completitud.
 - La ruta corta anterior para PS01–PS10 no sustituye las fichas generales. AWS,
@@ -37,7 +38,10 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   Continúa con P022/P023, examples/api-validacion-errores y revisión propia:
   13 tests Node y cuatro Python, JSON Schema/Ajv/Zod/Pydantic reales, errores por
   campo, stock/versión, dos peticiones concurrentes y proyección segura de logs.
-  Faltan P024–P031. No hay autenticación, pagos o durabilidad.
+  P024/P025 continúan en examples/api-paginacion-evolucion, diecinueve tests:
+  PostgreSQL con un millón de filas, 56 planes SQL archivados, escrituras entre
+  páginas, snapshots, dos lectores HTTP y schemas OpenAPI contrastados.
+  Faltan P026–P031. No hay autenticación o pagos; solo base efímera de laboratorio.
 
 ## Próxima acción concreta
 
@@ -49,7 +53,7 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
 3. Leer cada ficha completa y fuentes primarias antes de escribir. Tests antes del
    código; medir ejemplos sin convertirlos en benchmarks universales. Un laboratorio
    compartido por serie es válido si identifica qué archivo y evidencia usa cada post.
-4. Continuar Serie 03 por P024/P025 y después P026–P031 según
+4. Continuar Serie 03 por P026/P027 y después P028–P031 según
    ruta-diseno-apis-seguridad.md, contrastando los artículos agrupados previos.
    Después revisar series 04–06 y los límites
    declarados de las series 07–09. Continuar después P096–P175 por series.

@@ -169,7 +169,7 @@ No hay durabilidad, autenticación, transacciones SQL, trazas distribuidas o ide
 
 Añade una dependencia ficticia que pueda devolver `timeout_before_execution`. Traduce solo esa condición conocida a un problema público documentado. Prueba también una excepción inesperada y exige que siga siendo 500, sin mensaje original. Después explica qué cambiaría si el timeout ocurriera después de iniciar una escritura cuyo resultado no conoces.
 
-La próxima entrega estudiará paginación con escrituras concurrentes. Mantendrá la misma exigencia: un resultado plausible no basta si el contrato promete algo distinto.
+Continuamos con [paginación bajo escrituras concurrentes](/posts/paginacion-offset-keyset-postgresql-concurrencia). Mantendremos la misma exigencia: un resultado plausible no basta si el contrato promete algo distinto.
 
 ## Referencias
 

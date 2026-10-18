@@ -11,7 +11,7 @@ try {
       await readFile(`assets/api-contracts/${entry.id}.d2`, 'utf8'),
       {
         layout: 'elk',
-        ...(['P022', 'P023'].includes(entry.id) ? { pad: 16 } : {}),
+        ...(['P022', 'P023', 'P024', 'P025'].includes(entry.id) ? { pad: 16 } : {}),
       },
     )
     const svg = await d2.render(compiled.diagram, compiled.renderOptions)

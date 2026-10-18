@@ -2,7 +2,7 @@
   "name": "Diseño de APIs y seguridad web: contratos, identidad y permisos",
   "language": "es",
   "status": "draft",
-  "roadmap": "Serie 03 P020–P031. P020–P023 redactados y probados, sin dar el resto por completado.",
+  "roadmap": "Serie 03 P020–P031. P020–P025 redactados y probados, sin dar el resto por completado.",
   "articles": [
     {
       "id": "P020",
@@ -27,6 +27,18 @@
       "slug": "errores-api-problem-details-stock-concurrencia",
       "title": "Errores de API: distinguir un dato inválido, falta de stock y un conflicto de versión",
       "prerequisites": ["P021", "P022"]
+    },
+    {
+      "id": "P024",
+      "slug": "paginacion-offset-keyset-postgresql-concurrencia",
+      "title": "Paginación con PostgreSQL: por qué OFFSET repite filas y qué resuelve keyset",
+      "prerequisites": ["P021"]
+    },
+    {
+      "id": "P025",
+      "slug": "evolucion-api-versiones-consumidores-contratos",
+      "title": "Evolucionar una API: probar qué clientes siguen funcionando antes de crear v2",
+      "prerequisites": ["P020", "P021", "P022"]
     }
   ]
 }

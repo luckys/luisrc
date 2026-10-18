@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 43,
-    "related_only": 40,
+    "draft_exists": 45,
+    "related_only": 38,
     "not_written": 92
   },
   "completionProven": false,
@@ -281,8 +281,12 @@
         {
           "id": "P024",
           "title": "Paginación, filtrado, ordenación y búsqueda",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/paginacion-offset-keyset-postgresql-concurrencia.md",
+            "slug": "paginacion-offset-keyset-postgresql-concurrencia",
+            "draft": true
+          },
           "related": [
             "evolucion-api-paginacion-contratos"
           ],
@@ -291,8 +295,12 @@
         {
           "id": "P025",
           "title": "Versionado y evolución de APIs",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/evolucion-api-versiones-consumidores-contratos.md",
+            "slug": "evolucion-api-versiones-consumidores-contratos",
+            "draft": true
+          },
           "related": [
             "evolucion-api-paginacion-contratos"
           ],

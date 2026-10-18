@@ -1,0 +1,13 @@
+direction: down
+database: "PostgreSQL\nMismos pedidos"
+v1: "Adaptador v1\namountMinor\ncurrency"
+v2: "Adaptador v2\nmoney.minorUnits\nmoney.currency"
+old: "Cliente v1\nTolera label\nRequiere amountMinor"
+current: "Cliente v2\nRequiere money"
+contracts: "OpenAPI 3.1.1\nSchemas y tests\nGuía de migración"
+database -> v1
+database -> v2
+v1 -> old: /v1/orders
+v2 -> current: /v2/orders
+old -> contracts: contrato v1
+current -> contracts: contrato v2
