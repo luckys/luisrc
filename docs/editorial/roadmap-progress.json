@@ -1,9 +1,9 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 45,
-    "related_only": 38,
-    "not_written": 92
+    "draft_exists": 47,
+    "related_only": 37,
+    "not_written": 91
   },
   "completionProven": false,
   "criteria": "draft_exists indica archivo con ID, no aceptación de todos los requisitos. related_only exige ampliar o escribir una ficha. No renombrar IDs para aparentar cobertura.",
@@ -309,8 +309,12 @@
         {
           "id": "P026",
           "title": "Autenticación: sesiones, cookies y tokens",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/sesiones-web-cookies-identidad.md",
+            "slug": "sesiones-web-cookies-identidad",
+            "draft": true
+          },
           "related": [
             "autenticacion-autorizacion-tenant"
           ],
@@ -319,8 +323,12 @@
         {
           "id": "P027",
           "title": "OAuth 2.0 y OpenID Connect explicados",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/oauth-oidc-authorization-code-pkce.md",
+            "slug": "oauth-oidc-authorization-code-pkce",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },

@@ -1,8 +1,8 @@
 # Diseño de APIs y seguridad web
 
-Doce entregas españolas y draft para las fichas **P020–P025** de la Serie 03.
-La división mantiene las seis URL originales y no añade fichas al catálogo.
-No completa P026–P031. Ejemplos independientes de Paysafe; sin traducción, audio
+Dieciséis entregas españolas y draft para las fichas **P020–P027** de la Serie 03.
+La división mantiene las URL originales y no añade fichas al catálogo.
+No completa P028–P031. Ejemplos independientes de Paysafe; sin traducción, audio
 o publicación automática.
 
 ## Orden de lectura
@@ -31,19 +31,28 @@ o publicación automática.
     Consumidores, cambios aditivos/breaking y schemas frente a significado.
 12. **API-VERSION-MIGRATION.** [Versionar y retirar una API: convivencia, deprecación y migración de clientes](../../src/content/posts/es/versionado-api-deprecacion-migracion-consumidores.md).
     URL o headers, SDK, deprecación, guía y criterios de retirada.
+13. **P026.** [Sesiones web: mantener la identidad sin exponerla en cada petición](../../src/content/posts/es/sesiones-web-cookies-identidad.md).
+    Estado, token opaco, cookie, fixation, expiración y logout.
+14. **API-SESSION-REFRESH.** [Access y refresh tokens: rotación, reutilización y revocación](../../src/content/posts/es/access-refresh-tokens-rotacion-reutilizacion.md).
+    Modelo separado de familias, replay, carreras y límites absolutos.
+15. **P027.** [OAuth y OIDC: entender Authorization Code con PKCE paso a paso](../../src/content/posts/es/oauth-oidc-authorization-code-pkce.md).
+    Roles, fronteras, scopes, state, nonce y canje con un OP de test real.
+16. **API-OIDC-VALIDATION.** [Validar un ID token: firma, JWKS y claims que tu aplicación espera](../../src/content/posts/es/oidc-validar-id-token-jwks-claims.md).
+    Firma RS256, issuer, audience, exp, iat, nonce, sub y azp, con variantes adversariales.
 
 La ruta común pasa del contrato de validación a Zod y errores. Pydantic parte del
 mismo contrato y puede leerse en paralelo o en su lugar; ningún artículo posterior
 la exige como prerrequisito. Las fechas y el manifiesto conservan este orden en
 la interfaz del blog.
 
-## Un laboratorio por bloque, no doce proyectos independientes
+## Un laboratorio por bloque, no dieciséis proyectos independientes
 
 | Bloque                 | Artículos | Fuentes y evidencia                                                                                                      |
 | ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Contratos HTTP         | 1–2       | [api-contratos](../../examples/api-contratos/README.md), once tests sin instalaciones.                                   |
 | Validación y errores   | 3–7       | [api-validacion-errores](../../examples/api-validacion-errores/README.md), trece tests Node y cuatro Python.             |
 | Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../examples/api-paginacion-evolucion/README.md), trece tests sin Docker y seis PostgreSQL. |
+| Identidad              | 13–16     | [api-identidad](../../examples/api-identidad/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.  |
 
 Cada README relaciona la entrega con sus archivos y pruebas. La reserva de inventario
 pertenece al bloque de validación; el listado de pedidos al de paginación. No se
@@ -61,8 +70,10 @@ viven en consistencia. El visor no consulta PostgreSQL ni mide latencia.
 - P023: dos entregas, respuesta pública y diagnóstico interno.
 - P024: tres entregas, navegación, consistencia y coste.
 - P025: dos entregas, detectar incompatibilidad y operar una transición.
+- P026: dos entregas, sesión opaca y modelo de rotación/reutilización.
+- P027: dos entregas, protocolo y política de validación del resultado.
 
-Los IDs API-\* nuevos identifican partes editoriales. No se usan P026 u otros IDs
+Los IDs API-\* nuevos identifican partes editoriales. No se usan IDs
 reservados del roadmap para inflar el avance. La división, las ampliaciones y las
 comprobaciones están en [api-series-split-review.md](api-series-split-review.md).
 
@@ -70,8 +81,6 @@ comprobaciones están en [api-series-split-review.md](api-series-split-review.md
 
 | Ficha             | Trabajo que sigue necesitando una entrega propia                                  |
 | ----------------- | --------------------------------------------------------------------------------- |
-| P026. Sesiones    | Rotación, revocación y reutilización de refresh tokens.                           |
-| P027. OAuth/OIDC  | Proveedor de test real, firma, issuer, audience, expiración y PKCE.               |
 | P028. Permisos    | Lectura y modificación multi-tenant con casos adversariales por HTTP.             |
 | P029. Navegador   | Reproducir XSS/CSRF y verificar correcciones sin confundir CORS con autorización. |
 | P030. Amenazas    | Threat model y tests de SQLi/SSRF/mass assignment/abuso.                          |
@@ -79,7 +88,7 @@ comprobaciones están en [api-series-split-review.md](api-series-split-review.md
 
 ## Límites conservados
 
-Loopback, datos ficticios y sin identidades, permisos o pagos. P020/P021 validan
+Loopback, datos ficticios y sin identidades de producción, permisos o pagos. P020/P021 validan
 manualmente su contrato. Ajv, Zod y Pydantic se contrastan en casos concretos, no
 se demuestra equivalencia universal. Pydantic no es un servidor HTTP de la demo.
 
@@ -89,3 +98,10 @@ o carga concurrente. Firma de cursor no es autorización. Los dos lectores de
 contrato viven en el mismo repo, no son SDK publicados. Deprecación ficticia, sin
 telemetría de adopción o retirada automática. Los límites se explican también en
 cada entrega para que no dependan de haber leído el artículo anterior.
+
+Identidad integra un OP oidc-provider local con devInteractions: no verifica
+contraseña ni MFA. RP HTTPS autofirmado y OP HTTP exclusivamente en loopback,
+no configuración de producción. El RP crea una sesión opaca; el modelo de
+refresh es complementario, no una renovación OAuth integrada en esa sesión.
+Map de un proceso, sin persistencia o recolección completa. Logout local no
+cierra el OP. M2M se explica, no se ejecuta. Ver [api-identity-review.md](api-identity-review.md).

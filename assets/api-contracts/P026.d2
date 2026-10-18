@@ -1,0 +1,12 @@
+direction: down
+identity: "Identidad validada\nissuer y sub"
+session: "Crear identificador aleatorio\nGuardar hash y expiración"
+cookie: "Cookie __Host-sid\nHttpOnly, Secure, Lax"
+request: "Petición posterior\nConsultar sesión vigente"
+logout: "POST logout\nRevocar registro y borrar cookie"
+copy: "Copia anterior\nYa no se acepta"
+identity -> session
+session -> cookie
+cookie -> request
+request -> logout
+logout -> copy

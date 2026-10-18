@@ -9,18 +9,19 @@ Los últimos turnos han producido progreso verificable: diez borradores de ML cl
 y nueve de Computación, sistemas y redes, con laboratorios y recursos visuales.
 La instrucción más reciente restringe la Serie 02 a estructuras de datos y algoritmos:
 P011 se ha ampliado a 21 entregas, sin redactar P010 o P012–P019.
-Después se inicia Serie 03 con P020–P025, contratos, validación, errores, paginación
-y evolución probados.
+Después se continúa Serie 03 con P020–P027: contratos, validación, errores,
+paginación, evolución e identidad, desarrollados en dieciséis entregas.
 No es una espera ni una declaración de finalización. Mantener el objetivo activo.
 
 ## Estado de trabajo
 
-- Commit `89f67b4` guarda P024/P025, después de `fb190d4` para validación/errores.
-  La división editorial en doce entregas es posterior a ese commit y sigue sin commit.
+- Commit `cdea5a0` guarda la división editorial de P020–P025 en doce entregas,
+  sobre `89f67b4` para P024/P025 y `fb190d4` para validación/errores.
+  Las cuatro entregas nuevas de identidad son posteriores y siguen sin commit.
   Sin push solicitado.
 - `roadmap-progress.md` y `.json`: generados desde las 175 fichas reales con
   `node scripts/audit-editorial-roadmap.mjs`. No alteran el alcance del objetivo.
-- Hay 45 IDs exactos, 38 fichas con candidatos relacionados y 92 sin artículo
+- Hay 47 IDs exactos, 37 fichas con candidatos relacionados y 91 sin artículo
   identificado. No son contadores de aceptación. Los candidatos agrupados se han
   conservado, no renumerado para aparentar completitud.
 - La ruta corta anterior para PS01–PS10 no sustituye las fichas generales. AWS,
@@ -41,10 +42,18 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   P024/P025 continúan en examples/api-paginacion-evolucion, diecinueve tests:
   PostgreSQL con un millón de filas, 56 planes SQL archivados, escrituras entre
   páginas, snapshots, dos lectores HTTP y schemas OpenAPI contrastados.
-  Faltan P026–P031. No hay autenticación o pagos; solo base efímera de laboratorio.
+  Los tres primeros laboratorios no tienen autenticación o pagos; la base es efímera.
   La revisión solicitada divide P022 en tres, P023 en dos, P024 en tres y P025 en dos;
   junto a P020/P021 son doce entregas, no doce fichas. Se mantienen URLs y laboratorios.
   Pydantic es opcional. Ver api-series-split-review.md y la ruta actualizada.
+- Identidad: P026/P027 se desarrollan en cuatro entregas con examples/api-identidad.
+  Diez tests Node y flujo Chromium. OP oidc-provider real de test, Authorization
+  Code/PKCE, firma RS256 con JWKS y variantes adversariales. RP HTTPS con sesión
+  opaca y logout; modelo refresh separado con revocación familiar y replay.
+  No afirmar que el RP tiene renovación OAuth integrada: ese enlace no se ha
+  implementado. Sin contraseñas verificadas, MFA, permisos por objeto o M2M real.
+  No dar el DoD de P026 por completo solo por la existencia de sus dos drafts.
+  Ver api-identity-review.md. P028–P031 siguen sin entregas propias.
 
 ## Próxima acción concreta
 
@@ -56,7 +65,8 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
 3. Leer cada ficha completa y fuentes primarias antes de escribir. Tests antes del
    código; medir ejemplos sin convertirlos en benchmarks universales. Un laboratorio
    compartido por serie es válido si identifica qué archivo y evidencia usa cada post.
-4. Continuar Serie 03 por P026/P027 y después P028–P031 según
+4. Revisar el límite del laboratorio P026 (sesión y modelo refresh separados)
+   antes de dar por aceptada su ficha. Continuar Serie 03 por P028–P031 según
    ruta-diseno-apis-seguridad.md, contrastando los artículos agrupados previos.
    Después revisar series 04–06 y los límites
    declarados de las series 07–09. Continuar después P096–P175 por series.

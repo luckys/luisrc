@@ -1,0 +1,12 @@
+direction: down
+trust: "Emisor configurado\nDiscovery y JWKS confiables"
+signature: "Firma y algoritmo\nRS256 con clave del OP"
+recipient: "iss y aud\nEmisor y cliente esperados"
+time: "exp e iat\nLímites temporales"
+flow: "nonce, sub y azp\nResultado de esta operación"
+session: "Establecer sesión\nUn fallo impide llegar aquí"
+trust -> signature
+signature -> recipient
+recipient -> time
+time -> flow
+flow -> session

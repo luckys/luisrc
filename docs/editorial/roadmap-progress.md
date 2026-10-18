@@ -2,13 +2,13 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **45**. Solo material relacionado: **38**. Sin artículo identificado: **92**.
+IDs con borrador propio: **47**. Solo material relacionado: **37**. Sin artículo identificado: **91**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
 ## Orden de continuación
 
-Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Iniciada Serie 03 con P020–P025, contratos HTTP, validación, errores, paginación y evolución probados. Continuar P026–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
+Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Serie 03 desarrolla P020–P027 en dieciséis entregas: contratos, validación, errores, paginación, evolución e identidad. OIDC se integra con un OP local; refresh es un modelo separado, no renovación integrada del RP. Continuar P028–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
@@ -45,8 +45,8 @@ Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle es
 - P023. Cómo diseñar los errores de una API: [borrador](../../src/content/posts/es/errores-api-problem-details-stock-concurrencia.md).
 - P024. Paginación, filtrado, ordenación y búsqueda: [borrador](../../src/content/posts/es/paginacion-offset-keyset-postgresql-concurrencia.md).
 - P025. Versionado y evolución de APIs: [borrador](../../src/content/posts/es/evolucion-api-versiones-consumidores-contratos.md).
-- P026. Autenticación: sesiones, cookies y tokens: relacionado, requiere revisión.
-- P027. OAuth 2.0 y OpenID Connect explicados: pendiente.
+- P026. Autenticación: sesiones, cookies y tokens: [borrador](../../src/content/posts/es/sesiones-web-cookies-identidad.md).
+- P027. OAuth 2.0 y OpenID Connect explicados: [borrador](../../src/content/posts/es/oauth-oidc-authorization-code-pkce.md).
 - P028. Autorización: RBAC, ABAC y permisos sobre recursos: relacionado, requiere revisión.
 - P029. Seguridad del navegador y frontend: relacionado, requiere revisión.
 - P030. Seguridad avanzada de APIs: relacionado, requiere revisión.

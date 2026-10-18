@@ -101,7 +101,7 @@ No hay negociación Accept implementada, SDK publicado, usuarios externos, telem
 
 Escribe una guía para un consumidor que no puede actualizarse hoy. Indica representación actual, alternativa, fecha propuesta, cómo detectar su uso y qué criterio permitirá retirar el soporte. Distingue las comprobaciones que puedes automatizar en este laboratorio de las que necesitan coordinación con usuarios reales.
 
-La siguiente parte del roadmap estudiará sesiones y tokens. Las doce entregas actuales no completan todavía toda la serie de APIs y seguridad.
+Continúa con [sesiones web y cookies](/posts/sesiones-web-cookies-identidad), el inicio del bloque de identidad. La serie sigue abierta: estos fundamentos no completan todavía permisos, amenazas e integración.
 
 ## Referencias
 

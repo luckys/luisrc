@@ -1,0 +1,12 @@
+direction: down
+start: "RP guarda transacción\nverifier, state y nonce"
+auth: "Navegador lleva al OP\nchallenge S256, state y nonce"
+login: "OP de test\nInteracción ficticia"
+callback: "Navegador vuelve al RP\nCódigo y state"
+exchange: "RP canjea código\nEnvía verifier al OP"
+validate: "RP valida ID token\nSolo entonces crea sesión"
+start -> auth
+auth -> login
+login -> callback
+callback -> exchange
+exchange -> validate

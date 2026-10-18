@@ -1,0 +1,10 @@
+direction: down
+family: "Familia vigente\nLímite absoluto"
+first: "R0 sin usar\nAccess breve A0"
+rotate: "Consumir R0\nEmitir R1 y A1"
+replay: "R0 aparece de nuevo\nReutilización detectada"
+revoke: "Revocar familia\nR1, A0 y A1 rechazados"
+family -> first
+first -> rotate
+rotate -> replay
+replay -> revoke: política estricta del modelo

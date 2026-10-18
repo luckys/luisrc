@@ -14,6 +14,7 @@ for (const [manifest, directory, archive] of [
     'api-paginacion-evolucion',
     'api-paginacion-evolucion-lab.zip',
   ],
+  ['identity-download-manifest.json', 'api-identidad', 'api-identidad-lab.zip'],
 ]) {
   const files = JSON.parse(await readFile(`assets/api-contracts/${manifest}`, 'utf8'))
   execFileSync(
