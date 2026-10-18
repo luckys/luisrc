@@ -1,0 +1,173 @@
+[
+  {
+    "name": "valid",
+    "valid": true,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 2,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "integer JSON con punto decimal",
+    "valid": true,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 2.0,
+      "expectedVersion": 1.0,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "express limite",
+    "valid": true,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 5,
+      "expectedVersion": 1000000,
+      "priority": "express",
+      "note": ""
+    }
+  },
+  {
+    "name": "limite cantidad",
+    "valid": true,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 100,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "unicode",
+    "valid": true,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 1,
+      "expectedVersion": 1,
+      "priority": "standard",
+      "note": "📚"
+    }
+  },
+  {
+    "name": "string no es numero",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": "2",
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "bool no es entero",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": true,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "fraccion",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 1.5,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "cero",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 0,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "cantidad excesiva",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 101,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "version excesiva",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 1,
+      "expectedVersion": 1000001,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "falta cantidad",
+    "valid": false,
+    "input": { "sku": "BOOK", "expectedVersion": 1, "priority": "standard" }
+  },
+  {
+    "name": "null explicito",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 1,
+      "expectedVersion": 1,
+      "priority": "standard",
+      "note": null
+    }
+  },
+  {
+    "name": "extra",
+    "valid": false,
+    "input": {
+      "sku": "BOOK",
+      "quantity": 1,
+      "expectedVersion": 1,
+      "priority": "standard",
+      "stock": 100
+    }
+  },
+  {
+    "name": "sku minuscula",
+    "valid": false,
+    "input": {
+      "sku": "book",
+      "quantity": 1,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "sku salto final",
+    "valid": false,
+    "input": {
+      "sku": "BOOK\n",
+      "quantity": 1,
+      "expectedVersion": 1,
+      "priority": "standard"
+    }
+  },
+  {
+    "name": "enum",
+    "valid": false,
+    "input": { "sku": "BOOK", "quantity": 1, "expectedVersion": 1, "priority": "urgent" }
+  },
+  {
+    "name": "refinement",
+    "valid": false,
+    "input": { "sku": "BOOK", "quantity": 6, "expectedVersion": 1, "priority": "express" }
+  },
+  { "name": "null raiz", "valid": false, "input": null },
+  { "name": "array raiz", "valid": false, "input": [] }
+]

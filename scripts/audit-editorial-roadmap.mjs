@@ -91,7 +91,7 @@ const lines = [
   '',
   '## Orden de continuación',
   '',
-  'Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Iniciada Serie 03 con P020/P021 y laboratorio HTTP. Continuar P022–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.',
+  'Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Iniciada Serie 03 con P020–P023, contratos HTTP, validación y errores probados. Continuar P024–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.',
   '',
   'Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.',
   '',

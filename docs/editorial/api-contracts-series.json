@@ -2,7 +2,7 @@
   "name": "Diseño de APIs y seguridad web: contratos, identidad y permisos",
   "language": "es",
   "status": "draft",
-  "roadmap": "Serie 03 P020–P031. Inicio con P020/P021, sin dar el resto por completado.",
+  "roadmap": "Serie 03 P020–P031. P020–P023 redactados y probados, sin dar el resto por completado.",
   "articles": [
     {
       "id": "P020",
@@ -15,6 +15,18 @@
       "slug": "recursos-http-metodos-idempotencia",
       "title": "Recursos HTTP: qué prometen GET, POST, PUT, PATCH y DELETE",
       "prerequisites": ["P020"]
+    },
+    {
+      "id": "P022",
+      "slug": "validacion-runtime-json-schema-zod-pydantic",
+      "title": "Validar una API: del JSON correcto a una operación que tiene sentido",
+      "prerequisites": ["P021"]
+    },
+    {
+      "id": "P023",
+      "slug": "errores-api-problem-details-stock-concurrencia",
+      "title": "Errores de API: distinguir un dato inválido, falta de stock y un conflicto de versión",
+      "prerequisites": ["P021", "P022"]
     }
   ]
 }

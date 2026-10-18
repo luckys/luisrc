@@ -2338,3 +2338,10 @@ campos, Unicode, errores y límites. Dos diagramas y ZIP sin dependencias.
 Estado en memoria; sin autenticación, pagos o durabilidad. Las diez fichas
 siguientes requieren ampliación. Todo español y draft, sin dar la serie ni
 el objetivo editorial global por completados.
+
+Continuación P022/P023: validación runtime con JSON Schema 2020-12, Ajv, Zod y
+Pydantic ejecutados; errores por campo, refinements, compatibilidad y salida.
+Problem Details, catálogo estable, stock/versión y logging por allowlist. Dos
+diagramas nuevos y ZIP propio con lockfile pnpm, trece pruebas Node y cuatro Python.
+El caso concurrente es de un solo proceso, sin transacciones SQL o GET de inventario.
+La siguiente ficha es P024; faltan P024–P031, no se declara completada la serie.

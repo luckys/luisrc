@@ -9,7 +9,10 @@ try {
   for (const entry of manifest.articles) {
     const compiled = await d2.compile(
       await readFile(`assets/api-contracts/${entry.id}.d2`, 'utf8'),
-      { layout: 'elk' },
+      {
+        layout: 'elk',
+        ...(['P022', 'P023'].includes(entry.id) ? { pad: 16 } : {}),
+      },
     )
     const svg = await d2.render(compiled.diagram, compiled.renderOptions)
     await writeFile(`public/assets/visuals/api-contracts/${entry.id}.svg`, svg)

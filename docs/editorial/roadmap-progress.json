@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 41,
-    "related_only": 42,
+    "draft_exists": 43,
+    "related_only": 40,
     "not_written": 92
   },
   "completionProven": false,
@@ -253,8 +253,12 @@
         {
           "id": "P022",
           "title": "Validación de datos y contratos de entrada/salida",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/validacion-runtime-json-schema-zod-pydantic.md",
+            "slug": "validacion-runtime-json-schema-zod-pydantic",
+            "draft": true
+          },
           "related": [
             "validacion-errores-api-problem-details"
           ],
@@ -263,8 +267,12 @@
         {
           "id": "P023",
           "title": "Cómo diseñar los errores de una API",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/errores-api-problem-details-stock-concurrencia.md",
+            "slug": "errores-api-problem-details-stock-concurrencia",
+            "draft": true
+          },
           "related": [
             "validacion-errores-api-problem-details"
           ],

@@ -46,5 +46,8 @@ HEAD/OPTIONS y negociación avanzada no implementados. No desplegar este servido
 El límite de cuerpo se comprueba al consumirlo, descartando chunks excedentes;
 no demuestra resistencia ante clientes lentos o abuso de transporte.
 
-P022–P031 siguen pendientes de ampliación y pruebas según sus fichas. No se
-renumeran artículos agrupados anteriores para aparentar cobertura.
+Esta revisión corresponde a la entrega inicial P020/P021, guardada después en
+3d3de63. La continuación P022/P023 está documentada en
+[api-validation-errors-review.md](api-validation-errors-review.md). P024–P031
+siguen pendientes de ampliación y pruebas según sus fichas. No se renumeran
+artículos agrupados anteriores para aparentar cobertura.

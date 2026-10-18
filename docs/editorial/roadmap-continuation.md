@@ -9,16 +9,17 @@ Los últimos turnos han producido progreso verificable: diez borradores de ML cl
 y nueve de Computación, sistemas y redes, con laboratorios y recursos visuales.
 La instrucción más reciente restringe la Serie 02 a estructuras de datos y algoritmos:
 P011 se ha ampliado a 21 entregas, sin redactar P010 o P012–P019.
-Después se inicia Serie 03 con P020/P021 y laboratorio HTTP ejecutado.
+Después se inicia Serie 03 con P020–P023, contratos, validación y errores probados.
 No es una espera ni una declaración de finalización. Mantener el objetivo activo.
 
 ## Estado de trabajo
 
-- Commit `ffb1a33` guarda Matemáticas y estadística, cumpliendo el encargo de commit
-  anterior. ML/Computación/Algoritmos, inicio de APIs e inventario siguen sin commit ni push.
+- Commit `3d3de63` guarda ML/Computación/Algoritmos, inicio de APIs e inventario,
+  cumpliendo el encargo de commit de este turno. P022/P023 son cambios posteriores.
+  Sin push solicitado.
 - `roadmap-progress.md` y `.json`: generados desde las 175 fichas reales con
   `node scripts/audit-editorial-roadmap.mjs`. No alteran el alcance del objetivo.
-- Hay 41 IDs exactos, 42 fichas con candidatos relacionados y 92 sin artículo
+- Hay 43 IDs exactos, 40 fichas con candidatos relacionados y 92 sin artículo
   identificado. No son contadores de aceptación. Los candidatos agrupados se han
   conservado, no renumerado para aparentar completitud.
 - La ruta corta anterior para PS01–PS10 no sustituye las fichas generales. AWS,
@@ -33,7 +34,10 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   28 tests de laboratorio, 18 extractos y 42 vistas móvil/escritorio verificadas.
 - Inicio de APIs: ruta-diseno-apis-seguridad.md, api-contracts-series-review.md y
   examples/api-contratos. P020/P021 con OpenAPI 3.1.1, HTTP real y 11 tests.
-  Faltan P022–P031 y sus laboratorios. No hay autenticación, pagos o durabilidad.
+  Continúa con P022/P023, examples/api-validacion-errores y revisión propia:
+  13 tests Node y cuatro Python, JSON Schema/Ajv/Zod/Pydantic reales, errores por
+  campo, stock/versión, dos peticiones concurrentes y proyección segura de logs.
+  Faltan P024–P031. No hay autenticación, pagos o durabilidad.
 
 ## Próxima acción concreta
 
@@ -45,7 +49,7 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
 3. Leer cada ficha completa y fuentes primarias antes de escribir. Tests antes del
    código; medir ejemplos sin convertirlos en benchmarks universales. Un laboratorio
    compartido por serie es válido si identifica qué archivo y evidencia usa cada post.
-4. Continuar Serie 03 por P022/P023 y después P024–P031 según
+4. Continuar Serie 03 por P024/P025 y después P026–P031 según
    ruta-diseno-apis-seguridad.md, contrastando los artículos agrupados previos.
    Después revisar series 04–06 y los límites
    declarados de las series 07–09. Continuar después P096–P175 por series.

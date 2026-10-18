@@ -10,27 +10,35 @@ de Paysafe. No traducir, publicar, generar audio ni hacer commit automáticament
    Consumidores, representación, esquema, serialización, unidades y compatibilidad.
 2. **P021.** [Recursos HTTP: qué prometen GET, POST, PUT, PATCH y DELETE](../../src/content/posts/es/recursos-http-metodos-idempotencia.md).
    Safe/idempotent, sustitución, cambios parciales, creación/procesamiento y REST.
+3. **P022.** [Validar una API: del JSON correcto a una operación que tiene sentido](../../src/content/posts/es/validacion-runtime-json-schema-zod-pydantic.md).
+   Parsing, JSON Schema, Zod/Pydantic ejecutados, optional/null, refinements,
+   acumulación segura, validación de salida y compatibilidad.
+4. **P023.** [Errores de API: distinguir un dato inválido, falta de stock y un conflicto de versión](../../src/content/posts/es/errores-api-problem-details-stock-concurrencia.md).
+   Problem Details, catálogo, conflictos, causas, request ID y logging con allowlist.
 
 Comparten [laboratorio HTTP](../../examples/api-contratos/README.md),
 [OpenAPI 3.1.1](../../examples/api-contratos/openapi.json) y
 [ZIP](../../public/assets/examples/api-contratos-lab.zip). Sin instalaciones nuevas.
 
+P022/P023 comparten un [segundo laboratorio](../../examples/api-validacion-errores/README.md)
+y su [ZIP](../../public/assets/examples/api-validacion-errores-lab.zip). Zod/Ajv
+fijados con pnpm y lockfile propio. Pydantic ejecutado en una imagen Python ya local,
+sin instalaciones implícitas. No cambian las garantías de los ejemplos anteriores.
+
 ## Continuación recomendada y cobertura previa
 
 No se renombran artículos antiguos ni se dan fichas por completadas solo por afinidad.
 
-| Orden | Ficha | Material previo y ampliación necesaria |
-| --- | --- | --- |
-| 3 | P022. Validación | validacion-errores-api-problem-details introduce el tema. Separar sintaxis/semántica/negocio, schemas, optional/refinement, errores acumulados y ejemplos Zod/Pydantic comprobados. |
-| 4 | P023. Errores | Ampliar Problem Details, catálogo estable, stock/concurrencia, correlación y logging seguro con pruebas de adaptador. |
-| 5 | P024. Paginación | evolucion-api-paginacion-contratos tiene modelo en memoria. Falta laboratorio con un millón de filas, índices e inserciones concurrentes. |
-| 6 | P025. Evolución | Ampliar a dos consumidores/versiones, transición, contract tests y política de deprecación real. |
-| 7 | P026. Sesiones | autenticacion-autorizacion-tenant explica conceptos. Falta rotación, revocación y prueba de reutilización de refresh token. |
-| 8 | P027. OAuth/OIDC | Falta artículo propio e integración con proveedor de test; no sustituirla por un JWT decodificado. |
-| 9 | P028. Permisos | Ampliar la política existente a lectura/modificación multi-tenant por HTTP y casos adversariales. |
-| 10 | P029. Navegador | Reutilizar laboratorio de frontend/redes; comprobar XSS/CSRF en sandbox y correcciones, sin confundir CORS con autorización. |
-| 11 | P030. Amenazas | Threat model y tests de SQLi/SSRF/mass assignment/abuso; preservar límites claros del laboratorio. |
-| 12 | P031. Integración | Reutilizar webhooks/SSE previos, comparar polling/eventos y desarrollar GraphQL/gRPC sin inventar benchmarks. |
+| Orden | Ficha             | Material previo y ampliación necesaria                                                                                                    |
+| ----- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 5     | P024. Paginación  | evolucion-api-paginacion-contratos tiene modelo en memoria. Falta laboratorio con un millón de filas, índices e inserciones concurrentes. |
+| 6     | P025. Evolución   | Ampliar a dos consumidores/versiones, transición, contract tests y política de deprecación real.                                          |
+| 7     | P026. Sesiones    | autenticacion-autorizacion-tenant explica conceptos. Falta rotación, revocación y prueba de reutilización de refresh token.               |
+| 8     | P027. OAuth/OIDC  | Falta artículo propio e integración con proveedor de test; no sustituirla por un JWT decodificado.                                        |
+| 9     | P028. Permisos    | Ampliar la política existente a lectura/modificación multi-tenant por HTTP y casos adversariales.                                         |
+| 10    | P029. Navegador   | Reutilizar laboratorio de frontend/redes; comprobar XSS/CSRF en sandbox y correcciones, sin confundir CORS con autorización.              |
+| 11    | P030. Amenazas    | Threat model y tests de SQLi/SSRF/mass assignment/abuso; preservar límites claros del laboratorio.                                        |
+| 12    | P031. Integración | Reutilizar webhooks/SSE previos, comparar polling/eventos y desarrollar GraphQL/gRPC sin inventar benchmarks.                             |
 
 ## Objetivos y fallos que evitar en el inicio
 
@@ -40,11 +48,21 @@ No se renombran artículos antiguos ni se dan fichas por completadas solo por af
 - P021: justificar métodos; distinguir safe/idempotent; probar sustitución y efecto
   repetido. Evitar idempotencia exige respuestas idénticas; todo PATCH idempotente;
   HTTP JSON demuestra todas las restricciones REST.
+- P022: separar fronteras; ejecutar tres validadores; adaptar errores sin reflejar
+  entradas. Evitar anotaciones validan runtime; optional equivale a null; un schema
+  garantiza disponibilidad de stock. Prerrequisito de lectura P021: P014 permanece
+  fuera del encargo de Serie 02 y no se introduce una dependencia a un post inexistente.
+- P023: clasificar condiciones; contrastar códigos/estado; correlacionar sin filtrar.
+  Evitar todo error es 400; 500 implica ausencia de efectos; dos clientes en un
+  proceso prueban transacciones distribuidas.
 
 ## Límites
 
 Estado en memoria, loopback, IDs secuenciales ficticios, sin autenticación ni pagos.
-La validación de schemas es manual. El verificador de tests soporta solo los keywords
-usados y falla si aparece uno nuevo; no certifica OpenAPI/JSON Schema completos.
-La propuesta de pagos es conceptual, no un endpoint ejecutado. P020/P021 no completan
-la serie ni el objetivo editorial global. Ver api-contracts-series-review.md.
+La validación de schemas de P020/P021 es manual. Su verificador soporta solo los
+keywords usados, no certifica OpenAPI/JSON Schema completos. P022 usa Ajv real para
+2020-12; el acuerdo de los tres validadores se prueba en veinte documentos y fronteras
+Unicode, no en todos los valores posibles. P023 prueba dos POST concurrentes en un
+proceso; la consulta posterior es conceptual y 503 se simula por inyección.
+La propuesta de pagos sigue siendo conceptual. Faltan P024–P031 y sus laboratorios.
+Ver api-contracts-series-review.md y api-validation-errors-review.md.

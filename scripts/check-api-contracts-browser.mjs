@@ -38,12 +38,35 @@ try {
             document.documentElement.scrollWidth <=
             document.documentElement.clientWidth + 1,
         ),
+        `${entry.id} a ${width}px: overflow horizontal de la página`,
       )
       for (const image of await page
         .locator('img[src*="/assets/visuals/api-contracts/"]')
         .all()) {
         await image.scrollIntoViewIfNeeded()
+        // Con loading=lazy, scrollIntoView puede resolver antes de iniciar la carga.
+        await page.waitForFunction(
+          (element) => element.complete && element.naturalWidth > 0,
+          await image.elementHandle(),
+          { timeout: 10000 },
+        )
         await image.evaluate((element) => element.decode())
+        if (width === 360 && ['P022', 'P023'].includes(entry.id)) {
+          await page.screenshot({ path: `${folder}/${entry.id}-diagram-mobile.png` })
+        }
+      }
+      if (entry.id === 'P023' && width === 360) {
+        const table = page.getByRole('region', {
+          name: 'Errores HTTP y decisiones del cliente',
+        })
+        await table.scrollIntoViewIfNeeded()
+        await table.focus()
+        await table.press('ArrowRight')
+        await page.waitForFunction(
+          (element) => element.scrollLeft > 0,
+          await table.elementHandle(),
+        )
+        await page.screenshot({ path: `${folder}/P023-table-mobile.png` })
       }
       for (const link of await page
         .locator('article a[href^="/posts/"],a[href^="/assets/examples/"]')

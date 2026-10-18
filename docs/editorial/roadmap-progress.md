@@ -2,13 +2,13 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **41**. Solo material relacionado: **42**. Sin artículo identificado: **92**.
+IDs con borrador propio: **43**. Solo material relacionado: **40**. Sin artículo identificado: **92**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
 ## Orden de continuación
 
-Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Iniciada Serie 03 con P020/P021 y laboratorio HTTP. Continuar P022–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
+Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Iniciada Serie 03 con P020–P023, contratos HTTP, validación y errores probados. Continuar P024–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
@@ -41,8 +41,8 @@ Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle es
 
 - P020. Qué es una API y qué significa diseñar un contrato: [borrador](../../src/content/posts/es/api-contrato-esquema-clientes.md).
 - P021. REST y diseño de recursos HTTP: [borrador](../../src/content/posts/es/recursos-http-metodos-idempotencia.md).
-- P022. Validación de datos y contratos de entrada/salida: relacionado, requiere revisión.
-- P023. Cómo diseñar los errores de una API: relacionado, requiere revisión.
+- P022. Validación de datos y contratos de entrada/salida: [borrador](../../src/content/posts/es/validacion-runtime-json-schema-zod-pydantic.md).
+- P023. Cómo diseñar los errores de una API: [borrador](../../src/content/posts/es/errores-api-problem-details-stock-concurrencia.md).
 - P024. Paginación, filtrado, ordenación y búsqueda: relacionado, requiere revisión.
 - P025. Versionado y evolución de APIs: relacionado, requiere revisión.
 - P026. Autenticación: sesiones, cookies y tokens: relacionado, requiere revisión.

@@ -1,0 +1,12 @@
+direction: down
+start: "BOOK: stock 3, versión 1"
+success: "A reserva 2 con expectedVersion 1\n200: quedan 1, versión 2"
+stale: "B reserva 2 con expectedVersion 1\n409: version_conflict"
+read: "B consulta el estado actualizado\nPaso conceptual: demo sin GET\nDecide si aún quiere reservar"
+stock: "B reserva 2 con expectedVersion 2\n409: out_of_stock"
+finish: "Estado conservado\nStock 1, versión 2"
+start -> success: comprobación y escritura sin await
+success -> stale: no vuelve a descontar stock
+stale -> read: no repetir sin revisar
+read -> stock: nueva decisión con versión actual
+stock -> finish: el rechazo no modifica inventario

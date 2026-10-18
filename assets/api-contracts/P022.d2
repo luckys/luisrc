@@ -1,0 +1,12 @@
+direction: down
+bytes: "Bytes HTTP\nContent-Type: error 415\nMáximo 4096 bytes: error 413"
+parse: "UTF-8 y JSON.parse\nError 400 si no se pueden interpretar"
+schema: "Schema de entrada\nCampos, tipos, límites y express\nError 422 si no cumple"
+business: "Reglas con estado\nExistencia, versión y stock\nError 404 o 409 si no puede reservar"
+write: "Escritura síncrona en Map\nUn solo proceso, sin await"
+output: "DTO de salida\nsku, reserved, version"
+bytes -> parse: tipo y tamaño aceptados
+parse -> schema: documento JSON válido
+schema -> business: contrato de entrada satisfecho
+business -> write: reserva permitida en ese estado
+write -> output: error de salida no revierte escritura
