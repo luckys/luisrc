@@ -1,0 +1,12 @@
+direction: down
+**.style.font-size: 24
+read: "readFile: pedir contenido al sistema"
+page: "Page cache: contenido en RAM\nsi está disponible, no leer dispositivo"
+storage: "Si falta: consultar almacenamiento\ny traer contenido a memoria"
+buffer: "Buffer de aplicación en memoria"
+cache: "La CPU procesa sus datos\nmediante registros y cachés L1/L2/L3"
+read -> page
+page -> storage: "miss"
+page -> buffer: "hit"
+storage -> buffer
+buffer -> cache

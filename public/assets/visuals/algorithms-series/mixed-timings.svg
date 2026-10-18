@@ -1,0 +1,93 @@
+<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 900 500">
+<rect width="900" height="500" x="0" y="0" fill="#111827"></rect>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="7.5" transform="translate(24 452)" fill="#cbd5e1">Node 24.19.0 · medición local en memoria, no latencia HTTP.</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="22.5" transform="translate(24 452)" fill="#cbd5e1">Map preparado: menos de 0,004 ms/lote; la tabla conserva cifras pequeñas.</text>
+<path d="M90 390.5L860 390.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 351.5L860 351.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 311.5L860 311.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 272.5L860 272.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 233.5L860 233.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 194.5L860 194.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 155.5L860 155.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:17px;font-family:sans-serif;" xml:space="preserve" y="-8.5" transform="translate(90 140)" fill="#e2e8f0">ms / lote</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="7.5" transform="translate(475 422)" fill="#e2e8f0">Documentos / muestra (según título)</text>
+<path d="M90 390.5L860 390.5" fill="none" pointer-events="visible" stroke="#54555a" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 390)" fill="#e2e8f0">0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 350.8333)" fill="#e2e8f0">0,3</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 311.6667)" fill="#e2e8f0">0,6</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 272.5)" fill="#e2e8f0">0,9</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 233.3333)" fill="#e2e8f0">1,2</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 194.1667)" fill="#e2e8f0">1,5</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:15px;font-family:sans-serif;" transform="translate(82 155)" fill="#e2e8f0">1,8</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" y="7.5" transform="translate(218.3333 398)" fill="#e2e8f0">1000</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" y="7.5" transform="translate(475 398)" fill="#e2e8f0">5000</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" y="7.5" transform="translate(731.6667 398)" fill="#e2e8f0">20.000</text>
+<g clip-path="url(#zr0-c0)">
+<path d="M218.3 373.5L475 340.6L731.7 168.9" fill="none" pointer-events="visible" stroke="#38bdf8" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<g clip-path="url(#zr0-c1)">
+<path d="M218.3 389.6L475 389.7L731.7 389.5" fill="none" pointer-events="visible" stroke="#fbbf24" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<g clip-path="url(#zr0-c2)">
+<path d="M218.3 387.1L475 362.5L731.7 222.9" fill="none" pointer-events="visible" stroke="#c4b5fd" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,218.3333,373.4586)" fill="#fff" stroke="#38bdf8" stroke-width="0.4444444444444444" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,475,340.5646)" fill="#fff" stroke="#38bdf8" stroke-width="0.4444444444444444" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,731.6667,168.8549)" fill="#fff" stroke="#38bdf8" stroke-width="0.4444444444444444" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,218.3333,389.6022)" fill="#fff" stroke="#fbbf24" stroke-width="0.4444444444444444" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,475,389.6535)" fill="#fff" stroke="#fbbf24" stroke-width="0.4444444444444444" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,731.6667,389.5117)" fill="#fff" stroke="#fbbf24" stroke-width="0.4444444444444444" ecmeta_series_index="1" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,218.3333,387.1446)" fill="#fff" stroke="#c4b5fd" stroke-width="0.4444444444444444" ecmeta_series_index="2" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,475,362.549)" fill="#fff" stroke="#c4b5fd" stroke-width="0.4444444444444444" ecmeta_series_index="2" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4.5,0,0,4.5,731.6667,222.9445)" fill="#fff" stroke="#c4b5fd" stroke-width="0.4444444444444444" ecmeta_series_index="2" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M-5 -5l419.2 0l0 26l-419.2 0Z" transform="translate(245.42 95)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#b7b9be" stroke-width="0" class="zr0-cls-0"></path>
+<path d="M0 7L25 7" transform="translate(246.42 96)" fill="#000" stroke="#38bdf8" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(246.42 96)" fill="#fff" stroke="#38bdf8" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:16px;font-family:sans-serif;" x="30" y="7" transform="translate(246.42 96)" fill="#e2e8f0">Lineal</text>
+<path d="M-1 -1l73.9 0l0 16l-73.9 0Z" transform="translate(246.42 96)" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="legend" class="zr0-cls-4"></path>
+<path d="M0 7L25 7" transform="translate(328.3 96)" fill="#000" stroke="#fbbf24" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(328.3 96)" fill="#fff" stroke="#fbbf24" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:16px;font-family:sans-serif;" xml:space="preserve" x="30" y="7" transform="translate(328.3 96)" fill="#e2e8f0">Map preparado</text>
+<path d="M-1 -1l140 0l0 16l-140 0Z" transform="translate(328.3 96)" fill="none" pointer-events="visible" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="legend" class="zr0-cls-4"></path>
+<path d="M0 7L25 7" transform="translate(476.26 96)" fill="#000" stroke="#c4b5fd" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(476.26 96)" fill="#fff" stroke="#c4b5fd" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:16px;font-family:sans-serif;" xml:space="preserve" x="30" y="7" transform="translate(476.26 96)" fill="#e2e8f0">Construir + consultar</text>
+<path d="M-1 -1l179.3 0l0 16l-179.3 0Z" transform="translate(476.26 96)" fill="none" pointer-events="visible" ecmeta_series_index="2" ecmeta_data_index="2" ecmeta_ssr_type="legend" class="zr0-cls-4"></path>
+<path d="M-5 -5l644.3 0l0 59l-644.3 0Z" transform="translate(29 20)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#3c3c41" stroke-width="0" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:23px;font-family:sans-serif;font-weight:bold;" xml:space="preserve" y="11.5" transform="translate(29 20)" fill="#f8fafc">Búsquedas mixtas: incluir el índice cambia la comparación</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:16px;font-family:sans-serif;" xml:space="preserve" y="41" transform="translate(29 20)" fill="#cbd5e1">Medianas de nueve muestras · 200 consultas por lote · 50 % ausencias</text>
+<defs >
+<clipPath id="zr0-c0">
+<path d="M89 154l772 0l0 237l-772 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+<clipPath id="zr0-c1">
+<path d="M89 154l772 0l0 237l-772 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+<clipPath id="zr0-c2">
+<path d="M89 154l772 0l0 237l-772 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+}
+.zr0-cls-3:hover {
+cursor:pointer;
+fill:rgba(255,255,255,1);
+}
+.zr0-cls-4:hover {
+cursor:pointer;
+fill:rgba(0,0,0,0);
+}
+
+]]>
+
+</style>
+</svg>

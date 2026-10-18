@@ -1,0 +1,17 @@
+direction: down
+**.style.font-size: 24
+graph: "Grafo dirigido del laboratorio" {
+  a: "a · distancia 0"
+  b: "b · distancia 1"
+  c: "c · distancia 1"
+  d: "d · distancia 2"
+  z: "z · no alcanzable"
+  a <-> b: "también b → a"
+  a -> c
+  b -> d
+  c -> d
+}
+trace: "Cola FIFO: [a] → [b,c] → [c,d] → [d]\nMarcar al encolar: d no entra dos veces"
+result: "Ruta elegida a → b → d\nMínima en aristas, no en coste con pesos"
+graph -> trace
+trace -> result

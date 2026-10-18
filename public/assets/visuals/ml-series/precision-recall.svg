@@ -1,0 +1,110 @@
+<svg width="900" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 900 480">
+<rect width="900" height="480" x="0" y="0" fill="#111827"></rect>
+<text dominant-baseline="central" text-anchor="start" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="7" transform="translate(24 437)" fill="#cbd5e1">Datos sintéticos · resultados locales de NumPy/pandas/scikit-learn</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="21" transform="translate(24 437)" fill="#cbd5e1">No son métricas de producción ni un benchmark de bibliotecas.</text>
+<path d="M90 375.5L855 375.5" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M90 325.5L855 325.5" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M90 275.5L855 275.5" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M90 225.5L855 225.5" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M90 175.5L855 175.5" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M90 125.5L855 125.5" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M90.5 125L90.5 375" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M243.5 125L243.5 375" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M396.5 125L396.5 375" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M549.5 125L549.5 375" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M702.5 125L702.5 375" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<path d="M855.5 125L855.5 375" fill="none" pointer-events="visible" stroke="#334155" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" y="-7.5" transform="translate(90 110)" fill="#cbd5e1">Precision</text>
+<path d="M90.5 375L90.5 125" fill="none" pointer-events="visible" stroke="#54555a" stroke-linecap="round" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" y="7.5" transform="translate(472.5 410)" fill="#cbd5e1">Recall</text>
+<path d="M90 375.5L855 375.5" fill="none" pointer-events="visible" stroke="#54555a" stroke-linecap="round" class="zr3-cls-12"></path>
+<path d="M90 375.5L85 375.5" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M90 325.5L85 325.5" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M90 275.5L85 275.5" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M90 225.5L85 225.5" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M90 175.5L85 175.5" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M90 125.5L85 125.5" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M90.5 375L90.5 380" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M243.5 375L243.5 380" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M396.5 375L396.5 380" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M549.5 375L549.5 380" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M702.5 375L702.5 380" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<path d="M855.5 375L855.5 380" fill="none" pointer-events="visible" stroke="#54555a" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 375)" fill="#cbd5e1">0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 325)" fill="#cbd5e1">0,2</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 275)" fill="#cbd5e1">0,4</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 225)" fill="#cbd5e1">0,6</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 175)" fill="#cbd5e1">0,8</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 125)" fill="#cbd5e1">1</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(90 383)" fill="#cbd5e1">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(243 383)" fill="#cbd5e1">0,2</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(396 383)" fill="#cbd5e1">0,4</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(549 383)" fill="#cbd5e1">0,6</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(702 383)" fill="#cbd5e1">0,8</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(855 383)" fill="#cbd5e1">1</text>
+<g clip-path="url(#zr3-c0)">
+<path d="M855 313.9L855 312.9L855 312.1L855 311.4L855 310.7L855 309.9L855 309.1L855 308.3L855 307.5L855 306.7L855 305.8L855 304.9L855 304L855 303.1L855 302.2L855 301.2L855 300.2L855 299.1L855 298.1L855 297L855 295.9L855 294.7L855 293.5L855 292.3L855 291L855 289.7L855 288.4L855 287L855 286.3L855 285.6L855 284.8L855 284.1L855 283.3L855 282.6L855 281.8L855 281L855 280.2L855 279.3L855 278.5L855 277.7L855 276.8L855 275.9L855 275L855 274.1L855 273.1L855 272.2L855 271.2L855 270.2L855 269.2L855 268.2L855 267.2L855 266.1L855 265L855 263.9L837.6 265.3L820.2 266.8L820.2 265.6L820.2 264.5L802.8 266L802.8 264.8L785.5 266.3L785.5 265.1L785.5 263.9L785.5 262.6L785.5 261.4L785.5 260.1L785.5 258.7L785.5 257.4L785.5 256L785.5 254.5L785.5 253L785.5 251.5L785.5 250L785.5 248.4L785.5 246.8L768.1 248.4L768.1 246.7L768.1 245L768.1 243.2L750.7 244.9L750.7 243.1L750.7 241.2L750.7 239.3L750.7 237.3L750.7 235.3L750.7 233.2L733.3 234.8L733.3 232.7L733.3 230.5L733.3 228.2L733.3 225.8L733.3 223.4L733.3 220.8L733.3 218.2L733.3 215.5L733.3 212.7L715.9 214.3L698.5 215.9L698.5 213L698.5 209.9L681.1 211.5L681.1 208.3L663.8 210L663.8 206.6L663.8 203.1L663.8 199.5L646.4 201.1L646.4 197.2L646.4 193.2L646.4 189L646.4 184.5L629 186L611.6 187.5L611.6 182.7L594.2 184.2L576.8 185.8L576.8 180.6L576.8 175L576.8 169.1L576.8 162.9L559.4 164.1L559.4 157.3L559.4 150L542 150.9L542 142.9L524.7 143.5L524.7 134.6L507.3 135L489.9 135.4L472.5 135.9L455.1 136.4L437.7 136.9L437.7 125L420.3 125L403 125L385.6 125L368.2 125L350.8 125L333.4 125L316 125L298.6 125L281.3 125L263.9 125L246.5 125L229.1 125L211.7 125L194.3 125L176.9 125L159.5 125L142.2 125L124.8 125L107.4 125L90 125" fill="none" pointer-events="visible" stroke="#38bdf8" stroke-width="2" stroke-linejoin="bevel" class="zr3-cls-14"></path>
+</g>
+<g clip-path="url(#zr3-c1)">
+<path d="M855 313.9L855 312.5L855 311.8L855 311L855 310.3L855 309.5L855 308.7L855 307.9L855 307.1L855 306.3L855 305.4L855 304.5L855 303.6L855 302.6L855 301.2L855 300.2L855 299.1L855 298.1L855 297L855 295.9L855 294.7L855 293.5L855 292.3L855 291L855 289.7L837.6 290.4L837.6 289L837.6 287.6L837.6 286.9L837.6 286.2L837.6 285.4L837.6 284.7L837.6 283.9L837.6 283.1L837.6 282.3L837.6 281.5L837.6 280.7L837.6 279.9L837.6 279L837.6 278.2L837.6 277.3L837.6 276.4L837.6 275.5L837.6 274.5L837.6 273.6L837.6 272.6L837.6 271.6L837.6 270.6L837.6 269.6L837.6 268.6L837.6 267.5L837.6 266.4L837.6 265.3L837.6 264.2L820.2 265.6L802.8 267.1L802.8 266L802.8 264.8L785.5 266.3L785.5 265.1L785.5 263.9L785.5 262.6L785.5 261.4L785.5 260.1L785.5 258.7L785.5 257.4L785.5 256L785.5 254.5L785.5 253L785.5 251.5L785.5 250L785.5 248.4L785.5 246.8L785.5 245.1L785.5 243.4L785.5 241.7L785.5 239.9L785.5 238L768.1 239.6L768.1 237.7L768.1 235.7L768.1 233.7L768.1 231.6L750.7 233.2L750.7 231.1L733.3 232.7L733.3 230.5L733.3 228.2L733.3 225.8L733.3 223.4L733.3 220.8L733.3 218.2L733.3 215.5L733.3 212.7L733.3 209.8L715.9 211.4L698.5 213L698.5 209.9L698.5 206.7L681.1 208.3L681.1 205L663.8 206.6L663.8 203.1L646.4 204.8L629 206.5L629 202.8L629 198.9L629 194.8L629 190.5L629 186L629 181.3L629 176.3L611.6 177.6L594.2 179.1L576.8 180.6L559.4 182.1L542 183.8L542 178L524.7 179.7L524.7 173.4L524.7 166.7L524.7 159.5L524.7 151.8L507.3 152.8L507.3 144.2L489.9 145L472.5 145.8L472.5 135.9L455.1 136.4L437.7 136.9L420.3 137.5L420.3 125L403 125L385.6 125L368.2 125L350.8 125L333.4 125L316 125L298.6 125L281.3 125L263.9 125L246.5 125L229.1 125L211.7 125L194.3 125L176.9 125L159.5 125L142.2 125L124.8 125L107.4 125L90 125" fill="none" pointer-events="visible" stroke="#fbbf24" stroke-width="2" stroke-linejoin="bevel" class="zr3-cls-14"></path>
+</g>
+<g clip-path="url(#zr3-c2)">
+<path d="M855 313.9L855 312.9L855 312.1L855 311.4L855 310.7L855 309.9L855 309.1L855 308.3L855 307.5L855 306.7L855 305.8L855 304.9L855 304L855 303.1L855 301.7L855 300.7L855 299.7L855 298.6L855 297.5L855 295.9L855 294.7L855 293.5L837.6 294.2L820.2 295.5L820.2 293.6L820.2 292.3L820.2 291L820.2 289.6L820.2 288.2L820.2 287.5L820.2 286.8L820.2 286L820.2 285.3L820.2 284.5L820.2 283.7L820.2 282.9L820.2 281.3L820.2 280.4L820.2 279.5L820.2 278.7L820.2 277.8L820.2 276.9L820.2 275.9L820.2 275L820.2 274L820.2 273.1L820.2 272.1L820.2 271L820.2 270L820.2 268.9L802.8 270.4L802.8 269.3L802.8 267.1L802.8 266L802.8 264.8L785.5 266.3L785.5 265.1L785.5 263.9L785.5 262.6L768.1 264.2L768.1 261.6L768.1 260.3L768.1 258.9L768.1 257.5L768.1 256.1L768.1 254.6L768.1 253.1L768.1 251.6L768.1 250L768.1 248.4L768.1 246.7L768.1 245L768.1 243.2L768.1 241.4L750.7 243.1L750.7 241.2L750.7 239.3L750.7 237.3L733.3 239L733.3 236.9L733.3 234.8L733.3 232.7L715.9 234.4L698.5 236.1L681.1 237.9L681.1 235.7L681.1 233.3L681.1 230.9L681.1 228.4L681.1 223.2L681.1 220.5L681.1 217.6L663.8 219.3L663.8 216.3L663.8 213.2L663.8 210L646.4 211.7L646.4 208.3L646.4 204.8L646.4 201.1L646.4 197.2L629 198.9L629 194.8L611.6 196.4L611.6 192.1L611.6 187.5L611.6 182.7L594.2 184.2L594.2 179.1L594.2 173.6L594.2 167.9L576.8 169.1L559.4 170.5L542 171.9L524.7 173.4L507.3 168.1L489.9 169.6L472.5 171.3L455.1 173.1L455.1 165L455.1 156.3L455.1 146.7L437.7 147.7L420.3 148.8L403 150L385.6 151.3L385.6 138.9L368.2 139.7L350.8 140.6L333.4 141.7L316 142.9L298.6 144.2L281.3 145.8L281.3 125L263.9 125L229.1 125L211.7 125L194.3 125L176.9 125L159.5 125L142.2 125L124.8 125L107.4 125L90 125" fill="none" pointer-events="visible" stroke="#fb7185" stroke-width="2" stroke-linejoin="bevel" class="zr3-cls-14"></path>
+</g>
+<g clip-path="url(#zr3-c3)">
+<path d="M90 313.9L855 313.9" fill="none" pointer-events="visible" stroke="#a78bfa" stroke-width="2" stroke-dasharray="8,4" stroke-linejoin="bevel" class="zr3-cls-14"></path>
+</g>
+<path d="M-5 -5l399.7 0l0 23.2l-399.7 0Z" transform="translate(255.16 85)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#b7b9be" stroke-width="0" class="zr3-cls-12"></path>
+<path d="M0 7L25 7" transform="translate(256.16 84.6)" fill="#000" stroke="#38bdf8" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(256.16 84.6)" fill="#fff" stroke="#38bdf8" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(256.16 84.6)" fill="#cbd5e1">Logística</text>
+<path d="M-1 0.4l87.9 0l0 13.2l-87.9 0Z" transform="translate(256.16 84.6)" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="legend" class="zr3-cls-15"></path>
+<path d="M0 7L25 7" transform="translate(352.04 84.6)" fill="#000" stroke="#fbbf24" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(352.04 84.6)" fill="#fff" stroke="#fbbf24" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" x="30" y="7" transform="translate(352.04 84.6)" fill="#cbd5e1">Random Forest</text>
+<path d="M-1 0.4l113.9 0l0 13.2l-113.9 0Z" transform="translate(352.04 84.6)" fill="none" pointer-events="visible" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="legend" class="zr3-cls-15"></path>
+<path d="M0 7L25 7" transform="translate(473.96 84.6)" fill="#000" stroke="#fb7185" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(473.96 84.6)" fill="#fff" stroke="#fb7185" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(473.96 84.6)" fill="#cbd5e1">Boosting</text>
+<path d="M-1 0.4l77.9 0l0 13.2l-77.9 0Z" transform="translate(473.96 84.6)" fill="none" pointer-events="visible" ecmeta_series_index="2" ecmeta_data_index="2" ecmeta_ssr_type="legend" class="zr3-cls-15"></path>
+<path d="M0 7L25 7" transform="translate(559.88 84.6)" fill="#000" stroke="#a78bfa" stroke-width="2" stroke-dasharray="8,4" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(559.88 84.6)" fill="#fff" stroke="#a78bfa" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(559.88 84.6)" fill="#cbd5e1">Constante</text>
+<path d="M-1 0.4l86 0l0 13.2l-86 0Z" transform="translate(559.88 84.6)" fill="none" pointer-events="visible" ecmeta_series_index="3" ecmeta_data_index="3" ecmeta_ssr_type="legend" class="zr3-cls-15"></path>
+<path d="M-5 -5l499.2 0l0 58l-499.2 0Z" transform="translate(29 20)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#3c3c41" stroke-width="0" class="zr3-cls-12"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:23px;font-family:sans-serif;font-weight:bold;" xml:space="preserve" y="11.5" transform="translate(29 20)" fill="#f8fafc">El ranking no fija un único punto de operación</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="40.5" transform="translate(29 20)" fill="#cbd5e1">Validation: 44 retrasos de 180 envíos · curvas sin suavizado</text>
+<defs >
+<clipPath id="zr3-c0">
+<path d="M89 124l767 0l0 252l-767 0Z" fill="#000" class="zr3-cls-13"></path>
+</clipPath>
+<clipPath id="zr3-c1">
+<path d="M89 124l767 0l0 252l-767 0Z" fill="#000" class="zr3-cls-13"></path>
+</clipPath>
+<clipPath id="zr3-c2">
+<path d="M89 124l767 0l0 252l-767 0Z" fill="#000" class="zr3-cls-13"></path>
+</clipPath>
+<clipPath id="zr3-c3">
+<path d="M89 124l767 0l0 252l-767 0Z" fill="#000" class="zr3-cls-13"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr3-cls-12:hover {
+pointer-events:none;
+}
+.zr3-cls-13:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr3-cls-14:hover {
+cursor:pointer;
+}
+.zr3-cls-15:hover {
+cursor:pointer;
+fill:rgba(0,0,0,0);
+}
+
+]]>
+
+</style>
+</svg>

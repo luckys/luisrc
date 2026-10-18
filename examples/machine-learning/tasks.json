@@ -1,0 +1,82 @@
+[
+  {
+    "problem": "Avisar de un retraso antes de salir",
+    "task": "classification",
+    "target": "delay_minutes > 30",
+    "unit": "envío",
+    "data": "historial finalizado y features de salida",
+    "metric": "average precision y recall con presupuesto de alertas"
+  },
+  {
+    "problem": "Predecir minutos de retraso",
+    "task": "regression",
+    "target": "delay_minutes",
+    "unit": "envío",
+    "data": "historial finalizado",
+    "metric": "MAE en minutos"
+  },
+  {
+    "problem": "Ordenar documentos para una consulta",
+    "task": "ranking",
+    "target": "relevancia juzgada por consulta",
+    "unit": "consulta y candidatos",
+    "data": "consultas con juicios de relevancia",
+    "metric": "NDCG@10"
+  },
+  {
+    "problem": "Agrupar rutas por patrón operativo",
+    "task": "clustering",
+    "target": null,
+    "unit": "ruta",
+    "data": "distancia, volumen y horarios comparables",
+    "metric": "silhouette, estabilidad y revisión operativa"
+  },
+  {
+    "problem": "Detectar lecturas atípicas de sensores",
+    "task": "anomaly detection",
+    "target": "incidencias revisadas si existen",
+    "unit": "ventana de sensor",
+    "data": "señales históricas y alertas auditadas",
+    "metric": "precision por alerta y carga de revisión"
+  },
+  {
+    "problem": "Aprender representaciones de texto sin etiquetas humanas",
+    "task": "self-supervised",
+    "target": "tokens ocultos creados desde el propio texto",
+    "unit": "secuencia",
+    "data": "corpus autorizado",
+    "metric": "pérdida y evaluación downstream separada"
+  },
+  {
+    "problem": "Clasificar defectos en una imagen",
+    "task": "classification",
+    "target": "defecto validado por inspector",
+    "unit": "pieza",
+    "data": "imágenes etiquetadas por pieza",
+    "metric": "recall de defecto y falsas alarmas"
+  },
+  {
+    "problem": "Predecir demanda de la próxima semana",
+    "task": "regression",
+    "target": "unidades de la semana futura",
+    "unit": "producto-semana",
+    "data": "historial ordenado y señales conocidas al corte",
+    "metric": "MAE temporal frente a baseline estacional"
+  },
+  {
+    "problem": "Saber si un aviso reduce retrasos",
+    "task": "causal experiment",
+    "target": "diferencia de retrasos bajo asignación aleatoria",
+    "unit": "unidad de asignación definida sin interferencia",
+    "data": "experimento con control",
+    "metric": "efecto con intervalo y costes"
+  },
+  {
+    "problem": "Aplicar una tarifa contractual fija",
+    "task": "deterministic rule",
+    "target": null,
+    "unit": "contrato",
+    "data": "contrato vigente",
+    "metric": "tests de reglas, no score ML"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "paths": [
+    "computacion-redes/browser-server.mjs",
+    "computacion-redes/browser.css",
+    "computacion-redes/browser.html",
+    "computacion-redes/browser.mjs",
+    "computacion-redes/concepts.mjs",
+    "computacion-redes/experiments.mjs",
+    "computacion-redes/http-server.mjs",
+    "computacion-redes/process-probe.mjs",
+    "computacion-redes/README.md",
+    "computacion-redes/results/browser.json",
+    "computacion-redes/results/experiments.json",
+    "computacion-redes/results/README.md",
+    "computacion-redes/service.mjs",
+    "computacion-redes/tests/lab.test.mjs",
+    "computacion-redes/transport-ui.mjs",
+    "computacion-redes/transport.html"
+  ]
+}

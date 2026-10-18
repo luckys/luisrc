@@ -1,0 +1,19 @@
+{
+  "paths": [
+    "machine-learning/data/logistics-v1.csv",
+    "machine-learning/data.py",
+    "machine-learning/experiments.py",
+    "machine-learning/explorer.html",
+    "machine-learning/explorer.mjs",
+    "machine-learning/models.py",
+    "machine-learning/protocol.json",
+    "machine-learning/README.md",
+    "machine-learning/results/experiments.json",
+    "machine-learning/results/README.md",
+    "machine-learning/run.mjs",
+    "machine-learning/runtime.json",
+    "machine-learning/tasks.json",
+    "machine-learning/tests/test_lab.py",
+    "machine-learning/validation.json"
+  ]
+}

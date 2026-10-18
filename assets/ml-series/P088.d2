@@ -1,0 +1,8 @@
+direction: down
+**.style.font-size: 24
+split: "Dividir antes de ajustar"
+fit: "Train de cada fold\nfit imputación, scaling y encoding"
+model: "Entrenar estimador\ncon features transformadas de train"
+apply: "Validation del fold\nsolo transform con estado aprendido"
+evaluate: "Predecir y evaluar\nsin ajustar con validation"
+split -> fit -> model -> apply -> evaluate

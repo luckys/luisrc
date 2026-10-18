@@ -1,0 +1,12 @@
+direction: down
+post: "POST /orders -> 201\namountMinor 1250, currency EUR\nlabel Libro"
+read: "GET /orders/o1 -> 200\nMismo pedido, sin modificar"
+replace: "PUT /orders/o1 -> 200\namountMinor 2400, currency USD\nSin label si se omite"
+patch: "PATCH /orders/o1 -> 200\nAsignar label no cambia importe"
+remove: "DELETE /orders/o1 -> 204\nEl pedido deja de existir"
+absent: "DELETE repetido -> 404\nGET posterior -> 404"
+post -> read: recurso consultable
+read -> replace: representación completa editable
+replace -> patch: documento parcial definido
+patch -> remove: operación no safe
+remove -> absent: mismo efecto pretendido

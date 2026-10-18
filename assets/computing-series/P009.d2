@@ -1,0 +1,11 @@
+direction: down
+**.style.font-size: 24
+html: "HTML y CSS"
+trees: "DOM y CSSOM"
+render: "Estilos → layout → paint → composición\ncuando hay oportunidad y trabajo pendiente"
+js: "JavaScript en main thread\ntareas y checkpoints de microtasks"
+fetch: "Fetch: trabajo de red\nrespuesta programa continuaciones"
+html -> trees -> render
+js -> trees: "puede modificar"
+js -> render: "puede retrasar"
+js -> fetch: "inicia"

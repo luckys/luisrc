@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Buscar una vez o construir un índice</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font:
+          18px/1.6 system-ui,
+          sans-serif;
+        background: #111827;
+        color: #f1f5f9;
+      }
+      body {
+        max-width: 850px;
+        margin: auto;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+      }
+      label {
+        display: block;
+        margin-top: 18px;
+      }
+      input,
+      select {
+        width: 100%;
+        font: inherit;
+        accent-color: #38bdf8;
+      }
+      select {
+        padding: 8px;
+        background: #1e293b;
+        color: #f1f5f9;
+        border: 1px solid #94a3b8;
+      }
+      :focus-visible {
+        outline: 3px solid #fbbf24;
+        outline-offset: 4px;
+      }
+      svg {
+        width: 100%;
+        height: auto;
+        background: #1e293b;
+        margin-top: 24px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+      td,
+      th {
+        padding: 10px 6px;
+        border-bottom: 1px solid #64748b;
+        text-align: left;
+      }
+      caption {
+        text-align: left;
+        font-weight: bold;
+      }
+      a {
+        color: #7dd3fc;
+      }
+      .note {
+        border-left: 4px solid #fbbf24;
+        padding-left: 14px;
+      }
+      @media (max-width: 400px) {
+        body {
+          padding: 16px;
+        }
+        table {
+          font-size: 15px;
+        }
+      }
+    </style>
+    <script type="module" src="./explorer.mjs"></script>
+  </head>
+  <body>
+    <h1>Buscar una vez o construir un índice</h1>
+    <p>
+      Cambia el catálogo y las consultas. Contamos operaciones del algoritmo, no
+      milisegundos ni pasos internos de Map.
+    </p>
+    <label for="size">Documentos: <output id="size-value" for="size">1000</output></label>
+    <input id="size" type="range" min="1000" max="20000" step="1000" value="1000" />
+    <label for="queries"
+      >Consultas: <output id="queries-value" for="queries">200</output></label
+    >
+    <input id="queries" type="range" min="1" max="2000" step="1" value="200" />
+    <label for="pattern">Qué buscamos</label>
+    <select id="pattern">
+      <option value="mixed">Mitad ausencias, mitad posiciones repartidas</option>
+      <option value="first">Siempre el primer documento</option>
+      <option value="last">Siempre el último documento</option>
+      <option value="miss">Documentos que no existen</option>
+    </select>
+    <p id="summary" aria-live="polite"></p>
+    <svg viewBox="0 0 460 280" role="img" aria-labelledby="plot-title plot-description">
+      <title id="plot-title">
+        Comparaciones de la búsqueda lineal al crecer el catálogo
+      </title>
+      <desc id="plot-description">
+        La tabla ofrece los valores numéricos. La gráfica solo muestra comparaciones
+        lineales para el patrón seleccionado.
+      </desc>
+      <text x="55" y="25" fill="#e2e8f0" font-size="19">Comparaciones (millones)</text>
+      <path d="M55 50V220H440" fill="none" stroke="#cbd5e1" />
+      <text x="42" y="245" fill="#e2e8f0" font-size="17">1000</text>
+      <text x="388" y="245" fill="#e2e8f0" font-size="17">20000</text>
+      <text x="120" y="273" fill="#e2e8f0" font-size="18">Documentos en el catálogo</text>
+      <text x="2" y="57" id="y-max" fill="#e2e8f0" font-size="17"></text>
+      <text x="30" y="220" fill="#e2e8f0" font-size="17">0</text>
+      <polyline id="curve" fill="none" stroke="#38bdf8" stroke-width="4" />
+      <circle id="point" r="7" fill="#fbbf24" />
+    </svg>
+    <table>
+      <caption>
+        Trabajo contado en el escenario seleccionado
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Operación</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Comparaciones lineales</th>
+          <td id="linear"></td>
+        </tr>
+        <tr>
+          <th scope="row">Inserciones al construir Map</th>
+          <td id="insertions"></td>
+        </tr>
+        <tr>
+          <th scope="row">Consultas posteriores a Map</th>
+          <td id="lookups"></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">
+      Una comparación, una inserción y una consulta no cuestan lo mismo. No sumamos estas
+      columnas para predecir tiempo. El índice añade memoria y su construcción se repite
+      si se descarta después de cada lote. No simulamos colisiones, GC ni cachés de CPU.
+    </p>
+    <p>
+      <a href="/posts/medir-algoritmos-busqueda-lineal-map"
+        >Volver al artículo sobre medición</a
+      >
+    </p>
+  </body>
+</html>

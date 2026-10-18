@@ -1,0 +1,8 @@
+[
+  "README.md",
+  "package.json",
+  "server.mjs",
+  "openapi.json",
+  "tests/http.test.mjs",
+  "tests/contract.test.mjs"
+]

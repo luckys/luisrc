@@ -1,0 +1,15 @@
+direction: down
+**.style.font-size: 24
+fixture: "Mismos documentos y consultas\nComprobar resultados equivalentes"
+scan: "scan\nBúsquedas lineales"
+indexed: "indexed\nMap construido antes del reloj"
+fresh: "fresh\nConstrucción + consultas dentro del reloj"
+samples: "5 warmups · 9 muestras\nRotar orden de variantes\nConservar cada lote de 200 consultas"
+decision: "Interpretar según patrón y reutilización\nSin extrapolar a latencia de una API"
+fixture -> scan
+fixture -> indexed
+fixture -> fresh
+scan -> samples
+indexed -> samples
+fresh -> samples
+samples -> decision

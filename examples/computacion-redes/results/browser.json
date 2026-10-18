@@ -1,0 +1,88 @@
+{
+  "browser": "141.0.7390.37",
+  "events": [
+    {
+      "name": "module",
+      "time": 20.800000000745058
+    },
+    {
+      "name": "microtask",
+      "time": 21.900000002235174
+    },
+    {
+      "name": "DOMContentLoaded",
+      "time": 22.100000001490116
+    },
+    {
+      "name": "fetch:response",
+      "time": 36.600000001490116
+    },
+    {
+      "name": "busy:start",
+      "time": 634.4000000022352
+    },
+    {
+      "name": "busy:end",
+      "time": 714.4000000022352
+    },
+    {
+      "name": "timer",
+      "time": 715.6000000014901
+    }
+  ],
+  "longTasks": [
+    {
+      "start": 633.5,
+      "duration": 81
+    }
+  ],
+  "navigation": {
+    "entryType": "navigation",
+    "startTime": 0,
+    "duration": 22.699999999254942,
+    "initiatorType": "navigation",
+    "deliveryType": "",
+    "nextHopProtocol": "http/1.1",
+    "renderBlockingStatus": "non-blocking",
+    "workerStart": 0,
+    "workerRouterEvaluationStart": 0,
+    "workerCacheLookupStart": 0,
+    "workerMatchedSourceType": "",
+    "workerFinalSourceType": "",
+    "redirectStart": 0,
+    "redirectEnd": 0,
+    "fetchStart": 0.30000000074505806,
+    "domainLookupStart": 3.100000001490116,
+    "domainLookupEnd": 3.300000000745058,
+    "connectStart": 3.300000000745058,
+    "secureConnectionStart": 0,
+    "connectEnd": 3.600000001490116,
+    "requestStart": 3.900000002235174,
+    "responseStart": 10.199999999254942,
+    "firstInterimResponseStart": 0,
+    "finalResponseHeadersStart": 10.199999999254942,
+    "responseEnd": 12.400000002235174,
+    "transferSize": 1007,
+    "encodedBodySize": 707,
+    "decodedBodySize": 707,
+    "responseStatus": 200,
+    "serverTiming": [],
+    "unloadEventStart": 0,
+    "unloadEventEnd": 0,
+    "domInteractive": 19.100000001490116,
+    "domContentLoadedEventStart": 22,
+    "domContentLoadedEventEnd": 22.100000001490116,
+    "domComplete": 22.699999999254942,
+    "loadEventStart": 22.699999999254942,
+    "loadEventEnd": 22.699999999254942,
+    "type": "navigate",
+    "redirectCount": 0,
+    "activationStart": 0,
+    "criticalCHRestart": 0,
+    "notRestoredReasons": null
+  },
+  "authenticated": true,
+  "http_only_not_readable": true,
+  "cors_read_rejected": true,
+  "cross_origin_cookie_received": true
+}

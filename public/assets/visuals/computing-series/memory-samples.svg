@@ -1,0 +1,98 @@
+<svg width="900" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 900 480">
+<rect width="900" height="480" x="0" y="0" fill="#111827"></rect>
+<text dominant-baseline="central" text-anchor="start" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="7" transform="translate(24 437)" fill="#cbd5e1">Medición local: v24.19.0 · Intel(R) Core(TM) Ultra 9 285H</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="21" transform="translate(24 437)" fill="#cbd5e1">Fichero recién escrito: no aísla lectura física en frío ni latencia de RAM.</text>
+<path d="M90 375.5L850 375.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 333.5L850 333.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 291.5L850 291.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 250.5L850 250.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 208.5L850 208.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 166.5L850 166.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<path d="M90 125.5L850 125.5" fill="none" pointer-events="visible" stroke="#334155" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="-7.5" transform="translate(90 110)" fill="#cbd5e1">Tiempo (ms)</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:15px;font-family:sans-serif;" y="7.5" transform="translate(470 410)" fill="#cbd5e1">Muestra</text>
+<path d="M90 375.5L850 375.5" fill="none" pointer-events="visible" stroke="#54555a" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 375)" fill="#cbd5e1">0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 333.3333)" fill="#cbd5e1">5</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 291.6667)" fill="#cbd5e1">10</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 250)" fill="#cbd5e1">15</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 208.3333)" fill="#cbd5e1">20</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 166.6667)" fill="#cbd5e1">25</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:14px;font-family:sans-serif;" transform="translate(82 125)" fill="#cbd5e1">30</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(132.2222 383)" fill="#cbd5e1">1</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(216.6667 383)" fill="#cbd5e1">2</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(301.1111 383)" fill="#cbd5e1">3</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(385.5556 383)" fill="#cbd5e1">4</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(470 383)" fill="#cbd5e1">5</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(554.4444 383)" fill="#cbd5e1">6</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(638.8889 383)" fill="#cbd5e1">7</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(723.3333 383)" fill="#cbd5e1">8</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" y="7" transform="translate(807.7778 383)" fill="#cbd5e1">9</text>
+<g clip-path="url(#zr0-c0)">
+<path d="M132.2 302L216.7 290.4L301.1 302.6L385.6 305L470 305.7L554.4 305.8L638.9 307.5L723.3 305.6L807.8 305.3" fill="none" pointer-events="visible" stroke="#38bdf8" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<g clip-path="url(#zr0-c1)">
+<path d="M132.2 276.2L216.7 231.2L301.1 285L385.6 265.8L470 276.6L554.4 267.3L638.9 277.8L723.3 282.5L807.8 164.1" fill="none" pointer-events="visible" stroke="#fbbf24" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,132.2222,302.0035)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,216.6667,290.4439)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,301.1111,302.5831)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,385.5555,305.023)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,470,305.7217)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,554.4445,305.7929)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,638.8889,307.4532)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="6" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,723.3333,305.5595)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="7" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,807.7778,305.3155)" fill="#fff" stroke="#38bdf8" stroke-width="0.5" ecmeta_series_index="0" ecmeta_data_index="8" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,132.2222,276.2305)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="0" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,216.6667,231.1979)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,301.1111,285.0067)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="2" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,385.5555,265.8243)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="3" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,470,276.5807)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="4" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,554.4445,267.295)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="5" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,638.8889,277.751)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="6" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,723.3333,282.532)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="7" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.1A1 1 0 0 1 1 0" transform="matrix(4,0,0,4,807.7778,164.1401)" fill="#fff" stroke="#fbbf24" stroke-width="0.5" ecmeta_series_index="1" ecmeta_data_index="8" ecmeta_ssr_type="chart" class="zr0-cls-3"></path>
+<path d="M-5 -5l247.3 0l0 23.2l-247.3 0Z" transform="translate(331.36 85)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#b7b9be" stroke-width="0" class="zr0-cls-0"></path>
+<path d="M0 7L25 7" transform="translate(332.36 84.6)" fill="#000" stroke="#38bdf8" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(332.36 84.6)" fill="#fff" stroke="#38bdf8" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" x="30" y="7" transform="translate(332.36 84.6)" fill="#cbd5e1">Procesar Buffer</text>
+<path d="M-1 0.4l114.6 0l0 13.2l-114.6 0Z" transform="translate(332.36 84.6)" fill="none" pointer-events="visible" ecmeta_series_index="0" ecmeta_data_index="0" ecmeta_ssr_type="legend" class="zr0-cls-4"></path>
+<path d="M0 7L25 7" transform="translate(455 84.6)" fill="#000" stroke="#fbbf24" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.4A5.6 5.6 0 0 1 18.1 7" transform="translate(455 84.6)" fill="#fff" stroke="#fbbf24" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" x="30" y="7" transform="translate(455 84.6)" fill="#cbd5e1">Leer y procesar</text>
+<path d="M-1 0.4l114.6 0l0 13.2l-114.6 0Z" transform="translate(455 84.6)" fill="none" pointer-events="visible" ecmeta_series_index="1" ecmeta_data_index="1" ecmeta_ssr_type="legend" class="zr0-cls-4"></path>
+<path d="M-5 -5l485.6 0l0 58l-485.6 0Z" transform="translate(29 20)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#3c3c41" stroke-width="0" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:23px;font-family:sans-serif;font-weight:bold;" xml:space="preserve" y="11.5" transform="translate(29 20)" fill="#f8fafc">Dos recorridos, el mismo contenido procesado</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:15px;font-family:sans-serif;" xml:space="preserve" y="40.5" transform="translate(29 20)" fill="#cbd5e1">2 MiB · tres calentamientos · orden alternado · nueve muestras</text>
+<defs >
+<clipPath id="zr0-c0">
+<path d="M89 124l762 0l0 252l-762 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+<clipPath id="zr0-c1">
+<path d="M89 124l762 0l0 252l-762 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+}
+.zr0-cls-3:hover {
+cursor:pointer;
+fill:rgba(255,255,255,1);
+}
+.zr0-cls-4:hover {
+cursor:pointer;
+fill:rgba(0,0,0,0);
+}
+
+]]>
+
+</style>
+</svg>

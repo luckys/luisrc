@@ -1,0 +1,9 @@
+direction: down
+**.style.font-size: 24
+socket: "ss: dirección, puerto y protocolo"
+process: "ps: confirmar PID y comando"
+resources: "Descriptores, permisos y configuración\nno imprimir secretos del entorno"
+logs: "Log del mismo proceso\nready → request"
+stop: "SIGTERM al hijo propio\ndejar de aceptar y cerrar"
+verify: "Verificar salida y fin de escucha\nshutdown y código 0"
+socket -> process -> resources -> logs -> stop -> verify

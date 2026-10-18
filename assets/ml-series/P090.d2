@@ -1,0 +1,12 @@
+direction: down
+**.style.font-size: 24
+data: "Mismo train, features y protocolo"
+forest: "Random Forest\nbootstrap + features aleatorias"
+trees: "Árboles entrenados separadamente"
+average: "Promediar probabilidades"
+boost: "Gradient Boosting\nmodelo inicial + pérdida"
+stages: "Añadir correcciones secuenciales"
+sum: "Sumar contribuciones con learning rate"
+validation: "Comparar en la misma validation\nno declarar un ganador universal"
+data -> forest -> trees -> average -> validation
+data -> boost -> stages -> sum -> validation

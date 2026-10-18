@@ -1,0 +1,62 @@
+{
+  "name": "Computación, sistemas y redes: del proceso al navegador",
+  "language": "es",
+  "status": "draft",
+  "verified": "2026-10-18",
+  "articles": [
+    {
+      "id": "P001",
+      "slug": "cpu-memoria-almacenamiento-localidad",
+      "title": "CPU, memoria y almacenamiento: qué estás midiendo cuando un programa tarda",
+      "prerequisites": []
+    },
+    {
+      "id": "P002",
+      "slug": "bits-floats-unicode-fechas-representacion",
+      "title": "Bits, decimales, texto y fechas: el valor no es lo mismo que sus bytes",
+      "prerequisites": ["P001"]
+    },
+    {
+      "id": "P003",
+      "slug": "procesos-hilos-memoria-virtual-bloqueos",
+      "title": "Procesos, hilos y memoria virtual: por qué async no evita un bloqueo de CPU",
+      "prerequisites": ["P001"]
+    },
+    {
+      "id": "P004",
+      "slug": "linux-diagnosticar-procesos-puertos-senales",
+      "title": "Linux para diagnosticar un servicio: del puerto al proceso y al cierre",
+      "prerequisites": ["P003"]
+    },
+    {
+      "id": "P005",
+      "slug": "internet-ip-routing-nat-dns",
+      "title": "De un dominio a un servicio: DNS, direcciones IP, rutas y NAT",
+      "prerequisites": []
+    },
+    {
+      "id": "P006",
+      "slug": "tcp-udp-quic-perdida-latencia",
+      "title": "TCP, UDP y QUIC: entregar todos los datos no siempre significa llegar a tiempo",
+      "prerequisites": ["P005"]
+    },
+    {
+      "id": "P007",
+      "slug": "https-tls-certificados-identidad",
+      "title": "HTTPS y TLS: cifrar una conexión no basta si no verificas con quién hablas",
+      "prerequisites": ["P006"]
+    },
+    {
+      "id": "P008",
+      "slug": "http-semantica-versiones-etag-cache",
+      "title": "HTTP y caché: por qué una respuesta 304 necesita algo que ya tienes",
+      "prerequisites": ["P006", "P007"]
+    },
+    {
+      "id": "P009",
+      "slug": "navegador-dom-cssom-event-loop-fetch",
+      "title": "Del HTML a la pantalla: qué hace el navegador mientras tu JavaScript espera",
+      "prerequisites": ["P008"]
+    }
+  ]
+}

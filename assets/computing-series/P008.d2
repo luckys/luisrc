@@ -1,0 +1,10 @@
+direction: down
+**.style.font-size: 24
+first: "GET /resource\n200 + JSON + ETag A"
+store: "Conservar representación A"
+conditional: "GET con If-None-Match: A"
+same: "No cambió\n304 sin cuerpo → reutilizar A"
+changed: "Cambió a B\n200 + JSON nuevo + ETag B"
+first -> store -> conditional
+conditional -> same
+conditional -> changed

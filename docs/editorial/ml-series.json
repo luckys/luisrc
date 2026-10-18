@@ -1,0 +1,68 @@
+{
+  "name": "Machine Learning clásico: de los datos a una evaluación fiable",
+  "language": "es",
+  "status": "draft",
+  "verified": "2026-10-18",
+  "articles": [
+    {
+      "id": "P086",
+      "slug": "machine-learning-problema-target-prediccion",
+      "title": "Machine Learning empieza por definir qué quieres predecir y cuándo",
+      "prerequisites": []
+    },
+    {
+      "id": "P087",
+      "slug": "eda-numpy-pandas-calidad-datos",
+      "title": "EDA con NumPy y pandas: qué revisar antes de entrenar un modelo",
+      "prerequisites": ["P086"]
+    },
+    {
+      "id": "P088",
+      "slug": "preprocesamiento-pipelines-data-leakage",
+      "title": "Preprocesamiento sin data leakage: por qué dividir antes de ajustar",
+      "prerequisites": ["P087"]
+    },
+    {
+      "id": "P089",
+      "slug": "regresion-lineal-logistica-perdidas-regularizacion",
+      "title": "Regresión lineal y logística: qué aprende el modelo y qué significa su salida",
+      "prerequisites": ["P088"]
+    },
+    {
+      "id": "P090",
+      "slug": "arboles-random-forest-gradient-boosting",
+      "title": "Árboles, Random Forest y Gradient Boosting: cómo comparar modelos tabulares",
+      "prerequisites": ["P088", "P089"]
+    },
+    {
+      "id": "P091",
+      "slug": "clustering-kmeans-dbscan-estabilidad",
+      "title": "Clustering: encontrar grupos no significa haber descubierto categorías reales",
+      "prerequisites": ["P087", "P088"]
+    },
+    {
+      "id": "P092",
+      "slug": "validacion-temporal-cross-validation-seleccion",
+      "title": "Train, validation y test: cómo evaluar el futuro sin entrenar con él",
+      "prerequisites": ["P088", "P089"]
+    },
+    {
+      "id": "P093",
+      "slug": "metricas-ml-precision-recall-auc-errores",
+      "title": "Métricas de Machine Learning: qué errores oculta un buen porcentaje",
+      "prerequisites": ["P092"]
+    },
+    {
+      "id": "P094",
+      "slug": "calibracion-interpretabilidad-equidad-modelos",
+      "title": "Calibración, interpretabilidad y equidad: cuatro preguntas para una predicción",
+      "prerequisites": ["P093"]
+    },
+    {
+      "id": "P095",
+      "slug": "experimentos-ml-reproducibles-baselines",
+      "title": "Experimentos reproducibles de ML: cómo saber qué cambio mejoró el modelo",
+      "prerequisites": ["P087", "P092", "P093", "P094"]
+    }
+  ]
+}

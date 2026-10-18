@@ -18,6 +18,7 @@ leer esa serie: las dependencias aquí son matemáticas, no de interfaz.
 [Laboratorio descargable en el repositorio](../../examples/matematicas-estadistica/README.md).
 [Alcance](math-series-scope.md), [inventario](math-series.json) y [glosario](math-series-glossary.md).
 
-El siguiente bloque propuesto es Machine Learning clásico (P086–P095): plantear
-problemas, preparar datos, entrenar baselines y evaluar sin filtración de información.
-No se ha empezado esa serie ni se marca como completado el resto del roadmap.
+La continuación está en [Machine Learning clásico (P086–P095)](ruta-machine-learning.md):
+plantear problemas, preparar datos, entrenar baselines y evaluar sin filtración de
+información. Sus diez artículos también quedan en español y borrador; no se marca
+como completado el resto del roadmap.

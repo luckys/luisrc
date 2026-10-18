@@ -1,0 +1,51 @@
+[
+  {
+    "id": "P001",
+    "file": "concepts.mjs",
+    "start": "export function checksum",
+    "end": "\n}"
+  },
+  {
+    "id": "P002",
+    "file": "concepts.mjs",
+    "start": "export function minorUnits",
+    "end": "\n}"
+  },
+  {
+    "id": "P003",
+    "file": "process-probe.mjs",
+    "start": "events.push('busy:start')",
+    "end": "events.push('busy:end')"
+  },
+  { "id": "P004", "file": "service.mjs", "start": "process.on('SIGTERM'", "end": "\n})" },
+  {
+    "id": "P005",
+    "file": "experiments.mjs",
+    "start": "const resolver = new Resolver",
+    "until": "\n  try {"
+  },
+  {
+    "id": "P006",
+    "file": "concepts.mjs",
+    "start": "if (id === lost)",
+    "until": "\n    return {"
+  },
+  {
+    "id": "P007",
+    "file": "experiments.mjs",
+    "start": "const socket = tls.connect",
+    "until": "\n        socket.setTimeout"
+  },
+  {
+    "id": "P008",
+    "file": "http-server.mjs",
+    "start": "if (matches)",
+    "until": "\n    response.setHeader"
+  },
+  {
+    "id": "P009",
+    "file": "browser.mjs",
+    "start": "const start = performance.now()",
+    "until": "\n})"
+  }
+]

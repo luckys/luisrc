@@ -1,0 +1,1768 @@
+{
+  "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
+  "counts": {
+    "draft_exists": 41,
+    "related_only": 42,
+    "not_written": 92
+  },
+  "completionProven": false,
+  "criteria": "draft_exists indica archivo con ID, no aceptación de todos los requisitos. related_only exige ampliar o escribir una ficha. No renombrar IDs para aparentar cobertura.",
+  "series": [
+    {
+      "id": "01",
+      "title": "Computación, sistemas y redes (posts 001–009)",
+      "articles": [
+        {
+          "id": "P001",
+          "title": "Cómo funciona un ordenador: CPU, memoria y almacenamiento",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/cpu-memoria-almacenamiento-localidad.md",
+            "slug": "cpu-memoria-almacenamiento-localidad",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P002",
+          "title": "Cómo representan los ordenadores la información",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/bits-floats-unicode-fechas-representacion.md",
+            "slug": "bits-floats-unicode-fechas-representacion",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P003",
+          "title": "Sistemas operativos: procesos, hilos y memoria",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/procesos-hilos-memoria-virtual-bloqueos.md",
+            "slug": "procesos-hilos-memoria-virtual-bloqueos",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P004",
+          "title": "Linux para ingenieros de software",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/linux-diagnosticar-procesos-puertos-senales.md",
+            "slug": "linux-diagnosticar-procesos-puertos-senales",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P005",
+          "title": "Cómo funciona Internet: IP, routing, NAT y DNS",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/internet-ip-routing-nat-dns.md",
+            "slug": "internet-ip-routing-nat-dns",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P006",
+          "title": "TCP, UDP y QUIC: transporte, pérdidas y latencia",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/tcp-udp-quic-perdida-latencia.md",
+            "slug": "tcp-udp-quic-perdida-latencia",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P007",
+          "title": "HTTPS, TLS y certificados digitales",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/https-tls-certificados-identidad.md",
+            "slug": "https-tls-certificados-identidad",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P008",
+          "title": "HTTP: semántica, versiones y caché",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/http-semantica-versiones-etag-cache.md",
+            "slug": "http-semantica-versiones-etag-cache",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P009",
+          "title": "Cómo funciona un navegador web por dentro",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/navegador-dom-cssom-event-loop-fetch.md",
+            "slug": "navegador-dom-cssom-event-loop-fetch",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Programación y fundamentos del código (posts 010–019)",
+      "articles": [
+        {
+          "id": "P010",
+          "title": "Git y control de versiones para desarrollo profesional",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P011",
+          "title": "Algoritmos, estructuras de datos y complejidad",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/estructuras-datos-elegir-patron-acceso.md",
+            "slug": "estructuras-datos-elegir-patron-acceso",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P012",
+          "title": "Paradigmas: imperativo, funcional y orientado a objetos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P013",
+          "title": "JavaScript por dentro",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P014",
+          "title": "TypeScript y diseño de tipos seguros",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "dinero-tipos-validacion-typescript"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P015",
+          "title": "Asincronía en JavaScript y Node.js",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "asincronia-nodejs-carreras-concurrencia"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P016",
+          "title": "Python desde sus fundamentos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "aprender-python-despues-de-php-typescript"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P017",
+          "title": "Python profesional: tipado, paquetes y modularidad",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P018",
+          "title": "Concurrencia en Python",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P019",
+          "title": "Diseño y tratamiento de errores",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Diseño de APIs y seguridad web (posts 020–031)",
+      "articles": [
+        {
+          "id": "P020",
+          "title": "Qué es una API y qué significa diseñar un contrato",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/api-contrato-esquema-clientes.md",
+            "slug": "api-contrato-esquema-clientes",
+            "draft": true
+          },
+          "related": [
+            "contratos-http-recursos-operaciones"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P021",
+          "title": "REST y diseño de recursos HTTP",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/recursos-http-metodos-idempotencia.md",
+            "slug": "recursos-http-metodos-idempotencia",
+            "draft": true
+          },
+          "related": [
+            "contratos-http-recursos-operaciones"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P022",
+          "title": "Validación de datos y contratos de entrada/salida",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "validacion-errores-api-problem-details"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P023",
+          "title": "Cómo diseñar los errores de una API",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "validacion-errores-api-problem-details"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P024",
+          "title": "Paginación, filtrado, ordenación y búsqueda",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "evolucion-api-paginacion-contratos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P025",
+          "title": "Versionado y evolución de APIs",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "evolucion-api-paginacion-contratos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P026",
+          "title": "Autenticación: sesiones, cookies y tokens",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "autenticacion-autorizacion-tenant"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P027",
+          "title": "OAuth 2.0 y OpenID Connect explicados",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P028",
+          "title": "Autorización: RBAC, ABAC y permisos sobre recursos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "autenticacion-autorizacion-tenant"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P029",
+          "title": "Seguridad del navegador y frontend",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "seguridad-api-navegador-limites-confianza"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P030",
+          "title": "Seguridad avanzada de APIs",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "seguridad-api-navegador-limites-confianza"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P031",
+          "title": "REST, GraphQL, gRPC, Webhooks y APIs por eventos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "webhooks-firmas-inbox-eventos-desordenados",
+            "sse-websockets-reconexion-eventos-perdidos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Bases de datos y persistencia (posts 032–041)",
+      "articles": [
+        {
+          "id": "P032",
+          "title": "Bases de datos relacionales y modelado",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "modelado-relacional-integridad-datos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P033",
+          "title": "SQL básico y avanzado para análisis y backend",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "sql-joins-null-agregaciones",
+            "sql-cte-ventanas-cohortes"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P034",
+          "title": "Normalización y desnormalización de datos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "normalizacion-desnormalizacion-datos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P035",
+          "title": "Índices y estructuras internas de PostgreSQL",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "indices-postgresql-fundamentos",
+            "indices-compuestos-parciales-covering"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P036",
+          "title": "Cómo ejecuta PostgreSQL una consulta",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "explain-analyze-postgresql"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P037",
+          "title": "Transacciones, ACID y niveles de aislamiento",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "propiedades-acid-bases-de-datos",
+            "transacciones-postgresql-ejemplos-practicos",
+            "aislamiento-mvcc-postgresql"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P038",
+          "title": "Concurrencia y bloqueos en bases de datos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "concurrencia-bloqueos-postgresql"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P039",
+          "title": "Redis y patrones de caché",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "redis-cache-consistencia"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P040",
+          "title": "SQL, NoSQL y motores especializados",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "elegir-sql-nosql-motores-especializados"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P041",
+          "title": "Migraciones, particionado y evolución del dato",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "migraciones-base-datos-sin-romper-aplicacion",
+            "particionado-retencion-postgresql"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Arquitectura y sistemas distribuidos (posts 042–054)",
+      "articles": [
+        {
+          "id": "P042",
+          "title": "System Design: requisitos y estimación de capacidad",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "requisitos-capacidad-invariantes-servicio"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P043",
+          "title": "Principios de diseño: cohesión, acoplamiento y SOLID",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "monolito-modular-solid-sin-sobreingenieria"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P044",
+          "title": "Domain-Driven Design: dominio y límites",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P045",
+          "title": "Arquitectura hexagonal y Clean Architecture",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "monolito-modular-solid-sin-sobreingenieria"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P046",
+          "title": "Arquitectura en capas, monolito modular y microservicios",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "monolito-modular-solid-sin-sobreingenieria"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P047",
+          "title": "C4, ADR y documentación de decisiones",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P048",
+          "title": "Fundamentos de sistemas distribuidos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "fallos-parciales-timeout-resultado-desconocido"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P049",
+          "title": "Idempotencia y garantías de entrega",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "idempotencia-api-claves-efectos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P050",
+          "title": "Colas y procesamiento asíncrono",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "colas-ack-leases-trabajos-duplicados"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P051",
+          "title": "Event Streaming con Kafka",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P052",
+          "title": "Consistencia eventual, Outbox, Inbox y eventos",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "transactional-outbox-inbox-eventos"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P053",
+          "title": "Sagas, máquinas de estados y ejecución duradera",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "sagas-compensaciones-workflows-duraderos",
+            "maquinas-estados-reglas-negocio"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P054",
+          "title": "Resiliencia: timeouts, breakers, bulkheads y backpressure",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "retries-deadlines-backoff-backpressure"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Calidad, cloud, DevOps y observabilidad (posts 055–066)",
+      "articles": [
+        {
+          "id": "P055",
+          "title": "Estrategias de pruebas de software",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "tdd-pruebas-unitarias-integracion-contrato"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P056",
+          "title": "Integración y pruebas de contrato",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "tdd-pruebas-unitarias-integracion-contrato"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P057",
+          "title": "Property-based testing, fuzzing y fault injection",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "fault-injection-pruebas-propiedades"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P058",
+          "title": "Benchmarking, carga y profiling",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "pruebas-carga-percentiles-saturacion"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P059",
+          "title": "Observabilidad: logs, métricas y trazas",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "observabilidad-logs-metricas-trazas-workers"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P060",
+          "title": "SLI, SLO y error budgets",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "sli-slo-error-budget-servicios"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P061",
+          "title": "Incidentes, runbooks y postmortems",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "docker-ci-despliegues-runbooks"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P062",
+          "title": "Docker y entornos reproducibles",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "docker-ci-despliegues-runbooks"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P063",
+          "title": "CI/CD, despliegues progresivos y rollback",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "docker-ci-despliegues-runbooks"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P064",
+          "title": "Cloud Computing con AWS",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P065",
+          "title": "Terraform y Kubernetes",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P066",
+          "title": "Ingeniería de capacidad y costes",
+          "status": "related_only",
+          "exactPost": null,
+          "related": [
+            "requisitos-capacidad-invariantes-servicio",
+            "pruebas-carga-percentiles-saturacion"
+          ],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "Frontend y tiempo real (posts 067–075)",
+      "articles": [
+        {
+          "id": "P067",
+          "title": "Fundamentos de frontend accesible",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/frontend-accesible-semantica-teclado-foco.md",
+            "slug": "frontend-accesible-semantica-teclado-foco",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P068",
+          "title": "Renderizado de aplicaciones modernas",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/csr-ssr-ssg-hydration-renderizado.md",
+            "slug": "csr-ssr-ssg-hydration-renderizado",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P069",
+          "title": "Estado de cliente y sincronización de servidor",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/estado-cliente-servidor-optimismo-races.md",
+            "slug": "estado-cliente-servidor-optimismo-races",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P070",
+          "title": "Rendimiento de frontend y profiling",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/rendimiento-frontend-medir-antes-optimizar.md",
+            "slug": "rendimiento-frontend-medir-antes-optimizar",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P071",
+          "title": "Interfaces para grandes volúmenes de datos",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/tablas-grandes-paginacion-virtualizacion-seleccion.md",
+            "slug": "tablas-grandes-paginacion-virtualizacion-seleccion",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P072",
+          "title": "Componentes y design systems",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/componentes-design-system-contratos-estados.md",
+            "slug": "componentes-design-system-contratos-estados",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P073",
+          "title": "SSE, WebSockets y tiempo real",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/sse-websockets-reconexion-eventos-perdidos.md",
+            "slug": "sse-websockets-reconexion-eventos-perdidos",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P074",
+          "title": "CRDT, OT y offline-first",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/crdt-yjs-offline-convergencia.md",
+            "slug": "crdt-yjs-offline-convergencia",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P075",
+          "title": "WebRTC y multimedia de baja latencia",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/webrtc-audio-ice-stun-turn.md",
+            "slug": "webrtc-audio-ice-stun-turn",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "title": "Matemáticas y estadística (posts 076–085)",
+      "articles": [
+        {
+          "id": "P076",
+          "title": "Álgebra lineal I: vectores, matrices y tensores",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/vectores-matrices-tensores-similitud.md",
+            "slug": "vectores-matrices-tensores-similitud",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P077",
+          "title": "Álgebra lineal II: transformaciones y PCA",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/transformaciones-lineales-pca-perdida-informacion.md",
+            "slug": "transformaciones-lineales-pca-perdida-informacion",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P078",
+          "title": "Cálculo diferencial y regla de la cadena",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/derivadas-gradientes-regla-cadena.md",
+            "slug": "derivadas-gradientes-regla-cadena",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P079",
+          "title": "Optimización matemática y gradiente descendente",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/gradiente-descendente-learning-rate-convergencia.md",
+            "slug": "gradiente-descendente-learning-rate-convergencia",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P080",
+          "title": "Probabilidad y teorema de Bayes",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/probabilidad-bayes-prior-alertas.md",
+            "slug": "probabilidad-bayes-prior-alertas",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P081",
+          "title": "Distribuciones estadísticas y descriptivos",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/distribuciones-media-percentiles-latencia.md",
+            "slug": "distribuciones-media-percentiles-latencia",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P082",
+          "title": "Inferencia estadística e incertidumbre",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/inferencia-bootstrap-intervalos-confianza.md",
+            "slug": "inferencia-bootstrap-intervalos-confianza",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P083",
+          "title": "Hipótesis y diseño experimental",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/experimentos-ab-p-value-efecto-potencia.md",
+            "slug": "experimentos-ab-p-value-efecto-potencia",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P084",
+          "title": "Teoría de la información y pérdidas",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/entropia-cross-entropy-kl-logits.md",
+            "slug": "entropia-cross-entropy-kl-logits",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P085",
+          "title": "Fourier, convolución y cálculo numérico",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/fourier-fft-convolucion-errores-numericos.md",
+            "slug": "fourier-fft-convolucion-errores-numericos",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "title": "Machine Learning clásico (posts 086–095)",
+      "articles": [
+        {
+          "id": "P086",
+          "title": "Qué es Machine Learning y tipos de problemas",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/machine-learning-problema-target-prediccion.md",
+            "slug": "machine-learning-problema-target-prediccion",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P087",
+          "title": "EDA con NumPy y pandas",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/eda-numpy-pandas-calidad-datos.md",
+            "slug": "eda-numpy-pandas-calidad-datos",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P088",
+          "title": "Preprocesamiento y feature engineering",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/preprocesamiento-pipelines-data-leakage.md",
+            "slug": "preprocesamiento-pipelines-data-leakage",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P089",
+          "title": "Regresión lineal y logística",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/regresion-lineal-logistica-perdidas-regularizacion.md",
+            "slug": "regresion-lineal-logistica-perdidas-regularizacion",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P090",
+          "title": "Árboles, Random Forest y Gradient Boosting",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/arboles-random-forest-gradient-boosting.md",
+            "slug": "arboles-random-forest-gradient-boosting",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P091",
+          "title": "Aprendizaje no supervisado",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/clustering-kmeans-dbscan-estabilidad.md",
+            "slug": "clustering-kmeans-dbscan-estabilidad",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P092",
+          "title": "Entrenamiento, validación y selección",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/validacion-temporal-cross-validation-seleccion.md",
+            "slug": "validacion-temporal-cross-validation-seleccion",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P093",
+          "title": "Métricas de Machine Learning",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/metricas-ml-precision-recall-auc-errores.md",
+            "slug": "metricas-ml-precision-recall-auc-errores",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P094",
+          "title": "Calibración, interpretabilidad y equidad",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/calibracion-interpretabilidad-equidad-modelos.md",
+            "slug": "calibracion-interpretabilidad-equidad-modelos",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P095",
+          "title": "Experimentos reproducibles de ML",
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/experimentos-ml-reproducibles-baselines.md",
+            "slug": "experimentos-ml-reproducibles-baselines",
+            "draft": true
+          },
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Deep Learning (posts 096–105)",
+      "articles": [
+        {
+          "id": "P096",
+          "title": "Perceptrón y redes neuronales multicapa",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P097",
+          "title": "Forward, backpropagation y autodiff",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P098",
+          "title": "Optimizadores y dinámica del entrenamiento",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P099",
+          "title": "PyTorch desde cero: entrenamiento completo",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P100",
+          "title": "Overfitting e inestabilidad de redes",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P101",
+          "title": "Redes convolucionales CNN",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P102",
+          "title": "Redes para secuencias: RNN, LSTM y GRU",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P103",
+          "title": "Atención y Transformer",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P104",
+          "title": "Pretraining, transfer learning y fine-tuning",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P105",
+          "title": "Entrenamiento eficiente en GPU",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "NLP, LLM, RAG y agentes (posts 106–121)",
+      "articles": [
+        {
+          "id": "P106",
+          "title": "Fundamentos de NLP y búsqueda de texto",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P107",
+          "title": "Named Entity Recognition y etiquetado de spans",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P108",
+          "title": "Cómo funcionan los modelos de lenguaje",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P109",
+          "title": "Inferencia y generación de texto con LLM",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P110",
+          "title": "Prompt engineering y structured outputs",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P111",
+          "title": "Embeddings y recuperación vectorial",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P112",
+          "title": "Ingesta documental, OCR y chunking para RAG",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P113",
+          "title": "Retrieval léxico, denso e híbrido",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P114",
+          "title": "Reranking, grounding y trazabilidad de fuentes",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P115",
+          "title": "Arquitecturas RAG y decisiones técnicas",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P116",
+          "title": "Evaluación cuantitativa de sistemas RAG",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P117",
+          "title": "Evaluación de LLM y LLM-as-judge",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P118",
+          "title": "Agentes de IA, herramientas y workflows",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P119",
+          "title": "MCP: hosts, clients, servers, tools y resources",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P120",
+          "title": "Seguridad de agentes y prompt injection",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P121",
+          "title": "LLMOps: trazabilidad, costes y latencia",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Healthcare AI e interoperabilidad (posts 122–134)",
+      "articles": [
+        {
+          "id": "P122",
+          "title": "Cómo se estructura una historia clínica",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P123",
+          "title": "Datasets sanitarios para ML",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P124",
+          "title": "RGPD, HIPAA y protección de datos clínicos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P125",
+          "title": "Desidentificación, seudonimización y anonimización",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P126",
+          "title": "Clinical NLP: entidades, negaciones, relaciones",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P127",
+          "title": "Extracción clínica con esquemas estructurados",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P128",
+          "title": "SNOMED CT, LOINC, RxNorm e ICD",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P129",
+          "title": "HL7 FHIR desde cero",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P130",
+          "title": "FHIR Bundle, validación, perfiles y procedencia",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P131",
+          "title": "SMART on FHIR y acceso autorizado",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P132",
+          "title": "OCR y documentos clínicos escaneados",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P133",
+          "title": "FHIR y OMOP CDM: intercambio e investigación",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P134",
+          "title": "Evaluación y revisión humana en Clinical AI",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Computer Vision y documentos (posts 135–145)",
+      "articles": [
+        {
+          "id": "P135",
+          "title": "Cómo representa un ordenador una imagen",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P136",
+          "title": "Computer Vision tradicional con OpenCV",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P137",
+          "title": "Datasets visuales y anotaciones",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P138",
+          "title": "Clasificación visual con Deep Learning",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P139",
+          "title": "Detección de objetos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P140",
+          "title": "Segmentación semántica y por instancia",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P141",
+          "title": "Detección de anomalías visuales",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P142",
+          "title": "OCR y reconstrucción documental",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P143",
+          "title": "Document Understanding y Vision-Language Models",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P144",
+          "title": "DICOM e imágenes médicas 2D/3D",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P145",
+          "title": "Evaluación y robustez de visión",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Audio, vídeo e IA multimodal (posts 146–156)",
+      "articles": [
+        {
+          "id": "P146",
+          "title": "Fundamentos de audio digital",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P147",
+          "title": "FFT, STFT, Mel y MFCC",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P148",
+          "title": "DSP aplicado a voz e IA",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P149",
+          "title": "Clasificación de eventos acústicos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P150",
+          "title": "ASR: reconocimiento automático de voz",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P151",
+          "title": "Diarización y alineación temporal",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P152",
+          "title": "Síntesis de voz y TTS",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P153",
+          "title": "Aplicaciones de voz en tiempo real",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P154",
+          "title": "Fundamentos de vídeo digital",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P155",
+          "title": "Seguimiento de objetos en vídeo",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P156",
+          "title": "IA multimodal y búsqueda audiovisual",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "MLOps e inferencia (posts 157–167)",
+      "articles": [
+        {
+          "id": "P157",
+          "title": "Data Engineering para ML",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P158",
+          "title": "Versionado de datasets, features y artefactos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P159",
+          "title": "MLflow y registro de experimentos/modelos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P160",
+          "title": "Automatización de pipelines de entrenamiento",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P161",
+          "title": "Inferencia y serving de modelos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P162",
+          "title": "Monitorización de modelos y drift",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P163",
+          "title": "Optimización de modelos: ONNX, cuantización y destilación",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P164",
+          "title": "Inferencia optimizada en GPU",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P165",
+          "title": "Infraestructura y escalabilidad de ML",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P166",
+          "title": "IA responsable, seguridad y riesgos",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P167",
+          "title": "CI/CD/CT para modelos ML",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Producto, liderazgo y comunicación técnica (posts 168–175)",
+      "articles": [
+        {
+          "id": "P168",
+          "title": "Del problema empresarial al requisito técnico",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P169",
+          "title": "Métricas de producto e instrumentación",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P170",
+          "title": "A/B testing y experimentación de producto",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P171",
+          "title": "RFC, ADR y design reviews",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P172",
+          "title": "Trade-offs, deuda técnica y evolución",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P173",
+          "title": "Open Source y Developer Experience",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P174",
+          "title": "Cómo redactar un estudio de caso de ingeniería",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        },
+        {
+          "id": "P175",
+          "title": "Cómo razona y comunica un Staff Engineer",
+          "status": "not_written",
+          "exactPost": null,
+          "related": [],
+          "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
+        }
+      ]
+    }
+  ]
+}

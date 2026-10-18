@@ -2273,4 +2273,68 @@ rate, diez diagramas y cuatro gráficas calculadas. El
 [alcance](editorial/math-series-scope.md) distingue ejemplos ejecutados de extensiones
 no implementadas, como SVD general, cobertura estadística o entrenamiento de modelos.
 Estado draft; no publicación, traducciones o audios. El siguiente bloque propuesto
-es Machine Learning clásico (P086–P095), todavía no redactado en esta entrega.
+es Machine Learning clásico (P086–P095), desarrollado en la siguiente entrega.
+
+## 15. Continuación: Machine Learning clásico, 2026-10-18
+
+Guardada la serie de Matemáticas y estadística en el commit `ffb1a33`. La nueva
+entrega contiene los diez borradores españoles P086–P095. Orden de lectura en
+[ruta-machine-learning.md](editorial/ruta-machine-learning.md), con alcance,
+inventario, glosario y evidencia editorial asociados.
+
+Laboratorio logístico sintético: NumPy, pandas y scikit-learn reales; dataset CSV,
+protocolo, hashes, particiones temporales, baselines, métricas y predicciones
+versionadas. Diez diagramas y cinco gráficas reproducibles. No se publican posts,
+traducciones ni audios y no se presentan estas referencias como modelos de producción.
+
+El siguiente bloque propuesto es Deep Learning (P096–P105), todavía no escrito.
+
+## 16. Recuperación del catálogo general: Computación, sistemas y redes
+
+El objetivo ampliado del usuario incluye todas las fichas pendientes, no solo la
+ruta abreviada para proyectos. Se recuperan P001–P009 en español y draft, con orden
+de lectura en [ruta-computacion-redes.md](editorial/ruta-computacion-redes.md).
+
+Laboratorio común sin instalaciones nuevas: observaciones de CPU/memoria, procesos
+Linux propios, resolución DNS y conexión HTTP, fallos TLS y peticiones condicionales.
+Traza de Chromium con navegación, cookie HttpOnly, CORS y bloqueo acotado del main
+thread. Nueve diagramas, tres gráficas y simulador dinámico de pérdida/plazos,
+etiquetado como modelo conceptual, no benchmark de TCP/UDP/QUIC.
+
+El inventario mantiene 175 fichas y diferencia artículos propios de candidatos
+relacionados. No prueba por sí solo aceptación completa. La siguiente recuperación
+editorial prevista era Serie 02 P010–P019, antes de revisar ampliaciones de las series 03–06
+y continuar las series avanzadas. Sin traducciones, audios o publicación nuevos.
+
+## 17. Serie 02 restringida a estructuras de datos y algoritmos
+
+Por instrucción posterior del usuario, esta entrega incluye **solo P011**, dividida
+en **21 entregas**: mapa de decisiones, contratos/invariantes, arrays/listas,
+pilas/colas, BST, búsquedas lineal/binaria/hash, insertion/selection/bubble/merge/
+quick/heap/counting sort, binary heap, representación de grafos, BFS, DFS,
+Dijkstra y medición. Cada algoritmo desarrollado tiene su explicación propia.
+Orden y recursos en [ruta-estructuras-algoritmos.md](editorial/ruta-estructuras-algoritmos.md).
+P010 y P012–P019 permanecen en el catálogo, pero no forman parte de este encargo.
+
+Laboratorio TypeScript estricto sin instalaciones nuevas: índice por ID, cola FIFO,
+binary heap, lower bound, siete ordenaciones, BST sin balanceo, BFS, DFS y Dijkstra;
+comparación lineal/Map con
+construcción incluida o excluida explícitamente. Tres tamaños, cuatro patrones,
+nueve muestras por variante y entorno registrado. Tres diagramas, dos gráficas
+y explorador de operaciones, no estimador de nanosegundos. Un segundo visor permite
+avanzar y retroceder en lower bound e insertion sort con entradas editables.
+Todo español y draft. Las partes DSA-02–DSA-21 no se cuentan como otras fichas
+generales completadas. Se conservan IDs y URL anteriores; el orden real está en
+el manifiesto y las fechas. La siguiente serie autorizada es Diseño de APIs y
+seguridad web (P020–P031), revisando primero la cobertura previa.
+
+## 18. Inicio de Diseño de APIs y seguridad web
+
+Después de ampliar algoritmos se redactan P020 y P021, sin renombrar artículos
+agrupados previos. Orden y continuación P022–P031 en
+[ruta-diseno-apis-seguridad.md](editorial/ruta-diseno-apis-seguridad.md).
+OpenAPI 3.1.1, servidor HTTP real en loopback y pruebas de métodos, repetición,
+campos, Unicode, errores y límites. Dos diagramas y ZIP sin dependencias.
+Estado en memoria; sin autenticación, pagos o durabilidad. Las diez fichas
+siguientes requieren ampliación. Todo español y draft, sin dar la serie ni
+el objetivo editorial global por completados.

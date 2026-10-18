@@ -1,0 +1,135 @@
+{
+  "name": "Estructuras de datos y algoritmos: elegir, resolver y medir",
+  "language": "es",
+  "status": "draft",
+  "verified": "2026-10-18",
+  "roadmap": "P011, dividido en 21 entregas; no ampliar a P010 o P012–P019",
+  "articles": [
+    {
+      "id": "P011",
+      "slug": "estructuras-datos-elegir-patron-acceso",
+      "title": "Estructuras de datos: elige según lo que necesitas hacer con los datos",
+      "prerequisites": []
+    },
+    {
+      "id": "DSA-02",
+      "slug": "algoritmos-busqueda-ordenacion-heaps-grafos",
+      "title": "Algoritmos: contratos, invariantes y complejidad antes del código",
+      "prerequisites": ["P011"]
+    },
+    {
+      "id": "DSA-04",
+      "slug": "arrays-listas-enlazadas-costes-reales",
+      "title": "Arrays y linked lists: qué operación estás pagando realmente",
+      "prerequisites": ["P011", "DSA-02"]
+    },
+    {
+      "id": "DSA-05",
+      "slug": "pilas-colas-lifo-fifo",
+      "title": "Pilas y colas: cómo elegir el orden en que se procesa el trabajo",
+      "prerequisites": ["DSA-04"]
+    },
+    {
+      "id": "DSA-06",
+      "slug": "arbol-binario-busqueda-altura-balanceo",
+      "title": "Binary search trees: por qué la altura importa más que el nombre",
+      "prerequisites": ["DSA-04"]
+    },
+    {
+      "id": "DSA-07",
+      "slug": "busqueda-lineal-contrato-coste",
+      "title": "Búsqueda lineal: cuándo recorrer los datos es una buena decisión",
+      "prerequisites": ["DSA-04"]
+    },
+    {
+      "id": "DSA-08",
+      "slug": "busqueda-binaria-lower-bound",
+      "title": "Búsqueda binaria: entender los límites para no perder la respuesta",
+      "prerequisites": ["DSA-07"]
+    },
+    {
+      "id": "DSA-09",
+      "slug": "busqueda-hash-map-colisiones",
+      "title": "Hashing y Map: buscar por clave sin olvidar colisiones ni actualizaciones",
+      "prerequisites": ["DSA-07"]
+    },
+    {
+      "id": "DSA-10",
+      "slug": "insertion-sort-prefijo-ordenado",
+      "title": "Insertion sort: ordenar manteniendo un prefijo correcto",
+      "prerequisites": ["DSA-04", "DSA-02"]
+    },
+    {
+      "id": "DSA-11",
+      "slug": "selection-sort-minimo-intercambios",
+      "title": "Selection sort: pocas posiciones cambiadas, muchas comparaciones",
+      "prerequisites": ["DSA-10"]
+    },
+    {
+      "id": "DSA-12",
+      "slug": "bubble-sort-intercambios-adyacentes",
+      "title": "Bubble sort: qué demuestra una pasada sin intercambios",
+      "prerequisites": ["DSA-10"]
+    },
+    {
+      "id": "DSA-13",
+      "slug": "merge-sort-mezcla-estabilidad",
+      "title": "Merge sort: ordenar al mezclar y conservar los empates",
+      "prerequisites": ["DSA-10"]
+    },
+    {
+      "id": "DSA-14",
+      "slug": "quicksort-particion-pivote",
+      "title": "Quicksort: particionar bien no garantiza elegir bien el pivote",
+      "prerequisites": ["DSA-13"]
+    },
+    {
+      "id": "DSA-15",
+      "slug": "binary-heap-cola-prioridad",
+      "title": "Binary heap: mantener la próxima prioridad sin ordenar toda la colección",
+      "prerequisites": ["DSA-04", "DSA-05"]
+    },
+    {
+      "id": "DSA-16",
+      "slug": "heapsort-construccion-bottom-up",
+      "title": "Heapsort: ordenar con una frontera y construir el heap en O(n)",
+      "prerequisites": ["DSA-15"]
+    },
+    {
+      "id": "DSA-21",
+      "slug": "counting-sort-rango-frecuencias",
+      "title": "Counting sort: ordenar contando funciona si puedes pagar el rango",
+      "prerequisites": ["DSA-10"]
+    },
+    {
+      "id": "DSA-17",
+      "slug": "grafos-listas-adyacencia-matrices",
+      "title": "Grafos: representar conexiones antes de elegir un recorrido",
+      "prerequisites": ["DSA-04", "DSA-09"]
+    },
+    {
+      "id": "DSA-18",
+      "slug": "bfs-recorrido-anchura-camino-minimo",
+      "title": "BFS: encontrar un camino con el menor número de aristas",
+      "prerequisites": ["DSA-05", "DSA-17"]
+    },
+    {
+      "id": "DSA-19",
+      "slug": "dfs-recorrido-profundidad-stack",
+      "title": "DFS: explorar una rama sin perderse en los ciclos",
+      "prerequisites": ["DSA-05", "DSA-17"]
+    },
+    {
+      "id": "DSA-20",
+      "slug": "dijkstra-caminos-minimos-pesos",
+      "title": "Dijkstra: el camino más barato no siempre tiene menos pasos",
+      "prerequisites": ["DSA-15", "DSA-18"]
+    },
+    {
+      "id": "DSA-03",
+      "slug": "medir-algoritmos-busqueda-lineal-map",
+      "title": "Medir algoritmos: cuándo compensa cambiar una búsqueda lineal por Map",
+      "prerequisites": ["DSA-07", "DSA-09"]
+    }
+  ]
+}

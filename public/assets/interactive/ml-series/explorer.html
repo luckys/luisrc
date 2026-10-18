@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Umbrales de alerta: laboratorio interactivo</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#111827;color:#f8fafc}
+    body{max-width:840px;margin:auto;padding:24px;line-height:1.6}a{color:#7dd3fc}
+    label{display:block;margin-top:20px}input[type=range]{display:block;width:100%;accent-color:#38bdf8}
+    input[type=number]{display:block;max-width:100%;box-sizing:border-box;padding:8px;background:#1e293b;color:inherit;border:1px solid #64748b;border-radius:4px;font:inherit}
+    input:focus-visible,a:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+    svg{display:block;width:100%;height:auto;background:#172033;border:1px solid #475569;border-radius:8px}
+    table{border-collapse:collapse;margin:20px 0;width:100%}th,td{padding:8px;border:1px solid #64748b;text-align:center}
+    output{display:block;background:#1e293b;padding:16px;border-radius:8px;margin:20px 0}
+    .legend{display:flex;gap:20px;flex-wrap:wrap}.precision{color:#38bdf8}.recall{color:#fbbf24}
+    @media(max-width:400px){body{padding:12px}th,td{padding:4px;font-size:.9rem}}
+  </style>
+</head>
+<body>
+  <h1>¿Qué cambia al mover el threshold?</h1>
+  <p>180 envíos <strong>sintéticos de validation</strong>, 44 con retraso. Predicciones de la logística ya entrenada: mover el umbral no vuelve a entrenar ni cambia el ranking. No se utilizan los datos finales de test.</p>
+  <label for="threshold">Threshold: <span id="threshold-value">0,50</span></label>
+  <input id="threshold" type="range" min="0" max="1" step="0.01" value="0.5">
+  <label for="fp-cost">Coste ficticio por falsa alerta, FP</label>
+  <input id="fp-cost" type="number" min="0" max="1000" step="1" value="1">
+  <label for="fn-cost">Coste ficticio por retraso omitido, FN</label>
+  <input id="fn-cost" type="number" min="0" max="1000" step="1" value="10">
+  <output id="summary" aria-live="polite">Cargando las predicciones…</output>
+  <table><caption>Real por filas, decisión por columnas</caption><thead><tr><th>Real</th><th>Sin alerta</th><th>Con alerta</th></tr></thead><tbody><tr><th>Sin retraso</th><td id="tn"></td><td id="fp"></td></tr><tr><th>Con retraso</th><td id="fn"></td><td id="tp"></td></tr></tbody></table>
+  <div class="legend"><span class="precision">Azul: precision</span><span class="recall">Amarillo: recall</span></div>
+  <svg id="graph" viewBox="0 0 600 300" role="img" aria-labelledby="graph-title graph-description">
+    <title id="graph-title">Precision y recall frente al threshold</title>
+    <desc id="graph-description">Curvas de la muestra sintética. La línea vertical marca el threshold actual y los valores exactos se ofrecen también en texto y en la tabla.</desc>
+    <path d="M50 40V240H550" fill="none" stroke="#94a3b8"/>
+    <g fill="#e2e8f0" font-size="14"><text x="25" y="245">0</text><text x="25" y="45">1</text><text x="48" y="263">0</text><text x="542" y="263">1</text><text x="240" y="288">Threshold</text></g>
+  </svg>
+  <p>Curvas calculadas cada 0,01 y unidas sin suavizado. Cuando no hay alertas mostramos precision 0 por convención; no significa que se haya estimado una proporción con denominador positivo.</p>
+  <p>El coste es FP × coste FP + FN × coste FN. No incluye capacidad de revisión ni demuestra que avisar evite retrasos. Se explora validation, no se elige una nueva política usando test.</p>
+  <p><a href="/posts/metricas-ml-precision-recall-auc-errores">Volver al artículo de métricas</a> (disponible cuando el artículo se publique).</p>
+  <script type="module" src="./explorer.mjs"></script>
+</body>
+</html>

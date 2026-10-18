@@ -1,0 +1,12 @@
+direction: down
+**.style.font-size: 24
+text: "Texto: España"
+bytes: "UTF-8: 45 73 70 61 C3 B1 61\n7 bytes"
+correct: "Decodificar UTF-8\nC3 B1 → ñ"
+wrong: "Decodificar como Latin-1\nC3 B1 → Ã±"
+chunks: "Cortar entre C3 y B1\nun chunk no es un carácter"
+stream: "Decoder streaming\nconservar prefijo y completar ñ"
+text -> bytes
+bytes -> correct
+bytes -> wrong
+bytes -> chunks -> stream

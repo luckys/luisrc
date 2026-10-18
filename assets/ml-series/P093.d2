@@ -1,0 +1,12 @@
+direction: down
+**.style.font-size: 24
+validation: "Validation: 180 envíos\nlogística, threshold 0,5"
+negative: "Sin retraso: 136\n131 TN + 5 FP"
+positive: "Con retraso: 44\n17 FN + 27 TP"
+precision: "Precision = 27 / 32\ncorrectas entre alertas"
+recall: "Recall = 27 / 44\ndetectados entre retrasos"
+validation -> negative
+validation -> positive
+negative -> precision
+positive -> precision
+positive -> recall

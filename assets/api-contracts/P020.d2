@@ -1,0 +1,12 @@
+direction: down
+client: Consumidor HTTP
+contract: "Contrato compartido\nSchema + unidades + errores"
+server: "Servidor Node.js\nJSON y validación runtime"
+store: "Map de pedidos\nSolo memoria del proceso"
+result: "201 + Location\nPedido consultable, no duradero"
+client -> contract: conoce
+contract -> server: reglas de validación
+client -> server: POST /orders
+server -> store: guarda tras validar
+store -> result: creación local
+result -> client: respuesta
