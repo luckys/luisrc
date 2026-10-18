@@ -1,0 +1,11 @@
+direction: down
+filter: "Filtro\nTenant 1, status paid"
+index: "B-tree covering\nFecha DESC, ID DESC"
+offset: "OFFSET\nProduce y descarta\nFilas anteriores"
+keyset: "Keyset\nDesde ancla conocida"
+limit: "LIMIT 50\nMismos IDs\nSobre datos quietos"
+filter -> index
+index -> offset
+index -> keyset
+offset -> limit
+keyset -> limit

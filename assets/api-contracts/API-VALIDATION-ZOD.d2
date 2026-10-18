@@ -1,0 +1,10 @@
+direction: down
+unknown: "Body interpretado\nAún no es un comando"
+parse: "safeParse\nTipos, límites, express"
+success: "Éxito\nresult.data al servicio"
+failure: "Fallo\nIssues internos"
+public: "fieldErrors\nPointers y códigos\nSin valores de entrada"
+unknown -> parse
+parse -> success: válido
+parse -> failure: inválido
+failure -> public: proyectar

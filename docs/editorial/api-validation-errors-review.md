@@ -1,5 +1,8 @@
 # Revisión de P022/P023: validación y errores
 
+Nota de lectura: evidencia histórica anterior a la división en cinco entregas de
+este bloque. La estructura vigente está en api-series-split-review.md.
+
 18 de octubre de 2026. Dos artículos españoles, draft, autor Luis Ramírez Calle.
 Continuación de Serie 03, no finalización de P020–P031. No traducción, publicación,
 audio ni push. El commit inicial 3d3de63 guarda el trabajo de turnos anteriores;

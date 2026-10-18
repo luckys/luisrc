@@ -1,5 +1,20 @@
 # Paginación y evolución de APIs, P024/P025
 
+## Ruta editorial de cinco entregas
+
+| Parte                     | Archivos principales                           | Evidencia                                               |
+| ------------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| OFFSET, keyset y cursores | queries.mjs, pagination.mjs, server.mjs        | tests/unit.test.mjs, tests/http.test.mjs                |
+| Escrituras y snapshots    | experiments.mjs, tests/postgres.test.mjs       | Dos conexiones, INSERT, clave mutable y REPEATABLE READ |
+| Índices y mediciones      | schema.sql, experiments.mjs, results/          | 56 planes, muestras y hashes; ancla excluida            |
+| Compatibilidad            | representations.mjs, clients.mjs, openapi.json | unit, HTTP y contract tests                             |
+| Versionado y migración    | server.mjs, migration.html                     | Headers y guía local por HTTP                           |
+
+El visor acompaña consistencia y es un modelo, no PostgreSQL o un benchmark.
+Las doce entregas de la serie mantienen tres laboratorios compartidos, no doce APIs.
+
+## Ejecutar
+
 Español, datos ficticios, loopback. Node 24.19.0, pnpm 12.8.1, pg 8.23.1,
 Ajv 8.20.0. PostgreSQL 17.11 fijado por digest en runtime.json. No exponer en red.
 

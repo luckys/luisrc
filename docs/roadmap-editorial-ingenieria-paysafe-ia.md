@@ -2352,3 +2352,9 @@ Snapshots y clave mutable contrastan los límites. Dos consumidores HTTP, OpenAP
 cambios aditivos/breaking y headers de deprecación con guía local. Dos diagramas,
 gráfica de muestras locales y visor educativo. ZIP con diecinueve tests.
 La siguiente ficha es P026; faltan P026–P031. Sin publicación o traducción.
+
+Revisión editorial posterior: las seis fichas P020–P025 se desarrollan ahora en doce
+entregas. Validación tiene conceptos comunes, Zod y alternativa Pydantic; errores
+separa contrato público de diagnóstico; paginación separa navegación, consistencia y
+rendimiento; evolución separa compatibilidad de transición. URLs originales y tres
+laboratorios conservados. No se aumenta el número de fichas cubiertas del catálogo.

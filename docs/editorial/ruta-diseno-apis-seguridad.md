@@ -1,84 +1,91 @@
 # Diseño de APIs y seguridad web
 
-Continuación autorizada después de ampliar estructuras de datos y algoritmos.
-Serie 03 del catálogo: P020–P031. Español, borradores y ejemplos independientes
-de Paysafe. No traducir, publicar, generar audio ni hacer commit automáticamente.
+Doce entregas españolas y draft para las fichas **P020–P025** de la Serie 03.
+La división mantiene las seis URL originales y no añade fichas al catálogo.
+No completa P026–P031. Ejemplos independientes de Paysafe; sin traducción, audio
+o publicación automática.
 
-## Entregas nuevas
+## Orden de lectura
 
 1. **P020.** [Diseñar una API: el contrato es más que un JSON que funciona](../../src/content/posts/es/api-contrato-esquema-clientes.md).
-   Consumidores, representación, esquema, serialización, unidades y compatibilidad.
+   Contrato, representación, unidades y límites que el consumidor puede asumir.
 2. **P021.** [Recursos HTTP: qué prometen GET, POST, PUT, PATCH y DELETE](../../src/content/posts/es/recursos-http-metodos-idempotencia.md).
-   Safe/idempotent, sustitución, cambios parciales, creación/procesamiento y REST.
-3. **P022.** [Validar una API: del JSON correcto a una operación que tiene sentido](../../src/content/posts/es/validacion-runtime-json-schema-zod-pydantic.md).
-   Parsing, JSON Schema, Zod/Pydantic ejecutados, optional/null, refinements,
-   acumulación segura, validación de salida y compatibilidad.
-4. **P023.** [Errores de API: distinguir un dato inválido, falta de stock y un conflicto de versión](../../src/content/posts/es/errores-api-problem-details-stock-concurrencia.md).
-   Problem Details, catálogo, conflictos, causas, request ID y logging con allowlist.
+   Recursos, métodos y diferencia entre safe e idempotente.
+3. **P022.** [Validación de APIs: separar parsing, JSON Schema y reglas de negocio](../../src/content/posts/es/validacion-runtime-json-schema-zod-pydantic.md).
+   Parsing, semántica de entrada, negocio y JSON Schema.
+4. **API-VALIDATION-ZOD.** [Validación con Zod: del dato desconocido a un comando comprobado](../../src/content/posts/es/validacion-zod-contratos-errores-runtime.md).
+   Schema ejecutable, safeParse, errores por campo y DTO de salida.
+5. **API-VALIDATION-PYDANTIC · alternativa Python.** [Validación con Pydantic: tipos estrictos, campos ausentes y reglas entre campos](../../src/content/posts/es/validacion-pydantic-strict-null-refinements.md).
+   Ruta Python alternativa: strict, before/after, defaults y ausencia.
+6. **P023.** [Errores de API: diseñar Problem Details y distinguir conflictos de negocio](../../src/content/posts/es/errores-api-problem-details-stock-concurrencia.md).
+   Problemas públicos, catálogo estable y conflictos de stock/versión.
+7. **API-ERROR-LOGGING.** [Diagnosticar errores de API sin filtrar datos: logs y request IDs](../../src/content/posts/es/errores-api-logs-request-id-diagnostico-seguro.md).
+   Request ID, allowlist, secretos ficticios y fallo del logger.
+8. **P024.** [Paginación de APIs: OFFSET, keyset y cursores con un orden estable](../../src/content/posts/es/paginacion-offset-keyset-postgresql-concurrencia.md).
+   Orden total, OFFSET/keyset, lookahead y ámbito del cursor.
+9. **API-PAGINATION-CONSISTENCY.** [Paginación bajo escrituras: qué conserva keyset y qué necesita un snapshot](../../src/content/posts/es/paginacion-escrituras-concurrentes-snapshots.md).
+   Dos conexiones, inserciones, clave mutable y snapshots.
+10. **API-PAGINATION-PERFORMANCE.** [Medir paginación en PostgreSQL: índices, filtros y planes de ejecución](../../src/content/posts/es/paginacion-postgresql-indices-explain-mediciones.md).
+    Índices, 56 planes, siete muestras, filtros y búsqueda.
+11. **P025.** [Compatibilidad de APIs: detectar breaking changes con contract tests](../../src/content/posts/es/evolucion-api-versiones-consumidores-contratos.md).
+    Consumidores, cambios aditivos/breaking y schemas frente a significado.
+12. **API-VERSION-MIGRATION.** [Versionar y retirar una API: convivencia, deprecación y migración de clientes](../../src/content/posts/es/versionado-api-deprecacion-migracion-consumidores.md).
+    URL o headers, SDK, deprecación, guía y criterios de retirada.
 
-5. **P024.** [Paginación con PostgreSQL](../../src/content/posts/es/paginacion-offset-keyset-postgresql-concurrencia.md).
-   Millón de filas, índices, planes, inserciones, snapshots y visor educativo.
-6. **P025.** [Evolución de APIs con consumidores](../../src/content/posts/es/evolucion-api-versiones-consumidores-contratos.md).
-   Dos clientes, OpenAPI, breaking/aditivo, SemVer y deprecación con guía local.
+La ruta común pasa del contrato de validación a Zod y errores. Pydantic parte del
+mismo contrato y puede leerse en paralelo o en su lugar; ningún artículo posterior
+la exige como prerrequisito. Las fechas y el manifiesto conservan este orden en
+la interfaz del blog.
 
-P020/P021 comparten [laboratorio HTTP](../../examples/api-contratos/README.md),
-[OpenAPI 3.1.1](../../examples/api-contratos/openapi.json) y
-[ZIP](../../public/assets/examples/api-contratos-lab.zip). Sin instalaciones nuevas.
+## Un laboratorio por bloque, no doce proyectos independientes
 
-P022/P023 comparten un [segundo laboratorio](../../examples/api-validacion-errores/README.md)
-y su [ZIP](../../public/assets/examples/api-validacion-errores-lab.zip). Zod/Ajv
-fijados con pnpm y lockfile propio. Pydantic ejecutado en una imagen Python ya local,
-sin instalaciones implícitas. No cambian las garantías de los ejemplos anteriores.
+| Bloque                 | Artículos | Fuentes y evidencia                                                                                                      |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Contratos HTTP         | 1–2       | [api-contratos](../../examples/api-contratos/README.md), once tests sin instalaciones.                                   |
+| Validación y errores   | 3–7       | [api-validacion-errores](../../examples/api-validacion-errores/README.md), trece tests Node y cuatro Python.             |
+| Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../examples/api-paginacion-evolucion/README.md), trece tests sin Docker y seis PostgreSQL. |
 
-P024/P025 comparten un [tercer laboratorio](../../examples/api-paginacion-evolucion/README.md)
-y [ZIP](../../public/assets/examples/api-paginacion-evolucion-lab.zip). pg/Ajv con
-pnpm y PostgreSQL local efímero fijado por digest: trece tests sin Docker y seis
-PostgreSQL. [Visor educativo](../../public/assets/interactive/api-pagination/explorer.html)
-separado de las mediciones SQL. Sin autenticación o base externa.
+Cada README relaciona la entrega con sus archivos y pruebas. La reserva de inventario
+pertenece al bloque de validación; el listado de pedidos al de paginación. No se
+presentan como un único servidor que implemente todas las capacidades a la vez.
 
-## Continuación recomendada y cobertura previa
+Los ZIP se mantienen compartidos por bloque. La tabla de medianas y su gráfica
+viven en rendimiento; la inserción y el [visor educativo](../../public/assets/interactive/api-pagination/explorer.html)
+viven en consistencia. El visor no consulta PostgreSQL ni mide latencia.
 
-No se renombran artículos antiguos ni se dan fichas por completadas solo por afinidad.
+## Qué desarrolla cada ficha original
 
-| Orden | Ficha             | Material previo y ampliación necesaria                                                                                       |
-| ----- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| 7     | P026. Sesiones    | autenticacion-autorizacion-tenant explica conceptos. Falta rotación, revocación y prueba de reutilización de refresh token.  |
-| 8     | P027. OAuth/OIDC  | Falta artículo propio e integración con proveedor de test; no sustituirla por un JWT decodificado.                           |
-| 9     | P028. Permisos    | Ampliar la política existente a lectura/modificación multi-tenant por HTTP y casos adversariales.                            |
-| 10    | P029. Navegador   | Reutilizar laboratorio de frontend/redes; comprobar XSS/CSRF en sandbox y correcciones, sin confundir CORS con autorización. |
-| 11    | P030. Amenazas    | Threat model y tests de SQLi/SSRF/mass assignment/abuso; preservar límites claros del laboratorio.                           |
-| 12    | P031. Integración | Reutilizar webhooks/SSE previos, comparar polling/eventos y desarrollar GraphQL/gRPC sin inventar benchmarks.                |
+- P020: una entrega de contrato.
+- P021: una entrega comparativa de métodos HTTP; no se fragmenta por verbo.
+- P022: tres entregas, conceptos comunes y dos implementaciones de lenguaje.
+- P023: dos entregas, respuesta pública y diagnóstico interno.
+- P024: tres entregas, navegación, consistencia y coste.
+- P025: dos entregas, detectar incompatibilidad y operar una transición.
 
-## Objetivos y fallos que evitar en el inicio
+Los IDs API-\* nuevos identifican partes editoriales. No se usan P026 u otros IDs
+reservados del roadmap para inflar el avance. La división, las ampliaciones y las
+comprobaciones están en [api-series-split-review.md](api-series-split-review.md).
 
-- P020: distinguir interfaz/implementación; publicar unidades y esquema; contrastar
-  HTTP con el contrato. Evitar JSON válido implica negocio válido; OpenAPI valida
-  automáticamente; persistencia implícita en una respuesta 201.
-- P021: justificar métodos; distinguir safe/idempotent; probar sustitución y efecto
-  repetido. Evitar idempotencia exige respuestas idénticas; todo PATCH idempotente;
-  HTTP JSON demuestra todas las restricciones REST.
-- P022: separar fronteras; ejecutar tres validadores; adaptar errores sin reflejar
-  entradas. Evitar anotaciones validan runtime; optional equivale a null; un schema
-  garantiza disponibilidad de stock. Prerrequisito de lectura P021: P014 permanece
-  fuera del encargo de Serie 02 y no se introduce una dependencia a un post inexistente.
-- P023: clasificar condiciones; contrastar códigos/estado; correlacionar sin filtrar.
-  Evitar todo error es 400; 500 implica ausencia de efectos; dos clientes en un
-  proceso prueban transacciones distribuidas.
-- P024: orden total, continuidad y límites bajo escrituras. Evitar equiparar cursor
-  con keyset, keyset con snapshot o firma con autorización.
-- P025: dos consumidores, convivencia y transición. Evitar asumir que todo cambio
-  aditivo es compatible, que el schema detecta unidades o que un SDK nuevo migra
-  aplicaciones ya desplegadas.
+## Continuación pendiente
 
-## Límites
+| Ficha             | Trabajo que sigue necesitando una entrega propia                                  |
+| ----------------- | --------------------------------------------------------------------------------- |
+| P026. Sesiones    | Rotación, revocación y reutilización de refresh tokens.                           |
+| P027. OAuth/OIDC  | Proveedor de test real, firma, issuer, audience, expiración y PKCE.               |
+| P028. Permisos    | Lectura y modificación multi-tenant con casos adversariales por HTTP.             |
+| P029. Navegador   | Reproducir XSS/CSRF y verificar correcciones sin confundir CORS con autorización. |
+| P030. Amenazas    | Threat model y tests de SQLi/SSRF/mass assignment/abuso.                          |
+| P031. Integración | Polling/eventos, GraphQL/gRPC y límites ejecutados sin benchmarks inventados.     |
 
-Estado en memoria, loopback, IDs secuenciales ficticios, sin autenticación ni pagos.
-La validación de schemas de P020/P021 es manual. Su verificador soporta solo los
-keywords usados, no certifica OpenAPI/JSON Schema completos. P022 usa Ajv real para
-2020-12; el acuerdo de los tres validadores se prueba en veinte documentos y fronteras
-Unicode, no en todos los valores posibles. P023 prueba dos POST concurrentes en un
-proceso; la consulta posterior es conceptual y 503 se simula por inyección.
-La propuesta de pagos sigue siendo conceptual. P024 usa datos sintéticos en tmpfs,
-cachés calientes y ancla conocida; los tiempos no miden HTTP o carga concurrente.
-P025 prueba lectores del mismo repo, sin SDK publicado o retirada automática.
-Faltan P026–P031. Ver api-pagination-evolution-review.md y las revisiones previas.
+## Límites conservados
+
+Loopback, datos ficticios y sin identidades, permisos o pagos. P020/P021 validan
+manualmente su contrato. Ajv, Zod y Pydantic se contrastan en casos concretos, no
+se demuestra equivalencia universal. Pydantic no es un servidor HTTP de la demo.
+
+Los conflictos de inventario son de un proceso síncrono, no transacciones SQL.
+El benchmark de lectura usa tmpfs, cachés calientes y ancla conocida; no mide HTTP
+o carga concurrente. Firma de cursor no es autorización. Los dos lectores de
+contrato viven en el mismo repo, no son SDK publicados. Deprecación ficticia, sin
+telemetría de adopción o retirada automática. Los límites se explican también en
+cada entrega para que no dependan de haber leído el artículo anterior.

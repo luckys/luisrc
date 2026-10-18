@@ -9,10 +9,23 @@ import YAML from 'yaml'
 const manifest = JSON.parse(
   await readFile('docs/editorial/api-contracts-series.json', 'utf8'),
 )
-test('APIs: seis borradores españoles, extractos reales y esquemas compartidos', async () => {
+test('APIs: doce entregas españolas, extractos reales y esquemas compartidos', async () => {
   assert.deepEqual(
     manifest.articles.map((x) => x.id),
-    ['P020', 'P021', 'P022', 'P023', 'P024', 'P025'],
+    [
+      'P020',
+      'P021',
+      'P022',
+      'API-VALIDATION-ZOD',
+      'API-VALIDATION-PYDANTIC',
+      'P023',
+      'API-ERROR-LOGGING',
+      'P024',
+      'API-PAGINATION-CONSISTENCY',
+      'API-PAGINATION-PERFORMANCE',
+      'P025',
+      'API-VERSION-MIGRATION',
+    ],
   )
   const source = (await readFile('examples/api-contratos/server.mjs', 'utf8')).replace(
     /\s/g,
@@ -21,7 +34,7 @@ test('APIs: seis borradores españoles, extractos reales y esquemas compartidos'
   const api = JSON.parse(await readFile('examples/api-contratos/openapi.json', 'utf8'))
   const validationSource = (
     await Promise.all(
-      ['validation.mjs', 'problems.mjs', 'service.mjs'].map((file) =>
+      ['validation.mjs', 'problems.mjs', 'service.mjs', 'server.mjs'].map((file) =>
         readFile(`examples/api-validacion-errores/${file}`, 'utf8'),
       ),
     )
@@ -103,9 +116,79 @@ test('APIs: seis borradores españoles, extractos reales y esquemas compartidos'
       assert.equal(+height, Math.ceil(h))
     }
   }
-  assert.equal(snippets, 7)
-  assert.equal(pythonSnippets, 1)
-  assert.equal(sqlSnippets, 3)
+  assert.equal(snippets, 9)
+  assert.equal(pythonSnippets, 3)
+  assert.equal(sqlSnippets, 4)
+})
+
+test('APIs: la división conserva seis URLs y seis fichas; Python es una ruta opcional', async () => {
+  const counts = {}
+  const positions = new Map(manifest.articles.map((entry, index) => [entry.id, index]))
+  const dates = []
+  for (const [index, entry] of manifest.articles.entries()) {
+    counts[entry.roadmapId] = (counts[entry.roadmapId] ?? 0) + 1
+    const text = await readFile(`src/content/posts/es/${entry.slug}.md`, 'utf8')
+    const metadata = YAML.parse(text.match(/^---\n([\s\S]*?)\n---/)[1])
+    dates.push(new Date(metadata.published).getTime())
+    for (const prerequisite of entry.prerequisites)
+      if (positions.has(prerequisite)) assert.ok(positions.get(prerequisite) < index)
+    if (entry.id !== 'API-VALIDATION-PYDANTIC')
+      assert.ok(!entry.prerequisites.includes('API-VALIDATION-PYDANTIC'))
+    const body = text.replace(/^---\n[\s\S]*?\n---/, '')
+    assert.equal(
+      [...body.matchAll(/<img /g)].length,
+      entry.id === 'API-PAGINATION-PERFORMANCE' ? 2 : 1,
+      entry.id,
+    )
+  }
+  assert.deepEqual(counts, { P020: 1, P021: 1, P022: 3, P023: 2, P024: 3, P025: 2 })
+  assert.deepEqual(
+    dates,
+    dates.toSorted((a, b) => a - b),
+  )
+  assert.equal(new Set(dates).size, 12)
+  assert.deepEqual(
+    manifest.articles.filter((entry) => entry.optional).map((entry) => entry.id),
+    ['API-VALIDATION-PYDANTIC'],
+  )
+  const preserved = {
+    P020: 'api-contrato-esquema-clientes',
+    P021: 'recursos-http-metodos-idempotencia',
+    P022: 'validacion-runtime-json-schema-zod-pydantic',
+    P023: 'errores-api-problem-details-stock-concurrencia',
+    P024: 'paginacion-offset-keyset-postgresql-concurrencia',
+    P025: 'evolucion-api-versiones-consumidores-contratos',
+  }
+  for (const [id, slug] of Object.entries(preserved))
+    assert.equal(manifest.articles.find((entry) => entry.id === id).slug, slug)
+  const metrics = await readFile(
+    'src/content/posts/es/paginacion-postgresql-indices-explain-mediciones.md',
+    'utf8',
+  )
+  assert.ok(metrics.includes('pagination-timings.svg'))
+  const entry = await readFile(
+    'src/content/posts/es/paginacion-offset-keyset-postgresql-concurrencia.md',
+    'utf8',
+  )
+  assert.ok(!entry.includes('pagination-timings.svg'))
+  assert.ok(!entry.includes('## Keyset no congela'))
+  const schemaArticle = await readFile(
+    'src/content/posts/es/validacion-runtime-json-schema-zod-pydantic.md',
+    'utf8',
+  )
+  assert.ok(!schemaArticle.includes('## Zod valida'))
+  assert.ok(!schemaArticle.includes('## Pydantic necesita'))
+  const errors = await readFile(
+    'src/content/posts/es/errores-api-problem-details-stock-concurrencia.md',
+    'utf8',
+  )
+  assert.ok(!errors.includes('## Request ID permite'))
+  const contracts = await readFile(
+    'src/content/posts/es/evolucion-api-versiones-consumidores-contratos.md',
+    'utf8',
+  )
+  assert.ok(!contracts.includes('## Deprecar comunica'))
+  assert.ok(!contracts.includes('## SemVer del SDK'))
 })
 
 test('paginación/evolución: ZIP y visor públicos contienen los mismos archivos probados', async () => {
@@ -139,7 +222,7 @@ test('paginación: muestras/planes y tabla son recalculables; el visor reproduce
     await readFile(`${directory}/results/experiments.json`, 'utf8'),
   )
   const article = await readFile(
-    'src/content/posts/es/paginacion-offset-keyset-postgresql-concurrencia.md',
+    'src/content/posts/es/paginacion-postgresql-indices-explain-mediciones.md',
     'utf8',
   )
   assert.equal(results.rows, 1000000)

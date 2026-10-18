@@ -1,5 +1,22 @@
 # Validación y errores de API, P022/P023
 
+## Ruta editorial de cinco entregas
+
+El mismo laboratorio acompaña estas partes, sin duplicar servidores:
+
+| Parte                          | Archivos principales                | Comprobación                                   |
+| ------------------------------ | ----------------------------------- | ---------------------------------------------- |
+| Parsing, JSON Schema y negocio | reservation.schema.json, cases.json | tests/validation.test.mjs                      |
+| Zod                            | validation.mjs, server.mjs          | tests/validation.test.mjs, tests/http.test.mjs |
+| Pydantic, alternativa Python   | validation.py                       | tests/test_validation.py                       |
+| Errores públicos               | problems.mjs, service.mjs           | tests/service.test.mjs, tests/http.test.mjs    |
+| Logs y request IDs             | server.mjs                          | tests/http.test.mjs                            |
+
+Pydantic no es un prerrequisito para seguir la ruta Node. El caso Python valida
+entradas; no sirve otro endpoint HTTP. La división no cambia las garantías del código.
+
+## Ejecutar
+
 Datos ficticios. Node 24.19.0, pnpm 12.8.1, Zod 4.6.7 y Ajv 8.20.0 fijados en
 package.json/pnpm-lock.yaml. No es un servidor de producción. Solo loopback.
 

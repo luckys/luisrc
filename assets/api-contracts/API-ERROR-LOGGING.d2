@@ -1,0 +1,10 @@
+direction: down
+request: "Petición local\nNo copiar entradas al log"
+id: "Servidor genera UUID\nID de esta ocurrencia"
+outputs: "Dos salidas, mismo UUID\nRespuesta: X-Request-Id\nRegistro: requestId"
+log: "Log por allowlist\nID, método y plantilla\nStatus y código"
+exclude: "Excluir datos privados\nBody, Authorization, query\nCausa arbitraria de excepción"
+request -> id
+id -> outputs: permite correlacionar
+outputs -> log: solo campos controlados
+log -> exclude: frontera explícita

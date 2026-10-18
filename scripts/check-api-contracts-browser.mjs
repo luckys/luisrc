@@ -51,7 +51,7 @@ try {
           { timeout: 10000 },
         )
         await image.evaluate((element) => element.decode())
-        if (width === 360 && ['P022', 'P023', 'P024', 'P025'].includes(entry.id)) {
+        if (width === 360 && !['P020', 'P021'].includes(entry.id)) {
           await page.screenshot({
             path: `${folder}/${entry.id}-${(await image.getAttribute('src')).split('/').at(-1)}-mobile.png`,
           })

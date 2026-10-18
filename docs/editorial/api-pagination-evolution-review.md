@@ -1,5 +1,8 @@
 # Revisión de P024/P025: paginación y evolución
 
+Nota de lectura: evidencia histórica anterior a la división en cinco entregas de
+este bloque. La estructura vigente está en api-series-split-review.md.
+
 18 de octubre de 2026. Dos borradores españoles, autor Luis Ramírez Calle, nuevos
 después del commit solicitado fb190d4. Sin traducción, audio, publicación o push.
 El commit inicial guarda P022/P023 y su laboratorio, no estas entregas posteriores.

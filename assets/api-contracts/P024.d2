@@ -1,10 +1,10 @@
 direction: down
-first: "Lectora: primera página\nÚltimo ID entregado: 999988"
-writer: "Otra conexión confirma INSERT\nPedido nuevo delante del recorrido"
-offset: "OFFSET 5 cuenta posiciones nuevas\nSegunda página empieza en 999988\nRepite un ID ya entregado"
-keyset: "Keyset usa la clave de 999988\nSegunda página empieza en 999986\nNo incorpora el INSERT de delante"
-limit: "Esto no es un snapshot\nMover una clave puede repetir una fila\nREAD COMMITTED cambia entre sentencias"
-first -> writer: transacción lectora sigue abierta
-writer -> offset: segunda consulta con OFFSET
-offset -> keyset: consulta alternativa desde la misma frontera
-keyset -> limit: garantía limitada al caso probado
+order: "Orden total\nFecha DESC, ID DESC"
+first: "Primera página\nÚltima fecha e ID"
+offset: "OFFSET\nPosición actual"
+cursor: "Keyset\nFecha e ID del cursor"
+next: "Leer tamaño más uno\nEntregar solo tamaño\nCursor: última entregada"
+order -> first
+first -> offset
+first -> cursor
+cursor -> next

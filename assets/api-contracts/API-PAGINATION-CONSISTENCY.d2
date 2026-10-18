@@ -1,0 +1,10 @@
+direction: down
+first: "Lectora: primera página\nÚltimo ID entregado: 999988"
+writer: "Otra conexión confirma INSERT\nPedido nuevo delante del recorrido"
+offset: "OFFSET 5 cuenta posiciones nuevas\nSegunda página empieza en 999988\nRepite un ID ya entregado"
+keyset: "Keyset usa la clave de 999988\nSegunda página empieza en 999986\nNo incorpora el INSERT de delante"
+limit: "Esto no es un snapshot\nMover una clave puede repetir una fila\nREAD COMMITTED cambia entre sentencias"
+first -> writer: transacción lectora sigue abierta
+writer -> offset: segunda consulta con OFFSET
+offset -> keyset: alternativa desde la misma frontera
+keyset -> limit: garantía limitada al caso probado

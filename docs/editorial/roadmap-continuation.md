@@ -15,8 +15,8 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
 
 ## Estado de trabajo
 
-- Commit `fb190d4` guarda P022/P023, después de `3d3de63` para ML/Computación/
-  Algoritmos e inicio de APIs. P024/P025 son cambios posteriores al commit de este turno.
+- Commit `89f67b4` guarda P024/P025, después de `fb190d4` para validación/errores.
+  La división editorial en doce entregas es posterior a ese commit y sigue sin commit.
   Sin push solicitado.
 - `roadmap-progress.md` y `.json`: generados desde las 175 fichas reales con
   `node scripts/audit-editorial-roadmap.mjs`. No alteran el alcance del objetivo.
@@ -42,6 +42,9 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   PostgreSQL con un millón de filas, 56 planes SQL archivados, escrituras entre
   páginas, snapshots, dos lectores HTTP y schemas OpenAPI contrastados.
   Faltan P026–P031. No hay autenticación o pagos; solo base efímera de laboratorio.
+  La revisión solicitada divide P022 en tres, P023 en dos, P024 en tres y P025 en dos;
+  junto a P020/P021 son doce entregas, no doce fichas. Se mantienen URLs y laboratorios.
+  Pydantic es opcional. Ver api-series-split-review.md y la ruta actualizada.
 
 ## Próxima acción concreta
 

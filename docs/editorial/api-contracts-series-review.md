@@ -1,5 +1,8 @@
 # Revisión del inicio de Diseño de APIs y seguridad web
 
+Nota de lectura: revisión histórica de la entrega inicial. La estructura vigente
+de doce artículos se documenta en api-series-split-review.md y la ruta editorial.
+
 18 de octubre de 2026. Dos borradores nuevos, P020 y P021. No completan las doce
 fichas de la Serie 03. Orden, objetivos, fuentes y siguientes ampliaciones en
 ruta-diseno-apis-seguridad.md. No publicación, traducción, audio, commit o push.

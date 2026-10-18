@@ -1,7 +1,7 @@
 ---
 id: P023
-title: 'Errores de API: distinguir un dato inválido, falta de stock y un conflicto de versión'
-published: 2026-10-18T04:03:00Z
+title: 'Errores de API: diseñar Problem Details y distinguir conflictos de negocio'
+published: 2026-10-18T04:05:00Z
 locale: es
 translationKey: api-errors-problem-details-conflicts
 slug: errores-api-problem-details-stock-concurrencia
@@ -9,17 +9,17 @@ draft: true
 status: draft
 level: intermedio
 prerequisites: [P021, P022]
-description: 'Diseña errores con Problem Details, códigos estables y request IDs. Prueba stock, concurrencia y fallos de infraestructura sin filtrar datos internos.'
+description: 'Diseña un contrato de errores HTTP con Problem Details, códigos estables y conflictos de stock y versión. Casos probados y límites.'
 author: 'Luis Ramírez Calle'
 series: 'Diseño de APIs y seguridad web: contratos, identidad y permisos'
-tags: [api, http, problem-details, errores, concurrencia, seguridad]
+tags: [api, http, errores, problem-details, concurrencia]
 ---
 
-Dos clientes intentan reservar sobre la versión uno del mismo inventario. La primera solicitud cambia el stock. La segunda ya no está trabajando sobre el estado que esperaba. Responder «error» no le dice si debe corregir un campo, volver a consultar o esperar a que se recupere el servicio.
+Dos clientes intentan reservar sobre la versión uno del inventario. La primera solicitud cambia el stock y la segunda deja de trabajar sobre el estado que esperaba. Responder «error» no le dice si debe corregir un campo, consultar de nuevo o esperar a que se recupere el servicio.
 
-Un contrato de errores sirve para tomar esas decisiones sin interpretar mensajes humanos ni conocer el driver de la base de datos. También debe admitir incertidumbre: recibir un fallo no siempre demuestra que la operación no haya tenido efectos.
+Vamos a diseñar **el error que observa el consumidor**. La [entrega siguiente](/posts/errores-api-logs-request-id-diagnostico-seguro) se ocupará del diagnóstico interno y de lo que no debe aparecer en logs. Separar ambos contratos evita confundir una respuesta útil con publicar la excepción completa.
 
-Continuamos el [laboratorio de validación](/posts/validacion-runtime-json-schema-zod-pydantic) con la misma reserva ficticia. Ahora interesa qué publicamos cuando falla y qué dejamos únicamente para diagnóstico interno.
+Partimos del [contrato de entrada](/posts/validacion-runtime-json-schema-zod-pydantic). La lectura alternativa de Pydantic no es un prerrequisito para esta entrega.
 
 ## Validación, negocio e infraestructura no son tres nombres para un 400
 
@@ -131,25 +131,15 @@ Una causa inesperada se traduce a un 500 seguro. Un fallo temporal conocido de d
 
 Un 503 puede acompañarse de `Retry-After` si hay información razonable para ello. Aquí no la hay y no inventamos un plazo. Reintentar un POST necesita considerar idempotencia, efectos previos y respuesta perdida, no solo el número del status.
 
-## Request ID permite buscar una ocurrencia; no es una traza distribuida
+## El siguiente paso depende del significado, no solo del status
 
-Cada solicitud recibe un UUID generado en el servidor, enviado en `X-Request-Id` y en el problema. `instance` utiliza ese UUID para identificar la ocurrencia. Incluso si el cliente envía su propio `X-Request-Id`, el laboratorio no lo adopta como identificador confiable.
+Dos problemas pueden compartir 409 y requerir decisiones distintas. Con versión obsoleta, repetir exactamente el mismo comando conserva el conflicto. Con stock insuficiente, obtener la versión actual no fabrica unidades nuevas. El cliente necesita tanto la categoría HTTP como el problema documentado.
 
-Ese ID permite relacionar respuesta y registro local. No demuestra propagación entre servicios, spans ni contexto de **distributed tracing**. Para eso se necesitaría instrumentación y una política de tratamiento del contexto recibido.
+Eso no obliga a que todos los errores de negocio tengan otro status. Los códigos genéricos permiten a proxies y bibliotecas entender la clase de respuesta; el tipo de problema comunica la condición específica. Cambiar un título traducido no debería alterar ninguna de esas decisiones.
 
-El log tiene una allowlist: `requestId`, método normalizado, plantilla de ruta, status y código. Una URL desconocida se registra como `unmatched`; no copiamos su query, que podría contener datos sensibles. Tampoco registramos el body, Authorization ni mensajes de excepción arbitrarios.
+Tampoco debemos convertir un 500 en «no pasó nada». Un fallo validando la salida puede ocurrir después de reservar, y una desconexión puede ocultar una respuesta ya producida. La recuperación necesita conocer los efectos posibles y las garantías de idempotencia, no una regla universal de reintento.
 
-La contrapartida es real: un código 500 sin una causa interna ayuda poco a investigar un bug. En producción añadiríamos diagnóstico protegido, redacción, límites de tamaño, control de acceso y retención. «Registrar todo» no es una solución segura; «no registrar nunca causas» tampoco es una política de observabilidad completa.
-
-El test del logger verifica otro límite: si el destino de logs falla después de completar la reserva, no intentamos responder otra vez ni repetirla. En la demo se descarta ese fallo. Un sistema real necesita detectar la pérdida de telemetría por un canal independiente.
-
-## La forma del error también puede revelar información
-
-Aunque no devuelvas un stack, diferenciar «usuario inexistente» de «contraseña incorrecta» puede permitir enumeración. Un error de permisos también podría revelar que existe un recurso de otro tenant. El catálogo debe revisarse según el modelo de amenazas de cada operación.
-
-Nuestro inventario ficticio no tiene identidades ni tenants. El 404 de producto no resuelve esa política para una aplicación autenticada. No se puede trasladar el ejemplo a recursos privados sin diseñar antes quién puede conocer su existencia.
-
-Los tests comprueban que una solicitud con valores, headers y nombres extra que contienen un secreto ficticio no lo refleja en cuerpo ni logs. Es una comprobación concreta contra regresiones, no una prueba de ausencia de todas las fugas posibles.
+El campo `requestId` de nuestro problema permite relacionarlo con un registro. No autoriza a incluir en la respuesta la causa privada para facilitar esa búsqueda. Veremos ese diagnóstico por separado.
 
 ## Garantías y límites
 
@@ -169,13 +159,11 @@ No hay durabilidad, autenticación, transacciones SQL, trazas distribuidas o ide
 
 Añade una dependencia ficticia que pueda devolver `timeout_before_execution`. Traduce solo esa condición conocida a un problema público documentado. Prueba también una excepción inesperada y exige que siga siendo 500, sin mensaje original. Después explica qué cambiaría si el timeout ocurriera después de iniciar una escritura cuyo resultado no conoces.
 
-Continuamos con [paginación bajo escrituras concurrentes](/posts/paginacion-offset-keyset-postgresql-concurrencia). Mantendremos la misma exigencia: un resultado plausible no basta si el contrato promete algo distinto.
+Continúa con [logs y request IDs](/posts/errores-api-logs-request-id-diagnostico-seguro): cómo investigar la misma ocurrencia sin devolver o registrar indiscriminadamente datos sensibles.
 
 ## Referencias
 
-- [RFC 9457: Problem Details y consideraciones de seguridad](https://www.rfc-editor.org/rfc/rfc9457.html).
-- [RFC 9110: semántica de status codes y precondiciones](https://httpwg.org/specs/rfc9110.html).
-- [OWASP: Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html).
-- [W3C Trace Context: contexto distribuido](https://www.w3.org/TR/trace-context/).
+- [RFC 9457: Problem Details](https://www.rfc-editor.org/rfc/rfc9457.html).
+- [RFC 9110: status y precondiciones](https://httpwg.org/specs/rfc9110.html).
 
-Fuentes consultadas el 18 de octubre de 2026. Los códigos y las URN publicados aquí son decisiones del laboratorio.
+Los códigos y las URN son decisiones del laboratorio; fuentes consultadas el 18 de octubre de 2026.

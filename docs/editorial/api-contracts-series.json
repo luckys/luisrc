@@ -2,43 +2,92 @@
   "name": "Diseño de APIs y seguridad web: contratos, identidad y permisos",
   "language": "es",
   "status": "draft",
-  "roadmap": "Serie 03 P020–P031. P020–P025 redactados y probados, sin dar el resto por completado.",
+  "roadmap": "P020–P025 desarrollados en doce entregas. P026–P031 siguen pendientes; las partes no añaden fichas al catálogo.",
   "articles": [
     {
       "id": "P020",
       "slug": "api-contrato-esquema-clientes",
       "title": "Diseñar una API: el contrato es más que un JSON que funciona",
-      "prerequisites": ["P008"]
+      "prerequisites": ["P008"],
+      "roadmapId": "P020"
     },
     {
       "id": "P021",
       "slug": "recursos-http-metodos-idempotencia",
       "title": "Recursos HTTP: qué prometen GET, POST, PUT, PATCH y DELETE",
-      "prerequisites": ["P020"]
+      "prerequisites": ["P020"],
+      "roadmapId": "P021"
     },
     {
       "id": "P022",
       "slug": "validacion-runtime-json-schema-zod-pydantic",
-      "title": "Validar una API: del JSON correcto a una operación que tiene sentido",
-      "prerequisites": ["P021"]
+      "title": "Validación de APIs: separar parsing, JSON Schema y reglas de negocio",
+      "prerequisites": ["P021"],
+      "roadmapId": "P022"
+    },
+    {
+      "id": "API-VALIDATION-ZOD",
+      "slug": "validacion-zod-contratos-errores-runtime",
+      "title": "Validación con Zod: del dato desconocido a un comando comprobado",
+      "prerequisites": ["P022"],
+      "roadmapId": "P022"
+    },
+    {
+      "id": "API-VALIDATION-PYDANTIC",
+      "slug": "validacion-pydantic-strict-null-refinements",
+      "title": "Validación con Pydantic: tipos estrictos, campos ausentes y reglas entre campos",
+      "prerequisites": ["P022"],
+      "roadmapId": "P022",
+      "optional": true
     },
     {
       "id": "P023",
       "slug": "errores-api-problem-details-stock-concurrencia",
-      "title": "Errores de API: distinguir un dato inválido, falta de stock y un conflicto de versión",
-      "prerequisites": ["P021", "P022"]
+      "title": "Errores de API: diseñar Problem Details y distinguir conflictos de negocio",
+      "prerequisites": ["P021", "P022"],
+      "roadmapId": "P023"
+    },
+    {
+      "id": "API-ERROR-LOGGING",
+      "slug": "errores-api-logs-request-id-diagnostico-seguro",
+      "title": "Diagnosticar errores de API sin filtrar datos: logs y request IDs",
+      "prerequisites": ["P023"],
+      "roadmapId": "P023"
     },
     {
       "id": "P024",
       "slug": "paginacion-offset-keyset-postgresql-concurrencia",
-      "title": "Paginación con PostgreSQL: por qué OFFSET repite filas y qué resuelve keyset",
-      "prerequisites": ["P021"]
+      "title": "Paginación de APIs: OFFSET, keyset y cursores con un orden estable",
+      "prerequisites": ["P021"],
+      "roadmapId": "P024"
+    },
+    {
+      "id": "API-PAGINATION-CONSISTENCY",
+      "slug": "paginacion-escrituras-concurrentes-snapshots",
+      "title": "Paginación bajo escrituras: qué conserva keyset y qué necesita un snapshot",
+      "prerequisites": ["P024"],
+      "roadmapId": "P024"
+    },
+    {
+      "id": "API-PAGINATION-PERFORMANCE",
+      "slug": "paginacion-postgresql-indices-explain-mediciones",
+      "title": "Medir paginación en PostgreSQL: índices, filtros y planes de ejecución",
+      "prerequisites": ["P024", "API-PAGINATION-CONSISTENCY"],
+      "roadmapId": "P024"
     },
     {
       "id": "P025",
       "slug": "evolucion-api-versiones-consumidores-contratos",
-      "title": "Evolucionar una API: probar qué clientes siguen funcionando antes de crear v2",
-      "prerequisites": ["P020", "P021", "P022"]
+      "title": "Compatibilidad de APIs: detectar breaking changes con contract tests",
+      "prerequisites": ["P020", "P021", "P022"],
+      "roadmapId": "P025"
+    },
+    {
+      "id": "API-VERSION-MIGRATION",
+      "slug": "versionado-api-deprecacion-migracion-consumidores",
+      "title": "Versionar y retirar una API: convivencia, deprecación y migración de clientes",
+      "prerequisites": ["P025"],
+      "roadmapId": "P025"
     }
   ]
 }

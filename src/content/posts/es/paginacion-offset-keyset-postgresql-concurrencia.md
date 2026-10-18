@@ -1,7 +1,7 @@
 ---
 id: P024
-title: 'Paginación con PostgreSQL: por qué OFFSET repite filas y qué resuelve keyset'
-published: 2026-10-18T04:04:00Z
+title: 'Paginación de APIs: OFFSET, keyset y cursores con un orden estable'
+published: 2026-10-18T04:07:00Z
 locale: es
 translationKey: api-pagination-postgresql-offset-keyset
 slug: paginacion-offset-keyset-postgresql-concurrencia
@@ -9,17 +9,17 @@ draft: true
 status: draft
 level: intermedio
 prerequisites: [P021]
-description: 'Compara OFFSET y keyset en un millón de filas reales. Orden compuesto, cursores, filtros, búsqueda, planes y límites bajo escrituras concurrentes.'
+description: 'Diseña páginas con un orden total, compara OFFSET y keyset y construye cursores con lookahead, ámbito y límites explícitos.'
 author: 'Luis Ramírez Calle'
 series: 'Diseño de APIs y seguridad web: contratos, identidad y permisos'
-tags: [api, postgresql, paginacion, indices, concurrencia]
+tags: [api, paginacion, postgresql, contratos]
 ---
 
-La segunda página repite un pedido que ya aparecía en la primera. La consulta tiene `ORDER BY`, el servidor devuelve 200 y nadie ha enviado dos veces el mismo registro. Entre ambas peticiones se insertó un pedido y cambió la posición de los demás.
+Una API devuelve cincuenta pedidos y un botón para continuar. ¿Significa «las cincuenta posiciones siguientes» o «los pedidos posteriores al último que ya recibí»? Las dos interpretaciones pueden coincidir sobre datos quietos y diferir cuando alguien escribe.
 
-Paginar no consiste solo en poner un límite al JSON. Hay que decidir qué significa «continuar», cómo se ordenan los empates y qué puede observar el usuario mientras los datos cambian.
+Antes de medir o estudiar snapshots, necesitamos fijar qué representa una página. Vamos a comparar **OFFSET** y **keyset**, resolver empates y construir el cursor del consumidor.
 
-Ampliamos el [modelo introductorio de cursores](/posts/evolucion-api-paginacion-contratos) con **PostgreSQL real y un millón de filas**. Después de estudiar [errores y conflictos](/posts/errores-api-problem-details-stock-concurrencia), toca hacer explícitas las garantías de una lectura por partes.
+Las pruebas de escrituras se desarrollan después en [consistencia entre páginas](/posts/paginacion-escrituras-concurrentes-snapshots). La comparación de costes queda en [índices y mediciones](/posts/paginacion-postgresql-indices-explain-mediciones): primero necesitamos saber qué comportamiento estamos comparando.
 
 ## OFFSET cuenta posiciones, no recuerda el último pedido
 
@@ -50,87 +50,19 @@ Los placeholders reciben valores mediante el driver **pg**, no mediante concaten
 
 La primera página usa otra consulta sin el predicado del cursor. Conserva exactamente los mismos filtros y `ORDER BY`. Los tests comparan sus resultados con OFFSET sobre datos quietos, incluidos grupos con fechas empatadas.
 
-## Una inserción entre páginas permite ver el fallo sin un benchmark
+<img src="/assets/visuals/api-contracts/P024.svg" alt="Un orden por fecha e ID deshace empates. OFFSET conserva una posición, mientras keyset conserva la clave del último elemento entregado." width="413" height="598" loading="lazy" style="width:100%;height:auto" />
 
-El laboratorio mantiene abiertas dos conexiones distintas. La lectora inicia una transacción **READ COMMITTED** y obtiene cinco pedidos. La escritora inserta y confirma un pedido con fecha posterior a todos ellos. La lectora pide la segunda página con ambos métodos.
+[Ampliar el diagrama](/assets/visuals/api-contracts/P024.svg).
 
-Estos son los IDs obtenidos en la ejecución archivada:
+## Leer la comparación con un empate concreto
 
-<div class="overflow-x-auto" role="region" aria-label="IDs observados entre las dos páginas" tabindex="0">
+Imagina dos pedidos con la misma fecha y los IDs 18 y 16. En orden descendente aparece primero 18. Si el tamaño es uno, el cursor de esa página debe conservar tanto la fecha como 18.
 
-| Lectura              | IDs en orden                               |
-| -------------------- | ------------------------------------------ |
-| Primera página       | 999998, 999996, 999994, 999992, **999988** |
-| Segunda con OFFSET 5 | **999988**, 999986, 999984, 999982, 999978 |
-| Segunda con keyset   | 999986, 999984, 999982, 999978, 999976     |
+La condición «fecha menor» excluiría también al pedido 16 y lo saltaría. La comparación del par lo admite porque, al empatar la fecha, 16 es menor que 18. Si cambiamos el orden a ascendente, también debemos cambiar la dirección de la comparación; no es un detalle intercambiable.
 
-</div>
+El contrato de esta demo guarda fechas con precisión de milisegundos e IDs únicos. Los tests hacen coincidir keyset con OFFSET sobre el mismo conjunto quieto y prueban que hay fechas empatadas. Eso comprueba la continuidad básica antes de introducir otra conexión que inserte o modifique filas.
 
-El nuevo pedido queda por delante. OFFSET descarta cinco posiciones de la lista nueva, no los cinco IDs ya vistos, y repite 999988. El predicado keyset continúa detrás de la última clave entregada, por lo que no repite esa fila.
-
-No hacemos depender el resultado de una pausa ni de que «dé tiempo» a insertar. Esperamos la confirmación de la escritura antes de la segunda consulta y comprobamos que las conexiones tienen distintos backend PID. Es una escritura concurrente respecto a la transacción lectora, intercalada deliberadamente entre sus sentencias, no una carga aleatoria durante el benchmark.
-
-<img src="/assets/visuals/api-contracts/P024.svg" alt="Tras leer una página, otra conexión inserta delante. OFFSET cuenta posiciones nuevas y repite el último ID; keyset continúa desde la clave anterior, sin incorporar el pedido insertado delante." width="381" height="1136" loading="lazy" style="width:100%;height:auto" />
-
-[Ampliar la secuencia de paginación](/assets/visuals/api-contracts/P024.svg).
-
-Puedes [explorar los cambios entre páginas](/assets/interactive/api-pagination/explorer.html) con un visor que permite insertar, mover o borrar una fila. Es un modelo en memoria, no una consulta en vivo ni una medición. La opción de inserción reproduce los IDs de la observación SQL anterior; las otras permiten examinar sus límites.
-
-## Keyset no congela los datos entre peticiones
-
-Evitar ese desplazamiento no equivale a leer un **snapshot**. Una fila nueva situada después del cursor podría aparecer. Un borrado podría quitar una fila que aún no hemos leído. Y cambiar la clave de ordenación puede mover un registro de un lado a otro de la frontera.
-
-Otro test lo demuestra: mueve una fila ya entregada a una fecha anterior al cursor y comprueba que vuelve a aparecer al continuar. Por eso conviene que una fecha de creación utilizada como clave de navegación sea inmutable. Si el requisito es ordenar por una puntuación que cambia continuamente, hay que asumir otras garantías.
-
-También probamos **REPEATABLE READ**: dentro de una misma transacción, la lectora conserva su snapshot aunque otra conexión confirme una inserción. Al terminar esa transacción, una consulta nueva ya ve el pedido insertado.
-
-Mantener una transacción abierta mientras una persona navega varias pantallas no suele ser una buena solución: retiene recursos y puede prolongar la vida de versiones antiguas de filas. Una exportación consistente puede necesitar un job con snapshot y ciclo de vida propios. Una frontera temporal ayuda bajo ciertas hipótesis, pero no congela por sí sola modificaciones o borrados.
-
-## El índice debe corresponder al filtro y al orden
-
-El conjunto de datos contiene dos tenants ficticios y estados `paid` y `pending`. De las 1.000.000 filas, 400.000 cumplen `tenant_id = 1 AND status = 'paid'`, el recorrido medido. No estamos comparando una búsqueda sin filtros con otra que devuelve menos candidatos.
-
-Archivo `schema.sql`, índice utilizado:
-
-```sql
-CREATE INDEX orders_page ON orders (tenant_id, status, created_at DESC, id DESC)
-INCLUDE (amount_minor, currency, description);
-```
-
-Las igualdades fijan el prefijo del índice y el resto proporciona el orden. Las columnas de `INCLUDE` permiten cubrir la representación de esta consulta; no añaden otra ordenación. Tras la carga ejecutamos `VACUUM ANALYZE` para actualizar estadísticas y visibilidad.
-
-En los planes archivados se utiliza **Index Only Scan**. Eso no garantiza cero accesos al heap en cualquier situación: depende, entre otras cosas, de la visibilidad de las páginas. Tampoco convierte OFFSET en un salto directo dentro del índice. Sigue necesitando producir y descartar filas anteriores.
-
-El índice ocupa espacio y encarece escrituras. Si solo necesitáramos ID y fecha, incluir descripciones no sería una decisión gratuita. Para profundizar en esa elección, la entrega sobre [índices compuestos y covering](/posts/indices-compuestos-parciales-covering) desarrolla esos costes.
-
-## Medición: continuar desde una clave no cuesta lo mismo que buscar una página arbitraria
-
-Medimos consultas de 50 filas con **EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)**. Una ejecución de calentamiento por estrategia, siete muestras alternando el orden y cuatro profundidades. PostgreSQL 17.11, dos CPU asignadas al contenedor, 1.536 MiB de memoria, datos efímeros en tmpfs y cachés calientes. El entorno completo y los planes están en el ZIP.
-
-La clave de continuación ya está disponible al medir keyset. **No incluimos el coste de obtener esa ancla mediante OFFSET**. Es la situación de un usuario que recibió el cursor de la página anterior, no una promesa de saltar a la página 6.001 sin recorrer ni localizar nada antes.
-
-<div class="overflow-x-auto" role="region" aria-label="Medianas de las consultas SQL locales" tabindex="0">
-
-<div style="min-width:42rem">
-
-| Filas previas | OFFSET, mediana ms | Keyset, mediana ms | Salida del scan OFFSET / keyset |
-| ------------- | ------------------ | ------------------ | ------------------------------- |
-| 0             | 0,022              | 0,023              | 50 / 50                         |
-| 10.000        | 2,067              | 0,054              | 10.050 / 50                     |
-| 100.000       | 7,671              | 0,024              | 100.050 / 50                    |
-| 300.000       | 24,802             | 0,027              | 300.050 / 50                    |
-
-</div>
-
-</div>
-
-<img src="/assets/visuals/api-contracts/pagination-timings.svg" alt="Medianas de siete muestras locales: OFFSET aumenta con la profundidad; keyset con ancla conocida se mantiene cerca de unas centésimas de milisegundo. Eje vertical logarítmico, no escala lineal de diferencias." width="900" height="500" loading="lazy" style="width:100%;height:auto" />
-
-[Ampliar la gráfica de las muestras locales](/assets/visuals/api-contracts/pagination-timings.svg).
-
-La última columna cuenta filas **emitidas por el nodo de scan** según el plan. No cuenta lecturas físicas, páginas de disco ni todo el trabajo interno del índice. Los tiempos son `Execution Time` de PostgreSQL con instrumentación, no latencia HTTP ni un SLA. La gráfica usa escala logarítmica para mostrar cifras pequeñas sin ocultarlas; la tabla conserva sus valores.
-
-Las mediciones se hacen sin escrituras simultáneas. El experimento de inserción y los tests de snapshots son pruebas separadas de consistencia. No deducimos rendimiento bajo carga a partir de mezclar ambos resultados.
+Los valores 18 y 16 son una explicación de la comparación, no los IDs del experimento medido. La [siguiente entrega](/posts/paginacion-escrituras-concurrentes-snapshots) muestra los IDs realmente observados en PostgreSQL.
 
 ## El cursor transporta una frontera, no concede acceso
 
@@ -144,52 +76,46 @@ El ID viaja como string porque un `bigint` de PostgreSQL puede superar la precis
 
 **No hay autenticación**: el tenant está fijado a uno en el servidor, no lo elige el cliente. Firmar un cursor no sustituye obtener el tenant de un contexto autorizado y aplicar permisos en cada consulta. Rotación de claves, revocación y cuotas quedan fuera de esta demo.
 
-## Filtrar y buscar cambian qué significa continuar
+## La fila extra responde una pregunta distinta de la fila final
 
-Filtrar por estado selecciona un subconjunto exacto. Buscar texto aplica otra semántica: normalización, idioma, términos y, en algunos diseños, relevancia. No deberíamos ofrecer un `sort` arbitrario que se copie al SQL ni prometer el mismo coste para cualquier combinación.
+Con tamaño dos, el servidor pide tres filas. Si recibe A, B y C, entrega A y B, indica continuación y firma el cursor de B. C se utiliza solo para saber que queda algo más: empezará como candidata en la siguiente consulta.
 
-El laboratorio crea un `tsvector` con configuración `spanish`, un índice **GIN** y prueba esta consulta parametrizada:
+Si construyéramos el cursor de C y la consulta continuara estrictamente detrás de él, C desaparecería del recorrido. El test HTTP comprueba el ID enviado al SQL siguiente y el límite pageSize más uno; no se limita a comprobar que el token sea un string.
 
-```sql
-SELECT id FROM orders
-WHERE tenant_id=$1 AND status=$2
-  AND search @@ websearch_to_tsquery('spanish', $3)
-LIMIT 5
-```
+Si la consulta devuelve como máximo dos filas, no hay lookahead y `nextCursor` es null. Eso evita una consulta COUNT completa solo para decidir si ofrecer otro paso. No conocemos por ello un total exacto de páginas.
 
-Los valores del test son tenant uno, estado paid y el término camara. Demuestra una búsqueda de términos con PostgreSQL, no tolerancia general a erratas ni una ordenación por relevancia. El endpoint de páginas **no expone `q`**: la búsqueda se ejecuta directamente en el laboratorio SQL.
+## Elegir entre posición y continuidad tiene un coste de producto
 
-Combinar relevancia cambiante con cursor exigiría diseñar otro orden total y estudiar sus índices y estabilidad. No presentamos el índice B-tree del recorrido por fecha como solución universal de búsqueda.
+OFFSET facilita «ir a página 20» porque el consumidor puede calcular un desplazamiento. Eso no garantiza bajo coste ni una vista consistente entre solicitudes. En un listado pequeño, con cambios poco relevantes para el uso, puede ser una decisión suficiente.
+
+Keyset encaja con «siguiente» sobre un orden que conocemos. No permite saltar gratuitamente a una página arbitraria: necesitaríamos conocer su ancla, recorrer páginas previas o diseñar otro mecanismo. Tampoco incorpora automáticamente la navegación hacia atrás; habría que definir cursor, comparación y orden de retorno para ese sentido.
+
+No publicamos un parámetro sort que se copie al SQL. El único orden de esta API está fijado por contrato. Si el producto necesita otras ordenaciones, cada una necesita resolver sus empates y estudiar sus índices, no aceptar un nombre de columna arbitrario.
 
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/api-paginacion-evolucion-lab.zip) incluye SQL, servidor, tests, cursores y resultados. Para comprobarlo:
+El [laboratorio](/assets/examples/api-paginacion-evolucion-lab.zip) incluye `queries.mjs`, `pagination.mjs` y `server.mjs`. Sus tests sin Docker comprueban ámbito, firma, caducidad, parámetros y lookahead.
 
 ```bash
 pnpm install --frozen-lockfile
 pnpm test
-pnpm lab
 ```
 
-`pnpm test` no necesita Docker. `pnpm lab` exige la imagen PostgreSQL fijada **ya disponible localmente**, crea su propio contenedor y base efímera, ejecuta las pruebas reales y guarda nuevas mediciones. Elimina únicamente ese contenedor al terminar. No toca bases externas ni descarga imágenes automáticamente.
+Para probar HTTP con PostgreSQL local utiliza `node run.mjs serve`. El README detalla la imagen ya local, el millón de filas sintéticas, el puerto efímero y el cierre con Ctrl+C. No se conecta una base externa.
 
-Para navegar manualmente, `node run.mjs serve` imprime una URL local y mantiene el entorno hasta Ctrl+C. El README explica los parámetros. Los tiempos publicados corresponden a la ejecución archivada; repetirla puede producir otros valores.
+El tenant es fijo y ficticio. No hay autenticación, claves duraderas, rotación, revocación o permisos. Un cursor correcto tampoco congela el conjunto: esa garantía se estudia por separado, no se deduce de la firma.
 
-OFFSET sigue siendo razonable para conjuntos pequeños o cuando necesitas saltos por posición y aceptas su consistencia y coste. Keyset encaja con recorridos secuenciales sobre un orden apropiado. Ninguno decide automáticamente cómo debe funcionar una exportación consistente.
+## Ejercicio: una página que termina en un empate
 
-## Ejercicio: cambiar el orden sin perder empates
+Usa tamaño uno y dos pedidos con igual fecha. Comprueba que ambos se entregan una sola vez sobre datos quietos. Después cambia el orden a ascendente y escribe primero el resultado esperado. Ajusta tanto el predicado como el ORDER BY para que el test vuelva a pasar.
 
-Diseña un recorrido ascendente. Cambia el ORDER BY, la comparación y los tests de empates de forma coherente. Después mueve una fila ya vista a otra posición y escribe qué garantía puedes mantener. No añadas «sin duplicados» al contrato si tu propio test demuestra lo contrario.
-
-La siguiente entrega desarrolla [evolución de APIs con dos consumidores](/posts/evolucion-api-versiones-consumidores-contratos): incluso un cursor que funciona puede dejar de ser compatible si cambias su significado.
+Continúa con [qué ocurre cuando cambian los datos entre páginas](/posts/paginacion-escrituras-concurrentes-snapshots).
 
 ## Referencias
 
-- [PostgreSQL 17: LIMIT y OFFSET](https://www.postgresql.org/docs/17/queries-limit.html).
-- [Comparación de filas](https://www.postgresql.org/docs/17/functions-comparisons.html#ROW-WISE-COMPARISON) e [índices y ORDER BY](https://www.postgresql.org/docs/17/indexes-ordering.html).
-- [Aislamiento transaccional](https://www.postgresql.org/docs/17/transaction-iso.html) y [lectura de EXPLAIN](https://www.postgresql.org/docs/17/using-explain.html).
-- [PostgreSQL: índices de búsqueda de texto](https://www.postgresql.org/docs/17/textsearch-indexes.html).
-- [Google AIP-158: diseño de paginación y tokens opacos](https://google.aip.dev/158).
+- [PostgreSQL: LIMIT y OFFSET](https://www.postgresql.org/docs/17/queries-limit.html).
+- [Comparación de filas](https://www.postgresql.org/docs/17/functions-comparisons.html#ROW-WISE-COMPARISON).
+- [Google AIP-158: tokens opacos de paginación](https://google.aip.dev/158).
 - [Node: comparación de firmas y sus límites](https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b).
 
-Fuentes consultadas el 18 de octubre de 2026. Las cifras son observaciones de este laboratorio, no comparaciones universales entre estrategias.
+Fuentes consultadas el 18 de octubre de 2026.

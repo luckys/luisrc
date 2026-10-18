@@ -1,6 +1,6 @@
 ---
 id: P022
-title: 'Validar una API: del JSON correcto a una operación que tiene sentido'
+title: 'Validación de APIs: separar parsing, JSON Schema y reglas de negocio'
 published: 2026-10-18T04:02:00Z
 locale: es
 translationKey: api-runtime-validation-schemas
@@ -9,17 +9,17 @@ draft: true
 status: draft
 level: intermedio
 prerequisites: [P021]
-description: 'Separa parsing, schemas y reglas de negocio con JSON Schema, Zod y Pydantic. Ejemplos probados, errores por campo y límites de compatibilidad.'
+description: 'Define qué valida un schema y qué requiere estado de negocio. JSON Schema, optional frente a null y casos de contrato probados.'
 author: 'Luis Ramírez Calle'
 series: 'Diseño de APIs y seguridad web: contratos, identidad y permisos'
-tags: [api, validacion, json-schema, zod, pydantic, typescript, python]
+tags: [api, validacion, json-schema, openapi]
 ---
 
-Una solicitud pide reservar dos unidades, pero envía `quantity: "2"`. Otra envía un entero correcto cuando solo queda una unidad. Ambas pueden fallar, aunque por motivos distintos: la primera incumple el contrato de entrada; la segunda no puede ejecutarse con el stock actual.
+Una solicitud pide reservar dos unidades, pero envía `quantity: "2"`. Otra envía un entero correcto cuando solo queda una unidad. Las dos pueden fallar, aunque la primera incumple el contrato y la segunda no puede ejecutarse con el stock actual.
 
-Si tratamos todo como «datos inválidos», el cliente no sabrá qué corregir y el servidor mezclará comprobaciones que necesitan garantías diferentes. Un formulario puede comprobar un entero. No puede prometer que seguirá habiendo stock cuando llegue la solicitud.
+Si llamamos «validación» a cualquier comprobación, acabamos mezclando decisiones que necesitan garantías diferentes. Primero vamos a diseñar el contrato de entrada; después lo implementaremos con [Zod](/posts/validacion-zod-contratos-errores-runtime) o, como alternativa en Python, con [Pydantic](/posts/validacion-pydantic-strict-null-refinements).
 
-Después de [elegir recursos y métodos HTTP](/posts/recursos-http-metodos-idempotencia), vamos a separar esas decisiones con una reserva ficticia. El objetivo es entender las fronteras, no comparar tres bibliotecas para decidir cuál gana.
+Esta entrega continúa [recursos y métodos HTTP](/posts/recursos-http-metodos-idempotencia). Nos centramos en qué queremos aceptar y por qué, antes de elegir cómo ejecutaremos esas comprobaciones.
 
 ## Parsing, validación semántica y negocio responden preguntas distintas
 
@@ -79,77 +79,17 @@ El `required` dentro de `if` importa: comprobar una propiedad con `properties` n
 
 No hemos añadido otro documento OpenAPI completo al laboratorio nuevo. Conservamos el [contrato HTTP anterior](/posts/api-contrato-esquema-clientes) y probamos el schema independiente de esta operación. Esa separación evita presentar una especificación no escrita como si ya existiera.
 
-## Zod valida en runtime; un tipo TypeScript no lo hace
+## Probar el contrato con casos que cambian una sola decisión
 
-Un `type` de **TypeScript** ayuda al compilador a comprobar código, pero no verifica por sí solo el body recibido. Una afirmación `as Reservation` tampoco convierte un string en un entero ni rechaza propiedades inesperadas.
+El laboratorio comparte veinte documentos en `cases.json`. Hay un comando válido y variaciones que cambian un campo cada vez: string donde esperamos un número, booleano, fracción, cero, máximo excedido, propiedad ausente, `null`, campo extra y prioridad express con seis unidades.
 
-**Zod** permite describir el contrato y ejecutarlo sobre un valor desconocido. Este es el schema de `validation.mjs`, probado con **Zod 4.6.7**:
+El propósito no es acumular ejemplos al azar. Si el caso válido pasa y cambiar solo cantidad a `"2"` lo hace fallar, podemos atribuir la diferencia al tipo. Si modificamos cuatro campos a la vez, un rechazo no demuestra que las cuatro reglas funcionen.
 
-```javascript
-export const ReservationInput = z
-  .strictObject({
-    sku: z.string().regex(/^[A-Z][A-Z0-9-]{0,23}$/),
-    quantity: z.number().int().min(1).max(100),
-    expectedVersion: z.number().int().min(1).max(1000000),
-    priority: z.enum(['standard', 'express']),
-    note: z
-      .string()
-      .refine((value) => [...value].length <= 80)
-      .optional(),
-  })
-  .superRefine((value, context) => {
-    if (value.priority === 'express' && value.quantity > 5) {
-      context.addIssue({ code: 'custom', path: ['quantity'], message: 'express_limit' })
-    }
-  })
-```
+La regla express merece dos bordes: cinco unidades pasan y seis no. También comprobamos que `2.0` es un entero matemático para JSON Schema y que `true` no lo es. Esa diferencia se vuelve importante cuando cargamos el mismo JSON en otros lenguajes.
 
-El módulo importa `z` desde `zod`. Está escrito en JavaScript para ejecutar el mismo archivo directamente con Node, sin una compilación adicional. Zod también permite inferir tipos en TypeScript; aquí nos interesa la comprobación **runtime**, que existe en ambos casos.
+Para `note` añadimos pruebas con 80 y 81 emoji. El límite mide code points Unicode, no bytes del body, unidades UTF-16 o símbolos visuales completos. El límite de transporte de 4.096 bytes y el límite de una propiedad resuelven problemas distintos.
 
-`strictObject` rechaza propiedades desconocidas. `optional()` permite omisión, no `null`. El refinement cuenta code points para alinear el límite con JSON Schema, no unidades UTF-16 ni símbolos visuales completos. La expresión del SKU limita deliberadamente el identificador a un alfabeto ASCII; no es una validación de nombres escritos por personas.
-
-`safeParse` devuelve un resultado explícito: éxito con datos o fallo con issues. No usamos coerción: `"2"` sigue siendo inválido. Si un formulario necesita convertir texto, esa conversión debe tener una política deliberada antes de construir el comando.
-
-## Pydantic necesita decisiones equivalentes, no una traducción línea a línea
-
-En **Python**, las anotaciones tampoco validan por sí solas los datos externos. **Pydantic** sí ejecuta comprobaciones al construir o validar un modelo. Archivo `validation.py`, extracto probado con **Pydantic 2.13.5**:
-
-```python
-class ReservationInput(BaseModel):
-    model_config = ConfigDict(strict=True, extra="forbid")
-
-    sku: str
-    quantity: int = Field(ge=1, le=100)
-    expectedVersion: int = Field(ge=1, le=1_000_000)
-    priority: Literal["standard", "express"]
-    note: str = Field(default="", max_length=80)
-```
-
-El archivo completo incluye imports, validación del SKU y un `model_validator` para el límite express. `strict=True` evita conversiones generales como pasar de string a entero; `extra="forbid"` rechaza campos desconocidos.
-
-Hay un detalle importante: JSON Schema considera entero un número sin parte fraccionaria, como `2.0`. Al cargar JSON en Python, ese literal puede convertirse en `float`, mientras que JavaScript no conserva esa distinción de representación. El modelo incluye un validador previo que convierte únicamente floats integrales a int. Los límites se comprueban después; no convierte strings ni booleanos.
-
-También evita confundir opcional con nullable. `note` tiene un default interno vacío, pero `null` sigue siendo inválido. Para comparar con el comando original usamos `model_dump(exclude_unset=True)`, que no añade el campo omitido. No queremos que un detalle del modelo cambie silenciosamente el contrato de transporte.
-
-Veinte documentos compartidos pasan por Ajv, Zod y Pydantic. Incluyen ausencia, `null`, booleanos, strings, fracciones, campos extra y la regla express. Otras pruebas cubren 80 y 81 emoji. Esto demuestra acuerdo en esos casos, no equivalencia universal entre bibliotecas o dialectos.
-
-## Acumular errores ayuda al cliente, pero no obliga a ejecutar todas las reglas
-
-Si SKU, cantidad o prioridad fallan de manera independiente, devolver varios errores evita un ciclo de corregir uno y descubrir el siguiente. En nuestro contrato de reserva proyectamos los issues a una lista propia de `{ pointer, code }`, con **JSON Pointer** para ubicar el campo.
-
-No enviamos los objetos nativos de Zod ni de Pydantic: pueden contener valores recibidos, nombres arbitrarios, mensajes internos y formatos que cambian con una dependencia. Un campo desconocido se señala con el pointer vacío, que identifica el documento raíz, sin reflejar su nombre.
-
-Acumular no significa que cualquier regla deba ejecutarse con datos mal formados. Si falta un entero, una regla entre campos puede no tener valores seguros sobre los que operar. Pydantic también puede ubicar un error de modelo en la raíz, mientras que nuestro refinement de Zod lo asigna a cantidad. La adaptación pública debe ser explícita si usamos distintos backends.
-
-El cliente tampoco debería depender del orden nativo de los issues. Publicamos códigos propios y deduplicamos por campo. Los mensajes comprensibles para cada regla serían una ampliación del catálogo, no algo que debamos extraer analizando textos de una biblioteca.
-
-## Validar la salida detecta errores del servidor, no errores del usuario
-
-Después de reservar construimos un DTO con `sku`, `reserved` y `version`. Otro schema de Zod verifica esa representación y rechaza propiedades internas. Es distinto de serializar todo el registro de inventario.
-
-Si falla, devolvemos **500**, no 422: el usuario no puede corregir una salida que construyó el servidor. Pero esa validación ocurre después de modificar el Map. Detectar un fallo no revierte la operación, igual que perder la respuesta no demuestra que la reserva no ocurriera.
-
-Por eso no recomendamos reintentar un POST automáticamente ante cualquier 500. La [siguiente entrega sobre errores](/posts/errores-api-problem-details-stock-concurrencia) explica cómo distinguir causas sin prometer más de lo que sabemos.
+Ajv ejecuta el schema sin convertir strings, insertar defaults o eliminar propiedades para que pasen. Queremos comprobar el documento recibido y detectar decisiones que difieran de las implementaciones de Zod o Pydantic. La comparación en esos casos no prueba equivalencia universal entre bibliotecas.
 
 ## Compatibilidad también significa revisar lo que dejas de aceptar
 
@@ -161,21 +101,22 @@ Compartir un schema reduce duplicación dentro de un sistema. Entre lenguajes se
 
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/api-validacion-errores-lab.zip) incluye schemas, fixtures, servidor y tests. Desde su directorio:
+El [laboratorio compartido](/assets/examples/api-validacion-errores-lab.zip) incluye `reservation.schema.json`, `cases.json` y los tests. Instala con pnpm y ejecuta desde su directorio:
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm test
-node server.mjs
+node --test tests/validation.test.mjs
 ```
 
-El README contiene la ejecución aislada de Python con la imagen local y las versiones fijadas. No instala Python automáticamente. Se han ejecutado las pruebas de los tres validadores; Pydantic no sirve un segundo endpoint HTTP en esta entrega.
+El test compara Ajv y Zod con los mismos documentos; no necesitas estudiar la implementación de Zod para entender el contrato. La versión Python es una alternativa de lectura, no un requisito para continuar la serie.
 
-No hay autenticación, base de datos ni pagos. El stock vive en un solo proceso. Consumir y descartar cuerpos excesivos no es protección completa contra abuso o slow clients. El schema tampoco sustituye constraints, transacciones o permisos.
+La reserva sigue necesitando reglas de stock y versión, además de permisos en un servicio real. Ningún schema evita una escritura concurrente entre comprobar y guardar. Aquí no hay autenticación ni base de datos. OpenAPI tampoco genera o valida automáticamente el servidor por estar en el repositorio.
 
-## Ejercicio: introducir una opción sin aceptar null accidentalmente
+## Ejercicio: opcional no significa aceptar cualquier ausencia de valor
 
-Añade `reference`, opcional y de hasta 30 code points, sin admitir `null`. Amplía JSON Schema, Zod, Pydantic y los casos compartidos. Prueba omisión, string vacío, límite, exceso y un cliente antiguo que no conoce el campo. Después decide si realmente debe ser obligatorio y explica a quién rompería el cambio.
+Añade `reference`, opcional y con máximo de 30 code points, sin admitir `null`. Escribe primero casos para omisión, string vacío, límite y exceso. Justifica si un string vacío debe permitirse en tu producto: opcionalidad y contenido no vacío son decisiones independientes.
+
+Continúa con [Zod y errores por campo](/posts/validacion-zod-contratos-errores-runtime). Si trabajas con Python, puedes ir directamente a [Pydantic](/posts/validacion-pydantic-strict-null-refinements). Ambas rutas parten de este contrato.
 
 ## Referencias
 

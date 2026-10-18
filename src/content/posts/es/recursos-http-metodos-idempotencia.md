@@ -124,7 +124,7 @@ Ejecuta `node --test tests/*.test.mjs` desde el ZIP extraído. El README permite
 
 Crea un pedido, bórralo dos veces y léelo después. Exige 204, 404 y 404, respectivamente. Explica por qué el estado final satisface la idempotencia. Después repite POST dos veces y comprueba que has creado dos IDs: es una propiedad distinta y necesita otra política si no es deseada.
 
-La siguiente entrega desarrolla [validación runtime con JSON Schema, Zod y Pydantic](/posts/validacion-runtime-json-schema-zod-pydantic). Después distinguiremos [errores de entrada, stock y versión](/posts/errores-api-problem-details-stock-concurrencia), antes de avanzar hacia paginación, evolución, identidad y permisos.
+La siguiente entrega separa [parsing, JSON Schema y reglas de negocio](/posts/validacion-runtime-json-schema-zod-pydantic). Después puedes seguir la implementación con [Zod](/posts/validacion-zod-contratos-errores-runtime) o la alternativa [Pydantic](/posts/validacion-pydantic-strict-null-refinements), antes de retomar [errores públicos y conflictos](/posts/errores-api-problem-details-stock-concurrencia).
 
 ## Referencias
 

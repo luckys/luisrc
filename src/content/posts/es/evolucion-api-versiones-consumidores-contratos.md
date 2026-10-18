@@ -1,7 +1,7 @@
 ---
 id: P025
-title: 'Evolucionar una API: probar qué clientes siguen funcionando antes de crear v2'
-published: 2026-10-18T04:05:00Z
+title: 'Compatibilidad de APIs: detectar breaking changes con contract tests'
+published: 2026-10-18T04:10:00Z
 locale: es
 translationKey: api-evolution-consumers-contract-tests
 slug: evolucion-api-versiones-consumidores-contratos
@@ -9,17 +9,17 @@ draft: true
 status: draft
 level: intermedio
 prerequisites: [P020, P021, P022]
-description: 'Prueba cambios aditivos y breaking con dos clientes HTTP. OpenAPI, versiones URL y headers, SemVer de SDK y una deprecación con guía de migración.'
+description: 'Prueba cambios aditivos y breaking con consumidores v1 y v2, schemas OpenAPI y aserciones de significado sobre respuestas HTTP.'
 author: 'Luis Ramírez Calle'
 series: 'Diseño de APIs y seguridad web: contratos, identidad y permisos'
-tags: [api, contratos, versionado, openapi, testing, compatibilidad]
+tags: [api, contratos, openapi, testing, compatibilidad]
 ---
 
-El backend cambia `amountMinor` por un objeto `money`. Los tests del servidor pasan y el JSON sigue siendo válido. Una aplicación móvil antigua intenta leer el campo anterior y deja de mostrar el importe: el despliegue técnico terminó, pero la migración del contrato no.
+El backend reorganiza un importe y todos sus tests pasan. Una aplicación antigua sigue leyendo el campo anterior. El JSON continúa siendo válido, pero el consumidor ya no puede cumplir su función.
 
-Evolucionar una API requiere conocer qué observan sus consumidores y permitir que se actualicen en momentos distintos. Crear `/v2` puede ser parte de la solución, pero no sustituye las pruebas ni una transición que alguien pueda completar.
+Antes de decidir si necesitamos otra versión, conviene demostrar **qué expectativa se rompe**. Vamos a usar dos pequeños lectores de pedidos y comprobarlos contra respuestas HTTP. La transición, los headers y la retirada de v1 quedan en [la siguiente entrega](/posts/versionado-api-deprecacion-migracion-consumidores).
 
-Usaremos las páginas de pedidos de la [entrega de paginación](/posts/paginacion-offset-keyset-postgresql-concurrencia). El mismo laboratorio ejecuta dos pequeños clientes con expectativas diferentes, sin depender de una plataforma externa de contract testing.
+Partimos del [contrato de API](/posts/api-contrato-esquema-clientes). Las páginas usan el [laboratorio de paginación](/posts/paginacion-offset-keyset-postgresql-concurrencia), pero su rendimiento no decide si un campo sigue siendo compatible.
 
 ## La compatibilidad depende de la dirección del cambio
 
@@ -110,71 +110,39 @@ El test monetario muestra por qué hacen falta ambas. Cambia una respuesta de `a
 
 En un sistema con repositorios separados, los contratos de consumidor podrían publicarse y verificarse en la integración del proveedor. Harían falta ownership, versiones de contrato y una política para consumidores que no se actualizan. El laboratorio no implementa un broker, Pact ni una matriz de despliegues reales.
 
-## Versionar en URL o en headers cambia cómo se opera la transición
+## El escenario que debería fallar también forma parte del contrato
 
-Elegimos **versiones en URL**: `/v1/orders` y `/v2/orders`. Resultan visibles en ejemplos, logs y pruebas. También hacen explícito qué representación solicita cada cliente. La contrapartida es mantener rutas y documentación durante la convivencia.
+La variante baseline conserva los campos antiguos; la aditiva incorpora label. La prueba ejecuta el mismo lector v1 contra ambas y espera el mismo importe. Esa es una observación concreta de compatibilidad, no una regla de que cualquier propiedad nueva deba ser inocua.
 
-Otra opción utiliza negociación mediante **Accept** y media types versionados. Mantiene una URI para el recurso, pero el routing, los caches y las herramientas deben distinguir representaciones. Cuando la respuesta depende de Accept, la política de `Vary` y cache keys necesita reflejarlo.
+El caso breaking hace lo contrario: mantiene una ruta y un status que parecen correctos, pero retira el campo utilizado por el lector. El test exige que el lector rechace esa respuesta. Si alguien lo hiciera tolerante devolviendo cero por defecto, el test dejaría de comprobar el acuerdo original.
 
-Una cabecera propia también requiere acordar valores, errores y comportamiento por defecto. Añadir un header de versión no vuelve automáticamente más compatible el servicio ni elimina la necesidad de mantener la versión anterior.
+No hace falta interpretar textos de error del servidor para detectar ese fallo. El problema es que una respuesta de éxito ya no ofrece el dato acordado. Por eso conviene conservar las expectativas del consumidor separadas de las funciones que producen la representación.
 
-La demo implementa solo la variante de URL. No simulamos negociación para luego presentarla como una función probada. Tampoco creamos v2 por añadir `label`: la versión nueva sirve para retirar y reorganizar una estructura que un consumidor antiguo sí necesita.
-
-## SemVer del SDK no sustituye la versión del protocolo HTTP
-
-**Semantic Versioning** permite comunicar cambios de una API pública de software mediante MAJOR.MINOR.PATCH. Para un SDK estable, añadir una capacidad compatible suele corresponder a MINOR; cambiar una firma de forma incompatible requiere MAJOR; corregir un bug de manera compatible corresponde a PATCH.
-
-El paquete del SDK, la representación HTTP y `info.version` de OpenAPI son ejes distintos. Un SDK 2.0.0 podría seguir consultando `/v1` si cambió su propia interfaz. Un SDK 1.4.0 podría añadir soporte optativo para `/v2` sin romper las llamadas anteriores. Esos números son ejemplos de política, no releases que hayamos publicado.
-
-No basta con subir el major del SDK si una aplicación antigua sigue llamando a una ruta que acabamos de romper. El servidor debe respetar los contratos que aún mantiene, con independencia de que exista una librería nueva para quienes puedan actualizarla.
-
-## Deprecar comunica una transición; no ejecuta la migración
-
-Las respuestas v1 del laboratorio incluyen **Deprecation**, **Sunset** y un **Link** a `/migration/v2`, una guía local que sí sirve el servidor. OpenAPI también marca la operación antigua como deprecated.
-
-Deprecation utiliza el formato de fecha estructurada de **RFC 9745**, con `@` seguido de segundos desde epoch. No usamos un booleano inventado ni copiamos el formato HTTP-date de Sunset. **RFC 8594** define Sunset para anunciar cuándo se prevé que el recurso deje de responder como hasta entonces.
-
-Las fechas son ficticias y explícitas: deprecación desde el 18 de octubre de 2026 y retirada propuesta para el 18 de abril de 2027. La demo no apaga v1 al llegar esa fecha. No existe un servicio público al que estemos imponiendo una retirada.
-
-La guía explica qué campos cambian, que la unidad monetaria se conserva y qué debe hacer el consumidor con la URL. También indica que los cursores están ligados a la versión: migrar exige iniciar otro recorrido. Pretender reutilizar cualquier token v1 en v2 sería una promesa adicional que no implementamos.
-
-## Retirar una versión necesita evidencia, no solo un calendario
-
-Una transición práctica empieza identificando consumidores y responsables. Después se publica la alternativa, se mantienen ambas representaciones, se ofrecen ejemplos de migración y se observa qué clientes siguen utilizando la anterior. La fecha se comunica con suficiente margen y una política conocida.
-
-Antes de retirar, necesitamos criterios: ¿quedan clientes críticos?, ¿hay una aplicación que no puede actualizarse?, ¿se ha probado el nuevo contrato con ellos?, ¿qué respuesta documentada recibirán tras la retirada? Si no podemos identificar el uso antiguo, no podemos afirmar que todos migraron.
-
-El laboratorio no tiene usuarios ni telemetría de adopción, así que no declara ese paso completado. Sí aporta una guía, headers y pruebas de convivencia que podemos ejecutar antes de plantear la retirada. Ninguna cabecera demuestra por sí sola que un consumidor la leyó o adaptó su código.
-
-Mantener indefinidamente dos versiones también cuesta: correcciones duplicadas, revisión de seguridad y más combinaciones de tests. Evitar una ruptura no significa prometer soporte eterno. Significa hacer explícito qué contrato se mantiene y cómo termina esa obligación.
+La comparación con PostgreSQL añade otra comprobación: ambos lectores funcionan con páginas consultadas a una base real. No sustituye el escenario pequeño controlado, que permite introducir una regresión deliberada y atribuir el fallo a un cambio concreto.
 
 ## Garantías y límites
 
-El [laboratorio compartido con paginación](/assets/examples/api-paginacion-evolucion-lab.zip) incluye las dos representaciones, dos lectores, OpenAPI y contract tests:
+El [ZIP](/assets/examples/api-paginacion-evolucion-lab.zip) contiene `clients.mjs`, `representations.mjs`, `openapi.json` y los tests. El código no se genera automáticamente a partir del documento.
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm test
-pnpm lab
+node --test tests/unit.test.mjs tests/http.test.mjs tests/contract.test.mjs
 ```
 
-Las pruebas sin Docker usan una fuente de filas controlada. `pnpm lab` crea PostgreSQL efímero, ejecuta también los consumidores contra datos reales y elimina su contenedor al finalizar. Los requisitos y límites de recursos están en el README; no se descarga una imagen implícitamente.
+Esas pruebas arrancan HTTP con una fuente de filas controlada. `pnpm lab` ejecuta además los consumidores contra PostgreSQL efímero y un millón de filas; sus requisitos están en el README.
 
-No hay SDK publicado, consumidores externos, negociación Accept, autenticación o retirada automática. Los dos clientes son ejemplos representativos y limitados. No demostramos compatibilidad con todos los clientes que alguien pudiera escribir ni con todos los cambios de comportamiento posibles.
+Los lectores viven en el mismo repositorio. No son SDK publicados, consumidores externos ni una matriz de despliegues. Tampoco prueban todas las expectativas posibles, formatos de fecha o cambios de comportamiento. Los schemas no detectan por sí solos cualquier cambio semántico.
 
-## Ejercicio: un cambio que supera el schema y rompe el producto
+## Ejercicio: conservar el test del consumidor antiguo
 
-Mantén `amountMinor` como entero, pero cambia su unidad en una rama de prueba. Comprueba que la validación estructural pasa y que una aserción sobre 12,50 euros falla. Diseña después una transición que conserve el significado para v1 y haga inequívoca la representación nueva. No soluciones el test sustituyendo el valor esperado sin justificar qué cliente debía cambiar.
+Añade un campo opcional y verifica primero que el lector antiguo siga devolviendo el mismo resultado. Después retira amountMinor sin modificar ese lector y exige que el test falle. Diseña cómo convivirán ambas representaciones sin cambiar el significado monetario para quien aún usa v1.
 
-La siguiente entrega se centrará en sesiones y tokens. Mantendremos la misma separación entre una representación bien formada y una garantía de seguridad realmente comprobada.
+Continúa con [versionado, deprecación y migración](/posts/versionado-api-deprecacion-migracion-consumidores). Allí distinguimos tener un formato nuevo de haber migrado realmente a sus consumidores.
 
 ## Referencias
 
 - [Google AIP-180: compatibilidad hacia atrás](https://google.aip.dev/180).
-- [OpenAPI 3.1.1: contratos y operaciones deprecated](https://spec.openapis.org/oas/v3.1.1.html).
-- [Semantic Versioning 2.0.0](https://semver.org/).
-- [RFC 9745: Deprecation HTTP Response Header](https://www.rfc-editor.org/rfc/rfc9745.html).
-- [RFC 8594: Sunset HTTP Response Header](https://www.rfc-editor.org/rfc/rfc8594.html).
-- [RFC 9110: negociación y Vary](https://httpwg.org/specs/rfc9110.html).
+- [OpenAPI 3.1.1: contratos y schemas](https://spec.openapis.org/oas/v3.1.1.html).
+- [Ajv: validación JSON Schema](https://ajv.js.org/json-schema.html).
 
-Fuentes consultadas el 18 de octubre de 2026. Versiones y fechas de migración son decisiones ficticias del laboratorio.
+Fuentes consultadas el 18 de octubre de 2026.

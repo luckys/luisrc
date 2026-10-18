@@ -1,0 +1,10 @@
+direction: down
+json: "JSON cargado a objeto\nmodel_validate"
+before: "Validador before\nSolo float integral pasa a int"
+fields: "Campos estrictos\nTipos y límites, extra forbid"
+model: "Validador after\nExpress: máximo cinco unidades"
+result: "Modelo comprobado\nmodel_dump exclude_unset\nOmisión no inventa un campo enviado"
+json -> before
+before -> fields: strings y bools no se convierten
+fields -> model: campos interpretables
+model -> result: combinación aceptada
