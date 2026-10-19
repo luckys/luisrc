@@ -37,33 +37,41 @@ const copy = curriculum[locale]
         <a href={`mailto:${copy.email}`} data-cv-contact-item data-pdf-text={copy.email}>
           {copy.email}
         </a>
-        <a
-          href="https://github.com/luckys"
-          target="_blank"
-          rel="noreferrer"
-          data-cv-contact-item
-          data-pdf-text="GitHub: github.com/luckys"
-        >
-          GitHub: github.com/luckys
-        </a>
-        <a
-          href="https://www.linkedin.com/in/luis-ramirez-calle/"
-          target="_blank"
-          rel="noreferrer"
-          data-cv-contact-item
-          data-pdf-text="LinkedIn: linkedin.com/in/luis-ramirez-calle"
-        >
-          LinkedIn: linkedin.com/in/luis-ramirez-calle
-        </a>
-        <a
-          href="https://mnf.red/luis-ramirez-calle-fullstack-developer"
-          target="_blank"
-          rel="noreferrer"
-          data-cv-contact-item
-          data-pdf-text="Manfred: mnf.red/luis-ramirez-calle-fullstack-developer"
-        >
-          Manfred: mnf.red/luis-ramirez-calle-fullstack-developer
-        </a>
+        <ul class="cv-contact__profiles" data-cv-profiles>
+          <li>
+            <a
+              href="https://github.com/luckys"
+              target="_blank"
+              rel="noreferrer"
+              data-cv-contact-item
+              data-pdf-text="GitHub: github.com/luckys"
+            >
+              GitHub: github.com/luckys
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/luis-ramirez-calle/"
+              target="_blank"
+              rel="noreferrer"
+              data-cv-contact-item
+              data-pdf-text="LinkedIn: linkedin.com/in/luis-ramirez-calle"
+            >
+              LinkedIn: linkedin.com/in/luis-ramirez-calle
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://mnf.red/luis-ramirez-calle-fullstack-developer"
+              target="_blank"
+              rel="noreferrer"
+              data-cv-contact-item
+              data-pdf-text="Manfred: mnf.red/luis-ramirez-calle-fullstack-developer"
+            >
+              Manfred: mnf.red/luis-ramirez-calle-fullstack-developer
+            </a>
+          </li>
+        </ul>
       </address>
     </header>
 
@@ -258,9 +266,14 @@ const copy = curriculum[locale]
     const name = readText(root.querySelector('[data-cv-name]'))
     const headline = readText(root.querySelector('[data-cv-headline]'))
     const specialism = readText(root.querySelector('[data-cv-specialism]'))
-    const contact = Array.from(root.querySelectorAll('[data-cv-contact-item]'))
+    const contact = Array.from(
+      root.querySelectorAll('.cv-contact > [data-cv-contact-item]'),
+    )
       .map((item) => item.getAttribute('data-pdf-text') || readText(item))
       .join('  |  ')
+    const profiles = Array.from(
+      root.querySelectorAll('[data-cv-profiles] [data-cv-contact-item]'),
+    ).map((item) => item.getAttribute('data-pdf-text') || readText(item))
 
     pdf.setFont('helvetica', 'bold')
     pdf.setFontSize(22)
@@ -275,7 +288,11 @@ const copy = curriculum[locale]
       after: 1,
     })
     addText(specialism, { size: 9, color: mutedColor, leading: 4.2, after: 2 })
-    addText(contact, { size: 9, color: mutedColor, leading: 4.3, after: 3 })
+    addText(contact, { size: 9, color: mutedColor, leading: 4.3, after: 1 })
+    profiles.forEach((profile) => {
+      addText(profile, { size: 9, color: mutedColor, leading: 4.3, after: 1 })
+    })
+    y += 2
     pdf.setDrawColor(...accentColor)
     pdf.setLineWidth(0.55)
     pdf.line(margin, y, pageWidth - margin, y)
@@ -542,6 +559,16 @@ const copy = curriculum[locale]
     text-decoration: underline;
     text-decoration-color: color-mix(in srgb, var(--theme-accent) 45%, transparent);
     text-underline-offset: 0.16em;
+  }
+
+  .cv-contact__profiles {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .cv-contact a:hover,

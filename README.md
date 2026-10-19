@@ -57,7 +57,7 @@ Connect `luckys/luisrc-blog` to Cloudflare Pages and choose the **Astro** framew
 - Build output directory: `dist`
 - Root directory: repository root (the default)
 
-In the Pages project settings, add `PNPM_VERSION=12.8.1` for both production and preview builds. The `.node-version` file pins the Node.js version to `22.12.0`. The `wrangler.jsonc` file sets the Pages project name and build output directory. Since Astro builds this site as static HTML, it does not need the Cloudflare adapter.
+In the Pages project settings, add `PNPM_VERSION=12.8.1` for both production and preview builds. The `.node-version` file pins the Node.js version to `22.22.0`, the minimum supported by Astro 7.4. The `wrangler.jsonc` file sets the Pages project name and build output directory. Since Astro builds this site as static HTML, it does not need the Cloudflare adapter.
 
 ## 🛠️ Configuration
 

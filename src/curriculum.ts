@@ -180,10 +180,17 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             ],
           },
           {
-            title: 'vautext-brain · agent-skills',
-            body: 'Selected open-source work exploring architecture, automation and AI-assisted engineering workflows.',
+            title: 'Vautext Brain',
+            body: 'Self-hosted personal knowledge management application (second brain) for creating, searching, tagging and linking Markdown notes. Includes a knowledge graph, attachments, local folder synchronization, GitHub OAuth authentication and optimistic concurrency control with ETags.',
+            technologies: 'Nuxt 4, Nuxt UI, Cloudflare Workers, R2, Turso, Markdown',
             links: [
               { label: 'vautext-brain', href: 'https://github.com/luckys/vautext-brain' },
+            ],
+          },
+          {
+            title: 'Agent Skills',
+            body: 'Reusable skills for AI coding agents, including Claude Code, Codex and Cursor. Provides practical guidance on Domain-Driven Design (DDD), hexagonal architecture, Test-Driven Development (TDD), refactoring and code review, with selective installation and workflows for configuring agents to a project’s stack and architecture.',
+            links: [
               { label: 'agent-skills', href: 'https://github.com/luckys/agent-skills' },
             ],
           },
@@ -360,10 +367,17 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             ],
           },
           {
-            title: 'vautext-brain · agent-skills',
-            body: 'Selección de proyectos de código abierto sobre arquitectura, automatización y flujos de ingeniería asistidos por IA.',
+            title: 'Vautext Brain',
+            body: 'Aplicación autoalojada de gestión de conocimiento personal (segundo cerebro) para crear, buscar, etiquetar y enlazar notas Markdown. Incluye grafo de conocimiento, archivos adjuntos, sincronización con carpetas locales, autenticación con GitHub OAuth y control de concurrencia optimista mediante ETags.',
+            technologies: 'Nuxt 4, Nuxt UI, Cloudflare Workers, R2, Turso, Markdown',
             links: [
               { label: 'vautext-brain', href: 'https://github.com/luckys/vautext-brain' },
+            ],
+          },
+          {
+            title: 'Agent Skills',
+            body: 'Colección de skills reutilizables para agentes de programación con IA como Claude Code, Codex y Cursor. Ofrece guías prácticas de Domain-Driven Design (DDD), arquitectura hexagonal, Test-Driven Development (TDD), refactorización y revisión de código, con instalación selectiva y flujos para configurar los agentes según el stack y la arquitectura del proyecto.',
+            links: [
               { label: 'agent-skills', href: 'https://github.com/luckys/agent-skills' },
             ],
           },

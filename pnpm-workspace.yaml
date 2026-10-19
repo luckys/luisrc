@@ -9,3 +9,6 @@ allowBuilds:
   core-js: false
   esbuild: true
   sharp: true
+
+minimumReleaseAgeExclude:
+  - astro@7.4.1
