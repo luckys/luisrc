@@ -1,0 +1,14 @@
+direction: down
+subject: "Credencial de fixture\nSujeto interno reconocido"
+request: "URL solicita tenant\nNo prueba pertenencia"
+membership: "Servidor consulta membership\nSujeto + tenant = rol local"
+context: "Contexto verificado\nSujeto, rol, tenant"
+scoped: "Buscar por tenant e ID\nNo buscar globalmente"
+policy: "Política por objeto\nLeer o editar este estado"
+result: "Respuesta proyectada\nO actualización de título"
+subject -> request
+request -> membership
+membership -> context
+context -> scoped
+scoped -> policy
+policy -> result

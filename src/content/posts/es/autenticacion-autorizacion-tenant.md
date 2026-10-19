@@ -76,6 +76,8 @@ Construye una tabla de casos para lectura y cancelación: propietario, otro usua
 
 Continuamos con [los límites de confianza entre navegador, API y terceros](/posts/seguridad-api-navegador-limites-confianza).
 
+Si necesitas desarrollar los permisos con más detalle, el bloque de [RBAC, ABAC y ownership](/posts/autorizacion-rbac-abac-permisos-recursos) amplía esta introducción en tres entregas. Añade roles por tenant, estados del documento y pruebas HTTP de lectura y modificación ajenas; utiliza un laboratorio independiente con sus límites explícitos.
+
 ## Referencias
 
 - [OWASP: Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html).

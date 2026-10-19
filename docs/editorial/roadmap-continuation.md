@@ -9,19 +9,20 @@ Los últimos turnos han producido progreso verificable: diez borradores de ML cl
 y nueve de Computación, sistemas y redes, con laboratorios y recursos visuales.
 La instrucción más reciente restringe la Serie 02 a estructuras de datos y algoritmos:
 P011 se ha ampliado a 21 entregas, sin redactar P010 o P012–P019.
-Después se continúa Serie 03 con P020–P027: contratos, validación, errores,
-paginación, evolución e identidad, desarrollados en dieciséis entregas.
+Después se continúa Serie 03 con P020–P028: contratos, validación, errores,
+paginación, evolución, identidad y permisos, desarrollados en diecinueve entregas.
 No es una espera ni una declaración de finalización. Mantener el objetivo activo.
 
 ## Estado de trabajo
 
-- Commit `cdea5a0` guarda la división editorial de P020–P025 en doce entregas,
+- Commit `09fe2e5` guarda las cuatro entregas de identidad P026/P027.
+  Commit `cdea5a0` guarda la división editorial de P020–P025 en doce entregas,
   sobre `89f67b4` para P024/P025 y `fb190d4` para validación/errores.
-  Las cuatro entregas nuevas de identidad son posteriores y siguen sin commit.
+  Las tres entregas nuevas de permisos P028 son posteriores y siguen sin commit.
   Sin push solicitado.
 - `roadmap-progress.md` y `.json`: generados desde las 175 fichas reales con
   `node scripts/audit-editorial-roadmap.mjs`. No alteran el alcance del objetivo.
-- Hay 47 IDs exactos, 37 fichas con candidatos relacionados y 91 sin artículo
+- Hay 48 IDs exactos, 36 fichas con candidatos relacionados y 91 sin artículo
   identificado. No son contadores de aceptación. Los candidatos agrupados se han
   conservado, no renumerado para aparentar completitud.
 - La ruta corta anterior para PS01–PS10 no sustituye las fichas generales. AWS,
@@ -53,7 +54,13 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   No afirmar que el RP tiene renovación OAuth integrada: ese enlace no se ha
   implementado. Sin contraseñas verificadas, MFA, permisos por objeto o M2M real.
   No dar el DoD de P026 por completo solo por la existencia de sus dos drafts.
-  Ver api-identity-review.md. P028–P031 siguen sin entregas propias.
+  Ver api-identity-review.md. Este límite de P026 se conserva.
+- Permisos: P028 se desarrolla en tres entregas con examples/api-permisos.
+  Cinco tests de política y trece HTTP, fixtures de identidad públicas y memberships
+  locales, casos de lectura y modificación de documentos de otro tenant, IDs
+  repetidos, listas, roles/estado y verificación de título posterior. Sin SQL/RLS
+  o autenticación de producción. Visor estático con la misma función probada.
+  Ver api-authorization-review.md. P029–P031 siguen sin entregas propias.
 
 ## Próxima acción concreta
 
@@ -66,7 +73,7 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
    código; medir ejemplos sin convertirlos en benchmarks universales. Un laboratorio
    compartido por serie es válido si identifica qué archivo y evidencia usa cada post.
 4. Revisar el límite del laboratorio P026 (sesión y modelo refresh separados)
-   antes de dar por aceptada su ficha. Continuar Serie 03 por P028–P031 según
+   antes de dar por aceptada su ficha. Continuar Serie 03 por P029–P031 según
    ruta-diseno-apis-seguridad.md, contrastando los artículos agrupados previos.
    Después revisar series 04–06 y los límites
    declarados de las series 07–09. Continuar después P096–P175 por series.

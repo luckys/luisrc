@@ -1,0 +1,10 @@
+direction: down
+positive: "Control positivo\nAlice edita su propio draft"
+read: "Alice pide draft de Bob\nGET debe devolver 404"
+write: "Alice intenta cambiarlo\nPATCH debe devolver 404"
+owner: "Bob consulta su draft\nGET debe devolver 200"
+state: "Título original conservado\nRechazo sin modificación"
+positive -> read
+read -> write
+write -> owner
+owner -> state

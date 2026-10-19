@@ -1,0 +1,8 @@
+direction: down
+context: "Contexto y documento\nAtributos conocidos"
+tenant: "Mismo tenant\nTambién para admin"
+rules: "Acción con regla explícita\nLeer o editar según política"
+result: "Se cumple la regla: permitir\nEn otro caso: denegar"
+context -> tenant
+tenant -> rules
+rules -> result

@@ -2,7 +2,7 @@
   "name": "Diseño de APIs y seguridad web: contratos, identidad y permisos",
   "language": "es",
   "status": "draft",
-  "roadmap": "P020–P027 desarrollados en dieciséis entregas. P028–P031 siguen pendientes; las partes no añaden fichas al catálogo. La rotación de refresh es un modelo separado del RP OIDC.",
+  "roadmap": "P020–P028 desarrollados en diecinueve entregas. P029–P031 siguen pendientes; las partes no añaden fichas al catálogo. La rotación de refresh es un modelo separado del RP OIDC; permisos tiene un laboratorio independiente.",
   "articles": [
     {
       "id": "P020",
@@ -116,6 +116,27 @@
       "title": "Validar un ID token: firma, JWKS y claims que tu aplicación espera",
       "prerequisites": ["P027"],
       "roadmapId": "P027"
+    },
+    {
+      "id": "P028",
+      "slug": "autorizacion-rbac-abac-permisos-recursos",
+      "title": "Autorización por recurso: combinar RBAC, ABAC y ownership sin permisos implícitos",
+      "prerequisites": ["P026", "P027"],
+      "roadmapId": "P028"
+    },
+    {
+      "id": "API-AUTHZ-TENANT",
+      "slug": "autorizacion-multi-tenant-contexto-datos",
+      "title": "Autorización multi-tenant: llevar el contexto hasta la lectura y la escritura",
+      "prerequisites": ["P028"],
+      "roadmapId": "P028"
+    },
+    {
+      "id": "API-AUTHZ-TESTS",
+      "slug": "autorizacion-tests-adversariales-bola",
+      "title": "Probar autorización por HTTP: detectar BOLA sin conformarse con un 403",
+      "prerequisites": ["P028", "API-AUTHZ-TENANT"],
+      "roadmapId": "P028"
     }
   ]
 }

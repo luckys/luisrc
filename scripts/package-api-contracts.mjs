@@ -15,6 +15,7 @@ for (const [manifest, directory, archive] of [
     'api-paginacion-evolucion-lab.zip',
   ],
   ['identity-download-manifest.json', 'api-identidad', 'api-identidad-lab.zip'],
+  ['authorization-download-manifest.json', 'api-permisos', 'api-permisos-lab.zip'],
 ]) {
   const files = JSON.parse(await readFile(`assets/api-contracts/${manifest}`, 'utf8'))
   execFileSync(
@@ -28,4 +29,10 @@ for (const file of ['model.mjs', 'explorer.html', 'explorer.mjs'])
   await copyFile(
     `examples/api-paginacion-evolucion/${file}`,
     `public/assets/interactive/api-pagination/${file}`,
+  )
+await mkdir('public/assets/interactive/api-authorization', { recursive: true })
+for (const file of ['policy.mjs', 'explorer.html', 'explorer.css', 'explorer.mjs'])
+  await copyFile(
+    `examples/api-permisos/${file}`,
+    `public/assets/interactive/api-authorization/${file}`,
   )

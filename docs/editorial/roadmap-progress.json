@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 47,
-    "related_only": 37,
+    "draft_exists": 48,
+    "related_only": 36,
     "not_written": 91
   },
   "completionProven": false,
@@ -335,8 +335,12 @@
         {
           "id": "P028",
           "title": "Autorización: RBAC, ABAC y permisos sobre recursos",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/autorizacion-rbac-abac-permisos-recursos.md",
+            "slug": "autorizacion-rbac-abac-permisos-recursos",
+            "draft": true
+          },
           "related": [
             "autenticacion-autorizacion-tenant"
           ],

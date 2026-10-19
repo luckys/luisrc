@@ -2,13 +2,13 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **47**. Solo material relacionado: **37**. Sin artículo identificado: **91**.
+IDs con borrador propio: **48**. Solo material relacionado: **36**. Sin artículo identificado: **91**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
 ## Orden de continuación
 
-Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Serie 03 desarrolla P020–P027 en dieciséis entregas: contratos, validación, errores, paginación, evolución e identidad. OIDC se integra con un OP local; refresh es un modelo separado, no renovación integrada del RP. Continuar P028–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
+Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Serie 03 desarrolla P020–P028 en diecinueve entregas: contratos, validación, errores, paginación, evolución, identidad y permisos. OIDC se integra con un OP local; refresh es un modelo separado, no renovación integrada del RP. P028 añade un laboratorio independiente de autorización por objeto y tenant, sin autenticación de producción. Continuar P029–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
@@ -47,7 +47,7 @@ Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle es
 - P025. Versionado y evolución de APIs: [borrador](../../src/content/posts/es/evolucion-api-versiones-consumidores-contratos.md).
 - P026. Autenticación: sesiones, cookies y tokens: [borrador](../../src/content/posts/es/sesiones-web-cookies-identidad.md).
 - P027. OAuth 2.0 y OpenID Connect explicados: [borrador](../../src/content/posts/es/oauth-oidc-authorization-code-pkce.md).
-- P028. Autorización: RBAC, ABAC y permisos sobre recursos: relacionado, requiere revisión.
+- P028. Autorización: RBAC, ABAC y permisos sobre recursos: [borrador](../../src/content/posts/es/autorizacion-rbac-abac-permisos-recursos.md).
 - P029. Seguridad del navegador y frontend: relacionado, requiere revisión.
 - P030. Seguridad avanzada de APIs: relacionado, requiere revisión.
 - P031. REST, GraphQL, gRPC, Webhooks y APIs por eventos: relacionado, requiere revisión.

@@ -70,8 +70,23 @@ try {
         )
         await page.screenshot({ path: `${folder}/P023-table-mobile.png` })
       }
+      if (['P028', 'API-AUTHZ-TESTS'].includes(entry.id) && width === 360) {
+        const table = page.getByRole('region', {
+          name:
+            entry.id === 'P028'
+              ? 'Política de lectura y edición por rol'
+              : 'Casos adversariales de autorización HTTP',
+        })
+        await table.scrollIntoViewIfNeeded()
+        await table.focus()
+        assert.ok(await table.evaluate((element) => element === document.activeElement))
+        await table.press('ArrowRight')
+        await page.screenshot({ path: `${folder}/${entry.id}-table-mobile.png` })
+      }
       for (const link of await page
-        .locator('article a[href^="/posts/"],a[href^="/assets/examples/"]')
+        .locator(
+          'article a[href^="/posts/"],a[href^="/assets/examples/"],article a[href^="/assets/interactive/"]',
+        )
         .all()) {
         const href = await link.getAttribute('href')
         assert.equal((await page.request.get(origin + href)).status(), 200, href)
@@ -121,6 +136,54 @@ try {
     id: 'pagination-explorer',
     width: 360,
     cases: ['insert', 'move', 'delete', 'reset', 'keyboard'],
+  })
+  await page.goto(`${origin}/assets/interactive/api-authorization/explorer.html`, {
+    waitUntil: 'networkidle',
+  })
+  const result = page.locator('#result')
+  assert.equal(await result.textContent(), 'Permitido')
+  await page.locator('#state').selectOption('published')
+  assert.equal(await result.textContent(), 'Denegado')
+  await page.locator('#role').selectOption('admin')
+  assert.equal(await result.textContent(), 'Denegado')
+  await page.locator('#state').selectOption('draft')
+  await page.locator('#owner').selectOption('bob')
+  assert.equal(await result.textContent(), 'Permitido')
+  await page.locator('#tenant').selectOption('south')
+  assert.equal(await result.textContent(), 'Denegado')
+  await page.locator('#reset').click()
+  assert.equal(await result.textContent(), 'Permitido')
+  await page.locator('#role').selectOption('unknown')
+  assert.equal(await result.textContent(), 'Denegado')
+  await page.locator('#reset').click()
+  await page.locator('#role').focus()
+  await page.keyboard.press('ArrowUp')
+  await page.keyboard.press('Enter')
+  await page.keyboard.press('Escape')
+  assert.equal(await page.locator('#role').inputValue(), 'reader')
+  assert.equal(await result.textContent(), 'Denegado')
+  assert.ok(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1,
+    ),
+  )
+  await page.screenshot({
+    path: `${folder}/authorization-explorer-mobile.png`,
+    fullPage: true,
+  })
+  report.push({
+    id: 'authorization-explorer',
+    width: 360,
+    cases: [
+      'own-draft',
+      'published',
+      'admin-limited',
+      'tenant',
+      'unknown-role',
+      'reset',
+      'keyboard',
+    ],
   })
   assert.deepEqual(errors, [])
   await writeFile(`${folder}/report.json`, JSON.stringify(report, null, 2) + '\n')

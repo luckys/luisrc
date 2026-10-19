@@ -119,7 +119,7 @@ No se ha probado rotación operativa de claves, indisponibilidad prolongada de J
 
 Mantén firma, issuer, fechas y nonce correctos, pero cambia únicamente audience. Ejecuta el test y explica qué error de diseño aparecería si se eliminara esa comprobación. Después localiza la línea que impediría crear la sesión.
 
-El siguiente bloque del roadmap estudiará permisos sobre recursos y tenant context. Estas cuatro entregas desarrollan P026 y P027; no completan todavía toda la serie de seguridad web.
+Continúa con [autorización por recurso: RBAC, ABAC y ownership](/posts/autorizacion-rbac-abac-permisos-recursos). Una identidad válida todavía necesita permisos sobre cada objeto; estas cuatro entregas de identidad no completan toda la serie de seguridad web.
 
 ## Referencias
 

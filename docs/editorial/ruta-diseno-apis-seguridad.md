@@ -1,8 +1,8 @@
 # Diseño de APIs y seguridad web
 
-Dieciséis entregas españolas y draft para las fichas **P020–P027** de la Serie 03.
+Diecinueve entregas españolas y draft para las fichas **P020–P028** de la Serie 03.
 La división mantiene las URL originales y no añade fichas al catálogo.
-No completa P028–P031. Ejemplos independientes de Paysafe; sin traducción, audio
+No completa P029–P031. Ejemplos independientes de Paysafe; sin traducción, audio
 o publicación automática.
 
 ## Orden de lectura
@@ -39,13 +39,19 @@ o publicación automática.
     Roles, fronteras, scopes, state, nonce y canje con un OP de test real.
 16. **API-OIDC-VALIDATION.** [Validar un ID token: firma, JWKS y claims que tu aplicación espera](../../src/content/posts/es/oidc-validar-id-token-jwks-claims.md).
     Firma RS256, issuer, audience, exp, iat, nonce, sub y azp, con variantes adversariales.
+17. **P028.** [Autorización por recurso: combinar RBAC, ABAC y ownership sin permisos implícitos](../../src/content/posts/es/autorizacion-rbac-abac-permisos-recursos.md).
+    Política explícita, roles locales, atributos, relaciones, least privilege y cierre por defecto.
+18. **API-AUTHZ-TENANT.** [Autorización multi-tenant: llevar el contexto hasta la lectura y la escritura](../../src/content/posts/es/autorizacion-multi-tenant-contexto-datos.md).
+    Membership, claves compuestas, listados autorizados, proyección y límites de concurrencia.
+19. **API-AUTHZ-TESTS.** [Probar autorización por HTTP: detectar BOLA sin conformarse con un 403](../../src/content/posts/es/autorizacion-tests-adversariales-bola.md).
+    Controles positivos y adversariales, lectura/escritura entre tenants y estado posterior.
 
 La ruta común pasa del contrato de validación a Zod y errores. Pydantic parte del
 mismo contrato y puede leerse en paralelo o en su lugar; ningún artículo posterior
 la exige como prerrequisito. Las fechas y el manifiesto conservan este orden en
 la interfaz del blog.
 
-## Un laboratorio por bloque, no dieciséis proyectos independientes
+## Un laboratorio por bloque, no diecinueve proyectos independientes
 
 | Bloque                 | Artículos | Fuentes y evidencia                                                                                                      |
 | ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -53,6 +59,7 @@ la interfaz del blog.
 | Validación y errores   | 3–7       | [api-validacion-errores](../../examples/api-validacion-errores/README.md), trece tests Node y cuatro Python.             |
 | Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../examples/api-paginacion-evolucion/README.md), trece tests sin Docker y seis PostgreSQL. |
 | Identidad              | 13–16     | [api-identidad](../../examples/api-identidad/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.  |
+| Permisos               | 17–19     | [api-permisos](../../examples/api-permisos/README.md), cinco tests de política y trece HTTP; visor con la misma función. |
 
 Cada README relaciona la entrega con sus archivos y pruebas. La reserva de inventario
 pertenece al bloque de validación; el listado de pedidos al de paginación. No se
@@ -72,6 +79,7 @@ viven en consistencia. El visor no consulta PostgreSQL ni mide latencia.
 - P025: dos entregas, detectar incompatibilidad y operar una transición.
 - P026: dos entregas, sesión opaca y modelo de rotación/reutilización.
 - P027: dos entregas, protocolo y política de validación del resultado.
+- P028: tres entregas, política RBAC/ABAC, aislamiento de datos y tests adversariales.
 
 Los IDs API-\* nuevos identifican partes editoriales. No se usan IDs
 reservados del roadmap para inflar el avance. La división, las ampliaciones y las
@@ -81,14 +89,13 @@ comprobaciones están en [api-series-split-review.md](api-series-split-review.md
 
 | Ficha             | Trabajo que sigue necesitando una entrega propia                                  |
 | ----------------- | --------------------------------------------------------------------------------- |
-| P028. Permisos    | Lectura y modificación multi-tenant con casos adversariales por HTTP.             |
 | P029. Navegador   | Reproducir XSS/CSRF y verificar correcciones sin confundir CORS con autorización. |
 | P030. Amenazas    | Threat model y tests de SQLi/SSRF/mass assignment/abuso.                          |
 | P031. Integración | Polling/eventos, GraphQL/gRPC y límites ejecutados sin benchmarks inventados.     |
 
 ## Límites conservados
 
-Loopback, datos ficticios y sin identidades de producción, permisos o pagos. P020/P021 validan
+Loopback, datos ficticios y sin identidades de producción o pagos. P020/P021 validan
 manualmente su contrato. Ajv, Zod y Pydantic se contrastan en casos concretos, no
 se demuestra equivalencia universal. Pydantic no es un servidor HTTP de la demo.
 
@@ -105,3 +112,9 @@ no configuración de producción. El RP crea una sesión opaca; el modelo de
 refresh es complementario, no una renovación OAuth integrada en esa sesión.
 Map de un proceso, sin persistencia o recolección completa. Logout local no
 cierra el OP. M2M se explica, no se ejecuta. Ver [api-identity-review.md](api-identity-review.md).
+
+Permisos no se integra con el OP: un adaptador de fixtures reconoce IDs internos
+y el servidor consulta membership en cada petición. Política y almacenamiento
+en memoria, sin SQL/RLS, cachés o infraestructura multi-tenant. El tramo de decisión
+y escritura es síncrono, no una transacción de base de datos. El visor es un modelo
+educativo, no una API. Ver [api-authorization-review.md](api-authorization-review.md).
