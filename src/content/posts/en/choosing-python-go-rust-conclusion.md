@@ -4,7 +4,7 @@ published: 2026-10-08
 locale: en
 translationKey: elegir-lenguaje-python-go-rust-conclusion
 slug: choosing-python-go-rust-conclusion
-draft: true
+draft: false
 description: 'The series conclusion: strengths, use cases, and limits of Python, Go, Rust, PHP, and TypeScript, with criteria for choosing and common myths explained.'
 author: 'Luis Ramírez Calle'
 series: 'Learning other languages from PHP and TypeScript'

@@ -4,7 +4,7 @@ published: 2026-10-08
 locale: es
 translationKey: elegir-lenguaje-python-go-rust-conclusion
 slug: elegir-lenguaje-python-go-rust-conclusion
-draft: true
+draft: false
 description: 'Cierre de la serie: ventajas, ámbitos y límites de Python, Go, Rust, PHP y TypeScript, con criterios para elegir y mitos explicados.'
 author: 'Luis Ramírez Calle'
 series: 'Aprender otros lenguajes desde PHP y TypeScript'
