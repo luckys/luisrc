@@ -2,7 +2,7 @@
   "name": "Diseño de APIs y seguridad web: contratos, identidad y permisos",
   "language": "es",
   "status": "draft",
-  "roadmap": "Treinta entregas: P020–P029 y P030 parcial en siete partes. SSRF y consumo/rate limiting tienen fixtures locales, sin infraestructura distribuida. Faltan broken auth/secretos reales; P031 pendiente. Las partes no añaden fichas al catálogo. Refresh sigue separado del RP OIDC.",
+  "roadmap": "Treinta y seis entregas: P020–P030 y P031 dividido en polling/SSE, GraphQL, gRPC y elección. Laboratorios locales, sin aceptación automática. Refresh P026 sigue separado del RP OIDC.",
   "articles": [
     {
       "id": "P020",
@@ -228,6 +228,34 @@
       "title": "Rotar secretos: comprobar la nueva credencial antes de retirar la anterior",
       "prerequisites": ["API-THREATS-CREDENTIALS"],
       "roadmapId": "P030"
+    },
+    {
+      "id": "P031",
+      "slug": "polling-eventos-estado-pedido",
+      "title": "Polling o eventos: seguir un pedido sin perder cambios",
+      "prerequisites": ["P020", "P021"],
+      "roadmapId": "P031"
+    },
+    {
+      "id": "API-INTEGRATION-GRAPHQL",
+      "slug": "graphql-resolvers-n-mas-uno-dataloader",
+      "title": "GraphQL y N+1: un request no implica una sola lectura",
+      "prerequisites": ["P031"],
+      "roadmapId": "P031"
+    },
+    {
+      "id": "API-INTEGRATION-GRPC",
+      "slug": "grpc-protobuf-deadlines-compatibilidad",
+      "title": "gRPC: contratos Protobuf, deadlines y compatibilidad",
+      "prerequisites": ["P031"],
+      "roadmapId": "P031"
+    },
+    {
+      "id": "API-INTEGRATION-CHOICE",
+      "slug": "elegir-integracion-rest-callbacks-subscriptions-eventos",
+      "title": "Elegir una integración: REST, callbacks, subscriptions y eventos",
+      "prerequisites": ["P031", "API-INTEGRATION-GRAPHQL", "API-INTEGRATION-GRPC"],
+      "roadmapId": "P031"
     }
   ]
 }

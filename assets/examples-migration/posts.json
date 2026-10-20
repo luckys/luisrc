@@ -302,6 +302,13 @@
   },
   {
     "locale": "es",
+    "slug": "elegir-integracion-rest-callbacks-subscriptions-eventos",
+    "labs": [
+      "api-integration"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "elegir-sql-nosql-motores-especializados",
     "labs": [
       "database-fundamentals"
@@ -417,6 +424,20 @@
     "slug": "grafos-listas-adyacencia-matrices",
     "labs": [
       "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "graphql-resolvers-n-mas-uno-dataloader",
+    "labs": [
+      "api-integration"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "grpc-protobuf-deadlines-compatibilidad",
+    "labs": [
+      "api-integration"
     ]
   },
   {
@@ -620,6 +641,13 @@
     "slug": "pilas-colas-lifo-fifo",
     "labs": [
       "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "polling-eventos-estado-pedido",
+    "labs": [
+      "api-integration"
     ]
   },
   {

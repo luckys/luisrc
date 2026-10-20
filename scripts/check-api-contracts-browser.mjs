@@ -409,6 +409,49 @@ try {
       'range-keyboard',
     ],
   })
+  await page.goto(`${origin}/assets/interactive/api-integration/explorer.html`, {
+    waitUntil: 'networkidle',
+  })
+  assert.equal(await page.locator('#polls span').count(), 5)
+  assert.ok((await page.locator('#rows tr').first().textContent()).includes('231'))
+  const interval = page.locator('#interval')
+  await interval.focus()
+  await interval.press('ArrowRight')
+  assert.equal(await interval.inputValue(), '4')
+  assert.equal(await page.locator('#polls span').count(), 4)
+  await interval.fill('6')
+  await interval.dispatchEvent('input')
+  assert.equal(await page.locator('#polls span').count(), 3)
+  assert.equal(await page.locator('#polls span').nth(1).textContent(), '6s → v3')
+  await interval.fill('7')
+  await interval.dispatchEvent('input')
+  assert.ok(
+    (await page.locator('#rows tr').last().textContent()).includes('Fuera de ventana'),
+  )
+  assert.ok(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1,
+    ),
+  )
+  const integrationTable = page.getByRole('region', {
+    name: 'Detección de cambios con polling',
+  })
+  await integrationTable.focus()
+  await integrationTable.press('ArrowRight')
+  await page.waitForFunction(
+    (element) => element.scrollLeft > 0,
+    await integrationTable.elementHandle(),
+  )
+  await page.screenshot({
+    path: `${folder}/integration-timeline-mobile.png`,
+    fullPage: true,
+  })
+  report.push({
+    id: 'integration-timeline',
+    width: 360,
+    cases: ['default', 'keyboard', 'merged-versions', 'window-end', 'table-scroll'],
+  })
   assert.deepEqual(errors, [])
   await writeFile(`${folder}/report.json`, JSON.stringify(report, null, 2) + '\n')
   console.log(folder)

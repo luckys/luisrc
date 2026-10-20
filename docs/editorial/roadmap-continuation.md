@@ -1,5 +1,24 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: P031, 20 de octubre de 2026
+
+Las notas posteriores de «P031 pendiente» son históricas. Hay cuatro drafts nuevos,
+36 entregas API en total: polling/SSE, GraphQL N+1, gRPC y elección de integración.
+Ruta y manifest actualizados. Código en `packages/api-integration` del monorepo,
+con carpetas en inglés e índices por post. No recrear ejemplos o ZIPs en el blog.
+
+Ver [la revisión P031](api-integration-review.md) para pruebas, división y límites.
+Verificados: 17 tests del laboratorio, cuatro estructurales, 46 editoriales,
+trece suites locales, build y 19 tests del blog; ocho vistas Chromium y seis visores.
+El inventario tiene 51 IDs exactos, 33 relacionados y 91 sin artículo identificado;
+no certifica aceptación. El gap de renovación OAuth de P026 permanece explícito.
+
+Siguiente paso editorial: revisar cobertura de las Series 04–06 contra cada ficha,
+aprovechando los artículos de bases de datos y sistemas distribuidos ya escritos,
+antes de crear duplicados. Después Deep Learning y Series 11–16. Mantener español,
+drafts, posts específicos y pruebas de ejemplos en el monorepo separado. Sin traducción,
+audio, publicación o push automáticos.
+
 ## Separación de ejemplos, 20 de octubre de 2026
 
 Los ejemplos se han trasladado a `/home/luckys/Projects/Frontend/luisrc-blog-examples`,

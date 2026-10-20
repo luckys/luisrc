@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+snapshot: "GET /orders/o1\nSnapshot v1"
+change: "El pedido cambia a v2\nSin stream todavía"
+subscribe: "GET /events?after=1\nReplay y registro juntos"
+live: "Nuevo cambio: v3\nFrame en stream activo"
+recover: "Cursor vencido: 410\nVolver a leer snapshot"
+snapshot -> change -> subscribe -> live -> recover

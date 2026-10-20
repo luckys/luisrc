@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+query: "Query: tres pedidos\nCon su cliente"
+root: "Una lectura de pedidos\nClaves: c1, c2, c1"
+naive: "Sin batch: 1 + 3 lecturas\nc1 se consulta dos veces"
+batch: "DataLoader por operación\nUn lote: c1, c2"
+order: "Mismos datos: 1 + 1 lecturas\nRestaurar orden de claves"
+query -> root -> naive -> batch -> order

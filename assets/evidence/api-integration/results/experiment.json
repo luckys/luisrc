@@ -1,0 +1,58 @@
+{
+  "scope": "Loopback HTTP, SSE and gRPC. In-memory repository calls, not SQL or latency benchmarks.",
+  "polling": {
+    "requests": 4,
+    "responses": [
+      200,
+      304,
+      200,
+      200
+    ],
+    "final": {
+      "id": "o1",
+      "status": "shipped",
+      "version": 3
+    }
+  },
+  "events": {
+    "requests": 2,
+    "snapshotRequests": 1,
+    "streamConnections": 1,
+    "received": [
+      {
+        "schemaVersion": 1,
+        "orderId": "o1",
+        "version": 2,
+        "status": "paid"
+      },
+      {
+        "schemaVersion": 1,
+        "orderId": "o1",
+        "version": 3,
+        "status": "shipped"
+      }
+    ],
+    "final": {
+      "id": "o1",
+      "status": "shipped",
+      "version": 3
+    }
+  },
+  "graphql": {
+    "naive": {
+      "orderReads": 1,
+      "customerReads": 3
+    },
+    "batched": {
+      "orderReads": 1,
+      "customerReads": 1
+    },
+    "sameData": true
+  },
+  "grpc": {
+    "id": "o1",
+    "status": "shipped",
+    "version": 3,
+    "displayLabel": "Order o1"
+  }
+}

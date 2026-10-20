@@ -206,6 +206,26 @@
       "source": "packages/reliable-services/results/load.json",
       "destination": "assets/evidence/reliable-services/results/load.json",
       "sha256": "7e73d1604ff7f128951489c5382e4fa8f9cb360a48d43473c7c1d73d27027b09"
+    },
+    {
+      "source": "packages/api-integration/explorer.html",
+      "destination": "public/assets/interactive/api-integration/explorer.html",
+      "sha256": "51610f972409a641aaff3b0b00aecd31f53c639833e983496d1a2a34d1ba9548"
+    },
+    {
+      "source": "packages/api-integration/explorer.mjs",
+      "destination": "public/assets/interactive/api-integration/explorer.mjs",
+      "sha256": "fb35fa556af3385542dcf93e8ecf6d7e999480c0ab5ab27800cf6d7aefc5da11"
+    },
+    {
+      "source": "packages/api-integration/timeline.mjs",
+      "destination": "public/assets/interactive/api-integration/timeline.mjs",
+      "sha256": "22a211193034998719d6647d97783df43231fe96b79497d55ad941222f8cae8b"
+    },
+    {
+      "source": "packages/api-integration/results/experiment.json",
+      "destination": "assets/evidence/api-integration/results/experiment.json",
+      "sha256": "d6dfab9447b22aaa3e3791553acb26c2b1af3e4cba3fd122c8d10a854f327a32"
     }
   ]
 }

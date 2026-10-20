@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+call: "Cliente: GetOrder\nMetadata y deadline"
+auth: "Validar identidad\nID y tenant"
+work: "Lectura con plazo\nCancelación cooperativa"
+response: "Respuesta o error de plazo\nNo implica rollback"
+cancel: "Si se cancela la llamada:\nLimpiar trabajo pendiente"
+call -> auth -> work -> response -> cancel

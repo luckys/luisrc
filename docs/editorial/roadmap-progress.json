@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 50,
-    "related_only": 34,
+    "draft_exists": 51,
+    "related_only": 33,
     "not_written": 91
   },
   "completionProven": false,
@@ -377,8 +377,12 @@
         {
           "id": "P031",
           "title": "REST, GraphQL, gRPC, Webhooks y APIs por eventos",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/polling-eventos-estado-pedido.md",
+            "slug": "polling-eventos-estado-pedido",
+            "draft": true
+          },
           "related": [
             "webhooks-firmas-inbox-eventos-desordenados",
             "sse-websockets-reconexion-eventos-perdidos"

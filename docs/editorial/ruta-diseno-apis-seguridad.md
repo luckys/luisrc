@@ -1,8 +1,8 @@
 # Diseño de APIs y seguridad web
 
-Treinta y dos entregas españolas y draft: P020–P030 de la Serie 03.
+Treinta y seis entregas españolas y draft: P020–P031 de la Serie 03.
 La división mantiene las URL originales y no añade fichas al catálogo.
-P030 desarrolla su temario con límites de laboratorio explícitos; P031 sigue pendiente.
+P030 y P031 desarrollan su temario con límites de laboratorio explícitos.
 Ejemplos independientes de Paysafe; sin traducción, audio
 o publicación automática.
 
@@ -77,29 +77,38 @@ de empaquetado que aparecen en revisiones anteriores son históricos; sigue
     Digest, caducidad, revocación, scopes, errores del almacén y ausencia de fallback.
 32. **API-THREATS-SECRETS.** [Rotar secretos: comprobar la nueva credencial antes de retirar la anterior](../../src/content/posts/es/secretos-rotacion-recarga-revocacion.md).
     Recarga verificada, convivencia, revocación, proyección de logs y cinco etapas HTTP reproducibles.
+33. **P031.** [Polling o eventos: seguir un pedido sin perder cambios](../../src/content/posts/es/polling-eventos-estado-pedido.md).
+    Snapshot/ETag, 304, SSE, replay entre lectura y conexión, retención y reconciliación.
+34. **API-INTEGRATION-GRAPHQL.** [GraphQL y N+1: un request no implica una sola lectura](../../src/content/posts/es/graphql-resolvers-n-mas-uno-dataloader.md).
+    Schema, resolvers, 4 frente a 2 lecturas, batch ordenado y caché por operación/tenant.
+35. **API-INTEGRATION-GRPC.** [gRPC: contratos Protobuf, deadlines y compatibilidad](../../src/content/posts/es/grpc-protobuf-deadlines-compatibilidad.md).
+    Unary real, metadata, validación, deadline/cancelación y consumidor binario anterior.
+36. **API-INTEGRATION-CHOICE.** [Elegir una integración: REST, callbacks, subscriptions y eventos](../../src/content/posts/es/elegir-integracion-rest-callbacks-subscriptions-eventos.md).
+    Separar contrato/interacción/entrega; callbacks, seguridad y evolución con referencias a webhooks/SSE previos.
 
 La ruta común pasa del contrato de validación a Zod y errores. Pydantic parte del
 mismo contrato y puede leerse en paralelo o en su lugar; ningún artículo posterior
 la exige como prerrequisito. Las fechas y el manifiesto conservan este orden en
 la interfaz del blog.
 
-## Un laboratorio por bloque, no treinta y dos proyectos independientes
+## Un laboratorio por bloque, no treinta y seis proyectos independientes
 
-| Bloque                 | Artículos | Fuentes y evidencia                                                                                                                 |
-| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Contratos HTTP         | 1–2       | [api-contratos](../../packages/api-contracts/README.md), once tests sin instalaciones.                                              |
-| Validación y errores   | 3–7       | [api-validacion-errores](../../packages/api-validation-errors/README.md), trece tests Node y cuatro Python.                         |
-| Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../packages/api-pagination-evolution/README.md), trece tests sin Docker y seis PostgreSQL.            |
-| Identidad              | 13–16     | [api-identidad](../../packages/api-identity/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.              |
-| Permisos               | 17–19     | [api-permisos](../../packages/api-authorization/README.md), cinco tests de política y trece HTTP; visor con la misma función.       |
-| Navegador              | 20–23     | [api-navegador](../../packages/browser-security/README.md), siete tests HTTP y ocho Chromium; sandbox solo local.                   |
-| Amenazas               | 24–32     | [api-amenazas](../../packages/api-threats/README.md), 58 tests HTTP/SQLite/SSRF/admisión/credenciales, threat model y tres visores. |
+| Bloque                 | Artículos | Fuentes y evidencia                                                                                                                                                                      |
+| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Contratos HTTP         | 1–2       | [api-contracts](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-contracts/README.md), once tests sin instalaciones.                                                |
+| Validación y errores   | 3–7       | [api-validation-errors](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-validation-errors/README.md), trece tests Node y cuatro Python.                            |
+| Paginación y evolución | 8–12      | [api-pagination-evolution](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-pagination-evolution/README.md), trece tests sin Docker y seis PostgreSQL.              |
+| Identidad              | 13–16     | [api-identity](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-identity/README.md), diez tests Node y Chromium.                                                    |
+| Permisos               | 17–19     | [api-authorization](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-authorization/README.md), cinco tests de política y trece HTTP.                                |
+| Navegador              | 20–23     | [browser-security](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security/README.md), siete tests HTTP y ocho Chromium.                                      |
+| Amenazas               | 24–32     | [api-threats](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/README.md), 58 tests y tres visores.                                                         |
+| Integración            | 33–36     | [api-integration](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-integration/README.md), HTTP/SSE, GraphQL.js/DataLoader y gRPC reales; tiempo simulado separado. |
 
 Cada README relaciona la entrega con sus archivos y pruebas. La reserva de inventario
 pertenece al bloque de validación; el listado de pedidos al de paginación. No se
 presentan como un único servidor que implemente todas las capacidades a la vez.
 
-Los ZIP se mantienen compartidos por bloque. La tabla de medianas y su gráfica
+El código se comparte por bloque en el monorepo, sin ZIPs en el blog. La tabla de medianas y su gráfica
 viven en rendimiento; la inserción y el [visor educativo](../../public/assets/interactive/api-pagination/explorer.html)
 viven en consistencia. El visor no consulta PostgreSQL ni mide latencia.
 
@@ -116,6 +125,7 @@ viven en consistencia. El visor no consulta PostgreSQL ni mide latencia.
 - P028: tres entregas, política RBAC/ABAC, aislamiento de datos y tests adversariales.
 - P029: cuatro entregas, DOM XSS, CSP, CSRF y SOP/CORS. Se evita reunir mecanismos distintos en un único tutorial.
 - P030: nueve entregas, threat modeling, mass assignment, SQL injection, dos de SSRF, concurrencia, token bucket, credenciales de clientes y rotación de secretos. No equivale a una auditoría de producción.
+- P031: cuatro entregas, seguimiento polling/SSE, lecturas GraphQL, RPC/Protobuf y elección de interacción. No se reúnen cuatro mecanismos distintos en un tutorial superficial. Webhooks e inbox conservan sus artículos previos.
 
 Los IDs API-\* nuevos identifican partes editoriales. No se usan IDs
 reservados del roadmap para inflar el avance. La división, las ampliaciones y las
@@ -123,10 +133,10 @@ comprobaciones están en [api-series-split-review.md](api-series-split-review.md
 
 ## Continuación pendiente
 
-| Ficha             | Trabajo que sigue necesitando una entrega propia                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
-| P030. Amenazas    | Revisar cobertura conjunta de las nueve partes; T01/T05–T07 solo fixtures. No exigir un despliegue cloud no pedido. |
-| P031. Integración | Polling/eventos, GraphQL/gRPC y límites ejecutados sin benchmarks inventados.                                       |
+| Ficha             | Trabajo que sigue necesitando una entrega propia                                                                                                    |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| P030. Amenazas    | Revisar cobertura conjunta de las nueve partes; T01/T05–T07 solo fixtures. No exigir un despliegue cloud no pedido.                                 |
+| P031. Integración | Entregada con evidencia local; sin GraphQL subscriptions, gRPC streaming o broker durable implementados. Ver [revisión](api-integration-review.md). |
 
 ## Límites conservados
 
