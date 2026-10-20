@@ -72,9 +72,10 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
               'Integrated Odoo, DocuSeal and Redsys payments; implemented asynchronous background jobs with Redis and BullMQ.',
               'Established automated tests with Vitest, React Testing Library and Playwright, including PostgreSQL integration tests, HTTP contracts and Zod validation; owned Docker, CI/CD, database migrations and production monitoring with GlitchTip.',
               'Integrated AI capabilities using OpenAI API, Retrieval-Augmented Generation (RAG) and AI SDK.',
+              'Designed and implemented a dedicated Python AI microservice for clinical document processing, covering OCR, PII/PHI pseudonymization, clinical RAG and structured FHIR output, with human-in-the-loop review.',
             ],
             technologies:
-              'TypeScript, Node.js, NestJS, React, PostgreSQL, Drizzle ORM, Redis, BullMQ, Docker, Docker Compose, GlitchTip, Redsys, CI/CD, Zod, OpenAI API, RAG, AI SDK, OCR, pnpm',
+              'TypeScript, Python, Node.js, NestJS, React, PostgreSQL, Drizzle ORM, Redis, BullMQ, Docker, Docker Compose, GlitchTip, Redsys, CI/CD, Zod, OpenAI API, RAG, AI SDK, OCR, FHIR, pnpm',
           },
           {
             title: 'TALKUAL',
@@ -136,7 +137,7 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
           },
           {
             title: 'AI product engineering',
-            body: 'AI agent development, Model Context Protocol (MCP), OpenAI API, Anthropic Claude integration, Retrieval-Augmented Generation (RAG), AI SDK, Large Language Model (LLM) integration, Amazon Bedrock, AI-assisted development with human review and testing',
+            body: 'AI agent development, Model Context Protocol (MCP), OpenAI API, Anthropic Claude integration, Retrieval-Augmented Generation (RAG) with Python, AI SDK, Large Language Model (LLM) integration, Amazon Bedrock, AI-assisted development with human review and testing',
           },
           {
             title: 'Data, architecture & security',
@@ -259,9 +260,10 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
               'Integré Odoo, DocuSeal y pagos con Redsys; implementé tareas asíncronas en segundo plano con Redis y BullMQ.',
               'Establecí pruebas automatizadas con Vitest, React Testing Library y Playwright, incluyendo integración con PostgreSQL, contratos HTTP y validación con Zod; asumí Docker, CI/CD, migraciones y monitorización en producción con GlitchTip.',
               'Integré funciones de IA con OpenAI API, generación aumentada por recuperación (RAG) y AI SDK.',
+              'Diseñé e implementé un microservicio de IA en Python para el procesamiento de documentación clínica, con OCR, seudonimización de PII/PHI, RAG clínico y salida estructurada FHIR, incorporando revisión humana.',
             ],
             technologies:
-              'TypeScript, Node.js, NestJS, React, PostgreSQL, Drizzle ORM, Redis, BullMQ, Docker, Docker Compose, GlitchTip, Redsys, CI/CD, Zod, OpenAI API, RAG, AI SDK, OCR, pnpm',
+              'TypeScript, Python, Node.js, NestJS, React, PostgreSQL, Drizzle ORM, Redis, BullMQ, Docker, Docker Compose, GlitchTip, Redsys, CI/CD, Zod, OpenAI API, RAG, AI SDK, OCR, FHIR, pnpm',
           },
           {
             title: 'TALKUAL',
@@ -323,7 +325,7 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
           },
           {
             title: 'Ingeniería de producto con IA',
-            body: 'Creación de agentes de IA, Model Context Protocol (MCP), OpenAI API, integración con Claude (Anthropic), generación aumentada por recuperación (Retrieval-Augmented Generation / RAG), AI SDK, integración de modelos de lenguaje (LLM), Amazon Bedrock, desarrollo asistido por IA con revisión humana y pruebas',
+            body: 'Creación de agentes de IA, Model Context Protocol (MCP), OpenAI API, integración con Claude (Anthropic), generación aumentada por recuperación (Retrieval-Augmented Generation / RAG) con Python, AI SDK, integración de modelos de lenguaje (LLM), Amazon Bedrock, desarrollo asistido por IA con revisión humana y pruebas',
           },
           {
             title: 'Datos, arquitectura y seguridad',

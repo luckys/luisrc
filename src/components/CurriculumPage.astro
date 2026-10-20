@@ -62,13 +62,15 @@ const copy = curriculum[locale]
           </li>
           <li>
             <a
-              href="https://mnf.red/luis-ramirez-calle-fullstack-developer"
+              href="https://luisrc.pages.dev/"
               target="_blank"
               rel="noreferrer"
               data-cv-contact-item
-              data-pdf-text="Manfred: mnf.red/luis-ramirez-calle-fullstack-developer"
+              data-pdf-text={locale === 'es'
+                ? 'Web personal: luisrc.pages.dev'
+                : 'Personal website: luisrc.pages.dev'}
             >
-              Manfred: mnf.red/luis-ramirez-calle-fullstack-developer
+              {locale === 'es' ? 'Web personal' : 'Personal website'}: luisrc.pages.dev
             </a>
           </li>
         </ul>
