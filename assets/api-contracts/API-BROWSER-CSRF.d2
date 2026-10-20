@@ -1,0 +1,10 @@
+direction: down
+form: "Otro origen del sandbox\nFormulario POST"
+browser: "Navegador adjunta cookie\nSi su política lo permite"
+session: "API reconoce la sesión\nEso no basta para escribir"
+control: "Ruta safe exige\nOrigin exacto + token de sesión"
+result: "Válidos: cambia título\nInválidos: 403 sin efectos"
+form -> browser
+browser -> session
+session -> control
+control -> result

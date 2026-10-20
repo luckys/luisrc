@@ -1,8 +1,9 @@
 # Diseño de APIs y seguridad web
 
-Diecinueve entregas españolas y draft para las fichas **P020–P028** de la Serie 03.
+Treinta y dos entregas españolas y draft: P020–P030 de la Serie 03.
 La división mantiene las URL originales y no añade fichas al catálogo.
-No completa P029–P031. Ejemplos independientes de Paysafe; sin traducción, audio
+P030 desarrolla su temario con límites de laboratorio explícitos; P031 sigue pendiente.
+Ejemplos independientes de Paysafe; sin traducción, audio
 o publicación automática.
 
 ## Orden de lectura
@@ -45,21 +46,49 @@ o publicación automática.
     Membership, claves compuestas, listados autorizados, proyección y límites de concurrencia.
 19. **API-AUTHZ-TESTS.** [Probar autorización por HTTP: detectar BOLA sin conformarse con un 403](../../src/content/posts/es/autorizacion-tests-adversariales-bola.md).
     Controles positivos y adversariales, lectura/escritura entre tenants y estado posterior.
+20. **P029.** [XSS en el DOM: mostrar texto sin convertirlo en código](../../src/content/posts/es/xss-dom-texto-html-contextos.md).
+    Source/sink, texto, contextos, HttpOnly, storage y scripts de terceros.
+21. **API-BROWSER-CSP.** [CSP con nonces: bloquear ejecución no es corregir el HTML inyectado](../../src/content/posts/es/csp-nonces-report-only-defensa-adicional.md).
+    Nonces por respuesta, directivas, enforce/Report-Only y verificación de funcionalidad.
+22. **API-BROWSER-CSRF.** [CSRF: por qué una cookie válida no demuestra que el usuario quiso actuar](../../src/content/posts/es/csrf-cookies-samesite-origin-token.md).
+    Same-site frente a same-origin, formularios, cookie, Origin y token ligado a sesión.
+23. **API-BROWSER-CORS.** [CORS y SOP: bloquear la lectura de una respuesta no autoriza una API](../../src/content/posts/es/cors-sop-preflight-no-autorizacion.md).
+    Lectura y efectos separados, preflight real, credenciales, wildcard y cliente Node.
+24. **P030.** [Threat modeling de una API: convertir amenazas en decisiones y pruebas](../../src/content/posts/es/threat-model-api-multi-tenant-pruebas.md).
+    Activos, actores, fronteras, escenarios, prioridades cualitativas, evidencia y riesgos abiertos.
+25. **API-THREATS-ASSIGNMENT.** [Mass assignment: editar un título no debería permitir cambiar el propietario](../../src/content/posts/es/mass-assignment-comandos-propiedades-autorizadas.md).
+    Comando title-only, propiedades permitidas, UPDATE explícito y DTO; visor de diferencias.
+26. **API-THREATS-SQL.** [SQL injection: separar valores y consultas sin perder el filtro de tenant](../../src/content/posts/es/sql-injection-parametros-tenant-ordenacion.md).
+    SQLite real, concatenación frente a binding, autorización independiente y sort cerrado.
+27. **API-THREATS-SSRF.** [SSRF: elegir un recurso no debería permitir elegir cualquier destino de red](../../src/content/posts/es/ssrf-destinos-permitidos-redirecciones.md).
+    Referencias por tenant, origen exacto, redirects y credenciales de salida; conexiones a fixtures.
+28. **API-THREATS-DNS.** [SSRF y DNS: validar una IP no basta si te conectas después a otra](../../src/content/posts/es/ssrf-dns-validacion-conexion-ip.md).
+    Resolver programado, TOCTOU, IP fijada al socket real, Host, límites TLS/proxy y trazas interactivas.
+29. **API-THREATS-CAPACITY.** [Consumo de recursos: limitar trabajo activo sin crear una cola infinita](../../src/content/posts/es/consumo-recursos-concurrencia-bulkheads.md).
+    Cupos global/tenant, rechazo sin cola, release idempotente y finally que espera trabajo/deadline.
+30. **API-THREATS-RATE.** [Token bucket: limitar solicitudes por tenant sin confundir ráfagas y concurrencia](../../src/content/posts/es/rate-limiting-token-bucket-tenant.md).
+    Burst, recarga, reloj, coste fijo, clave verificada, Retry-After y gráfica de decisiones.
+31. **API-THREATS-CREDENTIALS.** [API keys: verificar al cliente sin confundir identidad y permisos](../../src/content/posts/es/api-keys-credenciales-clientes-permisos.md).
+    Digest, caducidad, revocación, scopes, errores del almacén y ausencia de fallback.
+32. **API-THREATS-SECRETS.** [Rotar secretos: comprobar la nueva credencial antes de retirar la anterior](../../src/content/posts/es/secretos-rotacion-recarga-revocacion.md).
+    Recarga verificada, convivencia, revocación, proyección de logs y cinco etapas HTTP reproducibles.
 
 La ruta común pasa del contrato de validación a Zod y errores. Pydantic parte del
 mismo contrato y puede leerse en paralelo o en su lugar; ningún artículo posterior
 la exige como prerrequisito. Las fechas y el manifiesto conservan este orden en
 la interfaz del blog.
 
-## Un laboratorio por bloque, no diecinueve proyectos independientes
+## Un laboratorio por bloque, no treinta y dos proyectos independientes
 
-| Bloque                 | Artículos | Fuentes y evidencia                                                                                                      |
-| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Contratos HTTP         | 1–2       | [api-contratos](../../examples/api-contratos/README.md), once tests sin instalaciones.                                   |
-| Validación y errores   | 3–7       | [api-validacion-errores](../../examples/api-validacion-errores/README.md), trece tests Node y cuatro Python.             |
-| Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../examples/api-paginacion-evolucion/README.md), trece tests sin Docker y seis PostgreSQL. |
-| Identidad              | 13–16     | [api-identidad](../../examples/api-identidad/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.  |
-| Permisos               | 17–19     | [api-permisos](../../examples/api-permisos/README.md), cinco tests de política y trece HTTP; visor con la misma función. |
+| Bloque                 | Artículos | Fuentes y evidencia                                                                                                                  |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Contratos HTTP         | 1–2       | [api-contratos](../../examples/api-contratos/README.md), once tests sin instalaciones.                                               |
+| Validación y errores   | 3–7       | [api-validacion-errores](../../examples/api-validacion-errores/README.md), trece tests Node y cuatro Python.                         |
+| Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../examples/api-paginacion-evolucion/README.md), trece tests sin Docker y seis PostgreSQL.             |
+| Identidad              | 13–16     | [api-identidad](../../examples/api-identidad/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.              |
+| Permisos               | 17–19     | [api-permisos](../../examples/api-permisos/README.md), cinco tests de política y trece HTTP; visor con la misma función.             |
+| Navegador              | 20–23     | [api-navegador](../../examples/api-navegador/README.md), siete tests HTTP y ocho Chromium; sandbox solo local.                       |
+| Amenazas               | 24–32     | [api-amenazas](../../examples/api-amenazas/README.md), 58 tests HTTP/SQLite/SSRF/admisión/credenciales, threat model y tres visores. |
 
 Cada README relaciona la entrega con sus archivos y pruebas. La reserva de inventario
 pertenece al bloque de validación; el listado de pedidos al de paginación. No se
@@ -80,6 +109,8 @@ viven en consistencia. El visor no consulta PostgreSQL ni mide latencia.
 - P026: dos entregas, sesión opaca y modelo de rotación/reutilización.
 - P027: dos entregas, protocolo y política de validación del resultado.
 - P028: tres entregas, política RBAC/ABAC, aislamiento de datos y tests adversariales.
+- P029: cuatro entregas, DOM XSS, CSP, CSRF y SOP/CORS. Se evita reunir mecanismos distintos en un único tutorial.
+- P030: nueve entregas, threat modeling, mass assignment, SQL injection, dos de SSRF, concurrencia, token bucket, credenciales de clientes y rotación de secretos. No equivale a una auditoría de producción.
 
 Los IDs API-\* nuevos identifican partes editoriales. No se usan IDs
 reservados del roadmap para inflar el avance. La división, las ampliaciones y las
@@ -87,11 +118,10 @@ comprobaciones están en [api-series-split-review.md](api-series-split-review.md
 
 ## Continuación pendiente
 
-| Ficha             | Trabajo que sigue necesitando una entrega propia                                  |
-| ----------------- | --------------------------------------------------------------------------------- |
-| P029. Navegador   | Reproducir XSS/CSRF y verificar correcciones sin confundir CORS con autorización. |
-| P030. Amenazas    | Threat model y tests de SQLi/SSRF/mass assignment/abuso.                          |
-| P031. Integración | Polling/eventos, GraphQL/gRPC y límites ejecutados sin benchmarks inventados.     |
+| Ficha             | Trabajo que sigue necesitando una entrega propia                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| P030. Amenazas    | Revisar cobertura conjunta de las nueve partes; T01/T05–T07 solo fixtures. No exigir un despliegue cloud no pedido. |
+| P031. Integración | Polling/eventos, GraphQL/gRPC y límites ejecutados sin benchmarks inventados.                                       |
 
 ## Límites conservados
 
@@ -118,3 +148,24 @@ y el servidor consulta membership en cada petición. Política y almacenamiento
 en memoria, sin SQL/RLS, cachés o infraestructura multi-tenant. El tramo de decisión
 y escritura es síncrono, no una transacción de base de datos. El visor es un modelo
 educativo, no una API. Ver [api-authorization-review.md](api-authorization-review.md).
+
+Navegador reproduce vulnerabilidades solo en loopback. HTTP sin Secure, cookie y
+sesión públicas de fixture, sin integración OIDC. Puertos separan orígenes pero no
+cookies; servicios controlados por los tests. Chromium real, sin interceptación de
+preflight; no otros navegadores o política de terceros. Enforce bloquea un handler,
+no elimina HTML. Ver [api-browser-review.md](api-browser-review.md), que conserva
+también el criterio de posts pequeños y específicos para futuras entregas.
+
+Amenazas usa fixtures públicos, HTTP local y SQLite síncrono en memoria. La ruta
+segura solo escribe title y exige owner/draft en el UPDATE; no hay versiones
+optimistas o auditoría de infraestructura. El visor cuenta cambios de propiedades,
+no mide riesgo. SSRF se reproduce con dos destinos loopback, HTTP real y resolver
+programado: no servidor DNS, TLS, IPv6, proxy o firewall. La guardia del harness
+no es egress desplegado. Admisión usa cupos y token bucket en memoria, sin réplicas,
+colas, persistencia, load test o límites económicos. Credenciales opt-in y ciclo de
+rotación con fuente en memoria; sin secret manager o auditoría durable. No es login
+de personas ni remedia el gap de refresh de P026.
+Ver [api-threats-review.md](api-threats-review.md).
+La continuación de SSRF y la evidencia actual se describen en [api-ssrf-review.md](api-ssrf-review.md).
+Consumo/rate limiting y su alcance están en [api-admission-review.md](api-admission-review.md).
+La continuación de identidad/secretos está en [api-credentials-review.md](api-credentials-review.md).

@@ -1,0 +1,14 @@
+direction: down
+unsafe: "Check y uso no coinciden" {
+  check: "Primera resolución\n127.0.0.1 aprobada"
+  use: "Otra resolución al conectar\n127.0.0.2 no comprobada"
+  result: "Socket al destino interno\nDevuelve INTERNAL-MARKER"
+  check -> use -> result
+}
+safe: "Dirección aprobada fijada" {
+  check: "Resolver y comprobar\n127.0.0.1 aprobada"
+  bind: "Lookup del transporte\nDevuelve la IP ya comprobada"
+  result: "Socket al proveedor\nHost conserva el nombre"
+  check -> bind -> result
+}
+unsafe -> safe: { style.opacity: 0 }

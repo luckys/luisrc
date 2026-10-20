@@ -2,7 +2,7 @@
   "name": "Diseño de APIs y seguridad web: contratos, identidad y permisos",
   "language": "es",
   "status": "draft",
-  "roadmap": "P020–P028 desarrollados en diecinueve entregas. P029–P031 siguen pendientes; las partes no añaden fichas al catálogo. La rotación de refresh es un modelo separado del RP OIDC; permisos tiene un laboratorio independiente.",
+  "roadmap": "Treinta entregas: P020–P029 y P030 parcial en siete partes. SSRF y consumo/rate limiting tienen fixtures locales, sin infraestructura distribuida. Faltan broken auth/secretos reales; P031 pendiente. Las partes no añaden fichas al catálogo. Refresh sigue separado del RP OIDC.",
   "articles": [
     {
       "id": "P020",
@@ -137,6 +137,97 @@
       "title": "Probar autorización por HTTP: detectar BOLA sin conformarse con un 403",
       "prerequisites": ["P028", "API-AUTHZ-TENANT"],
       "roadmapId": "P028"
+    },
+    {
+      "id": "P029",
+      "slug": "xss-dom-texto-html-contextos",
+      "title": "XSS en el DOM: mostrar texto sin convertirlo en código",
+      "prerequisites": ["P009", "P026"],
+      "roadmapId": "P029"
+    },
+    {
+      "id": "API-BROWSER-CSP",
+      "slug": "csp-nonces-report-only-defensa-adicional",
+      "title": "CSP con nonces: bloquear ejecución no es corregir el HTML inyectado",
+      "prerequisites": ["P029"],
+      "roadmapId": "P029"
+    },
+    {
+      "id": "API-BROWSER-CSRF",
+      "slug": "csrf-cookies-samesite-origin-token",
+      "title": "CSRF: por qué una cookie válida no demuestra que el usuario quiso actuar",
+      "prerequisites": ["P029", "P026"],
+      "roadmapId": "P029"
+    },
+    {
+      "id": "API-BROWSER-CORS",
+      "slug": "cors-sop-preflight-no-autorizacion",
+      "title": "CORS y SOP: bloquear la lectura de una respuesta no autoriza una API",
+      "prerequisites": ["P029", "API-BROWSER-CSRF"],
+      "roadmapId": "P029"
+    },
+    {
+      "id": "P030",
+      "slug": "threat-model-api-multi-tenant-pruebas",
+      "title": "Threat modeling de una API: convertir amenazas en decisiones y pruebas",
+      "prerequisites": ["P022", "P026", "P028", "P029"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-ASSIGNMENT",
+      "slug": "mass-assignment-comandos-propiedades-autorizadas",
+      "title": "Mass assignment: editar un título no debería permitir cambiar el propietario",
+      "prerequisites": ["P030"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-SQL",
+      "slug": "sql-injection-parametros-tenant-ordenacion",
+      "title": "SQL injection: separar valores y consultas sin perder el filtro de tenant",
+      "prerequisites": ["P030", "API-THREATS-ASSIGNMENT"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-SSRF",
+      "slug": "ssrf-destinos-permitidos-redirecciones",
+      "title": "SSRF: elegir un recurso no debería permitir elegir cualquier destino de red",
+      "prerequisites": ["P030", "API-THREATS-SQL"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-DNS",
+      "slug": "ssrf-dns-validacion-conexion-ip",
+      "title": "SSRF y DNS: validar una IP no basta si te conectas después a otra",
+      "prerequisites": ["API-THREATS-SSRF"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-CAPACITY",
+      "slug": "consumo-recursos-concurrencia-bulkheads",
+      "title": "Consumo de recursos: limitar trabajo activo sin crear una cola infinita",
+      "prerequisites": ["P030", "API-THREATS-DNS"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-RATE",
+      "slug": "rate-limiting-token-bucket-tenant",
+      "title": "Token bucket: limitar solicitudes por tenant sin confundir ráfagas y concurrencia",
+      "prerequisites": ["API-THREATS-CAPACITY"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-CREDENTIALS",
+      "slug": "api-keys-credenciales-clientes-permisos",
+      "title": "API keys: verificar al cliente sin confundir identidad y permisos",
+      "prerequisites": ["API-THREATS-RATE"],
+      "roadmapId": "P030"
+    },
+    {
+      "id": "API-THREATS-SECRETS",
+      "slug": "secretos-rotacion-recarga-revocacion",
+      "title": "Rotar secretos: comprobar la nueva credencial antes de retirar la anterior",
+      "prerequisites": ["API-THREATS-CREDENTIALS"],
+      "roadmapId": "P030"
     }
   ]
 }

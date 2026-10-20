@@ -9,20 +9,29 @@ Los últimos turnos han producido progreso verificable: diez borradores de ML cl
 y nueve de Computación, sistemas y redes, con laboratorios y recursos visuales.
 La instrucción más reciente restringe la Serie 02 a estructuras de datos y algoritmos:
 P011 se ha ampliado a 21 entregas, sin redactar P010 o P012–P019.
-Después se continúa Serie 03 con P020–P028: contratos, validación, errores,
-paginación, evolución, identidad y permisos, desarrollados en diecinueve entregas.
+Después se continúa Serie 03 con P020–P029: contratos, validación, errores,
+paginación, evolución, identidad, permisos y navegador, en veintitrés entregas.
+P030 continúa con nueve entregas específicas: threat modeling, mass assignment,
+SQL injection, dos sobre SSRF, concurrencia, token bucket, credenciales de clientes
+y rotación de secretos. Treinta y dos entregas API en total. No es una auditoría
+de infraestructura; el alcance del laboratorio es local.
 No es una espera ni una declaración de finalización. Mantener el objetivo activo.
 
 ## Estado de trabajo
 
-- Commit `09fe2e5` guarda las cuatro entregas de identidad P026/P027.
+- Commit `ed7a5b3` guarda las tres entregas de permisos P028 y su laboratorio.
+  Commit `09fe2e5` guarda las cuatro entregas de identidad P026/P027.
   Commit `cdea5a0` guarda la división editorial de P020–P025 en doce entregas,
   sobre `89f67b4` para P024/P025 y `fb190d4` para validación/errores.
-  Las tres entregas nuevas de permisos P028 son posteriores y siguen sin commit.
+  Las cuatro entregas nuevas de navegador P029 son posteriores y siguen sin commit.
+  Las tres de inicio de P030, su laboratorio y visor son también posteriores, sin commit.
+  También las dos entregas SSRF y su ampliación del laboratorio, posteriores, sin commit.
+  También las dos de consumo/rate limiting y el visor de cuota, posteriores, sin commit.
+  También las dos de credenciales/rotación y sus pruebas, posteriores, sin commit.
   Sin push solicitado.
 - `roadmap-progress.md` y `.json`: generados desde las 175 fichas reales con
   `node scripts/audit-editorial-roadmap.mjs`. No alteran el alcance del objetivo.
-- Hay 48 IDs exactos, 36 fichas con candidatos relacionados y 91 sin artículo
+- Hay 50 IDs exactos, 34 fichas con candidatos relacionados y 91 sin artículo
   identificado. No son contadores de aceptación. Los candidatos agrupados se han
   conservado, no renumerado para aparentar completitud.
 - La ruta corta anterior para PS01–PS10 no sustituye las fichas generales. AWS,
@@ -60,7 +69,60 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   locales, casos de lectura y modificación de documentos de otro tenant, IDs
   repetidos, listas, roles/estado y verificación de título posterior. Sin SQL/RLS
   o autenticación de producción. Visor estático con la misma función probada.
-  Ver api-authorization-review.md. P029–P031 siguen sin entregas propias.
+  Ver api-authorization-review.md.
+- Navegador: P029 se divide preventivamente en cuatro entregas específicas:
+  DOM XSS, CSP, CSRF y SOP/CORS. examples/api-navegador, siete tests HTTP y ocho
+  Chromium. Sesión de fixture, loopback HTTP sin Secure; puertos no aíslan cookies.
+  Sin integración OIDC/permisos, sin otros navegadores ni colector remoto CSP.
+  Ver api-browser-review.md. P031 sigue sin entregas propias.
+- Amenazas: P030 parcial en siete partes pequeñas, no un resumen de todo el temario.
+  examples/api-amenazas, 39 tests HTTP/SQLite/SSRF/admisión y threat-model.json con responsables,
+  controles y riesgos residuales. T01 fixture, T02 aislamiento, T03 mass assignment,
+  T04 SQL injection. T05 SSRF demostrado solo en fixtures: HTTP real, dos destinos
+  loopback y resolver programado. No servidor DNS, TLS, IPv6, proxy o firewall.
+  Referencia por tenant, redirects rechazados y IP aprobada fijada al lookup del
+  transporte. Harness impide salida externa incluso en variantes malas, no es una
+  política egress desplegada. T06 añade cupos global/tenant, rechazo sin cola y token
+  bucket por tenant verificado. Un proceso, sin réplicas/load test o límites económicos.
+  T07 secretos/broken auth sigue abierto.
+  Visor estático comparte parser; no consulta SQLite ni mide riesgo. Sin dependencias.
+  Ver api-threats-review.md. Ningún recuento de IDs o tests cierra P030 por sí solo.
+  Verificación final: 69 tests del blog y trece del ZIP extraído; build normal pasa.
+  52 vistas completas y tres visores Chromium; repeticiones de las vistas afectadas
+  por los últimos ajustes. Servidor temporal cerrado. Un fallo DNS del calendario
+  externo fue transitorio y el reintento normal pasó, sin cambios en ese componente.
+  Ejecutar tests SEO después del build, no contra dist mientras se está regenerando.
+  Esta evidencia de 69/13 corresponde al avance anterior. La continuación SSRF y
+  verificación actual están en api-ssrf-review.md; no suman ejecuciones repetidas.
+  Segundo visor reproduce cinco trazas archivadas de peticiones reales; no abre
+  sockets a los destinos representados desde el navegador ni mide latencia/riesgo.
+  Verificación SSRF final: build, 70 tests raíz, 27 del ZIP extraído, 56 vistas de
+  artículos y cuatro visores pasan; cuatro vistas afectadas y los visores repetidos
+  tras cambios finales. Servidor temporal cerrado. Ver api-ssrf-review.md.
+  Esa evidencia SSRF corresponde al avance anterior. Para el bloque de admisión
+  consultar api-admission-review.md; no sumar repeticiones como pruebas nuevas.
+  Verificación actual: build, 71 tests raíz, 39 del ZIP independiente, 60 vistas y
+  cinco visores pasan. CLI con ambos tenants y modo inseguro rechazado verificada;
+  servidor temporal cerrado. Quedan T07/broken auth/secretos y P031, no se completa P030.
+
+## Actualización más reciente: credenciales y rotación
+
+P030 tiene nueve partes y el laboratorio 58 tests: once nuevos de credenciales,
+siete de cliente y uno de evidencia sobre los 39 previos. El modo opt-in verifica
+claves de clientes con digest, caducidad, revocación y scopes, sin fallback a fixtures.
+La recarga comprueba la candidata antes de cambiar; audit por allowlist sin secretos.
+T07 demonstrated_in_fixture_only, no secret manager o autenticación de personas.
+Dos drafts, dos diagramas y tabla de cinco etapas HTTP. Sin claves reales en assets.
+
+Verificación de esta continuación: build y 72 tests raíz pasan. ZIP de 40 archivos
+extraído independientemente: 58 tests y demo de rotación pasan. Chromium verifica
+seis vistas de los tres posts afectados y los cinco visores, no vuelve a recorrer
+todos los anteriores. Inspección de ambos diagramas móviles y tabla realizada.
+Informe `/tmp/api-contracts-layout.L90fJV/report.json`. Servidor temporal detenido.
+Los 32 drafts API siguen excluidos del HTML/Markdown/llms de producción.
+Detalle, revisión de P030 y límites: [api-credentials-review.md](api-credentials-review.md).
+Sin commit nuevo. Inventario conserva 50 IDs exactos/34 relacionados/91 no escritos,
+no aceptación del objetivo global. El siguiente bloque es P031.
 
 ## Próxima acción concreta
 
@@ -72,8 +134,14 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
 3. Leer cada ficha completa y fuentes primarias antes de escribir. Tests antes del
    código; medir ejemplos sin convertirlos en benchmarks universales. Un laboratorio
    compartido por serie es válido si identifica qué archivo y evidencia usa cada post.
+   **Valorar siempre posts pequeños y específicos**: dividir al cambiar de problema,
+   mecanismo o ejercicio autónomo; no separar las piezas necesarias para explicar
+   una misma decisión. Detalle en api-browser-review.md. La revisión de P028 mantiene
+   sus tres partes porque ya separan política, aislamiento y verificación.
 4. Revisar el límite del laboratorio P026 (sesión y modelo refresh separados)
-   antes de dar por aceptada su ficha. Continuar Serie 03 por P029–P031 según
+   antes de dar por aceptada su ficha. P030 ya tiene nueve entregas y T07 se
+   demuestra en fixture, no se debe seguir exigiendo un secret manager cloud
+   para un laboratorio local. Revisar su cobertura conjunta. Después P031 según
    ruta-diseno-apis-seguridad.md, contrastando los artículos agrupados previos.
    Después revisar series 04–06 y los límites
    declarados de las series 07–09. Continuar después P096–P175 por series.

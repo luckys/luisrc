@@ -1,0 +1,7 @@
+direction: down
+tenant: "Clave del tenant verificado\nNorth y South: buckets distintos"
+refill: "Recarga con tiempo transcurrido\nNunca supera la capacidad"
+decision: "Comparar saldo y coste\nSin await entre leer y descontar"
+result: "Suficiente: descuenta y admite\nInsuficiente: 429 y Retry-After"
+scope: "No reserva capacidad activa\nNo coordina procesos distintos"
+tenant -> refill -> decision -> result -> scope

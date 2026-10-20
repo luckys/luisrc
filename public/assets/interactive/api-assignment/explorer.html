@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Mass assignment: propiedades que cambian</title>
+    <link rel="stylesheet" href="./explorer.css" />
+    <script type="module" src="./explorer.mjs"></script>
+  </head>
+  <body>
+    <main>
+      <h1>¿Editar el título o cambiar permisos?</h1>
+      <p>
+        Simulación sin red ni base de datos. Ambos caminos parten siempre del mismo
+        documento ficticio de Alice en North, en estado draft. El camino seguro comparte
+        el parser del laboratorio HTTP.
+      </p>
+      <label for="example">Entrada de ejemplo</label>
+      <select id="example">
+        <option value="normal">Solo título permitido</option>
+        <option value="protected">Título, propietario, estado y tenant</option>
+        <option value="unknown">Una propiedad nueva no prevista</option>
+        <option value="nested">Objeto anidado no admitido</option>
+        <option value="malformed">JSON incompleto</option>
+      </select>
+      <label for="payload">JSON que envía el cliente (máximo 2048 caracteres)</label>
+      <textarea id="payload" rows="7" maxlength="2048" spellcheck="false"></textarea>
+      <button id="apply" type="button">Comparar cambios</button>
+      <button id="reset" type="button">Restablecer</button>
+      <div id="results" aria-live="polite" aria-atomic="true">
+        <section aria-labelledby="unsafe-title">
+          <h2 id="unsafe-title">Mezcla indiscriminada</h2>
+          <p id="unsafe-status"></p>
+          <label for="unsafe-meter"
+            >Propiedades protegidas modificadas (tenant, owner y state)</label
+          >
+          <meter id="unsafe-meter" min="0" max="3" low="0" high="0" optimum="0" value="0">
+            0 de 3
+          </meter>
+          <p id="unsafe-count"></p>
+          <pre id="unsafe-after"></pre>
+        </section>
+        <section aria-labelledby="safe-title">
+          <h2 id="safe-title">Comando con allowlist</h2>
+          <p id="safe-status"></p>
+          <label for="safe-meter"
+            >Propiedades protegidas modificadas (tenant, owner y state)</label
+          >
+          <meter id="safe-meter" min="0" max="3" low="0" high="0" optimum="0" value="0">
+            0 de 3
+          </meter>
+          <p id="safe-count"></p>
+          <pre id="safe-after"></pre>
+        </section>
+      </div>
+      <p>
+        El indicador cuenta diferencias en esta simulación, no ataques detectados ni una
+        puntuación de seguridad. Una entrada rechazada no modifica tampoco el título. El
+        visor no reproduce SQL injection ni autentica usuarios.
+      </p>
+    </main>
+  </body>
+</html>

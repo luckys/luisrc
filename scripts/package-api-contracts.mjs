@@ -16,6 +16,8 @@ for (const [manifest, directory, archive] of [
   ],
   ['identity-download-manifest.json', 'api-identidad', 'api-identidad-lab.zip'],
   ['authorization-download-manifest.json', 'api-permisos', 'api-permisos-lab.zip'],
+  ['browser-download-manifest.json', 'api-navegador', 'api-navegador-lab.zip'],
+  ['threats-download-manifest.json', 'api-amenazas', 'api-amenazas-lab.zip'],
 ]) {
   const files = JSON.parse(await readFile(`assets/api-contracts/${manifest}`, 'utf8'))
   execFileSync(
@@ -24,6 +26,35 @@ for (const [manifest, directory, archive] of [
     { cwd: `examples/${directory}`, stdio: 'inherit' },
   )
 }
+await mkdir('public/assets/interactive/api-assignment', { recursive: true })
+for (const file of ['command.mjs', 'explorer.html', 'explorer.css', 'explorer.mjs'])
+  await copyFile(
+    `examples/api-amenazas/${file}`,
+    `public/assets/interactive/api-assignment/${file}`,
+  )
+await mkdir('public/assets/interactive/api-ssrf', { recursive: true })
+for (const file of [
+  'ssrf-explorer.html',
+  'ssrf-explorer.css',
+  'ssrf-explorer.mjs',
+  'ssrf-evidence.json',
+])
+  await copyFile(
+    `examples/api-amenazas/${file}`,
+    `public/assets/interactive/api-ssrf/${file}`,
+  )
+await mkdir('public/assets/interactive/api-quota', { recursive: true })
+for (const file of [
+  'admission.mjs',
+  'quota-model.mjs',
+  'quota-explorer.html',
+  'quota-explorer.css',
+  'quota-explorer.mjs',
+])
+  await copyFile(
+    `examples/api-amenazas/${file}`,
+    `public/assets/interactive/api-quota/${file}`,
+  )
 await mkdir('public/assets/interactive/api-pagination', { recursive: true })
 for (const file of ['model.mjs', 'explorer.html', 'explorer.mjs'])
   await copyFile(

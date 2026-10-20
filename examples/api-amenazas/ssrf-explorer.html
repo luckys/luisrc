@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <title>SSRF: recorrido de cinco pruebas locales</title>
+    <link rel="stylesheet" href="./ssrf-explorer.css" />
+    <script type="module" src="./ssrf-explorer.mjs"></script>
+  </head>
+  <body>
+    <main>
+      <h1>¿A qué servicio llegó la petición?</h1>
+      <p>
+        Estas trazas se grabaron ejecutando cinco pruebas HTTP en loopback. El visor solo
+        lee ese archivo estático: no lanza peticiones a proveedores ni reproduce DNS. El
+        resolver de la prueba devuelve direcciones programadas, no consulta un servidor
+        DNS.
+      </p>
+      <label for="scenario">Escenario observado</label>
+      <select id="scenario" disabled>
+        <option value="direct">URL arbitraria al servicio interno ficticio</option>
+        <option value="redirect-unsafe">
+          Origen permitido, redirect seguido sin revisión
+        </option>
+        <option value="redirect-safe">Referencia permitida, redirect rechazado</option>
+        <option value="dns-gap">IP validada, segunda resolución no comprobada</option>
+        <option value="pinned">Conexión fijada a la IP aprobada</option>
+      </select>
+      <p id="load-status" role="status">Cargando evidencia local…</p>
+      <section aria-labelledby="trace-title">
+        <h2 id="trace-title">Recorrido observado, paso a paso</h2>
+        <label for="step">Pasos visibles</label>
+        <input id="step" type="range" min="0" max="1" value="0" disabled />
+        <button id="next" type="button" disabled>Siguiente paso</button>
+        <button id="reset" type="button" disabled>Volver al principio</button>
+        <p id="progress" aria-live="polite"></p>
+        <ol id="events"></ol>
+      </section>
+      <section aria-labelledby="counts-title" aria-live="polite" aria-atomic="true">
+        <h2 id="counts-title">Peticiones recibidas hasta este paso</h2>
+        <label for="provider">Proveedor ficticio</label>
+        <meter id="provider" min="0" max="1" value="0">0 de 1</meter>
+        <p id="provider-count"></p>
+        <label for="internal">Destino interno no autorizado</label>
+        <meter id="internal" min="0" max="1" low="0" high="0" optimum="0" value="0">
+          0 de 1
+        </meter>
+        <p id="internal-count"></p>
+        <p id="result"></p>
+      </section>
+      <p>
+        Los contadores no son duración, tráfico real del sitio ni nivel de riesgo. Un 200
+        que devuelve INTERNAL-MARKER demuestra el fallo del fixture, no un resultado
+        seguro. El proveedor y el destino interno son dos servidores controlados del
+        laboratorio.
+      </p>
+    </main>
+  </body>
+</html>

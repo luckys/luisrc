@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 48,
-    "related_only": 36,
+    "draft_exists": 50,
+    "related_only": 34,
     "not_written": 91
   },
   "completionProven": false,
@@ -349,8 +349,12 @@
         {
           "id": "P029",
           "title": "Seguridad del navegador y frontend",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/xss-dom-texto-html-contextos.md",
+            "slug": "xss-dom-texto-html-contextos",
+            "draft": true
+          },
           "related": [
             "seguridad-api-navegador-limites-confianza"
           ],
@@ -359,8 +363,12 @@
         {
           "id": "P030",
           "title": "Seguridad avanzada de APIs",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/threat-model-api-multi-tenant-pruebas.md",
+            "slug": "threat-model-api-multi-tenant-pruebas",
+            "draft": true
+          },
           "related": [
             "seguridad-api-navegador-limites-confianza"
           ],

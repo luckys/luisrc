@@ -1,0 +1,7 @@
+direction: down
+identity: "Identidad y tenant verificados\nBody acotado antes del importador"
+tenant: "Cupo por tenant\nSin plaza: 429, sin trabajo nuevo"
+shared: "Capacidad global\nSin plaza: 503, sin cola interna"
+work: "Trabajo admitido\nReserva sigue activa durante await"
+release: "Finally al terminar o fallar\nLibera una sola vez el cupo"
+identity -> tenant -> shared -> work -> release

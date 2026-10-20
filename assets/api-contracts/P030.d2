@@ -1,0 +1,12 @@
+direction: down
+client: "Cliente no confiable\nJSON y ruta elegidos por él"
+identity: "T01: identidad de fixture\nLookup exacto, no login real"
+tenant: "T02: tenant y ownership\nRuta y documento autorizados"
+command: "T03: JSON → comando\nSolo se permite cambiar title"
+sql: "T04: valores → SQLite\nParámetros + ámbito de tenant"
+evidence: "Tests positivos y adversariales\nComprobar respuesta y estado final"
+client -> identity
+identity -> tenant
+tenant -> command
+command -> sql
+sql -> evidence

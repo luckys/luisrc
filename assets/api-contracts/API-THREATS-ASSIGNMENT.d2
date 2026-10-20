@@ -1,0 +1,14 @@
+direction: down
+unsafe: "Variante vulnerable" {
+  input: "JSON externo\ntitle + ownerId + state"
+  merge: "Mezcla indiscriminada\nReemplaza propiedades"
+  result: "Cambian título, propietario\ny estado sin permiso"
+  input -> merge -> result
+}
+safe: "Variante segura" {
+  command: "Comando con allowlist\nSolo title; extras → 422"
+  write: "UPDATE de una columna\nExige tenant + owner + draft"
+  output: "DTO público\nSolo id y title"
+  command -> write -> output
+}
+unsafe -> safe: { style.opacity: 0 }

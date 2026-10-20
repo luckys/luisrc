@@ -1,0 +1,10 @@
+direction: down
+source: "q en la URL\nDato no confiable"
+decision: "Contrato del comentario\nSolo necesita texto"
+unsafe: "innerHTML\nCrea img y handler"
+effect: "Variante vulnerable\nSe ejecuta el marcador"
+safe: "textContent en un div\nTexto literal, sin img"
+source -> decision
+decision -> unsafe
+unsafe -> effect
+effect -> safe: "Corregir el sink"

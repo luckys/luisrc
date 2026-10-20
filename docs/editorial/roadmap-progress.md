@@ -2,13 +2,13 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **48**. Solo material relacionado: **36**. Sin artículo identificado: **91**.
+IDs con borrador propio: **50**. Solo material relacionado: **34**. Sin artículo identificado: **91**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
 ## Orden de continuación
 
-Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Serie 03 desarrolla P020–P028 en diecinueve entregas: contratos, validación, errores, paginación, evolución, identidad y permisos. OIDC se integra con un OP local; refresh es un modelo separado, no renovación integrada del RP. P028 añade un laboratorio independiente de autorización por objeto y tenant, sin autenticación de producción. Continuar P029–P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
+Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Serie 03 tiene treinta y dos entregas: P020–P030; P030 desarrolla nueve partes. T05 SSRF, T06 admisión y T07 credenciales/secretos se prueban en fixtures de un proceso: HTTP real, resolver programado, cupos, token bucket y recarga/revocación. Sin DNS externo/TLS/firewall, limitador distribuido/load test o secret manager. Las API keys identifican clientes, no personas. OIDC integra un OP local; refresh es un modelo separado, no renovación integrada del RP. P029 verifica XSS/CSRF/CSP/CORS en Chromium loopback. Valorar siempre posts pequeños y específicos. Revisar P030 contra su alcance local y continuar P031 contrastando cobertura previa, después revisar/ampliar 04–06, Deep Learning y series 11–16. Revisar límites declarados. No hay publicación o traducción autorizada.
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
@@ -48,8 +48,8 @@ Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle es
 - P026. Autenticación: sesiones, cookies y tokens: [borrador](../../src/content/posts/es/sesiones-web-cookies-identidad.md).
 - P027. OAuth 2.0 y OpenID Connect explicados: [borrador](../../src/content/posts/es/oauth-oidc-authorization-code-pkce.md).
 - P028. Autorización: RBAC, ABAC y permisos sobre recursos: [borrador](../../src/content/posts/es/autorizacion-rbac-abac-permisos-recursos.md).
-- P029. Seguridad del navegador y frontend: relacionado, requiere revisión.
-- P030. Seguridad avanzada de APIs: relacionado, requiere revisión.
+- P029. Seguridad del navegador y frontend: [borrador](../../src/content/posts/es/xss-dom-texto-html-contextos.md).
+- P030. Seguridad avanzada de APIs: [borrador](../../src/content/posts/es/threat-model-api-multi-tenant-pruebas.md).
 - P031. REST, GraphQL, gRPC, Webhooks y APIs por eventos: relacionado, requiere revisión.
 
 ## Serie 04. Bases de datos y persistencia (posts 032–041)

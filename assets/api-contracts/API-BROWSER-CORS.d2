@@ -1,0 +1,10 @@
+direction: down
+browser: "Fetch desde otro origen\nPeticiones diferentes"
+simple: "POST simple con cookie\nPuede llegar y escribir"
+read: "Sin permiso CORS\nSe bloquea leer la respuesta"
+patch: "PATCH + X-Lab\nNecesita OPTIONS previo"
+decision: "Preflight denegado: sin PATCH\nPermitido: API aún autentica"
+browser -> simple
+simple -> read
+read -> patch: "Comparar otra petición"
+patch -> decision

@@ -134,7 +134,7 @@ pnpm test
 
 Son **18 tests**: cinco de política y trece HTTP. Los servidores usan puertos efímeros en loopback y se cierran al acabar. Los tokens son fixtures públicas, no autenticación de producción; no se utilizan datos personales ni servicios externos.
 
-No se prueban múltiples procesos, transacciones SQL, RLS, cachés, jobs, archivos adjuntos o aislamiento de infraestructura. Tampoco resistencia a diferencias temporales, fuzzing de protocolos o toda la seguridad del navegador. El siguiente bloque del roadmap se ocupa de XSS, CSRF y sus fronteras: pasar estos casos no protege frente a esas amenazas distintas.
+No se prueban múltiples procesos, transacciones SQL, RLS, cachés, jobs, archivos adjuntos o aislamiento de infraestructura. Tampoco resistencia a diferencias temporales, fuzzing de protocolos o toda la seguridad del navegador. El siguiente bloque empieza por [XSS y representación de texto](/posts/xss-dom-texto-html-contextos) y continúa con CSP, CSRF y CORS: pasar estos casos no protege frente a esas amenazas distintas.
 
 ## Ejercicio: comprobar que una denegación llega antes del efecto
 

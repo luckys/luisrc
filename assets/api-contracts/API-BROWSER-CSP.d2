@@ -1,0 +1,10 @@
+direction: down
+server: "Servidor\nHTML y nonce por respuesta"
+script: "Módulo con nonce\nProcesa la entrada"
+html: "innerHTML sigue creando img\nNo se ha corregido el sink"
+enforce: "Enforce\nHandler inline bloqueado"
+report: "Report-Only\nHandler ejecutado + evento"
+server -> script
+script -> html
+html -> enforce: "Variante 1"
+enforce -> report: "Comparar con variante 2"

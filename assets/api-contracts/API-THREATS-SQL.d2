@@ -1,0 +1,14 @@
+direction: down
+unsafe: "Variante vulnerable" {
+  input: "Título no confiable\nSe concatena en el SQL"
+  query: "Cambia el WHERE\nEl tenant deja de limitar"
+  result: "Divulgación\nFilas de North y South"
+  input -> query -> result
+}
+safe: "Variante segura" {
+  binding: "SQL fijo y parámetros\nTenant y título son valores"
+  sort: "ORDER BY cerrado\nMapa de id o title fijos"
+  result: "Ámbito conservado\nTítulo buscado literalmente"
+  binding -> sort -> result
+}
+unsafe -> safe: { style.opacity: 0 }

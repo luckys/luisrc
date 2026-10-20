@@ -1,0 +1,96 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  background: #10121b;
+  color: #eef0fa;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  width: min(100%, 54rem);
+  padding: 1.25rem;
+  margin: auto;
+  line-height: 1.65;
+}
+h1 {
+  line-height: 1.25;
+}
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+select,
+button {
+  font: inherit;
+  color: inherit;
+  background: #24283b;
+  border: 1px solid #8696bb;
+  border-radius: 0.4rem;
+  padding: 0.65rem;
+  max-width: 100%;
+}
+select,
+input,
+svg {
+  width: 100%;
+}
+button {
+  margin: 0.75rem 0.5rem 0 0;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+:focus-visible {
+  outline: 3px solid #ffc86e;
+  outline-offset: 3px;
+}
+section {
+  background: #1b2031;
+  border: 1px solid #8696bb;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin: 1.25rem 0;
+}
+li {
+  overflow-wrap: anywhere;
+  margin-bottom: 0.6rem;
+}
+li[data-allowed='false'] {
+  color: #ffc86e;
+}
+svg {
+  display: block;
+  height: auto;
+}
+svg text {
+  fill: #eef0fa;
+  font-size: 18px;
+}
+.axis {
+  stroke: #8696bb;
+  stroke-width: 2;
+  fill: none;
+}
+#line {
+  stroke: #a8c7fa;
+  stroke-width: 2;
+  fill: none;
+}
+.allowed {
+  fill: #8bf0b5;
+}
+.denied {
+  fill: #ffc86e;
+}

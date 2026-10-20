@@ -1,0 +1,14 @@
+direction: down
+unsafe: "Solo origen inicial" {
+  input: "URL al proveedor permitido"
+  provider: "Proveedor devuelve 302\nLocation apunta al interno"
+  internal: "Se sigue sin autorización\nInterno recibe la petición"
+  input -> provider -> internal
+}
+safe: "Referencia, sin redirects" {
+  input: "Referencia del tenant\nServidor construye el destino"
+  provider: "Proveedor devuelve 302\nCliente no sigue Location"
+  result: "API responde 502\nCero peticiones al interno"
+  input -> provider -> result
+}
+unsafe -> safe: { style.opacity: 0 }

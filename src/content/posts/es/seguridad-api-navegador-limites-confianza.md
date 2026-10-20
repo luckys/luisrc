@@ -19,6 +19,8 @@ Una API permite un único origen en CORS y el equipo da por protegidos sus endpo
 
 Cerramos **APIs y seguridad sin atajos** dibujando las fronteras que deben defenderse por separado. Necesitas [autenticación y autorización](/posts/autenticacion-autorizacion-tenant). El objetivo no es acumular headers, sino saber qué amenaza atiende cada control.
 
+Si necesitas reproducir el comportamiento de un navegador, el bloque ampliado dedica artículos propios a [DOM XSS](/posts/xss-dom-texto-html-contextos), [CSP](/posts/csp-nonces-report-only-defensa-adicional), [CSRF y cookies](/posts/csrf-cookies-samesite-origin-token) y [SOP/CORS](/posts/cors-sop-preflight-no-autorizacion), con un sandbox local y pruebas de Chromium. Este resumen conserva su alcance de revisión de fronteras.
+
 ## Sigue las credenciales y los datos no confiables
 
 **TLS** protege el canal y permite autenticar el servidor mediante su certificado, sujeto a la validación correspondiente. No evita que una persona autenticada solicite un objeto ajeno ni que el servidor publique información sensible.
@@ -60,6 +62,14 @@ El laboratorio compara el `origin` parseado con un destino fijo HTTPS y rechaza 
 Esa allowlist sintáctica no cubre resolución DNS, redirects ni todas las redes de destino. Un cliente real debe controlar redirecciones y egress; una redirección del host permitido no autoriza automáticamente al siguiente host.
 
 ## Las consultas y los recursos también necesitan límites
+
+El bloque ampliado desarrolla por separado un [threat model multi-tenant](/posts/threat-model-api-multi-tenant-pruebas),
+[mass assignment](/posts/mass-assignment-comandos-propiedades-autorizadas) y
+[SQL injection con SQLite real](/posts/sql-injection-parametros-tenant-ordenacion).
+SSRF continúa en [destinos y redirects](/posts/ssrf-destinos-permitidos-redirecciones)
+y [resolución y conexión](/posts/ssrf-dns-validacion-conexion-ip), con fixtures locales.
+[Concurrencia](/posts/consumo-recursos-concurrencia-bulkheads) y [cuota temporal](/posts/rate-limiting-token-bucket-tenant)
+tienen también entregas propias, locales. Secretos sigue pendiente; este resumen no demuestra esos mecanismos por sí solo.
 
 Para **SQL injection**, utiliza parámetros del driver, no concatenación de valores. Los nombres dinámicos de columnas suelen necesitar allowlists porque no son simples parámetros de datos. Para abuso de recursos, limita tamaño de body, número de resultados, tiempo de consulta y concurrencia, no solo peticiones por segundo.
 
