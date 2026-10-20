@@ -92,9 +92,18 @@ La sesión recuerda un resultado; no mejora retroactivamente el mecanismo utiliz
 
 No añadimos `mfa: true` a un registro para aparentar esa garantía. Un sistema real necesitaría evidencia del proveedor y una política que supiera interpretarla. Tampoco usamos el email como sustituto universal de un identificador estable: aquí conservamos **issuer y sub**.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p026/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-identity
+```
+
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/api-identidad-lab.zip) contiene `state.mjs`, el RP HTTPS, un proveedor OIDC local y sus tests:
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-identity/state.mjs) contiene `state.mjs`, el RP HTTPS, un proveedor OIDC local y sus tests:
 
 ```bash
 pnpm install --frozen-lockfile

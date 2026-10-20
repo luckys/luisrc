@@ -37,7 +37,7 @@ Utilizaremos la biblioteca en lugar de implementar un algoritmo de texto propio.
 
 El laboratorio crea un documento y obtiene su texto compartido. La operación disponible añade un fragmento al final de la copia local. No usamos un textarea que sustituya toda la cadena en cada pulsación.
 
-Archivo: `frontend-tiempo-real/src/collaboration.ts`, creación del tipo compartido.
+Archivo: `realtime-frontend/src/collaboration.ts`, creación del tipo compartido.
 
 ```typescript
 const document = new Y.Doc()
@@ -74,11 +74,20 @@ La identidad interna de la réplica no autentica a una persona. Los permisos de 
 
 OT y CRDT son familias de soluciones, no sinónimos de «servidor central» y «sin servidor». Un sistema CRDT puede centralizar autorización y distribución. Elegiría una implementación mantenida según el tipo de editor, sus operaciones y sus necesidades de almacenamiento.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p074/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/frontend-tiempo-real-lab.zip) comprueba inserciones desconectadas, convergencia de dos pestañas y recarga posterior. No incluye borrado, undo compartido, presencia, permisos, sincronización entre equipos ni persistencia resistente a cualquier caída.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/collaboration.ts) comprueba inserciones desconectadas, convergencia de dos pestañas y recarga posterior. No incluye borrado, undo compartido, presencia, permisos, sincronización entre equipos ni persistencia resistente a cualquier caída.
 
-Desde `frontend-tiempo-real/`, ejecuta `pnpm test:browser --grep Yjs`. No necesita un servicio externo de colaboración.
+Desde `realtime-frontend/`, ejecuta `pnpm test:browser --grep Yjs`. No necesita un servicio externo de colaboración.
 
 ## Ejercicio: añadir una tercera réplica
 

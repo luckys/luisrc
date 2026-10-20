@@ -46,11 +46,11 @@ Aquí nos centraremos en las garantías. El artículo [Transacciones en PostgreS
 
 ## Prepara un laboratorio pequeño con Docker Compose
 
-Puedes [descargar los archivos de ambos artículos](/assets/examples/transacciones-lab.zip), descomprimirlos y entrar en `transacciones/`. Si prefieres escribirlos, crea esa carpeta y su subcarpeta `sql/`, y copia los archivos de esta sección y de cada ejemplo.
+Puedes [consultar los archivos de ambos artículos en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions/docker-compose.yml), clonar el repositorio y entrar en `packages/transactions/`. Si prefieres escribirlos, crea esa carpeta y su subcarpeta `sql/`, y copia los archivos de esta sección y de cada ejemplo.
 
 Para esta parte solo necesitas Docker con Compose. El servidor queda accesible en `127.0.0.1:55434`; el cliente `psql` se ejecuta dentro del contenedor. La imagen fija versión y digest para reproducir el entorno. Las credenciales son públicas y ficticias, para esta base de datos local.
 
-Archivo: `transacciones/docker-compose.yml`.
+Archivo: `transactions/docker-compose.yml`.
 
 ```yaml
 name: luisrc-transactions-lab
@@ -73,7 +73,7 @@ services:
 
 La comprobación de salud (_health check_) permite esperar a que PostgreSQL acepte conexiones antes de lanzar consultas. No es una comprobación de las reglas de nuestra aplicación. [Inicio y dependencias en Compose](https://docs.docker.com/compose/how-tos/startup-order/).
 
-Archivo: `transacciones/sql/setup.sql`.
+Archivo: `transactions/sql/setup.sql`.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS concept_examples;
@@ -101,7 +101,7 @@ INSERT INTO documents VALUES (1, 'draft');
 
 Guardamos los saldos en céntimos: `10000` representa 100 euros. Así los ejemplos usan enteros y no introducen redondeos de coma flotante (_floating point_). El esquema (_schema_) `concept_examples` separa estas tablas ficticias de las del ejemplo de TypeScript.
 
-Desde la carpeta `transacciones/`, ejecuta:
+Desde la carpeta `transactions/`, ejecuta:
 
 ```bash
 docker compose up -d --wait
@@ -124,7 +124,7 @@ _Tres desenlaces del mismo caso. El total permite reconocer el estado parcial._
 
 Este archivo reproduce primero el problema, después el rollback y finalmente el recorrido correcto:
 
-Archivo: `transacciones/sql/atomicity.sql`.
+Archivo: `transactions/sql/atomicity.sql`.
 
 ```sql
 -- Los errores de división son intencionales: psql debe continuar.
@@ -200,7 +200,7 @@ _La base de datos puede exigir la regla porque el esquema la contiene._
 
 Vuelve al setup y ejecuta este archivo:
 
-Archivo: `transacciones/sql/consistency.sql`.
+Archivo: `transactions/sql/consistency.sql`.
 
 ```sql
 \set ON_ERROR_STOP off
@@ -254,7 +254,7 @@ _No hay lectura de datos sin confirmar. Cambia la instantánea entre consultas._
 
 El lector abre una transacción y espera entre las dos consultas:
 
-Archivo: `transacciones/sql/isolation-reader.sql`.
+Archivo: `transactions/sql/isolation-reader.sql`.
 
 ```sql
 SET search_path TO concept_examples;
@@ -267,7 +267,7 @@ COMMIT;
 
 El escritor actualiza el saldo en otra sesión:
 
-Archivo: `transacciones/sql/isolation-writer.sql`.
+Archivo: `transactions/sql/isolation-writer.sql`.
 
 ```sql
 SET search_path TO concept_examples;
@@ -321,7 +321,7 @@ _Flujo conceptual de persistencia local; no representa una prueba de corte eléc
 
 Reinicia los datos y guarda un documento:
 
-Archivo: `transacciones/sql/durability.sql`.
+Archivo: `transactions/sql/durability.sql`.
 
 ```sql
 SET search_path TO concept_examples;
@@ -383,3 +383,12 @@ docker compose down --volumes
 ```
 
 Para seguir practicando, pasa a [Transacciones en PostgreSQL: BEGIN, COMMIT, ROLLBACK y SAVEPOINT](/posts/transacciones-postgresql-ejemplos-practicos). Allí veremos qué hacer cuando un error SQL deja el bloque abortado y cómo conservar una parte del trabajo con un savepoint.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-acid/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/transactions
+```

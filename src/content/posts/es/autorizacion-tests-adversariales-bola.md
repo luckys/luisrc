@@ -124,9 +124,18 @@ Los tests de política explican las combinaciones. Los HTTP comprueban que las r
 
 Conviene revisar la matriz cuando cambie una regla de producto. Si mañana un editor puede leer drafts compartidos, habrá que expresar qué relación permite esa lectura. Cambiar un assert de false a true sin explicar el nuevo contrato solo haría desaparecer una alerta.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-authz-tests/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-authorization
+```
+
 ## Garantías y límites
 
-El [ZIP del laboratorio](/assets/examples/api-permisos-lab.zip) incluye fuentes, README y pruebas. Con Node 24.19.0 o posterior no necesita instalaciones:
+El [código del laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-authorization/tests/http.test.mjs) incluye fuentes, README y pruebas. Con Node 24.19.0 o posterior no necesita instalaciones:
 
 ```bash
 pnpm test

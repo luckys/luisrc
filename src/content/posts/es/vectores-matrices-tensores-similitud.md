@@ -30,7 +30,7 @@ Para una tabla de datos usaremos filas como observaciones y columnas como **feat
 
 Una solución ingenua usa `zip` sin comprobar longitudes. Python dejaría de iterar al terminar la entrada más corta y podría ocultar un error de dimensiones.
 
-Archivo: `matematicas-estadistica/foundations.py`, función completa; `math` se importa al inicio del módulo.
+Archivo: `mathematics-statistics/foundations.py`, función completa; `math` se importa al inicio del módulo.
 
 ```python
 def dot(a: list[float], b: list[float]) -> float:
@@ -81,9 +81,18 @@ Con **embeddings**, una similitud alta no demuestra equivalencia semántica ni v
 
 El [capítulo de álgebra lineal de Deep Learning](https://www.deeplearningbook.org/contents/linear_algebra.html) sirve como referencia de notación. Para practicar los espacios y productos, el [curso de Gilbert Strang en MIT](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) ofrece un recorrido más amplio.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p076/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[Descarga el laboratorio](/assets/examples/matematicas-estadistica-lab.zip). Desde `matematicas-estadistica/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py). Desde `mathematics-statistics/`:
 
 ```bash
 python3 -m unittest discover -s tests -v

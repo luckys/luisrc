@@ -41,7 +41,7 @@ Esto demuestra contaminación de estadísticas, no una mejora garantizada de acc
 
 ## Un ColumnTransformer prepara columnas distintas de formas distintas
 
-En el [laboratorio descargable](/assets/examples/machine-learning-lab.zip), las columnas numéricas usan **median imputation** y scaling. La categoría `hub` utiliza **one-hot encoding**: una columna indicadora por categoría conocida durante el ajuste.
+En el [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/models.py), las columnas numéricas usan **median imputation** y scaling. La categoría `hub` utiliza **one-hot encoding**: una columna indicadora por categoría conocida durante el ajuste.
 
 `handle_unknown='ignore'` permite transformar un centro no visto sin lanzar un error: todas sus columnas de categoría quedan a cero. Eso no implica que el modelo sepa predecir bien para ese centro. En producción también interesa detectar y observar esa situación.
 
@@ -70,6 +70,15 @@ Un **outlier** puede ser un error o una operación infrecuente pero legítima. E
 Si elegimos límites de clipping mediante cuantiles, esos límites deben aprenderse en train. Lo mismo ocurre con imputación, PCA o selección de variables. Transformaciones como `log1p` pueden reducir asimetría en variables no negativas, pero cambian la interpretación y necesitan tratar correctamente ceros, negativos y unidades.
 
 Scaling facilita regularización comparable en modelos lineales y afecta a distancias en clustering. Los árboles no suelen necesitarlo porque sus cortes dependen del orden de los valores. Lo conservamos en un pipeline común para simplificar la comparación, no porque mejore necesariamente sus predicciones.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p088/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

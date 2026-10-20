@@ -41,7 +41,7 @@ No significa que todas las operaciones deban convertirse en joins enormes ni que
 
 **Mito: «si la API devuelve JSON, necesitas una base documental».** La forma del transporte no decide la persistencia. Podemos construir una proyección JSON desde datos relacionales.
 
-Archivo: `bases-de-datos/sql/13-motores.sql`.
+Archivo: `database-fundamentals/sql/13-motores.sql`.
 
 ```sql
 \ir 01-modelo.sql
@@ -55,7 +55,7 @@ FROM db_model.orders o JOIN db_model.order_items i ON i.order_id=o.id
 GROUP BY o.id ORDER BY o.id;
 ```
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/13-motores.sql), entra en `database-fundamentals/` y ejecuta:
 
 Archivo: terminal.
 
@@ -110,6 +110,15 @@ Esta tabla es una comparación de diseño, **no un benchmark** ni una clasificac
 </div>
 
 La alternativa más sencilla puede ser conservar PostgreSQL, mejorar consultas y añadir una proyección solo cuando exista una necesidad comprobada. **Polyglot persistence** añade opciones, pero también sincronización, backups, observabilidad, permisos y personal capaz de operar cada pieza.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-storage/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

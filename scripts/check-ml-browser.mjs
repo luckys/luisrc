@@ -1,12 +1,8 @@
 import assert from 'node:assert/strict'
-import { createRequire } from 'node:module'
 import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
 
 // Reutilizar el navegador de QA ya definido en el laboratorio frontend.
-const require = createRequire(
-  new URL('../examples/frontend-tiempo-real/package.json', import.meta.url),
-)
-const { chromium } = require('@playwright/test')
+const { chromium } = await import('@playwright/test')
 const manifest = JSON.parse(await readFile('docs/editorial/ml-series.json', 'utf8'))
 const origin = process.env.ML_DRAFT_ORIGIN ?? 'http://127.0.0.1:4322'
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname))

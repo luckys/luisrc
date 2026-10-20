@@ -33,7 +33,7 @@ Si dos clientes pertenecen al mismo origen permitido, el header CORS no distingu
 
 ## Una petición simple puede llegar antes de comprobar la lectura
 
-En el [laboratorio descargable](/assets/examples/api-navegador-lab.zip), una página del origen de pruebas hace un POST a la ruta unsafe de la aplicación. Utiliza URLSearchParams y un tipo de contenido de formulario, sin headers personalizados.
+En el [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security/README.md), una página del origen de pruebas hace un POST a la ruta unsafe de la aplicación. Utiliza URLSearchParams y un tipo de contenido de formulario, sin headers personalizados.
 
 El navegador puede enviar esa petición sin un preflight CORS previo. La sesión Lax se adjunta porque este caso es same-site y fetch pide credentials: include. La API cambia el título y devuelve JSON sin habilitar lectura cross-origin.
 
@@ -91,9 +91,18 @@ Cada caso arranca servidores propios, crea una sesión nueva y los cierra al aca
 
 La especificación de [Fetch define el protocolo CORS](https://fetch.spec.whatwg.org/#http-cors-protocol). El laboratorio ilustra una selección de sus comportamientos; no implementa un navegador ni comprueba todas sus variantes.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-browser-cors/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/browser-security
+```
+
 ## Garantías y límites
 
-Desde el ZIP, ejecuta `pnpm install --frozen-lockfile`, instala Chromium con `pnpm exec playwright install chromium --only-shell` y lanza `pnpm test`. El servidor manual se inicia con `pnpm serve`.
+Desde la raíz del monorepo ejecuta `pnpm install --frozen-lockfile`. Después entra en `packages/browser-security/`, instala Chromium con `pnpm exec playwright install chromium --only-shell` y lanza `pnpm test`. El servidor manual se inicia con `pnpm serve`.
 
 La evidencia cubre lectura permitida y denegada, wildcard con credenciales, POST con efectos sin lectura, preflight positivo y negativo, y acceso autenticado desde Node. No mide rendimiento ni demuestra políticas de cookies de terceros, navegadores distintos o Private Network Access.
 

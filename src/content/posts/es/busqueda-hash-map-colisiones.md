@@ -47,7 +47,7 @@ Tampoco funciona como un árbol ordenado: el orden de iteración es el de inserc
 
 ## Construir el índice es una decisión de contrato
 
-Archivo `algorithms.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip):
+Archivo `algorithms.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts):
 
 ```typescript
 export function buildIndex<T extends { readonly id: number }>(
@@ -74,6 +74,15 @@ Si reemplazas el catálogo por objetos nuevos y conservas el Map anterior, este 
 Una estrategia sencilla para catálogos pequeños es reconstruir colección e índice como una unidad y sustituir ambos juntos. Otra mantiene cada inserción, actualización y borrado en la misma operación lógica. Elegir una implica tener en cuenta frecuencia de cambios, memoria y lectores concurrentes.
 
 La búsqueda rápida no compensa respuestas incorrectas. Por eso el test de actualización no pregunta cuánto tarda `get`; exige que, al sustituir el catálogo, una búsqueda devuelva el documento nuevo.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-09/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

@@ -98,9 +98,18 @@ Nuestra función `revoke` trabaja sobre el estado del modelo. No es el endpoint 
 
 Los tokens de tipo **bearer** autorizan por posesión; proteger su transporte y evitar filtraciones importa tanto como su caducidad. La [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.html) describe ese uso. No ponemos tokens reales en ejemplos de URLs, capturas o logs.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-session-refresh/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-identity
+```
+
 ## Garantías y límites
 
-Descarga el [laboratorio de identidad](/assets/examples/api-identidad-lab.zip) y ejecuta:
+Consulta el [laboratorio de identidad](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-identity/state.mjs) y ejecuta:
 
 ```bash
 pnpm install --frozen-lockfile

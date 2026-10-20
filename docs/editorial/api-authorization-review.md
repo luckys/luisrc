@@ -18,7 +18,7 @@ para nueve fichas P020–P028, sin renumerar contenido previo. Se preservan las 
 
 ## Laboratorio ejecutado y desarrollo
 
-`examples/api-permisos` no tiene dependencias externas. Node 24.19.0 y pnpm.
+`https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-authorization` no tiene dependencias externas. Node 24.19.0 y pnpm.
 Servidor propio en loopback y puerto efímero, fixtures nuevas por test.
 
 - Tests escritos antes de implementar módulos; fase roja por imports inexistentes.
@@ -81,7 +81,7 @@ latencia. No se demuestra aislamiento de infraestructura ni defensa completa DoS
   interno del SVG; un diagrama alto requiere scroll y no cabe en un solo viewport.
 - Chromium no estaba instalado en la ruta por defecto. Se preparó temporalmente
   con `PLAYWRIGHT_BROWSERS_PATH=/tmp/luisrc-blog-playwright pnpm --dir
-examples/frontend-tiempo-real exec playwright install chromium --only-shell`.
+https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend exec playwright install chromium --only-shell`.
   La revisión se ejecuta con la misma variable y el script existente. No se han
   modificado dependencias del blog. El servidor Astro temporal se ha cerrado.
 - Inventario: 48 IDs exactos, 36 fichas relacionadas y 91 sin artículo propio;

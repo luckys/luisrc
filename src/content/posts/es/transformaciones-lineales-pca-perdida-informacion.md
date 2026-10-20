@@ -38,7 +38,7 @@ $$
 
 El centrado importa: queremos estudiar variación alrededor del centro, no elegir ejes porque los valores tienen un offset grande. Los autovectores de $C$ proporcionan las direcciones principales, ordenadas por sus autovalores.
 
-Archivo: `matematicas-estadistica/foundations.py`, extracto de `pca` tras construir los datos centrados.
+Archivo: `mathematics-statistics/foundations.py`, extracto de `pca` tras construir los datos centrados.
 
 ```python
     columns = [list(column) for column in zip(*centered)]
@@ -72,9 +72,18 @@ Formar $X_c^T X_c$ puede empeorar el condicionamiento numérico. Para trabajo re
 
 Centrar no equivale a estandarizar. Si una feature cambia de unidad, su varianza cambia y puede dominar la elección. Escalar todas las columnas a varianza uno es otra decisión, no un paso siempre correcto.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p077/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) ejecuta una reducción real 3D→2D con reconstrucción. No implementa SVD, whitening o selección de componentes por validación predictiva.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) ejecuta una reducción real 3D→2D con reconstrucción. No implementa SVD, whitening o selección de componentes por validación predictiva.
 
 PCA puede ayudar a explorar, comprimir o eliminar redundancia lineal. No demuestra que dos puntos próximos tengan la misma clase, ni preserva todas las relaciones de una estructura no lineal. Ajusta el centrado y los componentes solo con datos de entrenamiento para no filtrar información de evaluación.
 

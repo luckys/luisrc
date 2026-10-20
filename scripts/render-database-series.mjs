@@ -22,7 +22,7 @@ try {
 }
 
 const results = JSON.parse(
-  await readFile('examples/bases-de-datos/results/benchmark.json', 'utf8'),
+  await readFile('assets/evidence/database-fundamentals/results/benchmark.json', 'utf8'),
 )
 const chart = echarts.init(null, null, {
   renderer: 'svg',

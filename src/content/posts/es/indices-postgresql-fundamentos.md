@@ -43,7 +43,7 @@ Visitar gran parte de la tabla mediante accesos al índice y al heap puede costa
 
 ## Mide una consulta con el mismo dataset
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip). En `bases-de-datos/`, arranca `docker compose up -d --wait` y ejecuta el archivo con el siguiente comando.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/07-indices.sql). En `database-fundamentals/`, arranca `docker compose up -d --wait` y ejecuta el archivo con el siguiente comando.
 
 Archivo: terminal.
 
@@ -51,7 +51,7 @@ Archivo: terminal.
 docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 -f /lab/sql/07-indices.sql
 ```
 
-Archivo: `bases-de-datos/sql/07-indices.sql`.
+Archivo: `database-fundamentals/sql/07-indices.sql`.
 
 ```sql
 DROP SCHEMA IF EXISTS db_perf CASCADE;
@@ -97,6 +97,15 @@ Al insertar una fila no basta con añadirla al heap: hay que mantener los índic
 El benchmark incluye otra comparación: insertar diez mil filas en una tabla sin índices y en otra equivalente con un B-tree. Guarda `WAL Records` y `WAL Bytes` de `EXPLAIN (ANALYZE,WAL)`. Ese dato muestra escritura adicional generada en este escenario; **no es una medida universal de write amplification del dispositivo** ni un benchmark estadístico de escrituras.
 
 Un índice que acelera una consulta muy rara puede perjudicar una tabla que recibe escrituras constantemente. Revisa frecuencia de uso, tamaño y distribución, no solo que un plan aislado sea más corto.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-indexes/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

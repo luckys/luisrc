@@ -19,7 +19,7 @@ Los cuatro extractos JavaScript proceden exactamente de las fuentes probadas.
 
 ## Laboratorio y evidencia
 
-`examples/api-identidad`: Node 24.19.0, OpenSSL y dependencias propias instaladas
+`https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-identity`: Node 24.19.0, OpenSSL y dependencias propias instaladas
 con pnpm. oidc-provider 9.12.2, openid-client 6.8.8, jose 6.2.12 y lockfile.
 
 - TDD de código: tests escritos antes de módulos; fase roja por imports inexistentes.

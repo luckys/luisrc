@@ -49,15 +49,15 @@ Archivo: `machine-learning/models.py`, exploración controlada del radio.
         clusters = len(set(labels[mask]))
 ```
 
-El [laboratorio](/assets/examples/machine-learning-lab.zip) genera **240 puntos sintéticos** en dos medias lunas, estandariza coordenadas y mantiene constantes los demás parámetros.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/models.py) genera **240 puntos sintéticos** en dos medias lunas, estandariza coordenadas y mantiene constantes los demás parámetros.
 
 La tabla excluye el ruido al contar grupos y calcular silhouette; la columna «Ruido» cuenta los puntos excluidos.
 
-| eps | Grupos | Ruido | Silhouette |
-| --- | ---: | ---: | ---: |
-| 0,12 | 17 | 116 | 0,6404 |
-| 0,30 | 2 | 1 | 0,3827 |
-| 0,80 | 1 | 0 | No definida |
+| eps  | Grupos | Ruido |  Silhouette |
+| ---- | -----: | ----: | ----------: |
+| 0,12 |     17 |   116 |      0,6404 |
+| 0,30 |      2 |     1 |      0,3827 |
+| 0,80 |      1 |     0 | No definida |
 
 Elegir el radio con mayor silhouette favorecería aquí una fragmentación de diecisiete grupos que descarta casi la mitad de los puntos. Por eso declaramos **cuántas filas intervienen en la métrica** y por qué han quedado fuera las demás.
 
@@ -90,6 +90,15 @@ El experimento usa single linkage y corta en dos grupos. Recupera las etiquetas 
 ## Una anomalía no tiene por qué ser un grupo pequeño
 
 **Isolation Forest** aísla puntos mediante particiones aleatorias y puede marcar observaciones inusuales sin construir clusters. El laboratorio marca dos puntos muy alejados como anomalías, pero no mide detección de incidentes: no hemos creado una población representativa de fallos ni elegido un presupuesto de alertas real.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p091/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

@@ -33,7 +33,7 @@ No conviene resolverlo todo con una única función llamada `validate`. Un esque
 
 La versión ingenua combina el objeto recibido con un registro persistente. Si el objeto contiene `owner`, `tenant` o `status`, una actualización genérica puede permitir modificar campos protegidos. Este problema se conoce como **mass assignment**.
 
-Nuestra entrada solo admite cantidad y moneda. Archivo: `servicios-fiables/src/money.ts` (extracto).
+Nuestra entrada solo admite cantidad y moneda. Archivo: `reliable-services/src/money.ts` (extracto).
 
 ```typescript
 export function parseCommand(value: unknown): Money {
@@ -52,7 +52,7 @@ Para esquemas grandes, **JSON Schema** o **Zod** evitan repetir comprobaciones m
 
 ## El error público también es un contrato
 
-Archivo: `servicios-fiables/src/service.ts` (extracto).
+Archivo: `reliable-services/src/service.ts` (extracto).
 
 ```typescript
 export function problem(code: 'invalid_input' | 'conflict' | 'unexpected') {
@@ -77,11 +77,20 @@ Un error de PostgreSQL puede contener nombres de tablas o datos sensibles. Un st
 
 La estrategia es traducir errores conocidos y registrar los inesperados de forma controlada. No basta con borrar `stack` si después devolvemos el mensaje completo de la excepción. El ejemplo usa textos fijados y no incorpora la causa interna.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-errors/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El laboratorio comprueba rechazo de campos extra y códigos públicos. No implementa un parser HTTP con límites de body, un catálogo multilingüe ni controles de autorización completos. Un esquema válido sigue necesitando constraints de almacenamiento y reglas de negocio.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Archivo: terminal, desde `servicios-fiables/`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/money.ts). Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="money|caso de uso" tests/core.test.mjs

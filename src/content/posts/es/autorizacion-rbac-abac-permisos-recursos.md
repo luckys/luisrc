@@ -119,9 +119,18 @@ Además hay casos para otro tenant, rol desconocido, acción desconocida y conte
 
 Puedes cambiar rol, propietario, estado, acción y tenant en el [explorador interactivo](/assets/interactive/api-authorization/explorer.html). Ejecuta la misma función, sin hacer peticiones ni autenticar a nadie. Prueba admin con un documento de South y después editor con un documento propio publicado: ambos intentos de edición deben quedar denegados por motivos distintos.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p028/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-authorization
+```
+
 ## Garantías y límites
 
-Descarga el [laboratorio de permisos](/assets/examples/api-permisos-lab.zip) y ejecuta:
+Consulta el [laboratorio de permisos](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-authorization/policy.mjs) y ejecuta:
 
 ```bash
 node --test tests/policy.test.mjs

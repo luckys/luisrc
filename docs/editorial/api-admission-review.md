@@ -77,7 +77,7 @@ preguntas de integración. El objetivo editorial completo continúa activo, no p
 - `node --test tests/*.test.mjs`: 71 tests pasan sobre el build terminado. P030
   contrasta siete drafts, once extractos reales, dimensiones, enlaces, riesgos
   pendientes/cubiertos y bytes del ZIP y recursos; no se exige longitud artificial.
-- `pnpm --dir examples/api-amenazas test`: 39 tests pasan. ZIP extraído a una carpeta
+- `pnpm --dir https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats test`: 39 tests pasan. ZIP extraído a una carpeta
   independiente y `pnpm test`: los mismos 39 pasan sin instalación de librerías.
   No se suman repeticiones como pruebas adicionales.
 - ZIP con 31 archivos allowlisted, sin bases persistidas, claves o instalaciones.

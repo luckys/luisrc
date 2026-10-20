@@ -42,7 +42,7 @@ El **bootstrap** genera nuevas muestras con reemplazo desde la muestra original.
 
 Para accuracy, codificamos cada predicción como 1 si acertó y 0 si falló. La media es la proporción de aciertos. Este es el núcleo del intervalo **percentile bootstrap**.
 
-Archivo: `matematicas-estadistica/foundations.py`, función completa.
+Archivo: `mathematics-statistics/foundations.py`, función completa.
 
 ```python
 def bootstrap_mean(values: list[float], repetitions: int = 2000, seed: int = 17) -> list[float]:
@@ -75,9 +75,18 @@ Este caso muestra por qué no basta con envolver cualquier estimador en bootstra
 
 **SciPy** ofrece [otros métodos bootstrap, incluido BCa](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html). Cambiar de método puede abordar ciertos defectos del intervalo, no recuperar grupos que nunca entraron en la muestra.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p082/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) comprueba reproducibilidad, el caso degenerado y el cálculo de cuantiles. No demuestra cobertura mediante muestreo repetido de muchas poblaciones ni estima incertidumbre del entrenamiento completo: el clasificador de este ejemplo ni siquiera se entrena.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) comprueba reproducibilidad, el caso degenerado y el cálculo de cuantiles. No demuestra cobertura mediante muestreo repetido de muchas poblaciones ni estima incertidumbre del entrenamiento completo: el clasificador de este ejemplo ni siquiera se entrena.
 
 Ejecuta `python3 -m unittest discover -s tests -v`. La semilla reproduce el experimento; no certifica que los supuestos sean correctos.
 

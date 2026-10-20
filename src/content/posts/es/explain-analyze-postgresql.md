@@ -35,7 +35,7 @@ En escrituras experimentales puedes envolver el ensayo en una transacción y hac
 
 ## Genera planes completos en lugar de copiar salidas ajenas
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip). Desde `bases-de-datos/`, arranca `docker compose up -d --wait` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/09-planes.sql). Desde `database-fundamentals/`, arranca `docker compose up -d --wait` y ejecuta:
 
 Archivo: terminal.
 
@@ -43,7 +43,7 @@ Archivo: terminal.
 docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 -f /lab/sql/09-planes.sql
 ```
 
-Archivo: `bases-de-datos/sql/09-planes.sql`.
+Archivo: `database-fundamentals/sql/09-planes.sql`.
 
 ```sql
 \ir 07-indices.sql
@@ -90,6 +90,15 @@ Si la aplicación consulta una lista de cien clientes y luego hace una consulta 
 Un join que devuelve el conjunto necesario o dos consultas por lotes pueden reducir viajes. Un join gigantesco también puede repetir datos y transferir demasiado. Compara filas, bytes, número de consultas y latencia completa, no únicamente el tiempo del servidor de una sentencia.
 
 Para descubrirlo necesitas trazas o un contador de consultas en la aplicación. `EXPLAIN` de una consulta aislada no informa de las otras cien que ejecutaste alrededor.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-plans/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

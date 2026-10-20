@@ -117,7 +117,7 @@ No implementamos cancelación al desconectarse el lector de la respuesta HTTP. E
 
 ## Prueba quién empezó a trabajar, no solo quién recibió error
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip). Con Node 24.19.0 o posterior y pnpm 12.8.1:
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/admission.mjs). Con Node 24.19.0 o posterior y pnpm 12.8.1:
 
 ```bash
 pnpm test
@@ -129,6 +129,15 @@ El segundo comando inicia la API y los dos destinos ficticios locales. Solo admi
 Un test mantiene una importación North activa y envía ocho solicitudes más en paralelo. Todas se rechazan, el trabajo solo ha empezado una vez y no se ejecuta una cola oculta cuando liberamos la primera. Otro configura capacidad global uno y comprueba que South recibe 503 sin iniciar trabajo.
 
 Estas observaciones son más precisas que afirmar que el servicio «aguanta carga». No hemos realizado un load test ni encontrado el límite de una máquina.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-capacity/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
 
 ## Garantías y límites
 

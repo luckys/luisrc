@@ -31,7 +31,7 @@ Un **trace ID** relaciona spans dentro de un contexto de tracing. No sustituye n
 
 ## Los logs necesitan estructura y selección
 
-Archivo: `servicios-fiables/src/service.ts` (extracto).
+Archivo: `reliable-services/src/service.ts` (extracto).
 
 ```typescript
 export function operationLog(input: Record<string, unknown>) {
@@ -63,13 +63,22 @@ La espera en cola no es necesariamente tiempo de ejecución del worker. Distingu
 
 **OpenTelemetry** estandariza instrumentación y transporte de señales. No es, por sí mismo, el almacenamiento ni la interfaz de consulta. Elegir un collector y un backend es otra decisión operativa.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/ops-signals/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El laboratorio verifica selección de campos y cálculos, no instala un collector ni genera spans exportados. El diagrama representa la instrumentación recomendada para el integrador. No afirmamos haber trazado una petición desde React hasta el worker.
 
 Logs e identificadores necesitan control de acceso y retención. Registrar más no siempre ayuda: puede aumentar coste y ocultar el evento importante entre datos repetidos.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/service.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="operación registrada" tests/core.test.mjs

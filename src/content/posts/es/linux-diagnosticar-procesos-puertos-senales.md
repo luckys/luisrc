@@ -28,7 +28,7 @@ Un puerto no identifica por sí solo una aplicación. Un socket de escucha tiene
 
 Escuchar en `127.0.0.1` limita el servicio al loopback de ese espacio de red. No equivale a escuchar en todas las interfaces. Dentro de un contenedor, localhost tampoco señala automáticamente al host o a otro contenedor.
 
-El [laboratorio descargable](/assets/examples/computacion-redes-lab.zip) crea un hijo con un puerto efímero, recibe su PID y puerto por IPC y consulta únicamente esos recursos. No busca por nombre ni utiliza un `killall` que pueda afectar a otros proyectos.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/service.mjs) crea un hijo con un puerto efímero, recibe su PID y puerto por IPC y consulta únicamente esos recursos. No busca por nombre ni utiliza un `killall` que pueda afectar a otros proyectos.
 
 ## La jerarquía de archivos ayuda a distinguir configuración, estado y observación
 
@@ -66,7 +66,7 @@ El servicio escribe eventos JSON de una línea en stdout. Su supervisor recoge `
 
 **SIGTERM** permite a una aplicación iniciar su cierre. **SIGKILL** fuerza su terminación sin darle oportunidad de ejecutar un handler. Un cierre ordenado suele dejar de aceptar trabajo nuevo, terminar o cancelar operaciones pendientes y cerrar recursos.
 
-Archivo: `computacion-redes/service.mjs`, handler del servicio de prueba.
+Archivo: `computing-networks/service.mjs`, handler del servicio de prueba.
 
 ```javascript
 process.on('SIGTERM', () => {
@@ -79,6 +79,15 @@ process.on('SIGTERM', () => {
 El ejemplo solo gestiona conexiones HTTP simples. Un worker con tareas largas necesitaría deadlines, seguimiento de operaciones y una política para lo que no consiga terminar. Instalar este handler no hace durables sus efectos pendientes.
 
 El test confirma el PID con `ps`, el puerto con `ss`, una respuesta 200 y el cierre con código cero tras SIGTERM. Si el hijo no termina, un watchdog acotado actúa sobre ese mismo handle. Esa protección del laboratorio no es una receta para terminar procesos por un PID copiado de ayer.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p004/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

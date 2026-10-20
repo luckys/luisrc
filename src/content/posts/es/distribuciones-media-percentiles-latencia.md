@@ -64,7 +64,7 @@ El experimento genera 1.000 valores log-normales en milisegundos. En la ejecuci�
 
 El p95 no es «la latencia media de los lentos». Es un umbral asociado al 95 % acumulado según una convención de cuantiles. En una muestra finita existen métodos de interpolación distintos, de modo que dos implementaciones pueden no coincidir exactamente.
 
-Archivo: `matematicas-estadistica/foundations.py`, interpolación de `quantile` tras ordenar y validar la muestra.
+Archivo: `mathematics-statistics/foundations.py`, interpolación de `quantile` tras ordenar y validar la muestra.
 
 ```python
     index = (len(ordered)-1)*probability
@@ -80,9 +80,18 @@ Si eliminamos timeouts del dataset, el percentil describe solo las respuestas co
 
 Conservar counts, errores y segmentación ayuda a interpretar el resultado. Promediar los p95 de varias máquinas no produce el p95 de todas sus peticiones; para eso necesitamos una representación combinable adecuada de las observaciones.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p081/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) archiva muestras, semilla y método de cuantiles. No mide un servicio real ni ajusta una distribución a logs de producción. Tampoco demuestra que 1.000 observaciones permitan estimar con precisión cualquier percentil extremo.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) archiva muestras, semilla y método de cuantiles. No mide un servicio real ni ajusta una distribución a logs de producción. Tampoco demuestra que 1.000 observaciones permitan estimar con precisión cualquier percentil extremo.
 
 Puedes ejecutar `python3 experiments.py` sin instalar paquetes. La biblioteca estándar `statistics` cubre los descriptivos básicos; una herramienta científica aporta otras estimaciones, pero no elige por ti una población adecuada.
 

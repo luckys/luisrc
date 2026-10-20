@@ -37,9 +37,9 @@ Decidimos también que un producto aparece una sola vez por pedido: si alguien c
 
 ## Un laboratorio local, sin servicios externos
 
-[Descarga el laboratorio de la serie](/assets/examples/bases-de-datos-lab.zip), descomprímelo y entra en `bases-de-datos/`. Necesitas Docker con Compose. Para ejecutar las pruebas automáticas necesitarás además Node.js 22.12 o superior; no requieren instalar paquetes.
+[Consulta el laboratorio de la serie en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/01-modelo.sql), clona el repositorio y entra en `packages/database-fundamentals/`. Necesitas Docker con Compose. Para ejecutar las pruebas automáticas necesitarás además Node.js 22.12 o superior; no requieren instalar paquetes.
 
-Archivo: `bases-de-datos/`, comandos de terminal.
+Archivo: `database-fundamentals/`, comandos de terminal.
 
 ```bash
 docker compose up -d --wait
@@ -50,7 +50,7 @@ El Compose fija imágenes por digest, no publica puertos y monta `sql/` en modo 
 
 ## De las reglas al esquema SQL
 
-Archivo: `bases-de-datos/sql/01-modelo.sql`.
+Archivo: `database-fundamentals/sql/01-modelo.sql`.
 
 ```sql
 -- Destructivo solo para el esquema ficticio de este capítulo.
@@ -115,6 +115,15 @@ INSERT INTO db_model.customers VALUES (4,'Otra Ana','ana@example.test');
 
 La referencia inexistente se rechaza con `23503`, el precio negativo con `23514` y el email repetido con `23505`. Puedes comprobar estas condiciones ejecutando `node --test tests/lab.test.mjs` desde el laboratorio. Las pruebas consultan el estado de PostgreSQL, no solo la respuesta de una función.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-model/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
+
 ## Garantías y límites
 
 El esquema impide líneas con cantidad cero, productos inexistentes y asociaciones duplicadas. **No exige que un pedido tenga al menos una línea**: la foreign key protege de la línea hacia el pedido, no en sentido inverso. Tampoco verifica autorizaciones del usuario ni el estado de un cobro externo.
@@ -131,4 +140,4 @@ El criterio de aceptación incluye dos inserciones simultáneas de la misma comb
 
 ## Referencias
 
-Documentación de PostgreSQL 18, consultada el 17 de octubre de 2026: [constraints](https://www.postgresql.org/docs/18/ddl-constraints.html), [tablas](https://www.postgresql.org/docs/18/ddl-basics.html) y [schemas](https://www.postgresql.org/docs/18/ddl-schemas.html). El laboratorio descargable contiene las versiones exactas y las comprobaciones.
+Documentación de PostgreSQL 18, consultada el 17 de octubre de 2026: [constraints](https://www.postgresql.org/docs/18/ddl-constraints.html), [tablas](https://www.postgresql.org/docs/18/ddl-basics.html) y [schemas](https://www.postgresql.org/docs/18/ddl-schemas.html). El laboratorio en GitHub contiene las versiones exactas y las comprobaciones.

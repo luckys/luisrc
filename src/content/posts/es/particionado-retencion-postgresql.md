@@ -35,7 +35,7 @@ Si todas tus consultas buscan un identificador sin fecha y necesitas examinar mu
 
 ## Un rango incluye su inicio y excluye su final
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip). Desde `bases-de-datos/`, arranca `docker compose up -d --wait` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/11-particionado.sql). Desde `database-fundamentals/`, arranca `docker compose up -d --wait` y ejecuta:
 
 Archivo: terminal.
 
@@ -43,7 +43,7 @@ Archivo: terminal.
 docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 -f /lab/sql/11-particionado.sql
 ```
 
-Archivo: `bases-de-datos/sql/11-particionado.sql`.
+Archivo: `database-fundamentals/sql/11-particionado.sql`.
 
 ```sql
 DROP SCHEMA IF EXISTS db_partition CASCADE;
@@ -107,6 +107,15 @@ Planifica la creación de futuras particiones. En este laboratorio insertar marz
 **OLTP** suele referirse a operaciones de negocio pequeñas y concurrentes. **OLAP** se orienta al análisis de conjuntos grandes. Una tabla particionada no se transforma automáticamente en un motor analítico ni resuelve una consulta que agrega toda la historia.
 
 Retener datos operativos, archivar documentos y conservar información para analítica pueden requerir políticas distintas. Define quién puede consultar el archivo, cómo recuperarlo y qué datos ya no deben mantenerse. La retención es una decisión de producto y operación, no únicamente una fecha en un script.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-partitioning/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

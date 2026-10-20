@@ -113,7 +113,7 @@ Orden de secciones del texto:
 - Mantener ejemplos autocontenidos, tests deterministas cuando sea factible y dependencias fijadas o rangos compatibles.
 - No divulgar claves reales; usar `.env.example` y gestores de secretos fuera de la demo.
 - Escribir SQL explícito para enseñar aislamiento, constraints o locks. Introducir ORM solo cuando la abstracción no oculte lo explicado.
-- Para introducir un error reproducible, aislarlo bajo `examples/broken/`; **nunca** presentarlo como patrón seguro.
+- Para introducir un error reproducible, aislarlo bajo `https://github.com/luckys/luisrc-blog-examples/blob/main/packages/broken/`; **nunca** presentarlo como patrón seguro.
 - No usar un sistema clínico real en los laboratorios: datos ficticios o datasets cuyo uso y licencia estén permitidos.
 
 ### 1.6. Criterios de aceptación del artículo (Definition of Done)

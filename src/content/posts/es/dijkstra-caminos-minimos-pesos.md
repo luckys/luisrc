@@ -42,19 +42,19 @@ Siempre extraemos la menor distancia pendiente. Con pesos no negativos, una ruta
 
 ## El min-heap mantiene ordenada la prioridad, no toda la salida
 
-La función completa `dijkstra` está en `focused.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip). Usa `MinHeap` de `algorithms.ts`, un Map de distancias y otro de predecesores.
+La función completa `dijkstra` está en `focused.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts). Usa `MinHeap` de `algorithms.ts`, un Map de distancias y otro de predecesores.
 
 Este es su bucle de relajación; validación, extracción y reconstrucción están en el archivo completo:
 
 ```typescript
-    for (const edge of graph.get(current.node)!) {
-      const candidate = current.distance + edge.weight
-      if (!Number.isSafeInteger(candidate)) throw new RangeError('Distancia fuera de rango')
-      if (candidate >= (distances.get(edge.to) ?? Infinity)) continue
-      distances.set(edge.to, candidate)
-      previous.set(edge.to, current.node)
-      frontier.push({ node: edge.to, distance: candidate })
-    }
+for (const edge of graph.get(current.node)!) {
+  const candidate = current.distance + edge.weight
+  if (!Number.isSafeInteger(candidate)) throw new RangeError('Distancia fuera de rango')
+  if (candidate >= (distances.get(edge.to) ?? Infinity)) continue
+  distances.set(edge.to, candidate)
+  previous.set(edge.to, current.node)
+  frontier.push({ node: edge.to, distance: candidate })
+}
 ```
 
 Cada mejora añade una entrada. No buscamos la anterior dentro del heap ni cambiamos su prioridad. Si al extraer una entrada su distancia no coincide con la vigente en el Map, la descartamos antes de expandir vecinos.
@@ -85,9 +85,18 @@ Validar cuesta O(V + E). El heap puede guardar O(E) entradas, con inserciones y 
 
 No atribuimos memoria O(V) a esta frontera ni usamos sin explicación la cota de una versión con `decrease-key`. Las variantes importan al traducir el análisis al código.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-20/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
+
 ## Garantías y límites
 
-Los tests cubren mejoras, peso cero, entradas obsoletas, destino inaccesible, origen igual al destino, referencias inválidas, pesos negativos/no finitos y overflow. No integramos mapas externos ni implementamos A*, Bellman–Ford o cambios concurrentes.
+Los tests cubren mejoras, peso cero, entradas obsoletas, destino inaccesible, origen igual al destino, referencias inválidas, pesos negativos/no finitos y overflow. No integramos mapas externos ni implementamos A\*, Bellman–Ford o cambios concurrentes.
 
 ## Ejercicio: una salida demasiado temprana
 

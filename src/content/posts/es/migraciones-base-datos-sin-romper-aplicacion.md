@@ -35,7 +35,7 @@ Queremos cambiar `profiles.name` por `display_name`. Renombrar directamente ser�
 
 ## Un laboratorio pequeño para ensayar la secuencia
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/10-migraciones.sql), entra en `database-fundamentals/` y ejecuta:
 
 Archivo: terminal.
 
@@ -44,7 +44,7 @@ docker compose up -d --wait
 docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 -f /lab/sql/10-migraciones.sql
 ```
 
-Archivo: `bases-de-datos/sql/10-migraciones.sql`.
+Archivo: `database-fundamentals/sql/10-migraciones.sql`.
 
 ```sql
 DROP SCHEMA IF EXISTS db_migration CASCADE;
@@ -96,6 +96,15 @@ Crear un índice ordinario puede bloquear escrituras. **CREATE INDEX CONCURRENTL
 Comprueba si tu herramienta de migraciones envuelve cada archivo en una transacción. No conviertas una instrucción incompatible en un problema operativo por ocultar ese detalle detrás del framework.
 
 Versiona los archivos aplicados y conserva su historial. Editar una migración ya ejecutada no cambia mágicamente los servidores anteriores; normalmente necesitas otra migración que lleve su estado al nuevo destino.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-migrations/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

@@ -31,7 +31,7 @@ también requerirá división propia. No se declara completado P030 ni la serie.
 
 ## Laboratorio y pruebas
 
-examples/api-amenazas, Node 24.19.0 y SQLite 3.53.3 observado en ese runtime.
+https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats, Node 24.19.0 y SQLite 3.53.3 observado en ese runtime.
 Sin dependencias que instalar. Tests escritos primero: rojo por lab.mjs inexistente.
 Después trece tests verdes, con HTTP y SQLite reales, no parser SQL simulado.
 

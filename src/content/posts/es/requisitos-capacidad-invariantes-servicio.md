@@ -46,7 +46,7 @@ No todos esos requisitos deben resolverse el primer día. Sí deben estar escrit
 
 La relación es `L = λ × W`: solicitudes en curso = solicitudes por segundo × segundos por solicitud. No se utiliza p99 en lugar de la media sin cambiar el razonamiento.
 
-Archivo: `servicios-fiables/src/service.ts` (extracto del cálculo).
+Archivo: `reliable-services/src/service.ts` (extracto del cálculo).
 
 ```typescript
 export function capacity(rps: number, seconds: number): number {
@@ -72,11 +72,20 @@ Si desconoces el volumen y solo necesitas un API y un worker, un despliegue senc
 
 Una **ADR**, Architecture Decision Record, puede registrar contexto, alternativas, decisión y consecuencias. No necesita veinte páginas. Lo importante es dejar qué observación justificaría revisarla: por ejemplo, saturación medida de un recurso compartido, no «algún día creceremos».
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/design-requirements/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 La estimación no demuestra rendimiento, tolerancia a fallos ni coste cloud. La ley de Little describe medias en condiciones apropiadas; no predice por sí sola ráfagas, crecimiento indefinido de colas ni tiempos extremos.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Archivo: terminal, desde `servicios-fiables/`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/service.ts). Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="denominador" tests/core.test.mjs

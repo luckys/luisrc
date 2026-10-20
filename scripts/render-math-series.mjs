@@ -4,7 +4,10 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises'
 
 const manifest = JSON.parse(await readFile('docs/editorial/math-series.json', 'utf8'))
 const result = JSON.parse(
-  await readFile('examples/matematicas-estadistica/results/calculations.json', 'utf8'),
+  await readFile(
+    'assets/evidence/mathematics-statistics/results/calculations.json',
+    'utf8',
+  ),
 )
 const destination = 'public/assets/visuals/math-series'
 await mkdir(destination, { recursive: true })

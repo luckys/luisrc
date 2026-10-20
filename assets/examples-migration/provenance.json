@@ -1,0 +1,211 @@
+{
+  "repository": "https://github.com/luckys/luisrc-blog-examples",
+  "ref": "main",
+  "files": [
+    {
+      "source": "packages/data-structures-algorithms/explorer.html",
+      "destination": "public/assets/interactive/algorithms-series/explorer.html",
+      "sha256": "f6e56a946caea22463a54dfd6c124d6e08ffeeb7d681b9591b7b88cc28054960"
+    },
+    {
+      "source": "packages/data-structures-algorithms/explorer.mjs",
+      "destination": "public/assets/interactive/algorithms-series/explorer.mjs",
+      "sha256": "69c764f66b8ea87b65199c5db9b401d61d9ee24fca5a02d402740ab5de86b85e"
+    },
+    {
+      "source": "packages/data-structures-algorithms/model.mjs",
+      "destination": "public/assets/interactive/algorithms-series/model.mjs",
+      "sha256": "b2f75f00e99393d6ea22dffbbbc51cba2f94ab4b49222acd6fe8407852c80e3f"
+    },
+    {
+      "source": "packages/data-structures-algorithms/steps-model.mjs",
+      "destination": "public/assets/interactive/algorithms-series/steps-model.mjs",
+      "sha256": "ae3883da88f4328c66d4354e8e7917d29c04e9e5ae562c620b27b251974003b9"
+    },
+    {
+      "source": "packages/data-structures-algorithms/steps.html",
+      "destination": "public/assets/interactive/algorithms-series/steps.html",
+      "sha256": "2405470b783b632fa22f3c6c01ebde55105748258463b846f3986287d2b8ef78"
+    },
+    {
+      "source": "packages/data-structures-algorithms/steps.mjs",
+      "destination": "public/assets/interactive/algorithms-series/steps.mjs",
+      "sha256": "3f04aad0b09390615b8fbdb3b0136d1684bf58b7cd66a655a740ac3a1fb054e4"
+    },
+    {
+      "source": "packages/api-threats/command.mjs",
+      "destination": "public/assets/interactive/api-assignment/command.mjs",
+      "sha256": "8eb7f06c9959714401cb107625f65923388fce3f454409c4d07afdf079c486e7"
+    },
+    {
+      "source": "packages/api-threats/explorer.css",
+      "destination": "public/assets/interactive/api-assignment/explorer.css",
+      "sha256": "23956a9770de02666ff630e588e95028576c94af8d07c36da50db0588110d14c"
+    },
+    {
+      "source": "packages/api-threats/explorer.html",
+      "destination": "public/assets/interactive/api-assignment/explorer.html",
+      "sha256": "f52dfea65f0165caee14f56b0a7f6921666139e5555de3ca11d6c74dfa0a23af"
+    },
+    {
+      "source": "packages/api-threats/explorer.mjs",
+      "destination": "public/assets/interactive/api-assignment/explorer.mjs",
+      "sha256": "3034fce55e4bd8b3047368f0dcf5b16436e47c6ff832d77a406848de486aaf3a"
+    },
+    {
+      "source": "packages/api-authorization/explorer.css",
+      "destination": "public/assets/interactive/api-authorization/explorer.css",
+      "sha256": "6f422482567b15d165c591bf9e8ff6f44f71b3dcd184303ed058a8b817ce9031"
+    },
+    {
+      "source": "packages/api-authorization/explorer.html",
+      "destination": "public/assets/interactive/api-authorization/explorer.html",
+      "sha256": "f4f75bc7e118daa0c237add48310a35182449e6c95c3b74bc78742dcc73c5a13"
+    },
+    {
+      "source": "packages/api-authorization/explorer.mjs",
+      "destination": "public/assets/interactive/api-authorization/explorer.mjs",
+      "sha256": "7d3820e3c376dfc61f7fdb895dea6914d3cb95c3e308e87ac8b7521061702ed7"
+    },
+    {
+      "source": "packages/api-authorization/policy.mjs",
+      "destination": "public/assets/interactive/api-authorization/policy.mjs",
+      "sha256": "ccc91e90909d509a05d2cc694e165e1637bce0ce8876242240e77991b315ef64"
+    },
+    {
+      "source": "packages/api-pagination-evolution/explorer.html",
+      "destination": "public/assets/interactive/api-pagination/explorer.html",
+      "sha256": "6a2ca0e524d4a83bc92cedb213e5cbc3871c13fdfa7d39b2bf0b2f22782d5cba"
+    },
+    {
+      "source": "packages/api-pagination-evolution/explorer.mjs",
+      "destination": "public/assets/interactive/api-pagination/explorer.mjs",
+      "sha256": "0ffefada34468f81308b1cc6e0a836a03e0c1a02b4c36ffc8a244e3aa2b19c79"
+    },
+    {
+      "source": "packages/api-pagination-evolution/model.mjs",
+      "destination": "public/assets/interactive/api-pagination/model.mjs",
+      "sha256": "8af51e4e9e762a1e8cd4c22f132288572baad729f12a053eb8b8411acf94255a"
+    },
+    {
+      "source": "packages/api-threats/admission.mjs",
+      "destination": "public/assets/interactive/api-quota/admission.mjs",
+      "sha256": "c7f79d637a11ec9280a6bc478867765c7f0589e310940e38976add1f00418bc3"
+    },
+    {
+      "source": "packages/api-threats/quota-explorer.css",
+      "destination": "public/assets/interactive/api-quota/quota-explorer.css",
+      "sha256": "a768305e76b0a34c7e47c629c511d333c3e14a4ca52ee203b1687b599db9d3d3"
+    },
+    {
+      "source": "packages/api-threats/quota-explorer.html",
+      "destination": "public/assets/interactive/api-quota/quota-explorer.html",
+      "sha256": "80ce6c2147d89e66115a27df812d2d9885f0eb06cf4dfd76d4c17392a833a28b"
+    },
+    {
+      "source": "packages/api-threats/quota-explorer.mjs",
+      "destination": "public/assets/interactive/api-quota/quota-explorer.mjs",
+      "sha256": "0bb12b6e6cb21a35a10c57a1b597d1b52201b75a47bda300eeb18cdb4db2a874"
+    },
+    {
+      "source": "packages/api-threats/quota-model.mjs",
+      "destination": "public/assets/interactive/api-quota/quota-model.mjs",
+      "sha256": "72a03032e449c900fa1a546c16e739d1da3c1a4393ad9e5ccb5c45b41c3c1ab3"
+    },
+    {
+      "source": "packages/api-threats/ssrf-evidence.json",
+      "destination": "public/assets/interactive/api-ssrf/ssrf-evidence.json",
+      "sha256": "d9ab4b2e4a7ae1bed1dc7bbd591ad7bb3a49a5e5bf933df113ef3f4563bf7faa"
+    },
+    {
+      "source": "packages/api-threats/ssrf-explorer.css",
+      "destination": "public/assets/interactive/api-ssrf/ssrf-explorer.css",
+      "sha256": "b62a654b993a94b0f7cde6af5d1b412b014ebd616dbc9ae7d2c3d79746408124"
+    },
+    {
+      "source": "packages/api-threats/ssrf-explorer.html",
+      "destination": "public/assets/interactive/api-ssrf/ssrf-explorer.html",
+      "sha256": "af8caba6a18b221232d2d985d4484e197a965730fa82565292606a5beb9bfb59"
+    },
+    {
+      "source": "packages/api-threats/ssrf-explorer.mjs",
+      "destination": "public/assets/interactive/api-ssrf/ssrf-explorer.mjs",
+      "sha256": "2fa28f5bf492ce62a027ae861927fb9c56c79037cf3ca1ad532050a4eeaeb2d0"
+    },
+    {
+      "source": "packages/computing-networks/concepts.mjs",
+      "destination": "public/assets/interactive/computing-series/concepts.mjs",
+      "sha256": "8426832b7744900c6653b8bd72cbdf964ba92c53b2f14a8bd7159b37756be10a"
+    },
+    {
+      "source": "packages/computing-networks/transport-ui.mjs",
+      "destination": "public/assets/interactive/computing-series/transport-ui.mjs",
+      "sha256": "9f53be05fdd38241d479fc3a958e8b3f74e4b3d3c06295414db3434a639813e8"
+    },
+    {
+      "source": "packages/computing-networks/transport.html",
+      "destination": "public/assets/interactive/computing-series/transport.html",
+      "sha256": "0c12b7f81c71fd578d1bf06f47d824bd083500cc7dd987a75c315966758ad83b"
+    },
+    {
+      "source": "packages/machine-learning/explorer.html",
+      "destination": "public/assets/interactive/ml-series/explorer.html",
+      "sha256": "59a50b4f982d7a57b7204bafdf09eb3aba78fcad20731cd5ca5b5b20d1083971"
+    },
+    {
+      "source": "packages/machine-learning/explorer.mjs",
+      "destination": "public/assets/interactive/ml-series/explorer.mjs",
+      "sha256": "42d8e4a64f41eceef604893df9c756eb5f13d00cd07d1e0a996774584447e938"
+    },
+    {
+      "source": "packages/machine-learning/validation.json",
+      "destination": "public/assets/interactive/ml-series/validation.json",
+      "sha256": "9c59870b321e4ef2b911246ca626dbc475cf968f60cabc2d2264c2915378c103"
+    },
+    {
+      "source": "packages/api-pagination-evolution/results/experiments.json",
+      "destination": "assets/evidence/api-pagination-evolution/results/experiments.json",
+      "sha256": "8c304cf785dc800be787c453d38776a9e4ed9e2d30ff035bc2a22ad82b54935e"
+    },
+    {
+      "source": "packages/database-fundamentals/results/benchmark.json",
+      "destination": "assets/evidence/database-fundamentals/results/benchmark.json",
+      "sha256": "8320603d0bd67a00eaf6a90885f56c77af1d7b0807c7604ad652030276b672cd"
+    },
+    {
+      "source": "packages/computing-networks/results/browser.json",
+      "destination": "assets/evidence/computing-networks/results/browser.json",
+      "sha256": "e6cc1e8dd80de0fba9b101970f81c0ca7edea176990bc8daf04b5812c0aa379a"
+    },
+    {
+      "source": "packages/computing-networks/results/experiments.json",
+      "destination": "assets/evidence/computing-networks/results/experiments.json",
+      "sha256": "5e769e662fbdeecb49a713eb984f5f4537218aa1d8a1d43475e5f1d08af1be67"
+    },
+    {
+      "source": "packages/data-structures-algorithms/results/benchmark.json",
+      "destination": "assets/evidence/data-structures-algorithms/results/benchmark.json",
+      "sha256": "6f4e746eac40711708bf9d8e2439215de32ec8b6de674ea120e0aaf8b6e3fd82"
+    },
+    {
+      "source": "packages/realtime-frontend/results/dom.json",
+      "destination": "assets/evidence/realtime-frontend/results/dom.json",
+      "sha256": "c3eb489352f873b9f2081d8fd08ea67accd45bc994105c7538c3bee6f2993dfd"
+    },
+    {
+      "source": "packages/machine-learning/results/experiments.json",
+      "destination": "assets/evidence/machine-learning/results/experiments.json",
+      "sha256": "d7b72aa80af37a85ce6f0647764d6674f6a358296bede46acbfd1a3ebbdf9450"
+    },
+    {
+      "source": "packages/mathematics-statistics/results/calculations.json",
+      "destination": "assets/evidence/mathematics-statistics/results/calculations.json",
+      "sha256": "b1af0a9c1f299ce3c8fbdff424ebc8dc0e9c72d1c75de35015ceac69223464ac"
+    },
+    {
+      "source": "packages/reliable-services/results/load.json",
+      "destination": "assets/evidence/reliable-services/results/load.json",
+      "sha256": "7e73d1604ff7f128951489c5382e4fa8f9cb360a48d43473c7c1d73d27027b09"
+    }
+  ]
+}

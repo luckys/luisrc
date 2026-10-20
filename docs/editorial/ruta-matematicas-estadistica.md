@@ -15,7 +15,7 @@ leer esa serie: las dependencias aquí son matemáticas, no de interfaz.
 9. [Entropía, cross entropy y logits](../../src/content/posts/es/entropia-cross-entropy-kl-logits.md).
 10. [Fourier, FFT y convolución](../../src/content/posts/es/fourier-fft-convolucion-errores-numericos.md).
 
-[Laboratorio descargable en el repositorio](../../examples/matematicas-estadistica/README.md).
+[Laboratorio descargable en el repositorio](../../packages/mathematics-statistics/README.md).
 [Alcance](math-series-scope.md), [inventario](math-series.json) y [glosario](math-series-glossary.md).
 
 La continuación está en [Machine Learning clásico (P086–P095)](ruta-machine-learning.md):

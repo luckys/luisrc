@@ -42,9 +42,9 @@ Ese contraste explica por qué un benchmark que solo prueba ausencias no represe
 
 ## El laboratorio compara tres trabajos, no dos nombres de colección
 
-El [ZIP del laboratorio](/assets/examples/estructuras-algoritmos-lab.zip) incluye código, pruebas, explorador y las muestras originales. `scan` realiza las consultas lineales; `indexed` consulta un Map preparado antes del reloj; `fresh` construye el índice y hace las consultas dentro del tramo medido.
+El [código del laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/benchmark.mjs) incluye código, pruebas, explorador y las muestras originales. `scan` realiza las consultas lineales; `indexed` consulta un Map preparado antes del reloj; `fresh` construye el índice y hace las consultas dentro del tramo medido.
 
-Archivo: `estructuras-algoritmos/benchmark.mjs`, operaciones medidas dentro de `measure`.
+Archivo: `data-structures-algorithms/benchmark.mjs`, operaciones medidas dentro de `measure`.
 
 ```javascript
 const scan = () =>
@@ -112,6 +112,15 @@ El **JIT**, garbage collector, cachés de CPU y frecuencia del procesador influy
 El índice añade almacenamiento O(n) bajo el modelo habitual. Aquí no medimos sus bytes ni comparamos RSS: ambas variantes conservan el mismo catálogo y el proceso puede retener memoria entre muestras. Tampoco estudiamos strings muy largas como claves, crecimiento con actualizaciones, colisiones adversarias o presión de memoria real.
 
 Un array ordenado con búsqueda binaria es otra alternativa: paga la ordenación y después busca sin mantener una hash table adicional. Si hay inserciones frecuentes, mantener ese orden también cuesta. Si el servicio espera una base de datos durante casi toda la petición, mejorar estas búsquedas puede apenas mover el tiempo total. El siguiente paso sería medir el flujo real y localizar su coste dominante.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-03/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

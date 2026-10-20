@@ -132,9 +132,18 @@ Las barras cuentan peticiones recibidas hasta el paso visible. No miden latencia
 
 El script record-ssrf.mjs regenera la evidencia y comprueba los resultados esperados. Otra prueba vuelve a ejecutar los cinco escenarios y exige que coincidan sus eventos y contadores. Así podemos detectar una gráfica desincronizada del código que pretende explicar.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-ssrf/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
+
 ## Garantías y límites
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip). Con Node 24.19.0 o posterior y pnpm 12.8.1:
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/importer.mjs). Con Node 24.19.0 o posterior y pnpm 12.8.1:
 
 ```bash
 pnpm test

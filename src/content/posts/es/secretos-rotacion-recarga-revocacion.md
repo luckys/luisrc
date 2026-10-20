@@ -103,7 +103,7 @@ La función audit es síncrona y sus fallos se aíslan para no cambiar la identi
 
 ## Reproduce la transición con peticiones HTTP reales
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip) y ejecuta `pnpm demo:credentials` con Node 24.19.0 o posterior. El comando crea la API local, emite claves efímeras, recarga el cliente, observa estas cinco etapas y cierra el servidor:
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/credential-client.mjs) y ejecuta `pnpm demo:credentials` con Node 24.19.0 o posterior. El comando crea la API local, emite claves efímeras, recarga el cliente, observa estas cinco etapas y cierra el servidor:
 
 <div role="region" aria-label="Etapas de rotación y respuestas HTTP" tabindex="0" style="overflow-x:auto">
 
@@ -120,6 +120,15 @@ Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip) y e
 Son respuestas de conexiones HTTP, no resultados predeterminados por el cliente. La expiración usa un reloj inyectado: avanzamos hasta 20 000 ms sin esperar veinte segundos. La tabla no mide latencia ni duración recomendable de las claves.
 
 `observe-credentials.mjs` devuelve únicamente etapas, status y eventos permitidos. `credential-evidence.json` archiva esa proyección. El test vuelve a ejecutar la secuencia, la compara con el archivo y exige los resultados de la tabla de forma independiente. No archivamos tokens, identificadores aleatorios, digests o puertos temporales.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-secrets/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
 
 ## Garantías y límites
 

@@ -34,7 +34,7 @@ La primera pasada ya ordena casualmente esta entrada completa, pero el algoritmo
 
 ## La implementación hace explícita la búsqueda del mínimo
 
-Archivo `focused.ts`, función completa del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip):
+Archivo `focused.ts`, función completa del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts):
 
 ```typescript
 export function selectionSort<T>(
@@ -81,6 +81,15 @@ Podríamos desplazar elementos para insertar el mínimo sin ese salto, diseñand
 Selection sort permite distinguir una prueba de corrección de una optimización. Saber que el mínimo ha llegado a su sitio no demuestra que todo esté ordenado. También muestra por qué la estabilidad se prueba con identidades y no solo con números repetidos.
 
 Para uso general preferiría la ordenación estándar. Si el objetivo es entender adaptación a entradas casi ordenadas, insertion sort ofrece una comparación más interesante. El siguiente artículo estudia [bubble sort](/posts/bubble-sort-intercambios-adyacentes), cuya parada temprana sí depende de lo ocurrido en una pasada completa.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-11/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

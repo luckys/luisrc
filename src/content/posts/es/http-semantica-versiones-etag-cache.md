@@ -58,9 +58,9 @@ Una respuesta que necesita **validation** puede conservarse y volver a comprobar
 
 ## ETag permite preguntar por la representación que ya tenemos
 
-El servidor del [laboratorio descargable](/assets/examples/computacion-redes-lab.zip) calcula un ETag fuerte a partir del JSON que sirve. El cliente conserva la primera copia y envía su validador mediante **If-None-Match**.
+El servidor del [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/http-server.mjs) calcula un ETag fuerte a partir del JSON que sirve. El cliente conserva la primera copia y envía su validador mediante **If-None-Match**.
 
-Archivo: `computacion-redes/http-server.mjs`, resultado de una coincidencia del validador.
+Archivo: `computing-networks/http-server.mjs`, resultado de una coincidencia del validador.
 
 ```javascript
 if (matches) {
@@ -83,6 +83,15 @@ Si la representación varía según una cabecera, **Vary** comunica esa dimensi�
 Nuestro fixture sirve un único JSON sin compresión negociada. No debemos copiar su cálculo de ETag fuerte a una cadena que modifica los bytes después de calcularlo sin revisar el significado del validador y las variantes.
 
 No aplicar caché simplifica algunos estados, pero puede incrementar transferencias y carga. Permitir frescura evita consultas mientras acepta un periodo de posible obsolescencia. Revalidar reduce cuerpos transferidos, aunque sigue necesitando una interacción con el servidor.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p008/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

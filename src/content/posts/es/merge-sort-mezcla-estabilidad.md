@@ -41,7 +41,7 @@ Si agotamos una mitad, todo lo que queda de la otra puede añadirse tal cual. No
 
 ## Una implementación completa que permite seguir los índices
 
-Archivo `algorithms.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip):
+Archivo `algorithms.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts):
 
 ```typescript
 export function mergeSort<T>(input: readonly T[], compare: (a: T, b: T) => number): T[] {
@@ -86,6 +86,15 @@ El espacio auxiliar máximo algorítmico para arrays es O(n), más O(log n) de s
 Podríamos reutilizar un buffer, trabajar sobre intervalos en vez de `slice` o implementar una versión **bottom-up** que mezcle tramos de tamaños 1, 2, 4 y así sucesivamente. Cada alternativa reduce algunos costes y añade decisiones de implementación.
 
 Aquí preferimos hacer visible la idea antes que minimizar asignaciones. Para ordenar datos de aplicación usaríamos normalmente la biblioteca estándar. Si los datos no caben en memoria, una ordenación externa requiere otro análisis: leer y escribir bloques de disco, no solo comparar elementos.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-13/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

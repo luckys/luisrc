@@ -36,7 +36,7 @@ Los elementos después de la frontera ya no forman parte del heap. Si una repara
 
 ## El código mantiene la frontera explícita
 
-Archivo `focused.ts`, función completa del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip):
+Archivo `focused.ts`, función completa del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts):
 
 ```typescript
 export function heapSort<T>(input: readonly T[], compare: (a: T, b: T) => number): T[] {
@@ -87,6 +87,15 @@ Si el orden de equivalentes forma parte del contrato, podemos elegir un algoritm
 Frente a nuestro [quicksort](/posts/quicksort-particion-pivote) determinista, heapsort mantiene O(n log n) en el peor caso sin depender del equilibrio de un pivote. Frente a nuestro [merge sort](/posts/merge-sort-mezcla-estabilidad), el núcleo no necesita un buffer lineal.
 
 Eso no permite concluir que sea el más rápido. Patrón de acceso, constantes, comparador y runtime influyen. No hemos medido ese ranking y no deberíamos sustituir la ordenación estándar por una conclusión sacada solo de la complejidad.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-16/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

@@ -61,15 +61,15 @@ El laboratorio ejecuta **HistGradientBoostingClassifier**, que agrupa valores nu
 
 ## El mismo protocolo puede dar un ganador poco espectacular
 
-El [laboratorio descargable](/assets/examples/machine-learning-lab.zip) entrena con 540 envíos y evalúa en los 180 siguientes. La métrica es **average precision**, una medida de ranking que detallaremos más adelante. No es accuracy.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/models.py) entrena con 540 envíos y evalúa en los 180 siguientes. La métrica es **average precision**, una medida de ranking que detallaremos más adelante. No es accuracy.
 
-| Modelo | Average precision en validation |
-| --- | ---: |
-| Baseline de probabilidad constante | 0,2444 |
-| Regresión logística | 0,8457 |
-| Árbol, profundidad 3 | 0,7465 |
-| Random Forest | 0,8342 |
-| HistGradientBoosting | 0,7959 |
+| Modelo                             | Average precision en validation |
+| ---------------------------------- | ------------------------------: |
+| Baseline de probabilidad constante |                          0,2444 |
+| Regresión logística                |                          0,8457 |
+| Árbol, profundidad 3               |                          0,7465 |
+| Random Forest                      |                          0,8342 |
+| HistGradientBoosting               |                          0,7959 |
 
 La logística encaja bien con el mecanismo que generó estas features y el target. Este resultado no establece que supere a los ensembles en otros problemas. Tampoco hemos dedicado igual presupuesto de búsqueda a cada familia: son referencias educativas con configuraciones fijas, no una competición exhaustiva.
 
@@ -78,6 +78,15 @@ La logística encaja bien con el mecanismo que generó estas features y el targe
 [Ampliar la curva de profundidad](/assets/visuals/ml-series/tree-depth.svg).
 
 La curva muestra que profundizar mejora train sin garantizar mejora en validation. No necesita descender de forma espectacular para advertirnos de que capacidad adicional y generalización son cosas distintas.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p090/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

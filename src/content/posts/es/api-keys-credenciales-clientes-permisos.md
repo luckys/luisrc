@@ -108,9 +108,18 @@ Si el almacén no está disponible, una clave con formato correcto recibe **503*
 
 El punto más fácil de pasar por alto está en la integración: cuando inyectamos este verificador, **no** intentamos después las credenciales públicas demo-alice/demo-bob como fallback. Dejar ese segundo camino convertiría la caída del mecanismo nuevo en una forma de volver al antiguo.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-credentials/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
+
 ## Garantías y límites
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip), usa Node 24.19.0 o posterior y ejecuta `pnpm test`. No necesita dependencias de aplicación. `tests/credentials.test.mjs` conecta con la API HTTP local usando claves nuevas generadas durante cada test.
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/credentials.mjs), usa Node 24.19.0 o posterior y ejecuta `pnpm test`. No necesita dependencias de aplicación. `tests/credentials.test.mjs` conecta con la API HTTP local usando claves nuevas generadas durante cada test.
 
 Las pruebas incluyen clave válida, alterada, inventada, caducada y revocada; Authorization duplicada; identidad falsa en otras cabeceras; scope ausente; ownership y aislamiento. Comprueban también que un importador no se ejecuta después de un rechazo. Un 401 aislado no bastaría si el trabajo protegido ya hubiera ocurrido.
 

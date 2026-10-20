@@ -35,7 +35,7 @@ El laboratorio fija PostgreSQL por digest, monta SQL en modo lectura y no public
 
 El recorrido mínimo ejecuta comprobación estática, pruebas de reglas, integración SQL y build. No sustituye los tests por un build exitoso ni acepta un mock como evidencia de un rollback real.
 
-Archivo: terminal, desde `servicios-fiables/` tras [descargar el laboratorio](/assets/examples/servicios-fiables-lab.zip).
+Archivo: terminal, desde `reliable-services/` tras [consultar el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/README.md).
 
 ```bash
 node --test tests/core.test.mjs
@@ -45,7 +45,7 @@ docker compose up -d --wait
 node --test tests/postgres.test.mjs
 ```
 
-La instalación usa **pnpm**. Los tests del núcleo no la necesitan; `tsc` sí utiliza dependencias de desarrollo. En CI el entorno debe contar con Node.js y Docker compatibles. El ZIP incluye un lockfile independiente para reproducir la comprobación fuera del monorepo.
+La instalación usa **pnpm** y el lockfile compartido de la raíz del monorepo de ejemplos. Ejecuta allí la instalación; los demás comandos parten del paquete. Los tests del núcleo no necesitan dependencias instaladas; `tsc` sí utiliza dependencias de desarrollo. En CI el entorno debe contar con Node.js y Docker compatibles.
 
 Los artefactos deben poder identificarse por versión o digest. Reconstruir «el mismo código» con dependencias diferentes puede producir otro resultado. Actualizar imágenes fijadas también es parte del mantenimiento: fijar no elimina vulnerabilidades futuras.
 
@@ -64,6 +64,15 @@ Para «crecen las operaciones desconocidas», el procedimiento puede empezar com
 La mitigación podría limitar nuevas operaciones, recuperar un worker o esperar al proveedor. No debería empezar cambiando todos los estados a `failed` ni borrando Inbox para «desatascar»: esas acciones destruyen evidencia y pueden repetir efectos.
 
 Cada paso necesita salida esperada, condición para continuar y forma de verificar recuperación. Un runbook no debe contener secretos ni consultas destructivas sin scope y aprobación apropiados.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/ops-delivery/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
 
 ## Garantías y límites
 

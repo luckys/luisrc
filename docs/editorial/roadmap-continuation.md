@@ -1,5 +1,20 @@
 # Continuación del objetivo editorial completo
 
+## Separación de ejemplos, 20 de octubre de 2026
+
+Los ejemplos se han trasladado a `/home/luckys/Projects/Frontend/luisrc-blog-examples`,
+con destino GitHub `luckys/luisrc-blog-examples`. Los 16 paquetes tienen carpetas
+en inglés; `posts/<locale>/<id>/README.md` relaciona cada artículo con sus fuentes.
+El blog ya no guarda `examples/` ni ZIPs. No recrear esas carpetas al continuar
+P031. El código nuevo y sus tests deben ir al monorepo de ejemplos.
+
+El commit `96424b4` conserva el estado anterior a esta migración, incluidos los
+artículos P029/P030 que las notas históricas de abajo describían sin commit.
+Esas notas y sus resultados ZIP documentan revisiones anteriores, no el flujo actual.
+Consulta [el flujo vigente](../examples-repository.md): las verificaciones cruzadas
+se ejecutan en el monorepo con `BLOG_ROOT`, y el blog compila independientemente.
+El repositorio remoto aún debe crearse y subirse antes de que funcionen sus enlaces.
+
 Objetivo activo del usuario: «Escribe en español todos los articulos que faltan por
 series siguiendo el roadmap docs/roadmap-editorial-ingenieria-paysafe-ia.md , las buenas
 practicas de escribir articulos, usa diagramas, graficos tanto estaticos como dinamicos
@@ -49,7 +64,7 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   Continúa con P022/P023, examples/api-validacion-errores y revisión propia:
   13 tests Node y cuatro Python, JSON Schema/Ajv/Zod/Pydantic reales, errores por
   campo, stock/versión, dos peticiones concurrentes y proyección segura de logs.
-  P024/P025 continúan en examples/api-paginacion-evolucion, diecinueve tests:
+  P024/P025 continúan en packages/api-pagination-evolution, diecinueve tests:
   PostgreSQL con un millón de filas, 56 planes SQL archivados, escrituras entre
   páginas, snapshots, dos lectores HTTP y schemas OpenAPI contrastados.
   Los tres primeros laboratorios no tienen autenticación o pagos; la base es efímera.
@@ -71,12 +86,12 @@ No es una espera ni una declaración de finalización. Mantener el objetivo acti
   o autenticación de producción. Visor estático con la misma función probada.
   Ver api-authorization-review.md.
 - Navegador: P029 se divide preventivamente en cuatro entregas específicas:
-  DOM XSS, CSP, CSRF y SOP/CORS. examples/api-navegador, siete tests HTTP y ocho
+  DOM XSS, CSP, CSRF y SOP/CORS. packages/browser-security, siete tests HTTP y ocho
   Chromium. Sesión de fixture, loopback HTTP sin Secure; puertos no aíslan cookies.
   Sin integración OIDC/permisos, sin otros navegadores ni colector remoto CSP.
   Ver api-browser-review.md. P031 sigue sin entregas propias.
 - Amenazas: P030 parcial en siete partes pequeñas, no un resumen de todo el temario.
-  examples/api-amenazas, 39 tests HTTP/SQLite/SSRF/admisión y threat-model.json con responsables,
+  packages/api-threats, 39 tests HTTP/SQLite/SSRF/admisión y threat-model.json con responsables,
   controles y riesgos residuales. T01 fixture, T02 aislamiento, T03 mass assignment,
   T04 SQL injection. T05 SSRF demostrado solo en fixtures: HTTP real, dos destinos
   loopback y resolver programado. No servidor DNS, TLS, IPv6, proxy o firewall.

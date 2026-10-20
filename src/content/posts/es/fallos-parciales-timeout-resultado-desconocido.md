@@ -33,7 +33,7 @@ Un rechazo de negocio confirmado es información distinta: «sin disponibilidad�
 
 ## Un fake permite aislar la incertidumbre
 
-Archivo: `servicios-fiables/src/distributed.ts` (extracto de `ProviderFake`).
+Archivo: `reliable-services/src/distributed.ts` (extracto de `ProviderFake`).
 
 ```typescript
   async execute(id: string, loseResponse = false): Promise<'succeeded'> {
@@ -64,11 +64,20 @@ El resultado CAP habla de lo que no puede satisfacerse simultáneamente bajo una
 
 Para este servicio la pregunta práctica es más pequeña: si no podemos consultar al proveedor, ¿respondemos con una operación pendiente, rechazamos una nueva intención o repetimos una acción? Elegiremos según el riesgo y la semántica, no invocando una sigla como permiso para perder información.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-failures/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Conservar `unknown` evita declarar un resultado sin evidencia, pero no lo resuelve. Hacen falta una consulta posterior, un webhook confiable o revisión manual. También debemos comunicar ese estado a la UI: «no confirmado todavía» no es equivalente a «vuelve a comprar».
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/distributed.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="timeout tras efecto" tests/core.test.mjs

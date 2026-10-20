@@ -52,9 +52,9 @@ Una cadena confiable para `example.test` no autoriza al mismo servidor a represe
 
 ## Tres conexiones locales hacen visible qué se está comprobando
 
-El [laboratorio descargable](/assets/examples/computacion-redes-lab.zip) genera con OpenSSL un certificado autofirmado temporal con SAN `DNS:localhost`. El servicio escucha solo en loopback. No modifica el trust store del sistema y elimina certificado y clave al terminar.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/experiments.mjs) genera con OpenSSL un certificado autofirmado temporal con SAN `DNS:localhost`. El servicio escucha solo en loopback. No modifica el trust store del sistema y elimina certificado y clave al terminar.
 
-Archivo: `computacion-redes/experiments.mjs`, cliente TLS con verificación activa.
+Archivo: `computing-networks/experiments.mjs`, cliente TLS con verificación activa.
 
 ```javascript
 const socket = tls.connect({
@@ -85,6 +85,15 @@ Incluso una conexión protegida puede dejar información observable, como patron
 En desarrollo, una CA de laboratorio controlada puede evitar desactivar verificación globalmente. En producción suelen interesar automatización de emisión y renovación, observación de expiraciones y una política coherente de confianza.
 
 El **certificate pinning** puede acotar confianza, pero introduce costes de rotación y recuperación. Tampoco debe añadirse por costumbre sin definir qué se fija y cómo se actualiza. Los errores de validación merecen diagnóstico antes que una excepción permanente.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p007/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

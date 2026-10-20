@@ -63,7 +63,7 @@ La página de prueba no necesita fetch en la variante CSP. Al no abrir connect-s
 
 ## Enforce y Report-Only producen resultados diferentes
 
-Visita `/xss?mode=enforce` en el [laboratorio descargable](/assets/examples/api-navegador-lab.zip), con el mismo parámetro q del artículo anterior. El navegador crea la imagen porque el sink sigue siendo innerHTML, pero bloquea la ejecución del atributo onerror.
+Visita `/xss?mode=enforce` en el [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security/lab.mjs), con el mismo parámetro q del artículo anterior. El navegador crea la imagen porque el sink sigue siendo innerHTML, pero bloquea la ejecución del atributo onerror.
 
 Con `/xss?mode=report`, el servidor envía **Content-Security-Policy-Report-Only** en lugar de Content-Security-Policy. La política se evalúa sin imponer esos bloqueos. El marcador vuelve a ejecutarse.
 
@@ -91,9 +91,18 @@ En esta demo elegimos un nonce para un script concreto. En un sitio estático pu
 
 No hemos implementado SRI, Trusted Types ni una política strict-dynamic. Son decisiones adicionales, no propiedades implícitas del ejemplo. La [documentación de script-src](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/script-src) permite contrastar qué autoriza cada expresión antes de introducirla.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-browser-csp/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/browser-security
+```
+
 ## Garantías y límites
 
-Desde el ZIP, instala con pnpm, instala Chromium mediante Playwright y ejecuta `pnpm test`. Hay pruebas HTTP de los headers y nonces, y una prueba de navegador que contrasta el mismo marcador bajo enforce y report.
+Desde la raíz del monorepo instala con pnpm e instala Chromium mediante Playwright; después ejecuta `pnpm test` desde `packages/browser-security/`. Hay pruebas HTTP de los headers y nonces, y una prueba de navegador que contrasta el mismo marcador bajo enforce y report.
 
 El módulo legítimo sigue funcionando: marca la página como preparada. Evitamos interpretar «el marcador no ocurrió» como un éxito si en realidad bloqueamos todos los scripts y no llegamos a procesar la entrada.
 

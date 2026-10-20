@@ -33,7 +33,7 @@ En nuestro caso, una operación `unknown` conserva su referencia externa. El rec
 
 ## Una decisión pequeña que se puede probar
 
-Archivo: `servicios-fiables/src/workflow.ts` (extracto).
+Archivo: `reliable-services/src/workflow.ts` (extracto).
 
 ```typescript
 export function reconcile(
@@ -67,13 +67,22 @@ Un **audit trail** permite explicar por qué se cambió un estado. No basta con 
 
 Define un límite de automatización. Una operación sin evidencia concluyente tras varios intentos puede pasar a revisión. Eso es un resultado operativo explícito, no un fallo que deba ocultarse asignando `failed`.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-reconciliation/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Reconciliar no crea información que el proveedor no ofrece. Puede reducir pendientes y detectar discrepancias, pero no garantiza resolución automática de todos los casos. Las consultas pueden estar limitadas, ser eventualmente consistentes o resultar contradictorias.
 
 El laboratorio prueba la política de decisión, no un scanner persistente ni intervención humana. No declara tiempos de recuperación medidos. El proyecto integrador deberá añadir esos componentes y probar sus carreras con webhooks.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/workflow.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="compensación|timeout tras efecto" tests/core.test.mjs

@@ -24,7 +24,7 @@ try {
 }
 
 const results = JSON.parse(
-  await readFile('examples/servicios-fiables/results/load.json', 'utf8'),
+  await readFile('assets/evidence/reliable-services/results/load.json', 'utf8'),
 )
 const chart = echarts.init(null, null, {
   renderer: 'svg',

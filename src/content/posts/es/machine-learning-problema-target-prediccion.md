@@ -54,7 +54,7 @@ No implementaremos ese entrenamiento en esta serie de ML clásico. Lo situamos p
 
 ## Una ficha de problema evita muchos errores de modelado
 
-El [laboratorio descargable](/assets/examples/machine-learning-lab.zip) incluye diez problemas clasificados en `machine-learning/tasks.json`, con unidad, datos, target y métrica. Uno requiere un experimento causal y otro una regla determinista: decidir no usar ML también es parte del ejercicio.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/data.py) incluye diez problemas clasificados en `machine-learning/tasks.json`, con unidad, datos, target y métrica. Uno requiere un experimento causal y otro una regla determinista: decidir no usar ML también es parte del ejercicio.
 
 Archivo: `machine-learning/data.py`, contrato de entradas del ejemplo logístico.
 
@@ -74,6 +74,15 @@ Que los envíos con cierta característica sufran más retrasos no demuestra que
 Predecir responde a «¿qué resultado cabe esperar dadas estas entradas?». Una pregunta causal es «¿qué cambiaría si interviniéramos?». Para evaluar si enviar un aviso reduce retrasos necesitamos un diseño que permita comparar intervenciones, como un experimento aleatorizado apropiado, no solo un clasificador preciso.
 
 También conviene distinguir predicción de inferencia estadística: estimar un efecto o un parámetro, con sus supuestos e incertidumbre, no es lo mismo que ordenar envíos por riesgo.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p086/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

@@ -47,18 +47,18 @@ El laboratorio guarda un `Map` llamado `previous`. Que un vértice aparezca ahí
 Este es el bucle de vecinos de `shortestPath`, en `algorithms.ts`:
 
 ```typescript
-    for (const neighbor of graph.get(node) ?? []) {
-      if (!graph.has(neighbor)) throw new RangeError(`Vértice inexistente: ${neighbor}`)
-      if (previous.has(neighbor)) continue
-      // Marcar al encolar evita añadir varias veces un mismo vértice.
-      previous.set(neighbor, node)
-      frontier.enqueue(neighbor)
-    }
+for (const neighbor of graph.get(node) ?? []) {
+  if (!graph.has(neighbor)) throw new RangeError(`Vértice inexistente: ${neighbor}`)
+  if (previous.has(neighbor)) continue
+  // Marcar al encolar evita añadir varias veces un mismo vértice.
+  previous.set(neighbor, node)
+  frontier.enqueue(neighbor)
+}
 ```
 
 Marcar al **encolar**, no al retirar, evita añadir D dos veces cuando B y C conducen a él. También impide que B→A vuelva a introducir el origen. No basta con evitar procesados duplicados si antes llenamos la cola de copias innecesarias.
 
-La implementación completa está en el [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip), junto a `Queue`. Incluye comprobación de extremos, extracción, salida temprana y reconstrucción.
+La implementación completa está en el [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts), junto a `Queue`. Incluye comprobación de extremos, extracción, salida temprana y reconstrucción.
 
 ## Por qué el primer descubrimiento usa el mínimo de aristas
 
@@ -81,6 +81,15 @@ Si origen y destino coinciden y existen, devolvemos ese vértice. Si alguno no e
 Con listas de adyacencia visitamos cada vértice alcanzable una vez y examinamos sus aristas salientes. El coste es O(Vr + Er), bajo el modelo de acceso esperado acotado a Map y cola; r identifica la región explorada. O(V + E) es la cota global.
 
 Cola y predecesores ocupan O(Vr). Reconstruir una ruta de L vértices añade O(L). Una matriz obligaría a recorrer filas completas; no trasladamos automáticamente la misma cuenta.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-18/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

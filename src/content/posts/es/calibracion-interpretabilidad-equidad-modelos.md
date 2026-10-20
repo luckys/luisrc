@@ -32,7 +32,7 @@ El resultado depende del binning y del número de observaciones por grupo. Una c
 
 ## La misma ROC-AUC puede acompañar probabilidades peores
 
-El [laboratorio](/assets/examples/machine-learning-lab.zip) construye veinte casos. En el primer grupo hay dos positivos entre diez; en el segundo, ocho entre diez. Un predictor asigna 0,2 y 0,8; otro exagera con 0,01 y 0,99.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/models.py) construye veinte casos. En el primer grupo hay dos positivos entre diez; en el segundo, ocho entre diez. Un predictor asigna 0,2 y 0,8; otro exagera con 0,01 y 0,99.
 
 Archivo: `machine-learning/models.py`, construcción del contraejemplo.
 
@@ -81,6 +81,15 @@ En validation hay **32 envíos rurales**, con trece positivos, y **148 urbanos**
 Recall es aproximadamente 69,23 % y 58,06 %, respectivamente. No concluimos que el sistema sea justo ni injusto con esos dos valores. Los denominadores son pequeños, las prevalencias difieren y son grupos operativos ficticios, no una evaluación de atributos protegidos.
 
 **Fairness** necesita definir quién recibe beneficios o daños, qué errores importan y en qué contexto. Igualar recall, tasa de falsos positivos o calibración son objetivos distintos y pueden entrar en tensión cuando las tasas base difieren. Ninguna métrica aislada certifica equidad; retirar una columna sensible tampoco elimina posibles proxies.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p094/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

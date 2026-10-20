@@ -39,7 +39,7 @@ La versión ingenua es un texto con `onClick` y un input sin etiqueta. Puede par
 
 En el laboratorio, `OrderEditor` usa `form`, un input con `id="name"`, su etiqueta y un botón de tipo `submit`. La relación explícita aparece en este fragmento.
 
-Archivo: `frontend-tiempo-real/src/App.tsx`, extracto de `OrderEditor`.
+Archivo: `realtime-frontend/src/App.tsx`, extracto de `OrderEditor`.
 
 ```tsx
 <label htmlFor="name">Nombre del pedido</label>
@@ -57,7 +57,7 @@ El enlace «Saltar al contenido» evita recorrer toda la navegación en cada vis
 
 Un anillo de foco visible permite reconocer el control activo. No lo elimines porque el diseño parezca más limpio.
 
-Archivo: `frontend-tiempo-real/src/styles.css`, regla utilizada por el laboratorio.
+Archivo: `realtime-frontend/src/styles.css`, regla utilizada por el laboratorio.
 
 ```css
 :focus-visible {
@@ -78,7 +78,7 @@ El CSS usa tamaños relativos, un formulario de ancho limitado y navegación que
 
 ## Probar la tarea, no solo buscar etiquetas
 
-[Descarga el laboratorio](/assets/examples/frontend-tiempo-real-lab.zip). Desde `frontend-tiempo-real/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/App.tsx). Desde `realtime-frontend/`:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -87,6 +87,15 @@ pnpm test:browser --grep "teclado|responsive"
 ```
 
 La prueba de teclado usa Tab, Enter y escritura para guardar. La prueba responsive comprueba el ancho a 360 píxeles. Son comprobaciones concretas: no son una auditoría completa ni sustituyen probar con lector de pantalla y usuarios reales.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p067/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
 
 ## Garantías y límites
 

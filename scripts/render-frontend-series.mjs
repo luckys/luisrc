@@ -21,7 +21,7 @@ try {
 }
 
 const measurement = JSON.parse(
-  await readFile('examples/frontend-tiempo-real/results/dom.json', 'utf8'),
+  await readFile('assets/evidence/realtime-frontend/results/dom.json', 'utf8'),
 )
 const chart = echarts.init(null, null, {
   renderer: 'svg',

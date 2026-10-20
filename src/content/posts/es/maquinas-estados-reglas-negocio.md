@@ -33,7 +33,7 @@ Nuestro modelo didáctico tiene `created`, `processing`, `unknown`, `succeeded` 
 
 ## La tabla es parte de la especificación
 
-Archivo: `servicios-fiables/src/workflow.ts` (extracto).
+Archivo: `reliable-services/src/workflow.ts` (extracto).
 
 ```typescript
 const transitions: Record<State, Partial<Record<Action, State>>> = {
@@ -71,11 +71,20 @@ Al persistir, utiliza una transacción con el control adecuado, por ejemplo una 
 
 No conviene convertir todos los errores de transición en un retry. Un aviso incoherente puede necesitar auditoría o reconciliación, no un bucle que siga intentando sobrescribir un terminal.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/design-states/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 La tabla garantiza que la función solo devuelve transiciones definidas para sus entradas tipadas. No verifica firmas, referencia externa, pertenencia al tenant ni permisos del actor. Tampoco implementa persistencia de versión. Los tests no prueban reglas comerciales ajenas a esta demo.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/workflow.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="máquina:" tests/core.test.mjs

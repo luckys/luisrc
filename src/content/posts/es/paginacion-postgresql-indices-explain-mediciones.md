@@ -42,7 +42,7 @@ El índice ocupa espacio y encarece escrituras. Si solo necesitáramos ID y fech
 
 ## Medición: continuar desde una clave no cuesta lo mismo que buscar una página arbitraria
 
-Medimos consultas de 50 filas con **EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)**. Una ejecución de calentamiento por estrategia, siete muestras alternando el orden y cuatro profundidades. PostgreSQL 17.11, dos CPU asignadas al contenedor, 1.536 MiB de memoria, datos efímeros en tmpfs y cachés calientes. El entorno completo y los planes están en el ZIP.
+Medimos consultas de 50 filas con **EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)**. Una ejecución de calentamiento por estrategia, siete muestras alternando el orden y cuatro profundidades. PostgreSQL 17.11, dos CPU asignadas al contenedor, 1.536 MiB de memoria, datos efímeros en tmpfs y cachés calientes. El entorno completo y los planes están en el repositorio.
 
 La clave de continuación ya está disponible al medir keyset. **No incluimos el coste de obtener esa ancla mediante OFFSET**. Es la situación de un usuario que recibió el cursor de la página anterior, no una promesa de saltar a la página 6.001 sin recorrer ni localizar nada antes.
 
@@ -85,7 +85,7 @@ Se alterna el orden de las estrategias para no ejecutar siempre una después de 
 
 El plan utiliza un índice covering sobre datos sintéticos y calientes. Un listado con otros filtros, joins, payload mayor o columnas sin cubrir puede tener otro coste. El punto de esta medición es seguir una consulta definida y sus planes, no afirmar que cualquier endpoint keyset tarda unas centésimas de milisegundo.
 
-El archivo guarda hashes del SQL, del código de medición y del runtime. Los tests recalculan medianas y comparan la tabla. Si modificas el experimento y regeneras resultados, debes actualizar también la gráfica y el ZIP: una prueba verde del SQL no actualiza el texto por ti.
+El archivo guarda hashes del SQL, del código de medición y del runtime. Los tests recalculan medianas y comparan la tabla. Si modificas el experimento y regeneras resultados, debes actualizar también la gráfica y la evidencia del blog: una prueba verde del SQL no actualiza el texto por ti.
 
 ## Filtrar y buscar cambian qué significa continuar
 
@@ -104,9 +104,18 @@ Los valores del test son tenant uno, estado paid y el término camara. Demuestra
 
 Combinar relevancia cambiante con cursor exigiría diseñar otro orden total y estudiar sus índices y estabilidad. No presentamos el índice B-tree del recorrido por fecha como solución universal de búsqueda.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-pagination-performance/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-pagination-evolution
+```
+
 ## Garantías y límites
 
-El [laboratorio](/assets/examples/api-paginacion-evolucion-lab.zip) incluye SQL, 56 planes medidos, muestras sin agregar y entorno. La ejecución usa PostgreSQL 17.11 con dos CPU y límite de 1536 MiB, datos en tmpfs y una imagen ya local fijada por digest.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-pagination-evolution/schema.sql) incluye SQL, 56 planes medidos, muestras sin agregar y entorno. La ejecución usa PostgreSQL 17.11 con dos CPU y límite de 1536 MiB, datos en tmpfs y una imagen ya local fijada por digest.
 
 ```bash
 pnpm install --frozen-lockfile

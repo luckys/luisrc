@@ -31,7 +31,7 @@ Los percentiles de dos instancias no se promedian para obtener el percentil glob
 
 El servidor del experimento acepta cuatro operaciones simultáneas. Cada una espera artificialmente 20 ms antes de responder. Las demás reciben `503`. Ese tiempo es una condición impuesta, no una capacidad inferida de hardware.
 
-Archivo: `servicios-fiables/tools/load.mjs` (extracto).
+Archivo: `reliable-services/tools/load.mjs` (extracto).
 
 ```javascript
 let active = 0
@@ -76,11 +76,20 @@ Un modelo **open-loop** programa llegadas según una tasa y permite observar col
 
 Para investigar una API real registraríamos versión, hardware, dataset, configuración, pool, cachés y repeticiones. Un profiler de CPU o memoria ayudaría a localizar el cuello de botella. El percentil por sí solo no dice si la causa es cálculo, bloqueo, GC o una consulta.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/ops-load/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Esta es una ejecución real de HTTP local, pero **cliente y servidor comparten proceso y máquina**. No mide PostgreSQL, proveedores, tráfico real, stress prolongado ni capacidad de producción. La muestra por etapa es pequeña y no aporta intervalos estadísticos.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/tools/load.mjs). Desde `reliable-services/`:
 
 ```bash
 node tools/load.mjs

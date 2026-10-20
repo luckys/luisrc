@@ -35,7 +35,7 @@ Sin especificarlo, el frame predeterminado con ordenación puede incluir filas e
 
 ## Un ejemplo completo de acumulados y cohortes
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip). Desde `bases-de-datos/`, arranca `docker compose up -d --wait` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/05-analitica.sql). Desde `database-fundamentals/`, arranca `docker compose up -d --wait` y ejecuta:
 
 Archivo: terminal.
 
@@ -45,7 +45,7 @@ docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 
 
 El script incluye el modelo y las vistas de la entrega anterior; no requiere que hayas ejecutado otros capítulos. Reinicia los datos ficticios `db_model`.
 
-Archivo: `bases-de-datos/sql/05-analitica.sql`.
+Archivo: `database-fundamentals/sql/05-analitica.sql`.
 
 ```sql
 \ir 04-consultas.sql
@@ -116,6 +116,15 @@ Una **cohort** agrupa entidades según un acontecimiento inicial. Aquí elegimos
 El ejemplo produce una persona activa en enero y una en febrero, ambas de la cohorte de enero. Son conteos, no una tasa de retención publicada como indicador de negocio.
 
 Para calcular retención, divide clientes activos de cada mes por el tamaño inicial de la misma cohorte. Debes representar también meses con cero actividad, fijar zona horaria si usas timestamps y distinguir meses aún no observados de abandono real. La cohorte reciente no ha tenido el mismo tiempo para volver que una antigua.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-analytics/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

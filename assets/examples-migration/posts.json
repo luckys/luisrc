@@ -1,0 +1,926 @@
+[
+  {
+    "locale": "en",
+    "slug": "acid-properties-databases",
+    "labs": [
+      "transactions-en"
+    ]
+  },
+  {
+    "locale": "en",
+    "slug": "postgresql-transactions-practical-examples",
+    "labs": [
+      "transactions-en"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "access-refresh-tokens-rotacion-reutilizacion",
+    "labs": [
+      "api-identity"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aislamiento-mvcc-postgresql",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "algoritmos-busqueda-ordenacion-heaps-grafos",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "api-contrato-esquema-clientes",
+    "labs": [
+      "api-contracts"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "api-keys-credenciales-clientes-permisos",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "arbol-binario-busqueda-altura-balanceo",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "arboles-random-forest-gradient-boosting",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "arrays-listas-enlazadas-costes-reales",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "asincronia-nodejs-carreras-concurrencia",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "autenticacion-autorizacion-tenant",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "autorizacion-multi-tenant-contexto-datos",
+    "labs": [
+      "api-authorization"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "autorizacion-rbac-abac-permisos-recursos",
+    "labs": [
+      "api-authorization"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "autorizacion-tests-adversariales-bola",
+    "labs": [
+      "api-authorization"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "bfs-recorrido-anchura-camino-minimo",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "binary-heap-cola-prioridad",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "bits-floats-unicode-fechas-representacion",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "bubble-sort-intercambios-adyacentes",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "busqueda-binaria-lower-bound",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "busqueda-hash-map-colisiones",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "busqueda-lineal-contrato-coste",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "calibracion-interpretabilidad-equidad-modelos",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "clustering-kmeans-dbscan-estabilidad",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "colas-ack-leases-trabajos-duplicados",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "componentes-design-system-contratos-estados",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "concurrencia-bloqueos-postgresql",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "consumo-recursos-concurrencia-bulkheads",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "contratos-http-recursos-operaciones",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cors-sop-preflight-no-autorizacion",
+    "labs": [
+      "browser-security"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "counting-sort-rango-frecuencias",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cpu-memoria-almacenamiento-localidad",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "crdt-yjs-offline-convergencia",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "csp-nonces-report-only-defensa-adicional",
+    "labs": [
+      "browser-security"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "csr-ssr-ssg-hydration-renderizado",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "csrf-cookies-samesite-origin-token",
+    "labs": [
+      "browser-security"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "derivadas-gradientes-regla-cadena",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dfs-recorrido-profundidad-stack",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dijkstra-caminos-minimos-pesos",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dinero-tipos-validacion-typescript",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "distribuciones-media-percentiles-latencia",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "docker-ci-despliegues-runbooks",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "eda-numpy-pandas-calidad-datos",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "elegir-sql-nosql-motores-especializados",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "entropia-cross-entropy-kl-logits",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "errores-api-logs-request-id-diagnostico-seguro",
+    "labs": [
+      "api-validation-errors"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "errores-api-problem-details-stock-concurrencia",
+    "labs": [
+      "api-validation-errors"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "estado-cliente-servidor-optimismo-races",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "estructuras-datos-elegir-patron-acceso",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "evolucion-api-paginacion-contratos",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "evolucion-api-versiones-consumidores-contratos",
+    "labs": [
+      "api-pagination-evolution"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "experimentos-ab-p-value-efecto-potencia",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "experimentos-ml-reproducibles-baselines",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "explain-analyze-postgresql",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "fallos-parciales-timeout-resultado-desconocido",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "fault-injection-pruebas-propiedades",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "fourier-fft-convolucion-errores-numericos",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "frontend-accesible-semantica-teclado-foco",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gradiente-descendente-learning-rate-convergencia",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "grafos-listas-adyacencia-matrices",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "heapsort-construccion-bottom-up",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "http-semantica-versiones-etag-cache",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "https-tls-certificados-identidad",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "idempotencia-api-claves-efectos",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "indices-compuestos-parciales-covering",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "indices-postgresql-fundamentos",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "inferencia-bootstrap-intervalos-confianza",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "insertion-sort-prefijo-ordenado",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "internet-ip-routing-nat-dns",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "linux-diagnosticar-procesos-puertos-senales",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "machine-learning-problema-target-prediccion",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "maquinas-estados-reglas-negocio",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "mass-assignment-comandos-propiedades-autorizadas",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "medir-algoritmos-busqueda-lineal-map",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "merge-sort-mezcla-estabilidad",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "metricas-ml-precision-recall-auc-errores",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "migraciones-base-datos-sin-romper-aplicacion",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "modelado-relacional-integridad-datos",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "monolito-modular-solid-sin-sobreingenieria",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "navegador-dom-cssom-event-loop-fetch",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "normalizacion-desnormalizacion-datos",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "oauth-oidc-authorization-code-pkce",
+    "labs": [
+      "api-identity"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "observabilidad-logs-metricas-trazas-workers",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "oidc-validar-id-token-jwks-claims",
+    "labs": [
+      "api-identity"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "paginacion-escrituras-concurrentes-snapshots",
+    "labs": [
+      "api-pagination-evolution"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "paginacion-offset-keyset-postgresql-concurrencia",
+    "labs": [
+      "api-pagination-evolution"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "paginacion-postgresql-indices-explain-mediciones",
+    "labs": [
+      "api-pagination-evolution"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "particionado-retencion-postgresql",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pilas-colas-lifo-fifo",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "preprocesamiento-pipelines-data-leakage",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "probabilidad-bayes-prior-alertas",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "procesos-hilos-memoria-virtual-bloqueos",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "propiedades-acid-bases-de-datos",
+    "labs": [
+      "transactions"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pruebas-carga-percentiles-saturacion",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "quicksort-particion-pivote",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "rate-limiting-token-bucket-tenant",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "reconciliacion-operaciones-inciertas",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "recursos-http-metodos-idempotencia",
+    "labs": [
+      "api-contracts"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "redis-cache-consistencia",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "regresion-lineal-logistica-perdidas-regularizacion",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "rendimiento-frontend-medir-antes-optimizar",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "requisitos-capacidad-invariantes-servicio",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "retries-deadlines-backoff-backpressure",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sagas-compensaciones-workflows-duraderos",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "secretos-rotacion-recarga-revocacion",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "seguridad-api-navegador-limites-confianza",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "selection-sort-minimo-intercambios",
+    "labs": [
+      "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sesiones-web-cookies-identidad",
+    "labs": [
+      "api-identity"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sli-slo-error-budget-servicios",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sql-cte-ventanas-cohortes",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sql-injection-parametros-tenant-ordenacion",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sql-joins-null-agregaciones",
+    "labs": [
+      "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sse-websockets-reconexion-eventos-perdidos",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "ssrf-destinos-permitidos-redirecciones",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "ssrf-dns-validacion-conexion-ip",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "tablas-grandes-paginacion-virtualizacion-seleccion",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "tcp-udp-quic-perdida-latencia",
+    "labs": [
+      "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "tdd-pruebas-unitarias-integracion-contrato",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "threat-model-api-multi-tenant-pruebas",
+    "labs": [
+      "api-threats"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "transacciones-postgresql-ejemplos-practicos",
+    "labs": [
+      "transactions"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "transactional-outbox-inbox-eventos",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "transformaciones-lineales-pca-perdida-informacion",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "validacion-errores-api-problem-details",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "validacion-pydantic-strict-null-refinements",
+    "labs": [
+      "api-validation-errors"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "validacion-runtime-json-schema-zod-pydantic",
+    "labs": [
+      "api-validation-errors"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "validacion-temporal-cross-validation-seleccion",
+    "labs": [
+      "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "validacion-zod-contratos-errores-runtime",
+    "labs": [
+      "api-validation-errors"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "vectores-matrices-tensores-similitud",
+    "labs": [
+      "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "versionado-api-deprecacion-migracion-consumidores",
+    "labs": [
+      "api-pagination-evolution"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "webhooks-firmas-inbox-eventos-desordenados",
+    "labs": [
+      "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "webrtc-audio-ice-stun-turn",
+    "labs": [
+      "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "xss-dom-texto-html-contextos",
+    "labs": [
+      "browser-security"
+    ]
+  }
+]

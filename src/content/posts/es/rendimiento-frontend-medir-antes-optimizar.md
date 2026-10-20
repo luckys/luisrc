@@ -43,7 +43,7 @@ El componente [Profiler](https://react.dev/reference/react/Profiler) permite obs
 
 El laboratorio compara crear 5.000 elementos de lista con crear una ventana representativa de 14. Mantiene el estilo de fila y fuerza layout leyendo la geometría. No ejecuta React ni simula una interacción de usuario.
 
-Archivo: `frontend-tiempo-real/tools/measure-dom.mjs`, operación que fuerza la resolución del layout.
+Archivo: `realtime-frontend/tools/measure-dom.mjs`, operación que fuerza la resolución del layout.
 
 ```javascript
 root.getBoundingClientRect()
@@ -59,7 +59,7 @@ En la ejecución archivada, con Chromium 141.0.7390.37, Linux y un Intel Core Ul
 
 Esto respalda una conclusión acotada: en este experimento, montar menos elementos redujo ese trabajo DOM. No demuestra una mejora equivalente de INP, ni que una aplicación completa vaya a responder en 0,3 ms. Tampoco mide el coste de mantener una ventana al hacer scroll.
 
-[Descarga el laboratorio](/assets/examples/frontend-tiempo-real-lab.zip). Desde `frontend-tiempo-real/`, con dependencias y Chromium instalados:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/tools/measure-dom.mjs). Desde `realtime-frontend/`, con dependencias y Chromium instalados:
 
 ```bash
 pnpm exec node tools/measure-dom.mjs
@@ -74,6 +74,15 @@ Si el coste es calcular sobre muchos datos, reduce el trabajo o considera un **W
 Si el problema es descargar código que todavía no necesitas, considera **lazy loading** y code splitting. Si es renderizar miles de filas, evalúa **virtualization** o paginación. Si son actualizaciones repetidas de un árbol caro, estudia identidad de props y memoization después de medir.
 
 No implementamos todas estas alternativas en la demo. El experimento aísla el DOM para no mezclar una comparación sencilla con cambios simultáneos de algoritmo, red y framework.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p070/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
 
 ## Garantías y límites
 

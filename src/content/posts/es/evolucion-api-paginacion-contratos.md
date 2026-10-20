@@ -35,7 +35,7 @@ Ordenar solo por fecha no basta: dos pedidos pueden compartirla. Elegimos el par
 
 [Ampliar el diagrama](/assets/visuals/reliable-services/API-EVOLUTION.svg).
 
-Archivo: `servicios-fiables/src/service.ts` (extracto del modelo en memoria).
+Archivo: `reliable-services/src/service.ts` (extracto del modelo en memoria).
 
 ```typescript
 export function pageAfter<T extends Row>(
@@ -85,11 +85,20 @@ Puedes evolucionar un contrato mediante cambios compatibles, una etapa de deprec
 
 Antes de crear `/v2`, escribe qué consumidor se rompe y cómo migrará. Para un cambio de representación, conviene que los dos formatos convivan durante una transición. No es razonable exigir que todos los clientes se desplieguen al mismo tiempo.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-evolution/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El laboratorio prueba el orden compuesto y un consumidor tolerante. No contiene un benchmark de un millón de filas ni un sistema de cursores firmado. No atribuimos al ejemplo una mejora de latencia medida.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Archivo: terminal, desde `servicios-fiables/`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/service.ts). Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="cursor compuesto" tests/core.test.mjs

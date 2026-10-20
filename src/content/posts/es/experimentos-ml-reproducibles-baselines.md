@@ -44,9 +44,9 @@ Cambiar al mismo tiempo features, algoritmo y ventana de datos puede ser útil p
 
 ## Una semilla no versiona los datos ni el entorno
 
-El [laboratorio descargable](/assets/examples/machine-learning-lab.zip) incluye el CSV, el generador, tests, protocolo y resultados JSON. Conserva **SHA-256 del dataset y del protocolo**, versiones de Python y bibliotecas, y semillas explícitas.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/experiments.py) incluye el CSV, el generador, tests, protocolo y resultados JSON. Conserva **SHA-256 del dataset y del protocolo**, versiones de Python y bibliotecas, y semillas explícitas.
 
-Usamos una imagen científica ya disponible y fijada por **digest**, no por una etiqueta mutable como `latest`. La ejecución no necesita red y monta el código en solo lectura. El ZIP contiene el laboratorio, no la imagen ni sus dependencias; el README explica ese requisito antes de ejecutar nada.
+Usamos una imagen científica ya disponible y fijada por **digest**, no por una etiqueta mutable como `latest`. La ejecución no necesita red y monta el código en solo lectura. El repositorio contiene el laboratorio, no la imagen ni sus dependencias; el README explica ese requisito antes de ejecutar nada.
 
 Archivo: `machine-learning/experiments.py`, registro del entorno y huellas de entrada.
 
@@ -73,11 +73,11 @@ Sobre los mismos **180 envíos de test**, con 47 retrasos, obtenemos:
 
 AP significa average precision y recall utiliza threshold 0,5.
 
-| Modelo | AP | Recall |
-| --- | ---: | ---: |
-| Constante | 0,2611 | 0 |
+| Modelo    |     AP | Recall |
+| --------- | -----: | -----: |
+| Constante | 0,2611 |      0 |
 | Logística | 0,7546 | 0,4681 |
-| Bosque | 0,7161 | 0,3830 |
+| Bosque    | 0,7161 | 0,3830 |
 
 Brier, donde menor es mejor, queda en **0,1958 para la referencia constante, 0,1206 para logística y 0,1332 para el bosque**.
 
@@ -90,6 +90,15 @@ El archivo de resultados conserva IDs, targets y probabilidades para reconstruir
 Podemos revisar falsos negativos, distribuciones de scores y grupos operativos. Cada observación puede sugerir una hipótesis nueva, no justificar retrospectivamente el experimento anterior.
 
 En este fixture conocemos la regla generadora y sabemos que incluye ruido. En producción habría que comprobar además etiquetas tardías, errores de captura y cambios operativos. Una herramienta de **experiment tracking** puede guardar todo esto; un JSON local versionado basta para aprender el flujo, sin añadir un servicio remoto que todavía no necesitamos.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p095/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

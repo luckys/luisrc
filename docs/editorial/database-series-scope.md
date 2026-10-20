@@ -47,7 +47,7 @@ repetir la configuración de Docker en trece artículos.
 
 ## Entregables
 
-Artículos en `src/content/posts/es/`, laboratorio en `examples/bases-de-datos/`,
+Artículos en `src/content/posts/es/`, laboratorio en `https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/`,
 diagramas fuente en `assets/database-series/`, recursos públicos en
 `public/assets/visuals/database-series/` e inventario en
 `docs/editorial/database-fundamentals.yaml`.

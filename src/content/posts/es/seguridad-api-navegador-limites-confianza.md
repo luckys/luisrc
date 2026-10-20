@@ -37,7 +37,7 @@ Si necesitas reproducir el comportamiento de un navegador, el bloque ampliado de
 
 El siguiente control pertenece a una demo con un único origen permitido. `sessionToken` representa un token CSRF aleatorio y secreto ligado a la sesión, no su identificador público.
 
-Archivo: `servicios-fiables/src/security.ts` (extracto).
+Archivo: `reliable-services/src/security.ts` (extracto).
 
 ```typescript
 export function allowMutation(
@@ -75,11 +75,20 @@ Para **SQL injection**, utiliza parámetros del driver, no concatenación de val
 
 **Rate limiting** por IP puede ser útil, pero no representa por sí solo al usuario ni al tenant. Un proxy compartido puede agrupar personas legítimas; un atacante puede repartir tráfico. El límite debe responder al recurso que queremos proteger.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-security/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Las pruebas verifican las políticas de origen/token y destino. No ejecutan un navegador, una explotación XSS, un handshake TLS ni un ataque DNS. El ejemplo enseña fronteras y casos negativos; no constituye una auditoría ni una configuración de producción completa.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Archivo: terminal, desde `servicios-fiables/`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/security.ts). Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="controles de frontera" tests/core.test.mjs

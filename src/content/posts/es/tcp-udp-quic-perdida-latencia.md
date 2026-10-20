@@ -60,11 +60,11 @@ Los streams fiables de QUIC retransmiten información cuando corresponde. Elegir
 
 ## Un modelo de seis muestras permite distinguir orden y plazo
 
-El [laboratorio descargable](/assets/examples/computacion-redes-lab.zip) envía seis unidades cada veinte milisegundos. Fijamos cuarenta de latencia, perdemos la unidad uno y, para el modo fiable, añadimos cien de recuperación. El deadline de cada unidad es su envío más ochenta.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/concepts.mjs) envía seis unidades cada veinte milisegundos. Fijamos cuarenta de latencia, perdemos la unidad uno y, para el modo fiable, añadimos cien de recuperación. El deadline de cada unidad es su envío más ochenta.
 
 Todos estos tiempos son **supuestos de la simulación**, no valores medidos de TCP, UDP o QUIC.
 
-Archivo: `computacion-redes/concepts.mjs`, aplicación del bloqueo ordenado.
+Archivo: `computing-networks/concepts.mjs`, aplicación del bloqueo ordenado.
 
 ```javascript
 if (id === lost) delivered = mode === 'datagram' ? null : delivered + recovery
@@ -87,6 +87,15 @@ Puedes [cambiar latencia, recuperación y deadline en el simulador](/assets/inte
 En una API, perder bytes de una petición no suele ser una salida válida: necesitamos un protocolo íntegro y gestionar después timeout, cancelación e idempotencia. En audio interactivo puede interesar ocultar una pérdida antes que reproducir voz demasiado tarde.
 
 Estas diferencias no hacen de un transporte el ganador universal. También importan compatibilidad de red, proxies, cifrado, consumo y el protocolo de aplicación. Incluso un medio que tolera pérdida puede necesitar recuperar metadatos o estados que no admite omitir.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p006/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

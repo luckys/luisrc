@@ -61,7 +61,7 @@ Kubernetes, AWS, Terraform, motores de workflows y especializaciones de IA
 se mantienen como ampliaciones. OAuth/OIDC se explica aquí como frontera de
 identidad; integrar un proveedor real requiere otra validación específica.
 
-El [laboratorio](../../examples/servicios-fiables/README.md) sirve de apoyo a las
+El [laboratorio](../../packages/reliable-services/README.md) sirve de apoyo a las
 cuatro series. Las limitaciones y los checks se registran en
 [la revisión editorial](reliable-services-review.md).
 

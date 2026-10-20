@@ -50,7 +50,7 @@ La DFT directa del laboratorio realiza un sumatorio completo por bin, con coste 
 
 La implementación didáctica **radix-2** separa muestras de índices pares e impares y combina las transformadas menores. Requiere una longitud potencia de dos.
 
-Archivo: `matematicas-estadistica/foundations.py`, combinación recursiva de `fft` tras validar longitud y caso base.
+Archivo: `mathematics-statistics/foundations.py`, combinación recursiva de `fft` tras validar longitud y caso base.
 
 ```python
     even, odd = fft(signal[::2]), fft(signal[1::2])
@@ -82,9 +82,18 @@ La **discrete convolution** lineal completa es $y_n=\sum_k x_k h_{n-k}$, interpr
 
 Un kernel puede suavizar o resaltar cambios según sus coeficientes. Multiplicar espectros sin padding adecuado produce convolución circular, no necesariamente esta salida lineal. Algunas APIs de redes, como [Conv1d de PyTorch](https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv1d.html), llaman convolution a una operación de correlación; revisa orientación y padding antes de comparar resultados.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p085/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) prueba FFT frente a DFT, dos picos, aliasing y convolución. No implementa procesamiento en streaming, STFT, filtros antialiasing o una biblioteca numérica optimizada.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) prueba FFT frente a DFT, dos picos, aliasing y convolución. No implementa procesamiento en streaming, STFT, filtros antialiasing o una biblioteca numérica optimizada.
 
 Con floats, comprobar una identidad mediante igualdad exacta puede fallar por redondeo. Una tolerancia debe relacionarse con escala y método; no aumentarse hasta ocultar un algoritmo incorrecto. Las [notas de Python sobre coma flotante](https://docs.python.org/3.12/tutorial/floatingpoint.html) explican esa representación aproximada.
 

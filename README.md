@@ -2,6 +2,8 @@
 
 Personal website and blog of Luis Ramírez Calle, built with Astro. The site is bilingual (Spanish and English) and uses Tokyo Night dark and light themes.
 
+Runnable post examples live in the separate [luisrc-blog-examples monorepo](https://github.com/luckys/luisrc-blog-examples). This blog no longer stores labs or downloadable ZIPs. See [the examples workflow](docs/examples-repository.md) for article links, static widgets and cross-repository checks.
+
 The site publishes `/llms.txt` as a concise index for AI readers and allows OAI Search, Claude Search, and Perplexity crawlers in `robots.txt`.
 
 ## Search, AI readers and social previews

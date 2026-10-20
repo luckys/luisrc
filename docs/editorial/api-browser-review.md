@@ -44,7 +44,7 @@ partes no sustituyen fichas originales ni aumentan artificialmente su aceptació
 
 ## Laboratorio y desarrollo
 
-`examples/api-navegador`, Node 24.19.0, pnpm 12.8.1 y Playwright 1.56.1 fijado en
+`https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security`, Node 24.19.0, pnpm 12.8.1 y Playwright 1.56.1 fijado en
 lockfile independiente. Solo loopback y datos ficticios, sin cuentas o servicios.
 Tests HTTP escritos antes de lab.mjs: primera ejecución roja por módulo inexistente.
 Una prueba adicional con 48 caracteres no ASCII detectó un 500 de timingSafeEqual
@@ -79,7 +79,7 @@ no integra identidad ni permisos de los bloques anteriores. P030/P031 pendientes
 
 - `node --test tests/*.test.mjs`: 67 tests pasan; incluye dos nuevos de metadatos,
   enlaces, extractos reales, diagramas y nueve archivos exactos del ZIP.
-- `PLAYWRIGHT_BROWSERS_PATH=/tmp/luisrc-blog-playwright pnpm --dir examples/api-navegador test`:
+- `PLAYWRIGHT_BROWSERS_PATH=/tmp/luisrc-blog-playwright pnpm --dir https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security test`:
   15 tests pasan, siete HTTP y ocho Chromium. No se suman ejecuciones repetidas.
 - ZIP extraído a una carpeta temporal, `pnpm install --frozen-lockfile --ignore-scripts`
   y los mismos 15 tests: pasan también fuera del checkout. La última modificación

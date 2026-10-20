@@ -27,7 +27,7 @@ contrato de tipos; este laboratorio verifica comportamiento en ejecución.
 
 ## Evidencia ejecutada
 
-- `node --test examples/computacion-redes/tests/*.test.mjs`: doce pruebas aprobadas.
+- `node --test https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/tests/*.test.mjs`: doce pruebas aprobadas.
   Checksum, localidad, muestras reales, cantidades exactas, UTF-8, bloqueo de CPU,
   servicio hijo y cierre, DNS→HTTP, modelo de transporte, fallos TLS y ETag.
 - `node --test tests/*.test.mjs`: 48 pruebas aprobadas, seis nuevas para esta serie.

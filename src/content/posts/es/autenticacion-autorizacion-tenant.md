@@ -41,7 +41,7 @@ Nuestro ejemplo admite un administrador de empresa y un lector propietario del p
 
 [Ampliar el diagrama](/assets/visuals/reliable-services/API-IDENTITY.svg).
 
-Archivo: `servicios-fiables/src/security.ts` (extracto).
+Archivo: `reliable-services/src/security.ts` (extracto).
 
 ```typescript
 export function canRead(principal: Principal, resource: Resource): boolean {
@@ -60,11 +60,20 @@ Una API real puede consultar por identificador y tenant autorizado, y después v
 
 Para recursos inaccesibles, un servicio puede elegir `404` para no revelar su existencia. Otro puede usar `403` cuando esa distinción sea parte del contrato. La política debe ser coherente; ocultar el botón en el frontend no autoriza nada en el servidor.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-identity/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El laboratorio prueba la política para un principal que **ya damos por autenticado**. No verifica tokens ni crea sesiones. Tampoco cubre permisos de soporte global, delegación o revocación. No presenta una función booleana como una solución completa de identidad.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Archivo: terminal, desde `servicios-fiables/`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/security.ts). Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="autorización por objeto" tests/core.test.mjs

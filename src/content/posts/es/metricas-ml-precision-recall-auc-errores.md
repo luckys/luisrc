@@ -27,9 +27,9 @@ Llamaremos positiva a una condición que queremos detectar: defecto o retraso. U
 En validation, el clasificador logístico de envíos utiliza threshold 0,5 y produce:
 
 | Real / predicho | Sin alerta | Con alerta |
-| --- | ---: | ---: |
-| Sin retraso | 131 TN | 5 FP |
-| Con retraso | 17 FN | 27 TP |
+| --------------- | ---------: | ---------: |
+| Sin retraso     |     131 TN |       5 FP |
+| Con retraso     |      17 FN |      27 TP |
 
 Hay **44 retrasos** entre 180 envíos. La **accuracy** es $(TP+TN)/n=158/180$, aproximadamente **87,78 %**. El baseline de no alertar obtiene 75,56 %, pero detecta cero retrasos.
 
@@ -87,9 +87,18 @@ Para minutos de retraso, **MAE** promedia errores absolutos en minutos; **MSE** 
 
 El test usa valores reales `[0,0]` y predicciones `[3,4]`: MAE=3,5; MSE=12,5; RMSE≈3,5355. No son tres formas de presentar el mismo número ni conviene comparar MSE entre targets con unidades distintas.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p093/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
+
 ## Garantías y límites
 
-El [laboratorio](/assets/examples/machine-learning-lab.zip) conserva matrices, curvas y scores. No define un coste monetario real ni demuestra utilidad de una intervención. Las funciones de AUC aquí suponen conjuntos binarios con ambas clases; un fold sin positivos necesita tratamiento explícito, no un cero que parezca una medición válida.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/models.py) conserva matrices, curvas y scores. No define un coste monetario real ni demuestra utilidad de una intervención. Las funciones de AUC aquí suponen conjuntos binarios con ambas clases; un fold sin positivos necesita tratamiento explícito, no un cero que parezca una medición válida.
 
 ## Ejercicio: traducir un coste a una evaluación
 

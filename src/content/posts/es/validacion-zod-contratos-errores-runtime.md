@@ -104,9 +104,18 @@ Si falla, devolvemos **500**, no 422: el usuario no puede corregir una salida qu
 
 Por eso no recomendamos reintentar un POST automáticamente ante cualquier 500. La [siguiente entrega sobre errores](/posts/errores-api-problem-details-stock-concurrencia) explica cómo distinguir causas sin prometer más de lo que sabemos.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-validation-zod/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-validation-errors
+```
+
 ## Garantías y límites
 
-El [ZIP de validación](/assets/examples/api-validacion-errores-lab.zip) fija Zod 4.6.7. El archivo del schema es JavaScript para poder ejecutar el mismo código con Node; la validación runtime existe también al usarlo desde TypeScript.
+El [laboratorio de validación](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-validation-errors/server.mjs) fija Zod 4.6.7. El archivo del schema es JavaScript para poder ejecutar el mismo código con Node; la validación runtime existe también al usarlo desde TypeScript.
 
 ```bash
 pnpm install --frozen-lockfile

@@ -25,7 +25,7 @@ Después de trabajar [semántica y foco](/posts/frontend-accesible-semantica-tec
 
 Su contrato conserva atributos de un botón nativo y añade `pending`. El tipo por defecto es `button`, evitando envíos accidentales dentro de formularios. El formulario que sí debe enviar declara `type="submit"`.
 
-Archivo: `frontend-tiempo-real/src/components.tsx`, implementación completa del botón.
+Archivo: `realtime-frontend/src/components.tsx`, implementación completa del botón.
 
 ```tsx
 export function ActionButton({
@@ -81,13 +81,22 @@ Las pruebas de navegador ejercitan el componente dentro del formulario y comprue
 
 Comparar capturas detecta cambios de apariencia, no decide si son correctos ni si la interfaz funciona con teclado. Por eso no sustituye las pruebas de comportamiento o la revisión de accesibilidad. Este laboratorio no incorpora baselines visuales automáticos.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p072/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
+
 ## Garantías y límites
 
-[El código descargable](/assets/examples/frontend-tiempo-real-lab.zip) prueba un recorrido real con `ActionButton`, estados visibles y layout pequeño. No es una librería publicada ni contiene un catálogo completo, validación de todos los contrastes o auditoría con lectores de pantalla.
+[El código en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/components.tsx) prueba un recorrido real con `ActionButton`, estados visibles y layout pequeño. No es una librería publicada ni contiene un catálogo completo, validación de todos los contrastes o auditoría con lectores de pantalla.
 
 Los formularios conservan etiquetas y mensajes fuera del botón. No intentamos resolver errores de negocio mediante un componente genérico que solo puede mostrar «Algo ha fallado».
 
-Desde `frontend-tiempo-real/`, ejecuta `pnpm test:browser --grep "teclado|optimismo|responsive"`. Para revisar variantes manualmente, inicia `pnpm start` y abre la vista `components`.
+Desde `realtime-frontend/`, ejecuta `pnpm test:browser --grep "teclado|optimismo|responsive"`. Para revisar variantes manualmente, inicia `pnpm start` y abre la vista `components`.
 
 ## Ejercicio: añadir una variante sin romper el formulario
 

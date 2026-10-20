@@ -14,7 +14,7 @@ programando; se explican mecanismos, no sintaxis elemental.
 8. [HTTP, ETag y caché](../../src/content/posts/es/http-semantica-versiones-etag-cache.md).
 9. [El navegador por dentro](../../src/content/posts/es/navegador-dom-cssom-event-loop-fetch.md).
 
-[Laboratorio](../../examples/computacion-redes/README.md), [alcance](computing-series-scope.md),
+[Laboratorio](../../packages/computing-networks/README.md), [alcance](computing-series-scope.md),
 [inventario](computing-series.json) y [glosario](computing-series-glossary.md).
 
 La continuación editorial es Serie 02, Programación y fundamentos del código

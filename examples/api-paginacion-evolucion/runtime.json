@@ -1,7 +1,0 @@
-{
-  "image": "postgres@sha256:0b657ff48d7f76a1e907f381b1693eb4f2bf54c1d2df4feb6743d7dc601768dd",
-  "node": "24.19.0",
-  "pg": "8.23.1",
-  "cpus": 2,
-  "memory": "1536m"
-}

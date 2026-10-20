@@ -31,7 +31,7 @@ Podemos generar secuencias y comprobar esa propiedad después de cada paso. No s
 
 ## La semilla permite repetir el recorrido
 
-Archivo: `servicios-fiables/tests/core.test.mjs` (extracto).
+Archivo: `reliable-services/tests/core.test.mjs` (extracto).
 
 ```javascript
 let seed = 17
@@ -69,13 +69,22 @@ Para cada paso, anota estado persistido antes, efecto posible, observación del 
 
 Las aserciones deben contar efectos y estados, no únicamente respuestas HTTP. Cien respuestas exitosas pueden corresponder a cien efectos duplicados. Una respuesta incierta puede ser correcta si la evidencia disponible no permite resolverla todavía.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/ops-faults/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 La semilla fija facilita replay, pero explora una parte finita del espacio. Un schedule determinista no representa todos los intercalados del sistema operativo. El laboratorio no ejecuta fuzzing de bytes, mutation testing ni un crash real de proceso.
 
 Antes de fallos reales de infraestructura, utiliza un entorno aislado, un objetivo y condiciones de parada. No hace falta arriesgar datos para descubrir un error que una transacción de prueba ya reproduce.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/tests/core.test.mjs). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="secuencias generadas|timeout tras efecto" tests/core.test.mjs

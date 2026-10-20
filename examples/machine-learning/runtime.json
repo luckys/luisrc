@@ -1,8 +1,0 @@
-{
-  "image": "quay.io/jupyter/scipy-notebook@sha256:2479174ae36ec84373f3c352cb6d5801382c0aa6642e739f04bea409f6cedae1",
-  "python": "3.13.15",
-  "numpy": "2.5.3",
-  "pandas": "3.0.6",
-  "scipy": "1.18.1",
-  "sklearn": "1.9.1"
-}

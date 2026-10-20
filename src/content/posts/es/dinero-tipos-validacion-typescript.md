@@ -43,7 +43,7 @@ Otra alternativa es utilizar una biblioteca decimal con precisión y redondeo ex
 
 ## Validar la frontera y crear un valor pequeño
 
-Archivo: `servicios-fiables/src/money.ts` (extracto; implementación completa en el laboratorio).
+Archivo: `reliable-services/src/money.ts` (extracto; implementación completa en el laboratorio).
 
 ```typescript
 export type Money = Readonly<{ amount_minor: number; currency: 'EUR' }>
@@ -69,15 +69,24 @@ export function parseMoney(value: unknown): Money {
 
 ## Probar también lo que debe rechazarse
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip), descomprímelo y entra en `servicios-fiables/`. Necesitas **Node.js 24**. Las pruebas del núcleo no requieren instalar paquetes.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/money.ts), clona el repositorio y entra en `packages/reliable-services/`. Necesitas **Node.js 24**. Las pruebas del núcleo no requieren instalar paquetes.
 
-Archivo: terminal, desde `servicios-fiables/`.
+Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="money" tests/core.test.mjs
 ```
 
 La prueba acepta 30 céntimos y rechaza `null`, un objeto vacío, 1.5 céntimos, una moneda no soportada y un entero fuera de rango. Primero se escribieron las aserciones; después se añadió la implementación. El test conserva el contraejemplo decimal para que la decisión siga teniendo una razón observable.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-money/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
 
 ## Garantías y límites
 

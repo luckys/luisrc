@@ -16,7 +16,7 @@ independiente de una empresa, y experimentos auxiliares para explicar límites.
 9. [Calibración, interpretabilidad y equidad](../../src/content/posts/es/calibracion-interpretabilidad-equidad-modelos.md).
 10. [Experimentos reproducibles](../../src/content/posts/es/experimentos-ml-reproducibles-baselines.md).
 
-[Laboratorio](../../examples/machine-learning/README.md), [inventario](ml-series.json),
+[Laboratorio](../../packages/machine-learning/README.md), [inventario](ml-series.json),
 [alcance](ml-series-scope.md) y [glosario](ml-series-glossary.md).
 
 El siguiente bloque propuesto es Deep Learning (P096–P105), aún no redactado en esta

@@ -47,7 +47,7 @@ Así observamos el mecanismo sin cuentas ni servicios externos. No sustituye se�
 
 El caso menos evidente aparece al colgar con la solicitud pendiente. Abortar nuestro intento no obliga a cerrar el diálogo ni impide que la captura resuelva después. Debemos comprobar la señal al recibir el stream.
 
-Archivo: `frontend-tiempo-real/src/media.ts`, cierre de recursos del intento.
+Archivo: `realtime-frontend/src/media.ts`, cierre de recursos del intento.
 
 ```typescript
 const stop = () => {
@@ -78,9 +78,18 @@ Para avisar de una transcripción nueva puede bastar SSE. Para procesar audio gr
 
 Tampoco garantiza un camino siempre directo entre peers. Puede haber TURN u otra infraestructura multimedia. Esa elección tiene consecuencias de coste y privacidad.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p075/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
+
 ## Garantías y límites
 
-[Descarga el laboratorio](/assets/examples/frontend-tiempo-real-lab.zip). Desde `frontend-tiempo-real/`: `pnpm test:browser --grep WebRTC`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/media.ts). Desde `realtime-frontend/`: `pnpm test:browser --grep WebRTC`.
 
 Se prueban transporte local de audio sintético y cierre de llamada. No se prueban STUN, TURN, redes remotas, calidad perceptiva o latencia extremo a extremo. No es un servicio de llamadas listo para publicar.
 

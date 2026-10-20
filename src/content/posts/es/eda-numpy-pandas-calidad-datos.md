@@ -32,7 +32,7 @@ Los índices de pandas también importan: algunas operaciones alinean por etique
 
 ## Primero auditamos el fichero; después delimitamos qué explorar
 
-El [laboratorio](/assets/examples/machine-learning-lab.zip) trae `data/logistics-v1.csv`: **909 filas**, seis repeticiones de IDs y tres filas extra con distancia negativa. La limpieza documentada deja **900 envíos distintos**. Conservamos diez distancias y cinco cargas ausentes para tratarlas después dentro del entrenamiento.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/data.py) trae `data/logistics-v1.csv`: **909 filas**, seis repeticiones de IDs y tres filas extra con distancia negativa. La limpieza documentada deja **900 envíos distintos**. Conservamos diez distancias y cinco cargas ausentes para tratarlas después dentro del entrenamiento.
 
 Archivo: `machine-learning/data.py`, política de limpieza del fixture.
 
@@ -77,6 +77,15 @@ La clase positiva ocupa **112 de 540 envíos**, aproximadamente **20,74 %**. Una
 La correlación de Pearson entre distancia y retraso en train es aproximadamente **0,4124**, calculada sobre los pares disponibles. Resume asociación lineal, no toda dependencia posible. Una relación curva puede tener correlación pequeña y seguir siendo predecible.
 
 Tampoco demuestra que aumentar la distancia sea la causa del retraso. En datos reales podrían intervenir tipo de ruta, tráfico o selección de envíos. En estos datos sabemos cómo se generaron porque el mecanismo está en `data.py`; esa ventaja no existe automáticamente en un CSV de producción.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p087/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

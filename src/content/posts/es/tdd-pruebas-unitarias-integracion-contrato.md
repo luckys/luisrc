@@ -23,7 +23,7 @@ Cambias una función privada y fallan veinte tests, aunque la aplicación siga h
 
 Queremos que un éxito confirmado no cambie por un rechazo atrasado. La primera prueba expresa esa decisión y debe fallar si la implementación simplemente asigna cualquier estado recibido.
 
-Archivo: `servicios-fiables/tests/core.test.mjs` (extracto).
+Archivo: `reliable-services/tests/core.test.mjs` (extracto).
 
 ```javascript
 assert.equal(transition('created', 'submit'), 'processing')
@@ -64,11 +64,20 @@ Los casos normales son insuficientes. Añade un dato inválido, una operación d
 
 **Coverage** indica qué código se ejecutó. No demuestra que las aserciones distingan un resultado correcto de uno incorrecto. Un test que solo exige «no lanzó error» puede ejecutar todo el handler y seguir sin detectar un cargo duplicado.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/design-tdd/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Las pruebas reducen incertidumbre dentro de sus escenarios. No prueban seguridad completa, disponibilidad ni ausencia de todas las carreras. La suite del núcleo contiene modelos en memoria; la suite PostgreSQL comprueba otros límites. Mantener esa separación es parte del resultado.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/tests/core.test.mjs). Desde `reliable-services/`:
 
 ```bash
 node --test tests/core.test.mjs

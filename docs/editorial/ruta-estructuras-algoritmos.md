@@ -43,10 +43,10 @@ Las 21 entregas desarrollan **una ficha P011**, no 21 fichas del catálogo gener
 
 ## Recursos
 
-- [Laboratorio](../../examples/estructuras-algoritmos/README.md), [ZIP autónomo](../../public/assets/examples/estructuras-algoritmos-lab.zip).
+- [Laboratorio](../../packages/data-structures-algorithms/README.md), [ZIP autónomo](../../publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/README.md).
 - [Visor paso a paso](../../public/assets/interactive/algorithms-series/steps.html): lower bound e insertion sort.
 - [Explorador de contadores](../../public/assets/interactive/algorithms-series/explorer.html): consultas y tamaños.
-- [Muestras originales](../../examples/estructuras-algoritmos/results/benchmark.json), sin regenerar por esta ampliación.
+- [Muestras originales](../../packages/data-structures-algorithms/results/benchmark.json), sin regenerar por esta ampliación.
 - [Alcance](algorithms-series-scope.md), [glosario](algorithms-series-glossary.md), [revisión](algorithms-series-review.md).
 
 Los interactivos requieren un servidor HTTP, no file://. El README explica la

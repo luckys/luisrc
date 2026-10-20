@@ -1,7 +1,10 @@
 import * as echarts from 'echarts'
 import { readFile, writeFile } from 'node:fs/promises'
 const results = JSON.parse(
-  await readFile('examples/api-paginacion-evolucion/results/experiments.json', 'utf8'),
+  await readFile(
+    'assets/evidence/api-pagination-evolution/results/experiments.json',
+    'utf8',
+  ),
 )
 const median = (values) => values.toSorted((a, b) => a - b)[Math.floor(values.length / 2)]
 const chart = echarts.init(null, null, {

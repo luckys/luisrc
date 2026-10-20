@@ -33,7 +33,7 @@ En el laboratorio, **LatestRequest** aborta la solicitud anterior mediante **Abo
 
 La segunda defensa sigue siendo útil si un adaptador no atiende la señal o si el trabajo ya terminó. La [API de cancelación](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) permite interrumpir operaciones que la soportan; no deshace una mutación que el servidor ya aplicó.
 
-Archivo: `frontend-tiempo-real/src/state.ts`, invalidación explícita de una búsqueda.
+Archivo: `realtime-frontend/src/state.ts`, invalidación explícita de una búsqueda.
 
 ```typescript
   cancel() {
@@ -54,7 +54,7 @@ La prueba unitaria controla cuándo termina cada promesa. Hace llegar primero la
 
 Al guardar un nombre, podemos mostrarlo inmediatamente mientras esperamos confirmación. Esa es una **optimistic update**. Si el servidor rechaza la operación, la pantalla necesita explicar el rechazo y recuperar una representación coherente.
 
-Archivo: `frontend-tiempo-real/src/state.ts`, función completa de la demo.
+Archivo: `realtime-frontend/src/state.ts`, función completa de la demo.
 
 ```typescript
 export async function optimisticRename(
@@ -89,11 +89,20 @@ Para una operación importante, recupera el estado autoritativo o consulta su id
 
 Para una aplicación real evaluaría una biblioteca de query caching antes de ampliar esta miniimplementación. [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/guides/optimistic-updates) documenta cancelación de refetches, snapshots e invalidación alrededor de una actualización optimista. También permite recuperar datos en lugar de intentar un rollback local complejo.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p069/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/frontend-tiempo-real-lab.zip) prueba selección de la respuesta vigente, rollback, confirmación y conservación de una revisión más reciente. El servidor vive en memoria: reiniciarlo elimina los pedidos modificados. No implementa autenticación, caché multiusuario ni recuperación duradera tras timeout.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/state.ts) prueba selección de la respuesta vigente, rollback, confirmación y conservación de una revisión más reciente. El servidor vive en memoria: reiniciarlo elimina los pedidos modificados. No implementa autenticación, caché multiusuario ni recuperación duradera tras timeout.
 
-Desde `frontend-tiempo-real/`, ejecuta `pnpm test` y `pnpm test:browser --grep "optimismo|búsqueda"`.
+Desde `realtime-frontend/`, ejecuta `pnpm test` y `pnpm test:browser --grep "optimismo|búsqueda"`.
 
 ## Ejercicio: una respuesta que llega demasiado tarde
 

@@ -1,11 +1,7 @@
 import assert from 'node:assert/strict'
-import { createRequire } from 'node:module'
 import { readFile, mkdtemp, writeFile } from 'node:fs/promises'
 
-const require = createRequire(
-  new URL('../examples/frontend-tiempo-real/package.json', import.meta.url),
-)
-const { chromium } = require('@playwright/test')
+const { chromium } = await import('@playwright/test')
 const origin = process.env.COMPUTING_DRAFT_ORIGIN ?? 'http://127.0.0.1:4322'
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname))
 const manifest = JSON.parse(

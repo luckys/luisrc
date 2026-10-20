@@ -46,7 +46,7 @@ Esta tabla es una decisión didáctica, no una convención universal. Modelar ca
 
 ## El caso de uso puede existir antes que el router
 
-Archivo: `servicios-fiables/src/service.ts` (extracto).
+Archivo: `reliable-services/src/service.ts` (extracto).
 
 ```typescript
 export async function createOrder(
@@ -72,11 +72,20 @@ Tampoco conviene tratar una desconexión como una respuesta negativa del negocio
 
 **HTTP JSON** no es automáticamente **REST**. REST incluye restricciones arquitectónicas adicionales; aquí usamos recursos y semántica HTTP sin afirmar que todo endpoint con JSON satisface ese estilo completo. Para comunicación interna con esquemas fuertemente controlados, RPC o gRPC pueden ser alternativas; no evitan por sí solos los fallos de red.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-http/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El laboratorio prueba el caso de uso y su respuesta lógica, no levanta un servidor HTTP ni valida un documento OpenAPI. El contrato de la tabla es una especificación para el futuro adaptador, no una API ya desplegada.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Archivo: terminal, desde `servicios-fiables/`.
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/service.ts). Archivo: terminal, desde `reliable-services/`.
 
 ```bash
 node --test --test-name-pattern="caso de uso" tests/core.test.mjs

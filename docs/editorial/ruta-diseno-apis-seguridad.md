@@ -6,6 +6,11 @@ P030 desarrolla su temario con límites de laboratorio explícitos; P031 sigue p
 Ejemplos independientes de Paysafe; sin traducción, audio
 o publicación automática.
 
+El código ejecutable vive ahora en el [monorepo de ejemplos](https://github.com/luckys/luisrc-blog-examples),
+con carpetas en inglés e índice por ID de artículo. Los recuentos de ZIP y comandos
+de empaquetado que aparecen en revisiones anteriores son históricos; sigue
+[el flujo actual entre repositorios](../examples-repository.md).
+
 ## Orden de lectura
 
 1. **P020.** [Diseñar una API: el contrato es más que un JSON que funciona](../../src/content/posts/es/api-contrato-esquema-clientes.md).
@@ -80,15 +85,15 @@ la interfaz del blog.
 
 ## Un laboratorio por bloque, no treinta y dos proyectos independientes
 
-| Bloque                 | Artículos | Fuentes y evidencia                                                                                                                  |
-| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Contratos HTTP         | 1–2       | [api-contratos](../../examples/api-contratos/README.md), once tests sin instalaciones.                                               |
-| Validación y errores   | 3–7       | [api-validacion-errores](../../examples/api-validacion-errores/README.md), trece tests Node y cuatro Python.                         |
-| Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../examples/api-paginacion-evolucion/README.md), trece tests sin Docker y seis PostgreSQL.             |
-| Identidad              | 13–16     | [api-identidad](../../examples/api-identidad/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.              |
-| Permisos               | 17–19     | [api-permisos](../../examples/api-permisos/README.md), cinco tests de política y trece HTTP; visor con la misma función.             |
-| Navegador              | 20–23     | [api-navegador](../../examples/api-navegador/README.md), siete tests HTTP y ocho Chromium; sandbox solo local.                       |
-| Amenazas               | 24–32     | [api-amenazas](../../examples/api-amenazas/README.md), 58 tests HTTP/SQLite/SSRF/admisión/credenciales, threat model y tres visores. |
+| Bloque                 | Artículos | Fuentes y evidencia                                                                                                                 |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Contratos HTTP         | 1–2       | [api-contratos](../../packages/api-contracts/README.md), once tests sin instalaciones.                                              |
+| Validación y errores   | 3–7       | [api-validacion-errores](../../packages/api-validation-errors/README.md), trece tests Node y cuatro Python.                         |
+| Paginación y evolución | 8–12      | [api-paginacion-evolucion](../../packages/api-pagination-evolution/README.md), trece tests sin Docker y seis PostgreSQL.            |
+| Identidad              | 13–16     | [api-identidad](../../packages/api-identity/README.md), diez tests Node y comprobación Chromium del flujo y la cookie.              |
+| Permisos               | 17–19     | [api-permisos](../../packages/api-authorization/README.md), cinco tests de política y trece HTTP; visor con la misma función.       |
+| Navegador              | 20–23     | [api-navegador](../../packages/browser-security/README.md), siete tests HTTP y ocho Chromium; sandbox solo local.                   |
+| Amenazas               | 24–32     | [api-amenazas](../../packages/api-threats/README.md), 58 tests HTTP/SQLite/SSRF/admisión/credenciales, threat model y tres visores. |
 
 Cada README relaciona la entrega con sus archivos y pruebas. La reserva de inventario
 pertenece al bloque de validación; el listado de pedidos al de paginación. No se

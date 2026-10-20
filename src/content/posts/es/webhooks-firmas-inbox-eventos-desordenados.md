@@ -31,7 +31,7 @@ Nuestro protocolo es ficticio: firma `timestamp + "." + raw` con HMAC-SHA256, us
 
 [Ampliar el diagrama](/assets/visuals/reliable-services/DIST-WEBHOOKS.svg).
 
-Archivo: `servicios-fiables/src/webhook.ts` (extracto).
+Archivo: `reliable-services/src/webhook.ts` (extracto).
 
 ```typescript
 export function verify(
@@ -67,13 +67,22 @@ Dos avisos pueden llegar fuera de orden. «El último que recibí gana» permite
 
 No todos los tipos de webhook deben modificar el estado. Un evento desconocido puede almacenarse o descartarse con una política definida; no debería romper una cola entera. Un replay manual necesita autenticación y trazabilidad propias, no una excepción que desactive todas las firmas.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-webhooks/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 HMAC autentica a alguien que posee el secreto y protege la integridad de lo firmado. No prueba que los datos sean comercialmente correctos. Un secreto filtrado permite falsificar; requiere almacenamiento protegido, rotación y un periodo de convivencia de claves cuando el protocolo lo permita.
 
 El laboratorio prueba criptografía sobre strings UTF-8 y deduplicación SQL por separado. No incluye un receptor HTTP completo ni rotación de claves. El siguiente artículo muestra la transacción Inbox que evita aplicar dos veces un cambio local.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/webhook.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="webhook:" tests/core.test.mjs

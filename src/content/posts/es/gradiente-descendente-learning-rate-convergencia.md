@@ -50,7 +50,7 @@ Con $\eta=0.1$, el factor es 0,8. Con 0,8, es -0,6: saltamos de lado, pero nos a
 
 Esa deducción depende de esta función y de su escala. Si multiplicamos la pérdida por cien, el gradiente también cambia. No reutilices el intervalo de learning rates como regla universal.
 
-Archivo: `matematicas-estadistica/foundations.py`, actualización dentro de `descend`.
+Archivo: `mathematics-statistics/foundations.py`, actualización dentro de `descend`.
 
 ```python
         next_value = values[-1] - rate*gradient(values[-1])
@@ -78,13 +78,22 @@ No es una reparación universal de un learning rate inestable ni demuestra mejor
 
 ## Prueba el simulador con teclado
 
-[Descarga el laboratorio](/assets/examples/matematicas-estadistica-lab.zip). Desde `matematicas-estadistica/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py). Desde `mathematics-statistics/`:
 
 ```bash
 python3 -m http.server 4401 --bind 127.0.0.1
 ```
 
 Abre `http://127.0.0.1:4401/simulator.html`. Cambia función, posición inicial y paso. La curva muestra pérdida frente a iteración; el eje vertical se adapta, por lo que conviene leer también los valores numéricos. Detén el servidor con Ctrl+C.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p079/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
 
 ## Garantías y límites
 

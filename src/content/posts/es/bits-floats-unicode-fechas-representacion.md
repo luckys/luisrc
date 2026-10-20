@@ -40,9 +40,9 @@ Usar una tolerancia puede ser razonable para ciertos cálculos científicos, sie
 
 ## Las unidades menores evitan introducir floats en un importe exacto
 
-En el [laboratorio](/assets/examples/computacion-redes-lab.zip) definimos un contrato didáctico: importes no negativos, punto decimal y exactamente dos posiciones. Convertimos el texto directamente a **BigInt**, sin pasar por Number.
+En el [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/concepts.mjs) definimos un contrato didáctico: importes no negativos, punto decimal y exactamente dos posiciones. Convertimos el texto directamente a **BigInt**, sin pasar por Number.
 
-Archivo: `computacion-redes/concepts.mjs`, conversión del contrato de ejemplo.
+Archivo: `computing-networks/concepts.mjs`, conversión del contrato de ejemplo.
 
 ```javascript
 export function minorUnits(text) {
@@ -77,6 +77,15 @@ Tampoco debemos equiparar bytes, code points, unidades UTF-16 de un string JavaS
 Un **timestamp** numérico necesita unidad y origen: segundos y milisegundos desde Unix epoch no son intercambiables. JavaScript Date trabaja con milisegundos para su valor numérico. En texto, un formato con offset explícito evita que el receptor tenga que adivinarlo.
 
 Un offset no sustituye siempre a una zona como `Europe/Madrid`. Para «la reunión de las nueve cada lunes» interesan reglas de calendario y cambios de horario, no solo sumar un número fijo de segundos al instante anterior.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p002/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

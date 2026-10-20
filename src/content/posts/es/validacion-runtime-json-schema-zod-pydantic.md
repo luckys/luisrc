@@ -99,9 +99,18 @@ Incluso añadir una propiedad puede fallar si el receptor rechaza desconocidos. 
 
 Compartir un schema reduce duplicación dentro de un sistema. Entre lenguajes seguimos necesitando pruebas de contrato: defaults, regex, precisión y conversiones pueden diferir. No usamos el resultado de generar un tipo como sustituto de ejecutar esas pruebas.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p022/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-validation-errors
+```
+
 ## Garantías y límites
 
-El [laboratorio compartido](/assets/examples/api-validacion-errores-lab.zip) incluye `reservation.schema.json`, `cases.json` y los tests. Instala con pnpm y ejecuta desde su directorio:
+El [laboratorio compartido](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-validation-errors/cases.json) incluye `reservation.schema.json`, `cases.json` y los tests. Instala con pnpm y ejecuta desde su directorio:
 
 ```bash
 pnpm install --frozen-lockfile

@@ -39,7 +39,7 @@ React utiliza **hydrateRoot** cuando el contenido ya fue renderizado en el servi
 
 Por eso enviamos el mismo `seed`, el pedido inicial, al render del servidor y al del cliente. Si uno muestra «Pedido original» y el otro lee inmediatamente otro valor de `localStorage`, hemos creado una discrepancia.
 
-Archivo: `frontend-tiempo-real/src/client.tsx`, selección del punto de entrada.
+Archivo: `realtime-frontend/src/client.tsx`, selección del punto de entrada.
 
 ```tsx
 const app = <App view={data.view} seed={data.seed} />
@@ -51,7 +51,7 @@ Los imports, la lectura del elemento `root` y los datos de arranque están en el
 
 ## Una comparación que se puede observar sin cronómetro
 
-Desde el [laboratorio descargable](/assets/examples/frontend-tiempo-real-lab.zip), ejecuta:
+Desde el [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/client.tsx), ejecuta:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -77,6 +77,15 @@ La carga incremental evita esperar a todo para mostrar algo útil. También nece
 Para contenido público relativamente estable, empezaría evaluando generación estática. Para una pantalla privada que necesita datos por petición, SSR puede adelantar contenido, pero obliga a tratar correctamente identidad y cachés. Para una herramienta muy interactiva ya cargada, CSR puede ser una opción razonable.
 
 SSR no elimina las actualizaciones de componentes en el cliente. Tampoco hace funcionar este formulario sin JavaScript: aquí el envío depende de un handler. Una solución de **progressive enhancement** requeriría una ruta de envío de formulario real; esa alternativa no está implementada.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p068/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
 
 ## Garantías y límites
 

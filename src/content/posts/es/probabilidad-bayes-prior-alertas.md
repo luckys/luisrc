@@ -58,7 +58,7 @@ El **prior** $P(S)$ describe la probabilidad antes de incorporar esa alerta. La 
 
 Una likelihood no es una posterior. Mantener fijas las tasas del filtro y cambiar la proporción de spam cambia la posterior. Esa es una razón para no transportar automáticamente una métrica de un dataset a otra población.
 
-Archivo: `matematicas-estadistica/foundations.py`, núcleo de `bayes_flag` tras validar probabilidades.
+Archivo: `mathematics-statistics/foundations.py`, núcleo de `bayes_flag` tras validar probabilidades.
 
 ```python
     joint = prior*sensitivity
@@ -72,7 +72,7 @@ La función rechaza una condición con probabilidad cero en lugar de devolver un
 
 ## Una simulación permite comprobar el modelo, no demostrar sus supuestos
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) genera 100.000 correos sintéticos bajo esos parámetros. En la ejecución archivada hubo **5.807 alertas**, de las cuales **853** correspondían a spam: aproximadamente **14,69 %**.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) genera 100.000 correos sintéticos bajo esos parámetros. En la ejecución archivada hubo **5.807 alertas**, de las cuales **853** correspondían a spam: aproximadamente **14,69 %**.
 
 No esperamos obtener exactamente 15,38 % en una muestra finita. Tampoco la diferencia demuestra que Bayes esté mal: la fórmula calcula el modelo y la simulación obtiene una realización aleatoria de él. Conservamos semilla, generador y resultados para poder reproducirla.
 
@@ -83,6 +83,15 @@ Ejecuta `python3 experiments.py` desde la carpeta descargada. Cambia después el
 Bloquear el correo, enviarlo a revisión o mostrar un aviso tiene costes distintos. Elegir un umbral necesita considerar falsos positivos, falsos negativos y consecuencias de cada acción.
 
 Un clasificador que emite 0,9 tampoco está necesariamente calibrado. Una probabilidad predicha requiere evaluación sobre datos pertinentes; el valor numérico no valida su interpretación.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p080/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
 
 ## Garantías y límites
 

@@ -93,9 +93,18 @@ La columna snapshot representa la vista inicial conservada del modelo; no demues
 
 Puedes usarlo para predecir qué verás antes de leer los tests PostgreSQL. Después conviene comprobar la predicción contra el mecanismo real, sin atribuir al modelo tiempos, aislamiento o concurrencia de un servidor.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-pagination-consistency/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-pagination-evolution
+```
+
 ## Garantías y límites
 
-El [ZIP](/assets/examples/api-paginacion-evolucion-lab.zip) incluye la prueba de inserción, la de REPEATABLE READ y la de clave mutable. El conjunto inicial tiene un millón de filas ficticias.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-pagination-evolution/tests/postgres.test.mjs) incluye la prueba de inserción, la de REPEATABLE READ y la de clave mutable. El conjunto inicial tiene un millón de filas ficticias.
 
 ```bash
 pnpm install --frozen-lockfile

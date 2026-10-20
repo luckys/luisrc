@@ -41,7 +41,7 @@ El problema no es el operador spread por sí mismo. Mezclar dos configuraciones 
 
 ## Una petición válida puede pedir una operación no permitida
 
-En el [laboratorio descargable](/assets/examples/api-amenazas-lab.zip), la ruta es `PATCH /tenants/north/documents/d1`. La variante `?mode=unsafe` existe solo para experimentar en loopback. Alice envía:
+En el [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/command.mjs), la ruta es `PATCH /tenants/north/documents/d1`. La variante `?mode=unsafe` existe solo para experimentar en loopback. Alice envía:
 
 ```json
 {
@@ -112,6 +112,15 @@ Abre el [comparador interactivo de mass assignment](/assets/interactive/api-assi
 La mezcla modifica tres propiedades protegidas. El comando seguro devuelve un 422 simulado y conserva todo el documento, incluido el título. Puedes editar el JSON y comparar otra vez; Restablecer recupera el ejemplo inicial.
 
 La barra cuenta diferencias de esas tres propiedades. No estima riesgo, no detecta ataques y no consulta SQLite. Es una representación didáctica que comparte el parser y la mezcla con el laboratorio; las pruebas HTTP y de base de datos son la evidencia del servidor real.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-assignment/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
 
 ## Garantías y límites
 

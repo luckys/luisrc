@@ -6,10 +6,10 @@ const manifest = JSON.parse(
   await readFile('docs/editorial/computing-series.json', 'utf8'),
 )
 const results = JSON.parse(
-  await readFile('examples/computacion-redes/results/experiments.json', 'utf8'),
+  await readFile('assets/evidence/computing-networks/results/experiments.json', 'utf8'),
 )
 const browser = JSON.parse(
-  await readFile('examples/computacion-redes/results/browser.json', 'utf8'),
+  await readFile('assets/evidence/computing-networks/results/browser.json', 'utf8'),
 )
 const destination = 'public/assets/visuals/computing-series'
 await mkdir(destination, { recursive: true })

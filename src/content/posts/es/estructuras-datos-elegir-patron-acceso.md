@@ -56,9 +56,9 @@ En JavaScript hay otra precisión importante: la [especificación de Map y Set](
 
 Una búsqueda lineal devuelve el primer documento coincidente. Construir un Map sobrescribiendo claves conserva el último. Si el catálogo contiene IDs repetidos, sustituir una implementación por otra puede modificar el resultado sin producir ninguna excepción.
 
-El [laboratorio descargable](/assets/examples/estructuras-algoritmos-lab.zip) exige IDs enteros seguros no negativos y únicos. Preferimos rechazar un catálogo ambiguo en lugar de decidir silenciosamente qué documento gana.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts) exige IDs enteros seguros no negativos y únicos. Preferimos rechazar un catálogo ambiguo en lugar de decidir silenciosamente qué documento gana.
 
-Archivo: `estructuras-algoritmos/algorithms.ts`, función completa `buildIndex`.
+Archivo: `data-structures-algorithms/algorithms.ts`, función completa `buildIndex`.
 
 ```typescript
 export function buildIndex<T extends { readonly id: number }>(
@@ -82,7 +82,7 @@ Una **stack**, o pila, sigue LIFO, _last in, first out_: sirve para deshacer la 
 
 Nuestra cola usa nodos enlazados y conserva cabeza y cola. Encolar enlaza un nodo al final; desencolar mueve la cabeza al siguiente. Ambas operaciones hacen una cantidad constante de cambios de referencias, sin recorrer los elementos.
 
-Archivo: `estructuras-algoritmos/algorithms.ts`, método `dequeue` dentro de `Queue<T>`.
+Archivo: `data-structures-algorithms/algorithms.ts`, método `dequeue` dentro de `Queue<T>`.
 
 ```typescript
 dequeue(): T {
@@ -95,7 +95,7 @@ dequeue(): T {
 }
 ```
 
-Al quitar el último nodo también vaciamos la cola final. Si olvidamos ese detalle, la próxima inserción puede enlazarse a un nodo que ya no pertenece a la colección. Los tests vacían y reutilizan la cola para detectar precisamente ese fallo. La implementación completa, con `enqueue`, está en el ZIP.
+Al quitar el último nodo también vaciamos la cola final. Si olvidamos ese detalle, la próxima inserción puede enlazarse a un nodo que ya no pertenece a la colección. Los tests vacían y reutilizan la cola para detectar precisamente ese fallo. La implementación completa, con `enqueue`, está en el repositorio.
 
 Devolver un error cuando está vacía permite almacenar incluso `undefined` sin confundirlo con ausencia. Un buffer circular sería una alternativa con menos asignaciones; elegiría esa opción si el perfil señalara la cola como un coste relevante. Esta cola no implementa concurrencia entre procesos, persistencia ni backpressure.
 
@@ -127,11 +127,20 @@ Estos costes corresponden a modelos habituales, no a tiempos medidos del motor J
 
 No estamos ante una clasificación de mejor a peor. Si necesitamos mostrar todos los documentos en orden, un índice por clave no elimina ese recorrido. Podemos mantener array e índice juntos, pero ahora debemos conservar su coherencia y pagar la memoria adicional.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p011/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
+
 ## Garantías y límites
 
 Los tests comprueban equivalencia entre búsqueda lineal e índice para IDs válidos únicos, rechazo de duplicados y comportamiento FIFO incluso al reutilizar una cola vacía. No demuestran que Map sea siempre más rápido, que las referencias sean inmutables en runtime o que esta colección sea apta para acceso concurrente.
 
-Descarga el ZIP y, desde su carpeta, ejecuta `node --test tests/*.test.mjs` con Node 24.19.0 o posterior compatible. No hace falta instalar dependencias. En el repositorio del blog también comprobamos los tipos con TypeScript 5.9.3; ejecutar código no sustituye esa comprobación.
+Clona el monorepo y, desde `packages/data-structures-algorithms/`, ejecuta `node --test tests/*.test.mjs` con Node 24.19.0 o posterior compatible. No hace falta instalar dependencias. En el monorepo de ejemplos también comprobamos los tipos con TypeScript; ejecutar código no sustituye esa comprobación.
 
 ## Ejercicio: un índice que ya no representa al catálogo
 

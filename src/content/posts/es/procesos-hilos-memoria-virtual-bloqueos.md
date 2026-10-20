@@ -52,9 +52,9 @@ En Node, `heapUsed` se refiere al heap de JavaScript gestionado por V8. **RSS**,
 
 ## Un bloqueo pequeño permite observar el problema sin colgar el equipo
 
-El [laboratorio](/assets/examples/computacion-redes-lab.zip) crea un proceso hijo, programa un timer para unos diez milisegundos y ejecuta un bucle síncrono acotado a ochenta. No bloquea procesos ajenos ni intenta agotar memoria.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/process-probe.mjs) crea un proceso hijo, programa un timer para unos diez milisegundos y ejecuta un bucle síncrono acotado a ochenta. No bloquea procesos ajenos ni intenta agotar memoria.
 
-Archivo: `computacion-redes/process-probe.mjs`, bloqueo deliberado del experimento.
+Archivo: `computing-networks/process-probe.mjs`, bloqueo deliberado del experimento.
 
 ```javascript
 events.push('busy:start')
@@ -79,6 +79,15 @@ Liberar una referencia tampoco obliga al runtime a devolver inmediatamente esas 
 Una API asíncrona puede permitir que el hilo atienda otras tareas mientras el sistema o un worker resuelve I/O. Declarar una función `async` no desplaza automáticamente un bucle de CPU a otro hilo.
 
 Para cálculo intensivo podemos considerar workers, procesos o un servicio especializado. A cambio aparecen comunicación, copia o compartición de datos, cancelación y límites de capacidad. Dividir trabajo en fragmentos puede mejorar respuesta sin hacerlo más rápido; crear más hilos que núcleos tampoco garantiza mejor throughput.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p003/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

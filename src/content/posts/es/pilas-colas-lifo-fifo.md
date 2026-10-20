@@ -69,9 +69,18 @@ Tampoco tenemos una cola concurrente, persistencia, confirmaciones ni reintentos
 
 En [BFS](/posts/bfs-recorrido-anchura-camino-minimo), la cola tiene un papel concreto: todos los vértices a distancia d se procesan antes que los descubiertos a distancia d+1. En [DFS](/posts/dfs-recorrido-profundidad-stack), una pila favorece profundizar antes de volver a otras ramas. Cambiar la estructura cambia el algoritmo.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-05/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
+
 ## Garantías y límites
 
-Las pruebas verifican FIFO, tamaño, extracción vacía, almacenamiento de `undefined` y reutilización después de vaciar. No verifican múltiples procesos ni durabilidad. Puedes ejecutarlas con `node --test tests/*.test.mjs` en el [laboratorio descargable](/assets/examples/estructuras-algoritmos-lab.zip).
+Las pruebas verifican FIFO, tamaño, extracción vacía, almacenamiento de `undefined` y reutilización después de vaciar. No verifican múltiples procesos ni durabilidad. Puedes ejecutarlas con `node --test tests/*.test.mjs` en el [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts).
 
 ## Ejercicio: el caso que revela un tail obsoleto
 

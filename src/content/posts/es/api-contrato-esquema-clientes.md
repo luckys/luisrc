@@ -72,10 +72,10 @@ Content-Type: application/json
 El servidor valida antes de guardar. Bloque de creación de `server.mjs`:
 
 ```javascript
-        const input = parseOrder(await readJSON(request))
-        const order = { id: `o${++sequence}`, ...input }
-        orders.set(order.id, order)
-        send(response, 201, order, { Location: `/orders/${order.id}` })
+const input = parseOrder(await readJSON(request))
+const order = { id: `o${++sequence}`, ...input }
+orders.set(order.id, order)
+send(response, 201, order, { Location: `/orders/${order.id}` })
 ```
 
 Un Map hace consultable el recurso mientras vive ese proceso; no lo hace duradero. Si reiniciamos, desaparece. El ejemplo demuestra comportamiento local, no persistencia de producción.
@@ -104,9 +104,18 @@ Si una acción no encaja como actualización de campos, un comando explícito pu
 
 **OpenAPI 3.1.1**, versión fijada aquí, describe rutas, cuerpos y respuestas. No expresa por sí solo todas las reglas de negocio ni demuestra que el servidor cumpla el documento. Un contrato que nadie contrasta puede quedarse obsoleto.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p020/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-contracts
+```
+
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/api-contratos-lab.zip) prueba HTTP real para crear, leer, sustituir, cambiar parcialmente y borrar. También prueba entradas inválidas y límites. Usa Node 24.19.0 sin instalaciones.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-contracts/openapi.json) prueba HTTP real para crear, leer, sustituir, cambiar parcialmente y borrar. También prueba entradas inválidas y límites. Usa Node 24.19.0 sin instalaciones.
 
 La validación es manual y cubre el subconjunto declarado, no un motor general JSON Schema. No hay autenticación, pagos ni base de datos. Los tests tampoco certifican compatibilidad con todos los consumidores ni una implementación completa de HTTP para producción.
 

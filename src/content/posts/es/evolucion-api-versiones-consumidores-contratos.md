@@ -120,9 +120,18 @@ No hace falta interpretar textos de error del servidor para detectar ese fallo. 
 
 La comparación con PostgreSQL añade otra comprobación: ambos lectores funcionan con páginas consultadas a una base real. No sustituye el escenario pequeño controlado, que permite introducir una regresión deliberada y atribuir el fallo a un cambio concreto.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p025/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-pagination-evolution
+```
+
 ## Garantías y límites
 
-El [ZIP](/assets/examples/api-paginacion-evolucion-lab.zip) contiene `clients.mjs`, `representations.mjs`, `openapi.json` y los tests. El código no se genera automáticamente a partir del documento.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-pagination-evolution/clients.mjs) contiene `clients.mjs`, `representations.mjs`, `openapi.json` y los tests. El código no se genera automáticamente a partir del documento.
 
 ```bash
 pnpm install --frozen-lockfile

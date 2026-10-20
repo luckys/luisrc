@@ -141,9 +141,18 @@ Tampoco debemos convertir un 500 en «no pasó nada». Un fallo validando la sal
 
 El campo `requestId` de nuestro problema permite relacionarlo con un registro. No autoriza a incluir en la respuesta la causa privada para facilitar esa búsqueda. Veremos ese diagnóstico por separado.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p023/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-validation-errors
+```
+
 ## Garantías y límites
 
-El [ZIP compartido con validación](/assets/examples/api-validacion-errores-lab.zip) incluye el servidor y las pruebas. Usa **pnpm** para instalar las versiones fijadas:
+El [laboratorio compartido con validación](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-validation-errors/problems.mjs) incluye el servidor y las pruebas. Usa **pnpm** para instalar las versiones fijadas:
 
 ```bash
 pnpm install --frozen-lockfile

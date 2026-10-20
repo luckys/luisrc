@@ -72,7 +72,7 @@ La implementación ingenua calcula `exp(1000)` y puede desbordar. Restar el máx
 
 Si después hacemos `log` de una probabilidad redondeada a cero, recuperamos el problema. Para calcular NLL conviene trabajar directamente con **log-sum-exp**.
 
-Archivo: `matematicas-estadistica/foundations.py`, núcleo de `nll_logits` tras validar entradas.
+Archivo: `mathematics-statistics/foundations.py`, núcleo de `nll_logits` tras validar entradas.
 
 ```python
     maximum = max(logits)
@@ -87,9 +87,18 @@ Softmax no garantiza calibración: decir 0,9 no demuestra acertar el 90 % de los
 
 También importa la mezcla de clases. Un agregado favorable puede ocultar una clase minoritaria que siempre recibe probabilidades muy bajas. Y minimizar pérdida de entrenamiento no demuestra generalización: necesitamos evaluación separada y controlar filtraciones de información.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p084/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) verifica la identidad entre entropía, cross entropy y KL, soportes con ceros y estabilidad de los logits del ejemplo. Usa distribuciones discretas pequeñas; no entrena ni calibra un clasificador.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) verifica la identidad entre entropía, cross entropy y KL, soportes con ceros y estabilidad de los logits del ejemplo. Usa distribuciones discretas pequeñas; no entrena ni calibra un clasificador.
 
 El cálculo desde logits muestra una decisión de estabilidad concreta, no garantiza precisión para cualquier magnitud extrema. Para trabajo real utilizaríamos funciones de pérdida mantenidas por una biblioteca.
 

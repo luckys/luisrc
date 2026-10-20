@@ -40,7 +40,7 @@ Z existe aunque no tenga conexiones.
 
 El laboratorio representa grafos sin pesos como `ReadonlyMap<string, readonly string[]>`. Cada clave identifica un vértice y su array contiene los destinos de sus aristas salientes. Una lista vacía representa un vértice sin salidas, no uno inexistente.
 
-El test de BFS usa un grafo con ciclo A↔B y dos rutas hasta D. Puedes leerlo y ejecutarlo en `tests/algorithms.test.mjs` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip). Con pesos, `focused.ts` define `Edge` con `to` y `weight` y mantiene la misma organización por origen.
+El test de BFS usa un grafo con ciclo A↔B y dos rutas hasta D. Puedes leerlo y ejecutarlo en `tests/algorithms.test.mjs` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts). Con pesos, `focused.ts` define `Edge` con `to` y `weight` y mantiene la misma organización por origen.
 
 Con V vértices y E aristas almacenadas, esta representación ocupa O(V + E) referencias en el modelo habitual. Enumerar vecinos cuesta proporcionalmente al grado de salida. Comprobar si existe una arista concreta puede exigir recorrer la lista del origen; usar un Set por origen cambiaría esa operación y sus costes.
 
@@ -61,6 +61,15 @@ No basta con elegir una matriz porque «acceder es O(1)». Hay que preguntar qu�
 BFS y DFS comprueban las aristas que visitan. Un error en una componente desconectada puede quedar sin descubrir. Dijkstra valida todo el grafo antes del recorrido porque su salida temprana depende también de la precondición global de pesos no negativos.
 
 La diferencia es deliberada y está probada. Si una API promete «grafo validado», conviene separar la construcción y validación de cada consulta para no pagar toda la revisión repetidamente. Aquí mantenemos el código pequeño y declaramos dónde ocurre ese trabajo.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-17/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

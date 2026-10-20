@@ -35,7 +35,7 @@ La demo virtual no descarga 100.000 objetos: calcula el texto de las posiciones 
 
 Para filas de altura fija, la primera posición visible es aproximadamente `floor(scrollTop / rowHeight)`. Montamos además algunas filas antes y después, el **overscan**, para reducir apariciones durante el scroll.
 
-Archivo: `frontend-tiempo-real/src/data.ts`, cálculo del intervalo tras validar los argumentos.
+Archivo: `realtime-frontend/src/data.ts`, cálculo del intervalo tras validar los argumentos.
 
 ```typescript
 const first = Math.min(total, Math.floor(scrollTop / rowHeight))
@@ -61,7 +61,7 @@ El servidor de esta demo usa índices de página sobre una colección fija para 
 
 Una selección explícita conserva identificadores concretos. Una selección global puede conservar una descripción del filtro y excepciones.
 
-Archivo: `frontend-tiempo-real/src/data.ts`, tipos del modelo de selección.
+Archivo: `realtime-frontend/src/data.ts`, tipos del modelo de selección.
 
 ```typescript
 export type Selection =
@@ -81,11 +81,20 @@ El componente utiliza `caption`, cabeceras y filas normales. Un patrón ARIA **g
 
 Al completar una navegación hacia delante, enfocamos el título de la nueva página. Un estado de carga y un mensaje de error explican qué ocurre. No añadimos controles de selección masiva al ejemplo: el modelo de selección se prueba por separado para no insinuar que ya existe una operación de backend.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p071/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/frontend-tiempo-real-lab.zip) prueba DOM acotado con 100.000 posiciones, páginas de 20 y alcance de selección por filtro. No implementa cursor persistente, acciones masivas, filtros SQL o una lista virtual apta para cualquier tecnología de asistencia.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/data.ts) prueba DOM acotado con 100.000 posiciones, páginas de 20 y alcance de selección por filtro. No implementa cursor persistente, acciones masivas, filtros SQL o una lista virtual apta para cualquier tecnología de asistencia.
 
-Desde `frontend-tiempo-real/`: `pnpm test` y `pnpm test:browser --grep "virtualización|paginación"`.
+Desde `realtime-frontend/`: `pnpm test` y `pnpm test:browser --grep "virtualización|paginación"`.
 
 ## Ejercicio: cambiar el filtro sin cambiar la intención
 

@@ -35,7 +35,7 @@ No todos los joins multiplican siempre, pero el potencial depende de la cardinal
 
 ## Reproduce el total incorrecto
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/04-consultas.sql), entra en `database-fundamentals/` y ejecuta:
 
 Archivo: terminal, preparación.
 
@@ -64,7 +64,7 @@ Hay dos caminos razonables. Si necesitas sumar líneas, suma sus cantidades por 
 
 Este es el archivo completo que prepara las vistas del ejemplo. Reinicia exclusivamente el esquema ficticio `db_model`, incluyendo sus datos.
 
-Archivo: `bases-de-datos/sql/04-consultas.sql`.
+Archivo: `database-fundamentals/sql/04-consultas.sql`.
 
 ```sql
 \ir 01-modelo.sql
@@ -131,6 +131,15 @@ ORDER BY c.id;
 ```
 
 **EXISTS** expresa la pregunta sin producir una fila por pedido. Para quienes no compraron, usa `NOT EXISTS`. Con `NOT IN`, un nulo en la subconsulta puede convertir comparaciones en desconocidas y sorprenderte. No es una regla de rendimiento universal; es una elección de semántica. [Subconsultas](https://www.postgresql.org/docs/18/functions-subquery.html).
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-sql/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

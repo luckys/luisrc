@@ -33,7 +33,7 @@ Cada `await` puede devolver el control mientras una operación sigue pendiente. 
 
 ## Un fallo reproducible sin setTimeout
 
-Archivo: `servicios-fiables/tests/core.test.mjs` (extracto del escenario deliberadamente incorrecto).
+Archivo: `reliable-services/tests/core.test.mjs` (extracto del escenario deliberadamente incorrecto).
 
 ```javascript
 let balance = 0
@@ -72,11 +72,20 @@ Una consulta de red permite liberar el hilo mientras llega la respuesta. Un cál
 
 Para trabajo intensivo en CPU, **worker threads**, procesos o servicios especializados pueden aportar paralelismo. Tienen costes de comunicación, memoria y coordinación. Para esperar muchas respuestas de red, limitar el número de operaciones simultáneas suele ser más importante que crear un worker por petición.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-async/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El experimento demuestra una race condition lógica con dos tareas y un punto de sincronización controlado. No mide throughput ni modela todos los mecanismos internos de Node.js. Algunas operaciones del runtime usan threads del sistema o un worker pool; «un solo hilo» no describe el proceso completo.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`, ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/tests/core.test.mjs). Desde `reliable-services/`, ejecuta:
 
 ```bash
 node --test --test-name-pattern="misma versión" tests/core.test.mjs

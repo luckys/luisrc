@@ -44,7 +44,7 @@ La **RAM** mantiene páginas de código y datos que utilizan los procesos. El al
 
 **Temporal locality** significa volver a utilizar pronto un dato. **Spatial locality** significa acceder a posiciones próximas. Si la caché trae un bloque y utilizamos varias posiciones de ese bloque antes de expulsarlo, aprovechamos mejor el movimiento realizado.
 
-El [laboratorio descargable](/assets/examples/computacion-redes-lab.zip) incluye un modelo **fully-associative LRU**: cuatro líneas, cuatro posiciones por línea y 128 accesos. Recorrer 32 posiciones cuatro veces produce **32 misses**; agrupar cuatro usos de cada posición produce **ocho**. Ambos casos realizan el mismo número de lecturas.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/concepts.mjs) incluye un modelo **fully-associative LRU**: cuatro líneas, cuatro posiciones por línea y 128 accesos. Recorrer 32 posiciones cuatro veces produce **32 misses**; agrupar cuatro usos de cada posición produce **ocho**. Ambos casos realizan el mismo número de lecturas.
 
 No son contadores de una CPU real. Hemos elegido capacidad y reemplazo para hacer visible el mecanismo. Un procesador incorpora asociatividad, prefetching, coherencia y otras políticas que aquí no modelamos. Cambiar el orden tampoco conserva necesariamente cualquier algoritmo, especialmente si modifica dependencias o redondeos.
 
@@ -54,7 +54,7 @@ La **page cache** pertenece al sistema operativo y conserva contenido de fichero
 
 Nuestro experimento crea un fichero de **2 MiB**, realiza tres calentamientos y alterna el orden de nueve comparaciones. Una variante suma los bytes de un Buffer existente; la otra lee el fichero y después suma sus bytes.
 
-Archivo: `computacion-redes/concepts.mjs`, operación compartida por ambas variantes.
+Archivo: `computing-networks/concepts.mjs`, operación compartida por ambas variantes.
 
 ```javascript
 export function checksum(bytes) {
@@ -79,6 +79,15 @@ La diferencia incluye API, asignación, copia, scheduling y posible variación d
 Si investigamos la experiencia del usuario, interesa el recorrido completo. Si queremos atribuir un coste al dispositivo, necesitamos controlar cachés, tamaño, concurrencia, patrón de acceso y condiciones del almacenamiento. Una microprueba de JavaScript no sustituye ese diseño.
 
 Procesar por bloques puede reducir memoria máxima frente a cargar el fichero entero, pero añade decisiones de streaming y estados parciales. Una estructura compacta puede favorecer localidad, aunque no conviene reescribir el programa antes de comprobar que este acceso domina el tiempo total.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p001/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

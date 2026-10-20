@@ -40,7 +40,7 @@ i = 3: guardar 1, desplazar 4,3,2  -> [1, 2, 3, 4 | ]
 
 No se pierde el elemento que estaba en i porque lo conservamos en `value` antes de sobrescribir posiciones. El índice j identifica el hueco que queda al desplazar. Cada paso reduce j, por lo que el bucle interior termina.
 
-Archivo `focused.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip), función completa:
+Archivo `focused.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts), función completa:
 
 ```typescript
 export function insertionSort<T>(
@@ -78,6 +78,15 @@ Tiene sentido para estudiar invariantes y para tramos pequeños o casi ordenados
 Si recibimos millones de elementos arbitrarios, su peor caso cuadrático es una razón suficiente para estudiar [merge sort](/posts/merge-sort-mezcla-estabilidad), [quicksort](/posts/quicksort-particion-pivote) o [heapsort](/posts/heapsort-construccion-bottom-up).
 
 En código de aplicación, la primera opción suele ser la biblioteca estándar. En TypeScript, recuerda que `sort()` modifica el array y necesita un comparador para ordenar números numéricamente; `toSorted()` permite obtener una copia ordenada en runtimes compatibles.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-10/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

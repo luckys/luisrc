@@ -42,7 +42,7 @@ Apilar vecinos al revés permite visitar primero el que aparece primero en la li
 
 ## La implementación separa pendientes de procesados
 
-Archivo `focused.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip), función completa:
+Archivo `focused.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts), función completa:
 
 ```typescript
 export function depthFirst(
@@ -93,6 +93,15 @@ Una variante que guarde marcos con el índice del próximo vecino puede represen
 `seen` evita repetir trabajo, pero no distingue un nodo activo en la rama actual de uno cuya exploración terminó. Para detectar ciclos dirigidos o hacer **topological sorting** necesitamos estados y momentos de salida adicionales.
 
 Reencontrar D desde C no implica un ciclo: B y C pueden conducir a D sin volver hacia un antepasado. No usamos «ya visitado» como detector genérico.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-19/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

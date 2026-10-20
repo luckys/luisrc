@@ -33,9 +33,9 @@ An HTTP request may need one transaction, several or no explicit transaction at 
 
 ## Set up PostgreSQL and the example data
 
-[Download the complete lab](/assets/examples/transactions-lab-en.zip) and enter the `transactions/` directory. If you build it manually, create that directory and `sql/`, then copy the following two files. The SQL sections only require Docker with Compose.
+[Open the complete lab on GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions-en/README.md) and enter the `transactions-en/` directory. If you build it manually, create that directory and `sql/`, then copy the following two files. The SQL sections only require Docker with Compose.
 
-File: `transactions/docker-compose.yml`.
+File: `transactions-en/docker-compose.yml`.
 
 ```yaml
 name: luisrc-transactions-lab
@@ -58,7 +58,7 @@ services:
 
 The host port is bound to `127.0.0.1`. These fictional credentials belong only to the lab. The tag and digest pin the server used for validation.
 
-File: `transactions/sql/setup.sql`.
+File: `transactions-en/sql/setup.sql`.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS concept_examples;
@@ -176,7 +176,7 @@ _The optional failure can be recovered because we set a savepoint before the att
 
 This file contains the complete path. Close the interactive session with `\q` and reset the data before running it:
 
-File: `transactions/sql/transactions.sql`.
+File: `transactions-en/sql/transactions.sql`.
 
 ```sql
 -- This file includes an intentional error to practice SAVEPOINT.
@@ -248,13 +248,13 @@ The extension below compares both implementations with a failure between the ord
 <details>
 <summary>Optional extension: every TypeScript file and all nine integration tests</summary>
 
-Besides Docker, you need Node.js `>=22.12.0` and pnpm `12.8.1`. The ZIP includes the following files and a lockfile with resolved versions. If you write the example manually, `pnpm install` generates your lockfile.
+Besides Docker, the standalone example needs Node.js `>=22.12.0` and pnpm `12.8.1`. The monorepo uses Node.js `>=24.19.0` and a shared lockfile at its root: run `pnpm install --frozen-lockfile` there. If you copy the example into an independent project, `pnpm install` generates its own lockfile.
 
-File: `transactions/package.json`.
+File: `transactions-en/package.json`.
 
 ```json
 {
-  "name": "transactions-lab",
+  "name": "@luisrc-examples/transactions-en",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@12.8.1",
@@ -280,22 +280,25 @@ File: `transactions/package.json`.
 }
 ```
 
-File: `transactions/pnpm-workspace.yaml`.
+File: `pnpm-workspace.yaml`, at the monorepo root, not inside the package.
 
 ```yaml
+packages:
+  - 'packages/*'
+
 allowBuilds:
   esbuild: true
 ```
 
-This file allows the `esbuild` installation script required by `tsx`. It configures the standalone lab extracted from the ZIP. Inside the blog repository, installation policies live in the root workspace. [pnpm settings](https://pnpm.io/settings#allowbuilds).
+This file declares the packages and allows the `esbuild` installation script required by `tsx`. The configuration and lockfile belong to the examples monorepo, not the blog. If you copy the lab into an independent project, you can keep just `allowBuilds` and use its own lockfile. [pnpm settings](https://pnpm.io/settings#allowbuilds).
 
-File: `transactions/.gitignore`.
+Excerpt from `.gitignore`, at the monorepo root:
 
 ```text
 node_modules/
 ```
 
-File: `transactions/tsconfig.json`.
+File: `transactions-en/tsconfig.json`.
 
 ```json
 {
@@ -316,7 +319,7 @@ File: `transactions/tsconfig.json`.
 
 ### Lab tables and connection
 
-File: `transactions/db/migrations/001_init.sql`.
+File: `transactions-en/db/migrations/001_init.sql`.
 
 ```sql
 CREATE TABLE orders (
@@ -337,7 +340,7 @@ CREATE TABLE payments (
 
 This deliberately small schema contains a foreign key, but **does not prevent negative amounts or require the order and payment amounts to match**. A test demonstrates that limit. This is not a production-ready payment model.
 
-File: `transactions/experiments/atomicity/database.ts`.
+File: `transactions-en/experiments/atomicity/database.ts`.
 
 ```typescript
 import { randomUUID } from 'node:crypto'
@@ -381,10 +384,7 @@ export async function createLabDatabase() {
     try {
       await close()
     } catch (cleanupError) {
-      throw new AggregateError(
-        [error, cleanupError],
-        'Initialization and cleanup failed',
-      )
+      throw new AggregateError([error, cleanupError], 'Initialization and cleanup failed')
     }
     throw error
   }
@@ -394,7 +394,7 @@ export async function createLabDatabase() {
 
 The helper only connects to the local PostgreSQL instance in Compose. It creates a randomly named schema and sets `search_path` so each test uses its own tables. Cleanup releases the pools even if dropping the schema fails.
 
-File: `transactions/experiments/atomicity/types.ts`.
+File: `transactions-en/experiments/atomicity/types.ts`.
 
 ```typescript
 export type CreationInput = {
@@ -407,7 +407,7 @@ export type CreationInput = {
 
 ### Separate writes: the partial state survives
 
-File: `transactions/experiments/atomicity/no-transaction.ts`.
+File: `transactions-en/experiments/atomicity/no-transaction.ts`.
 
 ```typescript
 import type { Pool } from 'pg'
@@ -436,7 +436,7 @@ The error occurs after inserting the order. Each query is committed separately, 
 
 ### Transactional implementation: commit or discard both writes
 
-File: `transactions/experiments/atomicity/with-transaction.ts`.
+File: `transactions-en/experiments/atomicity/with-transaction.ts`.
 
 ```typescript
 import type { Pool } from 'pg'
@@ -482,7 +482,7 @@ The same client receives `BEGIN`, both writes and `COMMIT`. If an exception is t
 
 ### Experiment that prints the observed states
 
-File: `transactions/experiments/atomicity/run.ts`.
+File: `transactions-en/experiments/atomicity/run.ts`.
 
 ```typescript
 import assert from 'node:assert/strict'
@@ -545,7 +545,7 @@ try {
 
 ### Tests with real PostgreSQL
 
-File: `transactions/tests/integration/atomicity.test.ts`.
+File: `transactions-en/tests/integration/atomicity.test.ts`.
 
 ```typescript
 import { randomUUID } from 'node:crypto'
@@ -723,7 +723,7 @@ They do not use database test doubles. They do not measure throughput, simulate 
 
 ### Run the extension
 
-From `transactions/`, with PostgreSQL already running:
+From `transactions-en/`, with PostgreSQL already running:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -777,3 +777,12 @@ docker compose down --volumes
 ```
 
 You can repeat the example with a different rule: try transferring to a nonexistent account and check that the application would detect zero modified rows before committing. This connects the transaction boundary to the rules explained in [ACID properties](/en/posts/acid-properties-databases).
+
+## Article code
+
+See the [files and tests for this article](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/en/db-transactions/README.md). Clone the repository and run the article's commands from this package:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/transactions-en
+```

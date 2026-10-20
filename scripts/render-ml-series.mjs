@@ -4,7 +4,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises'
 
 const manifest = JSON.parse(await readFile('docs/editorial/ml-series.json', 'utf8'))
 const result = JSON.parse(
-  await readFile('examples/machine-learning/results/experiments.json', 'utf8'),
+  await readFile('assets/evidence/machine-learning/results/experiments.json', 'utf8'),
 )
 const destination = 'public/assets/visuals/ml-series'
 await mkdir(destination, { recursive: true })

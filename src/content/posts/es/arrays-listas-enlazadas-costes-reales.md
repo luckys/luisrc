@@ -59,7 +59,7 @@ head -> A -> B -> X -> C -> D -> null
 
 Esas dos actualizaciones son O(1) si **ya tenemos B**. Buscar B por su contenido sigue siendo O(n). Para borrar C en una lista simple necesitamos B, porque es B quien apunta a C. Una lista doble añade `previous` y permite otras operaciones locales, a costa de más referencias y más invariantes que mantener.
 
-El código ejecutable de esta idea está en `algorithms.ts`, clase `Queue`, dentro del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip). Cada nodo contiene `value` y `next`; la cola conserva `head` y `tail`. No añadimos búsqueda por índice porque sus operaciones no la necesitan.
+El código ejecutable de esta idea está en `algorithms.ts`, clase `Queue`, dentro del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts). Cada nodo contiene `value` y `next`; la cola conserva `head` y `tail`. No añadimos búsqueda por índice porque sus operaciones no la necesitan.
 
 ## Locality y memoria también forman parte de la decisión
 
@@ -68,6 +68,15 @@ Recorrer posiciones cercanas puede aprovechar mejor las cachés del procesador q
 Esto no convierte a las listas en una mala estructura. Una cola que inserta al final y retira al principio puede aprovecharlas bien. Lo que no conviene es elegirlas solo porque una celda de una tabla dice O(1).
 
 Para un catálogo que se muestra y recorre completo, empezaría por un array. Si además necesita acceso por identificador, estudiaría un índice **Map**, no una lista enlazada. Si el requisito es procesar entradas FIFO, pasaría a una [cola con operaciones explícitas](/posts/pilas-colas-lifo-fifo).
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-04/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

@@ -35,7 +35,7 @@ La regla «igualdades primero, rango después» es un punto de partida, no una l
 
 ## Construye índices para dos accesos diferentes
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/08-indices-diseno.sql), entra en `database-fundamentals/` y ejecuta:
 
 Archivo: terminal.
 
@@ -44,7 +44,7 @@ docker compose up -d --wait
 docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 -f /lab/sql/08-indices-diseno.sql
 ```
 
-Archivo: `bases-de-datos/sql/08-indices-diseno.sql`.
+Archivo: `database-fundamentals/sql/08-indices-diseno.sql`.
 
 ```sql
 \ir 07-indices.sql
@@ -88,6 +88,15 @@ El planner puede combinar índices mediante un **bitmap scan**. Es útil para ci
 Si buscas diez registros ya ordenados, evitar un sort y detener la lectura pronto puede importar más que combinar dos filtros independientes. Si cambias la consulta para solicitar gran parte de la tabla, el mejor acceso también puede cambiar.
 
 El método es iterativo: formula la consulta, observa su distribución, propone un índice, mide y revisa qué otras escrituras o lecturas has encarecido. Guarda también el plan anterior; «ahora usa índice» no es un criterio suficiente de éxito.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-index-design/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

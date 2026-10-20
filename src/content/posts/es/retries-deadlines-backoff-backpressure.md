@@ -39,7 +39,7 @@ El helper del laboratorio recibe un reloj y una función de espera para probarlo
 
 Con **full jitter**, la espera se elige aproximadamente entre cero y el menor de un límite y una base multiplicada por una potencia de dos. La intención es separar clientes que fallaron al mismo tiempo, no garantizar que el siguiente intento funcionará.
 
-Archivo: `servicios-fiables/src/distributed.ts` (extracto).
+Archivo: `reliable-services/src/distributed.ts` (extracto).
 
 ```typescript
 export function fullJitter(
@@ -64,13 +64,22 @@ Un **bulkhead** limita el número de llamadas activas a una dependencia. El del 
 
 Un **circuit breaker** deja de intentar durante un periodo tras un patrón de fallos y permite sondas controladas. No sustituye timeout ni idempotencia. Un **rate limit** limita una tasa; el bulkhead limita simultaneidad. Puedes necesitar ambos porque protegen magnitudes diferentes.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-retries/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El helper `retry` no mata una promesa ni detiene por la fuerza trabajo remoto. Sin una operación que respete el tiempo restante, puede superar la deadline. El reloj de producción para duraciones debe evitar saltos del reloj civil; el del test es controlado.
 
 Solo se implementan retry budget y bulkhead local. Circuit breaker y límites distribuidos se explican como alternativas, no se presentan como código ya construido.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/distributed.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="jitter|bulkhead" tests/core.test.mjs

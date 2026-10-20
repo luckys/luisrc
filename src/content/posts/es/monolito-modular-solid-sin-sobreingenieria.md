@@ -33,7 +33,7 @@ Un monolito modular comparte despliegue, no necesariamente todas las decisiones 
 
 ## Invertir una dependencia sin un contenedor de DI
 
-Archivo: `servicios-fiables/src/service.ts` (extracto).
+Archivo: `reliable-services/src/service.ts` (extracto).
 
 ```typescript
 type Order = { id: string; money: Money; status: 'created' }
@@ -72,11 +72,20 @@ Del modelado de dominio aprovechamos vocabulario e invariantes. No imponemos DDD
 
 Tampoco partimos en microservicios para «escalar después». Un despliegue independiente puede justificarlo si existe aislamiento organizativo u operativo real. A cambio aparecen fallos parciales, contratos de red, ownership de datos y más operación.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/design-modules/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 El test sustituye el writer por un fake y verifica que un fallo no devuelva una creación exitosa. No demuestra que el adaptador SQL tenga la semántica correcta; eso requiere una prueba de integración. Desacoplar hace posible probar por separado, no elimina esa obligación.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/service.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="caso de uso" tests/core.test.mjs

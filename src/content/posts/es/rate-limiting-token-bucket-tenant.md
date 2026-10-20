@@ -121,9 +121,18 @@ Después aparece South, con su bucket independiente. Puedes cambiar capacidad y 
 
 El eje horizontal de la gráfica cuenta intentos de North, no segundos. El vertical muestra su saldo observado después de decidir. El visor usa el mismo algoritmo que la API, pero no llama a la API ni simula el cupo de trabajos activos.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-rate/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
+
 ## Garantías y límites
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip) y ejecuta `pnpm test` con Node 24.19.0 o posterior. `pnpm serve:limits` inicia la integración HTTP con cuota y concurrencia, sobre datos ficticios de loopback. No requiere librerías de aplicación.
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/admission.mjs) y ejecuta `pnpm test` con Node 24.19.0 o posterior. `pnpm serve:limits` inicia la integración HTTP con cuota y concurrencia, sobre datos ficticios de loopback. No requiere librerías de aplicación.
 
 Se prueban ráfaga, recarga parcial, techo, costes inválidos, reloj retrasado, aislamiento de tenant, cabeceras no confiables y liberación tras rechazo. Las pruebas HTTP usan un reloj inyectado para las decisiones temporales; el caso de deadline del importador sí ejecuta una petición HTTP de salida real.
 

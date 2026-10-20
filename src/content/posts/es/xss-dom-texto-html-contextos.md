@@ -33,7 +33,7 @@ El ejemplo se centra en una sola decisión: mostrar comentarios de texto. No imp
 
 ## Un marcador local demuestra ejecución sin exfiltrar datos
 
-Descarga el [laboratorio del navegador](/assets/examples/api-navegador-lab.zip). Con Node 24.19.0 o posterior, desde la carpeta extraída:
+Consulta el [laboratorio del navegador](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security/render.mjs). Con Node 24.19.0 o posterior, desde la carpeta extraída:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -106,6 +106,15 @@ Una biblioteca de analítica cargada mediante script no queda confinada porque s
 Antes de añadirla, pregunta qué datos necesita, qué versiones se actualizan y qué ocurre si su distribución se compromete. Un iframe correctamente aislado ofrece otra frontera, con comunicación y permisos explícitos; no equivale a insertar directamente el mismo script.
 
 Esta parte es una revisión de diseño, no una explotación de un proveedor. La guía de [gestión de JavaScript de terceros de OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html) ayuda a inventariar dependencias y sus privilegios. No hemos auditado bibliotecas externas en este ejercicio.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p029/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/browser-security
+```
 
 ## Garantías y límites
 

@@ -33,7 +33,7 @@ Si una clave ya usada llega con otro contenido, devolvemos un conflicto definido
 
 ## Coordinar antes de comenzar el efecto
 
-Archivo: `servicios-fiables/src/distributed.ts` (extracto de `IdempotencyMemory`).
+Archivo: `reliable-services/src/distributed.ts` (extracto de `IdempotencyMemory`).
 
 ```typescript
   async run(
@@ -72,11 +72,20 @@ Un registro real puede distinguir `processing`, `completed` y `uncertain`, guard
 
 La **retención** también limita la garantía. Si eliminas el registro a las 24 horas, un retry posterior podría parecer nuevo. Los plazos de tu API y del proveedor pueden ser diferentes. No copies sus tiempos sin diseñar el comportamiento resultante.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-idempotency/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 La deduplicación ofrece garantías dentro de un scope, una ventana y un almacenamiento concretos. No asegura **exactly once** global para efectos externos. Tampoco evita que un cliente cree dos intenciones con claves distintas para la misma compra si no existe una regla comercial adicional.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/distributed.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="idempotencia local" tests/core.test.mjs

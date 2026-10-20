@@ -120,9 +120,18 @@ Otra prueba detectó un error en el límite de bytes: destruir la petición no r
 
 Esos controles reducen trabajo de una operación, pero una sucesión de peticiones válidas todavía puede agotar recursos. Las entregas siguientes desarrollan por separado [concurrencia](/posts/consumo-recursos-concurrencia-bulkheads) y [token bucket por tenant](/posts/rate-limiting-token-bucket-tenant), con el alcance local de T06, no una garantía universal de disponibilidad.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-dns/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
+
 ## Garantías y límites
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip) y ejecuta `pnpm test` con Node 24.19.0 o posterior. Para regenerar las cinco trazas, utiliza `node record-ssrf.mjs`. No requiere paquetes de aplicación.
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/importer.mjs) y ejecuta `pnpm test` con Node 24.19.0 o posterior. Para regenerar las cinco trazas, utiliza `node record-ssrf.mjs`. No requiere paquetes de aplicación.
 
 Hay sockets y servidores HTTP reales, pero el resolver es una función programada. No se configura un servidor DNS, una red aislada, HTTPS, proxy, pooling, Happy Eyeballs o un filtro de todas las redes públicas. Las dos IP permitidas por la guardia del harness son locales y su puerto debe pertenecer a los fixtures.
 

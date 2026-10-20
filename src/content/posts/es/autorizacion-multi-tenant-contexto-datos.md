@@ -113,9 +113,18 @@ HTTP permite utilizar 404 para ocultar la existencia de un recurso prohibido; lo
 
 Las respuestas llevan no-store y una proyección explícita de salida. internalNote permanece en el almacenamiento, no en el JSON público. El aislamiento entre tenants tampoco se arreglaría simplemente eliminando ese campo si el título entero perteneciera a otra organización.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-authz-tenant/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-authorization
+```
+
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/api-permisos-lab.zip) ejecuta trece tests HTTP y cinco de política, sin dependencias externas:
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-authorization/fixtures.mjs) ejecuta trece tests HTTP y cinco de política, sin dependencias externas:
 
 ```bash
 pnpm test

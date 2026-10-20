@@ -42,7 +42,7 @@ El navegador obtiene oportunidades de actualizar el renderizado según su modelo
 
 Un `setTimeout(...,0)` solicita que una tarea pueda ejecutarse cuando corresponda, no una interrupción inmediata. Si el código actual sigue calculando, el callback tiene que esperar. `async` cambia cómo se expresa la espera, pero un bucle síncrono dentro de esa función sigue utilizando su hilo.
 
-Archivo: `computacion-redes/browser.mjs`, trabajo deliberado del botón de prueba.
+Archivo: `computing-networks/browser.mjs`, trabajo deliberado del botón de prueba.
 
 ```javascript
 const start = performance.now()
@@ -54,7 +54,7 @@ El handler registra el inicio, programa un timer y termina el cálculo antes de 
 
 ## Navigation Timing y los eventos responden a preguntas diferentes
 
-El [laboratorio descargable](/assets/examples/computacion-redes-lab.zip) conserva `results/browser.json`: timings de navegación, eventos instrumentados y long tasks. La traza muestra módulo, microtask, DOMContentLoaded, respuesta Fetch y, tras el clic, inicio/fin del bloqueo y timer.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/browser.mjs) conserva `results/browser.json`: timings de navegación, eventos instrumentados y long tasks. La traza muestra módulo, microtask, DOMContentLoaded, respuesta Fetch y, tras el clic, inicio/fin del bloqueo y timer.
 
 **DOMContentLoaded** no significa «todo ha terminado de cargar» ni mide cuándo una aplicación está preparada para cualquier interacción. Un Fetch iniciado por el código puede continuar después. Los eventos de navegación y las métricas visuales tampoco son equivalentes.
 
@@ -81,6 +81,15 @@ La cookie de prueba utiliza **HttpOnly**: JavaScript no puede leerla mediante `d
 **SameSite** regula el contexto de envío según reglas de site, un concepto distinto de origin. Dos puertos del mismo host pueden ser cross-origin y seguir siendo same-site. **Secure** restringe el envío a conexiones seguras bajo sus reglas; nuestro fixture HTTP loopback no es un patrón de autenticación para producción.
 
 **localStorage** es accesible para scripts del origen. Guardar allí un token no lo protege de código malicioso que se ejecute con ese acceso. HttpOnly limita lectura de cookie, pero tampoco impide que un script comprometido intente acciones autenticadas desde la página.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p009/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

@@ -72,9 +72,18 @@ En ordenación verificaremos claves, multiplicidades, identidad de equivalentes 
 
 Un **oracle** también puede estar mal. Usar una búsqueda lineal sencilla como referencia ayuda a reducir ese riesgo. Comparar dos implementaciones que comparten el mismo error de límites ofrece menos confianza.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-02/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
+
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/estructuras-algoritmos-lab.zip) contiene código, pruebas y un benchmark separado. Las pruebas no imponen umbrales de velocidad: una máquina más lenta no vuelve incorrecta una ordenación.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/README.md) contiene código, pruebas y un benchmark separado. Las pruebas no imponen umbrales de velocidad: una máquina más lenta no vuelve incorrecta una ordenación.
 
 Conservamos la URL de este borrador para no romper enlaces internos. Su contenido ya no agrupa búsqueda binaria, merge sort y BFS: ahora tienen entregas propias. El orden completo está en la ruta editorial de la serie.
 

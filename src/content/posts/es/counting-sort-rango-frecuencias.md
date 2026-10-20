@@ -36,7 +36,7 @@ La salida conserva multiplicidades sin comparar cada par. Pero hemos visitado to
 
 ## La implementación limita el recurso que va a reservar
 
-Archivo `focused.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip), función completa:
+Archivo `focused.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts), función completa:
 
 ```typescript
 export function countingSort(input: readonly number[], max: number): number[] {
@@ -80,6 +80,15 @@ Con números indistinguibles de igual valor, nuestro test puede comprobar frecue
 Puntuaciones acotadas, categorías ordinales pequeñas o claves enteras densas pueden justificarla. Si el rango viene de una entrada externa, validarlo es parte del diseño, no una optimización opcional.
 
 Para strings arbitrarios, números reales o claves dispersas enormes, una ordenación por comparador suele ser una base más adecuada. Si solo necesitamos contar frecuencias sin obtener un array ordenado completo, quizá el problema ni siquiera requiera emitir n elementos.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-21/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

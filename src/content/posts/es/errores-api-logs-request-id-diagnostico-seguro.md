@@ -83,9 +83,18 @@ La demo descarta el fallo de telemetría porque no tiene otro sink. En un servic
 
 La ubicación del log tampoco demuestra durabilidad. Si el proceso termina antes de registrar, puede faltar una ocurrencia. Una auditoría obligatoria necesita un diseño persistente y garantías propias, no reutilizar sin más este logger informativo.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-error-logging/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-validation-errors
+```
+
 ## Garantías y límites
 
-El [ZIP de validación y errores](/assets/examples/api-validacion-errores-lab.zip) contiene `server.mjs` y `tests/http.test.mjs`.
+El [laboratorio de validación y errores](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-validation-errors/server.mjs) contiene `server.mjs` y `tests/http.test.mjs`.
 
 ```bash
 pnpm install --frozen-lockfile

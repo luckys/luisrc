@@ -85,7 +85,7 @@ No se han inventado planes, tiempos de ejecución ni comparativas entre motores.
 
 ### Recursos y código
 
-Laboratorio autocontenido `examples/bases-de-datos/`, PostgreSQL 18.4 y Redis
+Laboratorio autocontenido `https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/`, PostgreSQL 18.4 y Redis
 fijados por digest, sin puertos publicados. Trece scripts SQL y herramientas Node
 sin dependencias adicionales. Los snippets SQL identificados por archivo se
 comparan con los originales. El ZIP contiene veinte archivos y sus bytes se

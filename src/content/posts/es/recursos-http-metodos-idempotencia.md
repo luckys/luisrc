@@ -39,13 +39,13 @@ Un método **safe** no solicita un cambio del estado de negocio. GET puede gener
 
 <div class="overflow-x-auto" role="region" aria-label="Métodos del laboratorio y su contrato" tabindex="0">
 
-| Operación | Safe | Idempotente según el contrato | Resultado de éxito |
-| --- | --- | --- | --- |
-| GET /orders/o1 | Sí | Sí | 200 y representación |
-| POST /orders | No | No se promete | 201, Location y pedido nuevo |
-| PUT /orders/o1 | No | Sí | 200 y representación sustituida |
-| PATCH /orders/o1 | No | Sí para asignar/eliminar label | 200 y representación actualizada |
-| DELETE /orders/o1 | No | Sí | 204 vacío; después puede ser 404 |
+| Operación         | Safe | Idempotente según el contrato  | Resultado de éxito               |
+| ----------------- | ---- | ------------------------------ | -------------------------------- |
+| GET /orders/o1    | Sí   | Sí                             | 200 y representación             |
+| POST /orders      | No   | No se promete                  | 201, Location y pedido nuevo     |
+| PUT /orders/o1    | No   | Sí                             | 200 y representación sustituida  |
+| PATCH /orders/o1  | No   | Sí para asignar/eliminar label | 200 y representación actualizada |
+| DELETE /orders/o1 | No   | Sí                             | 204 vacío; después puede ser 404 |
 
 </div>
 
@@ -73,7 +73,7 @@ Repetir el mismo PUT conserva el mismo estado. Pero la idempotencia no evita que
 
 Nuestro documento admite solo `label`. Omitirlo conserva el actual; enviar un string lo asigna; enviar `null` lo elimina. Un campo como `amountMinor` provoca 422 en lugar de ignorarse silenciosamente.
 
-Función completa `patchOrder`, en `server.mjs` del [laboratorio](/assets/examples/api-contratos-lab.zip):
+Función completa `patchOrder`, en `server.mjs` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-contracts/openapi.json):
 
 ```javascript
 export function patchOrder(current, patch) {
@@ -114,11 +114,20 @@ Una respuesta perdida sigue dejando incertidumbre: puede haberse creado la solic
 
 Nuestro laboratorio estudia recursos y semántica HTTP. No incluye un flujo hipermedia completo y no lo certificamos como ejemplo de todas las restricciones REST. Cambiar nombres de rutas de verbos a sustantivos no demuestra por sí solo esas propiedades.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p021/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-contracts
+```
+
 ## Garantías y límites
 
 Los tests realizan peticiones reales y comprueban métodos, códigos, Location, eliminación sin cuerpo y repetición. El documento `openapi.json` fija el subconjunto publicado. La demo no implementa HEAD, OPTIONS, autenticación, persistencia, pagos ni condiciones de concurrencia; no debe exponerse en red.
 
-Ejecuta `node --test tests/*.test.mjs` desde el ZIP extraído. El README permite repetir el flujo con curl, siempre sobre un puerto local efímero.
+Ejecuta `node --test tests/*.test.mjs` desde el paquete del laboratorio. El README permite repetir el flujo con curl, siempre sobre un puerto local efímero.
 
 ## Ejercicio: comprobar el efecto, no comparar solo códigos
 

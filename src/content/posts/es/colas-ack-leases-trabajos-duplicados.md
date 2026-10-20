@@ -35,7 +35,7 @@ Si confirmamos antes de guardar el efecto y caemos, podemos perder el trabajo. S
 
 En algunos sistemas el trabajo deja de ser visible temporalmente; en otros permanece asociado a una entrega no confirmada. Los mecanismos concretos varían. El modelo del laboratorio utiliza una **lease**, una reclamación que caduca.
 
-Archivo: `servicios-fiables/src/distributed.ts` (extracto de `LeaseQueue`).
+Archivo: `reliable-services/src/distributed.ts` (extracto de `LeaseQueue`).
 
 ```typescript
   claim(now: number, duration: number): { id: string; token: number } | undefined {
@@ -65,11 +65,20 @@ Una cola suele repartir trabajos entre consumidores. Un **event log** retenido p
 
 Si solo necesitas recuperar un pequeño trabajo local, una tabla de pendientes puede ser suficiente. Si necesitas publicar eventos hacia otros sistemas, aparece otro problema: guardar y publicar de forma consistente. Lo abordaremos con Outbox.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-queues/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 `LeaseQueue` pierde todo al reiniciar. No es un broker, no renueva leases ni implementa DLQ. El experimento verifica redelivery y rechazo de ACK antiguo con tiempo simulado. No mata un proceso real ni afirma durabilidad de mensajes.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/distributed.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="lease:" tests/core.test.mjs

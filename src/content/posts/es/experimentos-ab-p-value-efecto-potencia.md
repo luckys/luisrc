@@ -44,7 +44,7 @@ No estamos suponiendo simplemente que cualquier colección de datos observaciona
 
 Dos de las veinte asignaciones producen una diferencia de magnitud al menos 3. El **p-value** bilateral de este procedimiento exacto es **0,1**.
 
-Archivo: `matematicas-estadistica/foundations.py`, cálculo final de `permutation_mean`.
+Archivo: `mathematics-statistics/foundations.py`, cálculo final de `permutation_mean`.
 
 ```python
     extreme = sum(abs(value) >= abs(observed)-1e-12 for value in statistics)
@@ -71,9 +71,18 @@ Si probamos muchas métricas y comunicamos solo la que cruza 0,05, hemos selecci
 
 Predefine métricas, duración o reglas de parada. Si necesitas observar continuamente, utiliza un diseño secuencial apropiado. Para múltiples comparaciones, el ajuste depende del objetivo de control de errores. No implementamos aquí esos procedimientos ni simulamos su potencia.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p083/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) enumera las veinte asignaciones y verifica efecto y p-value conocidos. No es un cálculo de tamaño muestral, un test de producción o una estimación causal válida para cualquier dato recogido sin aleatorización.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) enumera las veinte asignaciones y verifica efecto y p-value conocidos. No es un cálculo de tamaño muestral, un test de producción o una estimación causal válida para cualquier dato recogido sin aleatorización.
 
 La [API de permutaciones de SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.permutation_test.html) distingue tipos de permutación y alternativas. Elegir una función no sustituye decidir qué aleatorización refleja tu experimento.
 

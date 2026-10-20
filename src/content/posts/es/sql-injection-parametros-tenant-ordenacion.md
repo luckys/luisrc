@@ -114,7 +114,7 @@ SQLite embebido no reproduce usuarios de un servidor SQL ni políticas RLS. Tamp
 
 ## Reproduce el resultado sin atacar servicios externos
 
-Descarga el [laboratorio de amenazas](/assets/examples/api-amenazas-lab.zip) y, con Node 24.19.0 o posterior, ejecuta:
+Consulta el [laboratorio de amenazas](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/store.mjs) y, con Node 24.19.0 o posterior, ejecuta:
 
 ```bash
 pnpm test
@@ -123,6 +123,15 @@ pnpm test
 No requiere instalación. `tests/lab.test.mjs` identifica T04 en los tests de consulta vulnerable, binding literal, tenant y ordenación. Cada test abre SQLite real en memoria, no un mock que busca palabras como OR.
 
 En el entorno verificado, Node 24.19.0 informa SQLite 3.53.3. No es un benchmark ni demuestra equivalencia entre SQLite y PostgreSQL. Los placeholders, tipos, collations y errores deben revisarse con el driver del motor que vayas a utilizar.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-threats-sql/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
 
 ## Garantías y límites
 

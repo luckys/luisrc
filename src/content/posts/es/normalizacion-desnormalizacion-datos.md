@@ -55,7 +55,7 @@ Antes de eliminar duplicación aparente, pregunta si las columnas describen el m
 
 ## Un resumen ahorra cálculo, pero exige una política de actualización
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/sql/06-normalizacion.sql), entra en `database-fundamentals/` y ejecuta:
 
 Archivo: terminal.
 
@@ -64,7 +64,7 @@ docker compose up -d --wait
 docker compose exec -T postgres psql -X -U lab -d series_lab -v ON_ERROR_STOP=1 -f /lab/sql/06-normalizacion.sql
 ```
 
-Archivo: `bases-de-datos/sql/06-normalizacion.sql`.
+Archivo: `database-fundamentals/sql/06-normalizacion.sql`.
 
 ```sql
 \ir 04-consultas.sql
@@ -97,6 +97,15 @@ La materialized view no es adecuada si cada lectura exige inmediatamente el últ
 Calcular al leer evita mantener una copia, pero repite trabajo. Mantener un resumen en la misma transacción puede dar coherencia inmediata, a cambio de ampliar escrituras y coordinar concurrencia. Refrescar periódicamente simplifica algunos accesos si el producto acepta una ventana explícita de antigüedad.
 
 No afirmaremos una mejora de rendimiento a partir de tres líneas ficticias. Para decidir por rendimiento, mide con volumen representativo el tiempo de lectura, el coste de escritura y el de reconciliación. Una lectura rápida que devuelve una cifra inapropiada para el negocio no es una optimización completa.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-normalization/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

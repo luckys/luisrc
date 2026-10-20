@@ -68,11 +68,11 @@ articles:
     question: Qué motor satisface accesos y garantías con coste justificable
     roadmap: [P040]
 lab: examples/transacciones
-download: public/assets/examples/transacciones-lab.zip
-english_download: public/assets/examples/transactions-lab-en.zip
+download: publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions/README.md
+english_download: publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions-en/README.md
 diagrams: assets/database-fundamentals
 continuation_lab: examples/bases-de-datos
-continuation_download: public/assets/examples/bases-de-datos-lab.zip
+continuation_download: publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/README.md
 continuation_diagrams: assets/database-series
 continuation_language: es
 continuation_verified: 2026-10-17

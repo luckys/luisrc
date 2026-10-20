@@ -28,7 +28,7 @@ Si consultamos test después de cada cambio y conservamos lo que mejora, ese con
 
 El **holdout** reserva una parte de los datos para evaluar. No hay un porcentaje universalmente correcto. Necesitamos suficientes ejemplos relevantes y una separación que represente nuevas observaciones, no solo un reparto visualmente equilibrado.
 
-En el [laboratorio](/assets/examples/machine-learning-lab.zip), tras limpiar y ordenar, reservamos **540 filas para train, 180 para validation y 180 para test**. El train termina el 23 de junio de 2025; validation va del 24 de junio al 20 de diciembre; test empieza el 21 de diciembre. Las fechas pertenecen al fixture ficticio.
+En el [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/experiments.py), tras limpiar y ordenar, reservamos **540 filas para train, 180 para validation y 180 para test**. El train termina el 23 de junio de 2025; validation va del 24 de junio al 20 de diciembre; test empieza el 21 de diciembre. Las fechas pertenecen al fixture ficticio.
 
 <img src="/assets/visuals/ml-series/P092.svg" alt="Línea temporal: entrenamiento primero, validación después para decisiones exploratorias y test final reservado; dentro del entrenamiento, tres folds de ventana creciente mantienen el pasado antes del futuro." width="556" height="958" loading="lazy" style="width:100%;height:auto" />
 
@@ -75,6 +75,15 @@ Este resultado fue construido para mostrar el mecanismo. No demuestra que cualqu
 Con pocos datos puede interesar **nested cross validation**: un bucle interno selecciona y otro externo evalúa el procedimiento de selección. No la implementamos aquí. Mantenemos una separación temporal explícita y una comparación final predefinida para que el flujo sea visible.
 
 Después de fijar el procedimiento se puede reentrenar con train y validation antes de evaluar un test todavía reservado. En este laboratorio no lo hacemos: los tres modelos finales se ajustan solo con train, como indica el protocolo. Así no mezclamos cifras de modelos entrenados con cantidades distintas de datos.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p092/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

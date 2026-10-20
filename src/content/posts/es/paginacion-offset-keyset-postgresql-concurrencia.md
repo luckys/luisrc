@@ -92,9 +92,18 @@ Keyset encaja con «siguiente» sobre un orden que conocemos. No permite saltar 
 
 No publicamos un parámetro sort que se copie al SQL. El único orden de esta API está fijado por contrato. Si el producto necesita otras ordenaciones, cada una necesita resolver sus empates y estudiar sus índices, no aceptar un nombre de columna arbitrario.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p024/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-pagination-evolution
+```
+
 ## Garantías y límites
 
-El [laboratorio](/assets/examples/api-paginacion-evolucion-lab.zip) incluye `queries.mjs`, `pagination.mjs` y `server.mjs`. Sus tests sin Docker comprueban ámbito, firma, caducidad, parámetros y lookahead.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-pagination-evolution/pagination.mjs) incluye `queries.mjs`, `pagination.mjs` y `server.mjs`. Sus tests sin Docker comprueban ámbito, firma, caducidad, parámetros y lookahead.
 
 ```bash
 pnpm install --frozen-lockfile

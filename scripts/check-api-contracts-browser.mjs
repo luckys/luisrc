@@ -1,10 +1,6 @@
-import { createRequire } from 'node:module'
 import { readFile, mkdtemp, writeFile } from 'node:fs/promises'
 import assert from 'node:assert/strict'
-const require = createRequire(
-  new URL('../examples/frontend-tiempo-real/package.json', import.meta.url),
-)
-const { chromium } = require('@playwright/test')
+const { chromium } = await import('@playwright/test')
 const origin = process.env.API_DRAFT_ORIGIN ?? 'http://127.0.0.1:4322'
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname))
 const manifest = JSON.parse(
@@ -107,9 +103,7 @@ try {
         await page.screenshot({ path: `${folder}/${entry.id}-table-mobile.png` })
       }
       for (const link of await page
-        .locator(
-          'article a[href^="/posts/"],a[href^="/assets/examples/"],article a[href^="/assets/interactive/"]',
-        )
+        .locator('article a[href^="/posts/"],article a[href^="/assets/interactive/"]')
         .all()) {
         const href = await link.getAttribute('href')
         assert.equal((await page.request.get(origin + href)).status(), 200, href)
@@ -292,7 +286,7 @@ try {
     ],
   })
   const ssrfEvidence = JSON.parse(
-    await readFile('examples/api-amenazas/ssrf-evidence.json', 'utf8'),
+    await readFile('public/assets/interactive/api-ssrf/ssrf-evidence.json', 'utf8'),
   )
   await page.goto(`${origin}/assets/interactive/api-ssrf/ssrf-explorer.html`, {
     waitUntil: 'networkidle',

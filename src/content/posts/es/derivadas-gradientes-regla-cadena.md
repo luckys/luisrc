@@ -57,7 +57,7 @@ No es una diferencia terminológica menor: multiplicar Jacobianos exige ejes com
 
 Las **finite differences** centrales comparan valores a ambos lados de $x$.
 
-Archivo: `matematicas-estadistica/foundations.py`, función completa.
+Archivo: `mathematics-statistics/foundations.py`, función completa.
 
 ```python
 def derivative(function, x: float, h: float = 1e-5) -> float:
@@ -80,9 +80,18 @@ La gráfica usa $\sin(x)$ en $x=1$, cuya derivada conocida es $\cos(1)$. Muestra
 
 Los [consejos de gradient checking de CS231n](https://cs231n.github.io/neural-networks-3/) explican por qué importa comparar con tolerancias y tener cuidado con puntos no diferenciables. Para entrenar un modelo grande, calcular diferencias por cada parámetro resulta costoso; las usaremos como comprobación, no como motor de entrenamiento.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p078/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/mathematics-statistics
+```
+
 ## Garantías y límites
 
-[El laboratorio](/assets/examples/matematicas-estadistica-lab.zip) verifica la derivada de esta función y archiva el barrido de pasos. Una coincidencia numérica no demuestra una fórmula para todas las entradas. Una discrepancia tampoco prueba automáticamente que la derivada analítica esté mal: revisa paso, precisión y diferenciabilidad.
+[El laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/mathematics-statistics/foundations.py) verifica la derivada de esta función y archiva el barrido de pasos. Una coincidencia numérica no demuestra una fórmula para todas las entradas. Una discrepancia tampoco prueba automáticamente que la derivada analítica esté mal: revisa paso, precisión y diferenciabilidad.
 
 ## Ejercicio: comprobar la parcial del bias
 

@@ -51,7 +51,7 @@ No son cuatro implementaciones alternativas de seguridad. Una consulta parametri
 
 «Falta validación» es demasiado ambiguo para decidir qué hacer. «Alice envía state=published al editar el título y publica sin permiso» identifica actor, entrada, acción y daño.
 
-El [laboratorio descargable](/assets/examples/api-amenazas-lab.zip) guarda esos escenarios en `threat-model.json`. Cada registro incluye responsable del seguimiento, prioridad, control, prueba y riesgo residual. El responsable es el mantenimiento de esta demo; en un equipo tendría que corresponder a alguien capaz de actuar, no a una etiqueta decorativa.
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats/threat-model.json) guarda esos escenarios en `threat-model.json`. Cada registro incluye responsable del seguimiento, prioridad, control, prueba y riesgo residual. El responsable es el mantenimiento de esta demo; en un equipo tendría que corresponder a alguien capaz de actuar, no a una etiqueta decorativa.
 
 Estos cuatro escenarios del bloque inicial tienen evidencia ejecutable:
 
@@ -101,6 +101,15 @@ Al escribir este bloque inicial dejamos T05, T06 y T07 abiertos. Las [dos entreg
 T01 tampoco certifica autenticación de personas. Los tokens demo-alice y demo-bob del modo inicial son públicos, estáticos y sin expiración. El adaptador de credenciales posterior sí verifica caducidad y revocación de clientes de servicio, pero no reemplaza OIDC o MFA para usuarios.
 
 La próxima revisión del modelo debería ocurrir cuando cambie una frontera o un supuesto: otra vía de escritura, un proveedor externo, un rol nuevo o una caché compartida. También después de un incidente que contradiga nuestras expectativas. El archivo es útil mientras refleja lo que el sistema hace y lo que todavía no sabemos.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p030/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-threats
+```
 
 ## Garantías y límites
 

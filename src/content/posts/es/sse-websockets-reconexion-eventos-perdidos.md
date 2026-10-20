@@ -37,7 +37,7 @@ En la demo mantenemos los comandos HTTP y recibimos notificaciones por SSE. El e
 
 El servidor del laboratorio numera eventos y conserva los diez últimos en memoria. El cliente registra la secuencia aplicada. Ignora una repetida y deja de asumir continuidad si falta una posición.
 
-Archivo: `frontend-tiempo-real/src/data.ts`, función completa.
+Archivo: `realtime-frontend/src/data.ts`, función completa.
 
 ```typescript
 export function acceptEvent(last: number, next: number) {
@@ -68,7 +68,7 @@ EventSource nativo restringe la configuración de cabeceras arbitrarias. La iden
 
 ## Qué comprueba la prueba real
 
-[Descarga el laboratorio](/assets/examples/frontend-tiempo-real-lab.zip). Desde `frontend-tiempo-real/`, ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/realtime-frontend/src/data.ts). Desde `realtime-frontend/`, ejecuta:
 
 ```bash
 pnpm test:browser --grep SSE
@@ -77,6 +77,15 @@ pnpm test:browser --grep SSE
 La prueba genera un evento, desconecta la vista, produce doce más y reconecta. Como solo conservamos diez, exige recuperar el snapshot y comprobar la secuencia. El test unitario prueba duplicados y huecos por separado.
 
 No simulamos el transporte con un array en React: el navegador mantiene una conexión SSE real con el servidor local. No se ejecutan WebSockets ni un despliegue detrás de proxy.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p073/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/realtime-frontend
+```
 
 ## Garantías y límites
 

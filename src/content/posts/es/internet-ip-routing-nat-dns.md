@@ -54,9 +54,9 @@ Hay además respuestas negativas y errores distintos de «el nombre no existe».
 
 ## Un resolver real puede probarse sin tocar el DNS del equipo
 
-El [laboratorio](/assets/examples/computacion-redes-lab.zip) crea un servidor UDP limitado al nombre ficticio `lab.test`, ligado a `127.0.0.1` y un puerto efímero. Configura un resolver independiente de Node para consultarlo. No modifica `/etc/resolv.conf`, servicios del sistema o zonas públicas.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/computing-networks/experiments.mjs) crea un servidor UDP limitado al nombre ficticio `lab.test`, ligado a `127.0.0.1` y un puerto efímero. Configura un resolver independiente de Node para consultarlo. No modifica `/etc/resolv.conf`, servicios del sistema o zonas públicas.
 
-Archivo: `computacion-redes/experiments.mjs`, selección explícita del DNS local.
+Archivo: `computing-networks/experiments.mjs`, selección explícita del DNS local.
 
 ```javascript
 const resolver = new Resolver({ timeout: 500, tries: 1 })
@@ -75,6 +75,15 @@ El servidor solo implementa la parte del formato necesaria para esta pregunta A/
 NAT no sustituye una política de seguridad ni garantiza acceso entrante a un equipo privado. Firewalls, rutas y reglas de publicación son decisiones diferentes.
 
 Un **load balancer** reparte tráfico entre destinos. Puede operar a nivel de conexión o interpretar HTTP, según su diseño. Resolver un nombre hacia un balanceador no revela qué instancia atenderá cada petición ni demuestra que sus health checks representen toda la funcionalidad del backend.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p005/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/computing-networks
+```
 
 ## Garantías y límites
 

@@ -46,11 +46,11 @@ This article focuses on the guarantees. [PostgreSQL transactions: BEGIN, COMMIT,
 
 ## Set up a small lab with Docker Compose
 
-You can [download the files for both articles](/assets/examples/transactions-lab-en.zip), extract them and enter `transactions/`. If you prefer to write them yourself, create that directory and its `sql/` subdirectory, then copy the files in this section and each example.
+You can [browse the files for both articles on GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions-en/README.md), clone the repository and enter `packages/transactions-en/`. If you prefer to write them yourself, create that directory and its `sql/` subdirectory, then copy the files in this section and each example.
 
 For this part, you only need Docker with Compose. The server is accessible at `127.0.0.1:55434`; the `psql` client runs inside the container. The image pins a version and digest to make the environment reproducible. These public, fictional credentials belong only to this local database.
 
-File: `transactions/docker-compose.yml`.
+File: `transactions-en/docker-compose.yml`.
 
 ```yaml
 name: luisrc-transactions-lab
@@ -73,7 +73,7 @@ services:
 
 The health check lets Compose wait until PostgreSQL accepts connections before you run queries. It does not check your application's business rules. [Startup order and dependencies in Compose](https://docs.docker.com/compose/how-tos/startup-order/).
 
-File: `transactions/sql/setup.sql`.
+File: `transactions-en/sql/setup.sql`.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS concept_examples;
@@ -101,7 +101,7 @@ INSERT INTO documents VALUES (1, 'draft');
 
 We store balances in cents: `10000` represents 100 euros. The examples therefore use integers without introducing floating-point rounding. The `concept_examples` schema separates these fictional tables from the TypeScript example's tables.
 
-From the `transactions/` directory, run:
+From the `transactions-en/` directory, run:
 
 ```bash
 docker compose up -d --wait
@@ -124,7 +124,7 @@ _Three outcomes of the same operation. The total reveals the partial state._
 
 This file first reproduces the failure, then the rollback, and finally the successful path:
 
-File: `transactions/sql/atomicity.sql`.
+File: `transactions-en/sql/atomicity.sql`.
 
 ```sql
 -- Division errors are intentional: psql must continue.
@@ -200,7 +200,7 @@ _The database can enforce the rule because the schema contains it._
 
 Restore the setup and run this file:
 
-File: `transactions/sql/consistency.sql`.
+File: `transactions-en/sql/consistency.sql`.
 
 ```sql
 \set ON_ERROR_STOP off
@@ -254,7 +254,7 @@ _No uncommitted data is read. The snapshot changes between queries._
 
 The reader opens a transaction and waits between its two queries:
 
-File: `transactions/sql/isolation-reader.sql`.
+File: `transactions-en/sql/isolation-reader.sql`.
 
 ```sql
 SET search_path TO concept_examples;
@@ -267,7 +267,7 @@ COMMIT;
 
 The writer updates the balance in another session:
 
-File: `transactions/sql/isolation-writer.sql`.
+File: `transactions-en/sql/isolation-writer.sql`.
 
 ```sql
 SET search_path TO concept_examples;
@@ -321,7 +321,7 @@ _Conceptual local-persistence flow; this does not depict a power-cut experiment 
 
 Reset the data and save a document:
 
-File: `transactions/sql/durability.sql`.
+File: `transactions-en/sql/durability.sql`.
 
 ```sql
 SET search_path TO concept_examples;
@@ -383,3 +383,12 @@ docker compose down --volumes
 ```
 
 To keep practicing, continue with [PostgreSQL transactions: BEGIN, COMMIT, ROLLBACK and SAVEPOINT](/en/posts/postgresql-transactions-practical-examples). We will look at what to do when an SQL error aborts the block and how to preserve part of the work with a savepoint.
+
+## Article code
+
+See the [files and tests for this article](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/en/db-acid/README.md). Clone the repository and run the article's commands from this package:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/transactions-en
+```

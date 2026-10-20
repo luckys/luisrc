@@ -39,7 +39,7 @@ También necesitas decidir qué ocurre si Redis falla. **Fail open** hacia Postg
 
 ## Reproduce la carrera sin depender del azar
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/README.md), entra en `database-fundamentals/` y ejecuta:
 
 Archivo: terminal, preparación de PostgreSQL y Redis aislados.
 
@@ -102,6 +102,15 @@ Un **cache stampede** aparece cuando muchas peticiones encuentran la misma ausen
 Añadir **jitter** al TTL evita que muchas claves expiren exactamente juntas, pero no evita por sí solo cien misses simultáneos de la misma clave. Otra alternativa es servir temporalmente el dato anterior mientras una petición lo renueva, si el producto acepta **stale-while-revalidate**.
 
 Una **hot key** concentra tráfico en una sola clave. No desaparece por añadir nodos si esa clave sigue teniendo un único destino. Mide distribución de peticiones, tamaño de valores y carga de origen, además del **hit ratio**. Un hit ratio alto puede ocultar lecturas demasiado antiguas.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-cache/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

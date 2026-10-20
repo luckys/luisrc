@@ -102,9 +102,18 @@ Las claves de fixture se crean dentro del test y no se publican por HTTP. Tener 
 
 El test de protocolo, por su parte, recorre el flujo auténtico de autorización y obtiene un ID token del OP. Los dos tipos de prueba se complementan: una integración feliz no cubre todas las reglas, y un conjunto de JWTs sintéticos no demuestra que el login esté integrado.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-oidc-validation/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-identity
+```
+
 ## Garantías y límites
 
-Ejecuta el [laboratorio](/assets/examples/api-identidad-lab.zip):
+Ejecuta el [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-identity/identity.mjs):
 
 ```bash
 pnpm install --frozen-lockfile

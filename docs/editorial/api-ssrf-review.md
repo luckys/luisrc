@@ -38,7 +38,7 @@ Se exige protocol explícito además de origin, tanto en el parser de aplicació
 como en la guardia del harness. Se conserva la sonda, sin debilitar expectativas.
 La explicación del post cita la especificación WHATWG. No hubo salida externa.
 
-examples/api-amenazas tiene 27 tests: trece iniciales, trece de SSRF y uno que vuelve
+https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-threats tiene 27 tests: trece iniciales, trece de SSRF y uno que vuelve
 a ejecutar cinco escenarios y compara las trazas archivadas. HTTP de salida y
 sockets reales; resolver programado, no DNS real. Dos servicios escuchan en
 127.0.0.1 y 127.0.0.2 con el mismo puerto efímero. media.fixture.test solo usa el

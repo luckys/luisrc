@@ -41,7 +41,7 @@ En PostgreSQL 18, `READ UNCOMMITTED` se comporta como `READ COMMITTED`. `REPEATA
 
 ## Dos sesiones permiten ver cuándo cambia la snapshot
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip), entra en `bases-de-datos/` y ejecuta `docker compose up -d --wait`. Inicializa los datos con:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/README.md), entra en `database-fundamentals/` y ejecuta `docker compose up -d --wait`. Inicializa los datos con:
 
 Archivo: terminal, preparación del capítulo.
 
@@ -100,6 +100,15 @@ Después de un **serialization failure**, la operación debe comenzar otra trans
 El protocolo de la aplicación sería: abrir transacción, leer, validar la regla, actualizar, confirmar. Ante `40001`, descartar ese intento y repetir la unidad completa, con un presupuesto limitado. Si en el nuevo intento queda una sola persona, la respuesta correcta es rechazar la baja, no insistir hasta desconectarla. [Tratamiento de errores de serialización](https://www.postgresql.org/docs/18/mvcc-serialization-failure-handling.html).
 
 En el laboratorio, `node --test tests/lab.test.mjs` automatiza las lecturas y el write skew. Las sesiones se coordinan esperando respuestas, no añadiendo pausas para intentar acertar con el scheduling.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-isolation/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

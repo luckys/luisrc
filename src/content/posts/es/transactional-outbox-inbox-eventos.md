@@ -29,7 +29,7 @@ Un proceso posterior, el **relay**, lee pendientes y los entrega. Si cae antes d
 
 [Ampliar el diagrama](/assets/visuals/reliable-services/DIST-OUTBOX.svg).
 
-Archivo: `servicios-fiables/sql/02-atomic-write.sql`.
+Archivo: `reliable-services/sql/02-atomic-write.sql`.
 
 ```sql
 BEGIN;
@@ -46,7 +46,7 @@ El laboratorio usa identificadores fijos porque ejecuta un solo escenario. Un se
 
 ## Inbox y efecto local comparten otra transacción
 
-Archivo: `servicios-fiables/sql/03-consume.sql`.
+Archivo: `reliable-services/sql/03-consume.sql`.
 
 ```sql
 BEGIN;
@@ -83,11 +83,20 @@ Para varios relays, puedes reclamar filas con una estrategia transaccional y lea
 
 Monitoriza antigüedad del pendiente más viejo, intentos y errores, no solo tamaño de cola. Define retención, replay y orden por operación. Una Outbox no es automáticamente **event sourcing**: puede transportar eventos sin que esos eventos sean el registro canónico de todo el estado.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-outbox/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 La transacción local evita que un cambio confirmado carezca de su registro Outbox. Recuperar y entregar requiere que relay y almacenamiento vuelvan a estar disponibles y que no se borren pendientes prematuramente. El esquema simple admite publicaciones repetidas y no promete orden global ni exactly once externo.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/sql/02-atomic-write.sql). Desde `reliable-services/`:
 
 ```bash
 docker compose up -d --wait

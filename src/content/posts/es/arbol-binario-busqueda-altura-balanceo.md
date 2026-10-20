@@ -40,7 +40,7 @@ Al comparar con un nodo descartamos un subárbol entero. Eso es válido por el i
 
 ## La búsqueda sigue una sola rama
 
-El [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip) incluye `TreeNode`, `treeInsert` y esta función completa en `focused.ts`:
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts) incluye `TreeNode`, `treeInsert` y esta función completa en `focused.ts`:
 
 ```typescript
 export function treeHas(root: TreeNode | undefined, key: number): boolean {
@@ -74,6 +74,15 @@ Un índice hash resulta útil para encontrar una clave exacta. Un árbol ordenad
 Un `Map` de TypeScript conserva orden de inserción, no orden numérico de claves. Insertar 9, 2 y 5 no lo convierte en un árbol que pueda responder directamente «la menor clave mayor que 3». Esa diferencia semántica puede importar más que comparar dos Big O aislados.
 
 Si solo tenemos un catálogo estático, un array ordenado y [búsqueda binaria](/posts/busqueda-binaria-lower-bound) también permiten localizar fronteras. El precio de insertar en medio vuelve a ser relevante. La elección depende de cuánto consultamos, cuánto modificamos y qué orden exige la consulta.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-06/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

@@ -33,7 +33,7 @@ La [máquina de estados](/posts/maquinas-estados-reglas-negocio) expresa movimie
 
 ## No todas las acciones tienen inversa
 
-Archivo: `servicios-fiables/src/workflow.ts` (extracto).
+Archivo: `reliable-services/src/workflow.ts` (extracto).
 
 ```typescript
 export function compensate(state: 'reserved' | 'released' | 'delivered'): 'released' {
@@ -60,11 +60,20 @@ Con **orquestación**, un componente mantiene el progreso y decide el siguiente 
 
 Para una demo pequeña elegimos primero una coordinación visible. No hace falta una plataforma de workflows para cuatro pasos, aunque un motor como Temporal puede aportar timers, retries y recuperación bajo sus reglas. Su replay determinista tampoco vuelve reversibles los efectos externos: las actividades necesitan identidades y contratos apropiados.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dist-sagas/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Una saga puede recuperar o compensar pasos bajo un protocolo definido. No ofrece aislamiento global: otros procesos pueden observar estados intermedios. Tampoco asegura que toda compensación funcione; una liberación puede fallar y necesitar su propio retry y reconciliación.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/src/workflow.ts). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="compensación" tests/core.test.mjs

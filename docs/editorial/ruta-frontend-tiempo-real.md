@@ -13,7 +13,7 @@ Nueve artículos independientes de proyectos concretos, solo español y en borra
 8. [CRDT, Yjs y edición offline](../../src/content/posts/es/crdt-yjs-offline-convergencia.md).
 9. [WebRTC y recursos de audio](../../src/content/posts/es/webrtc-audio-ice-stun-turn.md).
 
-Código en [el laboratorio](../../examples/frontend-tiempo-real/README.md).
+Código en [el laboratorio](../../packages/realtime-frontend/README.md).
 Alcance y diferencias con los labs completos del catálogo en [scope](frontend-series-scope.md).
 Inventario en [frontend-series.json](frontend-series.json).
 

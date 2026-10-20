@@ -53,7 +53,7 @@ def ols(x: np.ndarray, y: np.ndarray) -> np.ndarray:
     return coefficients
 ```
 
-En el [laboratorio](/assets/examples/machine-learning-lab.zip), diez observaciones inventadas alrededor de una recta producen intercept **2,2** y pendiente **2,963636…**. `LinearRegression` de scikit-learn obtiene los mismos valores dentro de tolerancia numérica. Son coeficientes de ese pequeño ejemplo, no del clasificador logístico de retrasos.
+En el [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/machine-learning/models.py), diez observaciones inventadas alrededor de una recta producen intercept **2,2** y pendiente **2,963636…**. `LinearRegression` de scikit-learn obtiene los mismos valores dentro de tolerancia numérica. Son coeficientes de ese pequeño ejemplo, no del clasificador logístico de retrasos.
 
 Los tests incluyen la recta exacta $2+3x$ y una entrada constante que impide identificar por separado intercept y pendiente. Una biblioteca puede devolver una solución de norma mínima en el segundo caso; nuestro ejemplo lo rechaza para hacer visible que los coeficientes no son únicos.
 
@@ -88,6 +88,15 @@ El laboratorio usa logística con `C=1`, regularización L2 por defecto en la ve
 Un **threshold** de 0,5 clasifica como retraso los scores iguales o superiores. Es una convención, no una obligación. Con costes asimétricos puede convenir otro umbral, elegido en validation y respetando capacidad de revisión.
 
 En validation, nuestra logística detecta **27 de 44 retrasos** con cinco falsas alertas a 0,5. No estamos optimizando directamente esa matriz al minimizar log loss: pérdida de entrenamiento y política de decisión resuelven preguntas relacionadas pero diferentes.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p089/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/machine-learning
+```
 
 ## Garantías y límites
 

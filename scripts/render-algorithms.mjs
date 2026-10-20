@@ -6,7 +6,10 @@ const manifest = JSON.parse(
   await readFile('docs/editorial/algorithms-series.json', 'utf8'),
 )
 const results = JSON.parse(
-  await readFile('examples/estructuras-algoritmos/results/benchmark.json', 'utf8'),
+  await readFile(
+    'assets/evidence/data-structures-algorithms/results/benchmark.json',
+    'utf8',
+  ),
 )
 const destination = 'public/assets/visuals/algorithms-series'
 await mkdir(destination, { recursive: true })

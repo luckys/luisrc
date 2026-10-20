@@ -25,7 +25,7 @@ En lugar de memorizar una variante de `low`, `high` y `middle`, vamos a dar un s
 
 No siempre devuelve una coincidencia. Para consultar pertenencia necesitamos comprobar también que la posición sea menor que la longitud y que allí esté el valor buscado. Esta separación permite reutilizar el algoritmo para inserciones o rangos de valores.
 
-Archivo `algorithms.ts`, función completa del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip):
+Archivo `algorithms.ts`, función completa del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts):
 
 ```typescript
 export function lowerBound(sorted: readonly number[], target: number): number {
@@ -77,6 +77,15 @@ Con `[3, 1, 2]` y objetivo 3, esta función devuelve 3 aunque el valor está en 
 Comprobar que todo esté ordenado dentro de cada búsqueda costaría O(n). En una aplicación, conviene establecer esa garantía al construir o actualizar la colección y no destruirla después.
 
 Ordenar para una sola consulta también tiene un coste. Si necesitas la primera coincidencia en el orden original, ordenar puede cambiar incluso la pregunta. Una búsqueda binaria no sustituye automáticamente a cualquier `find`.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-08/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

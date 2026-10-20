@@ -45,7 +45,7 @@ Con un objetivo hipotético del 99 % sobre 100 000 eventos elegibles, el presupu
 
 El laboratorio calcula el mismo principio como `n × (1 - target)`. Con muestras pequeñas puede devolver una fracción: 0.05 eventos permitidos no significa que exista «medio fallo», sino que un solo evento malo ya superaría la proporción elegida.
 
-Archivo: `servicios-fiables/tests/core.test.mjs` (extracto).
+Archivo: `reliable-services/tests/core.test.mjs` (extracto).
 
 ```javascript
 const stats = summarize([10, 20, 30, 40, 100], 1, 0.99)
@@ -64,11 +64,20 @@ El cálculo solo es útil si las ventanas y los datos son comparables. Con muy p
 
 Una política de presupuesto puede orientar cuándo reducir riesgo de cambios y priorizar fiabilidad. No es una orden automática de dejar de desarrollar: requiere contexto y responsables.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/ops-slo/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/reliable-services
+```
+
 ## Garantías y límites
 
 Un SLO describe un objetivo, no una promesa de ausencia de fallos. Elegir un número muy alto sin evidencia puede aumentar coste sin mejorar la experiencia relevante. El laboratorio prueba fórmulas con muestras pequeñas; no instala un sistema de alertas ni evalúa un mes de tráfico.
 
-[Descarga el laboratorio](/assets/examples/servicios-fiables-lab.zip). Desde `servicios-fiables/`:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/reliable-services/tests/core.test.mjs). Desde `reliable-services/`:
 
 ```bash
 node --test --test-name-pattern="denominador" tests/core.test.mjs

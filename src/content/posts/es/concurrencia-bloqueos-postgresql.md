@@ -23,7 +23,7 @@ Después de [aislamiento y MVCC](/posts/aislamiento-mvcc-postgresql), vamos a el
 
 ## Reproduce primero la decisión equivocada
 
-[Descarga el laboratorio](/assets/examples/bases-de-datos-lab.zip). Desde `bases-de-datos/`, arranca `docker compose up -d --wait` y ejecuta:
+[Consulta el laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/README.md). Desde `database-fundamentals/`, arranca `docker compose up -d --wait` y ejecuta:
 
 Archivo: terminal, preparación.
 
@@ -124,6 +124,15 @@ Si A bloquea la fila 1 y pide la 2, mientras B bloquea la 2 y pide la 1, ninguna
 Adquirir locks en un orden compartido, por ejemplo por identificador ascendente, reduce este riesgo. También importa mantener cortas las transacciones y no esperar al usuario con locks abiertos. Si procede reintentar, vuelve a ejecutar la unidad completa con un límite, no cualquier error indefinidamente.
 
 Los **advisory locks** permiten coordinar una clave definida por la aplicación, pero todos los caminos relevantes deben respetar el mismo protocolo. No sustituyen a constraints que sí puede exigir PostgreSQL.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-concurrency/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/database-fundamentals
+```
 
 ## Garantías y límites
 

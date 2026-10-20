@@ -25,7 +25,7 @@ Nuestro catálogo contiene objetos con un `id` numérico. La operación devuelve
 
 La palabra «primera» importa. Si tenemos dos registros con ID 4 y títulos diferentes, devolver cualquiera no satisface el mismo contrato. Tampoco es equivalente devolver una copia si otra parte del programa utiliza identidad de referencias.
 
-El archivo `algorithms.ts` del [laboratorio descargable](/assets/examples/estructuras-algoritmos-lab.zip) contiene la función completa:
+El archivo `algorithms.ts` del [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts) contiene la función completa:
 
 ```typescript
 export function linearSearch<T extends { readonly id: number }>(
@@ -75,6 +75,15 @@ Una búsqueda sobre datos remotos introduce otro problema: recorrer en memoria n
 Es razonable para colecciones pequeñas, consultas ocasionales, datos sin ordenar o predicados que no justifican una estructura auxiliar. Su sencillez permite usarla también como **reference implementation** para comprobar otra estrategia: ambas deben coincidir en todas las entradas válidas del contrato compartido.
 
 No basta con que una alternativa sea más rápida si cambia el tratamiento de duplicados o devuelve otro resultado. En el laboratorio, el constructor de Map rechaza duplicados precisamente para no esconder esa diferencia bajo una comparación de tiempos.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-07/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

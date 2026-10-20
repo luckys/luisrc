@@ -100,9 +100,18 @@ La política debe distinguir al servicio de un usuario delegado. Copiar el mismo
 
 El grant de client credentials está definido en [RFC 6749, sección 4.4](https://www.rfc-editor.org/rfc/rfc6749.html#section-4.4). Aquí se explica para delimitar roles, pero no está habilitado en la configuración del OP ni se presenta como una integración ejecutada.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/p027/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-identity
+```
+
 ## Garantías y límites
 
-El [laboratorio descargable](/assets/examples/api-identidad-lab.zip) utiliza Node 24.19.0, OpenSSL, oidc-provider 9.12.2 y openid-client 6.8.8, con lockfile:
+El [laboratorio en GitHub](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-identity/lab.mjs) utiliza Node 24.19.0, OpenSSL, oidc-provider 9.12.2 y openid-client 6.8.8, con lockfile:
 
 ```bash
 pnpm install --frozen-lockfile

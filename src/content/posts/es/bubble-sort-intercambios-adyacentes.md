@@ -36,7 +36,7 @@ El sufijo detrás de la frontera ya está en su lugar. Reducir `end` evita volve
 
 ## Implementar una parada que tenga una justificación
 
-Archivo `focused.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip), función completa:
+Archivo `focused.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts), función completa:
 
 ```typescript
 export function bubbleSort<T>(input: readonly T[], compare: (a: T, b: T) => number): T[] {
@@ -77,6 +77,15 @@ Los números repetidos comprueban multiplicidades, pero no la estabilidad. Para 
 El laboratorio compara cinco variantes de ordenación con una referencia sobre 243 arrays pequeños exhaustivos, además de casos dirigidos. Esa enumeración detecta muchos errores de límites, aunque no demuestra por sí sola la corrección para cualquier longitud. La explicación del invariante y la prueba se complementan.
 
 No incluimos un benchmark para decidir cuál gana. Esos tiempos dependerían del tamaño, del runtime, del comparador y de la distribución. El objetivo aquí es entender el mecanismo y su límite cuadrático.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-12/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

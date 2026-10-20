@@ -33,9 +33,9 @@ Una petición HTTP puede necesitar una transacción, varias o ninguna transacci�
 
 ## Prepara PostgreSQL y los datos del ejemplo
 
-[Descarga el laboratorio completo](/assets/examples/transacciones-lab.zip) y entra en la carpeta `transacciones/`. Si lo construyes manualmente, crea esa carpeta y `sql/`, y copia los dos archivos siguientes. Solo necesitas Docker con Compose para las secciones de SQL.
+[Descarga el laboratorio completo](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions/docker-compose.yml) y entra en la carpeta `transactions/`. Si lo construyes manualmente, crea esa carpeta y `sql/`, y copia los dos archivos siguientes. Solo necesitas Docker con Compose para las secciones de SQL.
 
-Archivo: `transacciones/docker-compose.yml`.
+Archivo: `transactions/docker-compose.yml`.
 
 ```yaml
 name: luisrc-transactions-lab
@@ -58,7 +58,7 @@ services:
 
 El puerto del host queda limitado a `127.0.0.1`. Estas credenciales ficticias pertenecen únicamente al laboratorio. El tag y el digest fijan el servidor utilizado en las comprobaciones.
 
-Archivo: `transacciones/sql/setup.sql`.
+Archivo: `transactions/sql/setup.sql`.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS concept_examples;
@@ -176,7 +176,7 @@ _El fallo opcional se puede recuperar porque dejamos un punto antes de ejecutarl
 
 Este archivo contiene el recorrido completo. Cierra la sesión interactiva con `\q` y reinicia los datos antes de ejecutarlo:
 
-Archivo: `transacciones/sql/transactions.sql`.
+Archivo: `transactions/sql/transactions.sql`.
 
 ```sql
 -- Este archivo incluye un error deliberado para practicar SAVEPOINT.
@@ -248,13 +248,13 @@ La ampliación siguiente compara las dos implementaciones con un fallo entre el 
 <details>
 <summary>Ampliación opcional: todos los archivos de TypeScript y las nueve pruebas de integración</summary>
 
-Además de Docker, necesitas Node.js `>=22.12.0` y pnpm `12.8.1`. El ZIP incluye los archivos siguientes y un lockfile con versiones resueltas. Si escribes el ejemplo manualmente, `pnpm install` generará tu lockfile.
+Además de Docker, el ejemplo aislado necesita Node.js `>=22.12.0` y pnpm `12.8.1`. El monorepo utiliza Node.js `>=24.19.0` y un lockfile compartido en su raíz: ejecuta allí `pnpm install --frozen-lockfile`. Si construyes un proyecto independiente copiando el ejemplo, `pnpm install` generará su propio lockfile.
 
-Archivo: `transacciones/package.json`.
+Archivo: `transactions/package.json`.
 
 ```json
 {
-  "name": "transactions-lab",
+  "name": "@luisrc-examples/transactions",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@12.8.1",
@@ -280,22 +280,25 @@ Archivo: `transacciones/package.json`.
 }
 ```
 
-Archivo: `transacciones/pnpm-workspace.yaml`.
+Archivo: `pnpm-workspace.yaml`, en la raíz del monorepo, no dentro del paquete.
 
 ```yaml
+packages:
+  - 'packages/*'
+
 allowBuilds:
   esbuild: true
 ```
 
-Este archivo permite el script de instalación de `esbuild`, necesario para `tsx`. Es la configuración del laboratorio independiente extraído del ZIP. Dentro del repositorio del blog, las políticas de instalación viven en el workspace raíz. [Configuración de pnpm](https://pnpm.io/settings#allowbuilds).
+Este archivo declara los paquetes y permite el script de instalación de `esbuild`, necesario para `tsx`. La configuración y el lockfile pertenecen al monorepo de ejemplos, no al blog. Si copias el laboratorio a un proyecto independiente, puedes conservar únicamente `allowBuilds` y usar su propio lockfile. [Configuración de pnpm](https://pnpm.io/settings#allowbuilds).
 
-Archivo: `transacciones/.gitignore`.
+Extracto de `.gitignore`, en la raíz del monorepo:
 
 ```text
 node_modules/
 ```
 
-Archivo: `transacciones/tsconfig.json`.
+Archivo: `transactions/tsconfig.json`.
 
 ```json
 {
@@ -316,7 +319,7 @@ Archivo: `transacciones/tsconfig.json`.
 
 ### Tablas y conexión del laboratorio
 
-Archivo: `transacciones/db/migrations/001_init.sql`.
+Archivo: `transactions/db/migrations/001_init.sql`.
 
 ```sql
 CREATE TABLE orders (
@@ -337,7 +340,7 @@ CREATE TABLE payments (
 
 Este esquema deliberadamente pequeño contiene una clave foránea, pero **no impide importes negativos ni exige que coincidan los importes del pedido y el pago**. Una prueba demuestra ese límite. No es un modelo de pagos listo para producción.
 
-Archivo: `transacciones/experiments/atomicity/database.ts`.
+Archivo: `transactions/experiments/atomicity/database.ts`.
 
 ```typescript
 import { randomUUID } from 'node:crypto'
@@ -394,7 +397,7 @@ export async function createLabDatabase() {
 
 La función auxiliar (_helper_) solo conecta al PostgreSQL local de Compose. Crea un esquema (_schema_) con nombre aleatorio y configura `search_path` para que cada prueba trabaje sobre sus propias tablas. La limpieza (_cleanup_) libera los pools incluso si falla la eliminación del esquema.
 
-Archivo: `transacciones/experiments/atomicity/types.ts`.
+Archivo: `transactions/experiments/atomicity/types.ts`.
 
 ```typescript
 export type CreationInput = {
@@ -407,7 +410,7 @@ export type CreationInput = {
 
 ### Implementación sin agrupar: permite el estado parcial
 
-Archivo: `transacciones/experiments/atomicity/no-transaction.ts`.
+Archivo: `transactions/experiments/atomicity/no-transaction.ts`.
 
 ```typescript
 import type { Pool } from 'pg'
@@ -436,7 +439,7 @@ El error ocurre después de insertar el pedido. Como cada consulta se confirma p
 
 ### Implementación transaccional: confirma o descarta ambas escrituras
 
-Archivo: `transacciones/experiments/atomicity/with-transaction.ts`.
+Archivo: `transactions/experiments/atomicity/with-transaction.ts`.
 
 ```typescript
 import type { Pool } from 'pg'
@@ -482,7 +485,7 @@ El mismo cliente recibe `BEGIN`, las dos escrituras y `COMMIT`. Si se lanza una 
 
 ### Experimento que imprime los estados observados
 
-Archivo: `transacciones/experiments/atomicity/run.ts`.
+Archivo: `transactions/experiments/atomicity/run.ts`.
 
 ```typescript
 import assert from 'node:assert/strict'
@@ -545,7 +548,7 @@ try {
 
 ### Pruebas con PostgreSQL real
 
-Archivo: `transacciones/tests/integration/atomicity.test.ts`.
+Archivo: `transactions/tests/integration/atomicity.test.ts`.
 
 ```typescript
 import { randomUUID } from 'node:crypto'
@@ -723,7 +726,7 @@ No usan dobles de la base de datos. Tampoco miden throughput ni simulan un corte
 
 ### Ejecutar la ampliación
 
-Desde `transacciones/`, con PostgreSQL ya arrancado:
+Desde `transactions/`, con PostgreSQL ya arrancado:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -777,3 +780,12 @@ docker compose down --volumes
 ```
 
 Puedes repetir el ejemplo con una regla distinta: intenta transferir a una cuenta inexistente y comprueba que la aplicación detectaría cero filas modificadas antes de confirmar. Es una buena forma de conectar la frontera transaccional con las reglas explicadas en [Propiedades ACID](/posts/propiedades-acid-bases-de-datos).
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/db-transactions/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/transactions
+```

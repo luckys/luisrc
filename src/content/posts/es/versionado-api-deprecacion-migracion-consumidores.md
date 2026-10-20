@@ -83,9 +83,18 @@ Si se aplaza la fecha por un cliente crítico, la documentación, las señales y
 
 La demo permite inspeccionar y probar cabeceras, guía y convivencia. La adopción y retirada efectiva requieren evidencia externa que no tenemos en un proyecto local. El post termina en ese límite, no afirma que las dos funciones de prueba representen todos los usuarios.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-version-migration/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-pagination-evolution
+```
+
 ## Garantías y límites
 
-El [laboratorio](/assets/examples/api-paginacion-evolucion-lab.zip) incluye el servidor, la guía HTML y OpenAPI con dos operaciones. Las fechas de deprecación y Sunset están fijadas como datos ficticios del ejemplo.
+El [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-pagination-evolution/README.md) incluye el servidor, la guía HTML y OpenAPI con dos operaciones. Las fechas de deprecación y Sunset están fijadas como datos ficticios del ejemplo.
 
 ```bash
 pnpm install --frozen-lockfile

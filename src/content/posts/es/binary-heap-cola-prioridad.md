@@ -43,7 +43,7 @@ Añadimos el nuevo valor al final, conservando la forma. La única posible viola
 
 Insertar 0 en el dibujo añade el nodo como hijo de 2. Intercambiamos 0 con 2 y después con 1. No necesitamos tocar el subárbol de 3, porque sus relaciones internas no cambiaron.
 
-La clase completa `MinHeap<T>` está en `algorithms.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip). Recibe un comparador para definir qué significa «menor» sin depender de una propiedad fija de T.
+La clase completa `MinHeap<T>` está en `algorithms.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/algorithms.ts). Recibe un comparador para definir qué significa «menor» sin depender de una propiedad fija de T.
 
 ## Extraer necesita reparar hacia abajo
 
@@ -73,6 +73,15 @@ Tampoco debemos cambiar la prioridad de un objeto guardado sin reparar su posici
 El mínimo está accesible en la raíz, pero buscar una clave cualquiera no obtiene automáticamente O(log n): no sabemos en qué rama vive. El heap tampoco proporciona orden FIFO ni persistencia de trabajos.
 
 Cuando necesitamos todos los valores ordenados una sola vez, podemos usar otra ordenación. Cuando recibimos y extraemos prioridades de manera intercalada, mantener esta propiedad parcial puede evitar ordenar de nuevo toda la colección.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-15/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 

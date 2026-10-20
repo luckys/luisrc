@@ -100,17 +100,26 @@ Esto resulta especialmente importante en comandos parciales. Si sustituyes «no 
 
 `null` continúa siendo inválido porque el campo es str, no str o None. No deducimos nullable del hecho de que exista un default. También comprobamos longitudes de 80 y 81 emoji para contrastar el límite con JSON Schema.
 
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-validation-pydantic/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/api-validation-errors
+```
+
 ## Garantías y límites
 
-El [laboratorio compartido](/assets/examples/api-validacion-errores-lab.zip) incluye `validation.py`, veinte casos y cuatro tests Python. El README explica la ejecución con Python 3.13.15 y Pydantic 2.13.5 ya presentes en la imagen local fijada; no instala paquetes Python ni descarga imágenes implícitamente.
+El [laboratorio compartido](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/api-validation-errors/validation.py) incluye `validation.py`, veinte casos y cuatro tests Python. El README explica la ejecución con Python 3.13.15 y Pydantic 2.13.5 ya presentes en la imagen local fijada; no instala paquetes Python ni descarga imágenes implícitamente.
 
-Desde el repositorio del blog, la comprobación aislada es:
+Desde la raíz del monorepo de ejemplos, la comprobación aislada es:
 
 ```bash
 node scripts/run-api-validation-python.mjs
 ```
 
-Ese comando pertenece al repositorio, no al directorio extraído del ZIP. Para el ZIP utiliza el comando Docker completo del README. La ejecución no tiene red y monta el ejemplo en lectura.
+Ese script está en `scripts/`, en la raíz del monorepo, no dentro del paquete. El README del laboratorio también incluye el comando Docker completo. La ejecución no tiene red y monta el ejemplo en lectura.
 
 No hay endpoint HTTP Python, validación de salida Python ni comparación universal entre todos los valores posibles. Los documentos compartidos detectan divergencias concretas. La [siguiente entrega común](/posts/errores-api-problem-details-stock-concurrencia) retoma errores públicos y negocio.
 

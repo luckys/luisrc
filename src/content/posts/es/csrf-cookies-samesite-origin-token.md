@@ -45,7 +45,7 @@ Los puertos tampoco aíslan cookies. Los servidores locales de esta demo compart
 
 ## Un formulario local reproduce el efecto antes de corregirlo
 
-Descarga el [laboratorio del navegador](/assets/examples/api-navegador-lab.zip) y ejecuta, desde su carpeta:
+Consulta el [laboratorio del navegador](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/browser-security/lab.mjs) y ejecuta, desde su carpeta:
 
 ```bash
 pnpm install --frozen-lockfile
@@ -102,6 +102,15 @@ Un XSS en el origen legítimo puede obtener el token CSRF y enviar una petición
 Tampoco da permiso para editar un documento ajeno. Tras verificar sesión y procedencia de la mutación, una aplicación real aún debe evaluar [autorización por recurso](/posts/autorizacion-rbac-abac-permisos-recursos). Cada control responde a una pregunta distinta; no son sustitutos entre sí.
 
 La guía de [prevención CSRF de OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) describe el patrón de token ligado a sesión y el uso de comprobaciones adicionales. Aquí hemos elegido una combinación concreta para poder probarla, no todas las alternativas.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/api-browser-csrf/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/browser-security
+```
 
 ## Garantías y límites
 

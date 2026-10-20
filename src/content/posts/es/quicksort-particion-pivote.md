@@ -37,7 +37,7 @@ Durante la partición, todos los valores visitados están en el grupo que les co
 
 ## Una variante legible, no una variante in-place
 
-Archivo `focused.ts` del [laboratorio](/assets/examples/estructuras-algoritmos-lab.zip):
+Archivo `focused.ts` del [laboratorio](https://github.com/luckys/luisrc-blog-examples/blob/main/packages/data-structures-algorithms/focused.ts):
 
 ```typescript
 export function quickSort<T>(input: readonly T[], compare: (a: T, b: T) => number): T[] {
@@ -81,6 +81,15 @@ También pagamos por la claridad: reservamos arrays de grupos y concatenaciones.
 Para controlar memoria y peor caso, hacen falta técnicas adicionales, como partición in-place, gestión explícita de intervalos o una estrategia híbrida con alternativa al alcanzar cierta profundidad. Son cambios de algoritmo y de garantías, no retoques cosméticos.
 
 En una aplicación normal no sustituiría la ordenación estándar por este ejemplo. Su finalidad es mostrar la partición y permitir probar duplicados y estabilidad de una forma fácil de inspeccionar.
+
+## Código del artículo
+
+Consulta los [archivos y pruebas de este post](https://github.com/luckys/luisrc-blog-examples/blob/main/posts/es/dsa-14/README.md). Clona el repositorio y ejecuta los comandos del artículo desde este paquete:
+
+```bash
+git clone https://github.com/luckys/luisrc-blog-examples.git
+cd luisrc-blog-examples/packages/data-structures-algorithms
+```
 
 ## Garantías y límites
 
