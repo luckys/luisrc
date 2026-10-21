@@ -190,6 +190,13 @@
   },
   {
     "locale": "es",
+    "slug": "cohesion-srp-razones-cambio",
+    "labs": [
+      "design-principles"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "colas-ack-leases-trabajos-duplicados",
     "labs": [
       "reliable-services"
@@ -309,6 +316,13 @@
   },
   {
     "locale": "es",
+    "slug": "dip-inyeccion-dependencias-sin-contenedor",
+    "labs": [
+      "design-principles"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "distribuciones-media-percentiles-latencia",
     "labs": [
       "mathematics-statistics"
@@ -333,6 +347,13 @@
     "slug": "domain-services-politicas-negocio",
     "labs": [
       "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dry-duplicacion-conocimiento-abstracciones",
+    "labs": [
+      "design-principles"
     ]
   },
   {
@@ -554,9 +575,30 @@
   },
   {
     "locale": "es",
+    "slug": "isp-interfaces-consumidor-capacidades",
+    "labs": [
+      "design-principles"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kiss-yagni-diseno-necesidad-actual",
+    "labs": [
+      "design-principles"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "linux-diagnosticar-procesos-puertos-senales",
     "labs": [
       "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "lsp-contratos-sustitucion-comportamiento",
+    "labs": [
+      "design-principles"
     ]
   },
   {
@@ -648,6 +690,13 @@
     "slug": "observabilidad-logs-metricas-trazas-workers",
     "labs": [
       "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "ocp-composicion-extension-tarifas",
+    "labs": [
+      "design-principles"
     ]
   },
   {

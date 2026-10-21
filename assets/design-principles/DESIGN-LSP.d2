@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+contract: "RateRule\nTodo envío válido de 1 a 20000 g"
+base: "standardRate\n24 casos pasan"
+light: "lightOnly\nRechaza 1001 g"
+failure: "Misma firma\nPrecondición más fuerte"
+contract -> base
+contract -> light
+light -> failure

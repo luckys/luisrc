@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+preview: {
+  label: "preview: coordina el recorrido"
+  parse: "parseShipment\nEntrada válida"
+  rate: "quoteWith(standardRate)\nCotización según política comercial"
+  format: "formatQuote\nTexto de presentación"
+  parse -> rate -> format
+}

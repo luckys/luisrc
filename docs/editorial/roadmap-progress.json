@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 53,
-    "related_only": 33,
+    "draft_exists": 54,
+    "related_only": 32,
     "not_written": 89
   },
   "completionProven": false,
@@ -519,8 +519,12 @@
         {
           "id": "P043",
           "title": "Principios de diseño: cohesión, acoplamiento y SOLID",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/cohesion-srp-razones-cambio.md",
+            "slug": "cohesion-srp-razones-cambio",
+            "draft": true
+          },
           "related": [
             "monolito-modular-solid-sin-sobreingenieria"
           ],

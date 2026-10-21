@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **53**. Solo material relacionado: **33**. Sin artículo identificado: **89**.
+IDs con borrador propio: **54**. Solo material relacionado: **32**. Sin artículo identificado: **89**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -12,7 +12,7 @@ Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entreg
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
-Ampliación actual de Serie 05: diez drafts para P044/P047. Lenguaje, contextos, entidades, valores, agregados, domain services, repositorios y domain events tienen entregas propias; después C4 y ADR. Laboratorio domain-design en memoria, sin SQL o proveedor; política temporal no integrada en pagos, diagramas de diseño objetivo y ADR propuesta. Bases de datos conserva quince entregas existentes y sus límites. Siguiente: profundizar P043/P045/P046, después P048/P051 y Serie 06. Ver ruta-modelado-arquitectura.md y persistence-architecture-coverage-review.md. Ni IDs ni recuentos aceptan el roadmap.
+Ampliación actual de Serie 05: siete drafts de principios para P043, tras los diez de modelado/documentación P044/P047. Cohesión/SRP, OCP, LSP, ISP, DIP/DI, KISS/YAGNI y DRY tienen problemas y ejercicios propios. Laboratorio design-principles local y probado, sin SQL ni proveedor. domain-design conserva sus límites, ADR propuesta y diseño objetivo. Bases de datos mantiene quince entregas. Siguiente: P045/P046, después gaps P048/P051 y Serie 06. Ver ruta-principios-diseno.md y ruta-modelado-arquitectura.md. Ni IDs ni recuentos aceptan el roadmap.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -70,7 +70,7 @@ Ampliación actual de Serie 05: diez drafts para P044/P047. Lenguaje, contextos,
 ## Serie 05. Arquitectura y sistemas distribuidos (posts 042–054)
 
 - P042. System Design: requisitos y estimación de capacidad: relacionado, requiere revisión.
-- P043. Principios de diseño: cohesión, acoplamiento y SOLID: relacionado, requiere revisión.
+- P043. Principios de diseño: cohesión, acoplamiento y SOLID: [borrador](../../src/content/posts/es/cohesion-srp-razones-cambio.md).
 - P044. Domain-Driven Design: dominio y límites: [borrador](../../src/content/posts/es/ddd-lenguaje-bounded-contexts.md).
 - P045. Arquitectura hexagonal y Clean Architecture: relacionado, requiere revisión.
 - P046. Arquitectura en capas, monolito modular y microservicios: relacionado, requiere revisión.

@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+need: "Necesidad actual\nDos zonas y umbral de 5000"
+simple: "standardRate\nDos decisiones visibles y tests de borde"
+variation: "Variación confirmada\nRecargo de 200"
+extension: "withSurcharge\nUna función, sin motor de plugins"
+need -> simple
+variation -> extension
+simple -> extension: "se reutiliza la base"

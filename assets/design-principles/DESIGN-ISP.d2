@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+read: "readQuote\nNecesita find"
+create: "createQuote\nNecesita save"
+reader: "QuoteReader\nContrato de lectura"
+writer: "QuoteWriter\nContrato de confirmación"
+store: "memoryQuotes\nImplementa ambas capacidades"
+read -> reader
+create -> writer
+store -> reader: "satisface"
+store -> writer: "satisface"

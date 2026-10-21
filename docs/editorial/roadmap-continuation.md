@@ -1,5 +1,21 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: principios de diseño, 21 de octubre de 2026
+
+Confirmada la entrega anterior: blog `a7b4e69`, ejemplos `9316534`, sin push.
+Después se añaden siete drafts españoles para profundizar P043: cohesión/SRP,
+OCP/composición, LSP, ISP, DIP/DI, KISS/YAGNI y DRY. Ver ruta-principios-diseno.md
+y design-principles-review.md. Laboratorio en packages/design-principles, snippets
+dentro de los posts, contratos y tests locales, sin proveedor o base de datos.
+
+La división separa siete preguntas de diseño, no siete fichas del roadmap. No
+repetir el resumen DESIGN-MODULES. El usuario pide revisar y confirmar este bloque
+y continuar P045/P046 con entregas específicas sobre puertos/adaptadores, capas,
+ownership modular, consistencia/modelos de lectura y costes de despliegue. No dar
+P045 por completo: todavía no se sustituye un proveedor Stripe sandbox. Después
+revisar P048/P051 y Serie 06. Mantener español/draft, sin audio, traducción,
+publicación o push automáticos. Notas posteriores son históricas.
+
 ## Continuación vigente: división conceptual DDD, 21 de octubre de 2026
 
 La serie de modelado pasa de cinco a diez drafts: ocho conceptos DDD con post

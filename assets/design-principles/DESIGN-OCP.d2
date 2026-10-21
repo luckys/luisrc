@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+base: "standardRate\n500, 900 o 0 céntimos"
+extra: "withSurcharge(base, 200)\nSuma 200 incluso si la base es 0"
+quote: "quoteWith\nValida entrada y resultado"
+result: "Quote en EUR\nSin cambiar la tarifa base"
+base -> extra: "función como argumento"
+extra -> quote: "nueva RateRule"
+quote -> result
