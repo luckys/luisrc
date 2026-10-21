@@ -1,0 +1,87 @@
+{
+  "name": "Arquitectura: dependencias, módulos y despliegues",
+  "locale": "es",
+  "status": "draft",
+  "lab": "architecture-boundaries",
+  "articles": [
+    {
+      "id": "P045",
+      "roadmapId": "P045",
+      "slug": "arquitectura-hexagonal-puertos-adaptadores",
+      "title": "Arquitectura hexagonal: cambiar el adaptador sin cambiar el caso de uso",
+      "prerequisites": ["DESIGN-DIP", "DOMAIN-CONTEXTS"],
+      "files": [
+        "src/modules/shipping/ports.ts",
+        "src/modules/shipping/application.ts",
+        "src/adapters/fixture-provider.ts",
+        "src/adapters/http-provider.ts",
+        "tests/http.test.mjs",
+        "tests/application.test.mjs",
+        "README.md"
+      ],
+      "question": "Qué conversación define un puerto y qué detalles traduce cada adaptador"
+    },
+    {
+      "id": "ARCH-LAYERS",
+      "roadmapId": "P045",
+      "slug": "clean-architecture-capas-direccion-dependencias",
+      "title": "Capas y Clean Architecture: la dirección de los imports importa más que los nombres",
+      "prerequisites": ["P045"],
+      "files": [
+        "src/modules/shipping/domain.ts",
+        "src/modules/shipping/ports.ts",
+        "src/modules/shipping/application.ts",
+        "scripts/check-boundaries.mjs",
+        "tests/boundaries.test.mjs",
+        "README.md"
+      ],
+      "question": "Qué decisiones quedan dentro y cómo detectamos dependencias que cruzan en sentido contrario"
+    },
+    {
+      "id": "ARCH-OWNERSHIP",
+      "roadmapId": "P046",
+      "slug": "monolito-modular-ownership-datos-api-publica",
+      "title": "Monolito modular: quién puede cambiar los datos y por dónde se entra a un módulo",
+      "prerequisites": ["ARCH-LAYERS", "DOMAIN-CONTEXTS"],
+      "files": [
+        "src/modules/shipping/public.ts",
+        "src/adapters/ledger.ts",
+        "src/modules/reporting/public.ts",
+        "scripts/check-boundaries.mjs",
+        "tests/boundaries.test.mjs",
+        "README.md"
+      ],
+      "question": "Cómo mantener ownership y contratos públicos sin introducir llamadas de red entre módulos"
+    },
+    {
+      "id": "ARCH-CQRS",
+      "roadmapId": "P046",
+      "slug": "cqrs-modelos-lectura-consistencia",
+      "title": "CQRS: separar el modelo de lectura no obliga a separar servicios",
+      "prerequisites": ["ARCH-OWNERSHIP", "DOMAIN-EVENTS"],
+      "files": [
+        "src/modules/reporting/internal/projection.ts",
+        "src/adapters/ledger.ts",
+        "src/demo.ts",
+        "tests/application.test.mjs",
+        "README.md"
+      ],
+      "question": "Qué gana una representación de lectura distinta y cuándo puede quedar desactualizada"
+    },
+    {
+      "id": "P046",
+      "roadmapId": "P046",
+      "slug": "monolito-microservicios-despliegue-costes",
+      "title": "De monolito modular a microservicios: qué problema justifica pagar el coste",
+      "prerequisites": ["ARCH-CQRS", "DESIGN-REQUIREMENTS"],
+      "files": [
+        "docs/decisions/0001-single-deployment.md",
+        "src/adapters/http-provider.ts",
+        "tests/http.test.mjs",
+        "src/demo.ts",
+        "README.md"
+      ],
+      "question": "Cuándo compensa desplegar una frontera por separado y qué garantías hay que rediseñar"
+    }
+  ]
+}

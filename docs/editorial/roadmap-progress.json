@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 54,
-    "related_only": 32,
+    "draft_exists": 56,
+    "related_only": 30,
     "not_written": 89
   },
   "completionProven": false,
@@ -545,8 +545,12 @@
         {
           "id": "P045",
           "title": "Arquitectura hexagonal y Clean Architecture",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/arquitectura-hexagonal-puertos-adaptadores.md",
+            "slug": "arquitectura-hexagonal-puertos-adaptadores",
+            "draft": true
+          },
           "related": [
             "monolito-modular-solid-sin-sobreingenieria"
           ],
@@ -555,8 +559,12 @@
         {
           "id": "P046",
           "title": "Arquitectura en capas, monolito modular y microservicios",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/monolito-microservicios-despliegue-costes.md",
+            "slug": "monolito-microservicios-despliegue-costes",
+            "draft": true
+          },
           "related": [
             "monolito-modular-solid-sin-sobreingenieria"
           ],

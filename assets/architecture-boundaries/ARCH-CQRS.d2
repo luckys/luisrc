@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+write: "Cotización confirmada\n500 céntimos en Shipping"
+lag: "Reporting aún no consume\ncursor 0, total 0"
+apply: "apply(evento 1)\nValida y actualiza resumen"
+read: "Modelo de lectura\ncursor 1, total 500"
+write -> lag -> apply -> read

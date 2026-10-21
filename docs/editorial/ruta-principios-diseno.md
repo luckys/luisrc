@@ -35,6 +35,6 @@ P045 todavía requiere puertos/adaptadores y un proveedor sandbox real, no equip
 el writer en memoria a esa integración. P046 necesita ownership, modelos de lectura,
 consistencia y despliegue; aquí solo se introducen sus diferencias cuando procede.
 
-Siguiente bloque: P045/P046, con posts pequeños de arquitectura hexagonal, dirección
-de dependencias/capas, límites modulares y costes de distribución/CQRS. Después
-contrastar gaps P048/P051 y Serie 06 antes de escribir contenido ya cubierto.
+Continuación redactada: [fronteras de arquitectura](ruta-fronteras-arquitectura.md),
+cinco posts P045/P046 de puertos/adaptadores, capas, ownership, CQRS y despliegue.
+Conservar sus límites de aceptación; después contrastar P048/P051 y Serie 06.

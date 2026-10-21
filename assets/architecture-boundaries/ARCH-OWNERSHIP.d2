@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+shipping: "Shipping público\nCotizar y definir contratos"
+ledger: "Ledger del módulo Shipping\nCotizaciones y eventos en memoria"
+report: "Reporting público\nResumen propio derivado"
+shipping -> ledger: "confirma mediante QuoteWriter"
+ledger -> report: "composition root entrega eventos"
+note: "Un proceso de aplicación\nSin acceso al Map ajeno"
+report -> note: {style.stroke-dash: 4}

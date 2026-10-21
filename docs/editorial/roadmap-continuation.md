@@ -1,5 +1,21 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: fronteras de arquitectura, 21 de octubre de 2026
+
+Tras revisar y confirmar principios (`8cb7108` blog, `e3fb352` ejemplos), se añaden
+cinco drafts: P045 puertos/adaptadores, ARCH-LAYERS capas/Clean, ARCH-OWNERSHIP
+módulos/datos, ARCH-CQRS proyección y P046 costes de despliegue. Ruta en
+ruta-fronteras-arquitectura.md; evidencia en architecture-boundaries-review.md.
+Código solo en packages/architecture-boundaries del monorepo de ejemplos.
+
+HTTP real contra fixture loopback y checker de imports; dos módulos en un proceso,
+entrega manual de eventos, estado y deduplicación volátiles. No Stripe sandbox,
+SQL, broker, worker autónomo, TLS, despliegues independientes o benchmark cloud.
+No aceptar P045 por su ID: la integración comercial exigida sigue sin ejecutarse.
+No dar Serie 05 por completa. Siguiente: contrastar P048/P051 y gaps distribuidos
+sin duplicar outbox, sagas o idempotencia; después Serie 06. Mantener español/draft,
+sin traducción, audio, publicación o push automáticos. Notas posteriores históricas.
+
 ## Continuación vigente: principios de diseño, 21 de octubre de 2026
 
 Confirmada la entrega anterior: blog `a7b4e69`, ejemplos `9316534`, sin push.

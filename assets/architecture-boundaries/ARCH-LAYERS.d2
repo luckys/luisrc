@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+adapter: "Adaptadores\nFetch y memoria"
+app: "Aplicación\ncreateDeliveryQuote y puertos"
+domain: "Dominio\nDatos, límites y unidades"
+adapter -> app: "depende del contrato"
+app -> domain: "usa reglas y tipos"
+note: "Flechas de imports\nNo son el orden de ejecución"
+domain -> note: {style.stroke-dash: 4}

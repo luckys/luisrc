@@ -71,6 +71,13 @@
   },
   {
     "locale": "es",
+    "slug": "arquitectura-hexagonal-puertos-adaptadores",
+    "labs": [
+      "architecture-boundaries"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "arrays-listas-enlazadas-costes-reales",
     "labs": [
       "data-structures-algorithms"
@@ -183,6 +190,13 @@
   },
   {
     "locale": "es",
+    "slug": "clean-architecture-capas-direccion-dependencias",
+    "labs": [
+      "architecture-boundaries"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "clustering-kmeans-dbscan-estabilidad",
     "labs": [
       "machine-learning"
@@ -249,6 +263,13 @@
     "slug": "cpu-memoria-almacenamiento-localidad",
     "labs": [
       "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cqrs-modelos-lectura-consistencia",
+    "labs": [
+      "architecture-boundaries"
     ]
   },
   {
@@ -655,6 +676,20 @@
     "slug": "modelado-relacional-integridad-datos",
     "labs": [
       "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "monolito-microservicios-despliegue-costes",
+    "labs": [
+      "architecture-boundaries"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "monolito-modular-ownership-datos-api-publica",
+    "labs": [
+      "architecture-boundaries"
     ]
   },
   {

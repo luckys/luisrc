@@ -95,7 +95,7 @@ const lines = [
   '',
   'Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.',
   '',
-  'Ampliación actual de Serie 05: siete drafts de principios para P043, tras los diez de modelado/documentación P044/P047. Cohesión/SRP, OCP, LSP, ISP, DIP/DI, KISS/YAGNI y DRY tienen problemas y ejercicios propios. Laboratorio design-principles local y probado, sin SQL ni proveedor. domain-design conserva sus límites, ADR propuesta y diseño objetivo. Bases de datos mantiene quince entregas. Siguiente: P045/P046, después gaps P048/P051 y Serie 06. Ver ruta-principios-diseno.md y ruta-modelado-arquitectura.md. Ni IDs ni recuentos aceptan el roadmap.',
+  'Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043 y cinco de fronteras P045/P046. Puertos/adaptadores, capas/Clean, ownership modular, CQRS y costes de despliegue tienen entregas propias. architecture-boundaries prueba HTTP loopback, módulos y proyección en memoria; sin Stripe sandbox, SQL o despliegues independientes. design-principles y domain-design conservan sus límites. Bases de datos mantiene quince entregas. Siguiente: gaps P048/P051 y Serie 06. Ver ruta-fronteras-arquitectura.md, ruta-principios-diseno.md y ruta-modelado-arquitectura.md. Ni IDs ni recuentos aceptan el roadmap.',
   '',
 ]
 for (const entry of series) {
