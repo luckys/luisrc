@@ -190,6 +190,13 @@
   },
   {
     "locale": "es",
+    "slug": "cap-pacelc-particiones-latencia-consistencia",
+    "labs": [
+      "distributed-foundations"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "clean-architecture-capas-direccion-dependencias",
     "labs": [
       "architecture-boundaries"
@@ -228,6 +235,13 @@
     "slug": "concurrencia-bloqueos-postgresql",
     "labs": [
       "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "consenso-raft-eleccion-lider-terminos",
+    "labs": [
+      "distributed-foundations"
     ]
   },
   {
@@ -827,6 +841,13 @@
   },
   {
     "locale": "es",
+    "slug": "quorum-interseccion-lecturas-escrituras",
+    "labs": [
+      "distributed-foundations"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "rate-limiting-token-bucket-tenant",
     "labs": [
       "api-threats"
@@ -862,9 +883,23 @@
   },
   {
     "locale": "es",
+    "slug": "relojes-logicos-lamport-causalidad",
+    "labs": [
+      "distributed-foundations"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "rendimiento-frontend-medir-antes-optimizar",
     "labs": [
       "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "replicacion-consistencia-lecturas-obsoletas",
+    "labs": [
+      "distributed-foundations"
     ]
   },
   {
@@ -921,6 +956,13 @@
     "slug": "sesiones-web-cookies-identidad",
     "labs": [
       "api-identity"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sharding-claves-buckets-rebalanceo",
+    "labs": [
+      "distributed-foundations"
     ]
   },
   {

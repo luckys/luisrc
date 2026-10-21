@@ -32,7 +32,8 @@ P045 tiene desarrollo y pruebas, pero su DoD de sustitución de proveedor comerc
 sigue abierto. P046 compara conceptualmente fronteras y despliegues; no tiene un
 benchmark. Archivos e IDs no aceptan automáticamente las fichas.
 
-Siguiente: revisar gaps P048/P051 (replicación, quorum/consenso, CAP/PACELC y
-streaming) frente a los artículos distribuidos ya escritos. Después Serie 06.
+Siguiente: [seis fundamentos de P048](ruta-fundamentos-distribuidos.md), que amplían
+replicación, quorum/consenso, relojes, CAP/PACELC y sharding sin repetir el bloque
+previo de fallos. Después P051 streaming y las lagunas de Serie 06.
 No duplicar outbox, sagas o idempotencia sin leer su evidencia. Mantener español/draft
 y ejemplos fuera del blog. Sin traducción, audio o push.

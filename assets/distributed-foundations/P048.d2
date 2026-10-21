@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+client: "Cliente escribe shipped"
+a: "Réplica A confirma\nversión 1: shipped"
+queued: "Mensaje retenido\nLa réplica B aún no lo recibe"
+old: "Lectura en B\nversión 0: pending"
+delivery: "Entregar mensaje\nB aplica versión 1"
+fresh: "Lectura en B\nversión 1: shipped"
+client -> a -> queued -> old -> delivery -> fresh

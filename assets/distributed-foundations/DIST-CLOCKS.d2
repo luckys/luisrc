@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+send: "A envía un mensaje\nL(A) = 1"
+local: "B ya tiene contador 8"
+receive: "B recibe timestamp 1\nmax(8, 1) + 1 = 9"
+next: "Siguiente evento local B\ncontador 10"
+send -> receive
+local -> receive
+receive -> next

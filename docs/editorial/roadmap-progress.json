@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 56,
-    "related_only": 30,
+    "draft_exists": 57,
+    "related_only": 29,
     "not_written": 89
   },
   "completionProven": false,
@@ -585,8 +585,12 @@
         {
           "id": "P048",
           "title": "Fundamentos de sistemas distribuidos",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/replicacion-consistencia-lecturas-obsoletas.md",
+            "slug": "replicacion-consistencia-lecturas-obsoletas",
+            "draft": true
+          },
           "related": [
             "fallos-parciales-timeout-resultado-desconocido"
           ],

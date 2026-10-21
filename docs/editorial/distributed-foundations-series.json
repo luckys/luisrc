@@ -1,0 +1,56 @@
+{
+  "name": "Fundamentos distribuidos: réplicas, orden y particiones",
+  "locale": "es",
+  "status": "draft",
+  "lab": "distributed-foundations",
+  "articles": [
+    {
+      "id": "P048", "roadmapId": "P048",
+      "slug": "replicacion-consistencia-lecturas-obsoletas",
+      "title": "Replicación y consistencia: por qué una escritura confirmada todavía puede no verse",
+      "prerequisites": ["DIST-FAILURES", "ARCH-CQRS"],
+      "files": ["src/replication.ts", "src/demo.ts", "tests/replication.test.mjs", "README.md"],
+      "question": "Qué observamos al confirmar en una réplica antes de propagar el cambio a otra"
+    },
+    {
+      "id": "DIST-QUORUM", "roadmapId": "P048",
+      "slug": "quorum-interseccion-lecturas-escrituras",
+      "title": "Quorum: qué garantiza R + W > N y qué no puedes deducir de esa fórmula",
+      "prerequisites": ["P048"],
+      "files": ["src/quorum.ts", "tests/quorum.test.mjs", "README.md"],
+      "question": "Por qué se cruzan los conjuntos y qué supuestos faltan para leer un valor correcto"
+    },
+    {
+      "id": "DIST-CONSENSUS", "roadmapId": "P048",
+      "slug": "consenso-raft-eleccion-lider-terminos",
+      "title": "Consenso y Raft: elegir un líder no basta para confirmar un cambio",
+      "prerequisites": ["DIST-QUORUM"],
+      "files": ["src/voting.ts", "tests/voting.test.mjs", "README.md"],
+      "question": "Cómo term, voto y estado conservado limitan una elección, sin implementar todo Raft"
+    },
+    {
+      "id": "DIST-CLOCKS", "roadmapId": "P048",
+      "slug": "relojes-logicos-lamport-causalidad",
+      "title": "Relojes lógicos de Lamport: ordenar eventos sin confundir una hora con una causa",
+      "prerequisites": ["DIST-CONSENSUS"],
+      "files": ["src/clock.ts", "tests/clock-routing.test.mjs", "README.md"],
+      "question": "Qué sabemos de un mensaje con un contador lógico y qué no dice ese número"
+    },
+    {
+      "id": "DIST-CAP", "roadmapId": "P048",
+      "slug": "cap-pacelc-particiones-latencia-consistencia",
+      "title": "CAP y PACELC: describir qué deja de garantizar una operación cuando falla la red",
+      "prerequisites": ["DIST-CLOCKS", "P048"],
+      "files": ["src/replication.ts", "tests/replication.test.mjs", "README.md"],
+      "question": "Qué respuesta puede dar una réplica aislada y dónde aparece el coste de coordinación"
+    },
+    {
+      "id": "DIST-SHARDING", "roadmapId": "P048",
+      "slug": "sharding-claves-buckets-rebalanceo",
+      "title": "Sharding: elegir una clave también decide qué consultas y cambios serán difíciles",
+      "prerequisites": ["DIST-CAP"],
+      "files": ["src/routing.ts", "src/demo.ts", "tests/clock-routing.test.mjs", "README.md"],
+      "question": "Cómo repartir claves sin confundir un nuevo mapa de rutas con una migración de datos"
+    }
+  ]
+}

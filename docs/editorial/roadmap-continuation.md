@@ -1,5 +1,23 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: fundamentos distribuidos, 21 de octubre de 2026
+
+Revisada y confirmada la serie de fronteras: `fbeba30` blog, `92dba16` ejemplos,
+sin push. Después se añaden seis drafts de P048: replicación/consistencia, quorum,
+consenso/elección, Lamport, CAP/PACELC y sharding. Ruta en
+ruta-fundamentos-distribuidos.md; laboratorio en packages/distributed-foundations.
+Los ocho posts anteriores de fallos, idempotencia, colas, webhooks, Outbox, sagas,
+retries y reconciliación se reutilizan, no se renumeran ni se recrean.
+
+Modelos de un proceso: réplicas y mensajes manuales, conjuntos, regla de voto,
+contador y directorio. Sin red, disco, Raft completo, clúster CP/AP, movimientos de
+registros o migración recuperable. Mantener límites explícitos en posts y README.
+No dar P048 o Serie 05 por aceptados contando artículos. Siguiente bloque P051:
+log/retención, particiones/claves, consumer groups/offsets y replay; comprobar antes
+infraestructura local si se quiere afirmar Kafka real. Después lagunas de Serie 06.
+Sin traducción, audio, publicación o push. Esta serie nueva queda sin commit.
+Evidencia de revisión en distributed-foundations-review.md; notas inferiores históricas.
+
 ## Continuación vigente: fronteras de arquitectura, 21 de octubre de 2026
 
 Tras revisar y confirmar principios (`8cb7108` blog, `e3fb352` ejemplos), se añaden

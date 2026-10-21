@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+write: "A confirma shipped"
+partition: "A no puede comunicar con B"
+knowledge: "B conserva pending\nNo sabe si A recibió una escritura"
+choices: "Dos alternativas" {
+  grid-columns: 1
+  stale: "Responder pending\nNo preserva linearizability"
+  refuse: "No confirmar valor actual\nOperación no disponible"
+}
+write -> partition -> knowledge -> choices

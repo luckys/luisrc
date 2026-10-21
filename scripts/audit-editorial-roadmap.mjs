@@ -95,7 +95,7 @@ const lines = [
   '',
   'Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.',
   '',
-  'Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043 y cinco de fronteras P045/P046. Puertos/adaptadores, capas/Clean, ownership modular, CQRS y costes de despliegue tienen entregas propias. architecture-boundaries prueba HTTP loopback, módulos y proyección en memoria; sin Stripe sandbox, SQL o despliegues independientes. design-principles y domain-design conservan sus límites. Bases de datos mantiene quince entregas. Siguiente: gaps P048/P051 y Serie 06. Ver ruta-fronteras-arquitectura.md, ruta-principios-diseno.md y ruta-modelado-arquitectura.md. Ni IDs ni recuentos aceptan el roadmap.',
+  'Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046 y seis de fundamentos P048. Replicación, quorum, consenso, Lamport, CAP/PACELC y sharding tienen entregas específicas. distributed-foundations prueba modelos deterministas en un proceso, sin red, disco o Raft completo. architecture-boundaries conserva el gap de Stripe sandbox; los laboratorios anteriores mantienen sus límites. Bases de datos mantiene quince entregas. Siguiente: P051 Kafka, después lagunas de Serie 06. Ver ruta-fundamentos-distribuidos.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.',
   '',
 ]
 for (const entry of series) {

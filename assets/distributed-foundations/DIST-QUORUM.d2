@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+members: "Membresía fija\nA, B, C"
+write: "W = 2\nEscritura en A y B"
+read: "R = 2\nLectura en B y C"
+intersection: "Intersección: B\nHa recibido la escritura"
+resolve: "Comparar versiones\nNo votar el valor más frecuente"
+members -> write -> read -> intersection -> resolve
