@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+produce: "Productor publica eventos"
+log: "Topic de envíos del test\nLog retenido por partición"
+first: "Grupo live lee seis eventos\nSu cursor avanza"
+second: "Grupo rebuild vuelve a leerlos\nCursor independiente"
+limit: "Solo historia aún retenida\nLeer no borra; retención sí limita"
+produce -> log -> first -> second -> limit

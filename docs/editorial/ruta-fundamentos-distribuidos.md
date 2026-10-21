@@ -27,7 +27,7 @@ visible divergencia; no reproduce el comportamiento de un motor comercial.
 
 ## Siguiente bloque
 
-P051: Kafka, dividido en log/retención, particiones/claves, groups/offsets y replay
-de una proyección. Exige distinguir un modelo de log de un broker Kafka real y
-comprobar qué infraestructura local hay antes de prometer resultados. Después,
-revisar las lagunas de la Serie 06. Ningún recuento da P048 o Serie 05 por aceptados.
+P051 ya se desarrolla en [cinco posts de Kafka](ruta-kafka-streaming.md): log/retención,
+particiones/claves, grupos, offsets/replay y lag/backpressure. Broker real local de
+un nodo, sin atribuirle failover o replicación múltiple. Después, revisar las lagunas
+de la Serie 06. Ningún recuento da P048 o Serie 05 por aceptados.

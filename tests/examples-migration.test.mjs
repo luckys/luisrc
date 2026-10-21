@@ -10,7 +10,7 @@ const catalog = JSON.parse(await readFile('assets/examples-migration/posts.json'
 test('ejemplos: el blog no conserva laboratorios ni ZIPs descargables', async () => {
   for (const directory of ['examples', 'public/assets/examples'])
     await assert.rejects(access(directory), { code: 'ENOENT' })
-  assert.equal(catalog.length, 164)
+  assert.equal(catalog.length, 169)
   for (const { locale, slug, labs } of catalog) {
     const source = await readFile(`src/content/posts/${locale}/${slug}.md`, 'utf8')
     assert.doesNotMatch(source, /\/assets\/examples\//, slug)

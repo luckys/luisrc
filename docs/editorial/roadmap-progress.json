@@ -1,9 +1,9 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 57,
+    "draft_exists": 58,
     "related_only": 29,
-    "not_written": 89
+    "not_written": 88
   },
   "completionProven": false,
   "criteria": "draft_exists indica archivo con ID, no aceptación de todos los requisitos. related_only exige ampliar o escribir una ficha. No renombrar IDs para aparentar cobertura.",
@@ -619,8 +619,12 @@
         {
           "id": "P051",
           "title": "Event Streaming con Kafka",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/kafka-topics-log-retencion-replay.md",
+            "slug": "kafka-topics-log-retencion-replay",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },

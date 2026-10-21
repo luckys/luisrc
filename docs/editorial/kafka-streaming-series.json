@@ -1,0 +1,46 @@
+{
+  "name": "Kafka: logs, consumidores y reconstrucción de estado",
+  "locale": "es", "status": "draft", "lab": "kafka-streaming",
+  "articles": [
+    {
+      "id": "P051", "roadmapId": "P051",
+      "slug": "kafka-topics-log-retencion-replay",
+      "title": "Kafka y el log retenido: leer un evento no lo elimina",
+      "prerequisites": ["P048", "DIST-QUEUES"],
+      "files": ["scripts/broker.mjs", "src/client.ts", "tests/broker.test.mjs", "README.md"],
+      "question": "Qué conserva un topic y cuándo deja de ser posible releer el historial"
+    },
+    {
+      "id": "KAFKA-PARTITIONS", "roadmapId": "P051",
+      "slug": "kafka-particiones-claves-orden-eventos",
+      "title": "Particiones y claves en Kafka: el orden que necesitas tiene un ámbito",
+      "prerequisites": ["P051", "DIST-SHARDING"],
+      "files": ["src/client.ts", "src/fixtures.ts", "tests/broker.test.mjs", "README.md"],
+      "question": "Qué orden preservamos por envío y qué puede romperlo aunque el broker ordene su log"
+    },
+    {
+      "id": "KAFKA-GROUPS", "roadmapId": "P051",
+      "slug": "kafka-consumer-groups-rebalance-asignacion",
+      "title": "Consumer groups en Kafka: repartir particiones no es repartir efectos una sola vez",
+      "prerequisites": ["KAFKA-PARTITIONS"],
+      "files": ["src/collect.ts", "tests/broker.test.mjs", "README.md"],
+      "question": "Cómo cambia la asignación al entrar o salir un miembro del grupo"
+    },
+    {
+      "id": "KAFKA-REPLAY", "roadmapId": "P051",
+      "slug": "kafka-offsets-commits-reconstruir-proyeccion",
+      "title": "Offsets, commits y replay: reconstruir una proyección sin repetir sus efectos",
+      "prerequisites": ["KAFKA-GROUPS", "ARCH-CQRS"],
+      "files": ["src/offsets.ts", "src/projection.ts", "src/collect.ts", "tests/core.test.mjs", "tests/broker.test.mjs", "README.md"],
+      "question": "Qué posición confirmamos y cómo reconstruimos estado con un grupo nuevo"
+    },
+    {
+      "id": "KAFKA-PRESSURE", "roadmapId": "P051",
+      "slug": "kafka-consumer-lag-backpressure-pause-resume",
+      "title": "Consumer lag y backpressure: que Kafka guarde el trabajo no aumenta tu capacidad",
+      "prerequisites": ["KAFKA-REPLAY"],
+      "files": ["src/offsets.ts", "src/collect.ts", "tests/broker.test.mjs", "README.md"],
+      "question": "Qué mide el lag y cómo limitar el avance sin crear una cola infinita dentro del proceso"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+key: "Key estable: shipmentId"
+route: "Partitioner del productor\nNúmero de particiones fijo"
+order: "Cada envío en una partición\nversiones 1, 2, 3 en orden de append"
+consume: "Handler secuencial por partición\nEspera antes de avanzar"
+limit: "Sin orden global entre particiones\nNo ordena intenciones de varios writers"
+key -> route -> order -> consume -> limit

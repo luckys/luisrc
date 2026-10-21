@@ -1,5 +1,25 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: Kafka, 21 de octubre de 2026
+
+Confirmada fundamentos distribuidos: blog `4b33999`, ejemplos `7e50860`, sin push.
+Después se añaden cinco drafts de P051: log/retención, particiones/keys,
+consumer groups, offsets/replay y lag/backpressure. Ver ruta-kafka-streaming.md,
+kafka-streaming-series.json y kafka-streaming-review.md. Código solo en
+packages/kafka-streaming del monorepo; snippets explicados dentro del post.
+
+Broker real oficial 3.9.1 fijado por digest, KafkaJS 2.2.4, loopback, KRaft de un
+nodo y RF=1. Reconstrucción de dos envíos, redelivery/checkpoint, asignación/salida
+limpia, pause/resume y prefijo eliminado por DeleteRecords. No confundirlo con
+expiración temporal observada, compaction, crash, RF>1, failover o exactly-once.
+Proyección/dedup en memoria; checkpoint durable no reconstruye una vista volátil.
+No dar por aceptada toda Serie 05 contando IDs. La serie nueva queda sin commit.
+
+Siguiente: auditar las fichas de Serie 06 y posts existentes antes de redactar
+pruebas/calidad/CI/CD, AWS, Terraform/Kubernetes y observabilidad. Los gaps de P026
+y Stripe sandbox de P045 siguen declarados. Mantener español/draft, laboratorios
+fuera del blog, sin audio, traducción, publicación o push automáticos.
+
 ## Continuación vigente: fundamentos distribuidos, 21 de octubre de 2026
 
 Revisada y confirmada la serie de fronteras: `fbeba30` blog, `92dba16` ejemplos,

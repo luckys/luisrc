@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **57**. Solo material relacionado: **29**. Sin artículo identificado: **89**.
+IDs con borrador propio: **58**. Solo material relacionado: **29**. Sin artículo identificado: **88**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -12,7 +12,7 @@ Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entreg
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
-Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046 y seis de fundamentos P048. Replicación, quorum, consenso, Lamport, CAP/PACELC y sharding tienen entregas específicas. distributed-foundations prueba modelos deterministas en un proceso, sin red, disco o Raft completo. architecture-boundaries conserva el gap de Stripe sandbox; los laboratorios anteriores mantienen sus límites. Bases de datos mantiene quince entregas. Siguiente: P051 Kafka, después lagunas de Serie 06. Ver ruta-fundamentos-distribuidos.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.
+Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046, seis de fundamentos P048 y cinco de Kafka P051. kafka-streaming usa un broker real local 3.9.1, grupos clásicos, replay de dos envíos, checkpoints y pause/resume; RF=1, proyección volátil, sin failover o exactly-once. El prefijo eliminado por DeleteRecords no prueba retención temporal. Los laboratorios anteriores conservan sus límites, incluido Stripe sandbox de P045. Bases de datos mantiene quince entregas. Siguiente: auditar lagunas de Serie 06. Ver ruta-kafka-streaming.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -78,7 +78,7 @@ Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete
 - P048. Fundamentos de sistemas distribuidos: [borrador](../../src/content/posts/es/replicacion-consistencia-lecturas-obsoletas.md).
 - P049. Idempotencia y garantías de entrega: relacionado, requiere revisión.
 - P050. Colas y procesamiento asíncrono: relacionado, requiere revisión.
-- P051. Event Streaming con Kafka: pendiente.
+- P051. Event Streaming con Kafka: [borrador](../../src/content/posts/es/kafka-topics-log-retencion-replay.md).
 - P052. Consistencia eventual, Outbox, Inbox y eventos: relacionado, requiere revisión.
 - P053. Sagas, máquinas de estados y ejecución duradera: relacionado, requiere revisión.
 - P054. Resiliencia: timeouts, breakers, bulkheads y backpressure: relacionado, requiere revisión.

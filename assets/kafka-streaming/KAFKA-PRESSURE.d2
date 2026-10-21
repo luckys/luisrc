@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+start: "End offset 3, commit 0\nLag de posiciones: 3"
+pause: "Handler recibe offset 0\nPausa la partición y espera"
+commit: "Termina y confirma 1\nLag: 2; sigue pausado"
+resume: "resume() permite continuar\nProcesa offsets 1 y 2"
+end: "Commit 3\nLag: 0 en este fixture"
+start -> pause -> commit -> resume -> end

@@ -617,6 +617,41 @@
   },
   {
     "locale": "es",
+    "slug": "kafka-consumer-groups-rebalance-asignacion",
+    "labs": [
+      "kafka-streaming"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kafka-consumer-lag-backpressure-pause-resume",
+    "labs": [
+      "kafka-streaming"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kafka-offsets-commits-reconstruir-proyeccion",
+    "labs": [
+      "kafka-streaming"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kafka-particiones-claves-orden-eventos",
+    "labs": [
+      "kafka-streaming"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kafka-topics-log-retencion-replay",
+    "labs": [
+      "kafka-streaming"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "kiss-yagni-diseno-necesidad-actual",
     "labs": [
       "design-principles"
