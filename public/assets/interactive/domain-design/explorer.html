@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dos decisiones sobre el mismo pago</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font: 17px/1.5 system-ui;
+      background: #111827;
+      color: #f3f4f6;
+    }
+    body {
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.4rem;
+    }
+    select {
+      max-width: 100%;
+      font: inherit;
+      padding: 0.5rem;
+      background: #1f2937;
+      color: inherit;
+    }
+    input {
+      width: 100%;
+      accent-color: #93c5fd;
+    }
+    output {
+      display: block;
+    }
+    section {
+      padding: 1rem;
+      border: 1px solid #64748b;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+    }
+    :focus-visible {
+      outline: 3px solid #fbbf24;
+      outline-offset: 4px;
+    }
+    a {
+      color: #93c5fd;
+    }
+    .note {
+      color: #cbd5e1;
+    }
+    dl {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+    }
+    dd {
+      margin: 0;
+    }
+  </style>
+  <h1>Dos decisiones sobre el mismo pago</h1>
+  <p>
+    Recorre trazas del repositorio en memoria. Ambas tareas leen la revisión 0
+    antes de intentar confirmar.
+  </p>
+  <label for="scenario">Importes solicitados sobre 100,00 EUR</label>
+  <select id="scenario">
+    <option value="over-limit">A: 70 EUR · B: 40 EUR</option>
+    <option value="within-limit">A: 20 EUR · B: 30 EUR</option>
+  </select>
+  <label for="step">Paso de la traza</label>
+  <input id="step" type="range" min="0" max="3" value="0" step="1" />
+  <section aria-live="polite" aria-atomic="true">
+    <output id="label" for="step scenario"></output>
+    <dl>
+      <dt>Revisión guardada</dt>
+      <dd id="revision"></dd>
+      <dt>Importe reservado</dt>
+      <dd id="reserved"></dd>
+      <dt>Eventos guardados</dt>
+      <dd id="events"></dd>
+    </dl>
+  </section>
+  <p class="note">
+    No abre una base de datos ni envía dinero. La secuencia fue generada por el
+    mismo código TypeScript que ejecutan los tests. Conflicto de versión y
+    rechazo de negocio son resultados distintos.
+  </p>
+  <script type="module" src="./explorer.mjs"></script>
+</html>

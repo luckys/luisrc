@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+input: "Hecho logístico externo\nFecha canónica UTC"
+boundary: "Validar y traducir\nReturnDelivery"
+policy: "evaluateReturn\nHechos, nowMs y windowMs"
+result: "Espera, eligible o expired\nSin DB ni red"
+input -> boundary -> policy -> result

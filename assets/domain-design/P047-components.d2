@@ -1,0 +1,14 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+title: {
+  label: "Componentes C4: API\nPropuesta; fixture parcial"
+  shape: text
+  near: top-center
+}
+application: "Caso de uso\nrequestRefund"
+rules: "Reglas\nPayment"
+port: "Contrato\nPayments"
+adapters: "Adaptadores\nFake; SQL pendiente"
+application -> rules: "Invoca"
+application -> port: "Depende"
+adapters -> port: "Implementan"

@@ -1,0 +1,69 @@
+{
+  "kind": "in-memory-contract-traces",
+  "capturedMinor": 10000,
+  "currency": "EUR",
+  "scenarios": [
+    {
+      "id": "over-limit",
+      "firstMinor": 7000,
+      "secondMinor": 4000,
+      "frames": [
+        {
+          "label": "A y B leen revisión 0",
+          "revision": 0,
+          "reservedMinor": 0,
+          "events": 0
+        },
+        {
+          "label": "A confirma su decisión",
+          "revision": 1,
+          "reservedMinor": 7000,
+          "events": 1
+        },
+        {
+          "label": "B encuentra revision conflict; no se guarda su evento",
+          "revision": 1,
+          "reservedMinor": 7000,
+          "events": 1
+        },
+        {
+          "label": "B relee: la regla de negocio ahora rechaza la solicitud",
+          "revision": 1,
+          "reservedMinor": 7000,
+          "events": 1
+        }
+      ]
+    },
+    {
+      "id": "within-limit",
+      "firstMinor": 2000,
+      "secondMinor": 3000,
+      "frames": [
+        {
+          "label": "A y B leen revisión 0",
+          "revision": 0,
+          "reservedMinor": 0,
+          "events": 0
+        },
+        {
+          "label": "A confirma su decisión",
+          "revision": 1,
+          "reservedMinor": 2000,
+          "events": 1
+        },
+        {
+          "label": "B encuentra revision conflict; no se guarda su evento",
+          "revision": 1,
+          "reservedMinor": 2000,
+          "events": 1
+        },
+        {
+          "label": "B relee, vuelve a decidir y confirma",
+          "revision": 2,
+          "reservedMinor": 5000,
+          "events": 2
+        }
+      ]
+    }
+  ]
+}

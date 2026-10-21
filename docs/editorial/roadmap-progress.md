@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **51**. Solo material relacionado: **33**. Sin artículo identificado: **91**.
+IDs con borrador propio: **53**. Solo material relacionado: **33**. Sin artículo identificado: **89**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -11,6 +11,8 @@ Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Defin
 Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entregas exclusivamente de estructuras de datos y algoritmos; P010 y P012–P019 siguen fuera del encargo actual. Serie 03 tiene treinta y seis entregas: P020–P031; P030 desarrolla nueve partes y P031 cuatro. P031 compara polling/SSE con sockets reales, GraphQL N+1/batching y gRPC unary con cliente anterior y deadline. Callbacks y subscriptions remiten a mecanismos previos; no hay broker durable ni GraphQL subscription ejecutada. Los ejemplos viven en el monorepo separado. T05 SSRF, T06 admisión y T07 credenciales/secretos se prueban en fixtures de un proceso, sin infraestructura cloud. Las API keys identifican clientes, no personas. Refresh sigue separado del RP OIDC. P029 verifica XSS/CSRF/CSP/CORS en Chromium loopback. Valorar siempre posts pequeños y específicos. Revisar/ampliar 04–06 contrastando artículos existentes, después Deep Learning y series 11–16. Revisar límites declarados, especialmente P026. No hay publicación o traducción autorizada.
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
+
+Ampliación actual de Serie 05: diez drafts para P044/P047. Lenguaje, contextos, entidades, valores, agregados, domain services, repositorios y domain events tienen entregas propias; después C4 y ADR. Laboratorio domain-design en memoria, sin SQL o proveedor; política temporal no integrada en pagos, diagramas de diseño objetivo y ADR propuesta. Bases de datos conserva quince entregas existentes y sus límites. Siguiente: profundizar P043/P045/P046, después P048/P051 y Serie 06. Ver ruta-modelado-arquitectura.md y persistence-architecture-coverage-review.md. Ni IDs ni recuentos aceptan el roadmap.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -69,10 +71,10 @@ Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle es
 
 - P042. System Design: requisitos y estimación de capacidad: relacionado, requiere revisión.
 - P043. Principios de diseño: cohesión, acoplamiento y SOLID: relacionado, requiere revisión.
-- P044. Domain-Driven Design: dominio y límites: pendiente.
+- P044. Domain-Driven Design: dominio y límites: [borrador](../../src/content/posts/es/ddd-lenguaje-bounded-contexts.md).
 - P045. Arquitectura hexagonal y Clean Architecture: relacionado, requiere revisión.
 - P046. Arquitectura en capas, monolito modular y microservicios: relacionado, requiere revisión.
-- P047. C4, ADR y documentación de decisiones: pendiente.
+- P047. C4, ADR y documentación de decisiones: [borrador](../../src/content/posts/es/c4-contexto-contenedores-componentes.md).
 - P048. Fundamentos de sistemas distribuidos: relacionado, requiere revisión.
 - P049. Idempotencia y garantías de entrega: relacionado, requiere revisión.
 - P050. Colas y procesamiento asíncrono: relacionado, requiere revisión.

@@ -1,5 +1,45 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: división conceptual DDD, 21 de octubre de 2026
+
+La serie de modelado pasa de cinco a diez drafts: ocho conceptos DDD con post
+propio (lenguaje, contextos, entidades, valores, agregados, servicios, repositorios
+y eventos), más C4 y ADR. Se conservan las URLs anteriores y se amplían mecanismos,
+ejemplos y ejercicios. Ver ruta-modelado-arquitectura.md y domain-design-review.md.
+Código completo en packages/domain-design del monorepo: 25 tests, incluidos nuevos
+casos de identidad, igualdad, fechas, política temporal y confirmación de eventos.
+Las notas de cinco posts más abajo son históricas y su decisión de agrupar Money
+y Payment queda sustituida por la petición expresa de separarlos.
+
+No declarar P044 completo por tener ocho partes: política logística, entidad y
+reservas monetarias siguen siendo ejercicios separados. Sin SQL, proveedor o
+entrega durable. Siguiente bloque sigue siendo P043/P045/P046; este encargo solo
+amplía y reorganiza la serie actual. Mantener draft/español, sin commit automático.
+
+## Continuación vigente: modelado y arquitectura, 20 de octubre de 2026
+
+Se añaden cinco borradores españoles: vocabulario/contextos (P044), valores y
+agregados, repositorios/eventos, C4 (P047), ADR/RFC. Ver
+[orden de lectura](ruta-modelado-arquitectura.md) y
+[contraste de persistencia/arquitectura](persistence-architecture-coverage-review.md).
+Los quince posts de bases de datos se reutilizan sin renumerar sus IDs DB-*.
+Se corrigen referencias malformadas `publichttps` y rutas anteriores del manifiesto.
+
+Código completo en `luisrc-blog-examples/packages/domain-design`; snippets explicados
+dentro de los posts. Node 24.19.0 y TypeScript 5.9.2 estricto. Reglas, revisión optimista
+y eventos en memoria; tres SVG C4 son diseño objetivo, no servicios desplegados.
+ADR propuesta, sin comparación ejecutada PostgreSQL/DynamoDB. No dar P044/P047 ni
+Serie 05 completa por la presencia de archivos o tests. El flujo logístico y las
+reservas de pago se prueban separados. No hay proveedor, SQL, outbox durable o auth.
+
+Siguiente paso editorial: ampliar P043/P045/P046 sin repetir el artículo introductorio
+de monolito modular. Después P048/P051 y lagunas distribuidas, luego Serie 06.
+Mantener posts específicos, español y draft, código de laboratorio en monorepo.
+No traducción, audio, publicación, commit o push automáticos. Los apartados posteriores
+son históricos; los límites de P026 y demás laboratorios siguen abiertos.
+
+La revisión y la evidencia de esta entrega se registran en `domain-design-review.md`.
+
 ## Continuación vigente: P031, 20 de octubre de 2026
 
 Las notas posteriores de «P031 pendiente» son históricas. Hay cuatro drafts nuevos,

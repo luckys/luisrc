@@ -22,6 +22,13 @@
   },
   {
     "locale": "es",
+    "slug": "adr-decisiones-arquitectura-evidencia",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "aislamiento-mvcc-postgresql",
     "labs": [
       "database-fundamentals"
@@ -127,6 +134,13 @@
   },
   {
     "locale": "es",
+    "slug": "bounded-context-limites-modelos",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "bubble-sort-intercambios-adyacentes",
     "labs": [
       "data-structures-algorithms"
@@ -151,6 +165,13 @@
     "slug": "busqueda-lineal-contrato-coste",
     "labs": [
       "data-structures-algorithms"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "c4-contexto-contenedores-componentes",
+    "labs": [
+      "domain-design"
     ]
   },
   {
@@ -253,6 +274,13 @@
   },
   {
     "locale": "es",
+    "slug": "ddd-lenguaje-bounded-contexts",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "derivadas-gradientes-regla-cadena",
     "labs": [
       "mathematics-statistics"
@@ -295,6 +323,20 @@
   },
   {
     "locale": "es",
+    "slug": "domain-events-hechos-confirmacion",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "domain-services-politicas-negocio",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "eda-numpy-pandas-calidad-datos",
     "labs": [
       "machine-learning"
@@ -312,6 +354,13 @@
     "slug": "elegir-sql-nosql-motores-especializados",
     "labs": [
       "database-fundamentals"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "entidades-identidad-ciclo-vida",
+    "labs": [
+      "domain-design"
     ]
   },
   {
@@ -736,6 +785,13 @@
   },
   {
     "locale": "es",
+    "slug": "repositorios-eventos-dominio-concurrencia",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "requisitos-capacidad-invariantes-servicio",
     "labs": [
       "reliable-services"
@@ -914,6 +970,20 @@
     "slug": "validacion-zod-contratos-errores-runtime",
     "labs": [
       "api-validation-errors"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "value-objects-agregados-invariantes",
+    "labs": [
+      "domain-design"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "value-objects-igualdad-inmutabilidad",
+    "labs": [
+      "domain-design"
     ]
   },
   {

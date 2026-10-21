@@ -1,9 +1,9 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 51,
+    "draft_exists": 53,
     "related_only": 33,
-    "not_written": 91
+    "not_written": 89
   },
   "completionProven": false,
   "criteria": "draft_exists indica archivo con ID, no aceptación de todos los requisitos. related_only exige ampliar o escribir una ficha. No renombrar IDs para aparentar cobertura.",
@@ -529,8 +529,12 @@
         {
           "id": "P044",
           "title": "Domain-Driven Design: dominio y límites",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/ddd-lenguaje-bounded-contexts.md",
+            "slug": "ddd-lenguaje-bounded-contexts",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },
@@ -557,8 +561,12 @@
         {
           "id": "P047",
           "title": "C4, ADR y documentación de decisiones",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/c4-contexto-contenedores-componentes.md",
+            "slug": "c4-contexto-contenedores-componentes",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },

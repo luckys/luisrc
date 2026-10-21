@@ -1,0 +1,16 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+title: {
+  label: "Contenedores C4\nDiseño objetivo, no desplegado"
+  shape: text
+  near: top-center
+}
+web: "Web\nBrowser"
+api: "API\nNode.js"
+db: "Almacén\nPostgreSQL"
+worker: "Worker\nNode.js"
+provider: "Externo\nPagos"
+web -> api: "HTTPS y JSON"
+api -> db: "SQL: estado\ny outbox"
+worker -> db: "SQL: trabajo"
+worker -> provider: "Solicita y\nreconcilia"

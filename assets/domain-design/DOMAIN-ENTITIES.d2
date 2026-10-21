@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+before: "Envío s1\nEn tránsito"
+after: "Envío s1: entregado\nMisma identidad\nNueva instancia"
+contrast: "Otro envío s2 de o1\nIdentidad diferente"
+before -> after: "markDelivered"
+after -> contrast: "Compartir o1\nNo iguala identidades"

@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+reads: "A y B leen revisión 0\nDisponible: 100 EUR"
+first: "A confirma 70 EUR\nRevisión pasa a 1"
+second: "B intenta revisión 0\nConflicto; no confirma"
+reload: "B relee revisión 1\nDisponible: 30 EUR"
+rule: "B solicita 40 EUR\nRechazo por límite"
+reads -> first -> second -> reload -> rule

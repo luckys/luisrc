@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+shipping: "Fulfillment\nComunica la entrega"
+translate: "Returns: traducción\nRechaza estados ajenos"
+policy: "Returns: política\nInterpreta hechos propios"
+payments: "Payments\nProtege importes"
+shipping -> translate: "ShipmentSnapshot"
+translate -> policy: "Vocabulario local"
+policy -> payments: "Coordinación propuesta\nNo implementada"

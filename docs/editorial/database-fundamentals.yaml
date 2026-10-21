@@ -67,12 +67,12 @@ articles:
     path: src/content/posts/es/elegir-sql-nosql-motores-especializados.md
     question: Qué motor satisface accesos y garantías con coste justificable
     roadmap: [P040]
-lab: examples/transacciones
-download: publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions/README.md
-english_download: publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions-en/README.md
+lab: https://github.com/luckys/luisrc-blog-examples/tree/main/packages/transactions
+download: https://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions/README.md
+english_download: https://github.com/luckys/luisrc-blog-examples/blob/main/packages/transactions-en/README.md
 diagrams: assets/database-fundamentals
-continuation_lab: examples/bases-de-datos
-continuation_download: publichttps://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/README.md
+continuation_lab: https://github.com/luckys/luisrc-blog-examples/tree/main/packages/database-fundamentals
+continuation_download: https://github.com/luckys/luisrc-blog-examples/blob/main/packages/database-fundamentals/README.md
 continuation_diagrams: assets/database-series
 continuation_language: es
 continuation_verified: 2026-10-17

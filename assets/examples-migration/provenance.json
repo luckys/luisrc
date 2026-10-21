@@ -226,6 +226,21 @@
       "source": "packages/api-integration/results/experiment.json",
       "destination": "assets/evidence/api-integration/results/experiment.json",
       "sha256": "d6dfab9447b22aaa3e3791553acb26c2b1af3e4cba3fd122c8d10a854f327a32"
+    },
+    {
+      "source": "packages/domain-design/explorer.html",
+      "destination": "public/assets/interactive/domain-design/explorer.html",
+      "sha256": "ee2469015fbd601854d065e2d9750dd8d7b0bf564665006d0b1a72ecd12a5321"
+    },
+    {
+      "source": "packages/domain-design/explorer.mjs",
+      "destination": "public/assets/interactive/domain-design/explorer.mjs",
+      "sha256": "10465f7cc60dcd2b84e1075b280618f9f457984406d87928e826c0cf8992c12d"
+    },
+    {
+      "source": "packages/domain-design/scenarios.json",
+      "destination": "public/assets/interactive/domain-design/scenarios.json",
+      "sha256": "1bceec9741af83ae5c6ed687269ed0efe21ba5b6c80024a73548840ea01a8910"
     }
   ]
 }
