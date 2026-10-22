@@ -1,5 +1,27 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: integración y contratos, 22 de octubre de 2026
+
+Serie de pruebas confirmada: blog `f50c079`, ejemplos `c56d6aa`, sin push.
+Revalidados ocho checks estructurales/editoriales, 28+11 tests, contraejemplo débil,
+cuatro mutaciones manuales y typecheck antes de confirmar. Ahora cinco drafts de
+P056: Testcontainers, fixtures/factories, aislamiento, schemas y Pact. Ver
+ruta-integracion-contratos.md, integration-contracts-series.json y revisión propia.
+
+Código solo en packages/integration-contracts del monorepo. PostgreSQL18.4 por
+digest, Testcontainers12.2.1 y Pact17.1.4; HTTP loopback, schemas privados y tmpfs.
+Cuatro tests de núcleo, dos del consumidor y nueve de integración. Contrato local
+de dos interacciones, no Broker o matriz de despliegue. Variante renombrada rechazada;
+unit-drift pasa schema/integer pero falla expectativa monetaria. Reaper desactivado
+solo en el fixture, cierre explícito/wrapper; sin SIGKILL probado, HA o disco durable.
+Nuevos posts/lab sin commit. No dar toda Serie06 por aceptada contando IDs.
+
+Siguiente P057: contrastar fault-injection-pruebas-propiedades y reliable-services;
+ampliar generadores/shrinking, fuzzing, scheduling y replay con regresión mínima
+reproducible. Después P058 carga/profile y observabilidad. Mantener gaps P026 y
+Stripe sandbox P045. Español/draft; sin traducción, audio, publicación o push.
+Las entradas inferiores son históricas.
+
 ## Continuación vigente: pruebas de software, 22 de octubre de 2026
 
 Kafka confirmado: blog `4cd1476`, ejemplos `b501dab`, sin push. Revalidados ocho

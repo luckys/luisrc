@@ -36,6 +36,13 @@
   },
   {
     "locale": "es",
+    "slug": "aislamiento-tests-postgresql-rollback-schemas",
+    "labs": [
+      "integration-contracts"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "algoritmos-busqueda-ordenacion-heaps-grafos",
     "labs": [
       "data-structures-algorithms"
@@ -242,6 +249,13 @@
     "slug": "consenso-raft-eleccion-lider-terminos",
     "labs": [
       "distributed-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "consumer-driven-contracts-pact-provider-states",
+    "labs": [
+      "integration-contracts"
     ]
   },
   {
@@ -515,6 +529,13 @@
     "slug": "fault-injection-pruebas-propiedades",
     "labs": [
       "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "fixtures-factories-datos-prueba-deterministas",
+    "labs": [
+      "integration-contracts"
     ]
   },
   {
@@ -981,6 +1002,13 @@
   },
   {
     "locale": "es",
+    "slug": "schema-tests-contratos-api-semantica",
+    "labs": [
+      "integration-contracts"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "secretos-rotacion-recarga-revocacion",
     "labs": [
       "api-threats"
@@ -1096,6 +1124,13 @@
     "slug": "test-doubles-stubs-spies-fakes-contratos",
     "labs": [
       "testing-strategy"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "testcontainers-postgresql-integracion-ciclo-vida",
+    "labs": [
+      "integration-contracts"
     ]
   },
   {

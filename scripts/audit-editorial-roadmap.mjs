@@ -99,7 +99,9 @@ const lines = [
   '',
 ]
 lines.push(
-  'Inicio de Serie 06: P055 se amplía en cinco drafts de diseño de pruebas, TDD, doubles, niveles y coverage/mutaciones. Ver ruta-pruebas-software.md. Laboratorio testing-strategy: fake Map, SQLite real y HTTP loopback; sin UI E2E, PostgreSQL o Testcontainers. Coverage 100 % solo en transitions.ts con una suite deliberadamente débil; cuatro mutaciones manuales, no Stryker. Siguiente concreto: ampliar P056 contrastando los laboratorios de contratos y evolución de APIs, después P057/P058. No aceptación automática de toda Serie 06.',
+  'Inicio de Serie 06: P055 se amplía en cinco drafts de diseño de pruebas, TDD, doubles, niveles y coverage/mutaciones. Ver ruta-pruebas-software.md. Laboratorio testing-strategy: fake Map, SQLite real y HTTP loopback; sin UI E2E, PostgreSQL o Testcontainers en ese paquete. Coverage 100 % solo en transitions.ts con una suite deliberadamente débil; cuatro mutaciones manuales, no Stryker. No aceptación automática de toda Serie 06.',
+  '',
+  'P056 continúa con cinco entregas de Testcontainers, fixtures/factories, aislamiento, schema tests y consumer-driven contracts. Ver ruta-integracion-contratos.md. Paquete integration-contracts con PostgreSQL18.4 real por digest, HTTP loopback y Pact17.1.4 local; cuatro tests de núcleo, dos del consumidor y nueve de integración. Sin Broker, CI desplegada, HA o disco durable. Recuperación por timeout codificada, sin muerte forzada probada. Siguiente: ampliar P057 contrastando el artículo de propiedades/fallos y reliable-services; después P058 carga/profile. Los gaps anteriores no desaparecen.',
   '',
 )
 for (const entry of series) {

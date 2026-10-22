@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+client: "fetchReceipt contra mock de Pact\n200 pedido / 404 ausencia"
+contract: "Contrato local con dos interacciones\nGenerado por tests del consumidor"
+state: "Verifier prepara provider states\nDatos reales en schema propio"
+api: "HTTP → OrdersApi → PostgreSQL\nSin reutilizar respuestas del mock"
+outcome: "Baseline y aditiva: pasan\nRenombrar amountMinor: falla"
+limit: "Integer no certifica céntimos\nSin broker o matriz de despliegues"
+client -> contract -> state -> api -> outcome -> limit

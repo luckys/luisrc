@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+sql: "PostgreSQL conserva 1250\nUnidad: céntimos EUR"
+http: "API produce una representación\nBaseline / aditiva / v2"
+schema: "JSON Schema valida estructura\nCampos, tipos y valores permitidos"
+reader: "Cliente antiguo interpreta v1\nNo debe perder amountMinor"
+meaning: "Aserción del escenario: 1250\nUn entero 12 aún puede ser incorrecto"
+sql -> http -> schema -> reader -> meaning

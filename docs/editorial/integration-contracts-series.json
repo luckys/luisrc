@@ -1,0 +1,46 @@
+{
+  "name": "Integración y contratos: probar acuerdos con dependencias reales",
+  "locale": "es", "status": "draft", "lab": "integration-contracts",
+  "articles": [
+    {
+      "id": "P056", "roadmapId": "P056",
+      "slug": "testcontainers-postgresql-integracion-ciclo-vida",
+      "title": "Testcontainers con PostgreSQL: que la prueba controle su dependencia",
+      "prerequisites": ["TEST-COVERAGE", "P022"],
+      "files": ["tests/database-fixture.mjs", "tests/postgres.test.mjs", "scripts/verify.mjs", "sql/001_orders.sql", "README.md"],
+      "question": "Quién arranca, espera y limpia el PostgreSQL real que utiliza el test"
+    },
+    {
+      "id": "INT-FIXTURES", "roadmapId": "P056",
+      "slug": "fixtures-factories-datos-prueba-deterministas",
+      "title": "Fixtures y factories: datos de prueba que explican el escenario",
+      "prerequisites": ["P056"],
+      "files": ["src/fixtures.ts", "tests/core.test.mjs", "tests/database-fixture.mjs", "README.md"],
+      "question": "Cómo preparar valores válidos sin esconder identidad, tiempo y condiciones relevantes"
+    },
+    {
+      "id": "INT-ISOLATION", "roadmapId": "P056",
+      "slug": "aislamiento-tests-postgresql-rollback-schemas",
+      "title": "Aislar tests con PostgreSQL: por qué un rollback no limpia todas las conexiones",
+      "prerequisites": ["INT-FIXTURES"],
+      "files": ["tests/database-fixture.mjs", "tests/postgres.test.mjs", "src/repository.ts", "README.md"],
+      "question": "Qué transacción pertenece a cada conexión y cómo separar los datos de dos escenarios"
+    },
+    {
+      "id": "CONTRACT-SCHEMA", "roadmapId": "P056",
+      "slug": "schema-tests-contratos-api-semantica",
+      "title": "Schema tests de APIs: JSON válido no significa comportamiento compatible",
+      "prerequisites": ["INT-ISOLATION", "P025"],
+      "files": ["schemas/order-v1.json", "src/representation.ts", "src/consumer.ts", "tests/postgres.test.mjs", "README.md"],
+      "question": "Qué diferencia hay entre validar estructura y comprobar las expectativas de un consumidor"
+    },
+    {
+      "id": "CONTRACT-CDC", "roadmapId": "P056",
+      "slug": "consumer-driven-contracts-pact-provider-states",
+      "title": "Consumer-driven contracts con Pact: verificar al proveedor sin fiarse del mock",
+      "prerequisites": ["CONTRACT-SCHEMA"],
+      "files": ["tests/consumer.test.mjs", "tests/postgres.test.mjs", "src/consumer.ts", "contracts/ReceiptWidget-OrdersApi.json", "evidence/verification.json", "README.md"],
+      "question": "Cómo convertir una expectativa del cliente en un contrato verificado contra la API real"
+    }
+  ]
+}

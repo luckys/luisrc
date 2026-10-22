@@ -27,10 +27,10 @@ fake y adaptador SQLite; componente HTTP loopback. Sin UI E2E, PostgreSQL,
 Testcontainers o Pact. Contratos compartidos de adaptador, no consumer-driven.
 Versiones fijadas para reproducir, no recomendación de últimas versiones.
 
-Siguiente: P056, integración y contratos de API. Leer contratos-http-recursos-operaciones,
+P056 continúa en [integración y contratos de API](ruta-integracion-contratos.md),
+con cinco entregas específicas. Se contrastaron contratos-http-recursos-operaciones,
 evolucion-api-paginacion-contratos y los labs api-contracts/api-pagination-evolution.
-Separar lifecycle Testcontainers/fixtures/factories de evolución verificada por
-clientes y consumer-driven contracts; no recrear el artículo de HTTP/OpenAPI.
-Usar PostgreSQL real si se afirma su comportamiento y declarar diferencias de motor.
-Después P057 generación/shrinking/fuzzing y P058 carga/profile antes de observabilidad.
+La ampliación separa lifecycle, preparación de datos, aislamiento, schemas y Pact.
+Ejecuta PostgreSQL real con límites declarados, sin recrear la introducción HTTP/OpenAPI.
+Siguiente P057 generación/shrinking/fuzzing y P058 carga/profile antes de observabilidad.
 La evidencia de este bloque no acepta toda Serie 06. Sin audio, traducción o push.

@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+a: "Conexión A: BEGIN\nInserta o-1 sin confirmar"
+read: "API usa otra conexión\nNo ve o-1 sin commit"
+b: "Conexión B: inserta o-2\nAutocommit independiente"
+rollback: "A ejecuta ROLLBACK\nDeshace o-1, no o-2"
+isolate: "Schema por escenario\nAmbas conexiones usan su namespace"
+limit: "Aislamiento de fixtures\nNo barrera de permisos entre tenants"
+a -> read -> b -> rollback -> isolate -> limit

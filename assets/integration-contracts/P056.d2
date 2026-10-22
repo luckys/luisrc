@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+start: "Testcontainers inicia PostgreSQL\nImagen fijada y puerto efímero"
+ready: "Healthcheck + puerto\nDespués: conexión y SELECT 1"
+schema: "Schema propio del escenario\nDDL y datos explícitos"
+assert: "Test ejecuta SQL y HTTP reales\nAserciones sobre resultados"
+close: "finally: pools y contenedor\nWrapper comprueba su runId"
+limit: "Sin HA o pérdida eléctrica\nEstado efímero en tmpfs"
+start -> ready -> schema -> assert -> close -> limit

@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 59,
-    "related_only": 28,
+    "draft_exists": 60,
+    "related_only": 27,
     "not_written": 88
   },
   "completionProven": false,
@@ -682,8 +682,12 @@
         {
           "id": "P056",
           "title": "Integración y pruebas de contrato",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/testcontainers-postgresql-integracion-ciclo-vida.md",
+            "slug": "testcontainers-postgresql-integracion-ciclo-vida",
+            "draft": true
+          },
           "related": [
             "tdd-pruebas-unitarias-integracion-contrato"
           ],

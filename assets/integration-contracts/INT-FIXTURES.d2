@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+rule: "Escenario: pedido de 12,50 EUR\nInstante y estado explícitos"
+factory: "orderFixture con defaults válidos\nOverride solo lo relevante"
+data: "o-1 / 1250 / EUR / paid\nFecha ISO fija, sin contador global"
+test: "Test verifica la expectativa\nNo calcula el oracle con la factory"
+clock: "isRecent recibe now\nSiete días y un milisegundo más"
+rule -> factory -> data -> test -> clock
