@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 60,
-    "related_only": 27,
+    "draft_exists": 61,
+    "related_only": 26,
     "not_written": 88
   },
   "completionProven": false,
@@ -696,8 +696,12 @@
         {
           "id": "P057",
           "title": "Property-based testing, fuzzing y fault injection",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/property-based-testing-generadores-invariantes.md",
+            "slug": "property-based-testing-generadores-invariantes",
+            "draft": true
+          },
           "related": [
             "fault-injection-pruebas-propiedades"
           ],

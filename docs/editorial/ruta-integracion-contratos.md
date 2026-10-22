@@ -30,6 +30,9 @@ por timeout codificada pero sin SIGKILL inyectado. No aceptar toda Serie06 por I
 
 ## Siguiente bloque
 
+P057 ya se desarrolla en siete entregas: ver [pruebas basadas en propiedades](ruta-pruebas-propiedades.md).
+El contraste y la división propuestos a continuación se conservan como contexto.
+
 P057: leer fault-injection-pruebas-propiedades y reliable-services antes de ampliar.
 Separar propiedades/generadores/shrinking, fuzzing de entradas, scheduling de carreras
 y fallos/replay; mutation testing ya tiene introducción ejecutada en P055. El modelo

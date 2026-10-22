@@ -10,7 +10,7 @@ de GitHub no estarán disponibles.
 
 - **Blog**: artículos, diagramas, audio, interfaz, SVG, visores estáticos y datos
   editoriales que permiten construir el sitio sin un checkout de ejemplos.
-- **Ejemplos**: 24 laboratorios en `packages/`, índice por post en `posts/`, tests,
+- **Ejemplos**: 25 laboratorios en `packages/`, índice por post en `posts/`, tests,
   fixtures, experimentos y resultados originales. Un workspace pnpm y un lockfile.
 
 Se han retirado `examples/`, `public/assets/examples/`, los manifiestos de ZIP y

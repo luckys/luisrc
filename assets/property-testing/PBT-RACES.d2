@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+start: "Contador inicial = 0\nDos incrementos asíncronos"
+reads: "Liberar read A y read B\nAmbos guardan snapshot = 0"
+writes: "Liberar write A y write B\nAmbos escriben 0 + 1"
+bug: "Valor final = 1, esperado = 2\nTraza read / read / write / write"
+fix: "Fix local sin await entre read/write\nNo es atomicidad entre procesos"
+start -> reads -> writes -> bug -> fix

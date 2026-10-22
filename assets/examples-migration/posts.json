@@ -533,6 +533,13 @@
   },
   {
     "locale": "es",
+    "slug": "fault-injection-respuesta-perdida-propiedades",
+    "labs": [
+      "property-testing"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "fixtures-factories-datos-prueba-deterministas",
     "labs": [
       "integration-contracts"
@@ -550,6 +557,13 @@
     "slug": "frontend-accesible-semantica-teclado-foco",
     "labs": [
       "realtime-frontend"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "fuzzing-parser-bytes-generadores-estructurados",
+    "labs": [
+      "property-testing"
     ]
   },
   {
@@ -757,6 +771,13 @@
   },
   {
     "locale": "es",
+    "slug": "model-based-testing-secuencias-pagos",
+    "labs": [
+      "property-testing"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "modelado-relacional-integridad-datos",
     "labs": [
       "database-fundamentals"
@@ -781,6 +802,13 @@
     "slug": "monolito-modular-solid-sin-sobreingenieria",
     "labs": [
       "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "mutation-testing-evaluar-propiedades",
+    "labs": [
+      "property-testing"
     ]
   },
   {
@@ -890,6 +918,13 @@
   },
   {
     "locale": "es",
+    "slug": "property-based-testing-generadores-invariantes",
+    "labs": [
+      "property-testing"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "propiedades-acid-bases-de-datos",
     "labs": [
       "transactions"
@@ -914,6 +949,13 @@
     "slug": "quorum-interseccion-lecturas-escrituras",
     "labs": [
       "distributed-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "race-conditions-scheduler-fast-check",
+    "labs": [
+      "property-testing"
     ]
   },
   {
@@ -1040,6 +1082,13 @@
     "slug": "sharding-claves-buckets-rebalanceo",
     "labs": [
       "distributed-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "shrinking-replay-contraejemplos-fast-check",
+    "labs": [
+      "property-testing"
     ]
   },
   {

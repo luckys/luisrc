@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+generate: "Seed 5702\nArrays de hasta 40 eventos"
+failure: "Falla la sexta ejecución\nRechazo borra éxito confirmado"
+shrink: "Cuatro reducciones aceptadas\nsubmit → confirm → decline"
+replay: "Seed + path + código fijados\nRepite el contraejemplo"
+regression: "Test explícito de tres eventos\nFalla en variante / pasa en fix"
+generate -> failure -> shrink -> replay -> regression

@@ -53,7 +53,7 @@ Es un generador pequeño y determinista, no criptográfico. Utilizamos bits alto
 
 Este oráculo tiene un límite importante: una implementación que rechazara todo también podría conservar los terminales. Por eso no sustituye los ejemplos de transiciones válidas y sus resultados esperados. Las pruebas se complementan; ninguna es una demostración aislada de corrección completa.
 
-Una herramienta como **fast-check** añade generadores y **shrinking**, la reducción automática de un contraejemplo. Aquí no hacemos shrinking: si aparece una secuencia problemática, conviene reducirla y convertirla en un test de regresión pequeño.
+Una herramienta como **fast-check** añade generadores y **shrinking**, la reducción automática de un contraejemplo. Aquí no hacemos shrinking: si aparece una secuencia problemática, conviene reducirla y convertirla en un test de regresión pequeño. La serie específica de [propiedades y generadores](/posts/property-based-testing-generadores-invariantes) continúa este punto con reducción y replay ejecutados; este laboratorio introductorio conserva su alcance original.
 
 ## Inyectar un fallo requiere elegir la frontera
 

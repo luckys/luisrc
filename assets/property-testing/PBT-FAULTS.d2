@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+before: "before-effect\nFalla sin ejecutar charge"
+effect: "charge con clave payment-1\nSet del proveedor fake"
+lost: "after-effect\nEl efecto existe / journal sin confirmar"
+retry: "Objeto servicio nuevo / misma clave\ncharge no añade otro efecto"
+confirm: "Confirmar journal compartido\nReintento posterior no hace nada"
+limit: "Solo memoria del fixture\nSin crash real o disco durable"
+before -> effect -> lost -> retry -> confirm -> limit

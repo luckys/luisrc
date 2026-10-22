@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+mutant: "Mutación duplicate-capture\nSegundo confirm suma otra captura"
+weak: "Regla débil: terminal no retrocede\nPasa aunque captures = 2"
+strong: "Modelo cuenta efectos esperados\nLa misma variante falla"
+shrink: "submit → confirm → confirm\nRegresión independiente del generador"
+limit: "Tres variantes seleccionadas a mano\nSin Stryker o score global"
+mutant -> weak -> strong -> shrink -> limit

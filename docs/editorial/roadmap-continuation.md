@@ -1,5 +1,40 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: pruebas basadas en propiedades, 22 de octubre de 2026
+
+Serie de integración confirmada: blog c0a1b48, ejemplos d7c9f26, sin push.
+La evidencia P056 previa se conserva; checks cruzados verifican hashes y fuentes,
+sin volver a arrancar su PostgreSQL/Pact en este turno.
+
+P057 se amplía en siete drafts: propiedades/generadores, shrinking/replay, modelo
+de secuencias, scheduler de carreras, fuzzing, fault injection y evaluación de
+oráculos con variantes manuales. Ruta-pruebas-propiedades.md y manifest/revisión
+property-testing propios. Se conserva OPS-FAULTS como introducción, con enlace
+a la ampliación, sin atribuir shrinking a su antiguo generador LCG.
+
+Código solo en packages/property-testing. fast-check4.10.2, Node24.19.0, TS5.9.2.
+Quince tests, catorce extractos, siete D2/SVG. Seed5702 reduce rechazo atrasado
+a submit/confirm/decline; cuatro reducciones y replay confirmado. Duplicado
+submit/confirm/confirm y after-effect con clave nueva también detectados.
+Scheduler muestra read/read/write/write con valor1; arreglo local da2. No SQL,
+red, crash real o disco durable. Tres mutaciones seleccionadas, sin Stryker o
+score global. Proveedor Set/journal en memoria, no proceso reiniciado ni PSP.
+
+82 checks cruzados/estructurales, build y19 tests del blog pasan. Catorce vistas
+Chromium1440/360, siete diagramas móviles inspeccionados; tabla mejorada y
+recorrido repetido. Informe /tmp/property-testing-layout.FD5dfr/report.json.
+Servidor temporal3178077 cerrado,4322 sin listener. Lockfile del blog restaurado
+solo del pruning automático; monorepo conserva fast-check/pure-rand nuevos.
+186 índices,25 paquetes,48 exports estáticos. Nuevos posts/lab sin commit.
+
+Siguiente P058: contrastar pruebas-carga-percentiles-saturacion y reliable-services.
+Ampliar carga real/modelo abierto-cerrado, percentiles/warm-up/reproducibilidad,
+saturación/stress/soak y profiling CPU/memoria en posts específicos según evidencia.
+No presentar cola determinista o tiempos de un test como medición de servidor.
+Después P059/P060 observabilidad. Conservar gaps P026 y Stripe sandbox P045;
+no dar toda Serie06 por aceptada por IDs. Español/draft, sin traducción, audio,
+publicación o push automáticos. Las entradas inferiores son históricas.
+
 ## Continuación vigente: integración y contratos, 22 de octubre de 2026
 
 Serie de pruebas confirmada: blog `f50c079`, ejemplos `c56d6aa`, sin push.

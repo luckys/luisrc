@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+bytes: "1000 arrays de bytes\nRuido / UTF-8 / límite de tamaño"
+parser: "Parser máximo 256 bytes\nUTF-8 fatal → JSON → campos"
+valid: "300 objetos válidos serializados\nAlcanzan camino de aceptación"
+oracle: "Rechazo esperado o campos exactos\nSin capturar errores arbitrarios"
+limit: "Sin guía por cobertura\nSin prueba de DoS o HTTP"
+bytes -> parser -> valid -> oracle -> limit

@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+rule: "Regla de reparto\nConservar total y equilibrio"
+input: "Generador constructivo\nTotal 1..1000000 / partes 1..20"
+sut: "splitAmount\nValores nuevos en cada ejecución"
+oracle: "Suma / longitud / enteros / diferencia\nSin repetir el algoritmo"
+limit: "500 casos con seed 5701\nNo prueba exhaustiva"
+rule -> input -> sut -> oracle -> limit
