@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+rule: "Regla de producto\nUn éxito no acepta fail"
+example: "Preparar succeeded\nEnviar fail"
+oracle: "Esperar rechazo explícito\nNo basta con obtener un objeto"
+counter: "Permitir fail por error\nLa aserción debe fallar"
+boundary: "Añadir bordes y secuencias\nSin copiar la tabla del programa"
+rule -> example -> oracle -> counter -> boundary

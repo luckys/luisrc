@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+weak: "Suite débil recorre combinaciones\nIgnora resultados y excepciones"
+coverage: "transitions.ts: 100 %\nLíneas, branches y funciones"
+mutate: "Cambiar una regla ejecutada\nPermitir fail después del éxito"
+survive: "Suite débil sigue pasando\nNo observa la regla"
+strong: "Suite del núcleo falla\nLa aserción detecta la regresión"
+limit: "Tres mutaciones en reglas ejecutadas\nNo es un score global de calidad"
+weak -> coverage -> mutate -> survive -> strong -> limit

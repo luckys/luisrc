@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **58**. Solo material relacionado: **29**. Sin artículo identificado: **88**.
+IDs con borrador propio: **59**. Solo material relacionado: **28**. Sin artículo identificado: **88**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -12,7 +12,9 @@ Redactadas las series 01 y 07–09. En Serie 02, P011 se desarrolla en 21 entreg
 
 Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.
 
-Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046, seis de fundamentos P048 y cinco de Kafka P051. kafka-streaming usa un broker real local 3.9.1, grupos clásicos, replay de dos envíos, checkpoints y pause/resume; RF=1, proyección volátil, sin failover o exactly-once. El prefijo eliminado por DeleteRecords no prueba retención temporal. Los laboratorios anteriores conservan sus límites, incluido Stripe sandbox de P045. Bases de datos mantiene quince entregas. Siguiente: auditar lagunas de Serie 06. Ver ruta-kafka-streaming.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.
+Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046, seis de fundamentos P048 y cinco de Kafka P051. kafka-streaming usa un broker real local 3.9.1, grupos clásicos, replay de dos envíos, checkpoints y pause/resume; RF=1, proyección volátil, sin failover o exactly-once. El prefijo eliminado por DeleteRecords no prueba retención temporal. Los laboratorios anteriores conservan sus límites, incluido Stripe sandbox de P045. Bases de datos mantiene quince entregas. La continuación de Serie 06 se detalla debajo. Ver ruta-kafka-streaming.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.
+
+Inicio de Serie 06: P055 se amplía en cinco drafts de diseño de pruebas, TDD, doubles, niveles y coverage/mutaciones. Ver ruta-pruebas-software.md. Laboratorio testing-strategy: fake Map, SQLite real y HTTP loopback; sin UI E2E, PostgreSQL o Testcontainers. Coverage 100 % solo en transitions.ts con una suite deliberadamente débil; cuatro mutaciones manuales, no Stryker. Siguiente concreto: ampliar P056 contrastando los laboratorios de contratos y evolución de APIs, después P057/P058. No aceptación automática de toda Serie 06.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -85,7 +87,7 @@ Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete
 
 ## Serie 06. Calidad, cloud, DevOps y observabilidad (posts 055–066)
 
-- P055. Estrategias de pruebas de software: relacionado, requiere revisión.
+- P055. Estrategias de pruebas de software: [borrador](../../src/content/posts/es/disenar-pruebas-invariantes-casos-limite.md).
 - P056. Integración y pruebas de contrato: relacionado, requiere revisión.
 - P057. Property-based testing, fuzzing y fault injection: relacionado, requiere revisión.
 - P058. Benchmarking, carga y profiling: relacionado, requiere revisión.

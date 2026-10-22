@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 58,
-    "related_only": 29,
+    "draft_exists": 59,
+    "related_only": 28,
     "not_written": 88
   },
   "completionProven": false,
@@ -668,8 +668,12 @@
         {
           "id": "P055",
           "title": "Estrategias de pruebas de software",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/disenar-pruebas-invariantes-casos-limite.md",
+            "slug": "disenar-pruebas-invariantes-casos-limite",
+            "draft": true
+          },
           "related": [
             "tdd-pruebas-unitarias-integracion-contrato"
           ],

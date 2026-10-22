@@ -1,5 +1,29 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: pruebas de software, 22 de octubre de 2026
+
+Kafka confirmado: blog `4cd1476`, ejemplos `b501dab`, sin push. Revalidados ocho
+checks estructurales/editoriales de Kafka, ocho tests locales y typecheck antes
+del commit; integración del broker conservada de la revisión anterior.
+
+P055 se amplía en cinco drafts: diseño/oracle, TDD, test doubles, niveles de prueba
+y coverage/mutaciones. Ver ruta-pruebas-software.md, testing-strategy-series.json
+y testing-strategy-review.md. Se conserva DESIGN-TDD como introducción. Código
+solo en packages/testing-strategy del monorepo, con snippets dentro de los posts.
+
+Registro de jobs, no worker. Fake Map, SQLite real, HTTP loopback y archivo
+cerrado/reabierto. Sin UI E2E, PostgreSQL o Testcontainers. 28 tests locales y once
+de contratos/HTTP; suite débil aparte con 100 % solo en transitions.ts. Cuatro
+mutaciones manuales detectadas por el núcleo, tres en el archivo ejecutado por
+la suite débil y una fuera de su alcance. Sin Stryker ni score global.
+Nuevos artículos/lab sin commit; no aceptar toda Serie 06 por recuentos o IDs.
+
+Siguiente: P056 específico, contrastar api-contracts y api-pagination-evolution
+antes de redactar lifecycle Testcontainers/fixtures/factories y contratos de API
+verificados por clientes. Después P057 y P058, luego observabilidad y operaciones.
+Mantener los gaps P026 y Stripe sandbox P045. Español/draft, sin traducción, audio,
+publicación o push automáticos. Las notas inferiores son históricas.
+
 ## Continuación vigente: Kafka, 21 de octubre de 2026
 
 Confirmada fundamentos distribuidos: blog `4b33999`, ejemplos `7e50860`, sin push.

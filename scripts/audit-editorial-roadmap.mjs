@@ -95,9 +95,13 @@ const lines = [
   '',
   'Reproducir inventario: `node scripts/audit-editorial-roadmap.mjs`. El detalle estructurado conserva candidatos y rutas en roadmap-progress.json. Estado del objetivo: activo; no se ha probado que esté completo.',
   '',
-  'Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046, seis de fundamentos P048 y cinco de Kafka P051. kafka-streaming usa un broker real local 3.9.1, grupos clásicos, replay de dos envíos, checkpoints y pause/resume; RF=1, proyección volátil, sin failover o exactly-once. El prefijo eliminado por DeleteRecords no prueba retención temporal. Los laboratorios anteriores conservan sus límites, incluido Stripe sandbox de P045. Bases de datos mantiene quince entregas. Siguiente: auditar lagunas de Serie 06. Ver ruta-kafka-streaming.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.',
+  'Ampliación de Serie 05: diez drafts de modelado/documentación P044/P047, siete de principios P043, cinco de fronteras P045/P046, seis de fundamentos P048 y cinco de Kafka P051. kafka-streaming usa un broker real local 3.9.1, grupos clásicos, replay de dos envíos, checkpoints y pause/resume; RF=1, proyección volátil, sin failover o exactly-once. El prefijo eliminado por DeleteRecords no prueba retención temporal. Los laboratorios anteriores conservan sus límites, incluido Stripe sandbox de P045. Bases de datos mantiene quince entregas. La continuación de Serie 06 se detalla debajo. Ver ruta-kafka-streaming.md y rutas previas. Ni IDs ni recuentos aceptan el roadmap.',
   '',
 ]
+lines.push(
+  'Inicio de Serie 06: P055 se amplía en cinco drafts de diseño de pruebas, TDD, doubles, niveles y coverage/mutaciones. Ver ruta-pruebas-software.md. Laboratorio testing-strategy: fake Map, SQLite real y HTTP loopback; sin UI E2E, PostgreSQL o Testcontainers. Coverage 100 % solo en transitions.ts con una suite deliberadamente débil; cuatro mutaciones manuales, no Stryker. Siguiente concreto: ampliar P056 contrastando los laboratorios de contratos y evolución de APIs, después P057/P058. No aceptación automática de toda Serie 06.',
+  '',
+)
 for (const entry of series) {
   lines.push(`## Serie ${entry.id}. ${entry.title}`, '')
   for (const article of entry.articles) {

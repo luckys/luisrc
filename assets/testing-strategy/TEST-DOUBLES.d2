@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+usecase: "execute depende de JobRepository\nNo conoce Map ni SQL"
+stub: "Stub de ausencia + spy\nComprobar que no se escribe"
+contract: "Mismos ejemplos de contrato\nAlta / lectura / compare-and-set"
+fake: "Fake Map\nEstado volátil, un proceso"
+real: "Adaptador SQLite real\nSQL ejecutado, conexión local"
+limit: "Contrato acotado\nNo acredita PostgreSQL o failover"
+usecase -> stub -> contract -> fake -> real -> limit

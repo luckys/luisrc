@@ -274,6 +274,13 @@
   },
   {
     "locale": "es",
+    "slug": "coverage-mutation-testing-aserciones-que-detectan-fallos",
+    "labs": [
+      "testing-strategy"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "cpu-memoria-almacenamiento-localidad",
     "labs": [
       "computing-networks"
@@ -354,6 +361,13 @@
     "slug": "dip-inyeccion-dependencias-sin-contenedor",
     "labs": [
       "design-principles"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "disenar-pruebas-invariantes-casos-limite",
+    "labs": [
+      "testing-strategy"
     ]
   },
   {
@@ -1065,9 +1079,23 @@
   },
   {
     "locale": "es",
+    "slug": "tdd-maquina-estados-red-green-refactor",
+    "labs": [
+      "testing-strategy"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "tdd-pruebas-unitarias-integracion-contrato",
     "labs": [
       "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "test-doubles-stubs-spies-fakes-contratos",
+    "labs": [
+      "testing-strategy"
     ]
   },
   {
@@ -1096,6 +1124,13 @@
     "slug": "transformaciones-lineales-pca-perdida-informacion",
     "labs": [
       "mathematics-statistics"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "unit-integration-e2e-fronteras-piramide-pruebas",
+    "labs": [
+      "testing-strategy"
     ]
   },
   {

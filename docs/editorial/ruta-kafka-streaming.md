@@ -26,7 +26,8 @@ No se atribuyen a un nodo garantías de failover o consenso entre réplicas.
 
 ## Siguiente bloque
 
-Auditar Serie 06 contra artículos existentes antes de escribir: pruebas, calidad,
-CI/CD, AWS, Terraform/Kubernetes y observabilidad tienen entregas previas parciales.
-No declarar aceptación por ID. Los gaps anteriores de P026 y P045 no desaparecen.
+Continúa con [pruebas de software](ruta-pruebas-software.md): cinco entregas de P055
+sobre diseño, TDD, doubles, niveles y coverage. P056/P057 y el resto de Serie 06
+requieren contraste propio. No declarar aceptación por ID; los gaps anteriores
+de P026 y P045 no desaparecen.
 Mantener español y draft; sin traducción, audio, publicación o push automáticos.
