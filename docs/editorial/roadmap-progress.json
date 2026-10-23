@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 61,
-    "related_only": 26,
+    "draft_exists": 62,
+    "related_only": 25,
     "not_written": 88
   },
   "completionProven": false,
@@ -710,8 +710,12 @@
         {
           "id": "P058",
           "title": "Benchmarking, carga y profiling",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/latencia-percentiles-histogramas-errores.md",
+            "slug": "latencia-percentiles-histogramas-errores",
+            "draft": true
+          },
           "related": [
             "pruebas-carga-percentiles-saturacion"
           ],

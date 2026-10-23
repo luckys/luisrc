@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+metrics: "Tiempo de pared y CPU consumida\nNo son la misma magnitud"
+sample: "Profiler: muestras cada 1000 μs\nNo cronómetro de cada llamada"
+opaque: "Perfil normal: frame anónimo\nNo inventar una línea culpable"
+diagnostic: "Diagnóstico separado sin inlining\nAparece findRateSlow; cambia ejecución"
+verify: "Map + mismo resultado\nComparar benchmark sin profiler"
+metrics -> sample -> opaque -> diagnostic -> verify

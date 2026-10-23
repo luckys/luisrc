@@ -1,0 +1,362 @@
+{
+  "notes": "HTTP local, procesos distintos, misma máquina. Datos archivados; no envía tráfico.",
+  "stages": [
+    {
+      "name": "closed-4",
+      "mode": "closed",
+      "configuredRate": null,
+      "vus": 4,
+      "nominalSeconds": 5,
+      "measuredSeconds": 5.0396715080000005,
+      "requests": 492,
+      "successes": 492,
+      "errors": 0,
+      "dropped": 0,
+      "completedRps": 97.62541054888135,
+      "successfulRps": 97.62541054888135,
+      "all": {
+        "n": 492,
+        "p50": 40.683301,
+        "p95": 41.996818,
+        "p99": 43.255481
+      },
+      "success": {
+        "n": 492,
+        "p50": 40.683301,
+        "p95": 41.996818,
+        "p99": 43.255481
+      },
+      "failed": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "windows": []
+    },
+    {
+      "name": "open-100",
+      "mode": "open",
+      "configuredRate": 100,
+      "vus": 40,
+      "nominalSeconds": 5,
+      "measuredSeconds": 5.030980491999999,
+      "requests": 500,
+      "successes": 500,
+      "errors": 0,
+      "dropped": 0,
+      "completedRps": 99.38420568218734,
+      "successfulRps": 99.38420568218734,
+      "all": {
+        "n": 500,
+        "p50": 40.485094,
+        "p95": 41.551562,
+        "p99": 42.138141
+      },
+      "success": {
+        "n": 500,
+        "p50": 40.485094,
+        "p95": 41.551562,
+        "p99": 42.138141
+      },
+      "failed": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "windows": []
+    },
+    {
+      "name": "open-350-a",
+      "mode": "open",
+      "configuredRate": 350,
+      "vus": 40,
+      "nominalSeconds": 5,
+      "measuredSeconds": 5.036610434,
+      "requests": 1751,
+      "successes": 958,
+      "errors": 793,
+      "dropped": 0,
+      "completedRps": 347.654443984738,
+      "successfulRps": 190.20728574379154,
+      "all": {
+        "n": 1751,
+        "p50": 39.621033,
+        "p95": 40.842895,
+        "p99": 41.150841
+      },
+      "success": {
+        "n": 958,
+        "p50": 40.156036,
+        "p95": 40.972433,
+        "p99": 41.230152
+      },
+      "failed": {
+        "n": 793,
+        "p50": 0.105475,
+        "p95": 0.542026,
+        "p99": 0.808616
+      },
+      "windows": []
+    },
+    {
+      "name": "open-350-b",
+      "mode": "open",
+      "configuredRate": 350,
+      "vus": 40,
+      "nominalSeconds": 5,
+      "measuredSeconds": 5.040856807,
+      "requests": 1751,
+      "successes": 953,
+      "errors": 798,
+      "dropped": 0,
+      "completedRps": 347.36158296908354,
+      "successfulRps": 189.05516194719397,
+      "all": {
+        "n": 1751,
+        "p50": 39.731891,
+        "p95": 40.973386,
+        "p99": 41.281977
+      },
+      "success": {
+        "n": 953,
+        "p50": 40.302845,
+        "p95": 41.110173,
+        "p99": 41.397779
+      },
+      "failed": {
+        "n": 798,
+        "p50": 0.362731,
+        "p95": 0.562852,
+        "p99": 0.637857
+      },
+      "windows": []
+    },
+    {
+      "name": "recovery-25",
+      "mode": "open",
+      "configuredRate": 25,
+      "vus": 40,
+      "nominalSeconds": 4,
+      "measuredSeconds": 4.040978518999999,
+      "requests": 101,
+      "successes": 101,
+      "errors": 0,
+      "dropped": 0,
+      "completedRps": 24.993946274427106,
+      "successfulRps": 24.993946274427106,
+      "all": {
+        "n": 101,
+        "p50": 40.315478,
+        "p95": 41.403607,
+        "p99": 41.716861
+      },
+      "success": {
+        "n": 101,
+        "p50": 40.315478,
+        "p95": 41.403607,
+        "p99": 41.716861
+      },
+      "failed": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "windows": []
+    },
+    {
+      "name": "generator-starved",
+      "mode": "open",
+      "configuredRate": 100,
+      "vus": 1,
+      "nominalSeconds": 3,
+      "measuredSeconds": 3.011212623,
+      "requests": 61,
+      "successes": 61,
+      "errors": 0,
+      "dropped": 240,
+      "completedRps": 20.257619649331552,
+      "successfulRps": 20.257619649331552,
+      "all": {
+        "n": 61,
+        "p50": 40.531061,
+        "p95": 41.582826,
+        "p99": 41.691711
+      },
+      "success": {
+        "n": 61,
+        "p50": 40.531061,
+        "p95": 41.582826,
+        "p99": 41.691711
+      },
+      "failed": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "windows": []
+    },
+    {
+      "name": "steady-60s",
+      "mode": "open",
+      "configuredRate": 25,
+      "vus": 40,
+      "nominalSeconds": 60,
+      "measuredSeconds": 60.040432136,
+      "requests": 1501,
+      "successes": 1501,
+      "errors": 0,
+      "dropped": 0,
+      "completedRps": 24.99982006458622,
+      "successfulRps": 24.99982006458622,
+      "all": {
+        "n": 1501,
+        "p50": 40.379112,
+        "p95": 41.176939,
+        "p99": 41.743968
+      },
+      "success": {
+        "n": 1501,
+        "p50": 40.379112,
+        "p95": 41.176939,
+        "p99": 41.743968
+      },
+      "failed": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "windows": [
+        {
+          "fromSecond": 0,
+          "complete": true,
+          "requests": 250,
+          "success": {
+            "n": 250,
+            "p50": 40.329122,
+            "p95": 41.1184,
+            "p99": 41.589263
+          },
+          "errors": 0
+        },
+        {
+          "fromSecond": 10,
+          "complete": true,
+          "requests": 251,
+          "success": {
+            "n": 251,
+            "p50": 40.340566,
+            "p95": 41.182372,
+            "p99": 41.8516
+          },
+          "errors": 0
+        },
+        {
+          "fromSecond": 20,
+          "complete": true,
+          "requests": 250,
+          "success": {
+            "n": 250,
+            "p50": 40.437363,
+            "p95": 41.166935,
+            "p99": 41.729057
+          },
+          "errors": 0
+        },
+        {
+          "fromSecond": 30,
+          "complete": true,
+          "requests": 250,
+          "success": {
+            "n": 250,
+            "p50": 40.38143,
+            "p95": 41.206794,
+            "p99": 41.793233
+          },
+          "errors": 0
+        },
+        {
+          "fromSecond": 40,
+          "complete": true,
+          "requests": 250,
+          "success": {
+            "n": 250,
+            "p50": 40.3547,
+            "p95": 41.323218,
+            "p99": 41.965737
+          },
+          "errors": 0
+        },
+        {
+          "fromSecond": 50,
+          "complete": false,
+          "requests": 250,
+          "success": {
+            "n": 250,
+            "p50": 40.446145,
+            "p95": 41.162654,
+            "p99": 41.434841
+          },
+          "errors": 0
+        }
+      ]
+    }
+  ],
+  "benchmarks": [
+    {
+      "process": 1,
+      "slowMedianMs": 5.639203999999992,
+      "indexedMedianMs": 0.1187579999999997
+    },
+    {
+      "process": 2,
+      "slowMedianMs": 4.5514149999999916,
+      "indexedMedianMs": 0.07798999999999978
+    },
+    {
+      "process": 3,
+      "slowMedianMs": 4.619776000000002,
+      "indexedMedianMs": 0.07087500000000091
+    }
+  ],
+  "memory": [
+    {
+      "variant": "unbounded",
+      "entries": [
+        {
+          "stage": "500",
+          "entries": 500
+        },
+        {
+          "stage": "1500",
+          "entries": 1500
+        },
+        {
+          "stage": "released",
+          "entries": 0
+        }
+      ]
+    },
+    {
+      "variant": "bounded",
+      "entries": [
+        {
+          "stage": "500",
+          "entries": 100
+        },
+        {
+          "stage": "1500",
+          "entries": 100
+        },
+        {
+          "stage": "released",
+          "entries": 0
+        }
+      ]
+    }
+  ]
+}

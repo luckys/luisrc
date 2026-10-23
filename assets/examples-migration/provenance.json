@@ -241,6 +241,31 @@
       "source": "packages/domain-design/scenarios.json",
       "destination": "public/assets/interactive/domain-design/scenarios.json",
       "sha256": "1bceec9741af83ae5c6ed687269ed0efe21ba5b6c80024a73548840ea01a8910"
+    },
+    {
+      "source": "packages/performance-lab/explorer.html",
+      "destination": "public/assets/interactive/performance-series/explorer.html",
+      "sha256": "1e6c27ce4427e7335a73379199081e80ef55345161116e544b6b962aaa8871c9"
+    },
+    {
+      "source": "packages/performance-lab/explorer.mjs",
+      "destination": "public/assets/interactive/performance-series/explorer.mjs",
+      "sha256": "c396a7240c36d9e1b99604152d0b9b08fefc788e79584c8a544017272c868e1b"
+    },
+    {
+      "source": "packages/performance-lab/measurements.json",
+      "destination": "public/assets/interactive/performance-series/measurements.json",
+      "sha256": "b0f25f04ff1b179e4265e3f5a926e0ce38d2f12a9932cf8f2b46c8dccedb698b"
+    },
+    {
+      "source": "packages/performance-lab/load-results.svg",
+      "destination": "public/assets/interactive/performance-series/load-results.svg",
+      "sha256": "d25decb26f31d67d92e40b216ae6acd46dd750de00fb0d1854dbf4c3ec7e786f"
+    },
+    {
+      "source": "packages/performance-lab/memory-results.svg",
+      "destination": "public/assets/interactive/performance-series/memory-results.svg",
+      "sha256": "ddeb9e8163a6d3fe38a1b0e8020f650bf2f204f67efb40916ab56d3ad146f7b2"
     }
   ]
 }

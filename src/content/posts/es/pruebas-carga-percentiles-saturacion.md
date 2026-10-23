@@ -19,6 +19,8 @@ Subimos la carga y la mediana baja. Parece una victoria hasta que miramos los st
 
 Después de [definir señales](/posts/observabilidad-logs-metricas-trazas-workers), mediremos un servicio sintético para observar ese efecto. La meta no es atribuir rendimiento a Node.js, sino aprender a leer una prueba sin separar la latencia del resultado.
 
+La serie específica de [latencia, carga y profiling](/posts/latencia-percentiles-histogramas-errores) amplía este punto con k6 en otro proceso, distribuciones por resultado y perfiles reales. Este laboratorio introductorio conserva sus condiciones y sus mediciones originales.
+
 ## Qué significa un percentil de una muestra
 
 El **p95** señala un umbral bajo el que queda aproximadamente el 95 % de las observaciones, según el método de cálculo. No es la media de las peticiones lentas ni significa que cada usuario reciba ese tiempo.

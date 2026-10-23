@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+observe: "RSS sube: todavía no es diagnóstico\nHeap, memoria externa y runtime difieren"
+snapshot: "Proceso ficticio / GC forzado\nSnapshot tras 500 y 1500 inserciones"
+path: "LabCache → items → Array\nReferencias a RetainedEntry"
+compare: "Sin límite: 500 → 1500 objetos\nCon límite: 100 → 100"
+release: "Retirar referencia: 0 objetos\nShallow size no suma payload retenido"
+observe -> snapshot -> path -> compare -> release

@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+sample: "Una observación\nDuración + resultado + frontera"
+split: "Separar éxitos y errores\nNo confundir rechazo rápido con mejora"
+rank: "Nearest-rank\nOrdenar y elegir ceil(p × n)"
+aggregate: "Agregar distribuciones o buckets\nNo promediar p95 de instancias"
+limit: "Indicar tamaño y método\nUna muestra finita no garantiza el futuro"
+sample -> split -> rank -> aggregate -> limit

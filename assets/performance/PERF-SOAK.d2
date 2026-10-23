@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+plan: "Prueba sostenida local\n25 iteraciones/s durante 60 s"
+windows: "Agrupar por ventanas de 10 s\nOrigen en la primera muestra observada"
+compare: "Cantidad, errores y p95 por ventana\nMarcar última ventana parcial"
+question: "Buscar degradación y recuperación\nEl agregado final puede ocultarlas"
+limit: "No soak test de horas\nSin métrica de heap durante esta fase"
+plan -> windows -> compare -> question -> limit

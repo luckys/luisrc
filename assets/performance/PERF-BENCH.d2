@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+contract: "Mismo checksum y dataset\n5000 pagos / 1000 tasas ficticias"
+variants: "Búsqueda repetida frente a Map\nConstrucción del índice incluida"
+protocol: "Tres llamadas de warm-up\nSiete mediciones alternando el orden"
+replicate: "Tres procesos nuevos\nGuardar todas las muestras\nNo elegir solo la mejor"
+limit: "Caso local en TypeScript\nSin HTTP o base de datos\nSin intervalos de confianza"
+contract -> variants -> protocol -> replicate -> limit

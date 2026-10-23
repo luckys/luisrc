@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>Resultados archivados de carga</title>
+  <style>
+    * { box-sizing: border-box } body { margin: 0; padding: 16px; background: #191b29; color: #e2e7f7; font: 15px/1.55 system-ui,sans-serif }
+    main { max-width: 850px; margin: auto } h1 { font-size: 21px; line-height: 1.3 } h2 { font-size: 18px }
+    p { max-width: 70ch } label { display: block; font-weight: 600 } select { display: block; width: 100%; margin: 8px 0 18px; padding: 10px; font: inherit; color: inherit; background: #252a41; border: 1px solid #9baacc; border-radius: 6px }
+    :focus-visible { outline: 3px solid #66d9ef; outline-offset: 3px }
+    dl { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: 10px } dl div { background: #252a41; padding: 10px; border-radius: 5px } dt { font-size: 13px } dd { margin: 0; font-size: 20px; overflow-wrap: anywhere }
+    .bar { display: flex; height: 18px; background: #bc2836; border: 1px solid #e2e7f7 } #good { display: block; background: #33b56c; height: 100% }
+    .scroll { overflow-x: auto; border: 1px solid #687698; border-radius: 4px } table { border-collapse: collapse; min-width: 560px; width: 100% } th,td { padding: 8px; text-align: left; border-bottom: 1px solid #687698 }
+    #note { padding: 10px; border-left: 3px solid #66d9ef } .muted { color: #b8c3dc } [hidden] { display: none!important }
+  </style>
+</head>
+<body><main>
+  <h1>Una ejecución, varios tipos de carga</h1>
+  <p>Datos archivados de un fixture local. Este visor no ejecuta k6 ni envía tráfico de prueba.</p>
+  <label for="scenario">Escenario medido</label><select id="scenario" disabled><option>Cargando datos…</option></select>
+  <section id="result" aria-live="polite" aria-atomic="true"><p id="configuration"></p><dl id="metrics"></dl><div class="bar" role="img" id="bar"><span id="good"></span></div><p class="muted">Verde: éxitos; rojo: otras respuestas. Los conteos aparecen arriba.</p><p id="note"></p></section>
+  <section id="windows" hidden><h2>Ventanas de finalización</h2><p>Origen: primera muestra observada. La última ventana es parcial; no equivale a diez segundos completos.</p><div class="scroll" role="region" aria-label="Tabla de ventanas de la fase sostenida" tabindex="0"><table><thead><tr><th>Desde</th><th>Respuestas</th><th>Errores</th><th>p95 éxitos</th><th>Cobertura</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+  <p class="muted">HTTP loopback; procesos separados, misma máquina. No representa producción ni un soak test de horas.</p>
+  <noscript>Activa JavaScript para explorar los resultados; el artículo mantiene su tabla estática.</noscript>
+</main><script type="module" src="./explorer.mjs"></script></body>
+</html>

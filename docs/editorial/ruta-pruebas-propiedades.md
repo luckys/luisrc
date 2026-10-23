@@ -37,6 +37,9 @@ por recuento de artículos. Ver property-testing-review.md para comprobaciones.
 
 ## Siguiente bloque
 
+P058 ya se amplía en siete entregas: ver [rendimiento y profiling](ruta-rendimiento-profiling.md).
+El contraste indicado a continuación queda conservado como contexto de la decisión.
+
 P058 carga y profiling. Contrastar pruebas-carga-percentiles-saturacion y el
 paquete reliable-services antes de ampliar. Separar distribución/percentiles,
 modelo de carga/saturación, warm-up/reproducibilidad y CPU/memoria según el

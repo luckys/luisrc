@@ -302,6 +302,13 @@
   },
   {
     "locale": "es",
+    "slug": "cpu-profiling-nodejs-muestras-cuello-botella",
+    "labs": [
+      "performance-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "cqrs-modelos-lectura-consistencia",
     "labs": [
       "architecture-boundaries"
@@ -666,6 +673,13 @@
   },
   {
     "locale": "es",
+    "slug": "k6-modelos-carga-open-closed-loop",
+    "labs": [
+      "performance-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "kafka-consumer-groups-rebalance-asignacion",
     "labs": [
       "kafka-streaming"
@@ -704,6 +718,13 @@
     "slug": "kiss-yagni-diseno-necesidad-actual",
     "labs": [
       "design-principles"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "latencia-percentiles-histogramas-errores",
+    "labs": [
+      "performance-lab"
     ]
   },
   {
@@ -750,6 +771,13 @@
   },
   {
     "locale": "es",
+    "slug": "memory-profiling-heap-snapshots-retencion-cache",
+    "labs": [
+      "performance-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "merge-sort-mezcla-estabilidad",
     "labs": [
       "data-structures-algorithms"
@@ -760,6 +788,13 @@
     "slug": "metricas-ml-precision-recall-auc-errores",
     "labs": [
       "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "microbenchmarks-warmup-reproducibilidad-typescript",
+    "labs": [
+      "performance-lab"
     ]
   },
   {
@@ -1044,6 +1079,13 @@
   },
   {
     "locale": "es",
+    "slug": "saturacion-stress-testing-admision-recuperacion",
+    "labs": [
+      "performance-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "schema-tests-contratos-api-semantica",
     "labs": [
       "integration-contracts"
@@ -1096,6 +1138,13 @@
     "slug": "sli-slo-error-budget-servicios",
     "labs": [
       "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "soak-testing-carga-sostenida-ventanas",
+    "labs": [
+      "performance-lab"
     ]
   },
   {

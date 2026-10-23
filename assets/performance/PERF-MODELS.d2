@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+closed: "Closed-loop: 4 VUs\nCada uno espera antes de repetir"
+open: "Open-loop: 100 iteraciones/s\nLlegadas independientes de la respuesta"
+slots: "VUs disponibles sostienen la tasa\nSin VU libre: dropped_iterations"
+server: "Fixture HTTP en otro proceso\nSolo loopback / un request por iteración"
+compare: "Separar enviado, completado y útil\nUna iteración perdida no recibió 503"
+closed -> open -> slots -> server -> compare

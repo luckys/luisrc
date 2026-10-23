@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **61**. Solo material relacionado: **26**. Sin artículo identificado: **88**.
+IDs con borrador propio: **62**. Solo material relacionado: **25**. Sin artículo identificado: **88**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -18,7 +18,9 @@ Inicio de Serie 06: P055 se amplía en cinco drafts de diseño de pruebas, TDD, 
 
 P056 continúa con cinco entregas de Testcontainers, fixtures/factories, aislamiento, schema tests y consumer-driven contracts. Ver ruta-integracion-contratos.md. Paquete integration-contracts con PostgreSQL18.4 real por digest, HTTP loopback y Pact17.1.4 local; cuatro tests de núcleo, dos del consumidor y nueve de integración. Sin Broker, CI desplegada, HA o disco durable. Recuperación por timeout codificada, sin muerte forzada probada.
 
-P057 se amplía en siete drafts de propiedades/generadores, shrinking/replay, modelo, carreras, fuzzing, fault injection y evaluación por mutaciones. Ver ruta-pruebas-propiedades.md. Paquete property-testing con fast-check4.10.2: quince tests, contraejemplo de tres eventos reducido y replay, scheduler y tres variantes manuales. Solo memoria; sin crash real, SQL, PSP, guía por cobertura o motor Stryker. Siguiente P058 carga/profile. Los gaps P026 y Stripe sandbox P045 permanecen; no aceptación automática de Serie06.
+P057 se amplía en siete drafts de propiedades/generadores, shrinking/replay, modelo, carreras, fuzzing, fault injection y evaluación por mutaciones. Ver ruta-pruebas-propiedades.md. Paquete property-testing con fast-check4.10.2: quince tests, contraejemplo de tres eventos reducido y replay, scheduler y tres variantes manuales. Solo memoria; sin crash real, SQL, PSP, guía por cobertura o motor Stryker.
+
+P058 se amplía en siete drafts de distribuciones, modelos de carga, saturación, carga sostenida, microbenchmarks, CPU y memoria. Ver ruta-rendimiento-profiling.md. performance-lab: k6 2.3.0 real en procesos separados, siete fases HTTP locales, tres procesos de benchmark, tres CPU profiles y seis heap snapshots. Diez tests rápidos; datos recalculables, dos gráficas y visor estático. Sin soak prolongado, producción/SQL, CPU aislada o retained size. Siguiente P059/P060, contrastar observabilidad existente. Gaps P026 y Stripe sandbox P045 conservados; no aceptación automática de Serie06.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -94,7 +96,7 @@ P057 se amplía en siete drafts de propiedades/generadores, shrinking/replay, mo
 - P055. Estrategias de pruebas de software: [borrador](../../src/content/posts/es/disenar-pruebas-invariantes-casos-limite.md).
 - P056. Integración y pruebas de contrato: [borrador](../../src/content/posts/es/testcontainers-postgresql-integracion-ciclo-vida.md).
 - P057. Property-based testing, fuzzing y fault injection: [borrador](../../src/content/posts/es/property-based-testing-generadores-invariantes.md).
-- P058. Benchmarking, carga y profiling: relacionado, requiere revisión.
+- P058. Benchmarking, carga y profiling: [borrador](../../src/content/posts/es/latencia-percentiles-histogramas-errores.md).
 - P059. Observabilidad: logs, métricas y trazas: relacionado, requiere revisión.
 - P060. SLI, SLO y error budgets: relacionado, requiere revisión.
 - P061. Incidentes, runbooks y postmortems: relacionado, requiere revisión.

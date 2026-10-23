@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+offer: "Aumentar oferta: 100 → 350/s\nMismo endpoint y configuración"
+admit: "Ocho operaciones admitidas\nEspera sintética de 40 ms"
+reject: "Sin hueco: 503 inmediato\nSin cola ilimitada"
+measure: "Contar éxitos, rechazos y CPU\nCPU baja no descarta saturación"
+recover: "Bajar a 25/s y comprobar\nVentana corta, no capacidad de producción"
+offer -> admit -> reject -> measure -> recover

@@ -1,5 +1,41 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: rendimiento y profiling, 22 de octubre de 2026
+
+Propiedades confirmadas en el turno anterior: blog 74b3eef, ejemplos c778ec9,
+sin push. Ahora siete drafts de P058: distribuciones, modelos de carga,
+saturación/recuperación, carga sostenida, microbenchmarks, CPU y memoria.
+Ruta-rendimiento-profiling.md, performance-series.json y performance-review.md.
+Se conserva OPS-LOAD y su laboratorio original, con enlace a la ampliación.
+
+Código solo en packages/performance-lab; snippets dentro de los artículos.
+Node24.19.0/TS5.9.2, k6 2.3.0 oficial instalado con pnpm tools:install y SHA-256.
+Siete fases HTTP reales, procesos separados/misma máquina. Dos ventanas open350
+dan 958/1751 y 953/1751 éxitos; recovery25 sin errores. Un VU descarta240
+iteraciones sin HTTP fallidos. Fase60s tiene1501 éxitos; no soak de horas.
+Tres procesos de benchmark, tres CPU profiles, seis snapshots V8. Perfil normal
+lento opaco; diagnóstico no-turbo-inlining separado muestra findRateSlow.
+Caché sin límite retiene500/1500; acotada100/100; retirando referencia ambas0.
+No retained size, SQL, cloud, proveedor o CPU aislada. Timings no universales.
+
+Diez tests del lab y verificación de muestras/hashes pasan;87 checks cruzados
+y19 tests del blog, build correcto.193 índices,26 paquetes,53 exports estáticos.
+Siete D2, dos gráficas derivadas y visor de siete escenarios, solo datos archivados.
+Chromium16 vistas:14 de posts más2 del visor,14 selecciones de escenario, teclado,
+iframe, tablas y sin overflow. Diagrama/gráficas/tablas móviles inspeccionados.
+Informe /tmp/performance-layout.UWIYeG/report.json. Servidor3280870 cerrado,
+puerto4322 sin listener. Lock del blog restaurado solo de pruning automático;
+monorepo añade importador nuevo sin versiones nuevas de dependencias npm.
+Heaps y binario k6 locales/ignorados, no publicados. Artículos/lab sin commit.
+
+Siguiente P059/P060: contrastar observabilidad-logs-metricas-trazas-workers,
+sli-slo-error-budget-servicios y reliable-services. Verificar OpenTelemetry,
+propagación, métricas agregables/exemplars y recorrido frontend/worker real;
+no atribuir esas garantías a logs manuales. Después operaciones y CI/CD según
+fichas. Gaps P026, Stripe sandbox P045 y soak prolongado P058 conservados.
+No aceptar Serie06 por recuentos/IDs. Español/draft, sin traducción, audio,
+publicación, commit o push automáticos. Las notas inferiores son históricas.
+
 ## Continuación vigente: pruebas basadas en propiedades, 22 de octubre de 2026
 
 Serie de integración confirmada: blog c0a1b48, ejemplos d7c9f26, sin push.
