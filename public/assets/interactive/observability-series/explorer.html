@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spans, logs y métricas de cinco operaciones reales</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui;background:#111827;color:#e5e7eb}body{margin:0;padding:1rem;max-width:70rem}h1{font-size:1.4rem}p{line-height:1.5}select,button{font:inherit;padding:.5rem;max-width:100%;margin:.3rem}button,select{background:#1e293b;color:#f8fafc;border:2px solid #60a5fa;border-radius:.3rem}button:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #fde047;outline-offset:2px}.scroll{overflow:auto;max-width:100%}table{border-collapse:collapse;min-width:700px;width:100%}th,td{padding:.6rem;border:1px solid #475569;text-align:left}code{overflow-wrap:anywhere;font-size:.85rem}svg{width:100%;height:auto;min-width:600px}#summary,#selection{padding:.6rem;background:#1e293b}tr.selected{background:#334155}.note{color:#cbd5e1}#exemplars{display:flex;flex-wrap:wrap}svg text{font-family:system-ui;font-size:13px}
+</style>
+<h1>De la medición agregada a una operación concreta</h1>
+<p>Resultados archivados de Chromium, una API Node y un worker en otro proceso. Este visor no abre conexiones al laboratorio ni genera tráfico.</p>
+<label for="scenario">Escenario:</label>
+<select id="scenario" disabled><option>Cargando datos…</option></select>
+<p id="summary" role="status" aria-live="polite"></p>
+<div class="scroll" role="region" aria-label="Timeline de spans" tabindex="0"><svg id="timeline" viewBox="0 0 720 260" role="img" aria-labelledby="timeline-title"></svg></div>
+<p class="note">Los tiempos son observados, no un benchmark. API y worker comparten máquina; en hosts distintos el clock skew puede alterar la alineación. El ancho del span no equivale a CPU consumida.</p>
+<div class="scroll" role="region" aria-label="Datos de cada span" tabindex="0"><table><caption>Spans de la operación seleccionada</caption><thead><tr><th>Span / servicio</th><th>Trace ID</th><th>Parent o link</th><th>Duración / estado</th></tr></thead><tbody id="spans"></tbody></table></div>
+<h2>Logs estructurados de la operación</h2>
+<div class="scroll" role="region" aria-label="Logs correlacionados" tabindex="0"><table><caption>Dos eventos con la misma identidad de negocio</caption><thead><tr><th>Evento</th><th>Operation / request</th><th>Trace / span</th><th>Resultado</th></tr></thead><tbody id="logs"></tbody></table></div>
+<h2>Histograma acumulado al terminar los cinco escenarios</h2>
+<p id="metric-summary"></p>
+<div class="scroll" role="region" aria-label="Buckets del histograma" tabindex="0"><table><caption>Recuentos por intervalo, no acumulativos, en segundos</caption><thead><tr><th>Resultado</th><th>[0, 0.01]</th><th>(0.01, 0.025]</th><th>(0.025, 0.05]</th><th>(0.05, 0.1]</th><th>(0.1, +Inf)</th><th>Count / sum</th></tr></thead><tbody id="histogram"></tbody></table></div>
+<p>La agregación contiene todos los jobs, incluidos los no muestreados. Solo tiene el atributo <code>result</code>; no una serie por trace ID.</p>
+<h2>Exemplars retenidos</h2>
+<p>Reservoir propio: última observación sampled por bucket y resultado. Un exemplar permite abrir un caso, no reconstruir toda la distribución.</p>
+<div id="exemplars"></div><p id="selection" role="status" aria-live="polite">Selecciona un exemplar para localizar su span.</p>
+<p class="note">Sin broker durable, Collector, OTLP o backend de consultas. El SDK JS 3.0.0 agrega las métricas; el reservoir y la exposición OpenMetrics son código explícito del laboratorio, no exemplars nativos del SDK.</p>
+<script type="module" src="explorer.mjs"></script>
+</html>

@@ -266,6 +266,71 @@
       "source": "packages/performance-lab/memory-results.svg",
       "destination": "public/assets/interactive/performance-series/memory-results.svg",
       "sha256": "ddeb9e8163a6d3fe38a1b0e8020f650bf2f204f67efb40916ab56d3ad146f7b2"
+    },
+    {
+      "source": "packages/observability-lab/explorer.html",
+      "destination": "public/assets/interactive/observability-series/explorer.html",
+      "sha256": "6c1e5e07713ebabc16b076f581cbf4baf584084195e9c9e6bff5193c7c9d1097"
+    },
+    {
+      "source": "packages/observability-lab/explorer.mjs",
+      "destination": "public/assets/interactive/observability-series/explorer.mjs",
+      "sha256": "22bd8d1b95bda2ed18e15565677e2a2b52cc164fb93d412edb42a8c46625adb5"
+    },
+    {
+      "source": "packages/observability-lab/measurements.json",
+      "destination": "public/assets/interactive/observability-series/measurements.json",
+      "sha256": "24472c2a4c8f4ababf349436a690ff3ebe33b914be7a6d66ca2e6e5689d3e33a"
+    },
+    {
+      "source": "packages/observability-lab/signals.svg",
+      "destination": "public/assets/interactive/observability-series/signals.svg",
+      "sha256": "6a8dfedf67784f76fd240ce1168d7665a9015237bfc25d94e083378fddca908e"
+    },
+    {
+      "source": "packages/service-objectives/explorer.html",
+      "destination": "public/assets/interactive/service-objectives/explorer.html",
+      "sha256": "38e5165a324694b255d0c8333f8f0e2c4bf62e45abfb659ea5d327f9db004267"
+    },
+    {
+      "source": "packages/service-objectives/explorer.mjs",
+      "destination": "public/assets/interactive/service-objectives/explorer.mjs",
+      "sha256": "3b4d79ab1f4ef43f3eb9cacfb96cac9d321c0bd07bb03aa75ded6ac201125415"
+    },
+    {
+      "source": "packages/service-objectives/model.mjs",
+      "destination": "public/assets/interactive/service-objectives/model.mjs",
+      "sha256": "2e402d48686ade948a474abc76082f13dff4c6acc77106b6b4a14de402c58c80"
+    },
+    {
+      "source": "packages/service-objectives/scenarios.json",
+      "destination": "public/assets/interactive/service-objectives/scenarios.json",
+      "sha256": "1433ba6015db5a3fffcebf9a5422709dce43f76680ce1f224626e778cb4262fc"
+    },
+    {
+      "source": "packages/service-objectives/burn-rate.svg",
+      "destination": "public/assets/interactive/service-objectives/burn-rate.svg",
+      "sha256": "b2636a3018689d158080f238480d53f369ea0736a8379780cd117e3011408249"
+    },
+    {
+      "source": "packages/incident-response/explorer.html",
+      "destination": "public/assets/interactive/incident-response/explorer.html",
+      "sha256": "53eb366437a6f4b1c6afe570e25a947f2056078c68f34c987b161bc0e103cee7"
+    },
+    {
+      "source": "packages/incident-response/explorer.mjs",
+      "destination": "public/assets/interactive/incident-response/explorer.mjs",
+      "sha256": "1708d9f218d14b6ffccf25993074c582aa266a9bc720b1c6cce14cddf7fbc241"
+    },
+    {
+      "source": "packages/incident-response/replay.json",
+      "destination": "public/assets/interactive/incident-response/replay.json",
+      "sha256": "0eecbf6f04d1beb645225e7e9f59e21e3d6e1a260c04eed4c0b9d4214a6a804c"
+    },
+    {
+      "source": "packages/incident-response/recovery.svg",
+      "destination": "public/assets/interactive/incident-response/recovery.svg",
+      "sha256": "ab17013e32205aa3246a71a135910ab0b2028c3c5ec7c646b267bbb4b57a7d7e"
     }
   ]
 }

@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+record: "Una observación de duración\nCon Context sampled válido"
+bucket: "SDK: agregar en histograma\nReservoir propio: retener una muestra"
+format: "OpenMetrics: bucket # exemplar\ntrace_id fuera de los labels de serie"
+open: "Visor: resolver trace_id + span_id\nSolo si el span sigue disponible"
+record -> bucket -> format -> open

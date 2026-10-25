@@ -1,0 +1,24 @@
+<!doctype html><html lang="es">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Simular SLO, presupuesto y alertas multi-window</title>
+<style>
+:root{color-scheme:dark;background:#111827;color:#e5e7eb;font:17px system-ui}body{max-width:70rem;margin:auto;padding:1rem}h1{font-size:1.5rem}p{line-height:1.5}label{display:block;margin:.6rem 0}select,input{font:inherit;max-width:100%;padding:.4rem;background:#1e293b;color:#f8fafc;border:2px solid #60a5fa;border-radius:.3rem}input[type=range]{width:95%;max-width:32rem}select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #fde047;outline-offset:2px}.scroll{overflow:auto;max-width:100%;margin:1rem 0}table{border-collapse:collapse;min-width:700px;width:100%}td,th{padding:.6rem;text-align:left;border:1px solid #475569}svg{width:100%;height:auto}#summary,#cohort-summary{background:#1e293b;padding:.8rem;overflow-wrap:anywhere}.note{color:#cbd5e1}code{overflow-wrap:anywhere}
+</style>
+<h1>SLO y alertas: simulación, no tráfico real</h1>
+<p>Siete escenarios deterministas de treinta días, con intervalos de un minuto. El modelo es el mismo que ejecutan los tests del laboratorio. No se consulta ningún servicio ni se envían notificaciones.</p>
+<label for="scenario">Escenario <select id="scenario" disabled><option>Cargando…</option></select></label>
+<label for="target">Objetivo <select id="target"><option value="990000">99 %</option><option value="999000" selected>99.9 %</option><option value="999500">99.95 %</option><option value="999900">99.99 %</option></select></label>
+<label for="rule">Par representado <select id="rule"><option value="fast">1 h / 5 min, threshold 14.4×</option><option value="slow">6 h / 30 min, threshold 6×</option><option value="ticket">3 días / 6 h, threshold 1×</option></select></label>
+<label for="clock">Evaluar en <output id="clock-label"></output><br><input id="clock" type="range" min="0" max="360" step="1" value="360"></label>
+<p id="summary" role="status" aria-live="polite"></p>
+<div class="scroll" role="region" aria-label="Gráfica de burn rate" tabindex="0"><svg id="chart" viewBox="0 0 760 300" role="img" aria-labelledby="chart-title"></svg></div>
+<p class="note">Azul: ventana larga. Rosa: corta. Amarillo discontinuo: threshold. La línea vertical marca la evaluación de alertas elegida. Ratios ausentes no se dibujan ni se rellenan con ceros. La gráfica conserva seis horas de contexto. El presupuesto mostrado corresponde a los treinta días completos del escenario: no cambia al mover la evaluación de alertas.</p>
+<div class="scroll" role="region" aria-label="Condiciones de alerta" tabindex="0"><table><caption>Dos ventanas y controles de calidad por cada regla</caption><thead><tr><th>Par</th><th>Burn largo</th><th>Burn corto</th><th>Estado</th><th>Severidad prevista</th></tr></thead><tbody id="pairs"></tbody></table></div>
+<p class="note">Los mínimos ilustrativos son 1000 eventos en la ventana larga y 50 en la corta. Un estado insuficiente no significa que no haya usuarios afectados. Missing data y no traffic son distintos. “none” indica que no hay condición firing, no que hayamos demostrado que todo funciona.</p>
+<h2>Maduración de una cohorte asíncrona</h2>
+<p>Siete operaciones ficticias. El plazo es de cinco minutos desde la creación. Una operación reciente queda fuera aunque ya haya terminado: no seleccionamos solo los éxitos rápidos.</p>
+<label for="cohort-clock">Minuto de observación <output id="cohort-label"></output><br><input id="cohort-clock" type="range" min="0" max="17" step="1" value="10"></label>
+<p id="cohort-summary" role="status" aria-live="polite"></p>
+<div class="scroll" role="region" aria-label="Cohortes y deadlines" tabindex="0"><table><caption>Clasificación en el instante elegido, sin contar operaciones futuras</caption><thead><tr><th>Operación</th><th>Creación</th><th>Deadline</th><th>Clasificación</th></tr></thead><tbody id="cohorts"></tbody></table></div>
+<p class="note">Definiciones del fixture: good = resolución acordada antes o justo en el deadline; bad = plazo incumplido o resolución fallida; immature = aún no puede evaluarse; future = todavía no creada. No se han desplegado Prometheus, Alertmanager, un endpoint o un worker.</p>
+<script type="module" src="explorer.mjs"></script></html>

@@ -1,5 +1,123 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: respuesta a incidentes, 25 de octubre de 2026
+
+Se completa P061 en seis drafts españoles: triage/evidencia, mitigación/verificación,
+runbooks, on-call/handoff, postmortem y acciones. Ver ruta-incidentes.md, manifiesto
+incident-response-series.json y revisión incident-response-review.md. Código solo en
+packages/incident-response del monorepo; doce extractos en los posts. OPS-DELIVERY
+conserva ejemplos y añade enlace. Seis D2, gráfica derivada y replay estático.
+
+Incidente sintético con HTTP y dos procesos reales. Captura final2026-10-25T07:43:29.009Z,
+API3694193/worker3694201, dieciséis hashes y once eventos. Legacy acepta lote cero;
+tres jobs sin progreso durante al menos tres ticks observados. Pausa rechaza una
+petición, restauración conserva cinco IDs y nuevos trabajos elevan el total a siete,
+cero pendientes. Ruta validada rechaza cero sin alterar lote/revisión. Dos acciones
+verificadas solo en fixture; alertas/durabilidad abiertas. Coordinación ficticia,
+sin paging humano, persistencia, crash recovery o deployment de un binario.
+Checkpoint parcial ignorado por Git, sin prometer fsync o atomicidad ante cortes.
+
+Nueve tests/typecheck/exercise/verify pasan;102checks editoriales/estructurales,
+build50rutas/65HTML, Pagefind10páginas/4280palabras y19tests del blog. Índices211,
+29laboratorios y66exports canónicos. Auditor65exactos/22relacionados/88sin post,
+no aceptación por IDs. Browser14vistas1440/360,11eventos/8fases por viewport,
+teclado y dos enlaces a pruebas. Informe /tmp/incident-response-layout.6AsZu3/report.json.
+Inspección visual corrigió etiquetas abreviadas y ancho de criterios. Caché anterior
+vacía: Chromium1194 restaurado con pnpm en /tmp/incident-response-playwright.
+Lock del blog restaurado tras regeneración automática propia; sin cambios finales.
+Servidor3697991cerrado tras QA. No hay servicios de laboratorio persistentes.
+
+P059, P060 Y P061 siguen sin commit en ambos repositorios. Últimos commits
+bloga2ab1e7/ejemplos319ed10, sin push. No comitear automáticamente, publicar,
+traducir o generar audio. Trabajo retomado por petición directa «continua»; el
+objetivo global permanece incompleto. El flag de herramienta aún figuraba pausado
+tras la interrupción anterior; no hay API para reanudarlo desde el agente.
+
+Siguiente P062: leer ficha completa y OPS-DELIVERY/reliable-services antes de
+redactar; separar layers/Dockerfile/multi-stage, images/containers, redes/Compose,
+volúmenes/persistencia y seguridad según decisiones. Laboratorio obligatorio API,
+Redis y PostgreSQL mediante Compose y reproducción de setup limpio, con evidencia
+real si se afirma ejecución. Después P063–P066, Deep Learning y series11–16 según
+roadmap. Mantener gapsP026, Stripe sandboxP045 y soakP058. Serie02 solo algoritmos.
+Las notas inferiores son históricas.
+
+## Continuación vigente: SLI, SLO y presupuestos, 24 de octubre de 2026
+
+La entrega anterior fue progreso: seis drafts de observabilidad con laboratorio real,
+sin commit, preservados. Ahora se amplía P060 en seis drafts: SLI/elegibilidad,
+cohortes, ventanas/cobertura, presupuesto/política, burn rate y alertas multi-window.
+Ver ruta-sli-slo-presupuestos.md, service-objectives-series.json y revisión propia.
+OPS-SLO conserva su ejemplo con enlace a la ampliación. Diez extractos en los posts;
+código completo solo en packages/service-objectives del monorepo.
+
+Node24.19.0/TS5.9.2, sin dependencias runtime. Simulación determinista, no tráfico real:
+endpoint6elegibles/3disponibles/2rápidas-correctas; cohortes t10:4elegibles/1buena.
+Siete escenarios43200min con segmentos comprimidos y19hashes de fuentes/spec/tests.
+Fast/recovered1500malos/43200permitidos/41700restantes, diferente estado de alerta.
+Coverage parcial no declara cumplimiento; no traffic/insufficient no significan ok.
+Contrato propio, no OpenSLO. Sin endpoint desplegado, Prometheus/Alertmanager,
+paging, calendario civil/DST o enforcement de política. Política y owners ficticios.
+
+Doce tests/typecheck y verify pasan;97checks editoriales/estructurales, build y19tests
+del blog. Seis D2 y gráfica derivada; visor de targets/pares/tiempo/cohortes con modelo
+compartido. Chromium14vistas1440/360,56combinaciones y teclado, tablas, iframe,
+noindex/recursos/sin overflow. Informe `/tmp/service-objectives-layout.c1DyHM/report.json`.
+Inspección visual llevó a corregir secuencia de cohortes y gráfica mobile responsive;
+resize360/900/400/1440probado. Lazy decode corregido esperando carga real, sin quitar
+aserciones. Inventario desactualizado regenerado:64exactos/23relacionados/88sin post,
+no aceptación por IDs.205índices/28paquetes/62exports. Lock del blog sin cambios;
+monorepo añade importador reutilizando deps offline. Servidor3547279cerrado,4322libre.
+
+Siguen pendientes de commit observabilidad Y esta serie en ambos repositorios.
+Últimos commits bloga2ab1e7/ejemplos319ed10, sin push. No comitear automáticamente,
+traducir, generar audio o publicar. Mantener objetivo global activo.
+
+Siguiente P061: contrastar ficha con OPS-DELIVERY (docker-ci-despliegues-runbooks)
+y reliable-services. Profundizar triage/síntoma/causa, mitigación y verificación,
+runbooks, coordinación/on-call, postmortem blameless y acciones con dueño/evidencia.
+Usar incidente reproducible con cronología real si se afirma diagnóstico ejecutado;
+no presentar modelo o plantilla como recuperación observada. Después P062–P066.
+Mantener límites P026, Stripe sandboxP045, soakP058 y alcance de Serie02 solo algoritmos.
+Las notas inferiores son históricas.
+
+## Continuación vigente: observabilidad, 23 de octubre de 2026
+
+Rendimiento confirmado tras revalidación: blog `a2ab1e7`, ejemplos `319ed10`,
+sin push. Después se escriben seis drafts de P059, separados por concepto:
+logs/identidades, spans/ciclo de vida, propagación React/API/worker, sampling,
+métricas/histogramas y exemplars. Ver ruta-observabilidad.md,
+observability-series.json y observability-review.md. OPS-SIGNALS se conserva.
+
+Código solo en packages/observability-lab, con once extractos dentro de los posts.
+SDK OTel3.0.0/API1.10.0, React19.2.0, Node24.19.0. Chromium pulsa cinco escenarios;
+API/worker por HTTP/IPC, PIDs distintos. Correcto/fallo:5spans/1traza; broken:
+5spans/2trazas sin conexión; link:dos trazas relacionadas; unsampled:cero spans,
+dos logs y una medición. Total20spans/10logs,4ok/1error. Evidencia con14hashes;
+no sumar campañas repetidas. Dos exemplars finales resuelven a spans archivados.
+
+El SDK metrics JS3.0.0 no exporta exemplars: reservoir y serializador OpenMetrics
+propios, máximo10muestras, último sampled por bucket/resultado. No soporte nativo,
+ingestión Prometheus, Collector, OTLP, backend, broker durable o crash recovery.
+HTTP202 solo aceptación. Datos ficticios/volátiles, no benchmark. Browser Context
+explícito, no instrumentación general React o tail sampling ejecutado.
+
+Nueve tests rápidos/typecheck,92checks editoriales/estructurales, build y19tests
+del blog pasan. Seis D2, gráfica derivada y visor con timeline, logs, buckets y
+selección de exemplars. Chromium14vistas1440/360, cinco selecciones por viewport,
+exemplars/teclado y regiones horizontales. Diagramas/gráfica/UI/tablas inspeccionados.
+Informe final `/tmp/observability-layout.YiWBev/report.json`. Servidor3453303 cerrado,
+sin procesos API/worker del lab. Lock del blog restaurado del pruning automático;
+monorepo añade SDKs y peer opcional OTel de Vitest sin cambiar versión de Vitest.
+199índices,27paquetes,57exports. Los artículos/lab nuevos quedan SIN COMMIT.
+
+Siguiente P060: contrastar sli-slo-error-budget-servicios y reliable-services.
+Ampliar elegibilidad, cohortes maduras, ventanas, presupuesto, burn rate y alertas
+multi-window en posts específicos, distinguiendo simulación y alertas desplegadas.
+Después P061 incidentes/runbooks/postmortem y P062–P066. Mantener gaps P026,
+Stripe sandboxP045 y soakP058; no aceptar Serie06 por IDs. Objetivo global activo,
+sin traducción, audio, publicación, commit o push automáticos. Notas inferiores
+históricas; la existencia de63IDs no prueba aceptación de todo el roadmap.
+
 ## Continuación vigente: rendimiento y profiling, 22 de octubre de 2026
 
 Propiedades confirmadas en el turno anterior: blog 74b3eef, ejemplos c778ec9,

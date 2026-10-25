@@ -19,6 +19,8 @@ El endpoint respondió bien, pero una operación sigue pendiente. El dashboard d
 
 Después de [las pruebas de fallos](/posts/fault-injection-pruebas-propiedades), necesitamos señales que permitan investigar esas mismas fronteras fuera del test. La unidad que seguimos es una operación de negocio, no únicamente una petición HTTP.
 
+Para ver la instrumentación ejecutada, la ampliación empieza en [logs e identidades](/posts/logs-estructurados-identidades-correlacion) y continúa hasta un recorrido React → API → worker con OpenTelemetry. Este artículo mantiene su laboratorio introductorio y los límites descritos abajo.
+
 ## Usa identificadores que respondan preguntas distintas
 
 Un **request ID** identifica una interacción HTTP. Un **operation ID** conecta su intención comercial con retries, webhooks y reconciliación. Un **attempt ID** diferencia intentos. Un **event ID** permite reconocer un mensaje concreto.

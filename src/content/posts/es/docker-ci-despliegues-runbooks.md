@@ -19,6 +19,8 @@ El rollback devuelve la aplicación a su versión anterior, pero esa versión ya
 
 Operar un servicio exige conectar cambios de aplicación, datos y procedimientos. Cerramos esta ruta después de [definir SLO](/posts/sli-slo-error-budget-servicios) y retomamos las [migraciones compatibles](/posts/migraciones-base-datos-sin-romper-aplicacion).
 
+La serie [Responder a incidentes](/posts/incidentes-triage-sintomas-hipotesis-evidencia) amplía el triage, la mitigación, los runbooks y los postmortems con un caso reproducible. Este artículo conserva la visión de conjunto de la entrega y sus ejemplos originales.
+
 ## Reproducir el entorno antes de reproducir el incidente
 
 Una **image** empaqueta un sistema de archivos y metadatos; un **container** es una instancia en ejecución. Los volúmenes, la red y los secretos pertenecen a decisiones adicionales. Contenerizar no significa que todo el estado viaje dentro de la imagen.

@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+events: "Observaciones del endpoint\nResultado del cliente simulado"
+eligible: "Elegibilidad antes del resultado\nRuta / usuario / petición válida"
+good: "Disponible: resultado correcto\nRápido: correcto Y duración ≤ 300ms"
+ratio: "SLI: buenos / elegibles\nTimeout y body inválido no desaparecen"
+events -> eligible -> good -> ratio

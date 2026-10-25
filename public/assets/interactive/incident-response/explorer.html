@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Reproducir la evidencia de un incidente sintético</title>
+<style>:root{color-scheme:dark;background:#111827;color:#e5e7eb;font:17px system-ui}body{max-width:70rem;margin:auto;padding:1rem}h1{font-size:1.5rem}p{line-height:1.5}select,button{font:inherit;padding:.5rem;margin:.3rem;max-width:100%;background:#1e293b;color:#f8fafc;border:2px solid #60a5fa;border-radius:.3rem}select:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #fde047;outline-offset:2px}.scroll{overflow:auto;max-width:100%}table{border-collapse:collapse;min-width:700px;width:100%}th,td{padding:.6rem;border:1px solid #475569;text-align:left}#summary{background:#1e293b;padding:.8rem;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.85rem;max-height:32rem;overflow:auto}#actions td:nth-child(4){min-width:24rem}button:disabled{opacity:.6}.note{color:#cbd5e1}</style>
+<h1>Incidente sintético, evidencia HTTP real</h1>
+<p>Recorre once eventos archivados de una API y un worker en procesos distintos. No ejecuta comandos, no introduce fallos y no se conecta al laboratorio.</p>
+<label for="phase">Fase <select id="phase"><option value="all">Todas</option></select></label>
+<label for="event">Evento <select id="event" disabled><option>Cargando…</option></select></label>
+<p><button id="previous">Anterior</button><button id="next">Siguiente</button></p>
+<p id="summary" role="status" aria-live="polite"></p>
+<div class="scroll" role="region" aria-label="Estado observado en este evento" tabindex="0"><table><caption>Solo campos presentes en la captura, no estado reconstruido artificialmente</caption><thead><tr><th>Aceptados</th><th>Completados</th><th>Pendientes</th><th>Batch / revisión</th><th>Ticks / intentos</th><th>Admisión</th></tr></thead><tbody id="snapshot"></tbody></table></div>
+<p class="note">“No capturado” no significa cero. Los ms miden desde el harness automático, no tiempo de respuesta de un equipo. Los UTC son de observación del cliente, no el instante exacto de cada cambio interno.</p>
+<details><summary>Ver hechos JSON del evento</summary><pre id="facts" tabindex="0"></pre></details>
+<h2>Acciones del análisis</h2>
+<p>Responsables y fechas son ficticios. Abrir una prueba no ejecuta una corrección. Dos acciones están verificadas solo en este fixture; observación/alertas y durabilidad permanecen abiertas.</p>
+<div class="scroll" role="region" aria-label="Acciones y evidencia" tabindex="0"><table><caption>Propuesta editorial vinculada a resultados, no tareas cerradas en producción</caption><thead><tr><th>Acción</th><th>Owner</th><th>Estado</th><th>Criterio</th><th>Evidencia</th></tr></thead><tbody id="actions"></tbody></table></div>
+<p class="note">Sin usuarios de producción, guardia humana, paging, broker durable o deploy de un binario. La ruta de validación corregida ya estaba incluida en el ejecutable del ejercicio. Los documentos de coordinación son ejemplos redactados, no mensajes enviados.</p>
+<script type="module" src="explorer.mjs"></script></html>

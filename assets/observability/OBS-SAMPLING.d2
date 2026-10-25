@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+root: "Decisión inicial de sampling\nAntes de conocer el resultado"
+flag: "traceparent: flag sampled 00\nEl contexto aún tiene IDs"
+child: "ParentBased respeta la decisión\nNo exporta los spans del recorrido"
+other: "Logs y métricas siguen registrándose\nSin traza almacenada que abrir"
+root -> flag -> child -> other

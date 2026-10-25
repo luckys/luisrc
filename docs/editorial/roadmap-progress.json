@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 62,
-    "related_only": 25,
+    "draft_exists": 65,
+    "related_only": 22,
     "not_written": 88
   },
   "completionProven": false,
@@ -724,8 +724,12 @@
         {
           "id": "P059",
           "title": "Observabilidad: logs, métricas y trazas",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/logs-estructurados-identidades-correlacion.md",
+            "slug": "logs-estructurados-identidades-correlacion",
+            "draft": true
+          },
           "related": [
             "observabilidad-logs-metricas-trazas-workers"
           ],
@@ -734,8 +738,12 @@
         {
           "id": "P060",
           "title": "SLI, SLO y error budgets",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/sli-disponibilidad-latencia-eventos-elegibles.md",
+            "slug": "sli-disponibilidad-latencia-eventos-elegibles",
+            "draft": true
+          },
           "related": [
             "sli-slo-error-budget-servicios"
           ],
@@ -744,8 +752,12 @@
         {
           "id": "P061",
           "title": "Incidentes, runbooks y postmortems",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/incidentes-triage-sintomas-hipotesis-evidencia.md",
+            "slug": "incidentes-triage-sintomas-hipotesis-evidencia",
+            "draft": true
+          },
           "related": [
             "docker-ci-despliegues-runbooks"
           ],

@@ -19,6 +19,8 @@ El servicio tiene un 99.99 % de respuestas HTTP exitosas, pero muchas operacione
 
 Después de [interpretar las pruebas de carga](/posts/pruebas-carga-percentiles-saturacion), necesitamos definir qué resultado es bueno y para quién. Un porcentaje sin ventana, denominador y criterio de éxito no permite tomar decisiones.
 
+La ampliación empieza en [definir el SLI del endpoint](/posts/sli-disponibilidad-latencia-eventos-elegibles) y desarrolla cohortes, ventanas, presupuesto y alertas multi-window con una simulación reproducible. Este artículo conserva su ejemplo introductorio y sus límites.
+
 ## SLI mide y SLO fija un objetivo
 
 Un **SLI**, Service Level Indicator, mide una propiedad del servicio: por ejemplo, proporción de solicitudes elegibles que reciben respuesta válida dentro del umbral. Un **SLO**, Service Level Objective, fija una meta para ese indicador durante una ventana.

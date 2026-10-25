@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+http: "Petición HTTP\nrequest_id: una interacción"
+job: "Operación asíncrona\noperation_id: una intención"
+trace: "Contexto de ejecución\ntrace_id y span_id: recorrido"
+log: "Log por allowlist\nEvento, resultado e identidades válidas"
+http -> job -> trace -> log

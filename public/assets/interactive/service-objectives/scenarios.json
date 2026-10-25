@@ -1,0 +1,278 @@
+{
+  "simulation": true,
+  "objective": {
+    "format": "lab-v1-not-openslo",
+    "service": "reports-api-fictional",
+    "route": "GET /reports/{id}",
+    "measurementBoundary": "simulated client outcome, not just server HTTP status",
+    "eligibility": "valid user requests for this route; synthetic, other routes and malformed requests counted separately",
+    "availabilityGood": "200 with valid body, or expected404 with valid body",
+    "latencyGood": "availabilityGood AND durationMs <= latencyThresholdMs",
+    "latencyThresholdMs": 300,
+    "targetPpm": 999000,
+    "window": {
+      "kind": "rolling",
+      "minutes": 43200
+    },
+    "owner": "reporting-oncall-fictional",
+    "review": "review with product after collecting real traffic; not a commercial promise"
+  },
+  "scenarios": [
+    {
+      "id": "baseline",
+      "title": "Sin errores",
+      "segments": [
+        {
+          "minutes": 43200,
+          "total": 1000,
+          "bad": 0,
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": "fast-burn",
+      "title": "Degradación rápida activa",
+      "segments": [
+        {
+          "minutes": 43190,
+          "total": 1000,
+          "bad": 0,
+          "present": true
+        },
+        {
+          "minutes": 10,
+          "total": 1000,
+          "bad": 150,
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": "recovered",
+      "title": "Degradación ya recuperada",
+      "segments": [
+        {
+          "minutes": 43175,
+          "total": 1000,
+          "bad": 0,
+          "present": true
+        },
+        {
+          "minutes": 10,
+          "total": 1000,
+          "bad": 150,
+          "present": true
+        },
+        {
+          "minutes": 15,
+          "total": 1000,
+          "bad": 0,
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": "slow-burn",
+      "title": "Degradación lenta sostenida",
+      "segments": [
+        {
+          "minutes": 42840,
+          "total": 1000,
+          "bad": 0,
+          "present": true
+        },
+        {
+          "minutes": 360,
+          "total": 1000,
+          "bad": 10,
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": "low-traffic",
+      "title": "Un fallo con tráfico bajo",
+      "segments": [
+        {
+          "minutes": 43199,
+          "total": 1,
+          "bad": 0,
+          "present": true
+        },
+        {
+          "minutes": 1,
+          "total": 1,
+          "bad": 1,
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": "no-traffic",
+      "title": "Sin tráfico conocido",
+      "segments": [
+        {
+          "minutes": 43200,
+          "total": 0,
+          "bad": 0,
+          "present": true
+        }
+      ]
+    },
+    {
+      "id": "missing-data",
+      "title": "Faltan cinco minutos de telemetría",
+      "segments": [
+        {
+          "minutes": 43195,
+          "total": 1000,
+          "bad": 0,
+          "present": true
+        },
+        {
+          "minutes": 5,
+          "total": 0,
+          "bad": 0,
+          "present": false
+        }
+      ]
+    }
+  ],
+  "httpEvents": [
+    {
+      "id": "http-01",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": true,
+      "status": 200,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": 100
+    },
+    {
+      "id": "http-02",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": true,
+      "status": 200,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": 900
+    },
+    {
+      "id": "http-03",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": true,
+      "status": 503,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": 10
+    },
+    {
+      "id": "http-04",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": true,
+      "status": null,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": null
+    },
+    {
+      "id": "http-05",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": true,
+      "status": 404,
+      "bodyValid": true,
+      "expectedNotFound": true,
+      "durationMs": 80
+    },
+    {
+      "id": "http-06",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": true,
+      "status": 200,
+      "bodyValid": false,
+      "expectedNotFound": false,
+      "durationMs": 100
+    },
+    {
+      "id": "http-07",
+      "route": "GET /reports/{id}",
+      "traffic": "user",
+      "requestValid": false,
+      "status": 400,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": 100
+    },
+    {
+      "id": "http-08",
+      "route": "GET /reports/{id}",
+      "traffic": "synthetic",
+      "requestValid": true,
+      "status": 200,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": 100
+    },
+    {
+      "id": "http-09",
+      "route": "GET /health",
+      "traffic": "user",
+      "requestValid": true,
+      "status": 200,
+      "bodyValid": true,
+      "expectedNotFound": false,
+      "durationMs": 100
+    }
+  ],
+  "operations": [
+    {
+      "id": "op-01",
+      "createdAt": 0,
+      "finishedAt": 3,
+      "outcome": "completed"
+    },
+    {
+      "id": "op-02",
+      "createdAt": 1,
+      "finishedAt": 8,
+      "outcome": "completed"
+    },
+    {
+      "id": "op-03",
+      "createdAt": 2,
+      "finishedAt": 3,
+      "outcome": "failed"
+    },
+    {
+      "id": "op-04",
+      "createdAt": 3,
+      "finishedAt": null,
+      "outcome": null
+    },
+    {
+      "id": "op-05",
+      "createdAt": 9,
+      "finishedAt": 9,
+      "outcome": "completed"
+    },
+    {
+      "id": "op-06",
+      "createdAt": 9,
+      "finishedAt": null,
+      "outcome": null
+    },
+    {
+      "id": "op-07",
+      "createdAt": 12,
+      "finishedAt": null,
+      "outcome": null
+    }
+  ]
+}

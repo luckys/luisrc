@@ -1,0 +1,1087 @@
+{
+  "measuredAt": "2026-10-23T10:38:41.444Z",
+  "node": "v24.19.0",
+  "otel": "3.0.0",
+  "cases": [
+    {
+      "scenario": "ok",
+      "job": {
+        "operationId": "op-001",
+        "requestId": "req-001",
+        "scenario": "ok",
+        "status": "ok"
+      },
+      "spans": [
+        {
+          "name": "POST /jobs client",
+          "service": "jobs-web",
+          "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "spanId": "8e75d205133df1d8",
+          "parentSpanId": "75181f6a3f493ef2",
+          "parentRemote": false,
+          "kind": 2,
+          "startMs": 1792751921107,
+          "durationMs": 8.7,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-001"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "ui.submit",
+          "service": "jobs-web",
+          "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "spanId": "75181f6a3f493ef2",
+          "parentSpanId": null,
+          "parentRemote": false,
+          "kind": 0,
+          "startMs": 1792751921107,
+          "durationMs": 9.3,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-001"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "jobs publish",
+          "service": "jobs-api",
+          "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "spanId": "498b59b87d7d719f",
+          "parentSpanId": "6e976ecefb0f6b4b",
+          "parentRemote": false,
+          "kind": 3,
+          "startMs": 1792751921112,
+          "durationMs": 0.234811,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-001"
+          },
+          "events": [
+            {
+              "name": "job.sent",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "POST /jobs",
+          "service": "jobs-api",
+          "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "spanId": "6e976ecefb0f6b4b",
+          "parentSpanId": "8e75d205133df1d8",
+          "parentRemote": true,
+          "kind": 1,
+          "startMs": 1792751921112,
+          "durationMs": 1.02388,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-001",
+            "http.route": "/jobs",
+            "http.response.status_code": 202
+          },
+          "events": [
+            {
+              "name": "job.accepted",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "jobs process",
+          "service": "jobs-worker",
+          "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "spanId": "f3e5904eb5038538",
+          "parentSpanId": "498b59b87d7d719f",
+          "parentRemote": true,
+          "kind": 4,
+          "startMs": 1792751921113,
+          "durationMs": 21.092402,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-001"
+          },
+          "events": [],
+          "links": []
+        }
+      ],
+      "logs": [
+        {
+          "event": "job.accepted",
+          "operation_id": "op-001",
+          "request_id": "req-001",
+          "result": "accepted",
+          "trace_id": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "span_id": "6e976ecefb0f6b4b"
+        },
+        {
+          "event": "job.finished",
+          "operation_id": "op-001",
+          "request_id": "req-001",
+          "result": "ok",
+          "trace_id": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+          "span_id": "f3e5904eb5038538"
+        }
+      ],
+      "metrics": {
+        "histogram": [
+          {
+            "attributes": {
+              "result": "ok"
+            },
+            "startTime": [
+              1792751921,
+              135000000
+            ],
+            "endTime": [
+              1792751921,
+              136000000
+            ],
+            "value": {
+              "min": 0.020362608999999792,
+              "max": 0.020362608999999792,
+              "sum": 0.020362608999999792,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 1
+            }
+          }
+        ],
+        "exemplars": [
+          {
+            "result": "ok",
+            "bucket": 1,
+            "value": 0.020362608999999792,
+            "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+            "spanId": "f3e5904eb5038538"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "fail",
+      "job": {
+        "operationId": "op-002",
+        "requestId": "req-002",
+        "scenario": "fail",
+        "status": "error"
+      },
+      "spans": [
+        {
+          "name": "POST /jobs client",
+          "service": "jobs-web",
+          "traceId": "9cf221ffda14d449fb2e51b33124b675",
+          "spanId": "a5223135eaea393b",
+          "parentSpanId": "cd1d14a5befa800f",
+          "parentRemote": false,
+          "kind": 2,
+          "startMs": 1792751921168,
+          "durationMs": 14.4,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-002"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "ui.submit",
+          "service": "jobs-web",
+          "traceId": "9cf221ffda14d449fb2e51b33124b675",
+          "spanId": "cd1d14a5befa800f",
+          "parentSpanId": null,
+          "parentRemote": false,
+          "kind": 0,
+          "startMs": 1792751921168,
+          "durationMs": 14.5,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-002"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "jobs publish",
+          "service": "jobs-api",
+          "traceId": "9cf221ffda14d449fb2e51b33124b675",
+          "spanId": "5e1c690a948de82d",
+          "parentSpanId": "07120067dc2cd74c",
+          "parentRemote": false,
+          "kind": 3,
+          "startMs": 1792751921170,
+          "durationMs": 0.114158,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-002"
+          },
+          "events": [
+            {
+              "name": "job.sent",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "POST /jobs",
+          "service": "jobs-api",
+          "traceId": "9cf221ffda14d449fb2e51b33124b675",
+          "spanId": "07120067dc2cd74c",
+          "parentSpanId": "a5223135eaea393b",
+          "parentRemote": true,
+          "kind": 1,
+          "startMs": 1792751921170,
+          "durationMs": 0.575084,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-002",
+            "http.route": "/jobs",
+            "http.response.status_code": 202
+          },
+          "events": [
+            {
+              "name": "job.accepted",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "jobs process",
+          "service": "jobs-worker",
+          "traceId": "9cf221ffda14d449fb2e51b33124b675",
+          "spanId": "14b12ea463ed3384",
+          "parentSpanId": "5e1c690a948de82d",
+          "parentRemote": true,
+          "kind": 4,
+          "startMs": 1792751921171,
+          "durationMs": 20.95426,
+          "status": {
+            "code": 2
+          },
+          "attributes": {
+            "lab.operation_id": "op-002"
+          },
+          "events": [
+            {
+              "name": "job.failure",
+              "attributes": {
+                "error.type": "controlled_failure"
+              }
+            }
+          ],
+          "links": []
+        }
+      ],
+      "logs": [
+        {
+          "event": "job.accepted",
+          "operation_id": "op-002",
+          "request_id": "req-002",
+          "result": "accepted",
+          "trace_id": "9cf221ffda14d449fb2e51b33124b675",
+          "span_id": "07120067dc2cd74c"
+        },
+        {
+          "event": "job.finished",
+          "operation_id": "op-002",
+          "request_id": "req-002",
+          "result": "error",
+          "trace_id": "9cf221ffda14d449fb2e51b33124b675",
+          "span_id": "14b12ea463ed3384"
+        }
+      ],
+      "metrics": {
+        "histogram": [
+          {
+            "attributes": {
+              "result": "ok"
+            },
+            "startTime": [
+              1792751921,
+              135000000
+            ],
+            "endTime": [
+              1792751921,
+              192000000
+            ],
+            "value": {
+              "min": 0.020362608999999792,
+              "max": 0.020362608999999792,
+              "sum": 0.020362608999999792,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 1
+            }
+          },
+          {
+            "attributes": {
+              "result": "error"
+            },
+            "startTime": [
+              1792751921,
+              191000000
+            ],
+            "endTime": [
+              1792751921,
+              192000000
+            ],
+            "value": {
+              "min": 0.02031289800000013,
+              "max": 0.02031289800000013,
+              "sum": 0.02031289800000013,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 1
+            }
+          }
+        ],
+        "exemplars": [
+          {
+            "result": "ok",
+            "bucket": 1,
+            "value": 0.020362608999999792,
+            "traceId": "fb8a52bc8e3f42ce8e53ca6e107572ce",
+            "spanId": "f3e5904eb5038538"
+          },
+          {
+            "result": "error",
+            "bucket": 1,
+            "value": 0.02031289800000013,
+            "traceId": "9cf221ffda14d449fb2e51b33124b675",
+            "spanId": "14b12ea463ed3384"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "broken",
+      "job": {
+        "operationId": "op-003",
+        "requestId": "req-003",
+        "scenario": "broken",
+        "status": "ok"
+      },
+      "spans": [
+        {
+          "name": "POST /jobs client",
+          "service": "jobs-web",
+          "traceId": "ee55a21f5678f8e4e183e865855be8d6",
+          "spanId": "11566157f2517db3",
+          "parentSpanId": "dad4bf7a74b811da",
+          "parentRemote": false,
+          "kind": 2,
+          "startMs": 1792751921235,
+          "durationMs": 14,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-003"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "ui.submit",
+          "service": "jobs-web",
+          "traceId": "ee55a21f5678f8e4e183e865855be8d6",
+          "spanId": "dad4bf7a74b811da",
+          "parentSpanId": null,
+          "parentRemote": false,
+          "kind": 0,
+          "startMs": 1792751921235,
+          "durationMs": 14,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-003"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "jobs publish",
+          "service": "jobs-api",
+          "traceId": "ee55a21f5678f8e4e183e865855be8d6",
+          "spanId": "9264e3cbf75d5ea9",
+          "parentSpanId": "46658f1931c597c6",
+          "parentRemote": false,
+          "kind": 3,
+          "startMs": 1792751921237,
+          "durationMs": 0.052462,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-003"
+          },
+          "events": [
+            {
+              "name": "job.sent",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "POST /jobs",
+          "service": "jobs-api",
+          "traceId": "ee55a21f5678f8e4e183e865855be8d6",
+          "spanId": "46658f1931c597c6",
+          "parentSpanId": "11566157f2517db3",
+          "parentRemote": true,
+          "kind": 1,
+          "startMs": 1792751921237,
+          "durationMs": 0.280785,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-003",
+            "http.route": "/jobs",
+            "http.response.status_code": 202
+          },
+          "events": [
+            {
+              "name": "job.accepted",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "jobs process",
+          "service": "jobs-worker",
+          "traceId": "505f6aed8adbee06dc0e7a0d0b4732bb",
+          "spanId": "ff777510d9d5448a",
+          "parentSpanId": null,
+          "parentRemote": false,
+          "kind": 4,
+          "startMs": 1792751921237,
+          "durationMs": 20.421538,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-003"
+          },
+          "events": [],
+          "links": []
+        }
+      ],
+      "logs": [
+        {
+          "event": "job.accepted",
+          "operation_id": "op-003",
+          "request_id": "req-003",
+          "result": "accepted",
+          "trace_id": "ee55a21f5678f8e4e183e865855be8d6",
+          "span_id": "46658f1931c597c6"
+        },
+        {
+          "event": "job.finished",
+          "operation_id": "op-003",
+          "request_id": "req-003",
+          "result": "ok",
+          "trace_id": "505f6aed8adbee06dc0e7a0d0b4732bb",
+          "span_id": "ff777510d9d5448a"
+        }
+      ],
+      "metrics": {
+        "histogram": [
+          {
+            "attributes": {
+              "result": "ok"
+            },
+            "startTime": [
+              1792751921,
+              135000000
+            ],
+            "endTime": [
+              1792751921,
+              258000000
+            ],
+            "value": {
+              "min": 0.02027842099999998,
+              "max": 0.020362608999999792,
+              "sum": 0.04064102999999977,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 2
+            }
+          },
+          {
+            "attributes": {
+              "result": "error"
+            },
+            "startTime": [
+              1792751921,
+              191000000
+            ],
+            "endTime": [
+              1792751921,
+              258000000
+            ],
+            "value": {
+              "min": 0.02031289800000013,
+              "max": 0.02031289800000013,
+              "sum": 0.02031289800000013,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 1
+            }
+          }
+        ],
+        "exemplars": [
+          {
+            "result": "ok",
+            "bucket": 1,
+            "value": 0.02027842099999998,
+            "traceId": "505f6aed8adbee06dc0e7a0d0b4732bb",
+            "spanId": "ff777510d9d5448a"
+          },
+          {
+            "result": "error",
+            "bucket": 1,
+            "value": 0.02031289800000013,
+            "traceId": "9cf221ffda14d449fb2e51b33124b675",
+            "spanId": "14b12ea463ed3384"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "link",
+      "job": {
+        "operationId": "op-004",
+        "requestId": "req-004",
+        "scenario": "link",
+        "status": "ok"
+      },
+      "spans": [
+        {
+          "name": "POST /jobs client",
+          "service": "jobs-web",
+          "traceId": "2d98728d9fceb9e6110780b1bc2ebfe7",
+          "spanId": "1ae655c4a57872d4",
+          "parentSpanId": "830c53e45abc4349",
+          "parentRemote": false,
+          "kind": 2,
+          "startMs": 1792751921302,
+          "durationMs": 13.3,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-004"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "ui.submit",
+          "service": "jobs-web",
+          "traceId": "2d98728d9fceb9e6110780b1bc2ebfe7",
+          "spanId": "830c53e45abc4349",
+          "parentSpanId": null,
+          "parentRemote": false,
+          "kind": 0,
+          "startMs": 1792751921302,
+          "durationMs": 13.5,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-004"
+          },
+          "events": [],
+          "links": []
+        },
+        {
+          "name": "jobs publish",
+          "service": "jobs-api",
+          "traceId": "2d98728d9fceb9e6110780b1bc2ebfe7",
+          "spanId": "fdfe3b9e6c1672da",
+          "parentSpanId": "ce136f56fcd5018b",
+          "parentRemote": false,
+          "kind": 3,
+          "startMs": 1792751921303,
+          "durationMs": 0.043494,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-004"
+          },
+          "events": [
+            {
+              "name": "job.sent",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "POST /jobs",
+          "service": "jobs-api",
+          "traceId": "2d98728d9fceb9e6110780b1bc2ebfe7",
+          "spanId": "ce136f56fcd5018b",
+          "parentSpanId": "1ae655c4a57872d4",
+          "parentRemote": true,
+          "kind": 1,
+          "startMs": 1792751921303,
+          "durationMs": 0.208272,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-004",
+            "http.route": "/jobs",
+            "http.response.status_code": 202
+          },
+          "events": [
+            {
+              "name": "job.accepted",
+              "attributes": {}
+            }
+          ],
+          "links": []
+        },
+        {
+          "name": "jobs process",
+          "service": "jobs-worker",
+          "traceId": "793fa41af10c4766cf7dba8e37edb413",
+          "spanId": "4f2c9f303b3e06fe",
+          "parentSpanId": null,
+          "parentRemote": false,
+          "kind": 4,
+          "startMs": 1792751921304,
+          "durationMs": 20.346716,
+          "status": {
+            "code": 0
+          },
+          "attributes": {
+            "lab.operation_id": "op-004"
+          },
+          "events": [],
+          "links": [
+            {
+              "traceId": "2d98728d9fceb9e6110780b1bc2ebfe7",
+              "spanId": "fdfe3b9e6c1672da"
+            }
+          ]
+        }
+      ],
+      "logs": [
+        {
+          "event": "job.accepted",
+          "operation_id": "op-004",
+          "request_id": "req-004",
+          "result": "accepted",
+          "trace_id": "2d98728d9fceb9e6110780b1bc2ebfe7",
+          "span_id": "ce136f56fcd5018b"
+        },
+        {
+          "event": "job.finished",
+          "operation_id": "op-004",
+          "request_id": "req-004",
+          "result": "ok",
+          "trace_id": "793fa41af10c4766cf7dba8e37edb413",
+          "span_id": "4f2c9f303b3e06fe"
+        }
+      ],
+      "metrics": {
+        "histogram": [
+          {
+            "attributes": {
+              "result": "ok"
+            },
+            "startTime": [
+              1792751921,
+              135000000
+            ],
+            "endTime": [
+              1792751921,
+              324000000
+            ],
+            "value": {
+              "min": 0.020219821000000138,
+              "max": 0.020362608999999792,
+              "sum": 0.06086085099999991,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  3,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 3
+            }
+          },
+          {
+            "attributes": {
+              "result": "error"
+            },
+            "startTime": [
+              1792751921,
+              191000000
+            ],
+            "endTime": [
+              1792751921,
+              324000000
+            ],
+            "value": {
+              "min": 0.02031289800000013,
+              "max": 0.02031289800000013,
+              "sum": 0.02031289800000013,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 1
+            }
+          }
+        ],
+        "exemplars": [
+          {
+            "result": "ok",
+            "bucket": 1,
+            "value": 0.020219821000000138,
+            "traceId": "793fa41af10c4766cf7dba8e37edb413",
+            "spanId": "4f2c9f303b3e06fe"
+          },
+          {
+            "result": "error",
+            "bucket": 1,
+            "value": 0.02031289800000013,
+            "traceId": "9cf221ffda14d449fb2e51b33124b675",
+            "spanId": "14b12ea463ed3384"
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "unsampled",
+      "job": {
+        "operationId": "op-005",
+        "requestId": "req-005",
+        "scenario": "unsampled",
+        "status": "ok"
+      },
+      "spans": [],
+      "logs": [
+        {
+          "event": "job.accepted",
+          "operation_id": "op-005",
+          "request_id": "req-005",
+          "result": "accepted",
+          "trace_id": "b683b5b70d95bdc08c4130e38a552758",
+          "span_id": "3541a1492404eefa"
+        },
+        {
+          "event": "job.finished",
+          "operation_id": "op-005",
+          "request_id": "req-005",
+          "result": "ok",
+          "trace_id": "b683b5b70d95bdc08c4130e38a552758",
+          "span_id": "4aac79640d8050e1"
+        }
+      ],
+      "metrics": {
+        "histogram": [
+          {
+            "attributes": {
+              "result": "ok"
+            },
+            "startTime": [
+              1792751921,
+              135000000
+            ],
+            "endTime": [
+              1792751921,
+              392000000
+            ],
+            "value": {
+              "min": 0.019293282999999974,
+              "max": 0.020362608999999792,
+              "sum": 0.08015413399999988,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  4,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 4
+            }
+          },
+          {
+            "attributes": {
+              "result": "error"
+            },
+            "startTime": [
+              1792751921,
+              191000000
+            ],
+            "endTime": [
+              1792751921,
+              392000000
+            ],
+            "value": {
+              "min": 0.02031289800000013,
+              "max": 0.02031289800000013,
+              "sum": 0.02031289800000013,
+              "buckets": {
+                "boundaries": [
+                  0.01,
+                  0.025,
+                  0.05,
+                  0.1
+                ],
+                "counts": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "count": 1
+            }
+          }
+        ],
+        "exemplars": [
+          {
+            "result": "ok",
+            "bucket": 1,
+            "value": 0.020219821000000138,
+            "traceId": "793fa41af10c4766cf7dba8e37edb413",
+            "spanId": "4f2c9f303b3e06fe"
+          },
+          {
+            "result": "error",
+            "bucket": 1,
+            "value": 0.02031289800000013,
+            "traceId": "9cf221ffda14d449fb2e51b33124b675",
+            "spanId": "14b12ea463ed3384"
+          }
+        ]
+      }
+    }
+  ],
+  "metrics": {
+    "histogram": [
+      {
+        "attributes": {
+          "result": "ok"
+        },
+        "startTime": [
+          1792751921,
+          135000000
+        ],
+        "endTime": [
+          1792751921,
+          392000000
+        ],
+        "value": {
+          "min": 0.019293282999999974,
+          "max": 0.020362608999999792,
+          "sum": 0.08015413399999988,
+          "buckets": {
+            "boundaries": [
+              0.01,
+              0.025,
+              0.05,
+              0.1
+            ],
+            "counts": [
+              0,
+              4,
+              0,
+              0,
+              0
+            ]
+          },
+          "count": 4
+        }
+      },
+      {
+        "attributes": {
+          "result": "error"
+        },
+        "startTime": [
+          1792751921,
+          191000000
+        ],
+        "endTime": [
+          1792751921,
+          392000000
+        ],
+        "value": {
+          "min": 0.02031289800000013,
+          "max": 0.02031289800000013,
+          "sum": 0.02031289800000013,
+          "buckets": {
+            "boundaries": [
+              0.01,
+              0.025,
+              0.05,
+              0.1
+            ],
+            "counts": [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "count": 1
+        }
+      }
+    ],
+    "exemplars": [
+      {
+        "result": "ok",
+        "bucket": 1,
+        "value": 0.020219821000000138,
+        "traceId": "793fa41af10c4766cf7dba8e37edb413",
+        "spanId": "4f2c9f303b3e06fe"
+      },
+      {
+        "result": "error",
+        "bucket": 1,
+        "value": 0.02031289800000013,
+        "traceId": "9cf221ffda14d449fb2e51b33124b675",
+        "spanId": "14b12ea463ed3384"
+      }
+    ]
+  },
+  "limits": {
+    "durableBroker": false,
+    "otlpExporter": false,
+    "collector": false,
+    "backend": false,
+    "nativeSdkExemplars": false,
+    "asyncContextBrowser": "explicit Context at every boundary",
+    "reservoir": "last sampled per bucket/result, at most 10"
+  }
+}

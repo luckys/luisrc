@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+react: "React: ui.submit → HTTP client\nContext explícito"
+api: "API: HTTP server\nextract traceparent de la petición"
+publish: "Productor: jobs publish\ninject en metadata del mensaje"
+worker: "Worker: jobs process\nextract en otro proceso"
+react -> api: "HTTP loopback"
+api -> publish
+publish -> worker: "IPC asíncrono, no broker durable"

@@ -1,0 +1,599 @@
+{
+  "syntheticIncident": true,
+  "events": [
+    {
+      "seq": 1,
+      "id": "baseline",
+      "phase": "before",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.897Z",
+      "elapsedMs": 133.702744,
+      "facts": {
+        "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+        "apiPid": 3694193,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 2,
+            "revision": 1,
+            "guarded": false
+          },
+          "ticks": 2,
+          "attempts": 0,
+          "queued": 2,
+          "oldestAgeMs": 7.770102999999999
+        },
+        "admissionOpen": true,
+        "rejectedDuringPause": 0,
+        "accepted": 2,
+        "completed": 2,
+        "queued": 0,
+        "jobs": [
+          {
+            "id": "job-001",
+            "createdMs": 62.341694,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-001"
+          },
+          {
+            "id": "job-002",
+            "createdMs": 67.660081,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-002"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 2,
+      "id": "zero_applied",
+      "phase": "fault",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.899Z",
+      "elapsedMs": 135.72503,
+      "facts": {
+        "type": "control-reply",
+        "rpcId": "23576a28-2aa5-4186-8542-1cb06bd63f4c",
+        "ok": true,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 0,
+            "guarded": false,
+            "revision": 2
+          },
+          "ticks": 3,
+          "attempts": 2,
+          "queued": 0,
+          "oldestAgeMs": 0
+        }
+      }
+    },
+    {
+      "seq": 3,
+      "id": "queued",
+      "phase": "fault",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.912Z",
+      "elapsedMs": 149.257092,
+      "facts": {
+        "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+        "apiPid": 3694193,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 0,
+            "guarded": false,
+            "revision": 2
+          },
+          "ticks": 4,
+          "attempts": 2,
+          "queued": 3,
+          "oldestAgeMs": 4.865895000000009
+        },
+        "admissionOpen": true,
+        "rejectedDuringPause": 0,
+        "accepted": 5,
+        "completed": 2,
+        "queued": 3,
+        "jobs": [
+          {
+            "id": "job-001",
+            "createdMs": 62.341694,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-001"
+          },
+          {
+            "id": "job-002",
+            "createdMs": 67.660081,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-002"
+          },
+          {
+            "id": "job-003",
+            "status": "queued",
+            "result": null,
+            "attempts": 0
+          },
+          {
+            "id": "job-004",
+            "status": "queued",
+            "result": null,
+            "attempts": 0
+          },
+          {
+            "id": "job-005",
+            "status": "queued",
+            "result": null,
+            "attempts": 0
+          }
+        ]
+      }
+    },
+    {
+      "seq": 4,
+      "id": "stalled_alive",
+      "phase": "triage",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.941Z",
+      "elapsedMs": 178.294181,
+      "facts": {
+        "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+        "apiPid": 3694193,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 0,
+            "guarded": false,
+            "revision": 2
+          },
+          "ticks": 7,
+          "attempts": 2,
+          "queued": 3,
+          "oldestAgeMs": 32.193787
+        },
+        "admissionOpen": true,
+        "rejectedDuringPause": 0,
+        "accepted": 5,
+        "completed": 2,
+        "queued": 3,
+        "jobs": [
+          {
+            "id": "job-001",
+            "createdMs": 62.341694,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-001"
+          },
+          {
+            "id": "job-002",
+            "createdMs": 67.660081,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-002"
+          },
+          {
+            "id": "job-003",
+            "status": "queued",
+            "result": null,
+            "attempts": 0
+          },
+          {
+            "id": "job-004",
+            "status": "queued",
+            "result": null,
+            "attempts": 0
+          },
+          {
+            "id": "job-005",
+            "status": "queued",
+            "result": null,
+            "attempts": 0
+          }
+        ],
+        "liveStatus": 200
+      }
+    },
+    {
+      "seq": 5,
+      "id": "admission_paused",
+      "phase": "contain",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.946Z",
+      "elapsedMs": 182.629569,
+      "facts": {
+        "status": 503,
+        "state": {
+          "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+          "apiPid": 3694193,
+          "worker": {
+            "pid": 3694201,
+            "config": {
+              "batchSize": 0,
+              "guarded": false,
+              "revision": 2
+            },
+            "ticks": 7,
+            "attempts": 2,
+            "queued": 3,
+            "oldestAgeMs": 38.309657
+          },
+          "admissionOpen": false,
+          "rejectedDuringPause": 1,
+          "accepted": 5,
+          "completed": 2,
+          "queued": 3,
+          "jobs": [
+            {
+              "id": "job-001",
+              "createdMs": 62.341694,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-001"
+            },
+            {
+              "id": "job-002",
+              "createdMs": 67.660081,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-002"
+            },
+            {
+              "id": "job-003",
+              "status": "queued",
+              "result": null,
+              "attempts": 0
+            },
+            {
+              "id": "job-004",
+              "status": "queued",
+              "result": null,
+              "attempts": 0
+            },
+            {
+              "id": "job-005",
+              "status": "queued",
+              "result": null,
+              "attempts": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 6,
+      "id": "scope_rejected",
+      "phase": "contain",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.947Z",
+      "elapsedMs": 184.197755,
+      "facts": {
+        "type": "control-reply",
+        "rpcId": "1b90fc45-4ca6-4240-85da-9a439f8cc4a1",
+        "ok": false,
+        "error": "Error: fixture scope mismatch"
+      }
+    },
+    {
+      "seq": 7,
+      "id": "config_restored",
+      "phase": "mitigate",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.948Z",
+      "elapsedMs": 185.096166,
+      "facts": {
+        "type": "control-reply",
+        "rpcId": "e83ee46c-270b-4783-9064-fb745363f57d",
+        "ok": true,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 2,
+            "guarded": false,
+            "revision": 3
+          },
+          "ticks": 8,
+          "attempts": 2,
+          "queued": 3,
+          "oldestAgeMs": 41.12031
+        }
+      }
+    },
+    {
+      "seq": 8,
+      "id": "drained",
+      "phase": "verify",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.976Z",
+      "elapsedMs": 212.87806400000002,
+      "facts": {
+        "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+        "apiPid": 3694193,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 2,
+            "guarded": false,
+            "revision": 3
+          },
+          "ticks": 10,
+          "attempts": 5,
+          "queued": 0,
+          "oldestAgeMs": 0
+        },
+        "admissionOpen": false,
+        "rejectedDuringPause": 1,
+        "accepted": 5,
+        "completed": 5,
+        "queued": 0,
+        "jobs": [
+          {
+            "id": "job-001",
+            "createdMs": 62.341694,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-001"
+          },
+          {
+            "id": "job-002",
+            "createdMs": 67.660081,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-002"
+          },
+          {
+            "id": "job-003",
+            "createdMs": 81.259896,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-003"
+          },
+          {
+            "id": "job-004",
+            "createdMs": 83.232942,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-004"
+          },
+          {
+            "id": "job-005",
+            "createdMs": 84.210663,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-005"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 9,
+      "id": "candidate_enabled",
+      "phase": "prevent",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.977Z",
+      "elapsedMs": 213.519098,
+      "facts": {
+        "type": "control-reply",
+        "rpcId": "dc0540d9-9237-400b-8ec8-7c2056213d81",
+        "ok": true,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 2,
+            "guarded": true,
+            "revision": 4
+          },
+          "ticks": 11,
+          "attempts": 5,
+          "queued": 0,
+          "oldestAgeMs": 0
+        }
+      }
+    },
+    {
+      "seq": 10,
+      "id": "guard_rejects_zero",
+      "phase": "prevent",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.979Z",
+      "elapsedMs": 215.734001,
+      "facts": {
+        "rejected": {
+          "type": "control-reply",
+          "rpcId": "f31bfe06-7008-4ef6-a6a3-1fbca9ddd85b",
+          "ok": false,
+          "error": "RangeError: batchSize must be integer 1..16"
+        },
+        "state": {
+          "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+          "apiPid": 3694193,
+          "worker": {
+            "pid": 3694201,
+            "config": {
+              "batchSize": 2,
+              "guarded": true,
+              "revision": 4
+            },
+            "ticks": 11,
+            "attempts": 5,
+            "queued": 0,
+            "oldestAgeMs": 0
+          },
+          "admissionOpen": false,
+          "rejectedDuringPause": 1,
+          "accepted": 5,
+          "completed": 5,
+          "queued": 0,
+          "jobs": [
+            {
+              "id": "job-001",
+              "createdMs": 62.341694,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-001"
+            },
+            {
+              "id": "job-002",
+              "createdMs": 67.660081,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-002"
+            },
+            {
+              "id": "job-003",
+              "createdMs": 81.259896,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-003"
+            },
+            {
+              "id": "job-004",
+              "createdMs": 83.232942,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-004"
+            },
+            {
+              "id": "job-005",
+              "createdMs": 84.210663,
+              "attempts": 1,
+              "status": "completed",
+              "result": "report:job-005"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 11,
+      "id": "recovery_preserves_work",
+      "phase": "recover",
+      "kind": "observed",
+      "at": "2026-10-25T07:43:28.995Z",
+      "elapsedMs": 232.30810699999998,
+      "facts": {
+        "instanceId": "a1fce5cd-ef49-45ed-83ae-01ca8b76a787",
+        "apiPid": 3694193,
+        "worker": {
+          "pid": 3694201,
+          "config": {
+            "batchSize": 2,
+            "guarded": true,
+            "revision": 4
+          },
+          "ticks": 12,
+          "attempts": 7,
+          "queued": 0,
+          "oldestAgeMs": 0
+        },
+        "admissionOpen": true,
+        "rejectedDuringPause": 1,
+        "accepted": 7,
+        "completed": 7,
+        "queued": 0,
+        "jobs": [
+          {
+            "id": "job-001",
+            "createdMs": 62.341694,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-001"
+          },
+          {
+            "id": "job-002",
+            "createdMs": 67.660081,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-002"
+          },
+          {
+            "id": "job-003",
+            "createdMs": 81.259896,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-003"
+          },
+          {
+            "id": "job-004",
+            "createdMs": 83.232942,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-004"
+          },
+          {
+            "id": "job-005",
+            "createdMs": 84.210663,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-005"
+          },
+          {
+            "id": "job-006",
+            "createdMs": 154.936043,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-006"
+          },
+          {
+            "id": "job-007",
+            "createdMs": 156.337711,
+            "attempts": 1,
+            "status": "completed",
+            "result": "report:job-007"
+          }
+        ]
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "A01",
+      "kind": "prevent",
+      "owner": "reports-maintainer-fictional",
+      "reviewDate": "2026-11-07",
+      "state": "verified_in_fixture",
+      "criterion": "zero rejected atomically; revision and batch size unchanged; new jobs still complete",
+      "proof": "guard_rejects_zero"
+    },
+    {
+      "id": "A02",
+      "kind": "detect",
+      "owner": "reports-ops-fictional",
+      "reviewDate": "2026-11-07",
+      "state": "open",
+      "criterion": "observe oldest pending age and lack of progress; test notification routing before claiming coverage",
+      "proof": null
+    },
+    {
+      "id": "A03",
+      "kind": "recover",
+      "owner": "reports-ops-fictional",
+      "reviewDate": "2026-11-07",
+      "state": "verified_in_fixture",
+      "criterion": "pause, preserve five accepted IDs, drain, resume two jobs and verify all seven payloads",
+      "proof": "recovery_preserves_work"
+    },
+    {
+      "id": "A04",
+      "kind": "limit_loss",
+      "owner": "reports-storage-fictional",
+      "reviewDate": "2026-11-14",
+      "state": "open",
+      "criterion": "decide durable queue and restart recovery; execute crash test before closing",
+      "proof": null
+    }
+  ],
+  "limits": {
+    "durableQueue": false,
+    "humanOnCall": false,
+    "productionUsers": false,
+    "binaryDeployment": false,
+    "candidateActivation": "guarded path already present in the fixture binary",
+    "retries": false,
+    "restartRecovery": false
+  }
+}

@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+provider: "TracerProvider + resource\nservice.name identifica el emisor"
+span: "startSpan con parent Context\nUnidad de trabajo delimitada"
+work: "Trabajo / eventos / status\nError de job distinto de HTTP 202"
+end: "finally: span.end()\nProcessor y exporter reciben el span"
+provider -> span -> work -> end

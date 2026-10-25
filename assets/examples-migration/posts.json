@@ -505,6 +505,13 @@
   },
   {
     "locale": "es",
+    "slug": "exemplars-openmetrics-histograma-traza",
+    "labs": [
+      "observability-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "experimentos-ab-p-value-efecto-potencia",
     "labs": [
       "mathematics-statistics"
@@ -736,6 +743,13 @@
   },
   {
     "locale": "es",
+    "slug": "logs-estructurados-identidades-correlacion",
+    "labs": [
+      "observability-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "lsp-contratos-sustitucion-comportamiento",
     "labs": [
       "design-principles"
@@ -788,6 +802,13 @@
     "slug": "metricas-ml-precision-recall-auc-errores",
     "labs": [
       "machine-learning"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "metricas-opentelemetry-histogramas-cardinalidad",
+    "labs": [
+      "observability-lab"
     ]
   },
   {
@@ -890,6 +911,13 @@
   },
   {
     "locale": "es",
+    "slug": "opentelemetry-spans-contexto-ciclo-vida",
+    "labs": [
+      "observability-lab"
+    ]
+  },
+  {
+    "locale": "es",
     "slug": "paginacion-escrituras-concurrentes-snapshots",
     "labs": [
       "api-pagination-evolution"
@@ -949,6 +977,13 @@
     "slug": "procesos-hilos-memoria-virtual-bloqueos",
     "labs": [
       "computing-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "propagacion-trazas-react-api-worker",
+    "labs": [
+      "observability-lab"
     ]
   },
   {
@@ -1075,6 +1110,13 @@
     "slug": "sagas-compensaciones-workflows-duraderos",
     "labs": [
       "reliable-services"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sampling-trazas-parent-based-head-tail",
+    "labs": [
+      "observability-lab"
     ]
   },
   {
@@ -1348,6 +1390,90 @@
     "slug": "xss-dom-texto-html-contextos",
     "labs": [
       "browser-security"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sli-disponibilidad-latencia-eventos-elegibles",
+    "labs": [
+      "service-objectives"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sli-asincronos-cohortes-deadline-resolucion",
+    "labs": [
+      "service-objectives"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "slo-ventanas-rolling-calendario-datos-ausentes",
+    "labs": [
+      "service-objectives"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "error-budget-calculo-politica-decisiones",
+    "labs": [
+      "service-objectives"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "burn-rate-presupuesto-errores-trafico",
+    "labs": [
+      "service-objectives"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "alertas-multi-window-burn-rate-accionables",
+    "labs": [
+      "service-objectives"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "incidentes-triage-sintomas-hipotesis-evidencia",
+    "labs": [
+      "incident-response"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "mitigar-incidente-verificar-recuperacion",
+    "labs": [
+      "incident-response"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "runbooks-precondiciones-pasos-salida-segura",
+    "labs": [
+      "incident-response"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "on-call-coordinacion-incidentes-handoff",
+    "labs": [
+      "incident-response"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "postmortems-blameless-cronologia-causas",
+    "labs": [
+      "incident-response"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "acciones-postmortem-regresion-evidencia-cierre",
+    "labs": [
+      "incident-response"
     ]
   }
 ]

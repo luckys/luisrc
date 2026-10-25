@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+obs: "Cinco jobs procesados\nMedir duración en segundos"
+attrs: "Atributo result: ok | error\nSin operation_id como label"
+hist: "Histograma OTel acumulado\nBuckets, count y sum por resultado"
+read: "Lectura del worker\n4 ok + 1 error, dos series"
+obs -> attrs -> hist -> read

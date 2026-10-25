@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+harness: "Harness propietario\nCrea hijos, prueba y archiva hechos"
+api: "API: proceso hijo\nHTTP 200/202 no prueban resolución"
+worker: "Worker: otro proceso hijo de la API\n3 pendientes; lote cero sin progreso"
+harness <-> api: "HTTP de negocio + control por IPC"
+api <-> worker: "IPC: trabajos, resultados y stats"

@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **62**. Solo material relacionado: **25**. Sin artículo identificado: **88**.
+IDs con borrador propio: **65**. Solo material relacionado: **22**. Sin artículo identificado: **88**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -20,7 +20,13 @@ P056 continúa con cinco entregas de Testcontainers, fixtures/factories, aislami
 
 P057 se amplía en siete drafts de propiedades/generadores, shrinking/replay, modelo, carreras, fuzzing, fault injection y evaluación por mutaciones. Ver ruta-pruebas-propiedades.md. Paquete property-testing con fast-check4.10.2: quince tests, contraejemplo de tres eventos reducido y replay, scheduler y tres variantes manuales. Solo memoria; sin crash real, SQL, PSP, guía por cobertura o motor Stryker.
 
-P058 se amplía en siete drafts de distribuciones, modelos de carga, saturación, carga sostenida, microbenchmarks, CPU y memoria. Ver ruta-rendimiento-profiling.md. performance-lab: k6 2.3.0 real en procesos separados, siete fases HTTP locales, tres procesos de benchmark, tres CPU profiles y seis heap snapshots. Diez tests rápidos; datos recalculables, dos gráficas y visor estático. Sin soak prolongado, producción/SQL, CPU aislada o retained size. Siguiente P059/P060, contrastar observabilidad existente. Gaps P026 y Stripe sandbox P045 conservados; no aceptación automática de Serie06.
+P058 se amplía en siete drafts de distribuciones, modelos de carga, saturación, carga sostenida, microbenchmarks, CPU y memoria. Ver ruta-rendimiento-profiling.md. performance-lab: k6 2.3.0 real en procesos separados, siete fases HTTP locales, tres procesos de benchmark, tres CPU profiles y seis heap snapshots. Diez tests rápidos; datos recalculables, dos gráficas y visor estático. Sin soak prolongado, producción/SQL, CPU aislada o retained size. Gaps P026 y Stripe sandbox P045 conservados; no aceptación automática de Serie06.
+
+P059 se amplía en seis drafts: logs/identidades, spans, propagación React/API/worker, sampling, métricas y exemplars. Ver ruta-observabilidad.md. observability-lab ejecuta SDK OTel3.0.0/API1.10.0, HTTP real y worker por IPC en otro PID; cinco clics Chromium, veinte spans, diez logs, cuatro ok/un error. Sin sampling no exporta spans pero sí mide el job. Reservoir de exemplars y serializador propios porque el SDK metrics JS3.0.0 no los exporta; sin OTLP, Collector, backend, ingestión Prometheus o broker durable. Visor archivado y gráfica derivada. No aceptar la serie contando IDs.
+
+P060 se amplía en seis drafts: SLI/elegibilidad, cohortes, ventanas/cobertura, presupuesto/política, burn rate y alertas multi-window. Ver ruta-sli-slo-presupuestos.md. service-objectives simula siete escenarios de treinta días, sin tráfico real. Doce tests, evidencia recalculable, TypeScript compartido con el visor, seis diagramas y gráfica derivada. Mismo presupuesto para degradación activa y recuperada, distinto estado de alerta. Sin endpoint desplegado, paging, Prometheus/Alertmanager, calendario civil o enforcement de política. P061 continúa con triage, mitigación, runbooks y postmortems; ver la ampliación siguiente. Mantener gaps P026, Stripe sandbox P045 y soak P058.
+
+P061 se amplía en seis drafts: triage, mitigación/verificación, runbooks, on-call/handoff, postmortem y acciones. Ver ruta-incidentes.md. incident-response ejecuta HTTP real con API y worker en procesos distintos, once eventos y nueve tests. Tres trabajos sin progreso tras aceptar lote cero; recuperación de cinco anteriores y dos nuevos, sin borrar IDs. Checkpoint parcial, hashes y replay estático. Roles/documentos ficticios, sin guardia humana, alertas instaladas, durabilidad, crash recovery o deployment de un binario. A01/A03 verificadas solo en fixture; A02/A04 abiertas. Siguiente P062: API, Redis y PostgreSQL en Docker Compose con setup limpio; después P063–P066. Mantener gaps P026, Stripe sandbox P045 y soak P058.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -97,9 +103,9 @@ P058 se amplía en siete drafts de distribuciones, modelos de carga, saturación
 - P056. Integración y pruebas de contrato: [borrador](../../src/content/posts/es/testcontainers-postgresql-integracion-ciclo-vida.md).
 - P057. Property-based testing, fuzzing y fault injection: [borrador](../../src/content/posts/es/property-based-testing-generadores-invariantes.md).
 - P058. Benchmarking, carga y profiling: [borrador](../../src/content/posts/es/latencia-percentiles-histogramas-errores.md).
-- P059. Observabilidad: logs, métricas y trazas: relacionado, requiere revisión.
-- P060. SLI, SLO y error budgets: relacionado, requiere revisión.
-- P061. Incidentes, runbooks y postmortems: relacionado, requiere revisión.
+- P059. Observabilidad: logs, métricas y trazas: [borrador](../../src/content/posts/es/logs-estructurados-identidades-correlacion.md).
+- P060. SLI, SLO y error budgets: [borrador](../../src/content/posts/es/sli-disponibilidad-latencia-eventos-elegibles.md).
+- P061. Incidentes, runbooks y postmortems: [borrador](../../src/content/posts/es/incidentes-triage-sintomas-hipotesis-evidencia.md).
 - P062. Docker y entornos reproducibles: relacionado, requiere revisión.
 - P063. CI/CD, despliegues progresivos y rollback: relacionado, requiere revisión.
 - P064. Cloud Computing con AWS: pendiente.
