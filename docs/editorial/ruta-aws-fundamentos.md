@@ -1,8 +1,7 @@
 # AWS: elegir servicios y hacer explícitas sus responsabilidades
 
-P064 se planifica en once drafts españoles; todavía no están escritos. El
-manifiesto y el laboratorio inicial están preparados, pero faltan los artículos,
-diagramas y comparador visual. La amplitud de la ficha exige separar
+P064 se desarrolla en once drafts españoles, con ejemplos del laboratorio, once
+diagramas y un comparador visual. La amplitud de la ficha exige separar
 servicios y decisiones; un artículo único mezclaría permisos, red, ejecución,
 persistencia y facturación antes de que el lector comprendiera sus mecanismos.
 Todos siguen en draft y son independientes de un producto concreto.
@@ -44,7 +43,7 @@ posts. No usa credenciales, llama al control plane de AWS o crea recursos.
   Lambda v2 invocado localmente. Reader ficticio, sin DynamoDB real ni benchmark AWS.
 - Preflights de keys/permisos/red/batches/DB explícitamente locales. No evalúan
   IAM real, entregan mensajes SQS, escriben S3 o prueban restore de RDS.
-- Pendiente: gráfica estática y comparador interactivo reutilizando el mismo modelo compilado.
+- Gráfica estática y comparador interactivo reutilizando el mismo modelo compilado.
 
 Actualizar una tarifa exige volver a capturar sus fuentes, regenerar el informe,
 gráficas y comparaciones escritas. No se mezclan regiones o tiers para abaratar

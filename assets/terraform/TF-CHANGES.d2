@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Plan guardado\nPropuesta ligada a state"
+n1: "Otra operación avanza state\nPlan anterior queda obsoleto"
+n2: "Revisión de reemplazo\nCrear y borrar un ConfigMap"
+n3: "Apply y prueba del servicio\nNo rollback global automático"
+n0 -> n1: "conservar contexto"
+n1 -> n2: "otro experimento de cambio"
+n2 -> n3: "verificar realidad"

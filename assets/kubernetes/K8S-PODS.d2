@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "API server\nObjetos deseados"
+n1: "Deployment y ReplicaSet\nMantener réplicas"
+n2: "Pod nuevo\nUID propio"
+n3: "Scheduler\nAsignar nodo"
+n4: "Kubelet y runtime\nEjecutar containers"
+n0 -> n1: "observar y actuar"
+n1 -> n2: "crear si faltan"
+n2 -> n3: "scheduling"
+n3 -> n4: "ejecución"

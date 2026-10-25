@@ -1,0 +1,109 @@
+{
+  "name": "Terraform: describir, revisar y reconciliar infraestructura",
+  "locale": "es",
+  "status": "draft",
+  "lab": "declarative-infrastructure",
+  "roadmapScope": "Bloque Terraform de P065; cobertura conjunta con kubernetes-series.json",
+  "articles": [
+    {
+      "id": "P065",
+      "roadmapId": "P065",
+      "slug": "terraform-configuracion-plan-apply-infraestructura",
+      "title": "Terraform: describir infraestructura, revisar el plan y comprobar el resultado",
+      "prerequisites": [
+        "P062",
+        "P063",
+        "P064"
+      ],
+      "question": "Cómo separar configuración, plan, state y comportamiento observado",
+      "files": [
+        "terraform/main.tf",
+        "scripts/exercise.mjs",
+        "evidence/terraform.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "TF-PROVIDERS",
+      "roadmapId": "P065",
+      "slug": "terraform-providers-versiones-lockfile",
+      "title": "Providers de Terraform: fijar versiones y saber qué valida cada herramienta",
+      "prerequisites": [
+        "P065"
+      ],
+      "question": "Qué aporta el provider y qué garantizan las restricciones y el lockfile",
+      "files": [
+        "terraform/versions.tf",
+        "terraform/.terraform.lock.hcl",
+        "tools.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "TF-STATE",
+      "roadmapId": "P065",
+      "slug": "terraform-state-backend-locking-secretos",
+      "title": "Terraform state: relacionar recursos, coordinar cambios y proteger datos sensibles",
+      "prerequisites": [
+        "TF-PROVIDERS"
+      ],
+      "question": "Por qué el state no es un backup ni un archivo para guardar en Git",
+      "files": [
+        "terraform/versions.tf",
+        "terraform/modules/catalogue/main.tf",
+        "scripts/exercise.mjs",
+        "README.md"
+      ]
+    },
+    {
+      "id": "TF-MODULES",
+      "roadmapId": "P065",
+      "slug": "terraform-modulos-variables-outputs-contratos",
+      "title": "Módulos de Terraform: agrupar una decisión con variables y outputs claros",
+      "prerequisites": [
+        "TF-STATE"
+      ],
+      "question": "Cómo separar un módulo útil sin construir una plataforma genérica",
+      "files": [
+        "terraform/main.tf",
+        "terraform/modules/catalogue/variables.tf",
+        "terraform/modules/catalogue/main.tf",
+        "README.md"
+      ]
+    },
+    {
+      "id": "TF-DRIFT",
+      "roadmapId": "P065",
+      "slug": "terraform-drift-refresh-reconciliar-cambios",
+      "title": "Drift en Terraform: detectar un cambio manual y decidir qué conservar",
+      "prerequisites": [
+        "TF-MODULES"
+      ],
+      "question": "Cómo distinguir observar cambios, aceptarlos en state y reparar el recurso",
+      "files": [
+        "terraform/modules/catalogue/main.tf",
+        "scripts/exercise.mjs",
+        "scripts/plan.mjs",
+        "evidence/terraform.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "TF-CHANGES",
+      "roadmapId": "P065",
+      "slug": "terraform-planes-guardados-reemplazos-recuperacion",
+      "title": "Planes guardados y reemplazos: aplicar el cambio revisado sin prometer un rollback automático",
+      "prerequisites": [
+        "TF-DRIFT"
+      ],
+      "question": "Cómo revisar reemplazos, rechazar planes obsoletos y recuperar después de un fallo",
+      "files": [
+        "terraform/modules/catalogue/main.tf",
+        "scripts/plan.mjs",
+        "scripts/exercise.mjs",
+        "evidence/terraform.json",
+        "README.md"
+      ]
+    }
+  ]
+}

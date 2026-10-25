@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "CLI Terraform fijada\nCore y grafo"
+n1: "Provider requerido\nSource y versión"
+n2: "Lockfile del provider\nSelección y hashes"
+n3: "API Kubernetes real\nPermisos y conectividad propios"
+n0 -> n1: "cargar configuración"
+n1 -> n2: "init con lockfile readonly"
+n2 -> n3: "plan y apply"

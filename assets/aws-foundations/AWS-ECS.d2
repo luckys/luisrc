@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Task definition\nImage, CPU, memoria y roles"
+n1: "ECS service\nNúmero deseado y reemplazo"
+n2: "Tasks en Fargate\nHosts gestionados"
+n3: "Targets saludables del ALB\nReciben peticiones"
+n4: "Equipo: image y servicio\nRed, capacidad y recuperación"
+n0 -> n1: "revisión elegida"
+n1 -> n2: "mantener ejecuciones"
+n2 -> n3: "registrar targets"
+n3 -> n4: "operación conservada"

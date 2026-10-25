@@ -1,5 +1,14 @@
 # Revisión de CI/CD y despliegues progresivos
 
+## Actualización al completar el bloque Kubernetes
+
+Captura renovada2026-10-25T13:03:26.794Z, luisrc-delivery-4a2c436a; dieciocho fases y veintiséis hashes. Se regenera replay y gráfico del canary.
+
+La política pnpm compartida deniega explícitamente Scarf y optimizaciones SSH
+opcionales sin desactivar los controles de scripts. P062/P063 se recapturaron
+porque esa política es entrada de sus builds; no se eliminó el control de hashes.
+Las secciones siguientes conservan la revisión anterior.
+
 ## Recaptura previa al commit solicitado
 
 El importador de AWS cambió el lockfile raíz; se repitió el exercise completo.

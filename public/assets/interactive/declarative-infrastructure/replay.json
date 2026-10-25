@@ -1,0 +1,632 @@
+{
+  "kind": "local_terraform_kubernetes_observation",
+  "capturedAt": "2026-10-25T12:39:39.917Z",
+  "project": "luisrc-declarative-9575171a",
+  "namespace": "tf-lab-9575171a",
+  "versions": {
+    "terraform": "hashicorp/terraform:1.15.3@sha256:a12a7a9301bbab26589c0a353d5bdfc68bd1a52aa818cbdd698bf0dec094bd61",
+    "k3s": "rancher/k3s:v1.35.9-k3s1@sha256:ec9868c6a38d4e8c1869832fb5fd1eb8473c39794a0b44d2b952e7ba911951bc",
+    "provider": "hashicorp/kubernetes 3.4.0"
+  },
+  "events": [
+    {
+      "seq": 1,
+      "id": "cluster_ready",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:00.075Z",
+      "elapsedMs": 41847,
+      "facts": {
+        "nodes": 1,
+        "version": "v1.35.9+k3s1",
+        "traefikReady": true,
+        "publishedOnLoopback": true
+      }
+    },
+    {
+      "seq": 2,
+      "id": "image_imported",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:04.832Z",
+      "elapsedMs": 46604,
+      "facts": {
+        "image": "docker.io/library/luisrc-declarative-9575171a:v1",
+        "imageId": "sha256:6664da763f397680b21bcbf5addba9b6b1c256673099a56cb84700141a95b9c2",
+        "importedIntoLocalContainerd": true
+      }
+    },
+    {
+      "seq": 3,
+      "id": "initialized_validated",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:08.854Z",
+      "elapsedMs": 50626,
+      "facts": {
+        "terraform": "1.15.3",
+        "provider": {
+          "registry.terraform.io/hashicorp/kubernetes": "3.4.0"
+        },
+        "fmt": "passed",
+        "validate": "passed",
+        "lockfileReadonly": true
+      }
+    },
+    {
+      "seq": 4,
+      "id": "create_planned",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:10.400Z",
+      "elapsedMs": 52172,
+      "facts": {
+        "exitCode": 2,
+        "counts": {
+          "create": 6,
+          "update": 0,
+          "delete": 0,
+          "replace": 0
+        },
+        "changes": [
+          {
+            "address": "kubernetes_namespace_v1.lab",
+            "actions": [
+              "create"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_config_map_v1.settings",
+            "actions": [
+              "create"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_deployment_v1.api",
+            "actions": [
+              "create"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_ingress_v1.api",
+            "actions": [
+              "create"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_secret_v1.example",
+            "actions": [
+              "create"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_service_v1.api",
+            "actions": [
+              "create"
+            ]
+          }
+        ],
+        "observedDrift": {
+          "counts": {
+            "create": 0,
+            "update": 0,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": []
+        },
+        "secretDataMarkedSensitive": true
+      }
+    },
+    {
+      "seq": 5,
+      "id": "applied_http_ready",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:15.129Z",
+      "elapsedMs": 56901,
+      "facts": {
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "hello-from-terraform",
+            "pod": "catalogue-565b868c84-pp2kh",
+            "credentialConfigured": true
+          }
+        },
+        "resourcesInState": 6,
+        "stateContainsDummyValue": true,
+        "secretValueExported": false
+      }
+    },
+    {
+      "seq": 6,
+      "id": "no_changes",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:16.295Z",
+      "elapsedMs": 58067,
+      "facts": {
+        "exitCode": 0,
+        "counts": {
+          "create": 0,
+          "update": 0,
+          "delete": 0,
+          "replace": 0
+        },
+        "changes": [],
+        "observedDrift": {
+          "counts": {
+            "create": 0,
+            "update": 5,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [
+            {
+              "address": "module.catalogue.kubernetes_config_map_v1.settings",
+              "actions": [
+                "update"
+              ]
+            },
+            {
+              "address": "module.catalogue.kubernetes_deployment_v1.api",
+              "actions": [
+                "update"
+              ]
+            },
+            {
+              "address": "module.catalogue.kubernetes_ingress_v1.api",
+              "actions": [
+                "update"
+              ]
+            },
+            {
+              "address": "module.catalogue.kubernetes_secret_v1.example",
+              "actions": [
+                "update"
+              ]
+            },
+            {
+              "address": "module.catalogue.kubernetes_service_v1.api",
+              "actions": [
+                "update"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 7,
+      "id": "pod_reconciled_without_apply",
+      "kind": "observed",
+      "at": "2026-10-25T12:33:22.606Z",
+      "elapsedMs": 64378,
+      "facts": {
+        "beforeUid": "87a85f58-3d15-46d0-82c9-f657f48373c5",
+        "afterUid": "95a3b3e5-0f87-40b3-bcd7-79f63cdc7496",
+        "terraformPlan": {
+          "exitCode": 0,
+          "counts": {
+            "create": 0,
+            "update": 0,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [],
+          "observedDrift": {
+            "counts": {
+              "create": 0,
+              "update": 5,
+              "delete": 0,
+              "replace": 0
+            },
+            "changes": [
+              {
+                "address": "module.catalogue.kubernetes_config_map_v1.settings",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_deployment_v1.api",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_ingress_v1.api",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_secret_v1.example",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_service_v1.api",
+                "actions": [
+                  "update"
+                ]
+              }
+            ]
+          }
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "hello-from-terraform",
+            "pod": "catalogue-565b868c84-8g56f",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 8,
+      "id": "drift_detected",
+      "kind": "observed",
+      "at": "2026-10-25T12:34:33.053Z",
+      "elapsedMs": 134825,
+      "facts": {
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "manual-drift",
+            "pod": "catalogue-565b868c84-8g56f",
+            "credentialConfigured": true
+          }
+        },
+        "plan": {
+          "exitCode": 2,
+          "counts": {
+            "create": 0,
+            "update": 1,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [
+            {
+              "address": "module.catalogue.kubernetes_config_map_v1.settings",
+              "actions": [
+                "update"
+              ]
+            }
+          ],
+          "observedDrift": {
+            "counts": {
+              "create": 0,
+              "update": 5,
+              "delete": 0,
+              "replace": 0
+            },
+            "changes": [
+              {
+                "address": "module.catalogue.kubernetes_config_map_v1.settings",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_deployment_v1.api",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_ingress_v1.api",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_secret_v1.example",
+                "actions": [
+                  "update"
+                ]
+              },
+              {
+                "address": "module.catalogue.kubernetes_service_v1.api",
+                "actions": [
+                  "update"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "seq": 9,
+      "id": "drift_repaired",
+      "kind": "observed",
+      "at": "2026-10-25T12:35:34.753Z",
+      "elapsedMs": 196525,
+      "facts": {
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "hello-from-terraform",
+            "pod": "catalogue-565b868c84-8g56f",
+            "credentialConfigured": true
+          }
+        },
+        "plan": {
+          "exitCode": 0,
+          "counts": {
+            "create": 0,
+            "update": 0,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [],
+          "observedDrift": {
+            "counts": {
+              "create": 0,
+              "update": 0,
+              "delete": 0,
+              "replace": 0
+            },
+            "changes": []
+          }
+        }
+      }
+    },
+    {
+      "seq": 10,
+      "id": "stale_plan_rejected",
+      "kind": "observed",
+      "at": "2026-10-25T12:37:03.531Z",
+      "elapsedMs": 285303,
+      "facts": {
+        "rejected": true,
+        "reason": "Saved plan is stale",
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "new-state-b",
+            "pod": "catalogue-565b868c84-8g56f",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 11,
+      "id": "replacement_planned",
+      "kind": "observed",
+      "at": "2026-10-25T12:37:04.652Z",
+      "elapsedMs": 286424,
+      "facts": {
+        "exitCode": 2,
+        "counts": {
+          "create": 1,
+          "update": 1,
+          "delete": 1,
+          "replace": 1
+        },
+        "changes": [
+          {
+            "address": "module.catalogue.kubernetes_config_map_v1.settings",
+            "actions": [
+              "create",
+              "delete"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_deployment_v1.api",
+            "actions": [
+              "update"
+            ]
+          }
+        ],
+        "observedDrift": {
+          "counts": {
+            "create": 0,
+            "update": 0,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": []
+        }
+      }
+    },
+    {
+      "seq": 12,
+      "id": "replacement_applied",
+      "kind": "observed",
+      "at": "2026-10-25T12:37:13.616Z",
+      "elapsedMs": 295388,
+      "facts": {
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "new-revision",
+            "pod": "catalogue-5f9589bb7-tmkv2",
+            "credentialConfigured": true
+          }
+        },
+        "oldConfigMapAbsent": true
+      }
+    },
+    {
+      "seq": 13,
+      "id": "refresh_only_does_not_repair",
+      "kind": "observed",
+      "at": "2026-10-25T12:38:21.174Z",
+      "elapsedMs": 362946,
+      "facts": {
+        "refreshPlan": {
+          "exitCode": 2,
+          "counts": {
+            "create": 0,
+            "update": 0,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [],
+          "observedDrift": {
+            "counts": {
+              "create": 0,
+              "update": 1,
+              "delete": 0,
+              "replace": 0
+            },
+            "changes": [
+              {
+                "address": "module.catalogue.kubernetes_config_map_v1.settings",
+                "actions": [
+                  "update"
+                ]
+              }
+            ]
+          }
+        },
+        "normalPlan": {
+          "exitCode": 2,
+          "counts": {
+            "create": 0,
+            "update": 1,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [
+            {
+              "address": "module.catalogue.kubernetes_config_map_v1.settings",
+              "actions": [
+                "update"
+              ]
+            }
+          ],
+          "observedDrift": {
+            "counts": {
+              "create": 0,
+              "update": 0,
+              "delete": 0,
+              "replace": 0
+            },
+            "changes": []
+          }
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "refresh-only-drift",
+            "pod": "catalogue-5f9589bb7-tmkv2",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 14,
+      "id": "normal_apply_restores_config",
+      "kind": "observed",
+      "at": "2026-10-25T12:39:30.530Z",
+      "elapsedMs": 432302,
+      "facts": {
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "new-revision",
+            "pod": "catalogue-5f9589bb7-tmkv2",
+            "credentialConfigured": true
+          }
+        },
+        "plan": {
+          "exitCode": 0,
+          "counts": {
+            "create": 0,
+            "update": 0,
+            "delete": 0,
+            "replace": 0
+          },
+          "changes": [],
+          "observedDrift": {
+            "counts": {
+              "create": 0,
+              "update": 0,
+              "delete": 0,
+              "replace": 0
+            },
+            "changes": []
+          }
+        }
+      }
+    },
+    {
+      "seq": 15,
+      "id": "destroyed_owned_resources",
+      "kind": "observed",
+      "at": "2026-10-25T12:39:39.093Z",
+      "elapsedMs": 440865,
+      "facts": {
+        "counts": {
+          "create": 0,
+          "update": 0,
+          "delete": 6,
+          "replace": 0
+        },
+        "changes": [
+          {
+            "address": "kubernetes_namespace_v1.lab",
+            "actions": [
+              "delete"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_config_map_v1.settings",
+            "actions": [
+              "delete"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_deployment_v1.api",
+            "actions": [
+              "delete"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_ingress_v1.api",
+            "actions": [
+              "delete"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_secret_v1.example",
+            "actions": [
+              "delete"
+            ]
+          },
+          {
+            "address": "module.catalogue.kubernetes_service_v1.api",
+            "actions": [
+              "delete"
+            ]
+          }
+        ],
+        "namespaceAbsent": true,
+        "resourcesInState": 0
+      }
+    },
+    {
+      "seq": 16,
+      "id": "local_cluster_removed",
+      "kind": "observed",
+      "at": "2026-10-25T12:39:39.917Z",
+      "elapsedMs": 441689,
+      "facts": {
+        "containerAbsent": true,
+        "networkAbsent": true,
+        "imageRetained": "docker.io/library/luisrc-declarative-9575171a:v1",
+        "privateArtifactsIgnored": true
+      }
+    }
+  ],
+  "limits": {
+    "productionCluster": false,
+    "remoteBackendLockingTested": false,
+    "haTested": false,
+    "autoscalingTested": false,
+    "cloudProvisioned": false,
+    "continuousAvailabilityProven": false
+  }
+}

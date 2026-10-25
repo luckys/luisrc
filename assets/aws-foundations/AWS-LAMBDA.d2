@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "HTTP API\nPayload v2"
+n1: "Handler Lambda\nAdaptar evento y respuesta"
+n2: "Lógica de catálogo\nReader inyectado"
+n3: "200 / 404 / 405 / 503"
+n4: "Revisión de concurrencia\nRPS × duración en segundos"
+n0 -> n1: "evento"
+n1 -> n2: "método y ruta"
+n2 -> n3: "resultado"
+n3 -> n4: "dimensionar por separado"

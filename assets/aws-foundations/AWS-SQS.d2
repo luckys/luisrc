@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+batch: "Batch Standard\na, b, c"
+effect: "Procesar efectos\na y c terminan; b falla"
+partial: "batchItemFailures\nSolo ID b"
+retry: "b puede reintentarse\nTras visibilidad"
+safe: "Efectos idempotentes\nRequieren diseño durable"
+batch -> effect: "entrega"
+effect -> partial: "respuesta parcial habilitada"
+partial -> retry: "integración Lambda/SQS"
+retry -> safe: "evitar duplicar efectos"

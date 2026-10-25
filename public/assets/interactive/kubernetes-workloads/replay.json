@@ -1,0 +1,1312 @@
+{
+  "kind": "local_kubernetes_workload_observation",
+  "capturedAt": "2026-10-25T13:10:56.028Z",
+  "project": "luisrc-kubernetes-c5b5bec6",
+  "namespace": "k8s-lab-c5b5bec6",
+  "tools": {
+    "k3s": "rancher/k3s:v1.35.9-k3s1@sha256:ec9868c6a38d4e8c1869832fb5fd1eb8473c39794a0b44d2b952e7ba911951bc",
+    "nodeBase": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
+  },
+  "events": [
+    {
+      "seq": 1,
+      "id": "cluster_ready",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:10.604Z",
+      "elapsedMs": 56611,
+      "facts": {
+        "version": "v1.35.9+k3s1",
+        "nodes": 1,
+        "traefikReady": true,
+        "loopbackOnly": true
+      }
+    },
+    {
+      "seq": 2,
+      "id": "images_imported",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:18.453Z",
+      "elapsedMs": 64459,
+      "facts": {
+        "images": [
+          {
+            "version": "v1",
+            "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+            "id": "sha256:3c3d3e5b442e518b9dccd8df2b96821503d0093e5d86f5a6bb347402540c99bc"
+          },
+          {
+            "version": "v2",
+            "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v2",
+            "id": "sha256:c711b781c6316f5f281fe35029329304396fabde18e914ee53a307b688ec1dca"
+          }
+        ],
+        "bakedVersion": true
+      }
+    },
+    {
+      "seq": 3,
+      "id": "baseline_ready",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:23.477Z",
+      "elapsedMs": 69484,
+      "facts": {
+        "pod": {
+          "name": "catalogue-686775c675-tjxqz",
+          "uid": "5f245daf-1e1a-4716-a8ab-f991c603aa26",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-tjxqz",
+            "credentialConfigured": true
+          }
+        },
+        "endpoints": [
+          {
+            "addresses": [
+              "10.42.0.8"
+            ],
+            "ready": true,
+            "pod": "catalogue-686775c675-tjxqz"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 4,
+      "id": "pod_replaced",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:29.095Z",
+      "elapsedMs": 75102,
+      "facts": {
+        "before": {
+          "name": "catalogue-686775c675-tjxqz",
+          "uid": "5f245daf-1e1a-4716-a8ab-f991c603aa26",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "after": {
+          "name": "catalogue-686775c675-q6dpf",
+          "uid": "b673bec0-00fd-41b4-9434-12eb36598ae1",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "replicaSetOwnedByDeployment": true,
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-q6dpf",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 5,
+      "id": "rollout_v2",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:36.506Z",
+      "elapsedMs": 82512,
+      "facts": {
+        "pod": {
+          "name": "catalogue-766cf67c4d-qb2lj",
+          "uid": "6d5c273d-810c-458b-b240-223b67b22023",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v2",
+          "imageId": "sha256:60bea1822f7f72ed9c8822a6bcaaa7dd848a2d8b06f34e149ad13885a7bb1007",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v2",
+            "pod": "catalogue-766cf67c4d-qb2lj",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 6,
+      "id": "rollout_undo_v1",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:38.998Z",
+      "elapsedMs": 85004,
+      "facts": {
+        "pod": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-rckbs",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 7,
+      "id": "service_dns",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:41.039Z",
+      "elapsedMs": 87046,
+      "facts": {
+        "dns": {
+          "name": "catalogue.k8s-lab-c5b5bec6.svc.cluster.local",
+          "address": "10.43.149.213",
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-rckbs",
+            "credentialConfigured": true
+          }
+        },
+        "endpoints": [
+          {
+            "addresses": [
+              "10.42.0.11"
+            ],
+            "ready": true,
+            "pod": "catalogue-686775c675-rckbs"
+          }
+        ],
+        "clusterIp": "10.43.149.213"
+      }
+    },
+    {
+      "seq": 8,
+      "id": "ingress_rules",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:41.167Z",
+      "elapsedMs": 87173,
+      "facts": {
+        "matched": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-rckbs",
+            "credentialConfigured": true
+          }
+        },
+        "unmatched": {
+          "status": 404,
+          "body": {
+            "error": "non_json_response"
+          }
+        },
+        "controller": "traefik.io/ingress-controller"
+      }
+    },
+    {
+      "seq": 9,
+      "id": "startup_protected",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:51.962Z",
+      "elapsedMs": 97969,
+      "facts": {
+        "before": {
+          "name": "slow-start",
+          "uid": "fda8ee75-ad23-4644-b90b-d89890a19732",
+          "ready": false,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": null,
+          "phase": "Running"
+        },
+        "after": {
+          "name": "slow-start",
+          "uid": "fda8ee75-ad23-4644-b90b-d89890a19732",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": null,
+          "phase": "Running"
+        },
+        "during": {
+          "status": 503,
+          "body": {
+            "initialized": false
+          }
+        },
+        "initializationMs": 8000
+      }
+    },
+    {
+      "seq": 10,
+      "id": "startup_missing_probe",
+      "kind": "observed",
+      "at": "2026-10-25T13:03:57.205Z",
+      "elapsedMs": 103211,
+      "facts": {
+        "pod": {
+          "name": "no-startup",
+          "uid": "041c9201-4fa2-4c96-892f-fc7bc944018b",
+          "ready": false,
+          "restarts": 1,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": null,
+          "phase": "Running"
+        },
+        "initializationMs": 8000
+      }
+    },
+    {
+      "seq": 11,
+      "id": "readiness_removed_endpoint",
+      "kind": "observed",
+      "at": "2026-10-25T13:04:51.150Z",
+      "elapsedMs": 157157,
+      "facts": {
+        "before": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "pod": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": false,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "endpoints": [
+          {
+            "addresses": [
+              "10.42.0.11"
+            ],
+            "ready": false,
+            "pod": "catalogue-686775c675-rckbs"
+          }
+        ],
+        "http": {
+          "status": 503,
+          "body": {
+            "error": "non_json_response"
+          }
+        }
+      }
+    },
+    {
+      "seq": 12,
+      "id": "readiness_recovered",
+      "kind": "observed",
+      "at": "2026-10-25T13:05:59.335Z",
+      "elapsedMs": 225341,
+      "facts": {
+        "pod": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "endpoints": [
+          {
+            "addresses": [
+              "10.42.0.11"
+            ],
+            "ready": true,
+            "pod": "catalogue-686775c675-rckbs"
+          }
+        ],
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-rckbs",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 13,
+      "id": "liveness_restarted",
+      "kind": "observed",
+      "at": "2026-10-25T13:07:06.631Z",
+      "elapsedMs": 292637,
+      "facts": {
+        "before": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "after": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 1,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v1",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-rckbs",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 14,
+      "id": "config_volume_changed_env_stale",
+      "kind": "observed",
+      "at": "2026-10-25T13:08:10.230Z",
+      "elapsedMs": 356237,
+      "facts": {
+        "pod": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 1,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "before": {
+          "name": "catalogue-686775c675-rckbs",
+          "uid": "d94404ad-ffdc-45e9-a7d2-81c6c184f06b",
+          "ready": true,
+          "restarts": 1,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v2",
+            "envMessage": "env-v1",
+            "version": "v1",
+            "pod": "catalogue-686775c675-rckbs",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 15,
+      "id": "config_env_refreshed",
+      "kind": "observed",
+      "at": "2026-10-25T13:08:17.113Z",
+      "elapsedMs": 363119,
+      "facts": {
+        "pod": {
+          "name": "catalogue-5497b66db7-gk8lb",
+          "uid": "ad9dcfe5-0f5f-47d0-abaf-3e909232f57d",
+          "ready": true,
+          "restarts": 0,
+          "image": "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "imageId": "sha256:782d409b15821c9d79089d00bf40720e029d62b66b86ce31bac9f74f80a6e93f",
+          "owner": "ReplicaSet",
+          "phase": "Running"
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v2",
+            "envMessage": "env-v2",
+            "version": "v1",
+            "pod": "catalogue-5497b66db7-gk8lb",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 16,
+      "id": "rbac_and_secret",
+      "kind": "observed",
+      "at": "2026-10-25T13:08:18.120Z",
+      "elapsedMs": 364126,
+      "facts": {
+        "configMapGetAllowed": true,
+        "secretGetForbidden": true,
+        "impersonatedIdentity": "system:serviceaccount:k8s-lab-c5b5bec6:reader",
+        "fixtureBase64Decoded": true,
+        "secretValuePublished": false,
+        "appTokenAutomount": false
+      }
+    },
+    {
+      "seq": 17,
+      "id": "unschedulable_request",
+      "kind": "observed",
+      "at": "2026-10-25T13:08:18.440Z",
+      "elapsedMs": 364446,
+      "facts": {
+        "phase": "Pending",
+        "scheduled": false,
+        "reason": "Unschedulable",
+        "insufficientCpu": true,
+        "cpuRequest": "999999"
+      }
+    },
+    {
+      "seq": 18,
+      "id": "memory_oom",
+      "kind": "observed",
+      "at": "2026-10-25T13:08:20.563Z",
+      "elapsedMs": 366570,
+      "facts": {
+        "phase": "Running",
+        "termination": {
+          "containerID": "containerd://7c9c51692d29b97abf8d9994d8c69cca2a214474b633299bf0f5771fa662a6d9",
+          "exitCode": 137,
+          "finishedAt": "2026-10-25T13:08:19Z",
+          "reason": "OOMKilled",
+          "startedAt": "2026-10-25T13:08:19Z"
+        },
+        "memoryLimit": "64Mi",
+        "allocationAttemptMi": 256
+      }
+    },
+    {
+      "seq": 19,
+      "id": "hpa_metrics_ready",
+      "kind": "observed",
+      "at": "2026-10-25T13:08:52.853Z",
+      "elapsedMs": 398859,
+      "facts": {
+        "sample": {
+          "phase": "baseline",
+          "at": "2026-10-25T13:08:52.853Z",
+          "elapsedMs": 398859,
+          "cpuPercent": 4,
+          "desired": 1,
+          "current": 1,
+          "ready": 1,
+          "target": 50
+        },
+        "cpuRequest": "50m",
+        "targetUtilization": 50,
+        "minReplicas": 1,
+        "maxReplicas": 3
+      }
+    },
+    {
+      "seq": 20,
+      "id": "hpa_scaled_up",
+      "kind": "observed",
+      "at": "2026-10-25T13:09:24.737Z",
+      "elapsedMs": 430744,
+      "facts": {
+        "sample": {
+          "phase": "load",
+          "at": "2026-10-25T13:09:24.737Z",
+          "elapsedMs": 430744,
+          "cpuPercent": 500,
+          "desired": 3,
+          "current": 1,
+          "ready": 3,
+          "target": 50
+        },
+        "load": {
+          "requests": 752,
+          "successful": 744,
+          "failed": 0
+        },
+        "clients": 8,
+        "workMs": 20
+      }
+    },
+    {
+      "seq": 21,
+      "id": "hpa_scaled_down",
+      "kind": "observed",
+      "at": "2026-10-25T13:10:12.574Z",
+      "elapsedMs": 478580,
+      "facts": {
+        "sample": {
+          "phase": "recovery",
+          "at": "2026-10-25T13:10:08.066Z",
+          "elapsedMs": 474072,
+          "cpuPercent": 4,
+          "desired": 1,
+          "current": 3,
+          "ready": 1,
+          "target": 50
+        },
+        "load": {
+          "requests": 752,
+          "successful": 752,
+          "failed": 0
+        },
+        "http": {
+          "status": 200,
+          "body": {
+            "message": "volume-v2",
+            "envMessage": "env-v2",
+            "version": "v1",
+            "pod": "catalogue-5497b66db7-gk8lb",
+            "credentialConfigured": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 22,
+      "id": "namespace_removed",
+      "kind": "observed",
+      "at": "2026-10-25T13:10:55.304Z",
+      "elapsedMs": 521311,
+      "facts": {
+        "namespaceAbsent": true
+      }
+    },
+    {
+      "seq": 23,
+      "id": "cluster_removed",
+      "kind": "observed",
+      "at": "2026-10-25T13:10:56.027Z",
+      "elapsedMs": 522033,
+      "facts": {
+        "containerAbsent": true,
+        "networkAbsent": true,
+        "imagesRetained": [
+          "docker.io/library/luisrc-kubernetes-c5b5bec6:v1",
+          "docker.io/library/luisrc-kubernetes-c5b5bec6:v2"
+        ]
+      }
+    }
+  ],
+  "samples": [
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:22.875Z",
+      "elapsedMs": 368882,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:24.528Z",
+      "elapsedMs": 370534,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:26.195Z",
+      "elapsedMs": 372201,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:27.883Z",
+      "elapsedMs": 373890,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:29.524Z",
+      "elapsedMs": 375530,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:31.191Z",
+      "elapsedMs": 377197,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:32.858Z",
+      "elapsedMs": 378864,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:34.504Z",
+      "elapsedMs": 380510,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:36.169Z",
+      "elapsedMs": 382176,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": null,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:37.812Z",
+      "elapsedMs": 383818,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:39.491Z",
+      "elapsedMs": 385498,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:41.135Z",
+      "elapsedMs": 387142,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:42.779Z",
+      "elapsedMs": 388785,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:44.419Z",
+      "elapsedMs": 390426,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:46.112Z",
+      "elapsedMs": 392119,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:47.789Z",
+      "elapsedMs": 393795,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:49.447Z",
+      "elapsedMs": 395454,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:51.169Z",
+      "elapsedMs": 397175,
+      "cpuPercent": null,
+      "desired": 0,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "baseline",
+      "at": "2026-10-25T13:08:52.853Z",
+      "elapsedMs": 398859,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:08:53.011Z",
+      "elapsedMs": 399017,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:08:54.676Z",
+      "elapsedMs": 400683,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:08:56.527Z",
+      "elapsedMs": 402534,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:08:58.218Z",
+      "elapsedMs": 404225,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:08:59.921Z",
+      "elapsedMs": 405928,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:01.569Z",
+      "elapsedMs": 407576,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:03.234Z",
+      "elapsedMs": 409241,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:04.887Z",
+      "elapsedMs": 410894,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:06.585Z",
+      "elapsedMs": 412591,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:08.231Z",
+      "elapsedMs": 414238,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:09.883Z",
+      "elapsedMs": 415889,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:11.527Z",
+      "elapsedMs": 417534,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:13.180Z",
+      "elapsedMs": 419187,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:14.828Z",
+      "elapsedMs": 420834,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:16.480Z",
+      "elapsedMs": 422487,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:18.114Z",
+      "elapsedMs": 424121,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:19.745Z",
+      "elapsedMs": 425751,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:21.425Z",
+      "elapsedMs": 427432,
+      "cpuPercent": 34,
+      "desired": 1,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:23.084Z",
+      "elapsedMs": 429090,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 1,
+      "target": 50
+    },
+    {
+      "phase": "load",
+      "at": "2026-10-25T13:09:24.737Z",
+      "elapsedMs": 430744,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:25.117Z",
+      "elapsedMs": 431124,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:26.781Z",
+      "elapsedMs": 432788,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:28.421Z",
+      "elapsedMs": 434428,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:30.081Z",
+      "elapsedMs": 436087,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:31.736Z",
+      "elapsedMs": 437742,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:33.375Z",
+      "elapsedMs": 439381,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:35.035Z",
+      "elapsedMs": 441041,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:36.726Z",
+      "elapsedMs": 442733,
+      "cpuPercent": 500,
+      "desired": 3,
+      "current": 1,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:38.375Z",
+      "elapsedMs": 444381,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:40.028Z",
+      "elapsedMs": 446034,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:41.664Z",
+      "elapsedMs": 447671,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:43.308Z",
+      "elapsedMs": 449315,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:44.948Z",
+      "elapsedMs": 450954,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:46.603Z",
+      "elapsedMs": 452609,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:48.259Z",
+      "elapsedMs": 454265,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:49.906Z",
+      "elapsedMs": 455912,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:51.551Z",
+      "elapsedMs": 457557,
+      "cpuPercent": 502,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:53.227Z",
+      "elapsedMs": 459234,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:54.877Z",
+      "elapsedMs": 460883,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:56.514Z",
+      "elapsedMs": 462521,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:58.161Z",
+      "elapsedMs": 464167,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:09:59.813Z",
+      "elapsedMs": 465819,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:10:01.458Z",
+      "elapsedMs": 467464,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:10:03.100Z",
+      "elapsedMs": 469106,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:10:04.740Z",
+      "elapsedMs": 470747,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:10:06.398Z",
+      "elapsedMs": 472404,
+      "cpuPercent": 20,
+      "desired": 3,
+      "current": 3,
+      "ready": 3,
+      "target": 50
+    },
+    {
+      "phase": "recovery",
+      "at": "2026-10-25T13:10:08.066Z",
+      "elapsedMs": 474072,
+      "cpuPercent": 4,
+      "desired": 1,
+      "current": 3,
+      "ready": 1,
+      "target": 50
+    }
+  ],
+  "limits": {
+    "productionCluster": false,
+    "multiNodeFailureTested": false,
+    "continuousAvailabilityProven": false,
+    "throughputBenchmark": false,
+    "secretEncryptionVerified": false,
+    "realTokenAuthenticationTested": false,
+    "externalLoadBalancerProvisioned": false
+  }
+}

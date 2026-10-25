@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Cambio manual del ConfigMap\nObjetivo HCL sin editar"
+n1: "Plan observa drift\nPropone recuperar objetivo"
+n2: "Refresh-only actualiza state\nEl mensaje manual sigue real"
+n3: "Plan ordinario vuelve a diferir\nElegir código o reparación"
+n4: "Apply del objetivo declarado\nComprobar HTTP y nuevo plan"
+n0 -> n1: "consultar recurso real"
+n1 -> n2: "experimento separado"
+n2 -> n3: "no cambia intención del código"
+n3 -> n4: "si se decide revertir"

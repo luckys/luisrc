@@ -345,12 +345,12 @@
     {
       "source": "packages/container-environments/replay.json",
       "destination": "public/assets/interactive/container-environments/replay.json",
-      "sha256": "2eab9543710f108e901df15699e36a318b2b782df77812bdd77e65e72d882b67"
+      "sha256": "a2164cdd4a500e0ffcae6709d019513d9f20084f8e622c12abf01952e821cefe"
     },
     {
       "source": "packages/container-environments/image-sizes.svg",
       "destination": "public/assets/interactive/container-environments/image-sizes.svg",
-      "sha256": "981561a10174e66c80010b52885202cef9b5058f650656b57a88ca71ed0d331f"
+      "sha256": "c44d4c02afd4c471efe6dc83040c90ccb98a1d18b70bc200f939434b700c3df4"
     },
     {
       "source": "packages/progressive-delivery/explorer.html",
@@ -365,12 +365,82 @@
     {
       "source": "packages/progressive-delivery/replay.json",
       "destination": "public/assets/interactive/progressive-delivery/replay.json",
-      "sha256": "451c8a73b0d270ba1c582e1445de88f78c5cad36e360212cc927fafcf0042f9e"
+      "sha256": "b93bc6f977071028464d401c49bb3c126cb2d99343b2c9f966f7a81828ab8738"
     },
     {
       "source": "packages/progressive-delivery/canary-outcomes.svg",
       "destination": "public/assets/interactive/progressive-delivery/canary-outcomes.svg",
       "sha256": "d24fa6fce4f78f179f1d08170a7fe84e634ac956f4e527d597b5eadc7afcfa8c"
+    },
+    {
+      "source": "packages/aws-foundations/explorer.html",
+      "destination": "public/assets/interactive/aws-foundations/explorer.html",
+      "sha256": "74cbda5c80d64f761585af29a0a0eb30e9bf8430e4effa1103e608a9c186c631"
+    },
+    {
+      "source": "packages/aws-foundations/explorer.mjs",
+      "destination": "public/assets/interactive/aws-foundations/explorer.mjs",
+      "sha256": "d1813fde5f0b7c55dea43125cd18699f4d4e788de96af2669009f6637bc98cbf"
+    },
+    {
+      "source": "packages/aws-foundations/comparison.json",
+      "destination": "public/assets/interactive/aws-foundations/comparison.json",
+      "sha256": "70f2228d6892ab81dc8a795a338c775c48f7ab3003a775af2eaef27daae3e6ad"
+    },
+    {
+      "source": "packages/aws-foundations/cost-model.mjs",
+      "destination": "public/assets/interactive/aws-foundations/cost-model.mjs",
+      "sha256": "5bbcfdd1d5c50c24dd0a258ef917b7b07929aa1f45e2d3dc6bf9a68e65f55c73"
+    },
+    {
+      "source": "packages/aws-foundations/cost-summary.svg",
+      "destination": "public/assets/interactive/aws-foundations/cost-summary.svg",
+      "sha256": "d9a8ba1be5dc6bba65b6dd4825ba3cbc5cf73f85bf97e2956284233315ad5f9a"
+    },
+    {
+      "source": "packages/declarative-infrastructure/explorer.html",
+      "destination": "public/assets/interactive/declarative-infrastructure/explorer.html",
+      "sha256": "03ec54716904a77b5661ca331d9321ece7f77ddcdeba892591f0235794fc3e22"
+    },
+    {
+      "source": "packages/declarative-infrastructure/explorer.mjs",
+      "destination": "public/assets/interactive/declarative-infrastructure/explorer.mjs",
+      "sha256": "8548ae746a6844c68f2c9928cdf68d78e8551e6b9571bca567fc4e813ae70fba"
+    },
+    {
+      "source": "packages/declarative-infrastructure/replay.json",
+      "destination": "public/assets/interactive/declarative-infrastructure/replay.json",
+      "sha256": "0696165fc0f1662471edd3ddb19762eceb05ffb51f3470ce15e44ac91fce3600"
+    },
+    {
+      "source": "packages/declarative-infrastructure/plan-actions.svg",
+      "destination": "public/assets/interactive/declarative-infrastructure/plan-actions.svg",
+      "sha256": "22f499a9c04113cb32494af58684b02b504a702d0438b2307723de68f40dff6b"
+    },
+    {
+      "source": "packages/kubernetes-workloads/explorer.html",
+      "destination": "public/assets/interactive/kubernetes-workloads/explorer.html",
+      "sha256": "7629404796e764c2a32a85790e3907af22090448e6064af74b55e26391626f78"
+    },
+    {
+      "source": "packages/kubernetes-workloads/explorer.mjs",
+      "destination": "public/assets/interactive/kubernetes-workloads/explorer.mjs",
+      "sha256": "7cdcefa7b3ee90c4b4f3f6e5f1b8b3b0bf09133f6a557667c140f03b35bc723f"
+    },
+    {
+      "source": "packages/kubernetes-workloads/chart.mjs",
+      "destination": "public/assets/interactive/kubernetes-workloads/chart.mjs",
+      "sha256": "f763f7f72aab8ec497ae727b4cab1f87065d05c40e0ae40131061ad716addaf8"
+    },
+    {
+      "source": "packages/kubernetes-workloads/replay.json",
+      "destination": "public/assets/interactive/kubernetes-workloads/replay.json",
+      "sha256": "d9db9df5d999d2595e70a5a23195e5dc55f490e3f091d05674bad7ddc74d9091"
+    },
+    {
+      "source": "packages/kubernetes-workloads/hpa-observations.svg",
+      "destination": "public/assets/interactive/kubernetes-workloads/hpa-observations.svg",
+      "sha256": "315ebd2fd4668d102f507d2cc75939f82c65a03ea89550df36044acdcd4d5b95"
     }
   ]
 }

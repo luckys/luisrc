@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+user: "Usuario solicita documento"
+api: "API comprueba autorización\nTenant y documento"
+key: "Key de objeto\nConvención, no permiso"
+url: "Presigned URL\nOperación y expiración"
+s3: "Objeto en S3\nAcceso de quien posee URL"
+user -> api: "identidad"
+api -> key: "resolver recurso"
+key -> url: "firma con credenciales"
+url -> s3: "reutilizable mientras sea válida"

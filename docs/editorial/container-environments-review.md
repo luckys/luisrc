@@ -1,5 +1,14 @@
 # Revisión de Docker y entornos reproducibles
 
+## Actualización al completar el bloque Kubernetes
+
+Captura renovada2026-10-25T13:03:35.536Z, luisrc-containers-a044e370; build618485156bytes/runtime344518059bytes. Diez fases y quince hashes. Se regeneran gráfica/replay y cifras del post.
+
+La política pnpm compartida deniega explícitamente Scarf y optimizaciones SSH
+opcionales sin desactivar los controles de scripts. P062/P063 se recapturaron
+porque esa política es entrada de sus builds; no se eliminó el control de hashes.
+Las secciones siguientes conservan la revisión anterior.
+
 ## Recaptura previa al commit solicitado
 
 Al incorporar el importador de AWS se repitió exercise completo por el nuevo

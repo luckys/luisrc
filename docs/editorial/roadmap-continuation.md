@@ -1,5 +1,176 @@
 # Continuación del objetivo editorial completo
 
+## Estado vigente: AWS y P065 preparados para commit, 25 de octubre de 2026
+
+Por petición explícita del usuario se guardan los cambios pendientes en ambos
+repositorios. Hay once drafts AWS, seis Terraform y once Kubernetes, todos en
+español, con diagramas, ejemplos explicados y enlaces al laboratorio externo.
+No se publican, traducen ni generan audios. Las notas inferiores describen estados
+anteriores; el bloque Kubernetes de P065 ya está escrito y verificado.
+
+Ver [ruta conjunta](ruta-terraform-kubernetes.md),
+[manifiesto Kubernetes](kubernetes-series.json) y
+[revisión](kubernetes-review.md). Su laboratorio registra 23 fases reales de K3s,
+26 hashes de entradas y 66 muestras de HPA. Los tres tests locales pasan. La
+evidencia distingue readiness de liveness, observa OOM y scheduling, y comprueba
+permisos mediante impersonation. El estado HPA inicial sin CPU válida se conserva
+en tablas, pero no se dibuja como recomendación de escalar a cero. El recorrido
+Service se prueba desde otro Pod; no se afirma haber validado hairpin al propio Pod.
+
+La política de scripts auxiliares de pnpm se hace explícita sin añadir dependencias
+ni modificar lockfiles. Se recapturan P062/P063 porque su build consume esa política;
+sus verificaciones y las de Terraform siguen pasando. Los exports canónicos y sus
+hashes están sincronizados: 253 índices de posts, 34 laboratorios y 88 exports.
+Pasan 19 tests del blog y 132 comprobaciones editoriales/estructurales. Build y
+Pagefind verificados; Chromium revisa 24 vistas de Kubernetes en escritorio y móvil,
+sin errores, con fases y muestras recorridas por teclado. Informe:
+`/tmp/kubernetes-layout.F49lGm/report.json`.
+
+El siguiente bloque editorial es P066, capacidad y costes. Mantener los gaps P026,
+Stripe sandbox P045 y soak prolongado P058; Serie02 solo estructuras y algoritmos.
+P065 tiene cobertura como drafts y laboratorio local, no acredita preparación para
+producción. El objetivo global sigue abierto. No se hace push ni publicación.
+
+## Continuación vigente: bloque Terraform de P065, 25 de octubre de 2026
+
+El turno anterior fue progreso: once drafts AWS con laboratorio/visuales/QA.
+Se han preservado sin commit. Ahora se añaden seis drafts Terraform: P065,
+TF-PROVIDERS, TF-STATE, TF-MODULES, TF-DRIFT y TF-CHANGES. Ver
+[ruta P065](ruta-terraform-kubernetes.md), [manifiesto](terraform-series.json) y
+[revisión](terraform-review.md). Autor Luis Ramírez Calle, español/draft, sin
+traducción/publicación/audio. **P065 sigue parcial**, pendiente su bloque de
+Kubernetes con artículos y experimentos propios; el auditor solo inventaría IDs.
+
+Código en packages/declarative-infrastructure. Cuatro tests locales sin Docker,
+seis índices por artículo, siete extractos HCL/JavaScript, seis D2/SVG y gráfico
+derivado de cuatro planes. Visor estático de dieciséis fases con contadores de
+acciones, no hereda HTTP entre fases y explica el plan ordinario tras refresh-only.
+Tabla de estado legible sin scroll horizontal en móvil; direcciones largas y JSON
+mantienen regiones desplazables. Ningún canal de control en el visor.
+
+Laboratorio real: K3s1.35.9+k3s1 en Docker privilegiado, Terraform1.15.3 en container
+y provider hashicorp/kubernetes3.4.0, versions y lockfile fijados. Node24.19.0,
+image propia sin dependencias, importada al containerd local. No binarios host,
+kubeconfig personal, nube o secretos reales. Herramientas/image base por digest.
+La prueba preliminar de clúster se cerró verificando propiedad; no se reutilizó un
+clúster ajeno. Finally del harness elimina solo container/red propios, sin prune.
+
+Captura final2026-10-25T12:39:39.917Z, proyecto luisrc-declarative-9575171a,
+namespace tf-lab-9575171a,16fasesobserved/17hashes. Seis recursos Terraform reales:
+namespace, ConfigMap, fixture Secret, Deployment, Service e Ingress Traefik. Plan
+create6, apply, HTTP esperado y no-change0. Borrar Pod cambia UID por controlador
+sin apply. Drift de ConfigMap llega a HTTP y plan propone update1; se repara.
+Otro apply hace stale al plan anterior y se comprueba el rechazo exacto. Cambio
+de revisión reemplaza ConfigMap(create/delete) y actualiza Deployment; viejo nombre
+ausente. Refresh-only acepta state pero conserva mensaje manual; plan ordinario
+sigue difiriendo y apply recupera objetivo. Destroy6, namespace ausente/state vacío,
+clúster y red eliminados. Images propias retenidas. No se prueba continuidad HTTP.
+
+Se corrigieron dos fallos reales del harness sin rebajar criterios: NodeReady no
+implicaba Traefik existente/listo; se espera disponibilidad del controlador. Fetch
+Node24 ignoraba Host, confirmado con servidor loopback; nuevo cliente node:http
+con Host explícito y test de regresión/restricción a loopback. No se retiró la regla
+host. Los intentos fallidos limpiaron su clúster y no publicaron captura final.
+
+State/planes/checkpoints privados en .artifacts ignorado. Directorio700 y kubeconfig600
+comprobados. Solo se publican booleanos sobre atributo sensible/state, no valores,
+kubeconfig o planes completos. El kubeconfig y tar de la ejecución correcta se
+eliminaron tras teardown. No locking remoto, HA, fallo parcial de apply, TLS,
+capacidad o autoscaling ensayados. Metrics-server instalado por K3s no prueba HPA.
+
+Pnpm frozen34proyectos pasa; nuevo paquete sin dependencias, sin importador vacío
+en lock según pnpm12. Test estructural exige importador a cualquier paquete con
+dependencias. No nuevas dependencias ni cambios de rootpackage/workspace/lock ni
+lock del blog. P062/P063/AWSverify siguen pasando. No repetir sus builds por entradas
+que no cambiaron. 125checks editoriales/estructurales,19tests blog y4tests nuevos
+pasan. Build50rutas/69HTML; Pagefind10páginas/4280palabras/dos idiomas. Índices242,
+labs33,exports83. Auditor69draft_exists/20related_only/86not_written, no aceptación
+de P065 completo. Fuentes canónicas y provenance sincronizadas; no servidores o
+archivos privados exportados al blog.
+
+Chromium final:14vistas1440/360(seis posts+visor),32selecciones de fase, valores y
+acciones/barras exactos, prev/next/select/details/JSON con teclado, tablas, iframe,
+noindex y enlaces/assets. Fallo de informe explícito, sin overflow global ni errores
+JS; visor solo assets propios. Informe /tmp/terraform-layout.be3HyH/report.json.
+El informe .fKWtyc es previo al ajuste móvil de snapshot. Se inspeccionaron los seis
+diagramas, gráfico, HCL renderizado y visor en ambas anchuras.
+
+**Siguiente acción: bloque Kubernetes de P065**, no P066 todavía. Separar API/Pods,
+Deployment/ReplicaSet, Services/EndpointSlices/DNS, Ingress/controller, startup/
+readiness/liveness, ConfigMaps/propagación, Secrets/RBAC, requests/limits/scheduling
+y HPA/métricas. Usar los conceptos ya introducidos y ampliar el laboratorio con
+observaciones reales: endpoint/readiness, reinicios, permisos y autoscaling. No
+tratar la existencia de objetos como evidencia de cada mecanismo. El manifiesto
+Terraform no contiene los futuros posts Kubernetes todavía.
+
+Después P066, Deep Learning y series11–16. Conservar gapsP026, Stripe sandboxP045,
+soak prolongadoP058 y Serie02 solo estructuras/algoritmos. Últimos commits siguen
+bloge438cd4 y ejemplosec50a13; AWS y Terraform permanecen sin commit/push. El objetivo
+global sigue activo. Servidor QA propio707580 detenido;4322sin listener al cierre.
+Las notas inferiores son históricas.
+
+## Continuación vigente: fundamentos AWS terminados como drafts, 25 de octubre de 2026
+
+El turno anterior produjo progreso verificable: se guardaron los cambios en
+blog e438cd4 y ejemplos ec50a13 por petición explícita. Ambos checkouts estaban
+limpios al reanudar. La parte AWS entonces era inicial; ahora P064 se desarrolla
+en once artículos españoles independientes enlazados en orden. Ver
+[ruta](ruta-aws-fundamentos.md), [manifiesto](aws-foundations-series.json) y
+[revisión](aws-foundations-review.md). No hay traducción, publicación o audio.
+
+La secuencia cubre responsabilidad/IaaS/PaaS/serverless, IAM, VPC, EC2, Lambda,
+ECS/Fargate, S3, SQS Standard, RDS, DynamoDB y comparación Lambda/ECS. Código en
+packages/aws-foundations; nueve extractos TypeScript y un JSON completo en los
+posts, once índices por artículo. Diagramas D2/SVG estrechos por concepto y
+cost-summary.svg derivado de los dos escenarios. Visor estático oscuro con siete
+campos, dos escenarios y modelo puro compilado compartido con tests.
+
+Tarifas públicas AWS Price List capturadas2026-10-25T11:33:36.124Z, cinco ofertas,
+diez dimensionesus-east-1/USD/on-demand, tramos y procedencia archivados. Snapshot
+consistente no implica firma AWS. Diseños: HTTP API/Lambda Event Functions x86
+sin VPC del cliente y ALB/Fargate privado en2AZ con6interfaces endpoint más
+S3/DynamoDB gateway, sin NAT/internet externo. Dos IPv4 asumidas; DB común
+propuesta, sin precio incluido. Subtotales2,033335/86,32905USD a1M;203,3335/163,9652
+a100M con tasks/LCU/GB distintos. No capacidad equivalente, autoscaling observado,
+factura total o TCO. Matriz de responsabilidades sin horas inventadas.
+
+Captura final2026-10-25T12:10:51.810Z,25hashes, cuatro HTTP loopback200/404/405/503
+frente a adaptador Lambda local. Reader ficticio; puerto35375 cerrado. En TDD se
+corrigió Allow:GET en405 para ambos adaptadores y se recapturó. Verify contrasta
+el informe público completo. No credenciales/deployAWS, permisos IAM efectivos,
+SQS/S3 reales, restoreRDS, failover o rendimiento cloud probados. Los preflights
+mantienen esas diferencias; restoreVerified siguefalse incluso si se declara true.
+
+Quince tests y tipos strict pasan; exercise/verify local pasan. Frozen pnpm33
+proyectos y467entradas supply-chain pasa con acceso al registry; offline no tenía
+los metadatos requeridos. No nuevas dependencias ni cambios de lock/config raíz
+ni del lock del blog. P062/P063verify intactos, sin repetir Docker innecesariamente.
+119checks editoriales/estructurales y19tests blog pasan. Build50rutas/68HTML;
+Pagefind10páginas publicadas/4280palabras/dos idiomas. Índices236,labs32,exports79.
+Se conserva orden previo de índices y entradas ajenas a esta serie.
+
+Chromium final:24vistas1440/360,11posts+visor por anchura. Dos escenarios, siete
+campos, valores/barras/partidas exactas, tráfico cero, tres entradas inválidas,
+reset/teclado, tablas/details y error explícito sin informe. No overflow global,
+noindex, enlaces/recursos correctos, sin erroresJS y visor solo assets propios.
+Informe: /tmp/aws-foundations-layout.1fPYA0/report.json. Inspección visual de todos
+los diagramas, gráfico y visor en ambas anchuras. Las capturas previas
+/tmp/aws-foundations-layout.TE4wmQ y .cHnjbX son evidencia anterior; el QA final
+incluye la task definition completa y elimina scroll residual de teclado.
+
+Auditor68draft_exists/20related_only/87not_written: inventario, no aceptación de
+todo el objetivo. Siguiente P065: leer ficha y material relacionado, dividir
+Terraform plan/state/providers/modules/drift y Kubernetes pods/deployments/services/
+ingress/probes/secrets/autoscaling en artículos específicos. El laboratorio debe
+probar infraestructura declarativa y un servicio mínimo local o cloud; no basta
+una simulación del scheduler. No crear recursos facturables sin necesidad.
+Después P066, Deep Learning y series11–16. Conservar gapsP026, Stripe sandboxP045,
+soak prolongadoP058 y Serie02 solo estructuras/algoritmos.
+
+Los cambios de P064 quedan sin commit/push. El objetivo global sigue activo.
+Servidor QA propio468571 detenido;4322 y35375 sin listener al terminar.
+Las secciones siguientes son históricas.
+
 ## Estado preparado para commit solicitado, 25 de octubre de 2026
 
 El usuario ha solicitado guardar los cambios. P062 y P063 están terminados como

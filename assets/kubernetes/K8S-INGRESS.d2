@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Cliente en loopback\nHost: catalogue.lab.test"
+n1: "Traefik controller\nImplementa IngressClass"
+n2: "Regla host y path\nService catalogue:80"
+n3: "Pod preparado\nAPI del catálogo"
+n0 -> n1: "entrada local"
+n1 -> n2: "seleccionar ruta"
+n2 -> n3: "Service y EndpointSlice"

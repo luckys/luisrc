@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **67**. Solo material relacionado: **20**. Sin artículo identificado: **88**.
+IDs con borrador propio: **69**. Solo material relacionado: **20**. Sin artículo identificado: **86**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -112,8 +112,8 @@ P063 se amplía en ocho drafts: pipeline/gates, artefactos, flags, smoke, rollin
 - P061. Incidentes, runbooks y postmortems: [borrador](../../src/content/posts/es/incidentes-triage-sintomas-hipotesis-evidencia.md).
 - P062. Docker y entornos reproducibles: [borrador](../../src/content/posts/es/docker-images-containers-entorno-reproducible.md).
 - P063. CI/CD, despliegues progresivos y rollback: [borrador](../../src/content/posts/es/ci-cd-pipeline-gates-evidencia.md).
-- P064. Cloud Computing con AWS: pendiente.
-- P065. Terraform y Kubernetes: pendiente.
+- P064. Cloud Computing con AWS: [borrador](../../src/content/posts/es/cloud-iaas-paas-serverless-responsabilidad.md).
+- P065. Terraform y Kubernetes: [borrador](../../src/content/posts/es/terraform-configuracion-plan-apply-infraestructura.md).
 - P066. Ingeniería de capacidad y costes: relacionado, requiere revisión.
 
 ## Serie 07. Frontend y tiempo real (posts 067–075)

@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+plan: "Plan RDS PostgreSQL\nPrivado, Multi-AZ, retención"
+check: "Preflight local\nAcepta configuración"
+gap: "Restore no verificado\nDeclararlo no aporta evidencia"
+restore: "Ensayo en instancia nueva\nValidar datos y aplicación"
+rto: "Medir recuperación del servicio\nContrastar RPO y RTO"
+plan -> check: "revisar documento"
+check -> gap: "trabajo abierto"
+gap -> restore: "pendiente en AWS"
+restore -> rto: "datos y servicio"

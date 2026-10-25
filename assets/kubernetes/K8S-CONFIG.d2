@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "ConfigMap cambia\nArchivo y entrada env nuevos"
+n1: "Volumen proyectado se actualiza\nLa API relee el archivo"
+n2: "Mismo proceso: volume-v2\nEntorno conserva env-v1"
+n3: "Rollout restart explícito\nNuevos containers con env-v2"
+n0 -> n1: "propagación eventual"
+n1 -> n2: "dos mecanismos distintos"
+n2 -> n3: "observar tras reemplazo"

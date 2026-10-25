@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+inputs: "Escenario declarado\nTráfico, duración y recursos"
+rates: "Tarifas archivadas\nus-east-1 · USD · tramos"
+model: "Modelo compartido\nLambda/HTTP API y ECS/ALB/red"
+subtotal: "Subtotales de infraestructura\nDB, logs y TCO excluidos"
+decision: "Decisión condicionada\nCapacidad y operación por probar"
+inputs -> rates: "unidades explícitas"
+rates -> model: "snapshot y fórmulas"
+model -> subtotal: "no factura observada"
+subtotal -> decision: "falta evidencia"

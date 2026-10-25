@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Lambda y ECS: explorar subtotales declarados</title>
+<style>
+:root{color-scheme:dark;font:16px/1.55 system-ui,sans-serif;background:#0f172a;color:#f1f5f9}*{box-sizing:border-box}body{margin:0;padding:20px;overflow-wrap:anywhere}main{max-width:960px;margin:auto}h1{font-size:1.55rem;line-height:1.25}h2{font-size:1.15rem;margin-top:1.8em}p{max-width:78ch}a{color:#7dd3fc}.notice{padding:14px;border-left:4px solid #fbbf24;background:#1e293b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}label{display:block}input,select,button{font:inherit;color:inherit;background:#17263c;border:1px solid #94a3b8;border-radius:6px;padding:10px;width:100%;min-height:44px;margin-top:6px}button{width:auto;cursor:pointer}input:focus-visible,select:focus-visible,button:focus-visible,[tabindex]:focus-visible,a:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}.scroll{overflow-x:auto;max-width:100%;border:1px solid #475569;border-radius:6px}table{border-collapse:collapse;min-width:540px;width:100%}th,td{text-align:left;padding:10px;border-bottom:1px solid #475569}th{background:#1e293b}td:last-child{text-align:right;font-variant-numeric:tabular-nums}caption{padding:10px;text-align:left;font-weight:600}.bar{height:24px;max-width:100%;background:#273449;border-radius:4px;overflow:hidden}.fill{height:100%;background:#38bdf8}.ecs{background:#a78bfa}.value{font-size:1.15rem;font-weight:700}output{font-variant-numeric:tabular-nums}small{color:#cbd5e1}#error{color:#fda4af;font-weight:600}[hidden]{display:none!important}details{margin-top:24px}summary{cursor:pointer;padding:8px}footer{margin-top:24px;color:#cbd5e1}
+</style>
+</head>
+<body><main>
+<h1>Lambda y ECS: explorar un subtotal</h1>
+<p class="notice"><strong>Diseños calculados, sin despliegue AWS.</strong> Cambiar las peticiones no demuestra capacidad. Este subtotal excluye DB, logs, transferencias, almacenamiento, impuestos, descuentos y trabajo de ingeniería.</p>
+<p id="snapshot">Cargando snapshot de tarifas…</p>
+<label for="scenario">Escenario de partida<select id="scenario" disabled></select></label>
+<p id="scenario-name"></p>
+<p><small>Los escenarios cambian recursos y LCU asumidas; no representan un autoscaler observado. Puedes modificar los supuestos después de seleccionarlos.</small></p>
+<form id="controls">
+<div class="grid">
+<label for="requests">Peticiones en el periodo<input id="requests" type="number" min="0" max="300000000" step="1" required></label>
+<label for="memoryMb">Memoria Lambda (MB)<input id="memoryMb" type="number" min="128" max="10240" step="1" required></label>
+<label for="billedMs">Duración facturada Lambda (ms)<input id="billedMs" type="number" min="1" max="900000" step="1" required></label>
+<label for="tasks">Tasks mantenidas<input id="tasks" type="number" min="2" max="100" step="1" required></label>
+<label for="shape">Shape por task (vCPU / GB)<select id="shape"><option value="0.25,0.5">0,25 vCPU / 0,5 GB</option><option value="0.5,1">0,5 vCPU / 1 GB</option><option value="1,2">1 vCPU / 2 GB</option></select></label>
+<label for="assumedLcu">LCU medias asumidas del ALB<input id="assumedLcu" type="number" min="0" max="10000" step="any" required></label>
+<label for="interfaceGb">GB en interface endpoints<input id="interfaceGb" type="number" min="0" max="1048576" step="any" required></label>
+</div>
+<button type="button" id="reset" disabled>Restablecer escenario</button>
+</form>
+<p><small>Fijos: 730 horas, payload de 1024 bytes, dos AZ, tres servicios con interfaces endpoint por AZ y dos IPv4 públicas. Diseño sin NAT ni llamadas a internet externo. LCU y GB no se deducen del tráfico.</small></p>
+<p id="error" role="alert" hidden></p>
+<section id="result" hidden aria-labelledby="result-title">
+<h2 id="result-title">Subtotales del supuesto editado</h2>
+<p id="status" role="status" aria-live="polite"></p>
+<p class="value">Lambda + HTTP API: <output id="lambdaTotal"></output></p><div class="bar" aria-hidden="true"><div id="lambdaBar" class="fill"></div></div>
+<p class="value">ECS + ALB + red: <output id="ecsTotal"></output></p><div class="bar" aria-hidden="true"><div id="ecsBar" class="fill ecs"></div></div>
+<p><small>Barras con escala común desde cero. Importes en USD, precisión del modelo; no redondeo de factura. Capacidad equivalente sin verificar.</small></p>
+<div class="scroll" role="region" aria-label="Desglose de subtotales AWS" tabindex="0"><table><caption>Partidas incluidas</caption><thead><tr><th scope="col">Diseño</th><th scope="col">Partida</th><th scope="col">USD</th></tr></thead><tbody id="lines"></tbody></table></div>
+</section>
+<details><summary>Qué demostró el laboratorio local</summary>
+<p>HTTP loopback y adaptador Lambda invocado como función local. Reader ficticio, sin DynamoDB. Las coincidencias de respuestas no son una comparación de latencia.</p>
+<div class="scroll" role="region" aria-label="Contratos HTTP observados localmente" tabindex="0"><table><caption>Cuatro casos locales</caption><thead><tr><th scope="col">Método y ruta</th><th scope="col">HTTP local</th><th scope="col">Adaptador local</th></tr></thead><tbody id="observations"></tbody></table></div>
+<p id="contracts"></p>
+</details>
+<details><summary>Supuestos que siguen necesitando evidencia</summary><ul><li>Duración Lambda y picos de concurrencia reales.</li><li>Throughput, latencia y escalado de tasks con cada shape.</li><li>DNS, rutas, permisos efectivos y pérdida de una AZ.</li><li>LCU, direcciones y GB de endpoints realmente consumidos.</li><li>Coste de DB, logs, datos, almacenamiento y operación del equipo.</li></ul></details>
+<footer>Visor estático. Solo carga el informe y modelo de esta carpeta; no crea recursos ni envía peticiones a AWS.</footer>
+<noscript>Activa JavaScript para editar supuestos. El gráfico estático y las cifras explicadas están disponibles en el artículo.</noscript>
+<script type="module" src="explorer.mjs"></script>
+</main></body></html>

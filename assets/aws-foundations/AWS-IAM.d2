@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+trust: "Trust policy\nQuién asume el role"
+session: "Sesión temporal\nTask role del catálogo"
+permission: "Permissions policy\nGetItem sobre tabla concreta"
+effective: "Evaluación AWS\nOtros límites y Deny"
+resource: "Tabla catalogue"
+trust -> session: "asunción"
+session -> permission: "solicitud"
+permission -> effective: "revisar contexto"
+effective -> resource: "solo si está permitido"

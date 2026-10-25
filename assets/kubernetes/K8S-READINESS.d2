@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Pod vivo, ready: false\nFixture temporal"
+n1: "EndpointSlice\nDirección con ready: false"
+n2: "Sin backend preparado\nTraefik devuelve 503"
+n3: "Mismo UID y reinicios\nRecuperación sin restart"
+n0 -> n1: "actualizar condición"
+n1 -> n2: "no elegir para tráfico normal"
+n2 -> n3: "restaurar preparación"

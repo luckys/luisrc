@@ -1573,5 +1573,201 @@
     "labs": [
       "progressive-delivery"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "api-lambda-ecs-costes-supuestos",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-dynamodb-claves-access-patterns",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-ec2-maquina-virtual-operacion",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-ecs-fargate-tasks-servicios",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-iam-roles-politicas-permisos",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-lambda-eventos-concurrencia-limites",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-rds-postgresql-backups-operacion",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-s3-objetos-keys-acceso",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-sqs-visibilidad-reintentos-batches",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "aws-vpc-subnets-rutas-endpoints",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cloud-iaas-paas-serverless-responsabilidad",
+    "labs": [
+      "aws-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "terraform-configuracion-plan-apply-infraestructura",
+    "labs": [
+      "declarative-infrastructure"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "terraform-providers-versiones-lockfile",
+    "labs": [
+      "declarative-infrastructure"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "terraform-state-backend-locking-secretos",
+    "labs": [
+      "declarative-infrastructure"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "terraform-modulos-variables-outputs-contratos",
+    "labs": [
+      "declarative-infrastructure"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "terraform-drift-refresh-reconciliar-cambios",
+    "labs": [
+      "declarative-infrastructure"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "terraform-planes-guardados-reemplazos-recuperacion",
+    "labs": [
+      "declarative-infrastructure"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-pods-api-controladores",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-deployments-replicasets-rollout",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-services-endpointslices-dns",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-ingress-controller-host-rutas",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-startup-probe-inicializacion",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-readiness-probe-trafico",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-liveness-probe-reinicios",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-configmaps-env-volumenes",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-secrets-serviceaccounts-rbac",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-requests-limits-scheduling-oom",
+    "labs": [
+      "kubernetes-workloads"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "kubernetes-hpa-metricas-escalado",
+    "labs": [
+      "kubernetes-workloads"
+    ]
   }
 ]

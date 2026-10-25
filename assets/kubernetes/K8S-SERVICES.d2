@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Pod cliente\nResolver nombre de Service"
+n1: "ClusterIP de catalogue\nSelector app: catalogue"
+n2: "Plano de datos\nDestinos según EndpointSlices"
+n3: "Pod preparado\nPuerto http → 3000"
+n0 -> n1: "DNS interno"
+n1 -> n2: "dirección virtual y backends"
+n2 -> n3: "conexión al catálogo"
