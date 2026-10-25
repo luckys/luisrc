@@ -1,0 +1,291 @@
+{
+  "capturedAt": "2026-10-25T11:39:04.758Z",
+  "kind": "local_docker_observation",
+  "events": [
+    {
+      "seq": 1,
+      "id": "built",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:33.098Z",
+      "elapsedMs": 26575.572393000002,
+      "facts": {
+        "runtimeImage": "sha256:0bfc9ac94a9fcd544d16b2676560f499ebebc032f637dbbb5007a3d21a17cf92",
+        "runtimeBytes": 344517995,
+        "buildBytes": 618488773,
+        "sourceChangeInstallCached": true,
+        "contextExperiment": "temporary_copy_with_comment_change",
+        "runtimeUser": "node"
+      }
+    },
+    {
+      "seq": 2,
+      "id": "fresh_setup",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:39.898Z",
+      "elapsedMs": 33374.663627,
+      "facts": {
+        "rows": 0,
+        "topology": {
+          "api": {
+            "id": "742113abb8cfd146c5e1600aa4ae711901a2de76b554b99759000a6d3646b39d",
+            "image": "sha256:0bfc9ac94a9fcd544d16b2676560f499ebebc032f637dbbb5007a3d21a17cf92",
+            "ports": {
+              "3000/tcp": [
+                {
+                  "HostIp": "127.0.0.1",
+                  "HostPort": ""
+                }
+              ]
+            },
+            "networks": [
+              "luisrc-containers-e88d1435_backend",
+              "luisrc-containers-e88d1435_edge"
+            ],
+            "mounts": []
+          },
+          "postgres": {
+            "id": "388e3a3117661649881e051ccb561eaf4a0dcb17d1672a4dba3d427d310918ea",
+            "image": "sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d293595148e674e0a3181de15",
+            "ports": {},
+            "networks": [
+              "luisrc-containers-e88d1435_backend"
+            ],
+            "mounts": [
+              {
+                "Type": "bind",
+                "Destination": "/docker-entrypoint-initdb.d/01-schema.sql",
+                "RW": false
+              },
+              {
+                "Type": "volume",
+                "Name": "luisrc-containers-e88d1435_pgdata",
+                "Destination": "/var/lib/postgresql",
+                "RW": true
+              }
+            ]
+          },
+          "redis": {
+            "id": "a7e5b5d7193eb20f6f296e42a33cb4a5410f9cad88783e49465ccd0466115ce7",
+            "image": "sha256:8096655e437712b07503796fb64d81359256cfcff0ab29d95a7da72863786efb",
+            "ports": {},
+            "networks": [
+              "luisrc-containers-e88d1435_backend"
+            ],
+            "mounts": []
+          }
+        },
+        "backendInternal": true,
+        "security": {
+          "uid": 1000,
+          "write": "EROFS",
+          "compiler": false
+        },
+        "readonlyRootfs": true,
+        "capDrop": [
+          "ALL"
+        ],
+        "securityOpt": [
+          "no-new-privileges:true"
+        ],
+        "memoryBytes": 268435456,
+        "nanoCpus": 500000000,
+        "postgresVersion": "postgres (PostgreSQL) 18.4",
+        "redisVersion": "Redis server v=8.8.1 sha=00000000:1 malloc=jemalloc-5.3.0 bits=64 build=435aa7c17ef44e2f",
+        "nodeVersion": "v24.19.0"
+      }
+    },
+    {
+      "seq": 3,
+      "id": "persisted_and_cached",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:40.307Z",
+      "elapsedMs": 33784.438529,
+      "facts": {
+        "first": {
+          "status": 200,
+          "body": {
+            "note": {
+              "id": "first-note",
+              "text": "Una nota ficticia que debe sobrevivir a recreaciones."
+            },
+            "source": "postgres"
+          }
+        },
+        "second": {
+          "status": 200,
+          "body": {
+            "note": {
+              "id": "first-note",
+              "text": "Una nota ficticia que debe sobrevivir a recreaciones."
+            },
+            "source": "redis"
+          }
+        },
+        "duplicate": {
+          "status": 409,
+          "body": {
+            "error": "id_exists"
+          }
+        },
+        "rows": 1
+      }
+    },
+    {
+      "seq": 4,
+      "id": "api_recreated",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:43.734Z",
+      "elapsedMs": 37211.037673,
+      "facts": {
+        "before": "742113abb8cfd146c5e1600aa4ae711901a2de76b554b99759000a6d3646b39d",
+        "after": "6d0aaebd071dacc5ee11a3a310ba06b765c46a073be5326f42dddbd019d6157c",
+        "image": "sha256:0bfc9ac94a9fcd544d16b2676560f499ebebc032f637dbbb5007a3d21a17cf92",
+        "rows": 1
+      }
+    },
+    {
+      "seq": 5,
+      "id": "redis_unavailable",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:44.165Z",
+      "elapsedMs": 37641.942855,
+      "facts": {
+        "fallback": {
+          "status": 200,
+          "body": {
+            "note": {
+              "id": "first-note",
+              "text": "Una nota ficticia que debe sobrevivir a recreaciones."
+            },
+            "source": "postgres"
+          }
+        },
+        "ready": {
+          "status": 200,
+          "body": {
+            "ready": true,
+            "cacheConnected": false
+          }
+        }
+      }
+    },
+    {
+      "seq": 6,
+      "id": "postgres_unavailable",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:47.631Z",
+      "elapsedMs": 41107.796121,
+      "facts": {
+        "live": {
+          "status": 200,
+          "body": {
+            "live": true
+          }
+        },
+        "ready": {
+          "status": 503,
+          "body": {
+            "error": "dependency_unavailable"
+          }
+        },
+        "missing": {
+          "status": 503,
+          "body": {
+            "error": "dependency_unavailable"
+          }
+        }
+      }
+    },
+    {
+      "seq": 7,
+      "id": "postgres_recovered",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:50.739Z",
+      "elapsedMs": 44215.785082,
+      "facts": {
+        "rows": 1,
+        "ready": {
+          "status": 200,
+          "body": {
+            "ready": true,
+            "cacheConnected": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 8,
+      "id": "volume_reused",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:57.222Z",
+      "elapsedMs": 50699.221961,
+      "facts": {
+        "rows": 1,
+        "surviving": {
+          "status": 200,
+          "body": {
+            "note": {
+              "id": "first-note",
+              "text": "Una nota ficticia que debe sobrevivir a recreaciones."
+            },
+            "source": "postgres"
+          }
+        }
+      }
+    },
+    {
+      "seq": 9,
+      "id": "second_fresh_setup",
+      "kind": "observed",
+      "at": "2026-10-25T11:39:04.035Z",
+      "elapsedMs": 57512.33656,
+      "facts": {
+        "initialRows": 0,
+        "gone": {
+          "status": 404,
+          "body": {
+            "note": null,
+            "source": "postgres"
+          }
+        },
+        "recreated": {
+          "status": 200,
+          "body": {
+            "note": {
+              "id": "first-note",
+              "text": "Una nota ficticia que debe sobrevivir a recreaciones."
+            },
+            "source": "postgres"
+          }
+        },
+        "finalRows": 1
+      }
+    },
+    {
+      "seq": 10,
+      "id": "cleanup",
+      "kind": "observed",
+      "at": "2026-10-25T11:39:04.758Z",
+      "elapsedMs": 58234.839016,
+      "facts": {
+        "remaining": {
+          "container": "",
+          "volume": "",
+          "network": ""
+        },
+        "imagesRetained": [
+          "luisrc-containers-e88d1435:runtime",
+          "luisrc-containers-e88d1435:build"
+        ]
+      }
+    }
+  ],
+  "limits": {
+    "production": false,
+    "backupRestore": false,
+    "vulnerabilityScan": false,
+    "bitReproducibleImage": false,
+    "isolatedBenchmark": false,
+    "registryPush": false
+  }
+}

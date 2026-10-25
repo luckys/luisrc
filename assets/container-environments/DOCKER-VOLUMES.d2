@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+first: "Setup vacío\n0 notas"
+write: "POST /notes\n1 nota en PostgreSQL"
+recreate: "down y up\nSe reutiliza pgdata"
+survive: "1 nota conservada"
+clean: "down --volumes y up\n0 notas; lectura 404"
+first -> write -> recreate -> survive -> clean

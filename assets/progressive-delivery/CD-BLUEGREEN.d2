@@ -1,0 +1,10 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+router: "Router: elige el grupo"
+blue: "Blue\nSlots a y b"
+green: "Green\nCandidato listo"
+db: "PostgreSQL compartido\nContrato compatible"
+router -> blue
+router -> green
+blue -> db
+green -> db

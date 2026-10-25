@@ -1,0 +1,3163 @@
+{
+  "capturedAt": "2026-10-25T11:38:47.394Z",
+  "kind": "local_progressive_delivery_observation",
+  "events": [
+    {
+      "seq": 1,
+      "id": "pipeline_completed",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:19.031Z",
+      "elapsedMs": 10978.679407000001,
+      "facts": {
+        "capturedAt": "2026-10-25T11:38:18.969Z",
+        "kind": "local_pipeline_not_remote_ci",
+        "stages": [
+          {
+            "name": "unit_and_router_tests",
+            "status": "passed",
+            "elapsedMs": 359.619687
+          },
+          {
+            "name": "typecheck",
+            "status": "passed",
+            "elapsedMs": 1084.175287
+          },
+          {
+            "name": "compile",
+            "status": "passed",
+            "elapsedMs": 2022.078282
+          },
+          {
+            "name": "runtime_dependency_audit",
+            "status": "passed",
+            "elapsedMs": 2672.230735
+          },
+          {
+            "name": "build_stable",
+            "status": "passed",
+            "elapsedMs": 10411.641544
+          },
+          {
+            "name": "image_policy_stable",
+            "status": "passed",
+            "elapsedMs": 10470.894261000001
+          },
+          {
+            "name": "build_candidate",
+            "status": "passed",
+            "elapsedMs": 10865.072662
+          },
+          {
+            "name": "image_policy_candidate",
+            "status": "passed",
+            "elapsedMs": 10916.19978
+          }
+        ],
+        "audit": {
+          "advisories": {},
+          "metadata": {
+            "vulnerabilities": {
+              "info": 0,
+              "low": 0,
+              "moderate": 0,
+              "high": 0,
+              "critical": 0
+            },
+            "dependencies": 14,
+            "devDependencies": 0,
+            "optionalDependencies": 15,
+            "totalDependencies": 29
+          }
+        },
+        "artifacts": {
+          "stable": {
+            "tag": "luisrc-delivery-e00824f8:stable",
+            "id": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+            "user": "node",
+            "release": "stable",
+            "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
+          },
+          "candidate": {
+            "tag": "luisrc-delivery-e00824f8:candidate",
+            "id": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+            "user": "node",
+            "release": "candidate",
+            "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
+          }
+        },
+        "promotion": "not_granted_negative_fixture",
+        "limits": {
+          "osVulnerabilityScan": false,
+          "registryPush": false,
+          "signatureVerification": false,
+          "remoteCI": false
+        }
+      }
+    },
+    {
+      "seq": 2,
+      "id": "baseline_schema",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:25.387Z",
+      "elapsedMs": 17335.368141,
+      "facts": {
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        },
+        "columns": [
+          "id",
+          "name",
+          "price_cents"
+        ],
+        "rows": 2
+      }
+    },
+    {
+      "seq": 3,
+      "id": "schema_expanded",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:25.824Z",
+      "elapsedMs": 17771.852608999998,
+      "facts": {
+        "columns": [
+          "id",
+          "name",
+          "price_cents",
+          "display_name"
+        ],
+        "oldWrite": {
+          "status": 201,
+          "body": {
+            "id": "legacy-after-expand",
+            "name": "Escrita por v1",
+            "priceCents": 1234,
+            "revision": "v1"
+          },
+          "slot": null,
+          "routeRevision": null
+        },
+        "rows": [
+          {
+            "id": "book-1",
+            "name": "Libro ficticio",
+            "display_name": "Libro ficticio",
+            "price_cents": 10000
+          },
+          {
+            "id": "book-2",
+            "name": "Otra muestra",
+            "display_name": "Otra muestra",
+            "price_cents": 99
+          },
+          {
+            "id": "legacy-after-expand",
+            "name": "Escrita por v1",
+            "display_name": null,
+            "price_cents": 1234
+          }
+        ]
+      }
+    },
+    {
+      "seq": 4,
+      "id": "candidate_deployed_dark",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:29.188Z",
+      "elapsedMs": 21136.237622,
+      "facts": {
+        "routerPid": 315862,
+        "candidateImage": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+        "runningImages": {
+          "a": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+          "b": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+          "green": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1"
+        },
+        "newReadOldWrite": {
+          "status": 200,
+          "body": {
+            "id": "legacy-after-expand",
+            "name": "Escrita por v1",
+            "priceCents": 1234,
+            "revision": "v2-regression-fixture",
+            "featureEnabled": false
+          },
+          "slot": null,
+          "routeRevision": null
+        },
+        "responses": [
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "0"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "0"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "0"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "0"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 5,
+      "id": "smoke_flag_off",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:29.257Z",
+      "elapsedMs": 21205.532945,
+      "facts": {
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        },
+        "limitation": "flag_off_does_not_test_flag_on"
+      }
+    },
+    {
+      "seq": 6,
+      "id": "rolling_first_slot",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:32.936Z",
+      "elapsedMs": 24883.61337,
+      "facts": {
+        "route": {
+          "id": "dc19be7e-8c74-4539-852d-a150bd2a945b",
+          "ok": true,
+          "revision": 2,
+          "route": {
+            "slots": [
+              "a",
+              "b"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "slotAImage": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+        "slotBImage": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+        "responses": [
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v2-regression-fixture",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "2"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "2"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v2-regression-fixture",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "2"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "2"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 7,
+      "id": "rolling_all_slots",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:36.439Z",
+      "elapsedMs": 28387.419067,
+      "facts": {
+        "route": {
+          "id": "4a6a63a2-2147-449f-b515-ecdde77cf9cb",
+          "ok": true,
+          "revision": 4,
+          "route": {
+            "slots": [
+              "a",
+              "b"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "image": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+        "responses": [
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v2-regression-fixture",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "4"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v2-regression-fixture",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "4"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v2-regression-fixture",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "4"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v2-regression-fixture",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "4"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 8,
+      "id": "blue_green_switch",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:40.379Z",
+      "elapsedMs": 32326.726212999998,
+      "facts": {
+        "beforeSwitch": [
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "6"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "6"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "6"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "6"
+          }
+        ],
+        "blueImage": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+        "greenImage": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+        "route": {
+          "id": "61e6bd5a-dfd1-4918-beec-9918f9120b5f",
+          "ok": true,
+          "revision": 7,
+          "route": {
+            "slots": [
+              "green"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        },
+        "clientOverride": {
+          "status": 200,
+          "body": {
+            "id": "book-1",
+            "name": "Libro ficticio",
+            "priceCents": 10000,
+            "revision": "v2-regression-fixture",
+            "featureEnabled": false
+          },
+          "slot": "green",
+          "routeRevision": "7"
+        }
+      }
+    },
+    {
+      "seq": 9,
+      "id": "blue_restored",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:40.526Z",
+      "elapsedMs": 32474.302434999998,
+      "facts": {
+        "route": {
+          "id": "f7a40cef-fe03-44e4-a602-52b30f7dacd0",
+          "ok": true,
+          "revision": 8,
+          "route": {
+            "slots": [
+              "a",
+              "b"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "responses": [
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "8"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "8"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "a",
+            "routeRevision": "8"
+          },
+          {
+            "status": 200,
+            "body": {
+              "id": "book-1",
+              "name": "Libro ficticio",
+              "priceCents": 10000,
+              "revision": "v1",
+              "featureEnabled": false
+            },
+            "slot": "b",
+            "routeRevision": "8"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 10,
+      "id": "canary_exposed",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:41.920Z",
+      "elapsedMs": 33867.977221,
+      "facts": {
+        "route": {
+          "id": "991f7eca-68ec-45d8-9812-7d0943650628",
+          "ok": true,
+          "revision": 9,
+          "route": {
+            "slots": [
+              "a",
+              "b"
+            ],
+            "canaryPercent": 10,
+            "featureEnabled": true
+          }
+        },
+        "sampling": "synthetic_stratified_two_keys_per_bucket_not_production",
+        "samples": [
+          {
+            "key": "synthetic-95",
+            "bucket": 0,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-143",
+            "bucket": 0,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-17",
+            "bucket": 1,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-86",
+            "bucket": 1,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-30",
+            "bucket": 2,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-54",
+            "bucket": 2,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-2",
+            "bucket": 3,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-153",
+            "bucket": 3,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-3",
+            "bucket": 4,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-8",
+            "bucket": 4,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-10",
+            "bucket": 5,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-105",
+            "bucket": 5,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-72",
+            "bucket": 6,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-181",
+            "bucket": 6,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-13",
+            "bucket": 7,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-60",
+            "bucket": 7,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-140",
+            "bucket": 8,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-192",
+            "bucket": 8,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-220",
+            "bucket": 9,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-236",
+            "bucket": 9,
+            "status": 200,
+            "slot": "green",
+            "id": "book-1",
+            "priceCents": 100,
+            "revision": "v2-regression-fixture",
+            "bad": true
+          },
+          {
+            "key": "synthetic-389",
+            "bucket": 10,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-406",
+            "bucket": 10,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-44",
+            "bucket": 11,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-215",
+            "bucket": 11,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-67",
+            "bucket": 12,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-74",
+            "bucket": 12,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-29",
+            "bucket": 13,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-221",
+            "bucket": 13,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-53",
+            "bucket": 14,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-409",
+            "bucket": 14,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-66",
+            "bucket": 15,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-227",
+            "bucket": 15,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-62",
+            "bucket": 16,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-363",
+            "bucket": 16,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-97",
+            "bucket": 17,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-169",
+            "bucket": 17,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-117",
+            "bucket": 18,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-446",
+            "bucket": 18,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-81",
+            "bucket": 19,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-194",
+            "bucket": 19,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-20",
+            "bucket": 20,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-149",
+            "bucket": 20,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-160",
+            "bucket": 21,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-184",
+            "bucket": 21,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-134",
+            "bucket": 22,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-210",
+            "bucket": 22,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-201",
+            "bucket": 23,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-310",
+            "bucket": 23,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-171",
+            "bucket": 24,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-231",
+            "bucket": 24,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-156",
+            "bucket": 25,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-273",
+            "bucket": 25,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-76",
+            "bucket": 26,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-355",
+            "bucket": 26,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-14",
+            "bucket": 27,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-96",
+            "bucket": 27,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-410",
+            "bucket": 28,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-430",
+            "bucket": 28,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-55",
+            "bucket": 29,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-61",
+            "bucket": 29,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-199",
+            "bucket": 30,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-399",
+            "bucket": 30,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-58",
+            "bucket": 31,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-113",
+            "bucket": 31,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-0",
+            "bucket": 32,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-144",
+            "bucket": 32,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-71",
+            "bucket": 33,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-216",
+            "bucket": 33,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-25",
+            "bucket": 34,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-158",
+            "bucket": 34,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-133",
+            "bucket": 35,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-229",
+            "bucket": 35,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-43",
+            "bucket": 36,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-64",
+            "bucket": 36,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-253",
+            "bucket": 37,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-361",
+            "bucket": 37,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-51",
+            "bucket": 38,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-89",
+            "bucket": 38,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-16",
+            "bucket": 39,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-36",
+            "bucket": 39,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-41",
+            "bucket": 40,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-84",
+            "bucket": 40,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-37",
+            "bucket": 41,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-132",
+            "bucket": 41,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-4",
+            "bucket": 42,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-314",
+            "bucket": 42,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-241",
+            "bucket": 43,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-286",
+            "bucket": 43,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-7",
+            "bucket": 44,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-209",
+            "bucket": 44,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-49",
+            "bucket": 45,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-196",
+            "bucket": 45,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-250",
+            "bucket": 46,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-298",
+            "bucket": 46,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-45",
+            "bucket": 47,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-120",
+            "bucket": 47,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-39",
+            "bucket": 48,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-110",
+            "bucket": 48,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-121",
+            "bucket": 49,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-296",
+            "bucket": 49,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-179",
+            "bucket": 50,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-304",
+            "bucket": 50,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-112",
+            "bucket": 51,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-412",
+            "bucket": 51,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-91",
+            "bucket": 52,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-94",
+            "bucket": 52,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-1",
+            "bucket": 53,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-135",
+            "bucket": 53,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-6",
+            "bucket": 54,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-92",
+            "bucket": 54,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-59",
+            "bucket": 55,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-126",
+            "bucket": 55,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-23",
+            "bucket": 56,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-48",
+            "bucket": 56,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-154",
+            "bucket": 57,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-319",
+            "bucket": 57,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-28",
+            "bucket": 58,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-261",
+            "bucket": 58,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-239",
+            "bucket": 59,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-243",
+            "bucket": 59,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-224",
+            "bucket": 60,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-242",
+            "bucket": 60,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-24",
+            "bucket": 61,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-38",
+            "bucket": 61,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-303",
+            "bucket": 62,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-395",
+            "bucket": 62,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-11",
+            "bucket": 63,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-19",
+            "bucket": 63,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-170",
+            "bucket": 64,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-202",
+            "bucket": 64,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-85",
+            "bucket": 65,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-162",
+            "bucket": 65,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-102",
+            "bucket": 66,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-137",
+            "bucket": 66,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-31",
+            "bucket": 67,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-52",
+            "bucket": 67,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-108",
+            "bucket": 68,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-431",
+            "bucket": 68,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-56",
+            "bucket": 69,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-101",
+            "bucket": 69,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-114",
+            "bucket": 70,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-124",
+            "bucket": 70,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-46",
+            "bucket": 71,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-147",
+            "bucket": 71,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-35",
+            "bucket": 72,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-155",
+            "bucket": 72,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-12",
+            "bucket": 73,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-128",
+            "bucket": 73,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-32",
+            "bucket": 74,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-150",
+            "bucket": 74,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-15",
+            "bucket": 75,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-344",
+            "bucket": 75,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-18",
+            "bucket": 76,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-225",
+            "bucket": 76,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-40",
+            "bucket": 77,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-80",
+            "bucket": 77,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-47",
+            "bucket": 78,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-65",
+            "bucket": 78,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-99",
+            "bucket": 79,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-130",
+            "bucket": 79,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-27",
+            "bucket": 80,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-75",
+            "bucket": 80,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-516",
+            "bucket": 81,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-571",
+            "bucket": 81,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-106",
+            "bucket": 82,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-165",
+            "bucket": 82,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-168",
+            "bucket": 83,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-300",
+            "bucket": 83,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-79",
+            "bucket": 84,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-172",
+            "bucket": 84,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-189",
+            "bucket": 85,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-211",
+            "bucket": 85,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-88",
+            "bucket": 86,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-90",
+            "bucket": 86,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-42",
+            "bucket": 87,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-50",
+            "bucket": 87,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-258",
+            "bucket": 88,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-333",
+            "bucket": 88,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-129",
+            "bucket": 89,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-502",
+            "bucket": 89,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-34",
+            "bucket": 90,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-111",
+            "bucket": 90,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-9",
+            "bucket": 91,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-109",
+            "bucket": 91,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-21",
+            "bucket": 92,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-22",
+            "bucket": 92,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-69",
+            "bucket": 93,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-127",
+            "bucket": 93,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-57",
+            "bucket": 94,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-100",
+            "bucket": 94,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-68",
+            "bucket": 95,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-182",
+            "bucket": 95,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-26",
+            "bucket": 96,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-87",
+            "bucket": 96,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-270",
+            "bucket": 97,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-282",
+            "bucket": 97,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-98",
+            "bucket": 98,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-260",
+            "bucket": 98,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-5",
+            "bucket": 99,
+            "status": 200,
+            "slot": "a",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          },
+          {
+            "key": "synthetic-33",
+            "bucket": 99,
+            "status": 200,
+            "slot": "b",
+            "id": "book-1",
+            "priceCents": 10000,
+            "revision": "v1",
+            "bad": false
+          }
+        ],
+        "candidate": {
+          "total": 20,
+          "bad": 20
+        },
+        "control": {
+          "total": 180,
+          "bad": 0
+        },
+        "decision": "rollback"
+      }
+    },
+    {
+      "seq": 11,
+      "id": "canary_rollback",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:42.016Z",
+      "elapsedMs": 33964.407548999996,
+      "facts": {
+        "route": {
+          "id": "01253c02-5f9d-42e9-abab-1101bd892f09",
+          "ok": true,
+          "revision": 10,
+          "route": {
+            "slots": [
+              "a",
+              "b"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 12,
+      "id": "forced_negative_release",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:42.095Z",
+      "elapsedMs": 34043.486477,
+      "facts": {
+        "negativeFixture": true,
+        "bypassedSmokeGate": true,
+        "route": {
+          "id": "cee938a6-e333-40b0-9dfe-5aa6bfd86280",
+          "ok": true,
+          "revision": 11,
+          "route": {
+            "slots": [
+              "green"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": true
+          }
+        },
+        "smoke": {
+          "ok": false,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 100,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": true
+                }
+              },
+              "ok": false
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 1,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": true
+                }
+              },
+              "ok": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 13,
+      "id": "flag_disabled",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:42.318Z",
+      "elapsedMs": 34266.313776,
+      "facts": {
+        "route": {
+          "id": "ebca37e9-7e06-45c2-a0f8-057b50d0dfd4",
+          "ok": true,
+          "revision": 12,
+          "route": {
+            "slots": [
+              "green"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "imageStill": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v2-regression-fixture",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 14,
+      "id": "candidate_write",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:42.585Z",
+      "elapsedMs": 34532.688421,
+      "facts": {
+        "newWrite": {
+          "status": 201,
+          "body": {
+            "id": "new-from-v2",
+            "name": "Escrita por v2",
+            "priceCents": 2345,
+            "revision": "v2-regression-fixture"
+          },
+          "slot": null,
+          "routeRevision": null
+        },
+        "rows": [
+          {
+            "id": "book-1",
+            "name": "Libro ficticio",
+            "display_name": "Libro ficticio",
+            "price_cents": 10000
+          },
+          {
+            "id": "book-2",
+            "name": "Otra muestra",
+            "display_name": "Otra muestra",
+            "price_cents": 99
+          },
+          {
+            "id": "legacy-after-expand",
+            "name": "Escrita por v1",
+            "display_name": null,
+            "price_cents": 1234
+          },
+          {
+            "id": "new-from-v2",
+            "name": "Escrita por v2",
+            "display_name": "Escrita por v2",
+            "price_cents": 2345
+          }
+        ],
+        "columns": [
+          "id",
+          "name",
+          "price_cents",
+          "display_name"
+        ]
+      }
+    },
+    {
+      "seq": 15,
+      "id": "image_rollback",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:45.898Z",
+      "elapsedMs": 37846.138814,
+      "facts": {
+        "route": {
+          "id": "ca7eaa8b-5688-46aa-8fc1-1d98e8833aff",
+          "ok": true,
+          "revision": 14,
+          "route": {
+            "slots": [
+              "green"
+            ],
+            "canaryPercent": 0,
+            "featureEnabled": false
+          }
+        },
+        "from": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+        "to": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+        "runningImage": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+        "oldReadsNew": {
+          "status": 200,
+          "body": {
+            "id": "new-from-v2",
+            "name": "Escrita por v2",
+            "priceCents": 2345,
+            "revision": "v1",
+            "featureEnabled": false
+          },
+          "slot": "green",
+          "routeRevision": "14"
+        },
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 16,
+      "id": "unsafe_contract_rejected",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:46.364Z",
+      "elapsedMs": 38311.698331,
+      "facts": {
+        "sqlstate": "42703",
+        "transactionRolledBack": true,
+        "columns": [
+          "id",
+          "name",
+          "price_cents",
+          "display_name"
+        ]
+      }
+    },
+    {
+      "seq": 17,
+      "id": "rollback_integrity",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:46.666Z",
+      "elapsedMs": 38613.943776,
+      "facts": {
+        "beforeRows": [
+          {
+            "id": "book-1",
+            "name": "Libro ficticio",
+            "display_name": "Libro ficticio",
+            "price_cents": 10000
+          },
+          {
+            "id": "book-2",
+            "name": "Otra muestra",
+            "display_name": "Otra muestra",
+            "price_cents": 99
+          },
+          {
+            "id": "legacy-after-expand",
+            "name": "Escrita por v1",
+            "display_name": null,
+            "price_cents": 1234
+          },
+          {
+            "id": "new-from-v2",
+            "name": "Escrita por v2",
+            "display_name": "Escrita por v2",
+            "price_cents": 2345
+          }
+        ],
+        "afterRows": [
+          {
+            "id": "after-rollback",
+            "name": "Otra escritura v1",
+            "display_name": null,
+            "price_cents": 3456
+          },
+          {
+            "id": "book-1",
+            "name": "Libro ficticio",
+            "display_name": "Libro ficticio",
+            "price_cents": 10000
+          },
+          {
+            "id": "book-2",
+            "name": "Otra muestra",
+            "display_name": "Otra muestra",
+            "price_cents": 99
+          },
+          {
+            "id": "legacy-after-expand",
+            "name": "Escrita por v1",
+            "display_name": null,
+            "price_cents": 1234
+          },
+          {
+            "id": "new-from-v2",
+            "name": "Escrita por v2",
+            "display_name": "Escrita por v2",
+            "price_cents": 2345
+          }
+        ],
+        "columns": [
+          "id",
+          "name",
+          "price_cents",
+          "display_name"
+        ],
+        "oldWriteAfterRollback": {
+          "status": 201,
+          "body": {
+            "id": "after-rollback",
+            "name": "Otra escritura v1",
+            "priceCents": 3456,
+            "revision": "v1"
+          },
+          "slot": null,
+          "routeRevision": null
+        },
+        "previousRowsEqual": true,
+        "smoke": {
+          "ok": true,
+          "cases": [
+            {
+              "id": "book-1",
+              "expected": 10000,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-1",
+                  "name": "Libro ficticio",
+                  "priceCents": 10000,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            },
+            {
+              "id": "book-2",
+              "expected": 99,
+              "response": {
+                "status": 200,
+                "body": {
+                  "id": "book-2",
+                  "name": "Otra muestra",
+                  "priceCents": 99,
+                  "revision": "v1",
+                  "featureEnabled": false
+                }
+              },
+              "ok": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seq": 18,
+      "id": "cleanup",
+      "kind": "observed",
+      "at": "2026-10-25T11:38:47.392Z",
+      "elapsedMs": 39339.899527,
+      "facts": {
+        "remaining": {
+          "container": "",
+          "volume": "",
+          "network": ""
+        },
+        "routerClosed": true,
+        "retainedImages": {
+          "stable": {
+            "tag": "luisrc-delivery-e00824f8:stable",
+            "id": "sha256:11bc62647fa09eef0aa4cade16e916a5a96159337171c2b0dbc283279b16458f",
+            "user": "node",
+            "release": "stable",
+            "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
+          },
+          "candidate": {
+            "tag": "luisrc-delivery-e00824f8:candidate",
+            "id": "sha256:b099c43199e39cad045e9b0a1ca0e036607c7c9f5667430330b9b6f4983cbaa1",
+            "user": "node",
+            "release": "candidate",
+            "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
+          }
+        }
+      }
+    }
+  ],
+  "limits": {
+    "production": false,
+    "continuousAvailabilityProven": false,
+    "remoteCI": false,
+    "osVulnerabilityScan": false,
+    "realUserExperiment": false,
+    "registryPush": false,
+    "backupRestore": false,
+    "schemaContractCommitted": false
+  }
+}

@@ -21,6 +21,10 @@ Operar un servicio exige conectar cambios de aplicación, datos y procedimientos
 
 La serie [Responder a incidentes](/posts/incidentes-triage-sintomas-hipotesis-evidencia) amplía el triage, la mitigación, los runbooks y los postmortems con un caso reproducible. Este artículo conserva la visión de conjunto de la entrega y sus ejemplos originales.
 
+La ruta [Docker: construir y comprobar un entorno reproducible](/posts/docker-images-containers-entorno-reproducible) profundiza en images, layers, multi-stage, Compose, volúmenes y seguridad mediante API, PostgreSQL y Redis reales. Este artículo conserva la visión de conjunto.
+
+La serie [CI/CD: entregar cambios y conservar una vuelta atrás](/posts/ci-cd-pipeline-gates-evidencia) desarrolla pipeline, artefactos, flags, smoke, estrategias y rollback de image con PostgreSQL compatible.
+
 ## Reproducir el entorno antes de reproducir el incidente
 
 Una **image** empaqueta un sistema de archivos y metadatos; un **container** es una instancia en ejecución. Los volúmenes, la red y los secretos pertenecen a decisiones adicionales. Contenerizar no significa que todo el estado viaje dentro de la imagen.

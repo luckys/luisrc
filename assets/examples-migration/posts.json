@@ -1475,5 +1475,103 @@
     "labs": [
       "incident-response"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "docker-images-containers-entorno-reproducible",
+    "labs": [
+      "container-environments"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dockerfile-layers-build-cache-dependencias",
+    "labs": [
+      "container-environments"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "multi-stage-build-typescript-runtime",
+    "labs": [
+      "container-environments"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "docker-compose-redes-readiness-localhost",
+    "labs": [
+      "container-environments"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "docker-volumenes-recrear-containers-datos",
+    "labs": [
+      "container-environments"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "docker-seguridad-images-permisos-dependencias",
+    "labs": [
+      "container-environments"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "ci-cd-pipeline-gates-evidencia",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "artefactos-inmutables-promocion-rollback",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "feature-flags-deploy-release-comportamiento",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "smoke-tests-release-correcta-http-200",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "rolling-deployments-versiones-compatibilidad",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "blue-green-deployments-trafico-base-datos",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "canary-releases-candidato-control-muestras",
+    "labs": [
+      "progressive-delivery"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "rollback-aplicacion-esquema-datos-compatibles",
+    "labs": [
+      "progressive-delivery"
+    ]
   }
 ]

@@ -1,5 +1,164 @@
 # Continuación del objetivo editorial completo
 
+## Estado preparado para commit solicitado, 25 de octubre de 2026
+
+El usuario ha solicitado guardar los cambios. P062 y P063 están terminados como
+drafts españoles; P064 conserva únicamente su ruta, manifiesto y laboratorio
+inicial. Sus once artículos, diagramas y visor siguen pendientes: no interpretar
+el manifiesto como entrega de esos posts. El README de aws-foundations documenta
+este límite. No se publica, traduce, genera audio o ejecuta push.
+
+El workspace contiene ahora 32 laboratorios, incluido AWS en preparación, y 33
+proyectos con la raíz. Se mantienen 225 índices por post y 74 exports estáticos.
+AWS tiene quince tests, contratos HTTP locales y tarifas públicas archivadas;
+no usa credenciales ni despliega recursos cloud. Verificación offline correcta.
+
+Al añadir su importador se repitieron ambos exercises Docker por cambiar el
+lockfile raíz. P062: captura 2026-10-25T11:39:04.758Z, proyecto
+luisrc-containers-e88d1435, diez fases y quince hashes; build618488773bytes,
+runtime344517995bytes. P063: captura 2026-10-25T11:38:47.394Z, proyecto
+luisrc-delivery-e00824f8, dieciocho fases y veintiséis hashes. Ambos terminaron
+su limpieza y sus verificaciones offline pasan. Gráficas y exports se regeneran
+para estas capturas; las cifras del post multi-stage se actualizan.
+
+Validación previa al commit: 113 checks editoriales/estructurales, 19 tests del
+blog y 27 tests de estos tres laboratorios pasan, junto con sus typechecks.
+Build y Pagefind pasan; se conservan diez páginas publicadas y dos idiomas.
+Ambos verify Docker y el verify offline de AWS pasan con las capturas actuales.
+
+La continuación editorial es completar P064 según ruta-aws-fundamentos.md y su
+manifiesto, no empezar P065 todavía. Las entradas inferiores conservan el estado
+histórico y sus verificaciones; sus indicaciones de no hacer commit automático
+quedan sustituidas por la petición explícita actual. El objetivo global sigue
+pendiente; conservar los gaps indicados abajo.
+
+## Continuación vigente: CI/CD y despliegues progresivos, 25 de octubre de 2026
+
+La entrega anterior fue progreso: P062 se desarrolló en seis drafts con laboratorio
+Docker real y quedó sin commit. Se preserva y se amplía P063 en ocho drafts
+españoles: pipeline/gates, artefactos, flags, smoke, rolling, blue-green, canary y
+rollback compatible. Ver ruta-ci-cd-despliegues.md, progressive-delivery-series.json
+y progressive-delivery-review.md. Código solo en packages/progressive-delivery,
+catorce extractos en los posts, ocho índices GitHub. OPS-DELIVERY conserva ejemplos.
+
+Laboratorio Node24.19.0/TS5.9.2/pg8.23.1, Engine29.9.2/Compose5.6.1, PostgreSQL18
+por digest. Dos images comparten servidor y fijan release.json en build. IDs
+locales usados en Compose con pull_policy never; no digest de registry publicado.
+Ocho etapas locales: siete tests, typecheck, compile, audit runtime en artefacto
+pnpm deploy temporal y dos builds/políticas. Audit archivado sin advisories;
+sin scan del SO, firmas o CI remoto. pnpm12 tiene pipeline incorporado: utilizar
+`pnpm --filter @luisrc-examples/progressive-delivery run ci:local`.
+
+Captura final2026-10-25T10:58:04.348Z, proyecto luisrc-delivery-16bc9095, router78054
+cerrado. Dieciocho fases y veintiséis hashes. Candidato defectuoso intencional:
+flag on transforma10000/99en100/1céntimos, pero todos los HTTP son200. Sin promoción
+real; activación completa marcada negativeFixture/bypassedSmokeGate para ensayar
+mitigación. Flag off recupera lecturas con la misma image. Router GET/IPC privado,
+revisión esperada, cabecera del cliente no impone flags, destinos loopback y
+puertos refrescados tras recrear. No es proxy o servicio de flags de producción.
+
+Rolling observa v2/v1 y v2/v2 con flag off e IDs efectivos. Antes de blue-green se
+prepara blue v1 de nuevo; se observa v1 antes, green v2 después y vuelta al blue
+conservado. Canary:200lecturas HTTP reales, dos claves sintéticas por bucket;
+20incorrectas candidato/180correctas control, todos200. Gate mínimo20/umbral1%
+didáctico retira y smoke verifica. No población real/significancia estadística.
+V2 crea fila con ambas columnas; rollback de image a v1 la lee. Cuatro filas
+anteriores idénticas, quinta escritura de v1. Contract prematuro42703 probado en
+transacción revertida; esquema expandido permanece. Sin corrupción reparada,
+backup restore, migración masiva, Kubernetes o disponibilidad continua probada.
+
+P062 se recaptura porque cambió lock raíz, sin quitar control de hashes:
+2026-10-25T10:46:32.297Z, luisrc-containers-dc010859, diez fases/quince hashes.
+Runtime344.517.979bytes (328,6MiB), build618.488.184 (589,8MiB). Post y gráfica
+actualizados; su revisión distingue evidencia inicial y actualización. Ambos
+laboratorios incluyen lock/config raíz: si vuelven a cambiar al añadir paquetes,
+repetir **ambos exercises**, regenerar gráficas, sincronizar exports y contrastar
+cifras de los posts/revisiones. No debilitar los checks para conservar el verde.
+
+Siete tests/typecheck/verify P063 y verify P062 pasan. Frozen32proyectos/31labs;
+lock compartido+51líneas frente a HEAD (35P062+16P063), sin upgrades anteriores.
+113checks editoriales/estructurales y19tests blog. Build50rutas/67HTML, Pagefind
+10páginas/4280palabras/dos idiomas. Índices225 y74exports canónicos. Auditor67exactos,
+20relacionados y88sin artículo identificado; no aceptación del objetivo completo.
+Ocho D2, gráfica derivada y visor estático de fases/cohortes con paginación de12.
+Browser18vistas1440/360; dieciocho fases, tres filtros y34páginas por viewport,
+teclado/tablas/details/iframe, noindex/recursos y sin overflow o errores JS.
+Informe /tmp/progressive-delivery-layout.Bnffvk/report.json. P06214vistas renovadas:
+/tmp/container-environments-layout.79l0Ka/report.json. Inspección visual de diagramas
+y gráficas mobile, visor/tablas en ambas anchuras. Lock del blog sin cambios.
+Servidor QA140189cerrado y4322libre; router78054ausente y proyectos Docker finales
+sin containers, volúmenes o redes. Las images locales se conservan para revisión.
+
+P062 y P063 siguen sin commit en ambos repositorios; últimos commits blog270c50c y
+ejemplos419d4c3, sin push. No comitear/pushear, publicar, traducir o generar audio
+automáticamente. Objetivo global activo; esta entrega es progreso, no cierre.
+
+Siguiente P064: leer ficha completa y artículos relacionados antes de dividir.
+Cubrir IaaS/PaaS/serverless, VPC/IAM, EC2/Lambda/ECS, S3/SQS, managed DB y modelos
+de coste. Laboratorio exige comparar diseños de API en Lambda/ECS justificando
+coste operacional: usar supuestos verificables y fuentes oficiales actuales,
+sin presentar un diseño como despliegue cloud observado. No hace falta crear
+recursos facturables para esa comparación. Separar la capacidad/FinOps profunda
+de P066. Después P065/P066, Deep Learning y series11–16. Conservar gapsP026,
+Stripe sandboxP045, soak prolongadoP058 y Serie02 solo estructuras/algoritmos.
+Las notas inferiores son históricas.
+
+## Continuación vigente: Docker y entornos reproducibles, 25 de octubre de 2026
+
+La entrega anterior fue progreso: se confirmaron los commits blog270c50c y
+ejemplos419d4c3 de P059–P061, ambos sin cambios pendientes después del commit y
+sin push. El objetivo se ha reanudado y get_goal confirma status active.
+
+Ahora P062 se desarrolla en seis drafts españoles específicos: images/containers,
+Dockerfile/layers/cache/contexto, multi-stage/TypeScript, Compose/redes/readiness,
+volúmenes e image security. Ver ruta-docker-entornos.md,
+container-environments-series.json y container-environments-review.md. Código
+completo solo en packages/container-environments; diez extractos dentro de los
+posts y seis índices GitHub. OPS-DELIVERY conserva ejemplos y enlaza la ampliación.
+
+Laboratorio real: API Node24.19.0, pg8.23.1, @redis/client6.3.0, PostgreSQL18.4 y
+Redis8.8.1. Engine29.9.2/Compose5.6.1, Linux amd64. Multi-stage con Corepack/pnpm,
+tsc y deploy --prod sin --legacy. En copia temporal cambia source y BuildKit deja
+pnpm install CACHED. Runtime344.513.944 bytes (328,6MiB), build618.605.033 (589,9MiB),
+tamaño local compartible de image inspect, no red/RAM/benchmark.
+
+Captura final2026-10-25T10:07:49.317Z, proyectoluisrc-containers-2f953b0d, quince
+hashes y diez fases. API recreada cambia ID y conserva image/nota. Redis detenido
+da fallback SQL/ready200. PostgreSQL detenido da live200/ready503/miss503; luego
+recupera. down/up conserva una fila; down --volumes/up inicia otra vez vacío,
+lectura404 y nueva creación válida. UID1000, EROFS al escribir /app y compilador
+ausente; restricciones de API inspeccionadas, sin inducir OOM/throttling.
+Solo se limpian recursos tras confirmar propiedad; al final no hay containers,
+redes o volúmenes del proyecto. Images propias retenidas, sin registry push.
+
+Cinco tests y typecheck/verify pasan. Install frozen31proyectos/30laboratorios,
+lock compartido+35líneas sin upgrades previos.107checks editoriales/estructurales,
+build50rutas/66HTML, Pagefind10páginas/4280palabras y19tests del blog pasan. Índices217
+y70exports canónicos. Auditor66exactos/21relacionados/88sin artículo, no aceptación.
+Seis D2, gráfica SVG derivada y replay estático con fases y barras dinámicas.
+Chromium14vistas1440/360,20selecciones de fase, teclado/select/prev/next/details,
+tablas e iframe. Informe /tmp/container-environments-layout.qsNt8p/report.json.
+Inspección visual corrigió referencia larga, labels de red superpuestas y gráfico
+sobredimensionado en escritorio. Lock del blog sin cambios.
+Servidor de QA4024479cerrado;4322libre. No hay servicios propios persistentes.
+
+No hay scan, firma, backup restore, corte de energía, multi-arch, build bit
+reproducible, despliegue remoto, autorización/TLS, secretos privados o permisos SQL
+mínimos. Notas inmutables, cache prescindible sin prueba de capacidad. P062 guarda
+hashes de lock/config raíz: si cambian al añadir otro paquete, repetir exercise,
+regenerar gráfica y exports y revisar las cifras escritas. No quitar el control.
+
+P062 queda sin commit en ambos repositorios. No comitear/pushear automáticamente,
+traducir, publicar o generar audios. La instrucción actual es escribir las series.
+Siguiente P063: leer OPS-DELIVERY, DB-MIGRATIONS y la ficha completa; dividir CI/gates,
+artefactos inmutables, deploy/release, rolling/blue-green/canary, flags, smoke tests
+y rollback. Laboratorio debe desplegar regresión controlada y revertir con esquema
+compatible; un build local no prueba por sí solo deployment/rollback. Cambiar el
+lock obliga a refrescar la evidencia de P062. Después P064–P066, Deep Learning y
+series11–16 según roadmap. Conservar gapsP026, Stripe sandboxP045, soak prolongadoP058
+y Serie02 limitada a estructuras/algoritmos. Objetivo completo aún pendiente.
+Las notas inferiores son históricas.
+
 ## Continuación vigente: respuesta a incidentes, 25 de octubre de 2026
 
 Se completa P061 en seis drafts españoles: triage/evidencia, mitigación/verificación,

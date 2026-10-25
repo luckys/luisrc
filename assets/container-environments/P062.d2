@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+classes: { node: { style: { fill: "#172554"; font-color: "#f8fafc"; stroke: "#60a5fa" } } }
+image: "Image: código y runtime" { class: node }
+first: "Container API original" { class: node }
+second: "Container API recreado" { class: node }
+volume: "Volumen PostgreSQL\nLa nota permanece" { class: node }
+image -> first: "misma image"
+first -> second: "cambia el ID"
+image -> second: "misma image"
+second -> volume: "consulta por red"

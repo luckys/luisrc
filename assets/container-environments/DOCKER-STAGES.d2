@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+build: "Stage build\nTypeScript y dependencias"
+compiled: "dist y dependencias runtime"
+runtime: "Stage runtime\nNode y API compilada"
+check: "UID 1000\nSin compilador TypeScript"
+build -> compiled: "tsc y pnpm deploy"
+compiled -> runtime: "COPY --from=build"
+runtime -> check: "comprobación real"

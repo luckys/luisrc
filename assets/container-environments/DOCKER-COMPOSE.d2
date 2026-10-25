@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+host: "Host: puerto aleatorio\nSolo 127.0.0.1"
+api: "api:3000\nRed edge y backend"
+pg: "postgres:5432\nbackend interna"
+redis: "redis:6379\nbackend interna"
+host -> api
+api -> pg
+api -> redis

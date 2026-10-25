@@ -331,6 +331,46 @@
       "source": "packages/incident-response/recovery.svg",
       "destination": "public/assets/interactive/incident-response/recovery.svg",
       "sha256": "ab17013e32205aa3246a71a135910ab0b2028c3c5ec7c646b267bbb4b57a7d7e"
+    },
+    {
+      "source": "packages/container-environments/explorer.html",
+      "destination": "public/assets/interactive/container-environments/explorer.html",
+      "sha256": "dfcae22308fbf3aab19c0d2bca5c4b2829141da9150b0df7ab6236a475718eb1"
+    },
+    {
+      "source": "packages/container-environments/explorer.mjs",
+      "destination": "public/assets/interactive/container-environments/explorer.mjs",
+      "sha256": "8800217b7a64fce5767832e94216e0348be9800d5a5244a9db742efa7fefb214"
+    },
+    {
+      "source": "packages/container-environments/replay.json",
+      "destination": "public/assets/interactive/container-environments/replay.json",
+      "sha256": "2eab9543710f108e901df15699e36a318b2b782df77812bdd77e65e72d882b67"
+    },
+    {
+      "source": "packages/container-environments/image-sizes.svg",
+      "destination": "public/assets/interactive/container-environments/image-sizes.svg",
+      "sha256": "981561a10174e66c80010b52885202cef9b5058f650656b57a88ca71ed0d331f"
+    },
+    {
+      "source": "packages/progressive-delivery/explorer.html",
+      "destination": "public/assets/interactive/progressive-delivery/explorer.html",
+      "sha256": "5051cefb06620ec2c1d5d56b7f42151ea0e057583378391523884a512de10856"
+    },
+    {
+      "source": "packages/progressive-delivery/explorer.mjs",
+      "destination": "public/assets/interactive/progressive-delivery/explorer.mjs",
+      "sha256": "96993f8444f831d5eb3ffffa22842d2fb08841229f59d36d4400731bc60f7199"
+    },
+    {
+      "source": "packages/progressive-delivery/replay.json",
+      "destination": "public/assets/interactive/progressive-delivery/replay.json",
+      "sha256": "451c8a73b0d270ba1c582e1445de88f78c5cad36e360212cc927fafcf0042f9e"
+    },
+    {
+      "source": "packages/progressive-delivery/canary-outcomes.svg",
+      "destination": "public/assets/interactive/progressive-delivery/canary-outcomes.svg",
+      "sha256": "d24fa6fce4f78f179f1d08170a7fe84e634ac956f4e527d597b5eadc7afcfa8c"
     }
   ]
 }

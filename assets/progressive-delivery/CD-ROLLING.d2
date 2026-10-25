@@ -1,0 +1,8 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+start: "a: v1 / b: v1"
+drain: "Retirar a de la ruta\nTráfico de prueba hacia b"
+mixed: "a: v2 / b: v1\nProbar convivencia"
+second: "Retirar b y reemplazarlo"
+end: "a: v2 / b: v2\nFlag off durante el recorrido"
+start -> drain -> mixed -> second -> end

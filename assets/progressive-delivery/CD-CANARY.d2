@@ -1,0 +1,10 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+sample: "200 peticiones sintéticas\n2 claves por cada bucket"
+candidate: "Candidato\n20 malas / 20"
+control: "Control\n0 malas / 180"
+decision: "Todos devuelven HTTP 200\nEl resultado exige rollback"
+sample -> candidate
+sample -> control
+candidate -> decision
+control -> decision

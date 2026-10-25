@@ -1,8 +1,8 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 65,
-    "related_only": 22,
+    "draft_exists": 67,
+    "related_only": 20,
     "not_written": 88
   },
   "completionProven": false,
@@ -766,8 +766,12 @@
         {
           "id": "P062",
           "title": "Docker y entornos reproducibles",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/docker-images-containers-entorno-reproducible.md",
+            "slug": "docker-images-containers-entorno-reproducible",
+            "draft": true
+          },
           "related": [
             "docker-ci-despliegues-runbooks"
           ],
@@ -776,8 +780,12 @@
         {
           "id": "P063",
           "title": "CI/CD, despliegues progresivos y rollback",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/ci-cd-pipeline-gates-evidencia.md",
+            "slug": "ci-cd-pipeline-gates-evidencia",
+            "draft": true
+          },
           "related": [
             "docker-ci-despliegues-runbooks"
           ],

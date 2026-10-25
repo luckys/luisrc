@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+tests: "Tests y comprobación de tipos"
+compile: "Compilar TypeScript"
+audit: "Audit de dependencias runtime"
+image: "Construir e identificar images"
+policy: "Revisar usuario y base fijada"
+release: "Checks del fixture pasan\nNo autorizan promoción"
+tests -> compile -> audit -> image -> policy -> release

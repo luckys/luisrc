@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+live: "HTTP 200\nProceso atiende"
+format: "JSON válido\npriceCents es un número"
+meaning: "Esperado: 10000\nObservado: 100"
+stop: "Smoke falla\nDetener o retirar exposición"
+live -> format -> meaning -> stop

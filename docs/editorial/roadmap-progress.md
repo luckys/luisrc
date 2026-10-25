@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **65**. Solo material relacionado: **22**. Sin artículo identificado: **88**.
+IDs con borrador propio: **67**. Solo material relacionado: **20**. Sin artículo identificado: **88**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -26,7 +26,11 @@ P059 se amplía en seis drafts: logs/identidades, spans, propagación React/API/
 
 P060 se amplía en seis drafts: SLI/elegibilidad, cohortes, ventanas/cobertura, presupuesto/política, burn rate y alertas multi-window. Ver ruta-sli-slo-presupuestos.md. service-objectives simula siete escenarios de treinta días, sin tráfico real. Doce tests, evidencia recalculable, TypeScript compartido con el visor, seis diagramas y gráfica derivada. Mismo presupuesto para degradación activa y recuperada, distinto estado de alerta. Sin endpoint desplegado, paging, Prometheus/Alertmanager, calendario civil o enforcement de política. P061 continúa con triage, mitigación, runbooks y postmortems; ver la ampliación siguiente. Mantener gaps P026, Stripe sandbox P045 y soak P058.
 
-P061 se amplía en seis drafts: triage, mitigación/verificación, runbooks, on-call/handoff, postmortem y acciones. Ver ruta-incidentes.md. incident-response ejecuta HTTP real con API y worker en procesos distintos, once eventos y nueve tests. Tres trabajos sin progreso tras aceptar lote cero; recuperación de cinco anteriores y dos nuevos, sin borrar IDs. Checkpoint parcial, hashes y replay estático. Roles/documentos ficticios, sin guardia humana, alertas instaladas, durabilidad, crash recovery o deployment de un binario. A01/A03 verificadas solo en fixture; A02/A04 abiertas. Siguiente P062: API, Redis y PostgreSQL en Docker Compose con setup limpio; después P063–P066. Mantener gaps P026, Stripe sandbox P045 y soak P058.
+P061 se amplía en seis drafts: triage, mitigación/verificación, runbooks, on-call/handoff, postmortem y acciones. Ver ruta-incidentes.md. incident-response ejecuta HTTP real con API y worker en procesos distintos, once eventos y nueve tests. Tres trabajos sin progreso tras aceptar lote cero; recuperación de cinco anteriores y dos nuevos, sin borrar IDs. Checkpoint parcial, hashes y replay estático. Roles/documentos ficticios, sin guardia humana, alertas instaladas, durabilidad, crash recovery o deployment de un binario. A01/A03 verificadas solo en fixture; A02/A04 abiertas. Docker se amplía en P062, a continuación. Mantener gaps P026, Stripe sandbox P045 y soak P058.
+
+P062 se desarrolla en seis drafts: images/containers, layers/cache/contexto, multi-stage, Compose/redes/readiness, volúmenes y seguridad. Ver ruta-docker-entornos.md. container-environments levanta API, Redis8.8.1 y PostgreSQL18.4 reales con Node24.19.0. Diez fases, cinco tests y quince hashes: cache de instalación tras cambiar source, API recreada, caídas Redis/SQL, volumen conservado y dos setups vacíos de datos. UID1000, escritura EROFS y configuración de restricciones de la API observados; no scan, firma, backup restore, multi-arch, benchmark o build bit reproducible. Seis D2, gráfico de tamaños locales y visor estático. Captura repetida al cambiar lock raíz por P063, sin quitar control de hashes. Objetivo completo pendiente; recuentos no aceptan la serie.
+
+P063 se amplía en ocho drafts: pipeline/gates, artefactos, flags, smoke, rolling, blue-green, canary y rollback compatible. Ver ruta-ci-cd-despliegues.md. progressive-delivery ejecuta ocho gates locales con audit runtime, siete tests, dos images por ID y dieciocho fases con HTTP/PostgreSQL reales. Canary sintético estratificado:200respuestas200,20precios incorrectos del candidato/180correctos del control; retirada verificada. Blue v1 se prepara antes de conmutar a green v2, conservando vuelta. Flag off mantiene image; rollback real vuelve a v1, conserva cuatro filas y admite una quinta. Contract negativo42703 dentro de transacción revertida. Ocho D2, gráfica y visor de fases/cohortes paginado. Sin CI remoto, Kubernetes, disponibilidad continua, usuarios reales, scan SO, firma o backup restore. Siguiente P064 AWS con comparación declarada Lambda/ECS, después P065/P066. Conservar gaps P026, Stripe sandbox P045 y soak P058; Serie02 solo estructuras/algoritmos.
 
 ## Serie 01. Computación, sistemas y redes (posts 001–009)
 
@@ -106,8 +110,8 @@ P061 se amplía en seis drafts: triage, mitigación/verificación, runbooks, on-
 - P059. Observabilidad: logs, métricas y trazas: [borrador](../../src/content/posts/es/logs-estructurados-identidades-correlacion.md).
 - P060. SLI, SLO y error budgets: [borrador](../../src/content/posts/es/sli-disponibilidad-latencia-eventos-elegibles.md).
 - P061. Incidentes, runbooks y postmortems: [borrador](../../src/content/posts/es/incidentes-triage-sintomas-hipotesis-evidencia.md).
-- P062. Docker y entornos reproducibles: relacionado, requiere revisión.
-- P063. CI/CD, despliegues progresivos y rollback: relacionado, requiere revisión.
+- P062. Docker y entornos reproducibles: [borrador](../../src/content/posts/es/docker-images-containers-entorno-reproducible.md).
+- P063. CI/CD, despliegues progresivos y rollback: [borrador](../../src/content/posts/es/ci-cd-pipeline-gates-evidencia.md).
 - P064. Cloud Computing con AWS: pendiente.
 - P065. Terraform y Kubernetes: pendiente.
 - P066. Ingeniería de capacidad y costes: relacionado, requiere revisión.
