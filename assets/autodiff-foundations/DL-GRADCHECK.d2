@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Parámetros θ, datos y loss fijos"
+n1: "Dos evaluaciones por parámetro\nL(θ + εe) y L(θ − εe)"
+n2: "Diferencia central / (2ε)\nContrastar con backward"
+n3: "atol + rtol × magnitud\nBarrido ε y controles incorrectos"
+n0 -> n1: "perturbar copias"
+n1 -> n2: "34 evaluaciones con 17 parámetros"
+n2 -> n3: "aceptación local, no universal"

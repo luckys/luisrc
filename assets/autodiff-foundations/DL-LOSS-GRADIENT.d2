@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Logit z; target y binario"
+n1: "Loss: log(1 + exp(z)) − yz\nEvaluar con logaddexp"
+n2: "Por muestra: dℓ/dz = p − y\nLa sigmoid ya está incluida"
+n3: "Loss media sobre n muestras\ndL/dz = (p − y) / n"
+n0 -> n1: "definir la función"
+n1 -> n2: "derivar y simplificar"
+n2 -> n3: "promediar una sola vez"

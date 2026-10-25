@@ -1,0 +1,14 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+w: "w = 2"
+x: "x = 3"
+q: "q = w × x = 6"
+r: "r = q + q = 12"
+loss: "L = r² = 144"
+adjoint: "Backward: dq = 24 + 24\nGradientes: dw = 144; dx = 96"
+w -> q
+x -> q
+q -> r: "uso 1"
+q -> r: "uso 2"
+r -> loss: "cuadrado"
+loss -> adjoint: "semilla 1; recorrer hacia entradas"

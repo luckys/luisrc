@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Z = XW + b"
+n1: "H = tanh(Z)\nShape igual; función no lineal"
+n2: "Logit de la capa de salida"
+n3: "Loss estable desde logits\nSigmoid para interpretar p"
+n0 -> n1: "activation elemento a elemento"
+n1 -> n2: "combinar representación"
+n2 -> n3: "no acredita calibración"

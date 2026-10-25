@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **69**. Solo material relacionado: **20**. Sin artículo identificado: **86**.
+IDs con borrador propio: **72**. Solo material relacionado: **19**. Sin artículo identificado: **84**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -114,7 +114,7 @@ P063 se amplía en ocho drafts: pipeline/gates, artefactos, flags, smoke, rollin
 - P063. CI/CD, despliegues progresivos y rollback: [borrador](../../src/content/posts/es/ci-cd-pipeline-gates-evidencia.md).
 - P064. Cloud Computing con AWS: [borrador](../../src/content/posts/es/cloud-iaas-paas-serverless-responsabilidad.md).
 - P065. Terraform y Kubernetes: [borrador](../../src/content/posts/es/terraform-configuracion-plan-apply-infraestructura.md).
-- P066. Ingeniería de capacidad y costes: relacionado, requiere revisión.
+- P066. Ingeniería de capacidad y costes: [borrador](../../src/content/posts/es/rps-concurrencia-ley-little-capacidad.md).
 
 ## Serie 07. Frontend y tiempo real (posts 067–075)
 
@@ -156,8 +156,8 @@ P063 se amplía en ocho drafts: pipeline/gates, artefactos, flags, smoke, rollin
 
 ## Serie 10. Deep Learning (posts 096–105)
 
-- P096. Perceptrón y redes neuronales multicapa: pendiente.
-- P097. Forward, backpropagation y autodiff: pendiente.
+- P096. Perceptrón y redes neuronales multicapa: [borrador](../../src/content/posts/es/perceptron-neurona-pesos-bias-xor.md).
+- P097. Forward, backpropagation y autodiff: [borrador](../../src/content/posts/es/computational-graph-regla-cadena-caminos.md).
 - P098. Optimizadores y dinámica del entrenamiento: pendiente.
 - P099. PyTorch desde cero: entrenamiento completo: pendiente.
 - P100. Overfitting e inestabilidad de redes: pendiente.

@@ -1769,5 +1769,129 @@
     "labs": [
       "kubernetes-workloads"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "rps-concurrencia-ley-little-capacidad",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "utilizacion-cpu-replicas-margen-capacidad",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cuellos-botella-capacidad-dependencias",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "autoscaling-colas-arranque-picos",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "estimar-costes-servicio-tres-escenarios",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "reservas-compromisos-descuentos-capacidad",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "finops-coste-peticion-asignacion-presupuesto",
+    "labs": [
+      "capacity-costs"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "perceptron-neurona-pesos-bias-xor",
+    "labs": [
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dense-layers-batches-matrices-dimensiones",
+    "labs": [
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "activations-tanh-sigmoid-relu-no-linealidad",
+    "labs": [
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "mlp-numpy-entrenar-xor-pesos-curvas",
+    "labs": [
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "representaciones-aprendidas-limites-aproximacion-universal",
+    "labs": [
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "computational-graph-regla-cadena-caminos",
+    "labs": [
+      "autodiff-foundations",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "binary-cross-entropy-logits-gradiente-promedio",
+    "labs": [
+      "autodiff-foundations",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "backpropagation-matrices-dense-bias-tanh",
+    "labs": [
+      "autodiff-foundations",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gradient-checking-diferencias-finitas-epsilon",
+    "labs": [
+      "autodiff-foundations",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-autograd-leaf-detach-acumulacion-vjp",
+    "labs": [
+      "autodiff-foundations",
+      "neural-foundations"
+    ]
   }
 ]

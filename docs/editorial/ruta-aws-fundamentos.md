@@ -21,7 +21,7 @@ Todos siguen en draft y son independientes de un producto concreto.
 11. **Comparación Lambda/ECS**: subtotal, supuestos y carga operativa.
 
 Las entregas de bases de datos previas siguen siendo prerrequisitos; no se intenta
-volver a explicar SQL en el post de RDS. P066 profundizará dimensionamiento, RPS,
+volver a explicar SQL en el post de RDS. La [serie P066](ruta-capacidad-costes.md) profundiza dimensionamiento, RPS,
 utilización, reservas y FinOps. Aquí se comparan dos diseños concretos.
 
 ## Laboratorio y alcance de la evidencia

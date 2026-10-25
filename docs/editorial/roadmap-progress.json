@@ -1,9 +1,9 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 69,
-    "related_only": 20,
-    "not_written": 86
+    "draft_exists": 72,
+    "related_only": 19,
+    "not_written": 84
   },
   "completionProven": false,
   "criteria": "draft_exists indica archivo con ID, no aceptación de todos los requisitos. related_only exige ampliar o escribir una ficha. No renombrar IDs para aparentar cobertura.",
@@ -818,8 +818,12 @@
         {
           "id": "P066",
           "title": "Ingeniería de capacidad y costes",
-          "status": "related_only",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/rps-concurrencia-ley-little-capacidad.md",
+            "slug": "rps-concurrencia-ley-little-capacidad",
+            "draft": true
+          },
           "related": [
             "requisitos-capacidad-invariantes-servicio",
             "pruebas-carga-percentiles-saturacion"
@@ -1201,16 +1205,24 @@
         {
           "id": "P096",
           "title": "Perceptrón y redes neuronales multicapa",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/perceptron-neurona-pesos-bias-xor.md",
+            "slug": "perceptron-neurona-pesos-bias-xor",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },
         {
           "id": "P097",
           "title": "Forward, backpropagation y autodiff",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/computational-graph-regla-cadena-caminos.md",
+            "slug": "computational-graph-regla-cadena-caminos",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },

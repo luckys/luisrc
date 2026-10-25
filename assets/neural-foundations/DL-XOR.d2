@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Protocolo fijado antes de test\nTrain 256 / val 128 / test 256"
+n1: "Cinco recorridos full-batch\nLogística, ceros, seeds 7/19/31"
+n2: "3000 actualizaciones\nSnapshots cada 150 epochs"
+n3: "Test solo al final\nTres MLP aciertan 256/256"
+n0 -> n1: "mismos splits y loss"
+n1 -> n2: "gradientes solo de train"
+n2 -> n3: "resultado del juguete"

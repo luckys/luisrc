@@ -1,5 +1,131 @@
 # Continuación del objetivo editorial completo
 
+## Estado vigente: P066, P096 y P097 preparados para commit
+
+Por petición explícita del usuario se guardan los cambios de los tres bloques en
+ambos repositorios. Las notas inferiores sobre cambios sin commit describen el
+estado anterior a esta petición. No se solicita push, traducción, publicación ni audio.
+
+P097 añade cinco drafts: computational graph y chain rule, BCE desde logits,
+backpropagation por matrices, gradient checking y autograd en PyTorch. Ver
+[ruta](ruta-forward-backward-autodiff.md),
+[manifiesto](autodiff-foundations-series.json) y
+[revisión](autodiff-foundations-review.md). Se conservan los siete drafts de P066
+y los cinco de P096: diecisiete entregas españolas en total.
+
+El laboratorio `packages/autodiff-foundations` contrasta gradientes manuales,
+diferencias finitas y PyTorch CPU sobre tres configuraciones, con controles
+incorrectos y un visor de resultados reales. Runtime fijado por digest, disponible
+para reutilizar; no modificar fuentes con hash sin regenerar observaciones.
+Cinco diagramas, dos gráficas y el visor están sincronizados con el blog.
+
+Validación previa al commit: 19 tests del blog y 149 checks editoriales y del
+monorepo pasan. La revisión registra además build/Pagefind, 10 tests Python,
+3 tests JS y QA de navegador en 12 vistas. Índices: 270; laboratorios: 37;
+exports: 109. Inventario: 72 draft_exists, 19 related_only, 84 not_written;
+no equivale a aceptación global.
+
+**Siguiente: P098**, optimización y entrenamiento con epochs, batches,
+minibatches, SGD, momentum, Adam/AdamW, schedules y gradient accumulation.
+Dividir en artículos específicos y comparar curvas reales con un protocolo justo.
+Mantener los pendientes P026, Stripe sandbox P045, soak P058 y el alcance de
+Serie02 limitado a estructuras de datos y algoritmos. El objetivo global sigue
+activo; las secciones inferiores son históricas.
+
+## Continuación vigente: P096 desarrollado en cinco drafts, 25 de octubre de 2026
+
+El turno anterior fue progreso: P066 quedó escrito y verificado en siete drafts,
+con laboratorio y visor; sus cambios siguen sin commit y se han preservado. Ahora
+se añade el primer bloque de Serie10 Deep Learning, cinco entregas de P096. Ver
+[ruta](ruta-fundamentos-redes-neuronales.md), [manifiesto](neural-foundations-series.json)
+y [revisión](neural-foundations-review.md). Español/draft, autor Luis Ramírez Calle,
+sin traducción/publicación/audio. No hacer commit/push automáticamente.
+
+Orden: perceptrón/neurona/weights/bias/XOR; dense layers/shapes/broadcasting;
+activations/estabilidad; entrenamiento NumPy; representación/aproximación universal.
+Cinco D2/SVG de277–309px, tres gráficas estáticas, nueve extractos Python probados y
+visor de checkpoints/predicciones/activaciones. Código en el monorepo dedicado,
+`packages/neural-foundations`; cinco índices por post con carpetas inglesas.
+
+Laboratorio realmente entrenado, no simulación: MLP2→4→1,tanh,17parámetros,
+BCEdesde logits,float64,3000actualizaciones full-batch,lr0,1. Protocolo previo con
+baseline logística, control ceros y seeds7/19/31. Splits256/128/256independientes,
+balanceados, seeds101/102/103, cuatro cuadrados alrededor de(±1,±1),semiancho0,45.
+Ceros y logística50%test; tres MLP256/256. No calibración ni evaluación del hueco del
+grid. Se separan representación, optimización y generalización, sin convertir el
+juguete en una prueba de universal approximation o superioridad general de redes.
+
+Captura2026-10-25T14:19:41.698402+00:00, ocho hashes de entradas. Runtime SciPy
+notebook ya disponible por digest, Python3.13.15/NumPy2.5.3, dos CPUs/2GiB, un thread
+BLAS/OMP/MKL, rednone/bindreadonly. Sin instalación Python o cloud. Verify vuelve a
+entrenar cinco casos y compara con tolerancias, no solo hashes. Seis tests Python,
+tres JS contra NumPy,143checks editoriales/estructurales y19tests blog pasan.
+No containers luisrc-neural- restantes. Sin dependencias nuevas o cambios de lock.
+
+Build50rutas/72HTML,Pagefind10páginas/4280palabras/dosidiomas. Índices265,labs36,
+exports102 sincronizados. Auditor71draft_exists/19related_only/85not_written es
+inventario, no aceptación global. Chromium12vistas:210checkpoints,32mapas ocultos,
+80probes y606selecciones de activation, más teclado/error/links/scroll interno.
+Informe `/tmp/neural-foundations-layout.nX2TwI/report.json`. Tres posts se comprueban
+tras aclaraciones nats/recodificación y reducción de diagramas:
+`/tmp/neural-visuals/final-article-check.json`. Gráficos y código inspeccionados.
+
+La integración sufrió un timeout de revisión automática de permisos antes de
+arrancar el comando; se reintentó una vez en pasos pequeños y terminó correctamente.
+No queda bloqueo ni acción pendiente de aprobación por ese motivo.
+
+**Siguiente: P097**, leer ficha completa y prerrequisitos. Desarrollar computational
+graph, loss, chain rule, backward por capas, reverse-mode autodiff y gradient checking;
+contrastar con framework, no contar el test numérico de P096 como artículo terminado.
+Revisar runtime disponible antes de elegir framework. El host no tiene torch;
+no asumir que la image SciPy lo incluye. Mantener instalaciones con pnpm y reutilizar
+runtimes fijados cuando existan. P098optimizers y P099PyTorch vienen después.
+
+Puede ampliarse el laboratorio existente. Si cambian entradas hash, regenerar sus
+observaciones y exports y actualizar las cifras de los posts, sin rebajar verificadores.
+El objetivo completo conserva P097–P175 y gaps previos: P026,Stripe sandboxP045,
+soakP058 y los restantes criterios de aceptación. Serie02solo estructuras/algoritmos.
+Últimos commits blog1c2e9d1/ejemplos57b4890; P066 y P096 quedan sin commit.
+Servidor QA propio1372791 detenido;4322sin listener al cierre.
+Las notas inferiores son históricas. El objetivo global sigue activo.
+
+## Continuación vigente: P066 escrito y verificado, 25 de octubre de 2026
+
+El turno anterior fue progreso: commits explícitos blog `1c2e9d1` y ejemplos
+`57b4890`, ambos checkouts limpios al reanudar. Ahora se añaden siete drafts de
+capacidad/costes; ver [ruta](ruta-capacidad-costes.md),
+[manifiesto](capacity-costs-series.json) y [revisión](capacity-costs-review.md).
+No están comiteados; no hacer commit/push/publicación/traducción/audio automáticos.
+
+Orden: RPS/Little, utilization/margen, bottlenecks, autoscaling/colas, tres
+presupuestos, compromisos y FinOps. Código en `packages/capacity-costs`, carpetas
+por post inglesas, snippets explicados en los posts y enlaces al monorepo. Siete
+D2/SVG, gráfico monetario y comparador con funciones del modelo tipado compartidas.
+
+Tres perfiles y tarifas ficticias explícitas, sin benchmark/factura cloud. Nueve
+hashes, cálculo final2026-10-25T14:04:05.173Z. Siete contratos locales y TSstrict5.9.2
+pasan. No dependencias declaradas o cambios de lockfiles. Estimación por franjas
+supone preparación perfecta; traza fluida independiente300s/60pasos no es HPA ni
+simulación mensual. CPU×2 marca campaña inviable con máximo8, payload×10 altera
+subtotal; compromisos incluyen ociosidad y el reparto reconcilia cada microUSD.
+
+Build50rutas/71HTML, Pagefind10páginas/4280palabras/dos idiomas,19tests blog y137checks
+editoriales/estructurales pasan. Índices260,labs35,exports94. Auditor70draft_exists/
+19related_only/86not_written no demuestra aceptación global. Chromium16vistas,
+48combinaciones mensuales y360intervalos con teclado, sin errores/overflow; informe
+`/tmp/capacity-costs-layout.MqoIWu/report.json`. Diagramas/gráficos/visor inspeccionados.
+
+**Siguiente: Serie10 Deep Learning, desde P096.** P096 requiere neurona, weights,
+bias, activations, dense layers, XOR, non-linearity y matices de universal
+approximation; laboratorio MLP NumPy para puntos no lineales. Revisar P076/P078/P079
+existentes y separar conceptos cuando lo necesiten antes de P097 backprop/autodiff.
+No sustituir entrenamiento real reproducible por una animación. Series07–09 tienen
+material previo, cuya existencia tampoco resuelve automáticamente todos los gaps.
+
+Preservar P026,Stripe sandboxP045,soakP058 y Serie02solo estructuras/algoritmos.
+Servidor QA propio1145405 detenido; puerto4322 sin listener al cierre.
+El objetivo global sigue activo. Las notas inferiores describen estados históricos.
+
 ## Estado vigente: AWS y P065 preparados para commit, 25 de octubre de 2026
 
 Por petición explícita del usuario se guardan los cambios pendientes en ambos

@@ -1,0 +1,153 @@
+{
+  "name": "Redes neuronales desde sus fundamentos: representar y aprender",
+  "locale": "es",
+  "status": "draft",
+  "lab": "neural-foundations",
+  "roadmapScope": "Bloque P096 de Serie10. Continúa en autodiff-foundations-series.json para P097; P098–P105 siguen pendientes.",
+  "articles": [
+    {
+      "id": "P096",
+      "roadmapId": "P096",
+      "slug": "perceptron-neurona-pesos-bias-xor",
+      "title": "Perceptrón y neurona artificial: qué pueden decidir unos pesos y un bias",
+      "prerequisites": [
+        "P076",
+        "P078",
+        "P079"
+      ],
+      "question": "Por qué una frontera afín puede resolver unas reglas y no XOR",
+      "objectives": [
+        "Interpretar weights y bias como una función afín",
+        "Demostrar la limitación de una frontera para XOR",
+        "Distinguir construcción manual de aprendizaje"
+      ],
+      "commonErrors": [
+        "Confundir un score con una probabilidad calibrada",
+        "Atribuir el fallo de XOR solo al optimizador",
+        "Tratar una solución manual como entrenamiento"
+      ],
+      "files": [
+        "neural.py",
+        "protocol.json",
+        "experiments.py",
+        "tests/test_neural.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-DENSE",
+      "roadmapId": "P096",
+      "slug": "dense-layers-batches-matrices-dimensiones",
+      "title": "Dense layers: leer una red neuronal como operaciones entre matrices",
+      "prerequisites": [
+        "P096"
+      ],
+      "question": "Cómo seguir shapes, broadcasting y parámetros sin esconder errores de dimensiones",
+      "objectives": [
+        "Calcular shapes de un batch en una MLP",
+        "Detectar broadcasting accidental en targets y bias",
+        "Colapsar dos capas afines sin activation"
+      ],
+      "commonErrors": [
+        "Confundir filas de muestras con columnas de features",
+        "Aceptar targets con shape ambiguo",
+        "Creer que apilar capas afines crea no linealidad"
+      ],
+      "files": [
+        "neural.py",
+        "protocol.json",
+        "experiments.py",
+        "tests/test_neural.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-ACTIVATIONS",
+      "roadmapId": "P096",
+      "slug": "activations-tanh-sigmoid-relu-no-linealidad",
+      "title": "Activations: qué cambia tanh, sigmoid o ReLU dentro de una red",
+      "prerequisites": [
+        "DL-DENSE"
+      ],
+      "question": "Por qué las activations cambian la familia de funciones y la sensibilidad del entrenamiento",
+      "objectives": [
+        "Comparar rango y derivada de tres activations",
+        "Separar activation oculta de salida probabilística",
+        "Evitar overflow en sigmoid y binary cross entropy"
+      ],
+      "commonErrors": [
+        "Elegir por la forma de una gráfica aislada",
+        "Confundir función diferenciable con gradiente siempre útil",
+        "Comparar entrenamientos que no se han ejecutado"
+      ],
+      "files": [
+        "neural.py",
+        "protocol.json",
+        "experiments.py",
+        "tests/test_neural.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-XOR",
+      "roadmapId": "P096",
+      "slug": "mlp-numpy-entrenar-xor-pesos-curvas",
+      "title": "Una MLP con NumPy: entrenar XOR y observar dónde falla",
+      "prerequisites": [
+        "DL-ACTIVATIONS",
+        "P092",
+        "P084"
+      ],
+      "question": "Cómo entrenar una MLP pequeña con un protocolo fijo y controles negativos reproducibles",
+      "objectives": [
+        "Reproducir cinco recorridos sobre splits separados",
+        "Relacionar pesos, loss y actualizaciones full-batch",
+        "Contrastar la MLP con baseline e inicialización a cero"
+      ],
+      "commonErrors": [
+        "Escoger semilla o epochs mirando test",
+        "Confundir accuracy perfecta del juguete con capacidad real",
+        "Mostrar curvas calculadas a mano como entrenamiento"
+      ],
+      "files": [
+        "neural.py",
+        "protocol.json",
+        "experiments.py",
+        "tests/test_neural.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-REPRESENTATIONS",
+      "roadmapId": "P096",
+      "slug": "representaciones-aprendidas-limites-aproximacion-universal",
+      "title": "Representaciones aprendidas: qué significa que una red pueda aproximar una función",
+      "prerequisites": [
+        "DL-XOR"
+      ],
+      "question": "Cómo interpretar features ocultas y separar representabilidad, optimización y generalización",
+      "objectives": [
+        "Inspeccionar activaciones ocultas de pesos entrenados",
+        "Interpretar el alcance de un teorema de aproximación",
+        "Reconocer inferencia sin evidencia fuera del soporte"
+      ],
+      "commonErrors": [
+        "Atribuir semántica estable a una unidad oculta",
+        "Confundir existencia de pesos con encontrarlos",
+        "Interpretar un mapa coloreado como evaluación"
+      ],
+      "files": [
+        "neural.py",
+        "protocol.json",
+        "experiments.py",
+        "tests/test_neural.py",
+        "results/training.json",
+        "README.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Demanda CPU supuesta\n300 RPS × 10 ms = 3 cores"
+n1: "Target 60% por réplica\n5 réplicas de trabajo"
+n2: "Una réplica de margen\n6 listas; tras pérdida quedan 5"
+n0 -> n1: "dividir y redondear arriba"
+n1 -> n2: "no acredita pérdida de zona"

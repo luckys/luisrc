@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Pico simulado en t=60 s\nDemanda: 300 RPS"
+n1: "Listas: 2; objetivo: 6\nTecho inicial: 200 RPS"
+n2: "Preparación: 30 segundos\nCola limitada a 1000"
+n3: "En t=90 s hay 6 listas\n2000 rechazos calculados"
+n0 -> n1: "muestreo cada 15 s"
+n1 -> n2: "se acumula exceso"
+n2 -> n3: "no borra el trabajo rechazado"

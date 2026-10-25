@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "X: 256 muestras × 2 features"
+n1: "W1: 2 × 4; b1: 4\nZ1 y H: 256 × 4"
+n2: "W2: 4 × 1; b2: 1\nLogits: 256 × 1"
+n3: "Targets: 256 × 1\n17 parámetros compartidos"
+n0 -> n1: "producto matricial y bias"
+n1 -> n2: "tanh entre capas"
+n2 -> n3: "validar antes de la loss"

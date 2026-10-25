@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Entradas x1, x2"
+n1: "Score afín: w1x1 + w2x2 + b"
+n2: "Umbral: una frontera recta\nXOR exige otra representación"
+n3: "Features no lineales h1, h2\nLa salida puede combinar ambas"
+n0 -> n1: "pesos y bias"
+n1 -> n2: "decisión declarada"
+n2 -> n3: "construir no es entrenar"

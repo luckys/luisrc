@@ -1,0 +1,9 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "dZ2 = (p − y) / n\nShape: n × 1"
+n1: "dW2 = H.T @ dZ2\ndb2 = suma de filas"
+n2: "dH = dZ2 @ W2.T\ndZ1 = dH * (1 − H²)"
+n3: "dW1 = X.T @ dZ1\ndb1 = suma de filas"
+n0 -> n1: "contribuciones a salida"
+n1 -> n2: "atravesar capa y tanh"
+n2 -> n3: "no promediar otra vez"

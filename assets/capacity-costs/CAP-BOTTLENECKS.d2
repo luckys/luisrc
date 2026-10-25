@@ -1,0 +1,7 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "API: 6 réplicas de 1 core\n10 ms CPU/petición → 600 RPS"
+n1: "DB: 4 slots globales\n20 ms/visita → 200 RPS"
+n2: "Techo del sistema: 200 RPS\nNo equivale a cumplir latencia"
+n0 -> n1: "una visita por petición"
+n1 -> n2: "la dependencia limita"

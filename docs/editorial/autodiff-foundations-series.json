@@ -1,0 +1,161 @@
+{
+  "name": "Cómo se calcula un gradiente: forward, backward y autodiff",
+  "locale": "es",
+  "status": "draft",
+  "lab": "autodiff-foundations",
+  "roadmapScope": "P097: deducción, implementación manual, diferencias finitas y contraste real con PyTorch CPU. P098–P105 siguen pendientes.",
+  "dependencyFiles": [
+    "packages/neural-foundations/neural.py",
+    "packages/neural-foundations/results/training.json"
+  ],
+  "articles": [
+    {
+      "id": "P097",
+      "roadmapId": "P097",
+      "slug": "computational-graph-regla-cadena-caminos",
+      "title": "Computational graph: seguir los caminos de una pérdida antes de derivarla",
+      "prerequisites": [
+        "DL-REPRESENTATIONS",
+        "P078"
+      ],
+      "question": "Cómo aplicar la regla de la cadena cuando un valor se usa en más de un camino",
+      "objectives": [
+        "Separar valores del forward y sensibilidades del backward",
+        "Acumular contribuciones de todos los usos de un nodo",
+        "Interpretar la semilla de una pérdida escalar"
+      ],
+      "commonErrors": [
+        "Sobrescribir contribuciones en un nodo compartido",
+        "Confundir backward con actualizar pesos",
+        "Tratar autodiff como diferencias finitas"
+      ],
+      "files": [
+        "manual.py",
+        "framework.py",
+        "protocol.json",
+        "tests/test_manual.py",
+        "tests/test_torch.py",
+        "results/gradients.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-LOSS-GRADIENT",
+      "roadmapId": "P097",
+      "slug": "binary-cross-entropy-logits-gradiente-promedio",
+      "title": "Binary cross entropy: de dónde sale el gradiente p menos y",
+      "prerequisites": [
+        "P097",
+        "P084"
+      ],
+      "question": "Cómo derivar BCE desde logits y aplicar una sola vez el promedio del batch",
+      "objectives": [
+        "Derivar el gradiente por logit paso a paso",
+        "Distinguir mean y sum en la pérdida",
+        "Detectar una derivada sigmoid añadida por error"
+      ],
+      "commonErrors": [
+        "Memorizar p-y sin declarar la pérdida",
+        "Multiplicar dos veces por la derivada sigmoid",
+        "Olvidar la reducción o promediarla dos veces"
+      ],
+      "files": [
+        "manual.py",
+        "framework.py",
+        "protocol.json",
+        "tests/test_manual.py",
+        "tests/test_torch.py",
+        "results/gradients.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-BACKPROP",
+      "roadmapId": "P097",
+      "slug": "backpropagation-matrices-dense-bias-tanh",
+      "title": "Backpropagation en una MLP: derivar pesos, bias y tanh con sus dimensiones",
+      "prerequisites": [
+        "DL-LOSS-GRADIENT",
+        "DL-DENSE"
+      ],
+      "question": "Cómo reconstruir el backward matricial completo y comprobar transpuestas y sumas",
+      "objectives": [
+        "Derivar dW2, db2, dH, dZ1, dW1 y db1",
+        "Justificar el eje que reduce el bias",
+        "Contrastar los diecisiete parámetros con PyTorch"
+      ],
+      "commonErrors": [
+        "Elegir transpuestas solo para que encajen shapes",
+        "Volver a dividir por el batch al derivar el bias",
+        "Omitir la derivada de la activation oculta"
+      ],
+      "files": [
+        "manual.py",
+        "framework.py",
+        "protocol.json",
+        "tests/test_manual.py",
+        "tests/test_torch.py",
+        "results/gradients.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-GRADCHECK",
+      "roadmapId": "P097",
+      "slug": "gradient-checking-diferencias-finitas-epsilon",
+      "title": "Gradient checking: comprobar un backward sin confiar solo en que la loss baje",
+      "prerequisites": [
+        "DL-BACKPROP"
+      ],
+      "question": "Cómo diseñar diferencias finitas y tolerancias que detecten errores sin confundir redondeo",
+      "objectives": [
+        "Implementar diferencias centrales sin mutar parámetros",
+        "Explorar siete epsilons en tres configuraciones",
+        "Rechazar cuatro controles incorrectos con un criterio declarado"
+      ],
+      "commonErrors": [
+        "Hacer epsilon tan pequeño como sea posible",
+        "Usar solo error relativo cerca de cero",
+        "Elegir tolerancias después de ver el resultado"
+      ],
+      "files": [
+        "manual.py",
+        "framework.py",
+        "protocol.json",
+        "tests/test_manual.py",
+        "tests/test_torch.py",
+        "results/gradients.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-AUTODIFF",
+      "roadmapId": "P097",
+      "slug": "pytorch-autograd-leaf-detach-acumulacion-vjp",
+      "title": "Autograd en PyTorch: qué calcula backward y qué puede cortar el grafo",
+      "prerequisites": [
+        "DL-GRADCHECK"
+      ],
+      "question": "Cómo verificar leaf, acumulación, detach, valores guardados y un producto vector-Jacobiano",
+      "objectives": [
+        "Reproducir autograd con los mismos pesos y float64",
+        "Distinguir gradiente cero de ausencia de trayectoria en el caso",
+        "Comparar VJP, backward manual y gradcheck"
+      ],
+      "commonErrors": [
+        "Esperar que backward cambie pesos",
+        "Confundir retain_grad con retain_graph",
+        "Ocultar un None convirtiéndolo automáticamente en cero"
+      ],
+      "files": [
+        "manual.py",
+        "framework.py",
+        "protocol.json",
+        "tests/test_manual.py",
+        "tests/test_torch.py",
+        "results/gradients.json",
+        "README.md"
+      ]
+    }
+  ]
+}

@@ -143,7 +143,7 @@ Se observan métricas, aumento y reducción de réplicas en un nodo local. No ha
 
 ## Ejercicio: elegir una métrica para trabajo que espera
 
-Una API pasa casi todo el tiempo esperando conexiones a un proveedor. Explica por qué CPU podría ser una señal insuficiente y qué medirías antes de aumentar réplicas. Conserva esa pregunta para P066, donde profundizaremos en capacidad y costes.
+Una API pasa casi todo el tiempo esperando conexiones a un proveedor. Explica por qué CPU podría ser una señal insuficiente y qué medirías antes de aumentar réplicas. Continúa con [RPS y concurrencia](/posts/rps-concurrencia-ley-little-capacidad), inicio de la serie de capacidad y costes.
 
 ## Referencias
 

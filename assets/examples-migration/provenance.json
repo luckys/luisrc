@@ -441,6 +441,111 @@
       "source": "packages/kubernetes-workloads/hpa-observations.svg",
       "destination": "public/assets/interactive/kubernetes-workloads/hpa-observations.svg",
       "sha256": "315ebd2fd4668d102f507d2cc75939f82c65a03ea89550df36044acdcd4d5b95"
+    },
+    {
+      "source": "packages/capacity-costs/explorer.html",
+      "destination": "public/assets/interactive/capacity-costs/explorer.html",
+      "sha256": "6863bf547cd8c2527ee57bd9e4fd4e21a8d851329394e690700a102050031fcf"
+    },
+    {
+      "source": "packages/capacity-costs/explorer.mjs",
+      "destination": "public/assets/interactive/capacity-costs/explorer.mjs",
+      "sha256": "e548120e61ea1fe082ad0070894ad53260411091e8db614e1374143430e0571d"
+    },
+    {
+      "source": "packages/capacity-costs/model.mjs",
+      "destination": "public/assets/interactive/capacity-costs/model.mjs",
+      "sha256": "e7c175127c79b56016bcae167673dcd3dc5547a20911618d7f06497e340ca0e4"
+    },
+    {
+      "source": "packages/capacity-costs/chart.mjs",
+      "destination": "public/assets/interactive/capacity-costs/chart.mjs",
+      "sha256": "b9bf71c020601ab87c1098b68632f177916a8b5338c8983b9f3ea9fc623d0555"
+    },
+    {
+      "source": "packages/capacity-costs/comparison.json",
+      "destination": "public/assets/interactive/capacity-costs/comparison.json",
+      "sha256": "0a5dbf3b19f8bab1390de58228c129516caab714cf11a7819a1a0b3ae452adbb"
+    },
+    {
+      "source": "packages/capacity-costs/cost-scenarios.svg",
+      "destination": "public/assets/interactive/capacity-costs/cost-scenarios.svg",
+      "sha256": "e6a285e0d443ba34969eb08085652da4e1d248475811788dc3229e04d5569553"
+    },
+    {
+      "source": "packages/neural-foundations/explorer.html",
+      "destination": "public/assets/interactive/neural-foundations/explorer.html",
+      "sha256": "ce613be759afbebec65ea64da68b1654e45251d3aa9123a34318fb8f84ca0fd8"
+    },
+    {
+      "source": "packages/neural-foundations/explorer.mjs",
+      "destination": "public/assets/interactive/neural-foundations/explorer.mjs",
+      "sha256": "33641e78bcf491f3449be211b44ee212a9712e9529b407862cdaaa1ae8a121c6"
+    },
+    {
+      "source": "packages/neural-foundations/inference.mjs",
+      "destination": "public/assets/interactive/neural-foundations/inference.mjs",
+      "sha256": "ad64a78b6db102414f8972b643ff1edb43a97641cb81765bd92296dc48fc6121"
+    },
+    {
+      "source": "packages/neural-foundations/charts.mjs",
+      "destination": "public/assets/interactive/neural-foundations/charts.mjs",
+      "sha256": "53ca470cce48814a9f31eed26121f9acf9a26a46f56bccf1c0813353d0041000"
+    },
+    {
+      "source": "packages/neural-foundations/training.json",
+      "destination": "public/assets/interactive/neural-foundations/training.json",
+      "sha256": "be247922ec182547058cd962c883cbca8174198637470bd1529bba693e87ec06"
+    },
+    {
+      "source": "packages/neural-foundations/training-curves.svg",
+      "destination": "public/assets/interactive/neural-foundations/training-curves.svg",
+      "sha256": "c1c6cd2ef72ca5c7d9d78254bab06e74f696071092dfea3634f78232f66ebf97"
+    },
+    {
+      "source": "packages/neural-foundations/decision-maps.svg",
+      "destination": "public/assets/interactive/neural-foundations/decision-maps.svg",
+      "sha256": "df178082bebd2d19e43c58460058863fe58aa056839b95f62ed3cab4933c60ca"
+    },
+    {
+      "source": "packages/neural-foundations/activations.svg",
+      "destination": "public/assets/interactive/neural-foundations/activations.svg",
+      "sha256": "8e9c1e315a33372cf845e9b2c91d84a9a6d8ec4d944ae19de8151bfe45379151"
+    },
+    {
+      "source": "packages/autodiff-foundations/explorer.html",
+      "destination": "public/assets/interactive/autodiff-foundations/explorer.html",
+      "sha256": "a6a29da1692b6853c88ed731ac1e9f8222cbb6c93ef44c240ee60793e584816d"
+    },
+    {
+      "source": "packages/autodiff-foundations/explorer.mjs",
+      "destination": "public/assets/interactive/autodiff-foundations/explorer.mjs",
+      "sha256": "0eebb103c9e6041175693093a48cb0215da3c698300f9229a9958991592c43a0"
+    },
+    {
+      "source": "packages/autodiff-foundations/model.mjs",
+      "destination": "public/assets/interactive/autodiff-foundations/model.mjs",
+      "sha256": "e02ac3e6a1006a1258087519d4d925a9921792e27c96a5fd801ac21b4a02c873"
+    },
+    {
+      "source": "packages/autodiff-foundations/charts.mjs",
+      "destination": "public/assets/interactive/autodiff-foundations/charts.mjs",
+      "sha256": "2be5eaf201e48370d6b5157ec9d4208a0c9f326e5885d9865b8c5af0e0d16020"
+    },
+    {
+      "source": "packages/autodiff-foundations/comparison.json",
+      "destination": "public/assets/interactive/autodiff-foundations/comparison.json",
+      "sha256": "60d036d174294a3a98e7b16929722ccb99c759c81ab53d9cd9007a2c5ff81a51"
+    },
+    {
+      "source": "packages/autodiff-foundations/error-sweep.svg",
+      "destination": "public/assets/interactive/autodiff-foundations/error-sweep.svg",
+      "sha256": "5f49e29513162c13a6b04b71d856585e56a51ba05a4adb4dc12c110a08efb71f"
+    },
+    {
+      "source": "packages/autodiff-foundations/gradient-vector.svg",
+      "destination": "public/assets/interactive/autodiff-foundations/gradient-vector.svg",
+      "sha256": "00cd4a4bab81c22d7efb71bfc7549c876d9323e9e5ebda6f8c704109234650ad"
     }
   ]
 }
