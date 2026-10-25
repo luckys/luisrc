@@ -1,0 +1,12 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Gradiente de datos g"
+n1: "Adam\ng + λθ en m/v"
+n2: "AdamW\ng en m/v"
+n3: "AdamW: base = (1−ηλ)θ"
+n4: "Restar paso adaptativo"
+n0 -> n1: "acoplado"
+n1 -> n4: "base = θ"
+n0 -> n2: "desacoplado"
+n2 -> n3: "datos sin decay"
+n3 -> n4: "actualización AdamW"

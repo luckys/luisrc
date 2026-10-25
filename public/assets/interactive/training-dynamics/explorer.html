@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Comparar entrenamientos observados</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui;background:#0b1120;color:#e2e8f0}body{margin:0;padding:16px;max-width:850px}h1{font-size:1.4rem}p{line-height:1.55}a{color:#7dd3fc}label{display:flex;flex-direction:column;gap:5px}select,button{font:inherit;background:#17243b;color:inherit;border:1px solid #64748b;border-radius:6px;min-height:44px;padding:5px;max-width:100%}.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}input{min-height:44px;width:100%;margin:0}button{margin-right:8px}*:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}.chart{max-width:380px;margin:14px auto}.chart svg{display:block;width:100%;height:auto}.scroll{overflow:auto;border:1px solid #475569;border-radius:8px;margin:16px 0}table{border-collapse:collapse;min-width:720px;font-variant-numeric:tabular-nums}th,td{padding:10px;text-align:right;border-bottom:1px solid #334155}th:first-child{text-align:left}summary{min-height:44px;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere}#status{color:#fde68a}button:disabled,select:disabled{opacity:.5}
+</style>
+<h1>La misma MLP, distintas actualizaciones</h1>
+<p>Datos de 17 entrenamientos NumPy reales, con updates contrastados con PyTorch CPU. Este visor selecciona observaciones archivadas; no entrena una red ni ejecuta PyTorch en el navegador. MLP 2→4→1, float64, BCE media, 256 muestras train y 128 validation.</p>
+<p id="status" role="status">Cargando informe…</p>
+<div class="controls">
+<label>Comparación<select id="group" disabled><option value="optimizers">SGD, momentum, Adam y AdamW</option><option value="batch">Batch size: 16, 32 y 256</option><option value="rate">SGD: learning rate 0,001 / 0,1 / 1</option><option value="schedule">Momentum: constante / warmup y cosine</option></select></label>
+<label>Seed de pesos<select id="seed" disabled><option>7</option><option>19</option><option>31</option></select></label>
+<label>Eje horizontal<select id="axis" disabled><option value="updates">Actualizaciones</option><option value="epoch">Epochs</option><option value="examplesSeen">Muestras procesadas</option></select></label>
+<label>Medida<select id="metric" disabled><option value="validationLoss">Validation loss</option><option value="trainLoss">Train loss</option><option value="lrLast">Última tasa usada por epoch</option></select></label>
+</div>
+<p id="context"></p>
+<label>Checkpoint por epoch: <output id="epoch-value">80</output><input id="epoch" type="range" min="0" max="80" value="80" step="1" disabled></label>
+<button id="previous" disabled>Epoch anterior</button><button id="next" disabled>Epoch siguiente</button>
+<div id="chart" class="chart"></div>
+<div class="scroll" role="region" aria-label="Valores observados del checkpoint" tabindex="0"><table><caption>Checkpoint elegido, evaluado sobre los splits completos</caption><thead><tr><th scope="col">Run</th><th scope="col">Updates</th><th scope="col">Muestras</th><th scope="col">Train loss</th><th scope="col">Validation loss</th><th scope="col">Val. accuracy</th><th scope="col">Última tasa</th></tr></thead><tbody id="rows"></tbody></table></div>
+<h2>Acumulación: comparar antes de entrenar</h2>
+<p id="accumulation"></p>
+<p>Los microbatches 5, 5 y 3 se ponderan con 5/13, 5/13 y 3/13. Promediar las tres medias por igual sobrepondera el último grupo. La equivalencia comprobada requiere parámetros fijos durante la acumulación y operaciones independientes por muestra. No cubre BatchNorm, dropout, AMP o DDP.</p>
+<details><summary>Protocolo y procedencia</summary><pre id="provenance" tabindex="0"></pre></details>
+<p><a href="comparison.json">Consultar las observaciones JSON</a>. No hay benchmark de tiempo o memoria ni un ganador universal. Las ablations usan seed 7; la comparación principal ofrece tres seeds y los hiperparámetros declarados.</p>
+<script type="module" src="./explorer.mjs"></script></html>

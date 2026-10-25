@@ -1893,5 +1893,187 @@
       "autodiff-foundations",
       "neural-foundations"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "adam-momentos-bias-correction-epsilon",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "adamw-weight-decay-regularizacion-l2",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "epochs-batches-minibatches-comparar-entrenamientos",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gradient-accumulation-microbatches-media-ponderada",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "learning-rate-schedules-warmup-cosine-updates",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "momentum-gradientes-estado-optimizador",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "sgd-learning-rate-diagnosticar-pasos",
+    "labs": [
+      "training-dynamics",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-tensores-shapes-dtype-broadcasting",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-dataset-dataloader-orden-batches",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-nn-module-linear-parametros-logits",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-training-loop-zero-grad-backward-step",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-train-eval-no-grad-validacion",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-guardar-cargar-state-dict-predicciones",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-reanudar-checkpoint-optimizador-scheduler-rng",
+    "labs": [
+      "pytorch-training",
+      "neural-foundations"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "overfitting-underfitting-curvas-error-generalizacion",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "bias-variance-descomposicion-error-muestras",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "initialization-xavier-he-simetria-gradientes",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "activations-saturacion-relu-gradientes-profundidad",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "batchnorm-estadisticas-batch-running-train-eval",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "layernorm-ejes-features-batchnorm-diferencias",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "dropout-mascaras-escalado-generalizacion",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "weight-decay-grupos-parametros-generalizacion",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "early-stopping-patience-mejor-checkpoint",
+    "labs": [
+      "generalization-stability"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gradient-clipping-norma-paso-estabilidad",
+    "labs": [
+      "generalization-stability"
+    ]
   }
 ]

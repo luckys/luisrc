@@ -3,7 +3,7 @@
   "locale": "es",
   "status": "draft",
   "lab": "autodiff-foundations",
-  "roadmapScope": "P097: deducción, implementación manual, diferencias finitas y contraste real con PyTorch CPU. P098–P105 siguen pendientes.",
+  "roadmapScope": "P097: deducción, implementación manual, diferencias finitas y contraste real con PyTorch CPU. P098 continúa en training-dynamics-series.json; P099–P105 siguen pendientes.",
   "dependencyFiles": [
     "packages/neural-foundations/neural.py",
     "packages/neural-foundations/results/training.json"

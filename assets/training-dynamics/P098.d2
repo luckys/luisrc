@@ -1,0 +1,13 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "256 muestras train"
+n1: "Permutación por epoch"
+n2: "Batch de 32 muestras"
+n3: "Loss media\ny backward"
+n4: "Un optimizer step"
+n5: "8 steps completan una epoch"
+n0 -> n1: "sin reemplazo"
+n1 -> n2: "dividir sin perder muestras"
+n2 -> n3: "pesos actuales"
+n3 -> n4: "gradiente del grupo"
+n4 -> n5: "repetir con pesos nuevos"

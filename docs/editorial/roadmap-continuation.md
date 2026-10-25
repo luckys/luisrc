@@ -1,5 +1,255 @@
 # Continuación del objetivo editorial completo
 
+## Continuación vigente: P100 desarrollado en diez drafts
+
+El turno anterior fue progreso:P099 quedó escrito,ejecutado yverificado. Se
+preservan P098/P099 sin commit yse añaden diez drafts P100,español,autor Luis
+Ramírez Calle,independientes de PaySafe. Ver [ruta](ruta-generalizacion-estabilidad.md),
+[manifiesto](generalization-stability-series.json),[glosario](generalization-stability-glossary.md)
+y[revisión](generalization-stability-review.md). No hacer commit/push,publicación,
+traducción o audio automáticamente. Últimos commits explícitos siguen siendo
+blog9412094/ejemplosb900c13. Hay24drafts nuevos de P098/P099/P100 pendientes.
+
+Orden:diagnóstico overfit/underfit;bias–variance;initialization;activations;
+BatchNorm;LayerNorm;Dropout;weight decay;early stopping;gradient clipping.
+Se dividió antes de escribir:953–1127palabras con código/metadatos por pieza.
+Diecisiete extractos Python,diez D2/SVG,cuatro gráficas yvisor con módulos
+dinámicos. Código completo en `luisrc-blog-examples/packages/generalization-stability`.
+No importa ni modifica fuentes hash de P096–P099. Carpetas inglesas eíndices por post.
+
+Experimento principal real:regresión sin(2πx),train24 equiespaciados[-1,1],ruidoσ.25,
+seed101,desplazamiento+1.25del target8 SOLO en train. Validation256xUniform/seed102,
+ruidoσ.25,sin el desplazamiento adicional. Se declara contaminación deliberada,
+no dos muestras iid limpias. Grid101contra señal para dibujar,no elegir modelo.
+Sin test final. MLP1→64→64→1,ReLU,float64,4353parámetros;AdamWlr.01,full-batch,
+máximo2000updates/epochs,monitorización cada10 en eval/no_grad.
+
+18runs:seeds7/19/31 por baseline,dropout.15,decay.01solo matrices,BatchNorm,
+LayerNorm yearly stopping. Matrices iniciales emparejadas;BN/LN añaden256parámetros.
+Dropoutseed separada deinitialization. Se comparan métricas en el mismo modo,
+onlineMseLast aparte. No se ajustan hiperparámetros después de ver resultados.
+
+Las tres baselines terminan con menor train ypeor validation que su mejor
+checkpoint monitorizado. Seed7:best430,val.1960405460;final2000train.0064919374,
+val.2047013230. Seed19:best310,val.1831855201;finalval.2053928661.
+Seed31:best310,val.1767178248;finalval.1952682169. Referencia lineal resuelta
+por mínimos cuadrados train.3650527625/val.4953123923,limitación representacional.
+
+Early:min_delta0,patience10CHECKS=100epochs aquí. Seeds7/31 paran530/410 yrestauran
+430/310,mejorando el final continuo. Seed19 para170/restaura70,val.2728629474:
+se detiene ANTES de la mejora posterior. Se conserva ese fallo de la política,
+no se retunean datos/hiperparámetros para ocultarlo. La expectativa inicial del
+verificador de mejora en las tres seeds fue rechazada. Verify exige propiedades
+que sí definen la implementación:prefijo idéntico,mejor observación monitorizada,
+patience exacta,restauración ydos éxitos/un empeoramiento. No volver a introducir
+una garantía universal en ese gate. Last/best/selected separados,sin reescribir
+curvas oinventar puntos después de la parada. Dropout empeora las tres finales;
+decay/BN mejoran una cada uno,LN otra. No hay ranking universal.
+
+Controles separados:32datasets sinoutlier para bias/variance con Legendre1/5/15,
+ridge1e-4,identidad finita yruido esperado.0625,no bias poblacional exacto.
+Initialization:8capas16→16,ceros/ReLU,Xavier/tanh gain1,He/ReLU,normalstd3/tanh;
+saturación solo tanh,null paraReLU. Tanhgrande81,25%finalsaturada pero gradinputnorm
+196.364688:no inferir vanishing global de ese indicador. Activations yunidad
+ReLUinactiva contrastadas conautograd. BN/LN4×3,primera fila fija,compañeros
+cambiados,affineFalse,manuales,ejes,runningvarN−1 vsforwardN,tracked/untracked y
+singleton2D. Dropoutprobe p.2 independiente deltrainp.15. Clippingglobal[3,4]norm5→≤2,
+NaN rechazado ycontraejemploAdam:step≈.09999>ητ. Parábola50θ²:lr.05diverge,sinclip
+guard enstep9;clip1 acota perooscila;lr.01resuelve. Clipping NO se aplica a18runs
+de generalización ni se presenta como cura de overfitting.
+
+Runtime CPU por digest reutilizado einspeccionado:Python3.13.17,NumPy2.5.4,
+PyTorch2.14.1+cpu,linux/amd64. Dos CPUs/2GiB,un thread OMP/BLAS/MKL/Torch,rednone,
+pullnever,rootfs/bindreadonly,user1000:100,capdropALL. Timeout300s por ejercicio,
+limpia solo su contenedor propio aleatorio precomprobado. Sin paquetes Python
+en host ocloud. No containers luisrc-generalization- restantes. Captura final
+2026-10-25T20:51:40.314824+00:00,once hashes. Verify vuelve a entrenar18runs y
+recalcular controles,rtol1e-9/atol1e-11 ypropiedades de trayectorias. No cambiar
+fuentes hash anteriores sin regenerar observaciones dependientes.
+
+Pasan10tests Python,3JS,170checks editoriales/estructurales y19tests blog.
+Frozen pnpm install41proyectos pasa sin dependencias nuevas o cambios de lockfile.
+40labs,294índices,133exports sincronizados. Build50rutas/76HTML,Pagefind10páginas/
+4280palabras/dosidiomas. Auditor75draft_exists/19related_only/81not_written:
+inventario,no aceptación global.
+
+Chromiumfinal22vistas,1440/360px. Total108checkpoints,144snapshots de función,
+192selecciones de capa/métrica,8matrices,18steps seleccionados de clipping,
+más activations/grados,teclado,scroll interno,links,iframe,error404 ypeticiones
+locales. Informe `/tmp/generalization-stability-layout.45nR1C/report.json`;
+j1myqw anterior a los ajustes finales. Sin errores JS,overflow global opetición
+fuera de la carpeta del visor. Inspección visual de diez diagramas,cuatro gráficas,
+funcionesbest/last,parada19,código ycontroles:
+`/tmp/generalization-visuals/report.json`. Figuras≤380px,fuentedegráfico14px,ticks
+enteros para capas,tablas de normalización con5cifras significativas en UI y
+precisión completa enJSON. Código inicial scrollLeft0. Servidor QA propio2058749
+detenido;puerto4322sin listener comprobado.
+
+**Siguiente:P101**,leer ficha completa yprerrequisitos. Convolution,kernel,padding,
+stride,pooling,receptive field,feature maps,CNN architectures ytransfer learning.
+Laboratorio obligatorio:entrenar CNN pequeña einspeccionar mapas de activación
+reales,no solo un dibujo de convolution. Dividir preguntas específicas antes de
+escribir. Reutilizar einspeccionar runtime disponible;si necesita torchvision u
+otras capacidades,comprobarlas en la image antes de asumirlas. Mantener
+instalaciones conpnpm ydatos/licencias/protocolo reproducibles.
+
+P101–P175 yotros gaps siguen pendientes. Preservar P026,Stripe sandboxP045,
+soakP058 ySerie02solo estructuras/algoritmos. El objetivo global sigue activo;
+las notas inferiores son históricas.
+
+## Continuación vigente: P099 desarrollado en siete drafts
+
+El turno anterior fue progreso: P098 quedó escrito yverificado en siete drafts,
+con entrenamiento NumPy yvisor. Se preserva sin commit. Ahora se añade P099 en
+otras siete entregas españolas, independientes de PaySafe,autor Luis Ramírez Calle.
+Ver [ruta](ruta-entrenamiento-pytorch.md),[manifiesto](pytorch-training-series.json),
+[glosario](pytorch-training-glossary.md) y[revisión](pytorch-training-review.md).
+No hacer commit/push,publicación,traducción o audio automáticamente. Últimos
+commits explícitos siguen siendo blog9412094/ejemplosb900c13.
+
+Orden:tensores/shapes/dtype/device/broadcasting;Dataset/DataLoader;nn.Module;
+loop/autograd/loss/optimizer;evaluación;inferencia guardada;reanudación. Se valoró
+dividir más:1044–1249palabras aproximadamente con código/metadatos yuna pregunta
+por entrega. Catorce extractos Python,siete D2/SVG,dos gráficas yvisor dinámico.
+Código completo en `luisrc-blog-examples/packages/pytorch-training`,carpetas inglesas;
+el blog conserva extractos explicados yexports estáticos permitidos.
+
+Pipeline PyTorch real,CPU,float64,MLP2→4→1,tanh,BCE media. Reutiliza modelo/datos
+canónicos de P096 sin modificar fuentes oobservaciones anteriores. Train256,
+validation128,seeds101/102,cuatro grupos de semiancho0,45 alrededor de(±1,±1).
+Seeds de pesos7/19/31,copiados de NumPy aLinear con transposición. Generator420
+dedicado,shuffleTrue,num_workers0,drop_lastFalse,batch30/cola16. Sesenta epochs,
+540updates/15360muestras por run. SGDlr.1,momentum.9,StepLR cada20epochs×.5.
+Evaluación batch50 con generadores separados. No es el orden/protocolo de P098
+ni un benchmark entre implementaciones. Sin test final.
+
+Validation BCE final:0,008309222327672137;0,004984868028258361;0,00806297935233508,
+accuracy1 en las tres. Loss online con pesos cambiantes separada de evaluación
+a pesos fijos. Cada epoch guarda orden,contadores,tasas usada/siguiente yestado.
+Traza:backward no cambia pesos,step sí. Se comprueba cobertura de todos los índices.
+
+Save/load mediante archivos .pt reales en directorio temporal propio,después
+eliminado. Esquemas explícitos,weights_onlyTrue,map_locationCPU,strictTrue.
+Inferencia recupera128logits con error0. Corte en epoch30/270updates. Reanudación
+completa reproduce historial yparámetros exactamente en este runtime. Controles:
+resetmomentum error0,01465689426;resetorden0,00318082863;solo modelo0,3408893113.
+Este último termina con mejor validation loss y sigue siendo una trayectoria
+distinta. No usar solo la loss final como prueba de reanudación.
+
+Se preserva optimizador,scheduler,RNGdel loader yRNGCPU,además de modelo/config.
+La red no consume RNGglobal en forward;una coincidencia de estado no prueba
+restauración. Campos cpuRngMatchesSaved/loaderRngMatchesSaved describen igualdad.
+El test perturba primero el RNGCPU con11draws ycomprueba restauración efectiva.
+El helper evaluate tiene hooks que verifican modo eval ygrad desactivado en sus
+forwards,no solo pesos conservados. Dropout es un probe separado;no se entrena
+en la MLP. No se prueba mid-epoch,GPU,workers,AMP,DDP oaugmentations.
+
+Runtime CPU por digest reutilizado einspeccionado:Python3.13.17,NumPy2.5.4,
+PyTorch2.14.1+cpu,linux/amd64. Dos CPUs/2GiB,un thread OMP/BLAS/MKL/Torch;
+rednone,pullnever,rootfs/dosbindsreadonly,usuario1000:100,capdropALL. Sin paquetes
+Python en host ocloud. Captura final2026-10-25T20:31:47.167940+00:00,trece hashes.
+Verify vuelve a entrenar,guardar,cargar ycontrastar informes;rtol1e-10/atol1e-12
+ycondiciones de exactitud/rechazo adicionales. No modificar fuentes hash de
+P096/P097/P098/P099 sin regenerar evidencia dependiente.
+
+Pasan13tests Python,3JS,163checks editoriales/estructurales y19tests blog. Frozen
+pnpm install40proyectos pasa,sin dependencias nuevas ocambio de lock.39labs,
+284índices,124exports sincronizados. Build50rutas/75HTML,Pagefind10páginas/
+4280palabras/dosidiomas. Inventario74draft_exists/19related_only/82not_written
+no equivale a aceptación global.
+
+Chromium16vistas,1440/360px:126checkpoints,96comparaciones de reanudación,
+4shapes,972filas de batches,tablas/curvas/cursores,teclado,scroll interno,links,
+iframe,error404. Sin errores JS,overflow global opetición fuera de la carpeta
+del visor. Informe final `/tmp/pytorch-training-layout.aY61GG/report.json`.
+El primer intento PxXTCR detectó una frase compacta sin espacios que desbordaba
+16px;se corrigió su redacción sin ocultar overflow. V3ocsl es previo a la última
+captura. Inspección visual de todos los diagramas,gráficas,código yvisor;comprobación
+adicional `/tmp/pytorch-final-visuals/report.json`,código inicial scrollLeft0.
+
+**Siguiente:P100**,leer ficha completa yprerrequisitos. Se requiere introducir
+overfitting deliberado,corregirlo ycomparar curvas:el XOR fácil actual no cumple
+ese experimento. Dividir diagnóstico underfit/overfit/bias-variance,initialization,
+activation,batch/layer norm,dropout,weight decay,early stopping yclipping en
+preguntas específicas antes de escribir. Mantener protocolo ypresupuesto claros,
+train/validation/test según su función ysin elegir conclusiones por una sola curva.
+Reutilizar la image CPU disponible e inspeccionarla antes de ejecutar.
+
+Mantener P026,Stripe sandboxP045,soakP058 ySerie02solo estructuras/algoritmos.
+P100–P175 yotros gaps siguen pendientes. El objetivo global permanece activo.
+Las secciones inferiores son históricas.
+
+Servidor QA propio2002713 detenido;puerto4322sin listener comprobado.
+
+## Continuación vigente: P098 desarrollado en siete drafts
+
+El turno anterior fue progreso: commits explícitos blog `9412094` y ejemplos
+`b900c13`, checkouts limpios comprobados. Ahora se añaden siete drafts de
+optimización y dinámica de entrenamiento. Ver
+[ruta](ruta-optimizadores-entrenamiento.md),
+[manifiesto](training-dynamics-series.json) y
+[revisión](training-dynamics-review.md). Español, autor Luis Ramírez Calle,
+independientes de PaySafe. Este bloque queda sin commit; no hacer commit/push,
+publicación, traducción o audio automáticamente.
+
+Orden: epochs/batches/presupuestos; SGD/learning rate; momentum; Adam;
+AdamW/L2/decay; schedules; gradient accumulation. Se valoró la división y se
+separaron siete preguntas, alrededor de1100–1320palabras con código/metadatos.
+Nueve extractos Python, siete D2/SVG, tres gráficas y visor de checkpoints.
+Código completo en `luisrc-blog-examples/packages/training-dynamics`, carpetas
+inglesas e índices por post; el blog conserva extractos explicados y exports.
+
+Entrenamientos reales NumPy, MLP2→4→1,tanh,BCEmedia,float64,train256/validation128,
+datos/orden/pesos idénticos por seed. Doce runs principales: SGD/momentum/Adam/AdamW
+por seeds7/19/31,80epochs,batch32,640updates. Cinco ablations seed7: tasas SGD.001/1,
+batches16/256 y momentum warmup/cosine. Protocolo previo, sin búsqueda posterior
+de hiperparámetros, test evaluado, benchmark o ganador universal. Comparar tamaño
+de batch mantiene epochs/muestras pero NO updates. Momentum-cosine termina peor
+que su baseline y SGD1 mejora frente a SGD.1: se publican esos resultados.
+
+Acumulación ponderada5/5/3 reproduce el gradiente completo con error1,388e-17;
+promedio de medias incorrecto falla con0,045714. Ocho recorridos adicionales de
+cinco epochs, cuatro métodos, batch32 frente a micro10:40steps por lado y máximo
+error de parámetros5,552e-16. No BatchNorm/dropout/AMP/DDP. Las reglas de update
+se contrastan con PyTorch en tests de gradientes controlados; no se presenta el
+laboratorio como entrenamiento completo PyTorch de P099.
+
+Runtime PyTorch CPU por digest ya disponible desde P097, Python3.13.17/NumPy2.5.4/
+PyTorch2.14.1+cpu. Dos CPUs/2GiB, un thread OMP/BLAS/MKL, rednone/bindsreadonly,
+usuario1000:100,capdropALL,pullnever. Sin instalación Python en host. No quedan
+containers luisrc-dynamics-. Captura2026-10-25T19:42:00.042775+00:00,doce hashes.
+Verify vuelve a entrenar17runs y controles, no solo hashes; valida versiones y
+dos copias JSON,rtol1e-10/atol1e-12. Mantener fuentes hash anteriores intactas.
+
+Pasan7tests Python,3JS,156checks editoriales/estructurales y19tests blog. Frozen
+pnpm install39proyectos pasa sin nuevas dependencias o cambios de lockfile.
+38labs,277índices,117exports sincronizados. Build50rutas/74HTML; Pagefind10páginas/
+4280palabras/dosidiomas. Auditor73draft_exists/19related_only/83not_written es
+inventario, no aceptación global.
+
+Chromium16vistas,1440/360px,540estados y1800filas: tablas/curvas/cursores, null,
+teclado, scroll interno, iframe, enlaces/assets y error404. Sin errores JS,
+overflow global o peticiones fuera de la carpeta del visor. Informe final
+`/tmp/training-dynamics-layout.YvOFp7/report.json`; revisión visual adicional de
+diagramas y SGD en ocho vistas `/tmp/training-visuals/report.json`.
+Se corrigió el control de seed que mostraba31 desactivado al cargar ablations7;
+ahora muestra7, con aserción de valor. Fuentes de gráficos14px, figuras≤380px.
+
+Un comando de build no llegó a arrancar por timeout de revisión automática de
+permisos. El único reintento terminó correctamente; sin bloqueo pendiente por
+ese motivo. Servidor QA propio1850743 detenido; puerto4322sin listener comprobado.
+
+**Siguiente: P099**, leer su ficha completa y prerrequisitos. Construir entrenamiento
+end-to-end PyTorch con torch.Tensor,broadcasting,autograd,Dataset/DataLoader,
+nn.Module,loss,optimizer,train/eval,save/load. Dividir en preguntas específicas;
+verificar checkpoints y reanudación con estado del optimizador/reloj, además de
+predicciones. Reutilizar la image CPU ya disponible, inspeccionándola antes.
+No contar el contraste de updates de este bloque como aceptación de P099.
+
+Mantener P026,Stripe sandboxP045,soakP058 y Serie02solo estructuras/algoritmos.
+P099–P175 y los demás gaps siguen pendientes. Objetivo global activo; las notas
+inferiores describen estados históricos.
+
 ## Estado vigente: P066, P096 y P097 preparados para commit
 
 Por petición explícita del usuario se guardan los cambios de los tres bloques en

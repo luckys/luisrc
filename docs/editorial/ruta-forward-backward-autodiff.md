@@ -103,7 +103,7 @@ no añade entrenamiento/optimización. Se mantiene esa unidad antes de P098.
 
 ## Continuación del roadmap
 
-P098 necesita experimentos nuevos de optimizadores con idénticas muestras y
+P098 continúa en [la ruta de optimizadores](ruta-optimizadores-entrenamiento.md), con experimentos sobre idénticas muestras y
 comparaciones claras de actualizaciones, epochs, batches, schedules y acumulación.
 Los gradientes verificados son su entrada, no una sustitución de ese laboratorio.
 P099–P105 continúan pendientes y conservan sus propios criterios de aceptación.

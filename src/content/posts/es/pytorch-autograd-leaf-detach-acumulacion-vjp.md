@@ -64,7 +64,7 @@ Este es el tramo de `graph_checks` en `packages/autodiff-foundations/framework.p
     reset = gradient_values(params)
 ```
 
-La [API de backward](https://docs.pytorch.org/docs/2.14/generated/torch.Tensor.backward.html) documenta la acumulación. En un entrenamiento normal se reinician gradientes según la estrategia de actualización; la acumulación deliberada de mini-batches requiere definir escalas y cuándo hacer el paso. Eso corresponde a P098.
+La [API de backward](https://docs.pytorch.org/docs/2.14/generated/torch.Tensor.backward.html) documenta la acumulación. En un entrenamiento normal se reinician gradientes según la estrategia de actualización; la acumulación deliberada de mini-batches requiere definir escalas y cuándo hacer el paso. Eso se desarrolla en [gradient accumulation](/posts/gradient-accumulation-microbatches-media-ponderada), dentro del bloque de optimización.
 
 ## Leaf y non-leaf no guardan necesariamente el mismo estado
 

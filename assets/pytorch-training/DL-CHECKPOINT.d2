@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Modelo y configuración"
+n1: "State_dict y metadatos"
+n2: "Torch.save en .pending"
+n3: "Reemplazar archivo final"
+n4: "Cargar y comparar logits"
+n0 -> n1: "snapshot independiente"
+n1 -> n2: "esquema de inferencia"
+n2 -> n3: "mismo directorio"
+n3 -> n4: "reconstruir módulo y activar eval"

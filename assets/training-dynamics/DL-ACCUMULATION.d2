@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Batch efectivo: 13 muestras"
+n1: "Microbatches: 5, 5 y 3"
+n2: "Gradientes medios a pesos fijos"
+n3: "Ponderar: 5/13, 5/13, 3/13"
+n4: "Sumar y hacer un solo step"
+n0 -> n1: "una actualización prevista"
+n1 -> n2: "forward y backward por parte"
+n2 -> n3: "mismo modelo separable"
+n3 -> n4: "no avanzar estado por parte"

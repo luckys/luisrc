@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Logits (4,1)\nMismos targets"
+n1: "Targets (4,)"
+n2: "Todos los pares\n(4,4)"
+n3: "Targets (4,1)"
+n4: "Un par por fila\n(4,1)"
+n0 -> n1: "planos"
+n0 -> n3: "columna"
+n1 -> n2: "resta"
+n3 -> n4: "resta"

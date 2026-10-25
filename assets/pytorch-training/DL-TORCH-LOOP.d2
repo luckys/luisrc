@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Zero_grad: reiniciar .grad"
+n1: "Forward: logits y loss"
+n2: "Backward: calcular .grad"
+n3: "Step: cambiar pesos y momentum"
+n4: "Cerrar epoch y avanzar StepLR"
+n0 -> n1: "nuevo batch independiente"
+n1 -> n2: "pesos todavía iguales"
+n2 -> n3: "usar el gradiente"
+n3 -> n4: "nueve updates por recorrido"

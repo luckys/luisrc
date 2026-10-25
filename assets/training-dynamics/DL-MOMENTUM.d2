@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Gradiente actual g"
+n1: "Buffer anterior b"
+n2: "b nuevo = 0,9b + g"
+n3: "Δ = −ηb nuevo"
+n4: "Conservar el buffer"
+n0 -> n2: "actual"
+n1 -> n2: "historial"
+n2 -> n3
+n3 -> n4

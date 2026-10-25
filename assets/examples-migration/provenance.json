@@ -546,6 +546,126 @@
       "source": "packages/autodiff-foundations/gradient-vector.svg",
       "destination": "public/assets/interactive/autodiff-foundations/gradient-vector.svg",
       "sha256": "00cd4a4bab81c22d7efb71bfc7549c876d9323e9e5ebda6f8c704109234650ad"
+    },
+    {
+      "source": "packages/training-dynamics/explorer.html",
+      "destination": "public/assets/interactive/training-dynamics/explorer.html",
+      "sha256": "7e5d8ef50fd5b1aa357ef579d151c5fe31af4d1b8a00a65045b8ddc4b77c9cfd"
+    },
+    {
+      "source": "packages/training-dynamics/explorer.mjs",
+      "destination": "public/assets/interactive/training-dynamics/explorer.mjs",
+      "sha256": "8e5bbefbe36ac0d073758a275dae0d0af05415c6cb2e39fc695fca1f0816baa3"
+    },
+    {
+      "source": "packages/training-dynamics/model.mjs",
+      "destination": "public/assets/interactive/training-dynamics/model.mjs",
+      "sha256": "b2d6b90d885e0e6e9e71218c1d16a7ee0818c71ff8436070222fdca4e7902367"
+    },
+    {
+      "source": "packages/training-dynamics/charts.mjs",
+      "destination": "public/assets/interactive/training-dynamics/charts.mjs",
+      "sha256": "cee6caf937aed2d2df85c035573ebe8a00a088e73e0dbfd3ca5d25fd51fa4f25"
+    },
+    {
+      "source": "packages/training-dynamics/comparison.json",
+      "destination": "public/assets/interactive/training-dynamics/comparison.json",
+      "sha256": "7679304397035d8adf26e5d0558b15ce7c67776faaf4dcb3ce257261733ec071"
+    },
+    {
+      "source": "packages/training-dynamics/optimizer-curves.svg",
+      "destination": "public/assets/interactive/training-dynamics/optimizer-curves.svg",
+      "sha256": "0100912358db7993bdd55d2d15ecbd39c0e879062fa66877a573d25fa621e2a6"
+    },
+    {
+      "source": "packages/training-dynamics/batch-curves.svg",
+      "destination": "public/assets/interactive/training-dynamics/batch-curves.svg",
+      "sha256": "47f47441af379710bd2cdce89b111541f0abb0b58b1800c42a88efb06dc8d3df"
+    },
+    {
+      "source": "packages/training-dynamics/learning-rates.svg",
+      "destination": "public/assets/interactive/training-dynamics/learning-rates.svg",
+      "sha256": "f55e676342a2e57cdf42d129124c959cda14a8dbe2113a4d46337e9c664daced"
+    },
+    {
+      "source": "packages/pytorch-training/explorer.html",
+      "destination": "public/assets/interactive/pytorch-training/explorer.html",
+      "sha256": "449bd8c5e14087c34b80c49e651f94510f7761953770cbfe3b5d54701f21ee18"
+    },
+    {
+      "source": "packages/pytorch-training/explorer.mjs",
+      "destination": "public/assets/interactive/pytorch-training/explorer.mjs",
+      "sha256": "7c4bda2531c350ff3fccfb73035d581ed611a0f8962248a11317c5b94459b9b7"
+    },
+    {
+      "source": "packages/pytorch-training/model.mjs",
+      "destination": "public/assets/interactive/pytorch-training/model.mjs",
+      "sha256": "7fa81a5c5ecf4839467665c53e4b950e2eb4b558b62c379b5d95052547c94e1c"
+    },
+    {
+      "source": "packages/pytorch-training/charts.mjs",
+      "destination": "public/assets/interactive/pytorch-training/charts.mjs",
+      "sha256": "15957fea0322025048319c4e8e9711536f6d804f94ac6262d0ab18aab4882333"
+    },
+    {
+      "source": "packages/pytorch-training/comparison.json",
+      "destination": "public/assets/interactive/pytorch-training/comparison.json",
+      "sha256": "8bd0d1bfa90512f1e9cdb5fb646dec197129b9590c3ac3323bc84d7493d9815b"
+    },
+    {
+      "source": "packages/pytorch-training/training-curves.svg",
+      "destination": "public/assets/interactive/pytorch-training/training-curves.svg",
+      "sha256": "49c23ed1729671a03e15ada3f352306f6250598baeff4e16e1b6911600756d0c"
+    },
+    {
+      "source": "packages/pytorch-training/resume-errors.svg",
+      "destination": "public/assets/interactive/pytorch-training/resume-errors.svg",
+      "sha256": "395302f9b8ebf6df280bf5c20a9bce3fafceb85a03447390739bc8f01dec59d8"
+    },
+    {
+      "source": "packages/generalization-stability/explorer.html",
+      "destination": "public/assets/interactive/generalization-stability/explorer.html",
+      "sha256": "55db5894d19e881c4276eeb15011b12373d1209fd688878efdcd9ad4099e5677"
+    },
+    {
+      "source": "packages/generalization-stability/explorer.mjs",
+      "destination": "public/assets/interactive/generalization-stability/explorer.mjs",
+      "sha256": "e5024589acffb294a32f3af92b9a916ee9a884dcc32e7673962a8ac7e808467b"
+    },
+    {
+      "source": "packages/generalization-stability/model.mjs",
+      "destination": "public/assets/interactive/generalization-stability/model.mjs",
+      "sha256": "7ac9abdf19169bdf530e431d9e834d1a294a0582742ddc53ceb448660a4f9971"
+    },
+    {
+      "source": "packages/generalization-stability/charts.mjs",
+      "destination": "public/assets/interactive/generalization-stability/charts.mjs",
+      "sha256": "241f68bdc905d5a2410d0a16cc9930d4f96110d412f2c65f6fde0417e6dec3ee"
+    },
+    {
+      "source": "packages/generalization-stability/comparison.json",
+      "destination": "public/assets/interactive/generalization-stability/comparison.json",
+      "sha256": "2ae8cf7890c639ff9918c7e093aa3e959b2f224c3a6f32af6f26b5dcf45ba04b"
+    },
+    {
+      "source": "packages/generalization-stability/overfit-curves.svg",
+      "destination": "public/assets/interactive/generalization-stability/overfit-curves.svg",
+      "sha256": "73c7a0fb09ad43601845dba9a242cdd03a7d8a02b59385bce88874e6bc344f0e"
+    },
+    {
+      "source": "packages/generalization-stability/overfit-functions.svg",
+      "destination": "public/assets/interactive/generalization-stability/overfit-functions.svg",
+      "sha256": "1aceaa37f454eb1a04ed3610300ea7888a577df34e9363236576f277422ab40a"
+    },
+    {
+      "source": "packages/generalization-stability/bias-variance.svg",
+      "destination": "public/assets/interactive/generalization-stability/bias-variance.svg",
+      "sha256": "bd57d7bc0a24f92c86f25ccb2a3deab25b3bf3755b884bf4207243d1923289e4"
+    },
+    {
+      "source": "packages/generalization-stability/clipping-curves.svg",
+      "destination": "public/assets/interactive/generalization-stability/clipping-curves.svg",
+      "sha256": "3dfe1b71d0d137ace594922711581966fd77447f355213f24cd53b43c08700a5"
     }
   ]
 }

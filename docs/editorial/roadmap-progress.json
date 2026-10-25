@@ -1,9 +1,9 @@
 {
   "objective": "Completar en español todas las fichas del roadmap, por series, con ejemplos y recursos estáticos e interactivos pertinentes.",
   "counts": {
-    "draft_exists": 72,
+    "draft_exists": 75,
     "related_only": 19,
-    "not_written": 84
+    "not_written": 81
   },
   "completionProven": false,
   "criteria": "draft_exists indica archivo con ID, no aceptación de todos los requisitos. related_only exige ampliar o escribir una ficha. No renombrar IDs para aparentar cobertura.",
@@ -1229,24 +1229,36 @@
         {
           "id": "P098",
           "title": "Optimizadores y dinámica del entrenamiento",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/epochs-batches-minibatches-comparar-entrenamientos.md",
+            "slug": "epochs-batches-minibatches-comparar-entrenamientos",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },
         {
           "id": "P099",
           "title": "PyTorch desde cero: entrenamiento completo",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/pytorch-tensores-shapes-dtype-broadcasting.md",
+            "slug": "pytorch-tensores-shapes-dtype-broadcasting",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },
         {
           "id": "P100",
           "title": "Overfitting e inestabilidad de redes",
-          "status": "not_written",
-          "exactPost": null,
+          "status": "draft_exists",
+          "exactPost": {
+            "path": "src/content/posts/es/overfitting-underfitting-curvas-error-generalizacion.md",
+            "slug": "overfitting-underfitting-curvas-error-generalizacion",
+            "draft": true
+          },
           "related": [],
           "verification": "Revisar temario, laboratorio y DoD de la ficha; no inferir completitud por título o ID."
         },

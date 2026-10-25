@@ -1,0 +1,232 @@
+{
+  "name": "Entrenar con PyTorch: de los tensores a una reanudación verificable",
+  "locale": "es",
+  "status": "draft",
+  "lab": "pytorch-training",
+  "roadmapScope": "P099: entrenamiento real PyTorch con Tensor, broadcasting, autograd, Dataset/DataLoader, nn.Module, loss, optimizer, train/eval, save/load y reanudación en límite de epoch. P100 continúa en generalization-stability-series.json; P101–P105 conservan sus requisitos pendientes.",
+  "dependencyFiles": [
+    "packages/neural-foundations/neural.py"
+  ],
+  "articles": [
+    {
+      "id": "P099",
+      "roadmapId": "P099",
+      "slug": "pytorch-tensores-shapes-dtype-broadcasting",
+      "title": "Tensores en PyTorch: una shape incorrecta puede cambiar el problema",
+      "prerequisites": [
+        "DL-ACCUMULATION",
+        "DL-AUTODIFF"
+      ],
+      "question": "Cómo controlar shape, dtype, device y broadcasting antes de entrenar",
+      "objectives": [
+        "Leer cada eje del tensor con su significado",
+        "Distinguir una copia de memoria compartida con NumPy",
+        "Detectar broadcasting válido que calcula otra cosa"
+      ],
+      "commonErrors": [
+        "Tratar (n,) y (n,1) como intercambiables",
+        "Suponer que todo tensor usa el dtype del modelo",
+        "Confundir forma compatible con operación correcta"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-DATALOADER",
+      "roadmapId": "P099",
+      "slug": "pytorch-dataset-dataloader-orden-batches",
+      "title": "Dataset y DataLoader: quién decide qué muestras llegan al modelo",
+      "prerequisites": [
+        "P099"
+      ],
+      "question": "Cómo separar acceso a muestras, orden y agrupación sin perder el último batch",
+      "objectives": [
+        "Implementar un Dataset map-style con contrato explícito",
+        "Conservar el batch final y registrar cobertura",
+        "Controlar el generador sin reiniciarlo cada epoch"
+      ],
+      "commonErrors": [
+        "Confundir Dataset con un batch",
+        "Usar drop_last sin registrar las muestras omitidas",
+        "Reiniciar el generador y repetir siempre la misma permutación"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-MODULE",
+      "roadmapId": "P099",
+      "slug": "pytorch-nn-module-linear-parametros-logits",
+      "title": "nn.Module: registrar parámetros y construir un forward que devuelve logits",
+      "prerequisites": [
+        "DL-DATALOADER",
+        "DL-LOSS-GRADIENT"
+      ],
+      "question": "Qué organiza nn.Module y cómo comprobar que la red implementa el mismo modelo",
+      "objectives": [
+        "Relacionar Linear con la multiplicación matricial",
+        "Contar tensores registrados y parámetros escalares",
+        "Separar logits, loss y probabilidades"
+      ],
+      "commonErrors": [
+        "Confundir cuatro tensores con cuatro parámetros escalares",
+        "Añadir sigmoid antes de BCE con logits",
+        "Creer que Module decide cómo entrenar"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-TORCH-LOOP",
+      "roadmapId": "P099",
+      "slug": "pytorch-training-loop-zero-grad-backward-step",
+      "title": "Un training loop en PyTorch: qué cambia en zero_grad, backward y step",
+      "prerequisites": [
+        "DL-MODULE",
+        "DL-SCHEDULES"
+      ],
+      "question": "Cómo implementar un loop propio sin mezclar derivación, actualización y métricas",
+      "objectives": [
+        "Ordenar zero_grad, forward, backward y step",
+        "Separar loss online de evaluación a pesos fijos",
+        "Registrar samples, updates y tasas realmente usadas"
+      ],
+      "commonErrors": [
+        "Esperar que backward actualice los pesos",
+        "Sumar gradientes accidentalmente entre batches",
+        "Comparar la media online con una loss de checkpoint"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-EVALUATION",
+      "roadmapId": "P099",
+      "slug": "pytorch-train-eval-no-grad-validacion",
+      "title": "train, eval y no_grad: tres decisiones que no hacen lo mismo",
+      "prerequisites": [
+        "DL-TORCH-LOOP"
+      ],
+      "question": "Cómo evaluar sin actualizar pesos ni confundir el modo del módulo con autograd",
+      "objectives": [
+        "Distinguir el modo de las capas del registro de gradientes",
+        "Agregar pérdidas por muestra aunque el batch final sea menor",
+        "Comprobar que la validación conserva parámetros y restaura el modo"
+      ],
+      "commonErrors": [
+        "Suponer que eval desactiva autograd",
+        "Suponer que no_grad activa el modo de evaluación",
+        "Promediar medias de batches desiguales"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-CHECKPOINT",
+      "roadmapId": "P099",
+      "slug": "pytorch-guardar-cargar-state-dict-predicciones",
+      "title": "Guardar un modelo PyTorch: recuperar las mismas predicciones",
+      "prerequisites": [
+        "DL-EVALUATION"
+      ],
+      "question": "Qué guardar para inferencia y cómo probar la carga sin depender de un objeto serializado",
+      "objectives": [
+        "Guardar state_dict y configuración de arquitectura",
+        "Distinguir referencias en memoria de un snapshot independiente",
+        "Validar el esquema y comparar logits tras la carga"
+      ],
+      "commonErrors": [
+        "Guardar solo el nombre de una clase o un objeto completo sin contrato",
+        "Retener state_dict como si copiara todos los datos",
+        "Confundir cargar pesos con preparar inferencia"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-RESUME",
+      "roadmapId": "P099",
+      "slug": "pytorch-reanudar-checkpoint-optimizador-scheduler-rng",
+      "title": "Reanudar un entrenamiento PyTorch: por qué guardar los pesos no basta",
+      "prerequisites": [
+        "DL-CHECKPOINT"
+      ],
+      "question": "Cómo reproducir una continuación de entrenamiento en un límite de epoch",
+      "objectives": [
+        "Conservar optimizador, scheduler y generadores pertinentes",
+        "Restaurar estado después de construir los objetos",
+        "Comparar una reanudación completa con controles incompletos"
+      ],
+      "commonErrors": [
+        "Usar la loss final como única prueba de reanudación",
+        "Reiniciar momentum o el generador de batches",
+        "Prometer continuidad a mitad de epoch sin guardar el estado necesario"
+      ],
+      "files": [
+        "pipeline.py",
+        "checkpoints.py",
+        "probes.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_pipeline.py",
+        "tests/test_contracts.py",
+        "results/training.json",
+        "README.md"
+      ]
+    }
+  ]
+}

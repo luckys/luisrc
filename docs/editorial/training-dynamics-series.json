@@ -1,0 +1,224 @@
+{
+  "name": "Optimizar una red: batches, estado y tamaño del paso",
+  "locale": "es",
+  "status": "draft",
+  "lab": "training-dynamics",
+  "roadmapScope": "P098: epochs, batches, SGD, momentum, Adam/AdamW, schedules y gradient accumulation, con curvas sobre idénticas muestras. P099 continúa en pytorch-training-series.json; P100–P105 conservan su alcance pendiente.",
+  "dependencyFiles": [
+    "packages/neural-foundations/neural.py"
+  ],
+  "articles": [
+    {
+      "id": "P098",
+      "roadmapId": "P098",
+      "slug": "epochs-batches-minibatches-comparar-entrenamientos",
+      "title": "Epochs y batches: qué estás comparando cuando una red aprende antes",
+      "prerequisites": [
+        "DL-AUTODIFF",
+        "P079"
+      ],
+      "question": "Cómo comparar entrenamientos sin confundir muestras, epochs y actualizaciones",
+      "objectives": [
+        "Distinguir epoch, batch y optimizer step",
+        "Conservar el último minibatch y el orden de muestras",
+        "Elegir el presupuesto y los ejes de una comparación"
+      ],
+      "commonErrors": [
+        "Comparar epochs como si fueran updates",
+        "Eliminar el último batch sin declararlo",
+        "Atribuir al algoritmo diferencias de datos o learning rate"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-SGD",
+      "roadmapId": "P098",
+      "slug": "sgd-learning-rate-diagnosticar-pasos",
+      "title": "SGD y learning rate: por qué un gradiente correcto puede dar un mal paso",
+      "prerequisites": [
+        "P098"
+      ],
+      "question": "Cómo interpretar el signo, la escala y la estabilidad de una actualización SGD",
+      "objectives": [
+        "Derivar la actualización desde una aproximación local",
+        "Separar estabilidad de convergencia lenta",
+        "Comparar tres tasas sin afirmar una regla universal"
+      ],
+      "commonErrors": [
+        "Confundir backward con step",
+        "Suponer que una tasa mayor siempre diverge",
+        "Comparar losses calculadas sobre batches distintos"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-MOMENTUM",
+      "roadmapId": "P098",
+      "slug": "momentum-gradientes-estado-optimizador",
+      "title": "Momentum: qué recuerda el optimizador entre dos batches",
+      "prerequisites": [
+        "DL-SGD"
+      ],
+      "question": "Cómo interpretar y comprobar el estado que combina gradientes sucesivos",
+      "objectives": [
+        "Desplegar la recurrencia de momentum",
+        "Distinguir buffers de gradientes actuales",
+        "Relacionar learning rate y persistencia del estado"
+      ],
+      "commonErrors": [
+        "Recrear el optimizador en cada batch",
+        "Llamar promedio a una suma sin normalizar",
+        "Suponer que la memoria impide cualquier oscilación"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-ADAM",
+      "roadmapId": "P098",
+      "slug": "adam-momentos-bias-correction-epsilon",
+      "title": "Adam: dos estimaciones por parámetro y una escala que cambia",
+      "prerequisites": [
+        "DL-MOMENTUM"
+      ],
+      "question": "Qué hacen los dos momentos de Adam y cómo verificar la bias correction",
+      "objectives": [
+        "Calcular los momentos y su corrección inicial",
+        "Distinguir segundo momento de varianza",
+        "Contrastar varios updates con PyTorch"
+      ],
+      "commonErrors": [
+        "Eliminar el learning rate por ser adaptativo",
+        "Omitir la corrección de sesgo inicial",
+        "Confundir una curva rápida con mejor generalización"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-ADAMW",
+      "roadmapId": "P098",
+      "slug": "adamw-weight-decay-regularizacion-l2",
+      "title": "AdamW y weight decay: por qué añadir L2 a Adam cambia otra cosa",
+      "prerequisites": [
+        "DL-ADAM"
+      ],
+      "question": "Por qué L2 acoplada y weight decay desacoplado producen updates distintos",
+      "objectives": [
+        "Deducir la equivalencia limitada en SGD simple",
+        "Separar el gradiente de datos de la contracción",
+        "Comprobar un paso con gradiente de datos cero"
+      ],
+      "commonErrors": [
+        "Tratar Adam y AdamW con igual decay como equivalentes",
+        "Ocultar si se regularizan los bias",
+        "Confundir gradiente cero con gradiente ausente"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-SCHEDULES",
+      "roadmapId": "P098",
+      "slug": "learning-rate-schedules-warmup-cosine-updates",
+      "title": "Learning rate schedules: poner un reloj al tamaño del paso",
+      "prerequisites": [
+        "DL-ADAMW"
+      ],
+      "question": "Cómo definir el reloj y los extremos de un schedule sin errores de un update",
+      "objectives": [
+        "Declarar el índice que mueve el schedule",
+        "Implementar warmup y cosine con extremos probados",
+        "Comparar tasa constante y variable sin prometer mejoras"
+      ],
+      "commonErrors": [
+        "Avanzar el schedule por microbatch",
+        "Confundir epochs con actualizaciones",
+        "Presentar warmup como una mejora automática"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "DL-ACCUMULATION",
+      "roadmapId": "P098",
+      "slug": "gradient-accumulation-microbatches-media-ponderada",
+      "title": "Gradient accumulation: sumar trabajo pequeño sin cambiar el batch que optimizas",
+      "prerequisites": [
+        "DL-SCHEDULES",
+        "DL-LOSS-GRADIENT"
+      ],
+      "question": "Cuándo varios microbatches reproducen un batch completo y cómo comprobarlo",
+      "objectives": [
+        "Ponderar las medias por el número de muestras",
+        "Mantener pesos fijos y hacer un solo optimizer step",
+        "Probar el último grupo desigual y los límites de equivalencia"
+      ],
+      "commonErrors": [
+        "Promediar medias de grupos desiguales por igual",
+        "Actualizar los pesos entre microbatches",
+        "Olvidar que BatchNorm y dropout cambian las condiciones"
+      ],
+      "files": [
+        "optimizers.py",
+        "training.py",
+        "experiments.py",
+        "protocol.json",
+        "tests/test_optimizers.py",
+        "tests/test_training.py",
+        "results/training.json",
+        "README.md"
+      ]
+    }
+  ]
+}

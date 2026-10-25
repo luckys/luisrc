@@ -2,7 +2,7 @@
 
 Inventario generado desde el catálogo de 175 fichas y los artículos españoles reales. No es una certificación de completitud editorial ni de laboratorios.
 
-IDs con borrador propio: **72**. Solo material relacionado: **19**. Sin artículo identificado: **84**.
+IDs con borrador propio: **75**. Solo material relacionado: **19**. Sin artículo identificado: **81**.
 
 Cada ficha requiere revisión contra su temario obligatorio, laboratorio y Definition of Done. Un artículo agrupado no completa automáticamente varias fichas.
 
@@ -158,9 +158,9 @@ P063 se amplía en ocho drafts: pipeline/gates, artefactos, flags, smoke, rollin
 
 - P096. Perceptrón y redes neuronales multicapa: [borrador](../../src/content/posts/es/perceptron-neurona-pesos-bias-xor.md).
 - P097. Forward, backpropagation y autodiff: [borrador](../../src/content/posts/es/computational-graph-regla-cadena-caminos.md).
-- P098. Optimizadores y dinámica del entrenamiento: pendiente.
-- P099. PyTorch desde cero: entrenamiento completo: pendiente.
-- P100. Overfitting e inestabilidad de redes: pendiente.
+- P098. Optimizadores y dinámica del entrenamiento: [borrador](../../src/content/posts/es/epochs-batches-minibatches-comparar-entrenamientos.md).
+- P099. PyTorch desde cero: entrenamiento completo: [borrador](../../src/content/posts/es/pytorch-tensores-shapes-dtype-broadcasting.md).
+- P100. Overfitting e inestabilidad de redes: [borrador](../../src/content/posts/es/overfitting-underfitting-curvas-error-generalizacion.md).
 - P101. Redes convolucionales CNN: pendiente.
 - P102. Redes para secuencias: RNN, LSTM y GRU: pendiente.
 - P103. Atención y Transformer: pendiente.

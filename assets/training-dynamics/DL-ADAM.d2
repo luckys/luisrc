@@ -1,0 +1,11 @@
+direction: down
+vars: {d2-config: {pad: 16}}
+n0: "Gradiente g y g²"
+n1: "Medias con descuento m y v"
+n2: "Corregir arranque en cero"
+n3: "m̂ / (raíz de v̂ + ε)"
+n4: "θ nuevo = θ − η·dirección"
+n0 -> n1: "dos buffers por parámetro"
+n1 -> n2: "contador de steps"
+n2 -> n3: "escala por coordenada"
+n3 -> n4: "η sigue siendo necesario"
