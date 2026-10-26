@@ -183,10 +183,10 @@ const copy = curriculum[locale]
     })
     const pageWidth = pdf.internal.pageSize.getWidth()
     const pageHeight = pdf.internal.pageSize.getHeight()
-    const margin = 18
+    const margin = 13
     const contentWidth = pageWidth - margin * 2
-    const bottomLimit = pageHeight - 17
-    const startY = 18
+    const bottomLimit = pageHeight - 13
+    const startY = 13
     let y = startY
 
     const readText = (element: Element | null) =>
@@ -284,43 +284,43 @@ const copy = curriculum[locale]
       .join('  |  ')
     const profiles = Array.from(
       root.querySelectorAll('[data-cv-profiles] [data-cv-contact-item]'),
-    ).map((item) => item.getAttribute('data-pdf-text') || readText(item))
+    )
+      .map((item) => item.getAttribute('data-pdf-text') || readText(item))
+      .join('  |  ')
 
     pdf.setFont('helvetica', 'bold')
-    pdf.setFontSize(22)
+    pdf.setFontSize(20)
     pdf.setTextColor(...inkColor)
     pdf.text(name, pageWidth / 2, y + 2, { align: 'center' })
-    y += 10
+    y += 8.5
     addText(headline, {
-      size: 11,
+      size: 10.5,
       style: 'bold',
       color: accentColor,
-      leading: 5,
+      leading: 4.8,
       after: 1,
     })
-    addText(specialism, { size: 9, color: mutedColor, leading: 4.2, after: 2 })
-    addText(contact, { size: 9, color: mutedColor, leading: 4.3, after: 1 })
-    profiles.forEach((profile) => {
-      addText(profile, { size: 9, color: mutedColor, leading: 4.3, after: 1 })
-    })
+    addText(specialism, { size: 8.5, color: mutedColor, leading: 3.7, after: 1.4 })
+    addText(contact, { size: 8.5, color: mutedColor, leading: 3.7, after: 1 })
+    addText(profiles, { size: 8.5, color: mutedColor, leading: 3.7, after: 1.4 })
     y += 2
     pdf.setDrawColor(...accentColor)
     pdf.setLineWidth(0.55)
     pdf.line(margin, y, pageWidth - margin, y)
-    y += 7
+    y += 5
 
     root.querySelectorAll<HTMLElement>('[data-cv-section]').forEach((section) => {
       const title = readText(section.querySelector('[data-cv-section-title]'))
-      ensureSpace(45)
+      ensureSpace(24)
       pdf.setFont('helvetica', 'bold')
-      pdf.setFontSize(11)
+      pdf.setFontSize(10.5)
       pdf.setTextColor(...accentColor)
       pdf.text(title.toLocaleUpperCase(locale), margin, y)
       pdf.setDrawColor(...accentColor)
       pdf.setLineWidth(0.2)
-      const sectionRuleY = y + 6
+      const sectionRuleY = y + 5
       pdf.line(margin, sectionRuleY, pageWidth - margin, sectionRuleY)
-      y = sectionRuleY + 5
+      y = sectionRuleY + 3.5
 
       section.querySelectorAll<HTMLElement>('[data-cv-entry]').forEach((entry) => {
         const entryTitle = readText(entry.querySelector('[data-cv-entry-title]'))
@@ -343,77 +343,78 @@ const copy = curriculum[locale]
         // Keep the company, role and dates with the first paragraph or bullet.
         const firstContent = body || bullets[0] || projectLinks || technologies
         pdf.setFont('helvetica', 'normal')
-        pdf.setFontSize(10)
+        pdf.setFontSize(9.5)
         const firstContentLines = pdf.splitTextToSize(
           firstContent,
           contentWidth - 3,
         ) as string[]
         ensureSpace(
-          textHeight(entryTitle, 10.5, 'bold', 4.7, 0.5) +
-            textHeight(subtitle, 9.5, 'italic', 4.2, 1) +
-            textHeight(period, 9.5, 'normal', 4.2, 0.6) +
-            firstContentLines.length * 4.5 +
-            2.6,
+          textHeight(entryTitle, 10, 'bold', 4.3, 0.4) +
+            textHeight(subtitle, 9, 'italic', 3.7, 0.7) +
+            textHeight(period, 9, 'normal', 3.7, 0.5) +
+            firstContentLines.length * 4.0 +
+            2.0,
         )
 
         if (entryTitle)
           addText(entryTitle, {
-            size: 10.5,
+            size: 10,
             style: 'bold',
             color: inkColor,
-            leading: 4.7,
-            after: 0.5,
+            leading: 4.3,
+            after: 0.4,
           })
         if (subtitle)
           addText(subtitle, {
-            size: 9.5,
+            size: 9,
             style: 'italic',
             color: mutedColor,
-            leading: 4.2,
-            after: 1,
+            leading: 3.7,
+            after: 0.7,
           })
         if (period)
           addText(period, {
-            size: 9.5,
+            size: 9,
             color: mutedColor,
-            leading: 4.2,
-            after: 0.6,
+            leading: 3.7,
+            after: 0.5,
           })
-        if (body) addText(body, { size: 10, leading: 4.5, after: 2.6 })
+        if (body) addText(body, { size: 9.5, leading: 4.0, after: 1.8 })
 
         bullets.forEach((bullet, index) => {
-          if (index === bullets.length - 1 && technologies) {
+          if (index === bullets.length - 1 && (technologies || projectLinks)) {
             ensureSpace(
-              textHeight(`- ${bullet}`, 10, 'normal', 4.5, 1.1) +
-                textHeight(technologies, 9, 'normal', 4, 3) +
-                4.5,
+              textHeight(`- ${bullet}`, 9.5, 'normal', 4.0, 0.8) +
+                (projectLinks ? textHeight(projectLinks, 8.5, 'normal', 3.5, 1.4) : 0) +
+                (technologies ? textHeight(technologies, 8.5, 'normal', 3.5, 2.0) : 0) +
+                3.5,
             )
           }
-          addText(`- ${bullet}`, { size: 10, indent: 3, leading: 4.5, after: 1.1 })
+          addText(`- ${bullet}`, { size: 9.5, indent: 3, leading: 4.0, after: 0.8 })
         })
 
         if (projectLinks) {
           addText(projectLinks, {
-            size: 9,
+            size: 8.5,
             color: mutedColor,
-            leading: 4,
-            after: 2,
+            leading: 3.5,
+            after: 1.4,
           })
         }
 
         if (technologies) {
           addText(technologies, {
-            size: 9,
+            size: 8.5,
             color: mutedColor,
-            leading: 4,
-            after: 3,
+            leading: 3.5,
+            after: 2.0,
           })
         } else if (body || bullets.length || projectLinks) {
-          y += 1.5
+          y += 0.8
         }
       })
 
-      y += 2
+      y += 1.2
     })
 
     const pageCount = pdf.getNumberOfPages()

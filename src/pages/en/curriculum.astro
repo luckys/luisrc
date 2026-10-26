@@ -4,8 +4,27 @@ import Layout from '~/layouts/Layout.astro'
 import { curriculum } from '~/curriculum'
 
 const copy = curriculum.en
+const tags = [
+  'Senior Software Engineer',
+  'Tech Lead',
+  'TypeScript',
+  'Node.js',
+  'NestJS',
+  'React',
+  'Vue.js',
+  'Nuxt',
+  'PostgreSQL',
+  'Postgres',
+  'AWS',
+  'System Design',
+  'Microservices',
+  'TDD',
+  'DDD',
+  'Generative AI',
+  'Python',
+]
 ---
 
-<Layout title={copy.pageTitle} description={copy.pageDescription}>
+<Layout title={copy.pageTitle} description={copy.pageDescription} tags={tags}>
   <CurriculumPage locale="en" />
 </Layout>
