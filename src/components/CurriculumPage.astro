@@ -34,6 +34,15 @@ const copy = curriculum[locale]
 
       <address class="cv-contact" aria-label={copy.contactLabel}>
         <span data-cv-contact-item data-pdf-text={copy.location}>{copy.location}</span>
+        {copy.phone && (
+          <a
+            href={`tel:${copy.phone.replace(/[\s()-]/g, '')}`}
+            data-cv-contact-item
+            data-pdf-text={copy.phone}
+          >
+            {copy.phone}
+          </a>
+        )}
         <a href={`mailto:${copy.email}`} data-cv-contact-item data-pdf-text={copy.email}>
           {copy.email}
         </a>
