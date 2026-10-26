@@ -1,0 +1,16 @@
+direction: down
+x: "Entrada x"
+n1: "LayerNorm"
+a: "Atención"
+s1: "Suma residual"
+n2: "LayerNorm"
+f: "FFN"
+s2: "Suma residual"
+x -> n1
+n1 -> a
+a -> s1
+x -> s1
+s1 -> n2
+n2 -> f
+f -> s2
+s1 -> s2

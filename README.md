@@ -300,3 +300,7 @@ This project is licensed under the [MIT License](LICENSE.txt).
 
 - https://github.com/panr/hugo-theme-terminal
 - https://github.com/chrismwilliams/astro-theme-cactus
+
+La planificación por series y sus comprobaciones se mantienen en [luisrc-blog-examples/docs/editorial](https://github.com/luckys/luisrc-blog-examples/tree/main/docs/editorial). El roadmap principal sigue en `docs/roadmap-editorial-ingenieria-paysafe-ia.md`.
+
+Para continuar el trabajo local, consulta `../luisrc-blog-examples/docs/editorial/roadmap-continuation.md`.

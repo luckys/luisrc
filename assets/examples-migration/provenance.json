@@ -345,12 +345,12 @@
     {
       "source": "packages/container-environments/replay.json",
       "destination": "public/assets/interactive/container-environments/replay.json",
-      "sha256": "a2164cdd4a500e0ffcae6709d019513d9f20084f8e622c12abf01952e821cefe"
+      "sha256": "161a0776e22a3790f931834954903a765707798263a23e8ba62cd97beb23f7a0"
     },
     {
       "source": "packages/container-environments/image-sizes.svg",
       "destination": "public/assets/interactive/container-environments/image-sizes.svg",
-      "sha256": "c44d4c02afd4c471efe6dc83040c90ccb98a1d18b70bc200f939434b700c3df4"
+      "sha256": "e7e98f586c781d46c318ed1d4ee1b2c669689a8a350bd2703f4af00265cd1705"
     },
     {
       "source": "packages/progressive-delivery/explorer.html",
@@ -365,7 +365,7 @@
     {
       "source": "packages/progressive-delivery/replay.json",
       "destination": "public/assets/interactive/progressive-delivery/replay.json",
-      "sha256": "b93bc6f977071028464d401c49bb3c126cb2d99343b2c9f966f7a81828ab8738"
+      "sha256": "cbcaa11d6630b33d2898ad47110808082732fa50375466fc036a2d64045bfe64"
     },
     {
       "source": "packages/progressive-delivery/canary-outcomes.svg",
@@ -666,6 +666,136 @@
       "source": "packages/generalization-stability/clipping-curves.svg",
       "destination": "public/assets/interactive/generalization-stability/clipping-curves.svg",
       "sha256": "3dfe1b71d0d137ace594922711581966fd77447f355213f24cd53b43c08700a5"
+    },
+    {
+      "source": "packages/convolutional-networks/explorer.html",
+      "destination": "public/assets/interactive/convolutional-networks/explorer.html",
+      "sha256": "40edbc78ec46b24e8cd4a50de613d153456d7ce3aa0b7e94215c64b9d110cfae"
+    },
+    {
+      "source": "packages/convolutional-networks/explorer.mjs",
+      "destination": "public/assets/interactive/convolutional-networks/explorer.mjs",
+      "sha256": "8ff5be6530464d9af5325096d99f866c933def0c45d8079e1b3132c35ba74363"
+    },
+    {
+      "source": "packages/convolutional-networks/model.mjs",
+      "destination": "public/assets/interactive/convolutional-networks/model.mjs",
+      "sha256": "f4c1df832cb4ed51e96cde0535f74e5ad0c4259371f3cf897bc7fc17e7b1e793"
+    },
+    {
+      "source": "packages/convolutional-networks/charts.mjs",
+      "destination": "public/assets/interactive/convolutional-networks/charts.mjs",
+      "sha256": "09f901bab65ce9328c0341e582daf2849b1f84bcacefb8666f5f3c8862b46940"
+    },
+    {
+      "source": "packages/convolutional-networks/comparison.json",
+      "destination": "public/assets/interactive/convolutional-networks/comparison.json",
+      "sha256": "dfac2a306f4e2a3361ea2e983945a34d219c6bbbcf4c3582699554e49b8b2dd5"
+    },
+    {
+      "source": "packages/convolutional-networks/source-curves.svg",
+      "destination": "public/assets/interactive/convolutional-networks/source-curves.svg",
+      "sha256": "0115901c426c9f6535093e491c8efd8505b3cd633904c7b5e57078362bc033fa"
+    },
+    {
+      "source": "packages/convolutional-networks/transfer-curves.svg",
+      "destination": "public/assets/interactive/convolutional-networks/transfer-curves.svg",
+      "sha256": "cf3f56de6596f6446ec13188c56d00d772752950a9a3f4f4843da254dc3a2ea2"
+    },
+    {
+      "source": "packages/convolutional-networks/feature-maps.svg",
+      "destination": "public/assets/interactive/convolutional-networks/feature-maps.svg",
+      "sha256": "0974fa6e7fdd8463899c09454d75cbc967a622230643dfb1701d27f1347b9854"
+    },
+    {
+      "source": "packages/recurrent-sequences/explorer.html",
+      "destination": "public/assets/interactive/recurrent-sequences/explorer.html",
+      "sha256": "fb0621cd385f69ba5739855b8607153c809e1a34b47b0e15e72c30697c69c401"
+    },
+    {
+      "source": "packages/recurrent-sequences/explorer.mjs",
+      "destination": "public/assets/interactive/recurrent-sequences/explorer.mjs",
+      "sha256": "c68853308d8bc8e9e1fbdfe5b5c5c30e8384966e0172018e47970aa08ef8d2af"
+    },
+    {
+      "source": "packages/recurrent-sequences/model.mjs",
+      "destination": "public/assets/interactive/recurrent-sequences/model.mjs",
+      "sha256": "f5c58fad341bb288c0e4888ac87c07fb05d431878c2ebfc8397684f31d6cdd3b"
+    },
+    {
+      "source": "packages/recurrent-sequences/charts.mjs",
+      "destination": "public/assets/interactive/recurrent-sequences/charts.mjs",
+      "sha256": "cd8d0e9354e32f09d5d308aa65d1fea0d97ba30814c1d6170b98a0b4ce97d242"
+    },
+    {
+      "source": "packages/recurrent-sequences/comparison.json",
+      "destination": "public/assets/interactive/recurrent-sequences/comparison.json",
+      "sha256": "0182abbd4fa810777ed476f9400e91c58cf5c16872f772a544d4e06489b1d20d"
+    },
+    {
+      "source": "packages/recurrent-sequences/memory-curves.svg",
+      "destination": "public/assets/interactive/recurrent-sequences/memory-curves.svg",
+      "sha256": "272b408f214bad84b36df731a3b2695ee04f10e9c5744443c0f780b43834a22f"
+    },
+    {
+      "source": "packages/recurrent-sequences/length-curves.svg",
+      "destination": "public/assets/interactive/recurrent-sequences/length-curves.svg",
+      "sha256": "5ec75b9c0b1bb957a2131508264e8c832a5e4d95a7a82335ad0ee30b1962f88e"
+    },
+    {
+      "source": "packages/recurrent-sequences/gradient-controls.svg",
+      "destination": "public/assets/interactive/recurrent-sequences/gradient-controls.svg",
+      "sha256": "99bd37910ba10f1d0289a6b0a9d633649a7e94d94893f425c8b63f8cf5a7d5f9"
+    },
+    {
+      "source": "packages/recurrent-sequences/embedding-table.svg",
+      "destination": "public/assets/interactive/recurrent-sequences/embedding-table.svg",
+      "sha256": "d70caa3204ed90253e477f7d8356acde6980448f67db36fb9dce5d251fad9127"
+    },
+    {
+      "source": "packages/attention-transformer/explorer.html",
+      "destination": "public/assets/interactive/attention-transformer/explorer.html",
+      "sha256": "8f0391d4b662b1749467179ac836bdcd7128695124b837e8cd7c8fca00129bf0"
+    },
+    {
+      "source": "packages/attention-transformer/explorer.mjs",
+      "destination": "public/assets/interactive/attention-transformer/explorer.mjs",
+      "sha256": "00c36a3e56d53e58953012bcf74fde446a050b729ed099b24e5f057b3941bcae"
+    },
+    {
+      "source": "packages/attention-transformer/model.mjs",
+      "destination": "public/assets/interactive/attention-transformer/model.mjs",
+      "sha256": "1d88015ebbc6cea15cd9f1aff809b817bbf880724ec4cf9d0f6c809fb8c608a4"
+    },
+    {
+      "source": "packages/attention-transformer/charts.mjs",
+      "destination": "public/assets/interactive/attention-transformer/charts.mjs",
+      "sha256": "7ffbdb9ed26af0d09cd6f5ba5083d297190901e79055aaeb3bc8be5480c04ff3"
+    },
+    {
+      "source": "packages/attention-transformer/comparison.json",
+      "destination": "public/assets/interactive/attention-transformer/comparison.json",
+      "sha256": "18e0647a9ffed13f4fac56dfd978bb39102a9f9849b2da1d5f68fbc94fb4e9ee"
+    },
+    {
+      "source": "packages/attention-transformer/attention-weights.svg",
+      "destination": "public/assets/interactive/attention-transformer/attention-weights.svg",
+      "sha256": "ca01165492548461b0bcf900e369c689c69133589f92a40f238303d3308df2d5"
+    },
+    {
+      "source": "packages/attention-transformer/scale-entropy.svg",
+      "destination": "public/assets/interactive/attention-transformer/scale-entropy.svg",
+      "sha256": "1d23c455e3268577dbc5003a7729c1f7b17a362d80dd578265005bcdf30c8eda"
+    },
+    {
+      "source": "packages/attention-transformer/position-signals.svg",
+      "destination": "public/assets/interactive/attention-transformer/position-signals.svg",
+      "sha256": "2e5d58061d167978c66350d3b55a958c48849649d09b63e737bb6209237c567c"
+    },
+    {
+      "source": "packages/attention-transformer/causal-gradient.svg",
+      "destination": "public/assets/interactive/attention-transformer/causal-gradient.svg",
+      "sha256": "59535b84d42e76b7ac1352cf70427168a92b1c157c69edd4bfe8b26d865aec2c"
     }
   ]
 }

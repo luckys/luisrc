@@ -2075,5 +2075,180 @@
     "labs": [
       "generalization-stability"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-convolution-kernel-cross-correlation",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-padding-stride-dilation-shapes",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-pooling-downsampling-gradientes-aliasing",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-receptive-field-soporte-gradientes",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-canales-filtros-parametros-compartidos",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-pequena-entrenamiento-protocolo-logits",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-feature-maps-activaciones-interpretacion",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-arquitecturas-vgg-resnet-residual-blocks",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cnn-transfer-learning-freeze-fine-tuning-controles",
+    "labs": [
+      "convolutional-networks"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "embeddings-tokens-tabla-vectores-padding",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "hidden-state-recurrencia-estado-pesos",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "secuencias-longitudes-variables-padding-packed",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "rnn-tanh-unroll-bptt-memoria",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "lstm-cell-state-input-forget-output-gates",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gru-reset-update-candidato-convencion-pytorch",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "rnn-vanishing-exploding-gradients-dependencias-largas",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "teacher-forcing-generacion-autoregresiva-evaluacion",
+    "labs": [
+      "recurrent-sequences"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "attention-qkv-consultas-claves-valores",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "scaled-dot-product-attention-softmax-estable",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "attention-masks-padding-bool-permitido-excluido",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "multi-head-attention-split-concat-proyeccion",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "positional-encodings-sinusoidales-orden-permutaciones",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "transformer-block-residual-layernorm-ffn-pre-norm",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "transformer-encoder-decoder-cross-attention-contexto",
+    "labs": [
+      "attention-transformer"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "causal-attention-transformer-futuro-paralelismo",
+    "labs": [
+      "attention-transformer"
+    ]
   }
 ]

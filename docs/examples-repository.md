@@ -10,7 +10,7 @@ de GitHub no estarán disponibles.
 
 - **Blog**: artículos, diagramas, audio, interfaz, SVG, visores estáticos y datos
   editoriales que permiten construir el sitio sin un checkout de ejemplos.
-- **Ejemplos**: 40 laboratorios en `packages/`, índice por post en `posts/`, tests,
+- **Ejemplos**: 43 laboratorios en `packages/`, índice por post en `posts/`, tests,
   fixtures, experimentos y resultados originales. Un workspace pnpm y un lockfile.
 
 Se han retirado `examples/`, `public/assets/examples/`, los manifiestos de ZIP y
@@ -22,7 +22,7 @@ No se ha reescrito el historial del blog: esta separación afecta a la revisión
 Las pruebas editoriales que comparan snippets con fuentes se ejecutan en el
 monorepo. Las pruebas locales del blog comprueban enlaces, metadatos, recursos y
 proveniencia sin depender de un directorio hermano. Los resultados de revisión
-anteriores en `docs/editorial/` son históricos; sus comandos de empaquetado ZIP
+anteriores, ahora en `luisrc-blog-examples/docs/editorial/`, son históricos; sus comandos de empaquetado ZIP
 ya no representan el flujo actual.
 
 ## Flujo de trabajo
@@ -72,3 +72,5 @@ No se han repetido las integraciones Docker/PostgreSQL/Redis ni los experimentos
 de la imagen científica: esta tarea cambia ubicación y herramientas, no sus
 implementaciones. Los resultados anteriores se mantienen como evidencia archivada,
 no como nuevas ejecuciones de esas integraciones.
+
+La planificación editorial y sus scripts de revisión/render viven en el repositorio de ejemplos. El blog conserva el roadmap principal y las herramientas de audio/diagramas. Consulta [las instrucciones editoriales](https://github.com/luckys/luisrc-blog-examples/tree/main/docs/editorial).

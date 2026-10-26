@@ -114,3 +114,5 @@ No hay test final, GPU, benchmark de tiempo o recomendación universal. Validati
 - [Pascanu et al.: gradientes y clipping](https://arxiv.org/abs/1211.5063).
 
 El siguiente bloque del roadmap construirá una CNN e inspeccionará mapas de activación. Estas herramientas permitirán separar un error de implementación, un problema de optimización y una evaluación que no generaliza.
+
+La siguiente serie empieza con [convolution y kernels](/posts/cnn-convolution-kernel-cross-correlation), para construir e inspeccionar una CNN pequeña.

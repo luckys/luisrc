@@ -78,9 +78,9 @@ CMD ["node", "dist/server.js"]
 
 ## El tamaño observado tiene una unidad y un alcance
 
-En la captura, `docker image inspect` devuelve **618.485.156 bytes** para el stage build del experimento y **344.518.059 bytes** para el runtime. Son aproximadamente **589,8 MiB** y **328,6 MiB**, usando un MiB igual a 1.048.576 bytes.
+En la captura, `docker image inspect` devuelve **797.659.553 bytes** para el stage build del experimento y **344.513.982 bytes** para el runtime. Son aproximadamente **760,7 MiB** y **328,6 MiB**, usando un MiB igual a 1.048.576 bytes.
 
-<img src="/assets/interactive/container-environments/image-sizes.svg" alt="Tamaño local informado por docker image inspect: stage build de aproximadamente 590 MiB y runtime de aproximadamente 329 MiB. Las barras comparten escala y no representan descarga comprimida, memoria ni velocidad de ejecución." width="380" height="330" loading="lazy" style="width:100%;height:auto" />
+<img src="/assets/interactive/container-environments/image-sizes.svg" alt="Tamaño local informado por docker image inspect: stage build de aproximadamente 761 MiB y runtime de aproximadamente 329 MiB. Las barras comparten escala y no representan descarga comprimida, memoria ni velocidad de ejecución." width="380" height="330" loading="lazy" style="width:100%;height:auto" />
 
 La comparación describe estas images locales. El stage build incluye un comentario de source añadido en el experimento de cache, además del entorno de construcción. No es una medición del tamaño transferido por un registry, ni del espacio adicional exclusivo: las images pueden compartir layers.
 

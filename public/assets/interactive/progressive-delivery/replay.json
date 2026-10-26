@@ -1,56 +1,56 @@
 {
-  "capturedAt": "2026-10-25T13:03:26.794Z",
+  "capturedAt": "2026-10-26T09:35:36.763Z",
   "kind": "local_progressive_delivery_observation",
   "events": [
     {
       "seq": 1,
       "id": "pipeline_completed",
       "kind": "observed",
-      "at": "2026-10-25T13:02:59.643Z",
-      "elapsedMs": 13906.317856,
+      "at": "2026-10-26T09:35:05.357Z",
+      "elapsedMs": 12074.691562999998,
       "facts": {
-        "capturedAt": "2026-10-25T13:02:59.580Z",
+        "capturedAt": "2026-10-26T09:35:05.231Z",
         "kind": "local_pipeline_not_remote_ci",
         "stages": [
           {
             "name": "unit_and_router_tests",
             "status": "passed",
-            "elapsedMs": 305.708703
+            "elapsedMs": 413.59703
           },
           {
             "name": "typecheck",
             "status": "passed",
-            "elapsedMs": 921.454266
+            "elapsedMs": 1115.646996
           },
           {
             "name": "compile",
             "status": "passed",
-            "elapsedMs": 1599.2240379999998
+            "elapsedMs": 1744.901403
           },
           {
             "name": "runtime_dependency_audit",
             "status": "passed",
-            "elapsedMs": 2083.2907250000003
+            "elapsedMs": 2487.592779
           },
           {
             "name": "build_stable",
             "status": "passed",
-            "elapsedMs": 13426.242617
+            "elapsedMs": 11345.813292
           },
           {
             "name": "image_policy_stable",
             "status": "passed",
-            "elapsedMs": 13469.829499000001
+            "elapsedMs": 11425.577294
           },
           {
             "name": "build_candidate",
             "status": "passed",
-            "elapsedMs": 13792.345143
+            "elapsedMs": 11880.128196
           },
           {
             "name": "image_policy_candidate",
             "status": "passed",
-            "elapsedMs": 13841.587381000001
+            "elapsedMs": 11948.26859
           }
         ],
         "audit": {
@@ -71,15 +71,15 @@
         },
         "artifacts": {
           "stable": {
-            "tag": "luisrc-delivery-4a2c436a:stable",
-            "id": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
+            "tag": "luisrc-delivery-aab6a939:stable",
+            "id": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
             "user": "node",
             "release": "stable",
             "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
           },
           "candidate": {
-            "tag": "luisrc-delivery-4a2c436a:candidate",
-            "id": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
+            "tag": "luisrc-delivery-aab6a939:candidate",
+            "id": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
             "user": "node",
             "release": "candidate",
             "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
@@ -98,8 +98,8 @@
       "seq": 2,
       "id": "baseline_schema",
       "kind": "observed",
-      "at": "2026-10-25T13:03:05.821Z",
-      "elapsedMs": 20084.199851,
+      "at": "2026-10-26T09:35:12.146Z",
+      "elapsedMs": 18863.376658,
       "facts": {
         "smoke": {
           "ok": true,
@@ -148,8 +148,8 @@
       "seq": 3,
       "id": "schema_expanded",
       "kind": "observed",
-      "at": "2026-10-25T13:03:06.210Z",
-      "elapsedMs": 20472.866649,
+      "at": "2026-10-26T09:35:12.775Z",
+      "elapsedMs": 19492.238125,
       "facts": {
         "columns": [
           "id",
@@ -194,15 +194,15 @@
       "seq": 4,
       "id": "candidate_deployed_dark",
       "kind": "observed",
-      "at": "2026-10-25T13:03:09.515Z",
-      "elapsedMs": 23778.370749,
+      "at": "2026-10-26T09:35:16.392Z",
+      "elapsedMs": 23109.252607,
       "facts": {
-        "routerPid": 841405,
-        "candidateImage": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
+        "routerPid": 2357128,
+        "candidateImage": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
         "runningImages": {
-          "a": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
-          "b": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
-          "green": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb"
+          "a": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
+          "b": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
+          "green": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f"
         },
         "newReadOldWrite": {
           "status": 200,
@@ -272,8 +272,8 @@
       "seq": 5,
       "id": "smoke_flag_off",
       "kind": "observed",
-      "at": "2026-10-25T13:03:09.569Z",
-      "elapsedMs": 23831.829231,
+      "at": "2026-10-26T09:35:16.488Z",
+      "elapsedMs": 23205.748384,
       "facts": {
         "smoke": {
           "ok": true,
@@ -317,11 +317,11 @@
       "seq": 6,
       "id": "rolling_first_slot",
       "kind": "observed",
-      "at": "2026-10-25T13:03:13.052Z",
-      "elapsedMs": 27314.864153,
+      "at": "2026-10-26T09:35:20.412Z",
+      "elapsedMs": 27129.372097,
       "facts": {
         "route": {
-          "id": "ba6e25ce-a77a-4fcb-83fe-3269f7ffa197",
+          "id": "5a5e3471-9685-443a-a81f-c6b1bdea242c",
           "ok": true,
           "revision": 2,
           "route": {
@@ -333,8 +333,8 @@
             "featureEnabled": false
           }
         },
-        "slotAImage": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
-        "slotBImage": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
+        "slotAImage": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
+        "slotBImage": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
         "responses": [
           {
             "status": 200,
@@ -391,11 +391,11 @@
       "seq": 7,
       "id": "rolling_all_slots",
       "kind": "observed",
-      "at": "2026-10-25T13:03:16.399Z",
-      "elapsedMs": 30662.366618,
+      "at": "2026-10-26T09:35:24.106Z",
+      "elapsedMs": 30823.842447,
       "facts": {
         "route": {
-          "id": "83e72159-b963-422f-95e1-eed1ec2b239a",
+          "id": "c288942c-fb1d-43f4-8876-edffba283494",
           "ok": true,
           "revision": 4,
           "route": {
@@ -407,7 +407,7 @@
             "featureEnabled": false
           }
         },
-        "image": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
+        "image": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
         "responses": [
           {
             "status": 200,
@@ -464,8 +464,8 @@
       "seq": 8,
       "id": "blue_green_switch",
       "kind": "observed",
-      "at": "2026-10-25T13:03:20.088Z",
-      "elapsedMs": 34350.812883,
+      "at": "2026-10-26T09:35:28.291Z",
+      "elapsedMs": 35008.941692,
       "facts": {
         "beforeSwitch": [
           {
@@ -517,10 +517,10 @@
             "routeRevision": "6"
           }
         ],
-        "blueImage": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
-        "greenImage": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
+        "blueImage": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
+        "greenImage": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
         "route": {
-          "id": "6690e1f3-3b4d-4db6-b318-492686149194",
+          "id": "bd6595db-ccf9-4951-ba10-3e6f6ed7507c",
           "ok": true,
           "revision": 7,
           "route": {
@@ -584,11 +584,11 @@
       "seq": 9,
       "id": "blue_restored",
       "kind": "observed",
-      "at": "2026-10-25T13:03:20.176Z",
-      "elapsedMs": 34439.217347,
+      "at": "2026-10-26T09:35:28.425Z",
+      "elapsedMs": 35142.034870999996,
       "facts": {
         "route": {
-          "id": "c49c6b48-f4c4-4a13-944f-bbf53727587d",
+          "id": "d0ca2ac7-8091-415a-afb5-24044e20fe86",
           "ok": true,
           "revision": 8,
           "route": {
@@ -656,11 +656,11 @@
       "seq": 10,
       "id": "canary_exposed",
       "kind": "observed",
-      "at": "2026-10-25T13:03:21.270Z",
-      "elapsedMs": 35533.103911,
+      "at": "2026-10-26T09:35:30.099Z",
+      "elapsedMs": 36816.110937,
       "facts": {
         "route": {
-          "id": "a858a866-21a5-45ff-a759-c8f0b7ee95ba",
+          "id": "8e5159f9-65c6-4ac0-94c6-dd37fa286fc1",
           "ok": true,
           "revision": 9,
           "route": {
@@ -2690,11 +2690,11 @@
       "seq": 11,
       "id": "canary_rollback",
       "kind": "observed",
-      "at": "2026-10-25T13:03:21.335Z",
-      "elapsedMs": 35598.098727,
+      "at": "2026-10-26T09:35:30.184Z",
+      "elapsedMs": 36901.109623,
       "facts": {
         "route": {
-          "id": "0e87b8e4-aac6-46df-8648-5fe7a8c1869a",
+          "id": "3101e606-cbd9-4566-b4fb-2a693441da20",
           "ok": true,
           "revision": 10,
           "route": {
@@ -2747,13 +2747,13 @@
       "seq": 12,
       "id": "forced_negative_release",
       "kind": "observed",
-      "at": "2026-10-25T13:03:21.398Z",
-      "elapsedMs": 35660.792775,
+      "at": "2026-10-26T09:35:30.296Z",
+      "elapsedMs": 37013.283819,
       "facts": {
         "negativeFixture": true,
         "bypassedSmokeGate": true,
         "route": {
-          "id": "8ce96ca0-0330-46c0-a231-56bf7285faa3",
+          "id": "bf1c3328-6915-4927-b27c-010f0d10e8b8",
           "ok": true,
           "revision": 11,
           "route": {
@@ -2805,11 +2805,11 @@
       "seq": 13,
       "id": "flag_disabled",
       "kind": "observed",
-      "at": "2026-10-25T13:03:21.617Z",
-      "elapsedMs": 35880.412536,
+      "at": "2026-10-26T09:35:30.635Z",
+      "elapsedMs": 37352.586953,
       "facts": {
         "route": {
-          "id": "e5f3378d-e40b-4df7-a9ad-dd78da1c09ef",
+          "id": "61b54617-f7de-4ed7-990d-ca53a2f51db9",
           "ok": true,
           "revision": 12,
           "route": {
@@ -2820,7 +2820,7 @@
             "featureEnabled": false
           }
         },
-        "imageStill": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
+        "imageStill": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
         "smoke": {
           "ok": true,
           "cases": [
@@ -2862,8 +2862,8 @@
       "seq": 14,
       "id": "candidate_write",
       "kind": "observed",
-      "at": "2026-10-25T13:03:21.916Z",
-      "elapsedMs": 36178.789203,
+      "at": "2026-10-26T09:35:31.098Z",
+      "elapsedMs": 37815.338636,
       "facts": {
         "newWrite": {
           "status": 201,
@@ -2914,11 +2914,11 @@
       "seq": 15,
       "id": "image_rollback",
       "kind": "observed",
-      "at": "2026-10-25T13:03:25.315Z",
-      "elapsedMs": 39578.156685,
+      "at": "2026-10-26T09:35:34.675Z",
+      "elapsedMs": 41391.923484,
       "facts": {
         "route": {
-          "id": "848a1e4b-90e7-44a6-8bb9-ffa60ba843bc",
+          "id": "d702d669-facf-4fda-bf5f-c2d3250b3b2e",
           "ok": true,
           "revision": 14,
           "route": {
@@ -2929,9 +2929,9 @@
             "featureEnabled": false
           }
         },
-        "from": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
-        "to": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
-        "runningImage": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
+        "from": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
+        "to": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
+        "runningImage": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
         "oldReadsNew": {
           "status": 200,
           "body": {
@@ -2985,8 +2985,8 @@
       "seq": 16,
       "id": "unsafe_contract_rejected",
       "kind": "observed",
-      "at": "2026-10-25T13:03:25.756Z",
-      "elapsedMs": 40018.922209,
+      "at": "2026-10-26T09:35:35.393Z",
+      "elapsedMs": 42110.539667,
       "facts": {
         "sqlstate": "42703",
         "transactionRolledBack": true,
@@ -3002,8 +3002,8 @@
       "seq": 17,
       "id": "rollback_integrity",
       "kind": "observed",
-      "at": "2026-10-25T13:03:26.055Z",
-      "elapsedMs": 40317.735593,
+      "at": "2026-10-26T09:35:35.817Z",
+      "elapsedMs": 42533.96671,
       "facts": {
         "beforeRows": [
           {
@@ -3122,8 +3122,8 @@
       "seq": 18,
       "id": "cleanup",
       "kind": "observed",
-      "at": "2026-10-25T13:03:26.793Z",
-      "elapsedMs": 41055.514143,
+      "at": "2026-10-26T09:35:36.761Z",
+      "elapsedMs": 43478.732785,
       "facts": {
         "remaining": {
           "container": "",
@@ -3133,15 +3133,15 @@
         "routerClosed": true,
         "retainedImages": {
           "stable": {
-            "tag": "luisrc-delivery-4a2c436a:stable",
-            "id": "sha256:9dcbf83c3bdbfbd22e59cebf1c28131acb61b680a1b26573338ed99718e14e1a",
+            "tag": "luisrc-delivery-aab6a939:stable",
+            "id": "sha256:97fce6808743c8cecde95148f958a0381fbbbb744e7cc77806f2c342340f5f5c",
             "user": "node",
             "release": "stable",
             "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"
           },
           "candidate": {
-            "tag": "luisrc-delivery-4a2c436a:candidate",
-            "id": "sha256:ec49ec541e8daf728fc6c4fcb9c65b3a7732957920c28dcfadd76722e70c22eb",
+            "tag": "luisrc-delivery-aab6a939:candidate",
+            "id": "sha256:9e9bfbcf5e85e8d888775ccc91db0c2be9752bdd2a832399dd92399e5dafe64f",
             "user": "node",
             "release": "candidate",
             "base": "node:24.19.0-bookworm-slim@sha256:a9f5f7c91a432850b2a8a7797adf5eadb6c733ceed61167806cee7ea7fbc29df"

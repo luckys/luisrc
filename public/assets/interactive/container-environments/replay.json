@@ -1,17 +1,17 @@
 {
-  "capturedAt": "2026-10-25T13:03:35.536Z",
+  "capturedAt": "2026-10-26T09:34:22.703Z",
   "kind": "local_docker_observation",
   "events": [
     {
       "seq": 1,
       "id": "built",
       "kind": "observed",
-      "at": "2026-10-25T13:03:04.680Z",
-      "elapsedMs": 22396.116173,
+      "at": "2026-10-26T09:33:47.467Z",
+      "elapsedMs": 35022.871073,
       "facts": {
-        "runtimeImage": "sha256:d11286d4c5cf498a7ab26e2c6458187bfd9417283faaa4290b3cb58074015997",
-        "runtimeBytes": 344518059,
-        "buildBytes": 618485156,
+        "runtimeImage": "sha256:2f6eab169d502cf35f8b5b4bd351ac63f9ea050d19e70ce6986b1663c2747c81",
+        "runtimeBytes": 344513982,
+        "buildBytes": 797659553,
         "sourceChangeInstallCached": true,
         "contextExperiment": "temporary_copy_with_comment_change",
         "runtimeUser": "node"
@@ -21,14 +21,14 @@
       "seq": 2,
       "id": "fresh_setup",
       "kind": "observed",
-      "at": "2026-10-25T13:03:11.416Z",
-      "elapsedMs": 29130.506568,
+      "at": "2026-10-26T09:33:55.258Z",
+      "elapsedMs": 42812.850342000005,
       "facts": {
         "rows": 0,
         "topology": {
           "api": {
-            "id": "7f93ef31f706170a9ed5ffc15a9248b12893bfb62b543fae7b1ee1f24e2b970d",
-            "image": "sha256:d11286d4c5cf498a7ab26e2c6458187bfd9417283faaa4290b3cb58074015997",
+            "id": "a8aa023495d928514312b190c3fc14aa1380e641c01c356f0d46defc386ec079",
+            "image": "sha256:2f6eab169d502cf35f8b5b4bd351ac63f9ea050d19e70ce6986b1663c2747c81",
             "ports": {
               "3000/tcp": [
                 {
@@ -38,17 +38,17 @@
               ]
             },
             "networks": [
-              "luisrc-containers-a044e370_backend",
-              "luisrc-containers-a044e370_edge"
+              "luisrc-containers-4f15be11_backend",
+              "luisrc-containers-4f15be11_edge"
             ],
             "mounts": []
           },
           "postgres": {
-            "id": "f58d755c2c553f240885b33ea55b9298668e63a22738d81f73134be1b67b8e44",
+            "id": "d80f37bcc22f24f0866634652fb9f72ddbbc87b586e2a712893ebd28074adb88",
             "image": "sha256:9a8afca54e7861fd90fab5fdf4c42477a6b1cb7d293595148e674e0a3181de15",
             "ports": {},
             "networks": [
-              "luisrc-containers-a044e370_backend"
+              "luisrc-containers-4f15be11_backend"
             ],
             "mounts": [
               {
@@ -58,18 +58,18 @@
               },
               {
                 "Type": "volume",
-                "Name": "luisrc-containers-a044e370_pgdata",
+                "Name": "luisrc-containers-4f15be11_pgdata",
                 "Destination": "/var/lib/postgresql",
                 "RW": true
               }
             ]
           },
           "redis": {
-            "id": "c58718bad8406a890d5f75dd20a2c4cd92062af1590a2c493940e1206ef501f9",
+            "id": "d92ad57f494b58b44d64d626f9c29d46d45669dedf0fb982fcf8f4782af51115",
             "image": "sha256:8096655e437712b07503796fb64d81359256cfcff0ab29d95a7da72863786efb",
             "ports": {},
             "networks": [
-              "luisrc-containers-a044e370_backend"
+              "luisrc-containers-4f15be11_backend"
             ],
             "mounts": []
           }
@@ -98,8 +98,8 @@
       "seq": 3,
       "id": "persisted_and_cached",
       "kind": "observed",
-      "at": "2026-10-25T13:03:11.786Z",
-      "elapsedMs": 29501.234658,
+      "at": "2026-10-26T09:33:55.936Z",
+      "elapsedMs": 43490.84553200001,
       "facts": {
         "first": {
           "status": 200,
@@ -134,12 +134,12 @@
       "seq": 4,
       "id": "api_recreated",
       "kind": "observed",
-      "at": "2026-10-25T13:03:15.144Z",
-      "elapsedMs": 32859.30483,
+      "at": "2026-10-26T09:33:59.829Z",
+      "elapsedMs": 47383.492598000004,
       "facts": {
-        "before": "7f93ef31f706170a9ed5ffc15a9248b12893bfb62b543fae7b1ee1f24e2b970d",
-        "after": "0e7a59acfadb517de91150ae59656eb9e9b121d003e6a8dfdd32eaa3056c229b",
-        "image": "sha256:d11286d4c5cf498a7ab26e2c6458187bfd9417283faaa4290b3cb58074015997",
+        "before": "a8aa023495d928514312b190c3fc14aa1380e641c01c356f0d46defc386ec079",
+        "after": "138047b4b1e8a99054ca2672ab91f2ff2e105c8bd009bae7e7fabab85baef543",
+        "image": "sha256:2f6eab169d502cf35f8b5b4bd351ac63f9ea050d19e70ce6986b1663c2747c81",
         "rows": 1
       }
     },
@@ -147,8 +147,8 @@
       "seq": 5,
       "id": "redis_unavailable",
       "kind": "observed",
-      "at": "2026-10-25T13:03:15.538Z",
-      "elapsedMs": 33252.614235,
+      "at": "2026-10-26T09:34:00.315Z",
+      "elapsedMs": 47869.997771,
       "facts": {
         "fallback": {
           "status": 200,
@@ -173,8 +173,8 @@
       "seq": 6,
       "id": "postgres_unavailable",
       "kind": "observed",
-      "at": "2026-10-25T13:03:18.834Z",
-      "elapsedMs": 36548.896673,
+      "at": "2026-10-26T09:34:03.990Z",
+      "elapsedMs": 51544.359649000005,
       "facts": {
         "live": {
           "status": 200,
@@ -200,8 +200,8 @@
       "seq": 7,
       "id": "postgres_recovered",
       "kind": "observed",
-      "at": "2026-10-25T13:03:21.930Z",
-      "elapsedMs": 39645.079381999996,
+      "at": "2026-10-26T09:34:07.371Z",
+      "elapsedMs": 54926.216979000004,
       "facts": {
         "rows": 1,
         "ready": {
@@ -217,8 +217,8 @@
       "seq": 8,
       "id": "volume_reused",
       "kind": "observed",
-      "at": "2026-10-25T13:03:28.229Z",
-      "elapsedMs": 45943.628727,
+      "at": "2026-10-26T09:34:14.284Z",
+      "elapsedMs": 61838.395938,
       "facts": {
         "rows": 1,
         "surviving": {
@@ -237,8 +237,8 @@
       "seq": 9,
       "id": "second_fresh_setup",
       "kind": "observed",
-      "at": "2026-10-25T13:03:34.902Z",
-      "elapsedMs": 52617.178802,
+      "at": "2026-10-26T09:34:21.717Z",
+      "elapsedMs": 69271.541929,
       "facts": {
         "initialRows": 0,
         "gone": {
@@ -265,8 +265,8 @@
       "seq": 10,
       "id": "cleanup",
       "kind": "observed",
-      "at": "2026-10-25T13:03:35.535Z",
-      "elapsedMs": 53249.883969,
+      "at": "2026-10-26T09:34:22.702Z",
+      "elapsedMs": 70256.90366,
       "facts": {
         "remaining": {
           "container": "",
@@ -274,8 +274,8 @@
           "network": ""
         },
         "imagesRetained": [
-          "luisrc-containers-a044e370:runtime",
-          "luisrc-containers-a044e370:build"
+          "luisrc-containers-4f15be11:runtime",
+          "luisrc-containers-4f15be11:build"
         ]
       }
     }
