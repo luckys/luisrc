@@ -71,7 +71,7 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         entries: [
           {
             title: 'Chief Technology Officer (CTO) & Lead Software Engineer',
-            subtitle: 'Medflow S.L.U. — Oncoviva · Remote',
+            subtitle: 'Medflow S.L.U. Oncoviva · Remote',
             period: 'Jan 2026 — Present',
             body: 'E-health platform for oncology care coordination. Co-founded the company alongside the CEO, leading product engineering, technical roadmap, and architectural strategy.',
             bullets: [
@@ -284,7 +284,7 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
         entries: [
           {
             title: 'Director de tecnología (CTO) e Ingeniero de software líder',
-            subtitle: 'Medflow S.L.U. — Oncoviva · Remoto',
+            subtitle: 'Medflow S.L.U. Oncoviva · Remoto',
             period: 'Ene 2026 — Actualidad',
             body: 'Plataforma de salud digital para la coordinación de la atención oncológica. Cofundador junto al CEO, liderando la ingeniería de producto, el roadmap técnico y la estrategia arquitectónica.',
             bullets: [
