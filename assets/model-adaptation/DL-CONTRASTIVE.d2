@@ -1,0 +1,10 @@
+direction: down
+*.style.font-size: 24
+a: "Vista A · tres\nembeddings"
+b: "Vista B · pares\nalineados"
+norm: "Normalizar y\ncomparar"
+logits: "Matriz 3 × 3 /\ntemperatura"
+loss: "Diagonal positiva\n· CE por\nfilas/columnas"
+a -> norm
+b -> norm
+norm -> logits -> loss

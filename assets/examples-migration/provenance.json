@@ -796,6 +796,96 @@
       "source": "packages/attention-transformer/causal-gradient.svg",
       "destination": "public/assets/interactive/attention-transformer/causal-gradient.svg",
       "sha256": "59535b84d42e76b7ac1352cf70427168a92b1c157c69edd4bfe8b26d865aec2c"
+    },
+    {
+      "source": "packages/model-adaptation/explorer.html",
+      "destination": "public/assets/interactive/model-adaptation/explorer.html",
+      "sha256": "ae32903ffe47120e5e97fd22128f032a347dced6837ea78b00b1861a17fc16e9"
+    },
+    {
+      "source": "packages/model-adaptation/explorer.mjs",
+      "destination": "public/assets/interactive/model-adaptation/explorer.mjs",
+      "sha256": "47a59164916fd6369e7069a68e5611374f2d67c6bf0ff5c5e75a522ce6b2679b"
+    },
+    {
+      "source": "packages/model-adaptation/model.mjs",
+      "destination": "public/assets/interactive/model-adaptation/model.mjs",
+      "sha256": "2454300ca647e6779b7e3973e71efb5de3162bab232b99dc1681e139f176c8e3"
+    },
+    {
+      "source": "packages/model-adaptation/charts.mjs",
+      "destination": "public/assets/interactive/model-adaptation/charts.mjs",
+      "sha256": "4ffc55edf3acf1c4cbbb0d93be7cdb3b4985d09dc61c613a6d869973cff66865"
+    },
+    {
+      "source": "packages/model-adaptation/comparison.json",
+      "destination": "public/assets/interactive/model-adaptation/comparison.json",
+      "sha256": "c18f2985fd483cd6fc5ba79df37cf0a03139a369832d1a7900d4dce43dde2adf"
+    },
+    {
+      "source": "packages/model-adaptation/pretraining.svg",
+      "destination": "public/assets/interactive/model-adaptation/pretraining.svg",
+      "sha256": "143c0c6b117ccfe54afc08773b22580f1f0e0cc04b3c41d71a4bdc4ad4ca408b"
+    },
+    {
+      "source": "packages/model-adaptation/adaptation.svg",
+      "destination": "public/assets/interactive/model-adaptation/adaptation.svg",
+      "sha256": "d460aaa1f138540a14981b48a2a6be9a7b134265521c253756ccfe33d524a775"
+    },
+    {
+      "source": "packages/model-adaptation/retention.svg",
+      "destination": "public/assets/interactive/model-adaptation/retention.svg",
+      "sha256": "fc0f63e6d91176dfca96209d38b52b4895d114e24b351dbdbc03c519b9962420"
+    },
+    {
+      "source": "packages/model-adaptation/contrastive.svg",
+      "destination": "public/assets/interactive/model-adaptation/contrastive.svg",
+      "sha256": "2d50e444b44c221de5199ef36189cf09e8f9536bf1214de4acb97bb9d7175e91"
+    },
+    {
+      "source": "packages/gpu-training/explorer.html",
+      "destination": "public/assets/interactive/gpu-training/explorer.html",
+      "sha256": "8a78361f0df2e0a6b0030eb2d9fed6be7e492068222bd690904b8398cf10103c"
+    },
+    {
+      "source": "packages/gpu-training/explorer.mjs",
+      "destination": "public/assets/interactive/gpu-training/explorer.mjs",
+      "sha256": "76be44211d613f8c0abdaccf76a404ab0246eb8af30b68c95d9dfdff7ea2c49d"
+    },
+    {
+      "source": "packages/gpu-training/model.mjs",
+      "destination": "public/assets/interactive/gpu-training/model.mjs",
+      "sha256": "442ccc3dd23a18482e5f59b7c061481d44aecc45affbc7dc65676f957fc2f9c8"
+    },
+    {
+      "source": "packages/gpu-training/charts.mjs",
+      "destination": "public/assets/interactive/gpu-training/charts.mjs",
+      "sha256": "851c0654a4942e94b9ff8da711b6a58b2cf29c1aa019f8e5ac86a975866225ff"
+    },
+    {
+      "source": "packages/gpu-training/comparison.json",
+      "destination": "public/assets/interactive/gpu-training/comparison.json",
+      "sha256": "b2c8af88baa2a2c0713bb04f57e8e567ce89831eafb83df94f37116edee2442f"
+    },
+    {
+      "source": "packages/gpu-training/cpu-gpu.svg",
+      "destination": "public/assets/interactive/gpu-training/cpu-gpu.svg",
+      "sha256": "969fddded854c3f1ecd1c11815846a85ebcb465bb5ca2032e16ddcb58c3bbede"
+    },
+    {
+      "source": "packages/gpu-training/memory.svg",
+      "destination": "public/assets/interactive/gpu-training/memory.svg",
+      "sha256": "e8715bb6af503bdf986b0e08459f4c57f2cefe7560d0ad0ec558095b99fd111f"
+    },
+    {
+      "source": "packages/gpu-training/transfer.svg",
+      "destination": "public/assets/interactive/gpu-training/transfer.svg",
+      "sha256": "054d5efaefe4e2c97bf5fcb86a99b6adeaa1cbd74c629297f9582f2fcc54bb3a"
+    },
+    {
+      "source": "packages/gpu-training/training-time.svg",
+      "destination": "public/assets/interactive/gpu-training/training-time.svg",
+      "sha256": "9e2dca31046dc8bce38334e31975b003e8bf557b848aa2f495c87af3f4e07567"
     }
   ]
 }

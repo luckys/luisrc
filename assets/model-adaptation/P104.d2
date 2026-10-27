@@ -1,0 +1,12 @@
+direction: down
+*.style.font-size: 24
+clean: "Observación\nlimpia x"
+noise: "Ruido gaussiano"
+corrupt: "Input x + ruido"
+encoder: "Encoder 8 → 16 →\n8"
+decoder: "Decoder 8 → 8"
+loss: "MSE frente a x\nlimpio"
+clean -> corrupt
+noise -> corrupt
+corrupt -> encoder -> decoder -> loss
+clean -> loss: "target derivado\ndel dato"

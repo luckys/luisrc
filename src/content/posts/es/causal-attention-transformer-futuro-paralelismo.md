@@ -135,4 +135,4 @@ pnpm --dir packages/attention-transformer test
 
 ## Continuar la serie
 
-Anterior: [Encoder y decoder: quién consulta a quién en cross-attention](/posts/transformer-encoder-decoder-cross-attention-contexto). El siguiente bloque del roadmap trata pretraining, transfer learning y fine-tuning; continúa pendiente de desarrollar.
+Anterior: [Encoder y decoder: quién consulta a quién en cross-attention](/posts/transformer-encoder-decoder-cross-attention-contexto). Continúa con [Self-supervision: aprender a reconstruir antes de pedir etiquetas](/posts/self-supervision-denoising-aprender-sin-etiquetas), primera entrega del bloque de pretraining y adaptación.

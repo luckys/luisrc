@@ -1,0 +1,9 @@
+direction: down
+*.style.font-size: 24
+first: "Updates 1–80 ·\nhead entrenable"
+encoder: "Encoder congelado"
+unfreeze: "requires_grad =\nTrue"
+optimizer: "add_param_group\npara encoder"
+last: "Updates 81–160 ·\nencoder + head"
+encoder -> first
+first -> unfreeze -> optimizer -> last

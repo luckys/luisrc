@@ -1,0 +1,2673 @@
+{
+  "kind": "gpu_training_observations",
+  "schema": 1,
+  "capturedAt": "2026-10-26T23:51:33.402970+00:00",
+  "protocol": {
+    "model": {
+      "input": 512,
+      "hidden": 1024,
+      "classes": 16,
+      "hiddenLayers": 2
+    },
+    "seed": 17,
+    "dataSeed": 223,
+    "batches": [
+      32,
+      128,
+      512
+    ],
+    "devices": [
+      "cpu",
+      "cuda"
+    ],
+    "precisions": {
+      "cpu": [
+        "fp32"
+      ],
+      "cuda": [
+        "fp32",
+        "fp16",
+        "bf16"
+      ]
+    },
+    "cpuThreads": 1,
+    "warmupSteps": 8,
+    "stepsPerSample": 10,
+    "samples": 5,
+    "orderSeed": 909,
+    "optimizer": {
+      "name": "AdamW",
+      "learningRate": 0.001,
+      "weightDecay": 0.01,
+      "foreach": false
+    },
+    "timing": "perf_counter with device synchronize before and after each ten-update sample; data resident; includes zero_grad/forward/loss/backward/optimizer",
+    "memory": "reset peaks after warmup; allocated/reserved include live model, optimizer, batch and measured activations, not global nvidia-smi usage",
+    "memoryFraction": 0.25,
+    "transfer": {
+      "bytes": [
+        1048576,
+        16777216
+      ],
+      "samples": 5,
+      "copiesPerSample": 10,
+      "warmupCopies": 4,
+      "modes": [
+        "pageable_blocking",
+        "pinned_nonblocking"
+      ]
+    },
+    "precisionControlBatch": 64,
+    "accumulation": {
+      "sampleCount": 21,
+      "microbatches": [
+        8,
+        8,
+        5
+      ],
+      "learningRate": 0.01,
+      "optimizer": "SGD one step",
+      "precision": "fp32"
+    },
+    "profiler": {
+      "device": "cuda",
+      "precision": "fp32",
+      "batch": 128,
+      "steps": 3,
+      "recordShapes": true,
+      "profileMemory": true
+    },
+    "determinism": {
+      "algorithms": true,
+      "tf32": false,
+      "cublasWorkspace": ":4096:8",
+      "probeSteps": 3
+    },
+    "limits": {
+      "gpuMemoryCap": "25% process allocator budget; no intentional full-device OOM",
+      "qualityBenchmark": false,
+      "endToEndDatasetPipeline": false,
+      "crossDeviceBitwisePromise": false
+    }
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "capability": [
+      12,
+      0
+    ],
+    "totalMemory": 8082096128
+  },
+  "sourceHashes": {
+    "workload.py": "15afd7fb87baef3fb2bdf479177e17fa267af562dfb7fda9812c64ab7e1dcbd5",
+    "measure.py": "fb3c6dc9aa2b5e2b588a998c48456c006b0dd2020f1a05b5b205db1125583b71",
+    "controls.py": "f72969ab08c226507287d80dd01087299c164af2872d8fd258cfae9e5121d87a",
+    "profiling.py": "92115763d67d91909eab8c949bad69a84949192d332dedfd45bd8f964f464168",
+    "case.py": "9f2e2a482bb139f4f1e34b4785891f935e3a032359fcaaf57a13ace87610a3ce",
+    "experiments.py": "56cc7fb7096a867c0d88cf3c7cac03ff5e4a365aa7256e2b4fd5a484f13776cd",
+    "protocol.json": "1a4aa99d1bb81b735915fc3b25e4e822d891f6a7966e2d8c7d29a836a2e3ed4f",
+    "runtime.json": "db2f73b2010bec01108b9b2f5be15ba2dfffc0d4f30d5881524061373f2f7b77",
+    "run.mjs": "5ed271b0ea30e64cf42279fd51f1e25c2c1189234553957b53ed4d20f12e6349",
+    "verify-report.mjs": "762dec8216e8ba241e39dc36de0ccfdd01fa9a8977bb9702829d7c6c40e4c4f7",
+    "tests/test_workload.py": "8a47837989cab35764c53984a80a423cd72f32045e1d332ddb2039a5598046ac"
+  },
+  "cases": [
+    {
+      "device": "cuda",
+      "precision": "bf16",
+      "batch": 32,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.024695063999388367,
+        0.024216449994128197,
+        0.02454421200673096,
+        0.024825972999678925,
+        0.02442402101587504
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.454421200673096,
+      "examplesPerSecond": 13037.697030658137,
+      "memoryBefore": {
+        "allocated": 92638208,
+        "reserved": 111149056,
+        "peakAllocated": 92638208,
+        "peakReserved": 111149056
+      },
+      "memory": {
+        "allocated": 92638208,
+        "reserved": 111149056,
+        "peakAllocated": 101032960,
+        "peakReserved": 111149056
+      },
+      "warmupLoss": 0.0018291473388671875,
+      "finalLoss": 0,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cpu",
+      "precision": "fp32",
+      "batch": 128,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.30267303800792433,
+        0.3018606789992191,
+        0.30193627200787887,
+        0.3012825619953219,
+        0.30100116701214574
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 30.18606789992191,
+      "examplesPerSecond": 4240.366795184051,
+      "memoryBefore": null,
+      "memory": null,
+      "warmupLoss": 0.07985609769821167,
+      "finalLoss": 9.313225191043273e-10,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "fp32",
+      "batch": 512,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.02070326398825273,
+        0.020410930999787524,
+        0.02032468799734488,
+        0.020227011991664767,
+        0.020400937006343156
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.0400937006343156,
+      "examplesPerSecond": 250968.86473440242,
+      "memoryBefore": {
+        "allocated": 93624832,
+        "reserved": 111149056,
+        "peakAllocated": 93624832,
+        "peakReserved": 111149056
+      },
+      "memory": {
+        "allocated": 93624832,
+        "reserved": 111149056,
+        "peakAllocated": 102051328,
+        "peakReserved": 111149056
+      },
+      "warmupLoss": 0.6700644493103027,
+      "finalLoss": 1.7462294721326543e-8,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "fp16",
+      "batch": 128,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.02695812299498357,
+        0.028589272988028824,
+        0.027194285998120904,
+        0.027204641985008493,
+        0.0268491750175599
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.7194285998120904,
+      "examplesPerSecond": 47068.711422996974,
+      "memoryBefore": {
+        "allocated": 92836352,
+        "reserved": 113246208,
+        "peakAllocated": 92836352,
+        "peakReserved": 113246208
+      },
+      "memory": {
+        "allocated": 92836352,
+        "reserved": 113246208,
+        "peakAllocated": 101234688,
+        "peakReserved": 113246208
+      },
+      "warmupLoss": 0.08016395568847656,
+      "finalLoss": 9.313225746154785e-10,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 65536,
+      "gradScaleAfter": 65536,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cpu",
+      "precision": "fp32",
+      "batch": 512,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.8501380929956213,
+        0.838576861016918,
+        0.8513163829920813,
+        0.849434903007932,
+        0.8430144119774923
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 84.9434903007932,
+      "examplesPerSecond": 6027.536638616543,
+      "memoryBefore": null,
+      "memory": null,
+      "warmupLoss": 0.6700571179389954,
+      "finalLoss": 1.7462296497683383e-8,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "fp32",
+      "batch": 128,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.020321817020885646,
+        0.020259215001715347,
+        0.02018504901207052,
+        0.019818750995909795,
+        0.019816590007394552
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.018504901207052,
+      "examplesPerSecond": 63413.271834741085,
+      "memoryBefore": {
+        "allocated": 92835328,
+        "reserved": 113246208,
+        "peakAllocated": 92835328,
+        "peakReserved": 113246208
+      },
+      "memory": {
+        "allocated": 92835328,
+        "reserved": 113246208,
+        "peakAllocated": 101237248,
+        "peakReserved": 113246208
+      },
+      "warmupLoss": 0.07985609024763107,
+      "finalLoss": 9.313225191043273e-10,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cpu",
+      "precision": "fp32",
+      "batch": 32,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.1684938269900158,
+        0.16805281600682065,
+        0.16757766497903503,
+        0.1677266719925683,
+        0.16851138797937892
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 16.805281600682065,
+      "examplesPerSecond": 1904.1632720216505,
+      "memoryBefore": null,
+      "memory": null,
+      "warmupLoss": 0.0018199969781562686,
+      "finalLoss": 0,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "fp16",
+      "batch": 512,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.026517061982303858,
+        0.026642005977919325,
+        0.026457775005837902,
+        0.02633292300743051,
+        0.026662968011805788
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.651706198230386,
+      "examplesPerSecond": 193083.23084272415,
+      "memoryBefore": {
+        "allocated": 93625856,
+        "reserved": 115343360,
+        "peakAllocated": 93625856,
+        "peakReserved": 115343360
+      },
+      "memory": {
+        "allocated": 93625856,
+        "reserved": 115343360,
+        "peakAllocated": 102036480,
+        "peakReserved": 115343360
+      },
+      "warmupLoss": 0.6695239543914795,
+      "finalLoss": 1.6530975699424744e-8,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 65536,
+      "gradScaleAfter": 65536,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "bf16",
+      "batch": 512,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.02452255701064132,
+        0.02440328599186614,
+        0.02455824799835682,
+        0.02459362000809051,
+        0.024250239977845922
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.452255701064132,
+      "examplesPerSecond": 208787.36249968657,
+      "memoryBefore": {
+        "allocated": 93624832,
+        "reserved": 115343360,
+        "peakAllocated": 93624832,
+        "peakReserved": 115343360
+      },
+      "memory": {
+        "allocated": 93624832,
+        "reserved": 115343360,
+        "peakAllocated": 102034944,
+        "peakReserved": 115343360
+      },
+      "warmupLoss": 0.66943359375,
+      "finalLoss": 1.6763806343078613e-8,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "fp16",
+      "batch": 32,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.026739952008938417,
+        0.02644678601063788,
+        0.026185096008703113,
+        0.026543987973127514,
+        0.026400647999253124
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.644678601063788,
+      "examplesPerSecond": 12099.768942482619,
+      "memoryBefore": {
+        "allocated": 92639232,
+        "reserved": 111149056,
+        "peakAllocated": 92639232,
+        "peakReserved": 111149056
+      },
+      "memory": {
+        "allocated": 92639232,
+        "reserved": 111149056,
+        "peakAllocated": 101034496,
+        "peakReserved": 111149056
+      },
+      "warmupLoss": 0.0018106400966644287,
+      "finalLoss": 0,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 65536,
+      "gradScaleAfter": 65536,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "bf16",
+      "batch": 128,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.025909509015036747,
+        0.024662168987561017,
+        0.024379550013691187,
+        0.0245582620264031,
+        0.02491170898429118
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 2.4662168987561017,
+      "examplesPerSecond": 51901.35549900741,
+      "memoryBefore": {
+        "allocated": 92835328,
+        "reserved": 113246208,
+        "peakAllocated": 92835328,
+        "peakReserved": 113246208
+      },
+      "memory": {
+        "allocated": 92835328,
+        "reserved": 113246208,
+        "peakAllocated": 101233152,
+        "peakReserved": 113246208
+      },
+      "warmupLoss": 0.07998085021972656,
+      "finalLoss": 9.313225746154785e-10,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    },
+    {
+      "device": "cuda",
+      "precision": "fp32",
+      "batch": 32,
+      "parameters": 1591312,
+      "sampleSeconds": [
+        0.02004739100812003,
+        0.02005006599938497,
+        0.019882766995579004,
+        0.0198551669891458,
+        0.01982614997541532
+      ],
+      "stepsPerSample": 10,
+      "medianStepMilliseconds": 1.9882766995579004,
+      "examplesPerSecond": 16094.339388031505,
+      "memoryBefore": {
+        "allocated": 92638208,
+        "reserved": 111149056,
+        "peakAllocated": 92638208,
+        "peakReserved": 111149056
+      },
+      "memory": {
+        "allocated": 92638208,
+        "reserved": 111149056,
+        "peakAllocated": 101033984,
+        "peakReserved": 111149056
+      },
+      "warmupLoss": 0.0018199931364506483,
+      "finalLoss": 0,
+      "weightDtypes": [
+        "torch.float32"
+      ],
+      "gradScaleBefore": 1,
+      "gradScaleAfter": 1,
+      "initialWeightSeed": 17,
+      "dataSeed": 223
+    }
+  ],
+  "transfers": [
+    {
+      "bytes": 1048576,
+      "mode": "pageable_blocking",
+      "sampleSeconds": [
+        0.0021387979795690626,
+        0.0018511259986553341,
+        0.0018441879947204143,
+        0.001847084000473842,
+        0.0018428059993311763
+      ],
+      "copiesPerSample": 10,
+      "medianCopyMilliseconds": 0.1847084000473842,
+      "decimalGigabytesPerSecond": 5.676926440438027,
+      "destinationMatches": true
+    },
+    {
+      "bytes": 1048576,
+      "mode": "pinned_nonblocking",
+      "sampleSeconds": [
+        0.001889267994556576,
+        0.0015185560041572899,
+        0.001526754000224173,
+        0.0015238980122376233,
+        0.0015290529991034418
+      ],
+      "copiesPerSample": 10,
+      "medianCopyMilliseconds": 0.1526754000224173,
+      "decimalGigabytesPerSecond": 6.868008859620067,
+      "destinationMatches": true
+    },
+    {
+      "bytes": 16777216,
+      "mode": "pageable_blocking",
+      "sampleSeconds": [
+        0.022401795024052262,
+        0.02333005200489424,
+        0.02488371799699962,
+        0.02471664597396739,
+        0.024747916002525017
+      ],
+      "copiesPerSample": 10,
+      "medianCopyMilliseconds": 2.471664597396739,
+      "decimalGigabytesPerSecond": 6.787820652393722,
+      "destinationMatches": true
+    },
+    {
+      "bytes": 16777216,
+      "mode": "pinned_nonblocking",
+      "sampleSeconds": [
+        0.02335574699100107,
+        0.0231379049946554,
+        0.023131808993639424,
+        0.02313581999624148,
+        0.02313010999932885
+      ],
+      "copiesPerSample": 10,
+      "medianCopyMilliseconds": 2.313581999624148,
+      "decimalGigabytesPerSecond": 7.251619351605232,
+      "destinationMatches": true
+    }
+  ],
+  "controls": {
+    "precision": [
+      {
+        "precision": "fp32",
+        "outputDtype": "torch.float32",
+        "lossDtype": "torch.float32",
+        "maxAbsoluteLogitError": 0,
+        "lossAbsoluteError": 0,
+        "samePredictions": 64,
+        "count": 64,
+        "finite": true
+      },
+      {
+        "precision": "fp16",
+        "outputDtype": "torch.float16",
+        "lossDtype": "torch.float32",
+        "maxAbsoluteLogitError": 0.0002715885639190674,
+        "lossAbsoluteError": 0.00011205673217773438,
+        "samePredictions": 63,
+        "count": 64,
+        "finite": true
+      },
+      {
+        "precision": "bf16",
+        "outputDtype": "torch.bfloat16",
+        "lossDtype": "torch.float32",
+        "maxAbsoluteLogitError": 0.002286002039909363,
+        "lossAbsoluteError": 0.0005593299865722656,
+        "samePredictions": 63,
+        "count": 64,
+        "finite": true
+      }
+    ],
+    "accumulation": {
+      "device": "cuda",
+      "sampleCount": 21,
+      "microbatches": [
+        8,
+        8,
+        5
+      ],
+      "weightedUpdateError": 3.725290298461914e-9,
+      "unweightedUpdateError": 0.00032739341259002686,
+      "optimizerStepsPerVariant": 1
+    },
+    "determinism": {
+      "sameLosses": true,
+      "maximumWeightDifference": 0,
+      "scope": "same process, hardware, runtime and fixed inputs only; no cross-version guarantee",
+      "losses": [
+        2.795145034790039,
+        1.92228102684021,
+        1.1924041509628296
+      ]
+    }
+  },
+  "profiler": {
+    "rows": [
+      {
+        "name": "training_update",
+        "count": 3,
+        "selfCpuMicroseconds": 6823.814999999999,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "Optimizer.zero_grad#AdamW.zero_grad",
+        "count": 3,
+        "selfCpuMicroseconds": 138.7050000000002,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::linear",
+        "count": 3,
+        "selfCpuMicroseconds": 33.48000000000138,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            512
+          ],
+          [
+            1024,
+            512
+          ],
+          [
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::t",
+        "count": 6,
+        "selfCpuMicroseconds": 66.81900000000087,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 6,
+        "selfCpuMicroseconds": 45.56799999999862,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 6,
+        "selfCpuMicroseconds": 14.988000000000056,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addmm",
+        "count": 3,
+        "selfCpuMicroseconds": 546.018999999997,
+        "selfDeviceMicroseconds": 86.02400000000307,
+        "inputShapes": [
+          [
+            1024
+          ],
+          [
+            128,
+            512
+          ],
+          [
+            512,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "Activity Buffer Request",
+        "count": 2,
+        "selfCpuMicroseconds": 7179.710999999999,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "cudaDeviceGetAttribute",
+        "count": 24,
+        "selfCpuMicroseconds": 99.9489999999978,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "cudaMemsetAsync",
+        "count": 9,
+        "selfCpuMicroseconds": 101.05700000000161,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "cuLaunchKernel",
+        "count": 24,
+        "selfCpuMicroseconds": 254.73999999999978,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::relu",
+        "count": 6,
+        "selfCpuMicroseconds": 48.59299999999894,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::clamp_min",
+        "count": 6,
+        "selfCpuMicroseconds": 91.91800000000421,
+        "selfDeviceMicroseconds": 7.936000000004242,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "cudaLaunchKernel",
+        "count": 186,
+        "selfCpuMicroseconds": 1404.4379999999983,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::linear",
+        "count": 3,
+        "selfCpuMicroseconds": 9.425000000006548,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::t",
+        "count": 12,
+        "selfCpuMicroseconds": 41.741000000001804,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 12,
+        "selfCpuMicroseconds": 39.79099999999198,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 12,
+        "selfCpuMicroseconds": 13.858000000001084,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addmm",
+        "count": 3,
+        "selfCpuMicroseconds": 84.55199999999604,
+        "selfDeviceMicroseconds": 147.72399999999925,
+        "inputShapes": [
+          [
+            1024
+          ],
+          [
+            128,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "training_update",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 1471.8849999999984,
+        "inputShapes": []
+      },
+      {
+        "name": "Memset (Device)",
+        "count": 9,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 2.559999999996762,
+        "inputShapes": []
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_64x64_8x5_tn_align1>(cutlass_80_simt_sgemm_64x64_8x5_tn_align1::Params)",
+        "count": 6,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 231.9240000000009,
+        "inputShapes": []
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+        "count": 6,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 7.936000000004242,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::linear",
+        "count": 3,
+        "selfCpuMicroseconds": 11.622000000002117,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [
+            16,
+            1024
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::t",
+        "count": 6,
+        "selfCpuMicroseconds": 17.010999999995875,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 6,
+        "selfCpuMicroseconds": 17.14600000000155,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 6,
+        "selfCpuMicroseconds": 29.85699999999906,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addmm",
+        "count": 3,
+        "selfCpuMicroseconds": 87.66000000000167,
+        "selfDeviceMicroseconds": 46.500999999998385,
+        "inputShapes": [
+          [
+            16
+          ],
+          [
+            128,
+            1024
+          ],
+          [
+            1024,
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_tn_align1>(cutlass_80_simt_sgemm_128x32_8x5_tn_align1::Params)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 41.828999999998814,
+        "inputShapes": []
+      },
+      {
+        "name": "cudaLaunchKernelExC",
+        "count": 9,
+        "selfCpuMicroseconds": 421.01400000000194,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "void cublasLt::splitKreduce_kernel<32, 16, int, float, float, float, float, false, float, float, float, true, true, false, false>(cublasLt::cublasSplitKParams<float>, float const*, float const*, float*, float*, float const*, float const*, float const*, float const*, float*, void*, long, float*, int*, float*, float*, float const*, float const*, float const*, float const*, float const*)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 4.671999999999571,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::cross_entropy_loss",
+        "count": 3,
+        "selfCpuMicroseconds": 32.2189999999955,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [
+            128
+          ],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::log_softmax",
+        "count": 3,
+        "selfCpuMicroseconds": 22.404000000005,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::to",
+        "count": 3,
+        "selfCpuMicroseconds": 3.3059999999977663,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::_log_softmax",
+        "count": 3,
+        "selfCpuMicroseconds": 62.48299999999654,
+        "selfDeviceMicroseconds": 3.10399999999845,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void (anonymous namespace)::softmax_warp_forward<float, float, float, 4, true, false, 32>(float*, float const*, int, int, int, bool const*, int, bool)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 3.10399999999845,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::nll_loss_nd",
+        "count": 3,
+        "selfCpuMicroseconds": 12.34900000000107,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [
+            128
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::nll_loss",
+        "count": 3,
+        "selfCpuMicroseconds": 9.484000000001288,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [
+            128
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::nll_loss_forward",
+        "count": 3,
+        "selfCpuMicroseconds": 72.00399999999627,
+        "selfDeviceMicroseconds": 10.306000000000495,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [
+            128
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::resize_",
+        "count": 3,
+        "selfCpuMicroseconds": 3.683000000000902,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::(anonymous namespace)::nll_loss_forward_reduce_cuda_kernel_2d<float, float, long>(float*, float*, float const*, long const*, float const*, bool, long, long, long, long)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 10.306000000000495,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::ones_like",
+        "count": 3,
+        "selfCpuMicroseconds": 12.398999999999432,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::empty_like",
+        "count": 3,
+        "selfCpuMicroseconds": 9.433000000000902,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::empty_strided",
+        "count": 21,
+        "selfCpuMicroseconds": 104.55800000001909,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::fill_",
+        "count": 24,
+        "selfCpuMicroseconds": 45.36899999999605,
+        "selfDeviceMicroseconds": 4.44800000000123,
+        "inputShapes": [
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul>, false>(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+        "count": 9,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 6.753000000001521,
+        "inputShapes": []
+      },
+      {
+        "name": "autograd::engine::evaluate_function: NllLossBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 773.1830000000027,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "NllLossBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 81.91299999999592,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          []
+        ]
+      },
+      {
+        "name": "aten::nll_loss_backward",
+        "count": 3,
+        "selfCpuMicroseconds": 147.496000000001,
+        "selfDeviceMicroseconds": 5.536000000001877,
+        "inputShapes": [
+          [],
+          [
+            128,
+            16
+          ],
+          [
+            128
+          ],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::zero_",
+        "count": 3,
+        "selfCpuMicroseconds": 24.481000000000677,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::fill_",
+        "count": 3,
+        "selfCpuMicroseconds": 3323.077000000004,
+        "selfDeviceMicroseconds": 2.305000000000291,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "autograd::engine::evaluate_function: LogSoftmaxBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 38.36699999999837,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "LogSoftmaxBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 30.65400000000227,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::_log_softmax_backward_data",
+        "count": 3,
+        "selfCpuMicroseconds": 62.216999999996915,
+        "selfDeviceMicroseconds": 2.9439999999995052,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [
+            128,
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::(anonymous namespace)::nll_loss_backward_reduce_cuda_kernel_2d<float, long>(float*, float const*, long const*, float const*, float const*, bool, int, int, long, long)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 5.536000000001877,
+        "inputShapes": []
+      },
+      {
+        "name": "void (anonymous namespace)::softmax_warp_backward<float, float, float, 4, true, false, 32>(float*, float const*, float const*, int, int, int, bool const*)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 2.9439999999995052,
+        "inputShapes": []
+      },
+      {
+        "name": "autograd::engine::evaluate_function: AddmmBackward0",
+        "count": 9,
+        "selfCpuMicroseconds": 242.0570000000116,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "AddmmBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 66.20100000000093,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::t",
+        "count": 6,
+        "selfCpuMicroseconds": 32.84799999999632,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 6,
+        "selfCpuMicroseconds": 36.713999999996304,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 6,
+        "selfCpuMicroseconds": 11.747000000003027,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            16
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::mm",
+        "count": 3,
+        "selfCpuMicroseconds": 206.36900000000423,
+        "selfDeviceMicroseconds": 29.763999999997395,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [
+            16,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nn_align1>(cutlass_80_simt_sgemm_128x64_8x5_nn_align1::Params)",
+        "count": 6,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 119.56499999999869,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::t",
+        "count": 3,
+        "selfCpuMicroseconds": 10.546000000000276,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 3,
+        "selfCpuMicroseconds": 11.3279999999977,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 3,
+        "selfCpuMicroseconds": 28.386000000000422,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::mm",
+        "count": 3,
+        "selfCpuMicroseconds": 107.93599999999788,
+        "selfDeviceMicroseconds": 13.69800000000214,
+        "inputShapes": [
+          [
+            16,
+            128
+          ],
+          [
+            128,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nt_align1>(cutlass_80_simt_sgemm_128x32_8x5_nt_align1::Params)",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 10.079999999999927,
+        "inputShapes": []
+      },
+      {
+        "name": "void cublasLt::splitKreduce_kernel<32, 16, int, float, float, float, float, false, float, float, float, true, false, false, false>(cublasLt::cublasSplitKParams<float>, float const*, float const*, float*, float*, float const*, float const*, float const*, float const*, float*, void*, long, float*, int*, float*, float*, float const*, float const*, float const*, float const*, float const*)",
+        "count": 6,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 19.108000000003813,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::sum",
+        "count": 3,
+        "selfCpuMicroseconds": 100.93000000000029,
+        "selfDeviceMicroseconds": 18.850000000002183,
+        "inputShapes": [
+          [
+            128,
+            16
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4, 4>)",
+        "count": 9,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 39.1730000000025,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::view",
+        "count": 3,
+        "selfCpuMicroseconds": 18.629000000000815,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1,
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "autograd::engine::evaluate_function: torch::autograd::AccumulateGrad",
+        "count": 18,
+        "selfCpuMicroseconds": 130.9930000000004,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "torch::autograd::AccumulateGrad",
+        "count": 3,
+        "selfCpuMicroseconds": 22.567000000000917,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::detach",
+        "count": 3,
+        "selfCpuMicroseconds": 7.922000000002299,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "detach",
+        "count": 3,
+        "selfCpuMicroseconds": 8.19499999999789,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "autograd::engine::evaluate_function: TBackward0",
+        "count": 9,
+        "selfCpuMicroseconds": 69.46399999999267,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "TBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 7.882000000005064,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "torch::autograd::AccumulateGrad",
+        "count": 3,
+        "selfCpuMicroseconds": 9.638999999999214,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::detach",
+        "count": 3,
+        "selfCpuMicroseconds": 4.2740000000030705,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "detach",
+        "count": 3,
+        "selfCpuMicroseconds": 3.4789999999993597,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "autograd::engine::evaluate_function: ReluBackward0",
+        "count": 6,
+        "selfCpuMicroseconds": 66.27299999999741,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "ReluBackward0",
+        "count": 6,
+        "selfCpuMicroseconds": 38.77200000000812,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::threshold_backward",
+        "count": 6,
+        "selfCpuMicroseconds": 131.6209999999919,
+        "selfDeviceMicroseconds": 8.415999999999258,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [
+            128,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::(anonymous namespace)::threshold_kernel_impl<float>(at::TensorIteratorBase&, float, float)::{lambda(float, float)#1}>, std::array<char*, 3ul>, false>(int, at::native::BinaryFunctor<float, float, float, at::native::(anonymous namespace)::threshold_kernel_impl<float>(at::TensorIteratorBase&, float, float)::{lambda(float, float)#1}>, std::array<char*, 3ul>)",
+        "count": 6,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 8.415999999999258,
+        "inputShapes": []
+      },
+      {
+        "name": "AddmmBackward0",
+        "count": 6,
+        "selfCpuMicroseconds": 73.11999999999898,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::mm",
+        "count": 3,
+        "selfCpuMicroseconds": 106.93800000000374,
+        "selfDeviceMicroseconds": 106.02699999999822,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::t",
+        "count": 6,
+        "selfCpuMicroseconds": 16.611999999993714,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 6,
+        "selfCpuMicroseconds": 25.21800000000985,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 6,
+        "selfCpuMicroseconds": 6.735999999997148,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::mm",
+        "count": 3,
+        "selfCpuMicroseconds": 102.49999999999636,
+        "selfDeviceMicroseconds": 94.5689999999995,
+        "inputShapes": [
+          [
+            1024,
+            128
+          ],
+          [
+            128,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_64x64_8x5_nt_align1>(cutlass_80_simt_sgemm_64x64_8x5_nt_align1::Params)",
+        "count": 6,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 137.03699999999662,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::sum",
+        "count": 6,
+        "selfCpuMicroseconds": 167.22999999999774,
+        "selfDeviceMicroseconds": 20.32300000000032,
+        "inputShapes": [
+          [
+            128,
+            1024
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::view",
+        "count": 6,
+        "selfCpuMicroseconds": 16.157999999997628,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "torch::autograd::AccumulateGrad",
+        "count": 6,
+        "selfCpuMicroseconds": 20.959999999997308,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::detach",
+        "count": 6,
+        "selfCpuMicroseconds": 10.05999999999949,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "detach",
+        "count": 6,
+        "selfCpuMicroseconds": 9.481999999998152,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "TBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 6.366000000001804,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "torch::autograd::AccumulateGrad",
+        "count": 3,
+        "selfCpuMicroseconds": 8.381000000001222,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::detach",
+        "count": 3,
+        "selfCpuMicroseconds": 4.616999999996551,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "detach",
+        "count": 3,
+        "selfCpuMicroseconds": 8.354000000002998,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::mm",
+        "count": 3,
+        "selfCpuMicroseconds": 92.13099999999758,
+        "selfDeviceMicroseconds": 42.46799999999712,
+        "inputShapes": [
+          [
+            1024,
+            128
+          ],
+          [
+            128,
+            512
+          ]
+        ]
+      },
+      {
+        "name": "TBackward0",
+        "count": 3,
+        "selfCpuMicroseconds": 6.034000000003289,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            512,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::t",
+        "count": 3,
+        "selfCpuMicroseconds": 9.277000000000044,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            512,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::transpose",
+        "count": 3,
+        "selfCpuMicroseconds": 9.119000000002416,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            512,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 3,
+        "selfCpuMicroseconds": 2.8439999999973224,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            512,
+            1024
+          ],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "torch::autograd::AccumulateGrad",
+        "count": 3,
+        "selfCpuMicroseconds": 7.799000000002707,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ]
+        ]
+      },
+      {
+        "name": "aten::detach",
+        "count": 3,
+        "selfCpuMicroseconds": 4.063999999996668,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ]
+        ]
+      },
+      {
+        "name": "detach",
+        "count": 3,
+        "selfCpuMicroseconds": 2.7660000000032596,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ]
+        ]
+      },
+      {
+        "name": "Optimizer.step#AdamW.step",
+        "count": 3,
+        "selfCpuMicroseconds": 1280.3009999999904,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "cudaStreamIsCapturing",
+        "count": 3,
+        "selfCpuMicroseconds": 6.824000000004162,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::add_",
+        "count": 18,
+        "selfCpuMicroseconds": 119.54299999999421,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::to",
+        "count": 18,
+        "selfCpuMicroseconds": 25.849999999993088,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::_to_copy",
+        "count": 18,
+        "selfCpuMicroseconds": 67.43799999999646,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::copy_",
+        "count": 18,
+        "selfCpuMicroseconds": 34.52999999999702,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::mul_",
+        "count": 6,
+        "selfCpuMicroseconds": 80.54599999999664,
+        "selfDeviceMicroseconds": 37.57100000000537,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::lerp_",
+        "count": 3,
+        "selfCpuMicroseconds": 40.852999999999156,
+        "selfDeviceMicroseconds": 29.44300000000112,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          [
+            1024,
+            512
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcmul_",
+        "count": 3,
+        "selfCpuMicroseconds": 39.28600000000006,
+        "selfDeviceMicroseconds": 12.25799999999981,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          [
+            1024,
+            512
+          ],
+          [
+            1024,
+            512
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::item",
+        "count": 18,
+        "selfCpuMicroseconds": 29.39799999999741,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          []
+        ]
+      },
+      {
+        "name": "Optimizer.step#AdamW.step",
+        "count": 3,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 2321.982,
+        "inputShapes": []
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>, false>(int, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+        "count": 36,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 137.8680000000095,
+        "inputShapes": []
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::lerp_scalar_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, std::array<char*, 3ul>, false>(int, at::native::(anonymous namespace)::lerp_scalar_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, std::array<char*, 3ul>)",
+        "count": 18,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 81.63799999999901,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::_local_scalar_dense",
+        "count": 18,
+        "selfCpuMicroseconds": 11.932000000004336,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          []
+        ]
+      },
+      {
+        "name": "aten::sqrt",
+        "count": 3,
+        "selfCpuMicroseconds": 52.16200000000026,
+        "selfDeviceMicroseconds": 10.113000000004831,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ]
+        ]
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::addcmul_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1}, std::array<char*, 4ul>, false>(int, at::native::addcmul_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1}, std::array<char*, 4ul>)",
+        "count": 18,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 41.700999999993655,
+        "inputShapes": []
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::sqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::sqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+        "count": 18,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 38.565999999998894,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::div",
+        "count": 3,
+        "selfCpuMicroseconds": 53.96900000000096,
+        "selfDeviceMicroseconds": 8.511999999996988,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>, false>(int, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+        "count": 18,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 33.76299999999355,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::add_",
+        "count": 3,
+        "selfCpuMicroseconds": 29.833000000002357,
+        "selfDeviceMicroseconds": 8.127999999998792,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul>, false>(int, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul>)",
+        "count": 18,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 32.80299999999443,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::addcdiv_",
+        "count": 3,
+        "selfCpuMicroseconds": 33.050999999999476,
+        "selfDeviceMicroseconds": 12.322000000000116,
+        "inputShapes": [
+          [
+            1024,
+            512
+          ],
+          [
+            1024,
+            512
+          ],
+          [
+            1024,
+            512
+          ],
+          []
+        ]
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::addcdiv_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1}, std::array<char*, 4ul>, false>(int, at::native::addcdiv_cuda_kernel(at::TensorIteratorBase&, c10::Scalar const&)::{lambda()#2}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, float, float)#1}, std::array<char*, 4ul>)",
+        "count": 18,
+        "selfCpuMicroseconds": 0,
+        "selfDeviceMicroseconds": 50.08499999999003,
+        "inputShapes": []
+      },
+      {
+        "name": "aten::mul_",
+        "count": 12,
+        "selfCpuMicroseconds": 53.74599999999555,
+        "selfDeviceMicroseconds": 12.897000000004482,
+        "inputShapes": [
+          [
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::lerp_",
+        "count": 6,
+        "selfCpuMicroseconds": 31.677000000003318,
+        "selfDeviceMicroseconds": 7.104999999999563,
+        "inputShapes": [
+          [
+            1024
+          ],
+          [
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcmul_",
+        "count": 6,
+        "selfCpuMicroseconds": 31.0060000000085,
+        "selfDeviceMicroseconds": 5.281000000000859,
+        "inputShapes": [
+          [
+            1024
+          ],
+          [
+            1024
+          ],
+          [
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::sqrt",
+        "count": 6,
+        "selfCpuMicroseconds": 44.28199999999924,
+        "selfDeviceMicroseconds": 6.208999999998923,
+        "inputShapes": [
+          [
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::div",
+        "count": 6,
+        "selfCpuMicroseconds": 45.234999999995125,
+        "selfDeviceMicroseconds": 4.895999999997002,
+        "inputShapes": [
+          [
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::add_",
+        "count": 6,
+        "selfCpuMicroseconds": 26.798000000000684,
+        "selfDeviceMicroseconds": 4.895999999997002,
+        "inputShapes": [
+          [
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcdiv_",
+        "count": 6,
+        "selfCpuMicroseconds": 27.35200000000259,
+        "selfDeviceMicroseconds": 6.624999999992724,
+        "inputShapes": [
+          [
+            1024
+          ],
+          [
+            1024
+          ],
+          [
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::mul_",
+        "count": 6,
+        "selfCpuMicroseconds": 26.971000000005006,
+        "selfDeviceMicroseconds": 72.6790000000019,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::lerp_",
+        "count": 3,
+        "selfCpuMicroseconds": 22.96899999999914,
+        "selfDeviceMicroseconds": 35.52299999999923,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcmul_",
+        "count": 3,
+        "selfCpuMicroseconds": 14.558999999997468,
+        "selfDeviceMicroseconds": 19.074000000000524,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::sqrt",
+        "count": 3,
+        "selfCpuMicroseconds": 19.151000000005297,
+        "selfDeviceMicroseconds": 16.002999999998792,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::div",
+        "count": 3,
+        "selfCpuMicroseconds": 20.24199999999837,
+        "selfDeviceMicroseconds": 15.202000000001135,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::add_",
+        "count": 3,
+        "selfCpuMicroseconds": 13.026999999998225,
+        "selfDeviceMicroseconds": 14.68999999999869,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcdiv_",
+        "count": 3,
+        "selfCpuMicroseconds": 13.601000000002387,
+        "selfDeviceMicroseconds": 24.48199999999997,
+        "inputShapes": [
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          [
+            1024,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::mul_",
+        "count": 6,
+        "selfCpuMicroseconds": 24.44700000001103,
+        "selfDeviceMicroseconds": 7.584999999999127,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::lerp_",
+        "count": 3,
+        "selfCpuMicroseconds": 14.375999999996566,
+        "selfDeviceMicroseconds": 5.8880000000026484,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          [
+            16,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcmul_",
+        "count": 3,
+        "selfCpuMicroseconds": 13.912000000002081,
+        "selfDeviceMicroseconds": 2.495999999997366,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          [
+            16,
+            1024
+          ],
+          [
+            16,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::sqrt",
+        "count": 3,
+        "selfCpuMicroseconds": 19.36999999999898,
+        "selfDeviceMicroseconds": 3.039999999999054,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ]
+        ]
+      },
+      {
+        "name": "aten::div",
+        "count": 3,
+        "selfCpuMicroseconds": 19.95799999999508,
+        "selfDeviceMicroseconds": 2.367999999998574,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::add_",
+        "count": 3,
+        "selfCpuMicroseconds": 12.307999999995445,
+        "selfDeviceMicroseconds": 2.367999999998574,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcdiv_",
+        "count": 3,
+        "selfCpuMicroseconds": 12.581999999998516,
+        "selfDeviceMicroseconds": 3.4879999999957363,
+        "inputShapes": [
+          [
+            16,
+            1024
+          ],
+          [
+            16,
+            1024
+          ],
+          [
+            16,
+            1024
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::mul_",
+        "count": 6,
+        "selfCpuMicroseconds": 24.62000000000262,
+        "selfDeviceMicroseconds": 7.135999999998603,
+        "inputShapes": [
+          [
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::lerp_",
+        "count": 3,
+        "selfCpuMicroseconds": 13.921000000003914,
+        "selfDeviceMicroseconds": 3.6789999999964493,
+        "inputShapes": [
+          [
+            16
+          ],
+          [
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcmul_",
+        "count": 3,
+        "selfCpuMicroseconds": 13.99399999999514,
+        "selfDeviceMicroseconds": 2.591999999995096,
+        "inputShapes": [
+          [
+            16
+          ],
+          [
+            16
+          ],
+          [
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::sqrt",
+        "count": 3,
+        "selfCpuMicroseconds": 22.571999999998297,
+        "selfDeviceMicroseconds": 3.2009999999972933,
+        "inputShapes": [
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "aten::div",
+        "count": 3,
+        "selfCpuMicroseconds": 18.97200000000521,
+        "selfDeviceMicroseconds": 2.7849999999998545,
+        "inputShapes": [
+          [
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::add_",
+        "count": 3,
+        "selfCpuMicroseconds": 12.010999999994965,
+        "selfDeviceMicroseconds": 2.721000000001368,
+        "inputShapes": [
+          [
+            16
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "name": "aten::addcdiv_",
+        "count": 3,
+        "selfCpuMicroseconds": 12.551000000001295,
+        "selfDeviceMicroseconds": 3.1680000000014843,
+        "inputShapes": [
+          [
+            16
+          ],
+          [
+            16
+          ],
+          [
+            16
+          ],
+          []
+        ]
+      },
+      {
+        "name": "aten::detach",
+        "count": 3,
+        "selfCpuMicroseconds": 5.833999999998923,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          []
+        ]
+      },
+      {
+        "name": "detach",
+        "count": 3,
+        "selfCpuMicroseconds": 7.775000000001455,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": [
+          []
+        ]
+      },
+      {
+        "name": "cudaDeviceSynchronize",
+        "count": 2,
+        "selfCpuMicroseconds": 22.712000000003172,
+        "selfDeviceMicroseconds": 0,
+        "inputShapes": []
+      }
+    ],
+    "kernelEvents": 219,
+    "kernelMicroseconds": 1064.807,
+    "scope": "instrumented three-update observation; not the uninstrumented benchmark"
+  },
+  "warnings": [
+    {
+      "case": "profiler",
+      "stderr": "USDT:2026-10-26 23:51:32 106:106 SyncActivityProfilerHandler.cpp:39] profiler_start\nUSDT:2026-10-26 23:51:32 106:106 SyncActivityProfilerHandler.cpp:46] profiler_stop\n"
+    }
+  ]
+}

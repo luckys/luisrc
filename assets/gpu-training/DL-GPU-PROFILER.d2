@@ -1,0 +1,11 @@
+direction: down
+*.style.font-size: 24
+host: "Eventos CPU"
+launch: "Lanzamientos"
+kernel: "Eventos kernel\nCUDA"
+trace: "Traza\ninstrumentada"
+wall: "Benchmark wall\naparte"
+host -> launch -> kernel
+host -> trace
+kernel -> trace
+trace -> wall: "contrastar, no\nsumar"

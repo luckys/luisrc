@@ -2250,5 +2250,124 @@
     "labs": [
       "attention-transformer"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "self-supervision-denoising-aprender-sin-etiquetas",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pretraining-transfer-learning-baseline-test-no-visto",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "contrastive-learning-positivos-negativos-temperatura",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "freeze-unfreeze-backbone-optimizer-gradientes",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "full-fine-tuning-adaptar-pesos-sin-perder-baseline",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "peft-parametros-entrenables-memoria-coste-real",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "lora-rango-bajo-inicializacion-merge",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "adapters-bottleneck-residual-peft",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "forgetting-evaluar-tarea-anterior-despues-fine-tuning",
+    "labs": [
+      "model-adaptation"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "cpu-gpu-cuda-medir-entrenamiento-sincronizacion",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "vram-pytorch-allocated-reserved-activaciones",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gpu-transferencias-pinned-memory-non-blocking",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gpu-batching-throughput-latencia-memoria",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "mixed-precision-autocast-fp16-bf16-gradscaler",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "pytorch-profiler-cpu-kernels-tiempo-wall",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gpu-determinism-seeds-tiempos-reproducibles",
+    "labs": [
+      "gpu-training"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "gradient-accumulation-gpu-microbatches-desiguales",
+    "labs": [
+      "gpu-training"
+    ]
   }
 ]

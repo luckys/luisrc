@@ -1,0 +1,9 @@
+direction: down
+*.style.font-size: 24
+x: "Features target"
+encoder: "Encoder\npreentrenado ·\n280 pesos/bias"
+head: "Head nuevo · 18\npesos/bias"
+ce: "Cross-entropy de\nclasificación"
+x -> encoder -> head -> ce
+ce -> head: "gradiente"
+head -> encoder: "gradiente"

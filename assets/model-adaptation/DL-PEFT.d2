@@ -1,0 +1,10 @@
+direction: down
+*.style.font-size: 24
+base: "Pesos base\ncargados"
+forward: "Forward del\nencoder"
+small: "LoRA o adapter +\nhead"
+grad: "Gradientes y\nestado de\nentrenables"
+activation: "Activaciones\nnecesarias en\nbackward"
+base -> forward -> small -> grad
+forward -> activation
+small -> activation

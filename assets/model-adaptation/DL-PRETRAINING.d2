@@ -1,0 +1,11 @@
+direction: down
+*.style.font-size: 24
+source: "Source train sin\netiquetas"
+pre: "400 updates de\nreconstrucción"
+weights: "Encoder aprendido"
+head: "Head nuevo de\nclasificación"
+target: "Target train · 96\netiquetas"
+test: "Target test · 256\nfilas reservadas"
+source -> pre -> weights -> head
+target -> head: "160 updates"
+head -> test: "solo tras\nentrenar todos"

@@ -1,0 +1,7 @@
+export function caseId(record){return [record.device,record.precision,record.batch].join(':');}
+export function selectCase(data,id){const record=data.cases.find(c=>caseId(c)===id);if(!record)throw Error('Unknown archived configuration');return record;}
+export function median(values){if(!values.length||values.some(v=>!Number.isFinite(v)))throw Error('Finite nonempty samples required');const sorted=values.toSorted((a,b)=>a-b),middle=Math.floor(sorted.length/2);return sorted.length%2?sorted[middle]:(sorted[middle-1]+sorted[middle])/2;}
+export function sampleRows(record){return record.sampleSeconds.map((seconds,i)=>[i+1,seconds*1000,seconds/record.stepsPerSample*1000,record.batch*record.stepsPerSample/seconds]);}
+export function memoryRows(record){if(!record.memory)return [];return ['allocated','reserved','peakAllocated','peakReserved'].map(key=>[key,record.memory[key],record.memory[key]/2**20]);}
+export function microbatchWeight(data,index){const counts=data.controls.accumulation.microbatches;if(!Number.isInteger(index)||index<0||index>=counts.length)throw Error('Unknown microbatch');return {count:counts[index],correct:counts[index]/data.controls.accumulation.sampleCount,incorrect:1/counts.length};}
+export function sortedProfiler(data,sort){if(!['selfCpuMicroseconds','selfDeviceMicroseconds'].includes(sort))throw Error('Unknown sort');return data.profiler.rows.map((row,index)=>({...row,index})).toSorted((a,b)=>b[sort]-a[sort]||a.index-b.index);}

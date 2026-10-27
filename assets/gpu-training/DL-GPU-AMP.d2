@@ -1,0 +1,9 @@
+direction: down
+*.style.font-size: 24
+weights: "Pesos siguen FP32"
+cast: "Autocast elige\noperaciones"
+loss: "Loss FP32 en este\ncaso"
+scale: "FP16: escalar\nloss"
+back: "Backward"
+step: "Unscale /\ncomprobar / step"
+weights -> cast -> loss -> scale -> back -> step

@@ -2238,9 +2238,9 @@ de implementación del proyecto. Después de la serie de bases de datos, la ruta
 recomendada y redactada comprende cuatro series con 24 borradores en español:
 APIs y seguridad, diseño y pruebas, sistemas distribuidos, y operación.
 
-Consultar [el índice ordenado](editorial/ruta-fundamentos-servicios-fiables.md),
-[el inventario de dependencias](editorial/reliable-services-series.json) y
-[la revisión y sus límites](editorial/reliable-services-review.md).
+Consultar [el índice ordenado](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-fundamentos-servicios-fiables.md),
+[el inventario de dependencias](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/reliable-services-series.json) y
+[la revisión y sus límites](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/reliable-services-review.md).
 
 El mapeo a fichas P indica cobertura conceptual parcial o agrupada; no marca
 como realizados todos los laboratorios extensos originales. Los artículos y sus
@@ -2250,9 +2250,9 @@ Se conservan en borrador y no hay traducciones ni narraciones nuevas.
 ## 13. Siguiente serie: Frontend y tiempo real
 
 Continuación autorizada: P067–P075 como nueve artículos generalistas en español,
-en el [orden de lectura](editorial/ruta-frontend-tiempo-real.md). Incluyen un
+en el [orden de lectura](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-frontend-tiempo-real.md). Incluyen un
 laboratorio compartido con React y TypeScript, pruebas de navegador y recursos
-visuales propios. El [alcance](editorial/frontend-series-scope.md) distingue
+visuales propios. El [alcance](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/frontend-series-scope.md) distingue
 los fundamentos ejecutados de los laboratorios integradores más amplios:
 SSG, medición de campo, Storybook, colaboración remota y WebRTC entre redes
 no se consideran implementados por describirlos conceptualmente.
@@ -2264,13 +2264,13 @@ estas interfaces. Tras este bloque, el orden global propone matemáticas y estad
 ## 14. Continuación: Matemáticas y estadística, 2026-10-18
 
 Redactados diez borradores generalistas P076–P085 solo en español. El
-[índice de lectura](editorial/ruta-matematicas-estadistica.md) enlaza vectores,
+[índice de lectura](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-matematicas-estadistica.md) enlaza vectores,
 PCA, cálculo, optimización, probabilidad, distribuciones, inferencia, experimentos,
 información y Fourier. Son fundamentos transferibles, no implementación de PaySafe.
 
 Incluyen un laboratorio Python sin paquetes externos, simulador local de learning
 rate, diez diagramas y cuatro gráficas calculadas. El
-[alcance](editorial/math-series-scope.md) distingue ejemplos ejecutados de extensiones
+[alcance](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/math-series-scope.md) distingue ejemplos ejecutados de extensiones
 no implementadas, como SVD general, cobertura estadística o entrenamiento de modelos.
 Estado draft; no publicación, traducciones o audios. El siguiente bloque propuesto
 es Machine Learning clásico (P086–P095), desarrollado en la siguiente entrega.
@@ -2279,7 +2279,7 @@ es Machine Learning clásico (P086–P095), desarrollado en la siguiente entrega
 
 Guardada la serie de Matemáticas y estadística en el commit `ffb1a33`. La nueva
 entrega contiene los diez borradores españoles P086–P095. Orden de lectura en
-[ruta-machine-learning.md](editorial/ruta-machine-learning.md), con alcance,
+[ruta-machine-learning.md](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-machine-learning.md), con alcance,
 inventario, glosario y evidencia editorial asociados.
 
 Laboratorio logístico sintético: NumPy, pandas y scikit-learn reales; dataset CSV,
@@ -2293,7 +2293,7 @@ El siguiente bloque propuesto es Deep Learning (P096–P105), todavía no escrit
 
 El objetivo ampliado del usuario incluye todas las fichas pendientes, no solo la
 ruta abreviada para proyectos. Se recuperan P001–P009 en español y draft, con orden
-de lectura en [ruta-computacion-redes.md](editorial/ruta-computacion-redes.md).
+de lectura en [ruta-computacion-redes.md](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-computacion-redes.md).
 
 Laboratorio común sin instalaciones nuevas: observaciones de CPU/memoria, procesos
 Linux propios, resolución DNS y conexión HTTP, fallos TLS y peticiones condicionales.
@@ -2313,7 +2313,7 @@ en **21 entregas**: mapa de decisiones, contratos/invariantes, arrays/listas,
 pilas/colas, BST, búsquedas lineal/binaria/hash, insertion/selection/bubble/merge/
 quick/heap/counting sort, binary heap, representación de grafos, BFS, DFS,
 Dijkstra y medición. Cada algoritmo desarrollado tiene su explicación propia.
-Orden y recursos en [ruta-estructuras-algoritmos.md](editorial/ruta-estructuras-algoritmos.md).
+Orden y recursos en [ruta-estructuras-algoritmos.md](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-estructuras-algoritmos.md).
 P010 y P012–P019 permanecen en el catálogo, pero no forman parte de este encargo.
 
 Laboratorio TypeScript estricto sin instalaciones nuevas: índice por ID, cola FIFO,
@@ -2332,7 +2332,7 @@ seguridad web (P020–P031), revisando primero la cobertura previa.
 
 Después de ampliar algoritmos se redactan P020 y P021, sin renombrar artículos
 agrupados previos. Orden y continuación P022–P031 en
-[ruta-diseno-apis-seguridad.md](editorial/ruta-diseno-apis-seguridad.md).
+[ruta-diseno-apis-seguridad.md](https://github.com/luckys/luisrc-blog-examples/blob/main/docs/editorial/ruta-diseno-apis-seguridad.md).
 OpenAPI 3.1.1, servidor HTTP real en loopback y pruebas de métodos, repetición,
 campos, Unicode, errores y límites. Dos diagramas y ZIP sin dependencias.
 Estado en memoria; sin autenticación, pagos o durabilidad. Las diez fichas
