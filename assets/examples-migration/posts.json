@@ -2369,5 +2369,82 @@
     "labs": [
       "gpu-training"
     ]
+  },
+  {
+    "locale": "es",
+    "slug": "corpus-busqueda-lexica-documentos-consultas-relevancia",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "normalizacion-texto-unicode-tildes-nfc-busqueda",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "tokenizacion-texto-palabras-identificadores-negacion",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "stemming-busqueda-reducir-sufijos-falsas-coincidencias",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "lemmatization-lookup-contexto-ambiguedad-busqueda",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "n-grams-palabras-caracteres-busqueda-errores",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "tf-idf-cosine-pesos-terminos-busqueda",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "bm25-indice-invertido-saturacion-longitud-documentos",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "evaluar-busqueda-bm25-precision-recall-mrr-errores",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "bpe-subwords-aprender-merges-tokenizacion",
+    "labs": [
+      "lexical-search"
+    ]
+  },
+  {
+    "locale": "es",
+    "slug": "wordpiece-greedy-vocabulario-unk-diferencias-bpe",
+    "labs": [
+      "lexical-search"
+    ]
   }
 ]

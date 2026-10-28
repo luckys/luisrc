@@ -886,6 +886,66 @@
       "source": "packages/gpu-training/training-time.svg",
       "destination": "public/assets/interactive/gpu-training/training-time.svg",
       "sha256": "9e2dca31046dc8bce38334e31975b003e8bf557b848aa2f495c87af3f4e07567"
+    },
+    {
+      "source": "packages/lexical-search/explorer.html",
+      "destination": "public/assets/interactive/lexical-search/explorer.html",
+      "sha256": "738972ed7ece50b8d7064bcf00ac7feb8f8962064a65f9347a8784d372a32fcd"
+    },
+    {
+      "source": "packages/lexical-search/explorer.mjs",
+      "destination": "public/assets/interactive/lexical-search/explorer.mjs",
+      "sha256": "803a9e25736ee921d7d7bd407c626b76c87cc6d8aa9f1ee29c941574c67dd12d"
+    },
+    {
+      "source": "packages/lexical-search/charts.mjs",
+      "destination": "public/assets/interactive/lexical-search/charts.mjs",
+      "sha256": "fbad5fb850cb1a59c881eb27f69e2f859ea92b18139fdba632f6fb930e8c25e2"
+    },
+    {
+      "source": "packages/lexical-search/analysis.mjs",
+      "destination": "public/assets/interactive/lexical-search/analysis.mjs",
+      "sha256": "6ce2024da0169e7b70fba0de12c4c0167f8b78e77167151318c13548077f6b79"
+    },
+    {
+      "source": "packages/lexical-search/retrieval.mjs",
+      "destination": "public/assets/interactive/lexical-search/retrieval.mjs",
+      "sha256": "41bc9ccf05755d2076694fe062e70b35b2d66ae815d38b99681755c76061759d"
+    },
+    {
+      "source": "packages/lexical-search/evaluation.mjs",
+      "destination": "public/assets/interactive/lexical-search/evaluation.mjs",
+      "sha256": "26f36cfb4614721f8f869dbd6ef4bc52bbb095c6627ab850544d67896f8300d9"
+    },
+    {
+      "source": "packages/lexical-search/subwords.mjs",
+      "destination": "public/assets/interactive/lexical-search/subwords.mjs",
+      "sha256": "4dbae68317d32168786e2cb9af1d5d3b89e9a5723516df417b677d20a132d6db"
+    },
+    {
+      "source": "packages/lexical-search/comparison.json",
+      "destination": "public/assets/interactive/lexical-search/comparison.json",
+      "sha256": "e4cef2a3aaf6bc34bd5a842772d01b909764514a6e72f54298f35dcf7313c778"
+    },
+    {
+      "source": "packages/lexical-search/test-recall.svg",
+      "destination": "public/assets/interactive/lexical-search/test-recall.svg",
+      "sha256": "143bd0d7d59a3a50fd5f0106325930b7ba91c83bd087c9b1029a24fc59a90c43"
+    },
+    {
+      "source": "packages/lexical-search/vocabulary.svg",
+      "destination": "public/assets/interactive/lexical-search/vocabulary.svg",
+      "sha256": "ac672d23a4ebb452163e721ee0978507a08cbff1ec6f22f47815ff227fee1426"
+    },
+    {
+      "source": "packages/lexical-search/saturation.svg",
+      "destination": "public/assets/interactive/lexical-search/saturation.svg",
+      "sha256": "f2701b97c5344dc355d800aa4d5520726a5b385bf392cbb430c6e5ce22e92bb5"
+    },
+    {
+      "source": "packages/lexical-search/length.svg",
+      "destination": "public/assets/interactive/lexical-search/length.svg",
+      "sha256": "829590235225dab7cb2635cdeefd1ade6ac4dde7e9e8faf8070ab9176bfc4d02"
     }
   ]
 }
