@@ -100,17 +100,17 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
               'TypeScript, Node.js, Vue.js, Nuxt, PostgreSQL (Postgres), Odoo, Redsys, Heroku, Docker, Docker Compose, GitHub Actions, GitLab CI, CI/CD, Microservices, RESTful APIs, Agile/Scrum',
           },
           {
-            title: 'Full-Stack Software Engineer & Tech Lead',
-            subtitle: 'Tuklo · Remote',
+            title: 'Senior Product Engineer & Tech Lead',
+            subtitle: 'Tuklo (Grupo Mox) · Remote',
             period: 'Mar 2021 — May 2023',
             bullets: [
-              'Co-built from scratch a last-mile logistics SaaS platform, delivering backend services, web applications, and AWS cloud infrastructure supporting ~5,000 deliveries per day.',
-              'Architected a high-throughput, event-driven serverless system (EDA) on AWS using Node.js and TypeScript, orchestrating Lambda, SQS queues, SES, DynamoDB, Redis caching, and MySQL with 99.9% availability.',
-              'Integrated parcel carrier and smart-locker APIs (Cainiao, Citibox), Google Maps, Routific automated route optimization algorithms, and Stripe payments; contributed to MoxDelivery home-delivery SaaS.',
-              'Automated cloud provisioning via Terraform (Infrastructure as Code / IaC), managed container workloads with Kubernetes and Docker Compose, and maintained automated CI/CD pipelines via GitHub Actions and GitLab CI.',
+              'Co-built from scratch the 360° SaaS logistics platform (SPOC) with a Laravel (PHP) GraphQL backend and Nuxt 2 (Vue.js/TypeScript) frontend, translating complex logistics operations into intuitive workflows.',
+              'Engineered high-volume data ingestion pipelines connecting heterogeneous shipping manifests via REST/GraphQL APIs (Cainiao, YunExpress, CACESA air-cargo/customs) and batch CSV processors under a unified domain model.',
+              'Integrated smart-locker networks (Citibox residential lockers and Cainiao public lockers) to maximize first-attempt delivery rates, alongside automated route optimization (Routific, Google Maps) reducing cost per stop.',
+              'Architected an event-driven serverless system on AWS (Node.js/TS, Lambda, SQS, DynamoDB, Redis, Stripe) with 99.9% uptime, automated via Terraform (IaC), Docker, Kubernetes, and CI/CD pipelines.',
             ],
             technologies:
-              'Laravel, PHP, TypeScript, Node.js, Vue.js, Nuxt, AWS (Lambda, SQS, SES, CloudWatch, Bedrock), Serverless, Event-Driven Architecture (EDA), Terraform, Kubernetes, Docker, Docker Compose, GitHub Actions, GitLab CI, CI/CD, Sentry, Stripe, Redis, DynamoDB, MySQL, RESTful APIs, GraphQL, Google Maps, Routific',
+              'Laravel, PHP, GraphQL, TypeScript, Node.js, Vue.js, Nuxt, AWS (Lambda, SQS, SES, DynamoDB), Serverless, Event-Driven Architecture (EDA), Terraform, Kubernetes, Docker, Docker Compose, GitHub Actions, GitLab CI, Redis, MySQL, Citibox, Cainiao, YunExpress, CACESA, Routific, Google Maps Platform, Stripe',
           },
           {
             title: 'Full-Stack Software Engineer (External Consultant)',
@@ -313,17 +313,17 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
               'TypeScript, Node.js, Vue.js, Nuxt, PostgreSQL (Postgres), Odoo, Redsys, Heroku, Docker, Docker Compose, GitHub Actions, GitLab CI, CI/CD, Microservicios, APIs RESTful, Agile/Scrum',
           },
           {
-            title: 'Ingeniero de software full stack y Tech Lead',
-            subtitle: 'Tuklo · Remoto',
+            title: 'Senior Product Engineer y Tech Lead',
+            subtitle: 'Tuklo (Grupo Mox) · Remoto',
             period: 'Mar 2021 — May 2023',
             bullets: [
-              'Construí desde cero una plataforma SaaS de logística de última milla, entregando servicios backend, frontend e infraestructura cloud en AWS para unas 5.000 entregas diarias.',
-              'Diseñé una arquitectura serverless orientada a eventos (EDA) en AWS con Node.js y TypeScript, integrando Lambda, colas SQS, SES, DynamoDB, caché en Redis y MySQL con una disponibilidad del 99,9%.',
-              'Integré APIs de paquetería y taquillas inteligentes (Cainiao, Citibox), Google Maps, optimización automática de rutas con Routific y pagos con Stripe; colaboré en el desarrollo de la plataforma SaaS MoxDelivery.',
-              'Gestioné aprovisionamiento en la nube con Terraform (Infrastructure as Code / IaC), orquestación de contenedores con Kubernetes y Docker Compose, y pipelines de CI/CD con GitHub Actions y GitLab CI.',
+              'Co-diseñé y construí la plataforma SaaS 360º (SPOC) con backend en Laravel (PHP) con GraphQL y frontend en Nuxt 2 (Vue.js/TypeScript), traduciendo requisitos operativos complejos en flujos intuitivos para retailers, transporte y almacén.',
+              'Desarrollé pipelines de ingesta masiva de paquetería integrando APIs REST/GraphQL (Cainiao, YunExpress, CACESA carga aérea/aduanas) y procesamiento por lotes de ficheros CSV bajo un modelo de dominio común.',
+              'Integré redes de taquillas inteligentes (buzones Citibox y lockers Cainiao) para maximizar entregas al primer intento, junto a la optimización algorítmica de rutas (Routific, Google Maps) reduciendo costes por trayecto.',
+              'Diseñé una arquitectura serverless orientada a eventos en AWS (Node.js/TS, Lambda, SQS, DynamoDB, Redis, Stripe) con disponibilidad del 99,9%, automatizada con Terraform (IaC), Docker, Kubernetes y CI/CD.',
             ],
             technologies:
-              'Laravel, PHP, TypeScript, Node.js, Vue.js, Nuxt, AWS (Lambda, SQS, SES, CloudWatch, Bedrock), Serverless, Arquitectura orientada a eventos (EDA), Terraform, Kubernetes, Docker, Docker Compose, GitHub Actions, GitLab CI, CI/CD, Sentry, Stripe, Redis, DynamoDB, MySQL, APIs RESTful, GraphQL, Google Maps, Routific',
+              'Laravel, PHP, GraphQL, TypeScript, Node.js, Vue.js, Nuxt, AWS (Lambda, SQS, SES, DynamoDB), Serverless, Arquitectura orientada a eventos (EDA), Terraform, Kubernetes, Docker, Docker Compose, GitHub Actions, GitLab CI, Redis, MySQL, Citibox, Cainiao, YunExpress, CACESA, Routific, Google Maps Platform, Stripe',
           },
           {
             title: 'Ingeniero de software full stack (Consultor externo)',
