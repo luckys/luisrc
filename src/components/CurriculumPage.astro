@@ -183,10 +183,10 @@ const copy = curriculum[locale]
     })
     const pageWidth = pdf.internal.pageSize.getWidth()
     const pageHeight = pdf.internal.pageSize.getHeight()
-    const margin = 13
+    const margin = 12
     const contentWidth = pageWidth - margin * 2
-    const bottomLimit = pageHeight - 13
-    const startY = 13
+    const bottomLimit = pageHeight - 11
+    const startY = 12
     let y = startY
 
     const readText = (element: Element | null) =>
@@ -311,7 +311,7 @@ const copy = curriculum[locale]
 
     root.querySelectorAll<HTMLElement>('[data-cv-section]').forEach((section) => {
       const title = readText(section.querySelector('[data-cv-section-title]'))
-      ensureSpace(24)
+      ensureSpace(20)
       pdf.setFont('helvetica', 'bold')
       pdf.setFontSize(10.5)
       pdf.setTextColor(...accentColor)
@@ -320,7 +320,7 @@ const copy = curriculum[locale]
       pdf.setLineWidth(0.2)
       const sectionRuleY = y + 5
       pdf.line(margin, sectionRuleY, pageWidth - margin, sectionRuleY)
-      y = sectionRuleY + 3.5
+      y = sectionRuleY + 3.0
 
       section.querySelectorAll<HTMLElement>('[data-cv-entry]').forEach((entry) => {
         const entryTitle = readText(entry.querySelector('[data-cv-entry-title]'))
@@ -340,7 +340,6 @@ const copy = curriculum[locale]
           )
           .join('  |  ')
 
-        // Keep the company, role and dates with the first paragraph or bullet.
         const firstContent = body || bullets[0] || projectLinks || technologies
         pdf.setFont('helvetica', 'normal')
         pdf.setFontSize(9.5)
@@ -379,18 +378,18 @@ const copy = curriculum[locale]
             leading: 3.7,
             after: 0.5,
           })
-        if (body) addText(body, { size: 9.5, leading: 4.0, after: 1.8 })
+        if (body) addText(body, { size: 9.5, leading: 3.9, after: 1.5 })
 
         bullets.forEach((bullet, index) => {
           if (index === bullets.length - 1 && (technologies || projectLinks)) {
             ensureSpace(
-              textHeight(`- ${bullet}`, 9.5, 'normal', 4.0, 0.8) +
-                (projectLinks ? textHeight(projectLinks, 8.5, 'normal', 3.5, 1.4) : 0) +
-                (technologies ? textHeight(technologies, 8.5, 'normal', 3.5, 2.0) : 0) +
-                3.5,
+              textHeight(`- ${bullet}`, 9.5, 'normal', 3.8, 0.5) +
+                (projectLinks ? textHeight(projectLinks, 8.5, 'normal', 3.5, 1.2) : 0) +
+                (technologies ? textHeight(technologies, 8.5, 'normal', 3.5, 1.8) : 0) +
+                3.0,
             )
           }
-          addText(`- ${bullet}`, { size: 9.5, indent: 3, leading: 4.0, after: 0.8 })
+          addText(`- ${bullet}`, { size: 9.5, indent: 3, leading: 3.8, after: 0.5 })
         })
 
         if (projectLinks) {
@@ -398,7 +397,7 @@ const copy = curriculum[locale]
             size: 8.5,
             color: mutedColor,
             leading: 3.5,
-            after: 1.4,
+            after: 1.2,
           })
         }
 
@@ -407,14 +406,14 @@ const copy = curriculum[locale]
             size: 8.5,
             color: mutedColor,
             leading: 3.5,
-            after: 2.0,
+            after: 1.8,
           })
         } else if (body || bullets.length || projectLinks) {
-          y += 0.8
+          y += 0.6
         }
       })
 
-      y += 1.2
+      y += 1.0
     })
 
     const pageCount = pdf.getNumberOfPages()
@@ -423,7 +422,7 @@ const copy = curriculum[locale]
       pdf.setFont('helvetica', 'normal')
       pdf.setFontSize(7)
       pdf.setTextColor(...mutedColor)
-      pdf.text(`${page} / ${pageCount}`, pageWidth - margin, pageHeight - 8, {
+      pdf.text(`${page} / ${pageCount}`, pageWidth - margin, pageHeight - 6, {
         align: 'right',
       })
     }
