@@ -90,14 +90,14 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'TALKUAL · Remote',
             period: 'May 2023 — Nov 2025',
             bullets: [
-              'Led a 4-person engineering team for an e-commerce platform processing ~1,000 orders per day, managing agile sprints, code reviews, technical roadmaps, and hands-on full-stack feature delivery.',
-              'Defined technology strategy and cloud infrastructure alongside business stakeholders, translating product and operational requirements into scalable architectural priorities.',
-              'Spearheaded the frontend migration from Nuxt 2 to Nuxt 3 (Vue.js), enhancing web performance, Core Web Vitals, and developer ergonomics while reducing frontend bundle sizes.',
-              'Refactored critical legacy services and database queries in PostgreSQL, eliminating technical debt, reducing production defect rates, and improving system maintainability.',
-              'Automated enterprise accounting and manufacturing pipelines with Odoo ERP, integrated Redsys checkout flows, and streamlined containerized CI/CD using Docker, GitHub Actions, and GitLab CI.',
+              'Led engineering executing CTO duties for an e-commerce platform (~1,000 orders/day), defining quarterly product/tech roadmaps, system architecture, and technical hiring processes.',
+              'Streamlined checkout from 8 to 4 steps cutting drop-off by 40%, and increased AOV/LTV by designing subscription upselling flows (recurring box add-ons) and flexible order management.',
+              'Engineered the platform Design System and migrated storefront and backoffice from Nuxt 2 to Nuxt 3 (Vue.js/TypeScript), adding dynamic box customization and food exclusion preferences.',
+              'Refactored the Strapi backend (Node.js/PostgreSQL) applying DDD, bounded contexts, and the Money pattern; optimized SQL queries for Metabase analytics and established unit, integration, and E2E test suites.',
+              'Built full Odoo ERP integration (accounting and manufacturing), optimized HubSpot CRM sync for speed and reliability, integrated Redsys checkout, and automated containerized Heroku CI/CD.',
             ],
             technologies:
-              'TypeScript, Node.js, Vue.js, Nuxt, PostgreSQL (Postgres), Odoo, Redsys, Heroku, Docker, Docker Compose, GitHub Actions, GitLab CI, CI/CD, Microservices, RESTful APIs, Agile/Scrum',
+              'TypeScript, Node.js, Vue.js, Nuxt, Strapi, PostgreSQL (Postgres), MongoDB, Odoo, HubSpot, Metabase, Redsys, Heroku, Docker, GitHub Actions, GitLab CI, DDD, Design Systems, Vitest, CI/CD',
           },
           {
             title: 'Senior Product Engineer & Tech Lead',
@@ -303,14 +303,14 @@ export const curriculum: Record<CurriculumLocale, CurriculumContent> = {
             subtitle: 'TALKUAL · Remoto',
             period: 'May 2023 — Nov 2025',
             bullets: [
-              'Lideré un equipo de cuatro ingenieros en una plataforma de comercio electrónico con ~1.000 pedidos diarios, gestionando sprints ágiles, revisiones de código, roadmap técnico y entrega activa de software full stack.',
-              'Definí la estrategia tecnológica y la arquitectura cloud junto a negocio, traduciendo necesidades operativas y de producto en prioridades de ingeniería escalables.',
-              'Lideré la migración del frontend de Nuxt 2 a Nuxt 3 (Vue.js), mejorando el rendimiento web, los Core Web Vitals y la experiencia de desarrollo, reduciendo el tamaño del bundle.',
-              'Refactoricé servicios legacy críticos y optimicé consultas en PostgreSQL, eliminando deuda técnica acumulada, reduciendo la tasa de incidencias en producción y aumentando la mantenibilidad.',
-              'Automaticé procesos de contabilidad y fabricación con Odoo ERP, integré pasarela de pagos Redsys y estandaricé pipelines de CI/CD con Docker, GitHub Actions y GitLab CI.',
+              'Lideré el equipo de ingeniería asumiendo funciones de CTO, definiendo la estrategia trimestral de producto y tecnología, la arquitectura y los procesos de contratación técnica (~1.000 pedidos/día).',
+              'Rediseñé el checkout de 8 a 4 pasos reduciendo el abandono en un 40%, e incrementé el AOV y LTV diseñando el módulo de upselling (productos extra a la suscripción) y gestión flexible de pedidos.',
+              'Creé el nuevo Design System de la plataforma y migré la tienda y backoffice de Nuxt 2 a Nuxt 3 (Vue.js/TypeScript), implementando la personalización de cajas y el sistema de exclusión de alimentos.',
+              'Refactoricé el backend (Strapi/Node.js/PostgreSQL) aplicando DDD, bounded contexts y el patrón Money; optimicé consultas SQL en Metabase y creé suites de pruebas unitarias, de integración y E2E.',
+              'Desarrollé la integración con Odoo ERP (contabilidad y fabricación), optimicé la fiabilidad y sincronización con HubSpot CRM, integré pagos Redsys y automaticé despliegues en Heroku con CI/CD.',
             ],
             technologies:
-              'TypeScript, Node.js, Vue.js, Nuxt, PostgreSQL (Postgres), Odoo, Redsys, Heroku, Docker, Docker Compose, GitHub Actions, GitLab CI, CI/CD, Microservicios, APIs RESTful, Agile/Scrum',
+              'TypeScript, Node.js, Vue.js, Nuxt, Strapi, PostgreSQL (Postgres), MongoDB, Odoo, HubSpot, Metabase, Redsys, Heroku, Docker, GitHub Actions, GitLab CI, DDD, Design Systems, Vitest, CI/CD',
           },
           {
             title: 'Senior Product Engineer y Tech Lead',
