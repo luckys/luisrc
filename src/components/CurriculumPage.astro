@@ -433,12 +433,11 @@ const copy = curriculum[locale]
 
 <style>
   .cv-page {
-    --cv-line: color-mix(in srgb, var(--theme-foreground) 30%, transparent);
-    --cv-muted: color-mix(in srgb, var(--theme-foreground) 90%, var(--theme-background));
+    --cv-line: color-mix(in srgb, var(--theme-accent) 30%, transparent);
+    --cv-muted: var(--theme-foreground);
     width: 100%;
     margin: 1.4rem auto 2.2rem;
     color: var(--theme-foreground);
-    font-family: Arial, 'Helvetica Neue', sans-serif;
   }
 
   .cv-actions {
@@ -467,7 +466,7 @@ const copy = curriculum[locale]
   }
 
   .cv-actions__hint {
-    color: var(--cv-muted);
+    color: var(--theme-foreground);
     font-size: 1.0625rem;
   }
 
@@ -546,7 +545,7 @@ const copy = curriculum[locale]
 
   .cv-hero__specialism {
     margin: 0.2rem 0 0;
-    color: var(--cv-muted);
+    color: var(--theme-foreground);
     font-size: 1.125rem;
     line-height: 1.5;
   }
@@ -557,7 +556,7 @@ const copy = curriculum[locale]
     justify-content: center;
     gap: 0.25rem 0.75rem;
     margin: 1rem 0 0;
-    color: var(--cv-muted);
+    color: var(--theme-foreground);
     font-size: 1.0625rem;
     font-style: normal;
     line-height: 1.55;
@@ -625,7 +624,7 @@ const copy = curriculum[locale]
   }
 
   .cv-entry__topline time {
-    color: var(--cv-muted);
+    color: var(--theme-foreground);
     font-size: 1.0625rem;
     font-weight: 400;
   }
@@ -637,7 +636,7 @@ const copy = curriculum[locale]
 
   .cv-entry__subtitle {
     margin: 0.08rem 0 0.28rem;
-    color: var(--cv-muted);
+    color: var(--theme-foreground);
     font-size: 1.125rem;
     line-height: 1.5;
   }
@@ -666,7 +665,7 @@ const copy = curriculum[locale]
 
   .cv-entry__technologies {
     margin: 0.34rem 0 0;
-    color: var(--cv-muted);
+    color: var(--theme-foreground);
     font-size: 1.0625rem;
     line-height: 1.5;
   }
