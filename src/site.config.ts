@@ -57,7 +57,7 @@ const config: SiteConfig = {
     overrides: {
       'tokyo-night': {
         background: '#1a1b26',
-        foreground: '#bac2e0',
+        foreground: '#e2e8f8',
         accent: '#7aa2f7',
         heading1: '#7aa2f7',
         heading2: '#bb9af7',
@@ -83,7 +83,7 @@ const config: SiteConfig = {
       },
       'tokyo-night-light': {
         background: '#f5f6fb',
-        foreground: '#343b58',
+        foreground: '#1c2237',
         accent: '#34548a',
         heading1: '#1a1b26',
         heading2: '#283457',
